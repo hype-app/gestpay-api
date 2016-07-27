@@ -2,9 +2,7 @@
 title: API Reference
 
 language_tabs:
-  - shell 
-  - ruby
-  - python
+  - xml
   - javascript
 
 toc_footers:
@@ -13,19 +11,40 @@ toc_footers:
 
 includes:
   - wscryptdecrypt
+  - js_gestpay
+  - wss2s
   - errors
 
 search: true
 ---
 
 # Introduction
-test test test din din don 
 
-Gestpay è composto da un sito web molto bello... asd asd asd asd, e capocchie e cazz.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+```xml
+   _____           _                     
+  / ____|         | |                    
+ | |  __  ___  ___| |_ _ __   __ _ _   _ 
+ | | |_ |/ _ \/ __| __| '_ \ / _` | | | |
+ | |__| |  __/\__ \ |_| |_) | (_| | |_| |
+  \_____|\___||___/\__| .__/ \__,_|\__, |
+                      | |           __/ |
+                      |_|          |___/ 
+```
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Gestpay API documentation aims to be a comprehensive and living catalog of Gestpay services.
+
+Our API is SOAP-based, so you must encode your requests in XML to communicate with Gestpay.
+
+For every service, we will present both the test and the production endpoints.   
+
+Our services are: 
+
+|     |     |   
+| --- | --- | 
+| [`WSCryptDecrypt`](/?xml#wscryptdecrypt) | used to start (and end) the payment process. | 
+| [`js_GestPay.js`](/?xml#js_gestpay) | Mainly used to build a customized payment page. | 
+| [`WSs2s`](/?xml#wss2s) | To control every aspect of your transactions and your shop. |    
 
 # Authentication
 
@@ -43,8 +62,8 @@ import kittn
 api = kittn.authorize('meowmeowmeow')
 ```
 
-```shell
-# With shell, you can just pass the correct header with each request
+```xml
+# With xml, you can just pass the correct header with each request
 curl "api_endpoint_here"
   -H "Authorization: meowmeowmeow"
 ```
@@ -85,7 +104,7 @@ api = kittn.authorize('meowmeowmeow')
 api.kittens.get()
 ```
 
-```shell
+```xml
 curl "http://example.com/api/kittens"
   -H "Authorization: meowmeowmeow"
 ```
@@ -151,7 +170,7 @@ api = kittn.authorize('meowmeowmeow')
 api.kittens.get(2)
 ```
 
-```shell
+```xml
 curl "http://example.com/api/kittens/2"
   -H "Authorization: meowmeowmeow"
 ```
