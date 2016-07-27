@@ -83,6 +83,8 @@ You can request a token that will represent the credit card for your website. Yo
 
 ### ppSellerProtection, ShippingDetails 
 
+> Paypal Seller Protection example: 
+
 ```xml
 <Encrypt>
 <shopLogin>9000001</shopLogin>
@@ -93,8 +95,8 @@ You can request a token that will represent the credit card for your website. Yo
   <shippingDetails>
     <shipToName>Marco Bianchi</shipToName>
     <shipToStreet>Via Milano 1</shipToStreet>
-    <shipToCity>T orino</shipToCity>
-    <shipToState>T orino</shipToState>
+    <shipToCity>Torino</shipToCity>
+    <shipToState>Torino</shipToState>
     <shipToCountryCode>IT</shipToCountryCode>
     <shipToZip>10100</shipToZip>
     <shipToStreet2/>
