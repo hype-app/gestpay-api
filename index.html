@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>API Reference</title>
 
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -88,10 +86,13 @@
   color: #90a959;
 }
     </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
+    <script src="http://localhost:35729/livereload.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -104,6 +105,7 @@
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="ruby">ruby</a>
               <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -121,7 +123,9 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>test test test din din don </p>
+
+<p>Gestpay è composto da un sito web molto bello&hellip; asd asd asd asd, e capocchie e cazz.</p>
 
 <p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
 
@@ -143,6 +147,10 @@
 <pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"api_endpoint_here"</span>
   -H <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
 </code></pre>
 
 <blockquote>
@@ -174,6 +182,11 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </code></pre>
 <pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
   -H <span class="s2">"Authorization: meowmeowmeow"</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
 </code></pre>
 
 <blockquote>
@@ -242,6 +255,11 @@ Remember — a happy kitten is an authenticated kitten!
 <pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
   -H <span class="s2">"Authorization: meowmeowmeow"</span>
 </code></pre>
+<pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -276,6 +294,118 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The ID of the kitten to retrieve</td>
 </tr>
 </tbody></table>
+
+          <h1 id="wscryptdecrypt">WSCryptDecrypt</h1>
+
+<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
+
+<p>WSCryptDecrypt web service is available on production and test servers and does not require any installation on the merchant’s server.</p>
+
+<p>The merchant must implement – in the page(s) of the virtual store configured to handle payments – a call to the webservice which handles requests to use the GestPay encryption service.</p>
+
+<p>To request the encryption service it is necessary to call the Encrypt method.</p>
+
+<p>If the encryption operation is concluded correctly (TransactionResult tag value with OK), the encrypted data string returned by GestPay will be available by reading the value of the CryptDecryptString tag.</p>
+
+<p>If this is not the case, the values of the ErrorCode and ErrorDescription tag will make it possible to identify the reasons that prevented the encryption operation. To request the decryption service it is necessary to call the Decrypt method, passing the shopLogin and CryptedString tags with the values communicated by GestPay in Phase III.</p>
+
+<p>The information containing the transaction result will be available by reading the information in the XML response file corresponding to the result of the transaction.</p>
+
+<h2 id="encrypt"> Encrypt</h2>
+
+<p>Some of the information to communicate to GestPay is required in order to complete the payment process, while other information can be omitted without compromising the processing of the transaction. Through the GestPay Back Office environment, merchants can define what information is required and what information is optional.</p>
+
+<p>Some information that is essential to the payment process is configured as compulsory by GestPay. This attributes cannot be modified.</p>
+
+<p>The following table gives the information that must be communicated to GestPay xml using Encrypt method in order to make a transaction, the tags&rsquo; names are case sensitive.</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><code class="prettyprint">shopLogin</code></strong></td>
+<td style="text-align: center">30</td>
+<td>shopLogin (Mandatory)</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">uicCode</code></strong></td>
+<td style="text-align: center">3</td>
+<td>Code identifying currency in which transaction amount is denominated - see Currency Codes table TODO - (Mandatory)</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">amount</code></strong></td>
+<td style="text-align: center">9</td>
+<td>Transaction amount. Do not insert thousands separator. Decimals, max. 2 numbers, are optional and separator is the point (Mandatory)</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">shopTransactionID</code></strong></td>
+<td style="text-align: center">50</td>
+<td>Identifier attributed to merchant’s transaction (Mandatory)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">buyerName</code></td>
+<td style="text-align: center">50</td>
+<td>Buyer’s name and surname</td>
+</tr>
+<tr>
+<td><code class="prettyprint">buyerEmail</code></td>
+<td style="text-align: center">50</td>
+<td>Buyer’s e-mail address</td>
+</tr>
+<tr>
+<td><code class="prettyprint">languageId</code></td>
+<td style="text-align: center">2</td>
+<td>Code identifying language used in communication with buyer</td>
+</tr>
+<tr>
+<td><code class="prettyprint">customInfo</code><sup><a href="#fn1" id="ref1">1</a></sup></td>
+<td style="text-align: center">1000</td>
+<td>String containing specific information as configured in the merchant’s profile</td>
+</tr>
+<tr>
+<td><code class="prettyprint">requestToken</code> <sup><a href="#fn2" id="ref2">2</a></sup></td>
+<td style="text-align: center">25</td>
+<td>“MASKEDPAN” for a Standard Token any other value for Custom Token. Using :FORCED: before the token, it&rsquo; s possible to have the token even if the transaction is not authorized.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ppSellerProtection</code> <sup><a href="#fn3" id="ref3">2</a></sup></td>
+<td style="text-align: center">1</td>
+<td>Parameter to set the use of a confirmed addresses</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shippingDetails</code>:</td>
+<td style="text-align: center"></td>
+<td></td>
+</tr>
+<tr>
+<td><table><tr><td>prova</td><td>123</td><td>Very long text, containing shitty descriptions.</td></tr></table></td>
+<td style="text-align: center"></td>
+<td></td>
+</tr>
+<tr>
+<td>alhoa</td>
+<td style="text-align: center"></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><sup id="fn1">1. Each field can be up to a maximum of 300 characters in length.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup></p>
+
+<p><sup id="fn2">2. Required only when a Token is needed within the transaction response. <br> In order to be able to request, obtain and use a Token, merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></sup></p>
+
+<p><sup id="fn3">3. <strong>PayPal Seller Protection parameter</strong>. In order to be able to activate the Seller Protection Option the merchants need to appropriately set &ldquo;Fields and Parameters&rdquo; in the dedicated section of GestPay Merchant Back Office.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a></sup></p>
+
+<p><sup id="fn4">4. <strong>Payment Systems Visibility</strong>. In order to be able to activate the Payment Systems Visibility the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The Payment System Visibility can be configured in the specific interface in the Back Office Merchant.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></sup></p>
+
+<p><sup id="fn5">5. <strong>paymentTypeDetail</strong>. In order to be able to activate the payment Type Detail the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The correct merchant configuration of Sofort and Ideal has to be configured in the specific interface of Back Office Merchant.(1) Each field can be up to a maximum of 300 characters in length<a href="#ref5" title="Jump back to footnote 5 in the text.">↩</a></sup></p>
+
+<p><sup id="fn6">6. <strong>Line Items</strong>: in case the buyer selects PayPal as payment method in the payment page, fields Name, Description, Quantity and UnitPrice of every occurrency of the ProductDetail tag will be used to show the transaction items details in PayPal payment page.<a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a></sup></p>
+
+<h2 id="decrypt">Decrypt</h2>
 
           <h1 id="errors">Errors</h1>
 
@@ -341,6 +471,7 @@ Remember — a happy kitten is an authenticated kitten!
                 <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
