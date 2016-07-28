@@ -236,9 +236,9 @@
 
 <table><thead>
 <tr>
-<th></th>
-<th style="text-align: center"></th>
-<th></th>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -263,9 +263,13 @@
 </tr>
 </tbody></table>
 
+<p><sup id="fn1">1. Each field can be up to a maximum of 300 characters in length.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup></p>
+
 <blockquote>
 <p><code class="prettyprint">RequestToken</code> example we are requesting a token to store the payment data. </p>
 </blockquote>
+
+<h3 id="requesttoken">RequestToken</h3>
 <pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
   <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
@@ -275,15 +279,13 @@
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
 
-<h3 id="requesttoken">RequestToken</h3>
-
 <p>You can request a token that will represent the credit card for your website. You can use it later to handle recurring payments, or to avoid your customer to insert again his credit card data. This behaviour is compliant with PCI. Read more <a href="https://hype-app.github.io/gestpay-doc/rec/handling-subscriptions.html">here</a>.</p>
 
 <table><thead>
 <tr>
-<th></th>
-<th style="text-align: center"></th>
-<th></th>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -293,17 +295,19 @@
 </tr>
 </tbody></table>
 
+<p><sup id="fn2">2. Required only when a Token is needed within the transaction response. <br> In order to be able to request, obtain and use a Token, merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></sup></p>
+
 <h3 id="ppsellerprotection-shippingdetails">ppSellerProtection, ShippingDetails</h3>
 
 <blockquote>
 <p>Paypal Seller Protection example: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-<span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-<span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
-<span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
-<span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
-<span class="nt">&lt;ppSellerProtection&gt;</span>1<span class="nt">&lt;/ppSellerProtection&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;ppSellerProtection&gt;</span>1<span class="nt">&lt;/ppSellerProtection&gt;</span>
   <span class="nt">&lt;shippingDetails&gt;</span>
     <span class="nt">&lt;shipToName&gt;</span>Marco Bianchi<span class="nt">&lt;/shipToName&gt;</span>
     <span class="nt">&lt;shipToStreet&gt;</span>Via Milano 1<span class="nt">&lt;/shipToStreet&gt;</span>
@@ -326,9 +330,9 @@
 
 <table><thead>
 <tr>
-<th></th>
-<th style="text-align: center"></th>
-<th></th>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -338,15 +342,17 @@
 </tr>
 </tbody></table>
 
+<p><sup id="fn3">3. <strong>PayPal Seller Protection parameter</strong>. In order to be able to activate the Seller Protection Option the merchants need to appropriately set &ldquo;Fields and Parameters&rdquo; in the dedicated section of GestPay Merchant Back Office.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a></sup></p>
+
 <ul>
 <li>send all the shipment data in the <code class="prettyprint">shipmentDetails</code> tag: </li>
 </ul>
 
 <table><thead>
 <tr>
-<th></th>
-<th style="text-align: center"></th>
-<th></th>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -386,15 +392,221 @@
 </tr>
 </tbody></table>
 
-<p><sup id="fn1">1. Each field can be up to a maximum of 300 characters in length.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup></p>
+<h3 id="paymenttypes">PaymentTypes</h3>
 
-<p><sup id="fn2">2. Required only when a Token is needed within the transaction response. <br> In order to be able to request, obtain and use a Token, merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></sup></p>
+<blockquote>
+<p>If you want to enable only Credit Card or Masterpass for this payment, you can send the request like this: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span> 
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>CREDITCARD<span class="nt">&lt;/paymentType&gt;</span> 
+    <span class="nt">&lt;paymentType&gt;</span>MASTERPASS<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+<span class="nt">&lt;Encrypt&gt;</span>
+</code></pre>
 
-<p><sup id="fn3">3. <strong>PayPal Seller Protection parameter</strong>. In order to be able to activate the Seller Protection Option the merchants need to appropriately set &ldquo;Fields and Parameters&rdquo; in the dedicated section of GestPay Merchant Back Office.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a></sup></p>
+<blockquote>
+<p>If you only specify one payment type, Gestpay won&rsquo;t show the payment page but will redirect directly to the third party payment page: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span> 
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>PAYPAL<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+<span class="nt">&lt;Encrypt&gt;</span>
+</code></pre>
+
+<p>GestPay provides a way for merchants to dinamically define which payment methods must be displayed for each transaction.</p>
+
+<p>In order to do that, merchants must properly set the tag <code class="prettyprint">paymentType</code> that can be repeated as many times as needed, inside the tag <code class="prettyprint">paymentTypes</code> (with a final “s”).</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">paymentTypes</code></td>
+<td style="text-align: center"></td>
+<td>container of one or more <code class="prettyprint">paymentType</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentType</code><sup><a href="#fn4" id="ref4">4</a></sup></td>
+<td style="text-align: center">25</td>
+<td>Set of tags to set the visibility of payment systems on payment page (see <a href="#payment-type-codes">Payment Type Codes table</a>)</td>
+</tr>
+</tbody></table>
 
 <p><sup id="fn4">4. <strong>Payment Systems Visibility</strong>. In order to be able to activate the Payment Systems Visibility the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The Payment System Visibility can be configured in the specific interface in the Back Office Merchant.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></sup></p>
 
+<h3 id="payment-type-detail-ideal-and-mybank">Payment Type Detail (IDeal and MyBank)</h3>
+
+<blockquote>
+<p>MyBank example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>MYBANK<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;paymentTypeDetail&gt;</span> 
+    <span class="nt">&lt;MyBankBankCode&gt;</span>Code0000X<span class="nt">&lt;/MyBankBankCode&gt;</span>
+  <span class="nt">&lt;/paymentTypeDetail&gt;</span> 
+<span class="nt">&lt;/Enrcypt&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>IDeal example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>IDEAL<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;paymentTypeDetail&gt;</span> 
+    <span class="nt">&lt;MyBankBankCode&gt;</span>Code0000Y<span class="nt">&lt;/MyBankBankCode&gt;</span>
+  <span class="nt">&lt;/paymentTypeDetail&gt;</span> 
+<span class="nt">&lt;/Enrcypt&gt;</span>
+</code></pre>
+
+<p>If you choose let your users pay with MyBank or IDeal, you have to compile other two fileds.</p>
+
+<p>More details can be found in at the <a href="https://hype-app.github.io/gestpay-doc/oth/mybank.html">MyBank and IDeal</a> page.</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">paymentTypeDetail</code></td>
+<td style="text-align: center"></td>
+<td>container of one of <code class="prettyprint">MyBankBankCode</code> or <code class="prettyprint">IdealBankCode</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">MyBankBankCode</code><sup><a href="#fn5" id="ref5">5</a></sup></td>
+<td style="text-align: center">25</td>
+<td>Tag to set the Bank to show on payment page (the bank List is retrieved from <code class="prettyprint">WsS2S.CallMyBankListS2S</code>)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">IdealBankCode</code><sup><a href="#fn5" id="ref5">5</a></sup></td>
+<td style="text-align: center">25</td>
+<td>Tag to set the Bank to show on payment page (the bank List is retrieved from <code class="prettyprint">WsS2S.CallIdealListS2S</code>)</td>
+</tr>
+</tbody></table>
+
 <p><sup id="fn5">5. <strong>paymentTypeDetail</strong>. In order to be able to activate the payment Type Detail the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The correct merchant configuration of Sofort and Ideal has to be configured in the specific interface of Back Office Merchant.(1) Each field can be up to a maximum of 300 characters in length<a href="#ref5" title="Jump back to footnote 5 in the text.">↩</a></sup></p>
+
+<h3 id="consel">Consel</h3>
+
+<blockquote>
+<p>Consel example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>CONSEL<span class="nt">&lt;/paymentType&gt;</span><span class="c">&lt;!-- select CONSEL --&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;Consel_MerchantPro&gt;</span>WIK<span class="nt">&lt;/Consel_MerchantPro&gt;</span>
+  <span class="nt">&lt;Consel_CustomerInfo&gt;</span>
+    <span class="nt">&lt;Surname&gt;</span>Rossi<span class="nt">&lt;/Surname&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Mario<span class="nt">&lt;/Name&gt;</span> 
+    <span class="nt">&lt;TaxationCode&gt;</span>RSSMRA70D23H501H<span class="nt">&lt;/TaxationCode&gt;</span> 
+    <span class="nt">&lt;Address&gt;</span>Via Torino<span class="nt">&lt;/Address&gt;</span>
+    <span class="nt">&lt;City&gt;</span>Roma<span class="nt">&lt;/City&gt;</span> 
+    <span class="nt">&lt;StateCode&gt;</span>RM<span class="nt">&lt;/StateCode&gt;</span> 
+    <span class="nt">&lt;DateAddress&gt;</span>11/04/1999<span class="nt">&lt;/DateAddress&gt;</span> 
+    <span class="nt">&lt;Phone&gt;</span>0632...<span class="nt">&lt;/Phone&gt;</span> 
+    <span class="nt">&lt;MobilePhone&gt;</span>331...<span class="nt">&lt;/MobilePhone&gt;</span>
+  <span class="nt">&lt;/Consel_CustomerInfo&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+
+<p>Here more info about <a href="https://hype-app.github.io/gestpay-doc/oth/consel-rate-in-rete.html">Consel Rate in Rete</a>.</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Consel_MerchantPro</code></td>
+<td style="text-align: center">3</td>
+<td>Merchant Promotional Code (Mandatory to show Consel in the pagam&rsquo;s Payment Method)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Consel_CustomerInfo</code></td>
+<td style="text-align: center"></td>
+<td>Wrapper for Consel tags)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Surname</code></td>
+<td style="text-align: center">30</td>
+<td>Customer Surname</td>
+</tr>
+<tr>
+<td><code class="prettyprint">NAme</code></td>
+<td style="text-align: center">30</td>
+<td>Customer Name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TaxationCode</code></td>
+<td style="text-align: center">30</td>
+<td>Customer Taxation Code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Address</code></td>
+<td style="text-align: center">30</td>
+<td>Customer Address</td>
+</tr>
+<tr>
+<td><code class="prettyprint">City</code></td>
+<td style="text-align: center">30</td>
+<td>Customer City</td>
+</tr>
+<tr>
+<td><code class="prettyprint">StateCode</code></td>
+<td style="text-align: center">30</td>
+<td>Customer State Code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">DateAddress</code></td>
+<td style="text-align: center">30</td>
+<td>Date since the customer lives in the declared address (dd/mm/yyyy)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Phone</code></td>
+<td style="text-align: center">30</td>
+<td>Customer Phone</td>
+</tr>
+<tr>
+<td><code class="prettyprint">MobilePhone</code></td>
+<td style="text-align: center">30</td>
+<td>Customer Mobile phone</td>
+</tr>
+</tbody></table>
 
 <p><sup id="fn6">6. <strong>Line Items</strong>: in case the buyer selects PayPal as payment method in the payment page, fields Name, Description, Quantity and UnitPrice of every occurrency of the ProductDetail tag will be used to show the transaction items details in PayPal payment page.<a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a></sup></p>
 
@@ -671,6 +883,82 @@
 <td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
 </tr>
 </tbody></table>
+
+          <h1 id="payment-type-codes">Payment Type Codes</h1>
+
+<table><thead>
+<tr>
+<th><strong>PaymentType</strong></th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><code class="prettyprint">BON</code></strong></td>
+<td>Money Transfer</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">CREDITCARD</code></strong></td>
+<td>Credit Card</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">PAYPAL</code></strong></td>
+<td>Paypal</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">MYBANK</code></strong></td>
+<td>MyBank</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">UPMOBILE</code></strong></td>
+<td>Mobile - QRCode</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">MASTERPASS</code></strong></td>
+<td>MasterPass</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">CONSEL</code></strong></td>
+<td>Consel</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">S2PALI</code></strong></td>
+<td>Alipay (Alternatives)</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">S2PKLA</code></strong></td>
+<td>Klarna (Alternatives)</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">S2PQIW</code></strong></td>
+<td>Qiwi (Alternatives)</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">S2PYAN</code></strong></td>
+<td>Yandex (Alternatives)</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">S2PSOF</code></strong></td>
+<td>Sofort (Alternatives)</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">S2PIDE</code></strong></td>
+<td>Ideal (Alternatives)</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">COMPASS</code></strong></td>
+<td>Compass C-pay</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">SOFORT</code></strong></td>
+<td>SOFORT</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">IDEAL</code></strong></td>
+<td>IDEAL</td>
+</tr>
+</tbody></table>
+
+<p>For more informations about payment types, read <a href="https://hype-app.github.io/gestpay-doc/oth/what-does-it-really-mean-that-gestpay-is-a-payment-gateway.html">the docs</a>. </p>
 
       </div>
       <div class="dark-box">
