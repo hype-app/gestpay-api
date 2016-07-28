@@ -14,6 +14,7 @@ includes:
   - js_gestpay
   - wss2s
   - errors
+  - payment_type_codes
 
 search: true
 ---
