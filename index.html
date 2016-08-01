@@ -297,7 +297,69 @@
 
 <p><sup id="fn2">2. Required only when a Token is needed within the transaction response. <br> In order to be able to request, obtain and use a Token, merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></sup></p>
 
-<h3 id="ppsellerprotection-shippingdetails">ppSellerProtection, ShippingDetails</h3>
+<h3 id="paymenttypes">PaymentTypes</h3>
+
+<blockquote>
+<p>If you want to enable only Credit Card or Masterpass for this payment, you can send the request like this: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span> 
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>CREDITCARD<span class="nt">&lt;/paymentType&gt;</span> 
+    <span class="nt">&lt;paymentType&gt;</span>MASTERPASS<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+<span class="nt">&lt;Encrypt&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>If you only specify one payment type, Gestpay won&rsquo;t show the payment page but will redirect directly to the third party payment page: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span> 
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>PAYPAL<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+<span class="nt">&lt;Encrypt&gt;</span>
+</code></pre>
+
+<p>GestPay provides a way for merchants to dinamically define which payment methods must be displayed for each transaction.</p>
+
+<p>In order to do that, merchants must properly set the tag <code class="prettyprint">paymentType</code> that can be repeated as many times as needed, inside the tag <code class="prettyprint">paymentTypes</code> (with a final “s”).</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">paymentTypes</code></td>
+<td style="text-align: center"></td>
+<td>container of one or more <code class="prettyprint">paymentType</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentType</code><sup><a href="#fn4" id="ref4">4</a></sup></td>
+<td style="text-align: center">25</td>
+<td>Set of tags to set the visibility of payment systems on payment page (see <a href="#payment-type-codes">Payment Type Codes table</a>)</td>
+</tr>
+</tbody></table>
+
+<p><sup id="fn4">4. <strong>Payment Systems Visibility</strong>. In order to be able to activate the Payment Systems Visibility the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The Payment System Visibility can be configured in the specific interface in the Back Office Merchant.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></sup></p>
+
+<h3 id="paypal">Paypal</h3>
+
+<h4 id="enabling-paypal">Enabling Paypal</h4>
+
+<p>See <code class="prettyprint">PaymentTypes</code> section.</p>
+
+<h4 id="paypal-seller-protection">Paypal Seller Protection</h4>
 
 <blockquote>
 <p>Paypal Seller Protection example: </p>
@@ -392,63 +454,33 @@
 </tr>
 </tbody></table>
 
-<h3 id="paymenttypes">PaymentTypes</h3>
+<h4 id="paypal-recurring-payments"> Paypal recurring payments</h4>
 
 <blockquote>
-<p>If you want to enable only Credit Card or Masterpass for this payment, you can send the request like this: </p>
+<p>In this way you can activate recurring payments on paypal. Note that no <code class="prettyprint">paymentType</code> is needed. </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
   <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
   <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span> 
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>CREDITCARD<span class="nt">&lt;/paymentType&gt;</span> 
-    <span class="nt">&lt;paymentType&gt;</span>MASTERPASS<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;payPalBillingAgreementDescription&gt;</span>
+    description of the agreement 
+  <span class="nt">&lt;/payPalBillingAgreementDescription&gt;</span>
 <span class="nt">&lt;Encrypt&gt;</span>
 </code></pre>
 
-<blockquote>
-<p>If you only specify one payment type, Gestpay won&rsquo;t show the payment page but will redirect directly to the third party payment page: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span> 
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>PAYPAL<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-<span class="nt">&lt;Encrypt&gt;</span>
-</code></pre>
+<p>A Buyer will be able to subscribe a Billing Agreement on PayPal website so authorizing the Merchant to debit his/her PayPal account in future transactions.</p>
 
-<p>GestPay provides a way for merchants to dinamically define which payment methods must be displayed for each transaction.</p>
+<p>To use PayPal Reference Transaction it&rsquo;s necessary to fill the tag <code class="prettyprint">PayPalBillingAgreementDescription</code> that can be present or not (in case of a normal PayPal payment it will be left empty or not passed at all).</p>
 
-<p>In order to do that, merchants must properly set the tag <code class="prettyprint">paymentType</code> that can be repeated as many times as needed, inside the tag <code class="prettyprint">paymentTypes</code> (with a final “s”).</p>
+<p>The Encryption service, if field <code class="prettyprint">payPalBillingAgreementDescription</code> is present and not empty, assumes that the payment method is PayPal (so <code class="prettyprint">paymentType</code> field in this case is <strong>not mandatory</strong>: if present it must be valued <code class="prettyprint">PAYPAL</code>).</p>
 
-<table><thead>
-<tr>
-<th>Name</th>
-<th style="text-align: center">max length</th>
-<th>description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">paymentTypes</code></td>
-<td style="text-align: center"></td>
-<td>container of one or more <code class="prettyprint">paymentType</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">paymentType</code><sup><a href="#fn4" id="ref4">4</a></sup></td>
-<td style="text-align: center">25</td>
-<td>Set of tags to set the visibility of payment systems on payment page (see <a href="#payment-type-codes">Payment Type Codes table</a>)</td>
-</tr>
-</tbody></table>
+<p>If this tag is passed to Encryption, GestPay bypasses the Pagam page in every case (even if other payment methods are enabled for the Merchant).</p>
 
-<p><sup id="fn4">4. <strong>Payment Systems Visibility</strong>. In order to be able to activate the Payment Systems Visibility the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The Payment System Visibility can be configured in the specific interface in the Back Office Merchant.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></sup></p>
+<p>This tag has to be filled with description of the goods, terms and conditions of the billing agreement.</p>
 
-<h3 id="payment-type-detail-ideal-and-mybank">Payment Type Detail (IDeal and MyBank)</h3>
+<h3 id="ideal-and-mybank-paymenttypedetail-tag">IDeal and MyBank (<code class="prettyprint">PaymentTypeDetail</code> tag)</h3>
 
 <blockquote>
 <p>MyBank example: </p>
