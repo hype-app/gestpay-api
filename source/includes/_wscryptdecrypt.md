@@ -168,8 +168,6 @@ If you want to activate the **Paypal Seller Protection** you must:
 | ---- | :--------: | ----------- |
 | `ppSellerProtection` <sup><a href="#fn3" id="ref3">3</a></sup> | 1 | Parameter to set the use of a confirmed addresses |
 
-<sup id="fn3">3. **PayPal Seller Protection parameter**. In order to be able to activate the Seller Protection Option the merchants need to appropriately set "Fields and Parameters" in the dedicated section of GestPay Merchant Back Office.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a></sup>
-
 - send all the shipment data in the `shipmentDetails` tag: 
 
 | Name | max length | description |
@@ -181,6 +179,9 @@ If you want to activate the **Paypal Seller Protection** you must:
 | `shipToCountryCode` | 2 | String containing the shipping country code (see [Country Codes table - TODO]()) |
 | `shipToZip` | 20 | String containing the shipping zip |
 | `shipToStreet2` | 100 | String containing an additional shipping address field | 
+
+<sup id="fn3">3. **PayPal Seller Protection parameter**. In order to be able to activate the Seller Protection Option the merchants need to appropriately set "Fields and Parameters" in the dedicated section of GestPay Merchant Back Office.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a></sup>
+
 
 #### Paypal recurring payments 
 
@@ -198,6 +199,10 @@ If you want to activate the **Paypal Seller Protection** you must:
 <Encrypt>
 ```
 
+| Name | max length | description |
+| ---- | :--------: | ----------- |
+| `payPalBillingAgreementDescription` | 127 | Description of the goods, terms and conditions of the billing agreement | 
+
 A Buyer will be able to subscribe a Billing Agreement on PayPal website so authorizing the Merchant to debit his/her PayPal account in future transactions.
 
 To use PayPal Reference Transaction it's necessary to fill the tag `PayPalBillingAgreementDescription` that can be present or not (in case of a normal PayPal payment it will be left empty or not passed at all).
@@ -207,6 +212,10 @@ The Encryption service, if field `payPalBillingAgreementDescription` is present 
 If this tag is passed to Encryption, GestPay bypasses the Pagam page in every case (even if other payment methods are enabled for the Merchant).
 
 This tag has to be filled with description of the goods, terms and conditions of the billing agreement.
+
+| Name | max length | description |
+| ---- | :--------: | ----------- |
+| `payPalBillingAgreementDescription` | 127 | Description of the goods, terms and conditions of the billing agreement | 
 
 ### IDeal and MyBank (`PaymentTypeDetail` tag)
 
@@ -304,5 +313,109 @@ Here more info about [Consel Rate in Rete](https://hype-app.github.io/gestpay-do
 | `MobilePhone` |  30   | Customer Mobile phone | 
 
 <sup id="fn6">6. **Line Items**: in case the buyer selects PayPal as payment method in the payment page, fields Name, Description, Quantity and UnitPrice of every occurrency of the ProductDetail tag will be used to show the transaction items details in PayPal payment page.<a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a></sup>
+
+### Sofort 
+
+> SOFORT example: 
+
+```xml
+<Encrypt>
+  <shopLogin>9000001</shopLogin>
+  <uicCode>242</uicCode>
+  <amount>985</amount>
+  <shopTransactionId>34az85ord19</shopTransactionId>
+  <paymentTypes>
+    <paymentType>SOFORT</paymentType>
+  </paymentTypes>
+  <OrderDetails>
+    <CustomerDetails>
+      <FirstName>Albert</FirstName>
+      <Lastname>Einstein<Lastname>
+      <PrimaryEmail>albert.einstein@princeton.edu</PrimaryEmail>
+    </CustomerDetails>
+    <BillingAddress>
+      <CountryCode>DE</CountryCode>
+    </BillingAddress>
+  </OrderDetails>
+``` 
+
+Sofort does not need mandatory parameters, but if you send the following parameters, you will jump straight to the SOFORT payment page without authenticating. All these fields are children of `OrderDetails`. 
+
+| Name | max length | description |
+| ---- | :--------: | ----------- |
+| `CustomerDetail.FirstName` |  65  | Customer First Name |
+| `CustomerDetail.Lastname` |  65  | Customer Last name |
+| `CustomerDetail.PrimaryEmail` |  100  | Customer primary email |
+| `BillingAddress.CountryCode` |  2  | Alpha-2 code. For example, US is “US” |
+
+### Klarna
+
+> Here is an example of how to enable Klarna with Gestpay.
+
+```xml
+<Encrypt>
+  <shopLogin>9000001</shopLogin>
+  <uicCode>242</uicCode>
+  <amount>100</amount>
+  <shopTransactionId>34az85ord19</shopTransactionId>
+  <paymentTypes>
+    <paymentType>KLARNA</paymentType>
+  </paymentTypes>
+  <OrderDetails>
+    <CustomerDetails>
+      <FirstName>Alfred</FirstName>
+      <Lastname>Nobel<Lastname>
+      <PrimaryEmail>alfred.nobel@dynamite.se</PrimaryEmail>
+      <SocialSecurityNumber>18331021+129</SocialSecurityNumber>
+    </CustomerDetails>
+    <BillingAddress>
+      <StreetNumber>14<StreetNumber>
+      <StreetName>Sturegatan</StreetName>
+      <City>Stockholm</City>
+      <ZipCode>SE-102</ZipCode>
+      <CountryCode>SE</CountryCode><!--mandatory-->
+    </BillingAddress>
+    <ProductDetails>
+      <ProductDetail><!-- mandatory -->
+        <ProductCode>1</ProductCode>
+        <SKU>AK-7</SKU> 
+        <Name>TV2000</Name> 
+        <Description>Television</Description> 
+        <Quantity>1</Quantity> 
+        <Price>100</Price> 
+        <UnitPrice>100</UnitPrice> 
+        <Type>1</Type> 
+        <Vat>10</Vat> 
+        <Discount>0</Discount>
+      </ProductDetail> 
+    </ProductDetails>
+  </OrderDetails>
+</Encrypt>
+```
+
+Klarna requires only two parameters as mandatory, children of `OrderDetails`: 
+
+| Name | max length | description |
+| ---- | :--------: | ----------- |
+| `BillingAddress.CountryCode` | 2 | one of [AT &#124; DK &#124; FI &#124; DE &#124; NL &#124; NO &#124; SE] |
+| `ProductDetails.ProductDetail` |    | the list of ordered products |
+
+If you send other fields, your customer will find them already filled: 
+
+| Name | max length | description |
+| ---- | :--------: | ----------- |
+| `CustomerDetail.FirstName` |  65  | [AT|DK|FI|DE|NL|NO|SE] |
+| `CustomerDetail.Lastname` |  65  | the list of ordered products | 
+| `CustomerDetail.PrimaryEmail` | 100 | Customer primary email |
+| `CustomerDetail.SocialSecurityNumber` | 20 | Customer's social or fiscal identifier (for Klarna Use) |
+| `BillingAddress.StreetNumber` | 100 | Shipping Street |
+| `BillingAddress.StreetName` | 100 |  |
+| `BillingAddress.City` | 50 |  |
+| `BillingAddress.ZipCode` | 50 |  |
+
+For `ProductDetail` :
+
+
+
 
 ## Decrypt
