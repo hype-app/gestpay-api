@@ -404,8 +404,6 @@
 </tr>
 </tbody></table>
 
-<p><sup id="fn3">3. <strong>PayPal Seller Protection parameter</strong>. In order to be able to activate the Seller Protection Option the merchants need to appropriately set &ldquo;Fields and Parameters&rdquo; in the dedicated section of GestPay Merchant Back Office.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a></sup></p>
-
 <ul>
 <li>send all the shipment data in the <code class="prettyprint">shipmentDetails</code> tag: </li>
 </ul>
@@ -454,6 +452,8 @@
 </tr>
 </tbody></table>
 
+<p><sup id="fn3">3. <strong>PayPal Seller Protection parameter</strong>. In order to be able to activate the Seller Protection Option the merchants need to appropriately set &ldquo;Fields and Parameters&rdquo; in the dedicated section of GestPay Merchant Back Office.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a></sup></p>
+
 <h4 id="paypal-recurring-payments"> Paypal recurring payments</h4>
 
 <blockquote>
@@ -470,6 +470,20 @@
 <span class="nt">&lt;Encrypt&gt;</span>
 </code></pre>
 
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">payPalBillingAgreementDescription</code></td>
+<td style="text-align: center">127</td>
+<td>Description of the goods, terms and conditions of the billing agreement</td>
+</tr>
+</tbody></table>
+
 <p>A Buyer will be able to subscribe a Billing Agreement on PayPal website so authorizing the Merchant to debit his/her PayPal account in future transactions.</p>
 
 <p>To use PayPal Reference Transaction it&rsquo;s necessary to fill the tag <code class="prettyprint">PayPalBillingAgreementDescription</code> that can be present or not (in case of a normal PayPal payment it will be left empty or not passed at all).</p>
@@ -479,6 +493,20 @@
 <p>If this tag is passed to Encryption, GestPay bypasses the Pagam page in every case (even if other payment methods are enabled for the Merchant).</p>
 
 <p>This tag has to be filled with description of the goods, terms and conditions of the billing agreement.</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">payPalBillingAgreementDescription</code></td>
+<td style="text-align: center">127</td>
+<td>Description of the goods, terms and conditions of the billing agreement</td>
+</tr>
+</tbody></table>
 
 <h3 id="ideal-and-mybank-paymenttypedetail-tag">IDeal and MyBank (<code class="prettyprint">PaymentTypeDetail</code> tag)</h3>
 
@@ -641,6 +669,181 @@
 </tbody></table>
 
 <p><sup id="fn6">6. <strong>Line Items</strong>: in case the buyer selects PayPal as payment method in the payment page, fields Name, Description, Quantity and UnitPrice of every occurrency of the ProductDetail tag will be used to show the transaction items details in PayPal payment page.<a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a></sup></p>
+
+<h3 id="sofort">Sofort</h3>
+
+<blockquote>
+<p>SOFORT example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>SOFORT<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;CustomerDetails&gt;</span>
+      <span class="nt">&lt;FirstName&gt;</span>Albert<span class="nt">&lt;/FirstName&gt;</span>
+      <span class="nt">&lt;Lastname&gt;</span>Einstein<span class="nt">&lt;Lastname&gt;</span>
+      <span class="nt">&lt;PrimaryEmail&gt;</span>albert.einstein@princeton.edu<span class="nt">&lt;/PrimaryEmail&gt;</span>
+    <span class="nt">&lt;/CustomerDetails&gt;</span>
+    <span class="nt">&lt;BillingAddress&gt;</span>
+      <span class="nt">&lt;CountryCode&gt;</span>DE<span class="nt">&lt;/CountryCode&gt;</span>
+    <span class="nt">&lt;/BillingAddress&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
+</code></pre>
+
+<p>Sofort does not need mandatory parameters, but if you send the following parameters, you will jump straight to the SOFORT payment page without authenticating. All these fields are children of <code class="prettyprint">OrderDetails</code>. </p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">CustomerDetail.FirstName</code></td>
+<td style="text-align: center">65</td>
+<td>Customer First Name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CustomerDetail.Lastname</code></td>
+<td style="text-align: center">65</td>
+<td>Customer Last name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CustomerDetail.PrimaryEmail</code></td>
+<td style="text-align: center">100</td>
+<td>Customer primary email</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BillingAddress.CountryCode</code></td>
+<td style="text-align: center">2</td>
+<td>Alpha-2 code. For example, US is “US”</td>
+</tr>
+</tbody></table>
+
+<h3 id="klarna"> Klarna</h3>
+
+<blockquote>
+<p>Here is an example of how to enable Klarna with Gestpay.</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>100<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>KLARNA<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;CustomerDetails&gt;</span>
+      <span class="nt">&lt;FirstName&gt;</span>Alfred<span class="nt">&lt;/FirstName&gt;</span>
+      <span class="nt">&lt;Lastname&gt;</span>Nobel<span class="nt">&lt;Lastname&gt;</span>
+      <span class="nt">&lt;PrimaryEmail&gt;</span>alfred.nobel@dynamite.se<span class="nt">&lt;/PrimaryEmail&gt;</span>
+      <span class="nt">&lt;SocialSecurityNumber&gt;</span>18331021+129<span class="nt">&lt;/SocialSecurityNumber&gt;</span>
+    <span class="nt">&lt;/CustomerDetails&gt;</span>
+    <span class="nt">&lt;BillingAddress&gt;</span>
+      <span class="nt">&lt;StreetNumber&gt;</span>14<span class="nt">&lt;StreetNumber&gt;</span>
+      <span class="nt">&lt;StreetName&gt;</span>Sturegatan<span class="nt">&lt;/StreetName&gt;</span>
+      <span class="nt">&lt;City&gt;</span>Stockholm<span class="nt">&lt;/City&gt;</span>
+      <span class="nt">&lt;ZipCode&gt;</span>SE-102<span class="nt">&lt;/ZipCode&gt;</span>
+      <span class="nt">&lt;CountryCode&gt;</span>SE<span class="nt">&lt;/CountryCode&gt;</span><span class="c">&lt;!--mandatory--&gt;</span>
+    <span class="nt">&lt;/BillingAddress&gt;</span>
+    <span class="nt">&lt;ProductDetails&gt;</span>
+      <span class="nt">&lt;ProductDetail&gt;</span><span class="c">&lt;!-- mandatory --&gt;</span>
+        <span class="nt">&lt;ProductCode&gt;</span>1<span class="nt">&lt;/ProductCode&gt;</span>
+        <span class="nt">&lt;SKU&gt;</span>AK-7<span class="nt">&lt;/SKU&gt;</span> 
+        <span class="nt">&lt;Name&gt;</span>TV2000<span class="nt">&lt;/Name&gt;</span> 
+        <span class="nt">&lt;Description&gt;</span>Television<span class="nt">&lt;/Description&gt;</span> 
+        <span class="nt">&lt;Quantity&gt;</span>1<span class="nt">&lt;/Quantity&gt;</span> 
+        <span class="nt">&lt;Price&gt;</span>100<span class="nt">&lt;/Price&gt;</span> 
+        <span class="nt">&lt;UnitPrice&gt;</span>100<span class="nt">&lt;/UnitPrice&gt;</span> 
+        <span class="nt">&lt;Type&gt;</span>1<span class="nt">&lt;/Type&gt;</span> 
+        <span class="nt">&lt;Vat&gt;</span>10<span class="nt">&lt;/Vat&gt;</span> 
+        <span class="nt">&lt;Discount&gt;</span>0<span class="nt">&lt;/Discount&gt;</span>
+      <span class="nt">&lt;/ProductDetail&gt;</span> 
+    <span class="nt">&lt;/ProductDetails&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+
+<p>Klarna requires only two parameters as mandatory, children of <code class="prettyprint">OrderDetails</code>: </p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">BillingAddress.CountryCode</code></td>
+<td style="text-align: center">2</td>
+<td>one of [AT &#124; DK &#124; FI &#124; DE &#124; NL &#124; NO &#124; SE]</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ProductDetails.ProductDetail</code></td>
+<td style="text-align: center"></td>
+<td>the list of ordered products</td>
+</tr>
+</tbody></table>
+
+<p>If you send other fields, your customer will find them already filled: </p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">CustomerDetail.FirstName</code></td>
+<td style="text-align: center">65</td>
+<td>[AT</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CustomerDetail.Lastname</code></td>
+<td style="text-align: center">65</td>
+<td>the list of ordered products</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CustomerDetail.PrimaryEmail</code></td>
+<td style="text-align: center">100</td>
+<td>Customer primary email</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CustomerDetail.SocialSecurityNumber</code></td>
+<td style="text-align: center">20</td>
+<td>Customer&rsquo;s social or fiscal identifier (for Klarna Use)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BillingAddress.StreetNumber</code></td>
+<td style="text-align: center">100</td>
+<td>Shipping Street</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BillingAddress.StreetName</code></td>
+<td style="text-align: center">100</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">BillingAddress.City</code></td>
+<td style="text-align: center">50</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">BillingAddress.ZipCode</code></td>
+<td style="text-align: center">50</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>For <code class="prettyprint">ProductDetail</code> :</p>
 
 <h2 id="decrypt">Decrypt</h2>
 
