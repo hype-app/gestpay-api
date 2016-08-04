@@ -13,9 +13,9 @@ If this is not the case, the values of the ErrorCode and ErrorDescription tag wi
 
 The information containing the transaction result will be available by reading the information in the XML response file corresponding to the result of the transaction.
 
-## Encrypt
+## Encrypt
 
-> Example `Encrypt` call with mandatory fields: 
+> A valid `Encrypt` can be called with just these fields - very easy: 
 
 ```xml
 <Encrypt>
@@ -28,7 +28,7 @@ The information containing the transaction result will be available by reading t
 
 `Encrypt` is the main entrypoint for Gestpay. You must call `Encrypt` either if you want to use the standard payment page, or the custom iframe solution. 
 
-These are the mandatory fields.
+These are the **mandatory** fields.
 
 | Name | max length | description |
 | ---- | :--------: | ----------- |
@@ -52,6 +52,24 @@ These are the mandatory fields.
 </Encrypt>
 ```
 
+> The information included in `customInfo` will follow this form:
+
+```
+datum1=value1*P1*datum2=value2*P1* ... *P1*datumN=valueN
+```
+
+>The separator between logically different information is the reserved sequence of characters `*P1*`. 
+
+> Other characters that must not be used within the parameters encoded by GestPay and in customised information are: 
+
+```
+&  (space)  §     (     )     * 
+<     >     ,     ;     :    *P1* 
+/     [     ]     ?     =     -- 
+/*    %     //
+```
+
+
 These are non-mandatory fields, but are direct children of the `Encrypt` root.  
 
 | Name | max length | description |
@@ -63,9 +81,13 @@ These are non-mandatory fields, but are direct children of the `Encrypt` root.
 
 <sup id="fn1">1. Each field can be up to a maximum of 300 characters in length.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup>
 
-> `RequestToken` example we are requesting a token to store the payment data. 
+Information included in the `customInfo` attribute is defined in the Back Office environment in the **"Fields & Parameters"** section.
+
+
 
 ### RequestToken
+
+> `RequestToken` example we are requesting a token to store the payment data.
 
 ```xml
 <Encrypt>
@@ -128,13 +150,92 @@ In order to do that, merchants must properly set the tag `paymentType` that can 
 
 <sup id="fn4">4. **Payment Systems Visibility**. In order to be able to activate the Payment Systems Visibility the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The Payment System Visibility can be configured in the specific interface in the Back Office Merchant.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></sup>
 
-### Paypal
 
-#### Enabling Paypal 
+### Return 
 
-See `PaymentTypes` section.
+> A succesful `Encrypt` call would be like this: 
 
-#### Paypal Seller Protection 
+```xml
+<EncryptResult>
+  <GestPayCryptDecrypt>
+    <TransactionType>ENCRYPT</TransactionType>
+    <TransactionResult>OK</TransactionResult>
+    <CryptDecryptString>897543..</CryptDecryptString>
+    <ErrorCode>0</ErrorCode>
+    <ErrorDescription/>
+  </GestPayCryptDecrypt>
+</EncryptResult>
+```
+
+`Encrypt` web service returns back the following information in xml: 
+
+| Name | max length | description |
+| ---- | :--------: | ----------- |
+| `TransactionType` |  7  | Decode the transaction type request (`DECRYPT`, `ENCRYPT`) |
+| `TransactionResult` | 2 | Transaction result (`OK`/ `KO`) | 
+| `CryptDecryptString` | ..... | Encrypted string get by parameter set in the xml request | 
+| `ErrorCode` | 9 | Error code | 
+| `ErrorDescription` | 255 | Error description | 
+
+
+## Decrypt
+
+prova prova sa sa sa
+
+## Encrypt example: Paypal
+
+### Enabling Paypal 
+
+See `PaymentTypes` example. 
+
+### Show product info at paypal's buying page 
+
+> User will see a `Television` in his paypal checkout. 
+
+```xml
+<Encrypt>
+  <shopLogin>9000001</shopLogin>
+  <uicCode>242</uicCode>
+  <amount>100</amount>
+  <shopTransactionId>34az85ord19</shopTransactionId> 
+  <paymentTypes>
+    <paymentType>PAYPAL</paymentType>
+  </paymentTypes>
+  <OrderDetails>
+    <ProductDetails><!-- if present, will be shown in paypal checkout -->
+      <ProductDetail><!-- one or more -->
+        <ProductCode>1</ProductCode>
+        <SKU>AK-7</SKU> 
+        <Name>TV2000</Name> 
+        <Description>Television</Description> 
+        <Quantity>1</Quantity> 
+        <Price>100</Price> 
+        <UnitPrice>100</UnitPrice> 
+        <Type>1</Type> 
+        <Vat>10</Vat> 
+        <Discount>0</Discount>
+      </ProductDetail> 
+    </ProductDetails>
+  </OrderDetails>
+<Encrypt>
+```
+
+If you populate these fields accordingly, you can show your user the list of products: 
+
+|  |  |  |
+| ---- | :--------: | ----------- | 
+| `ProductCode` |  12  | Article’s product Code |
+| `SKU` |  50  | Article’s Stock Keeping Unit |
+| `Name` <sup><a href="#fn6" id="ref6">6</a></sup> |  100  | Article’s name |
+| `Description` <sup><a href="#fn6" id="ref6">6</a></sup> |  255  | Article’s description |
+| `Quantity` <sup><a href="#fn6" id="ref6">6</a></sup> |  3  | The number of products |
+| `Price` |  12  | Article’s price |
+| `UnitPrice` <sup><a href="#fn6" id="ref6">6</a></sup> |  12  | Article’s Unit Price |
+| `Type` |  2  | The type of article: 1-product, 2-shipping, 3-handling |
+| `Vat` |  2  | Value-Added Tax (the value of the tax) |
+| `Discount` |  2  | The amount offered by you as discount |
+
+### Paypal Seller Protection 
 
 > Paypal Seller Protection example: 
 
@@ -183,7 +284,7 @@ If you want to activate the **Paypal Seller Protection** you must:
 <sup id="fn3">3. **PayPal Seller Protection parameter**. In order to be able to activate the Seller Protection Option the merchants need to appropriately set "Fields and Parameters" in the dedicated section of GestPay Merchant Back Office.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a></sup>
 
 
-#### Paypal recurring payments 
+### Paypal recurring payments 
 
 > In this way you can activate recurring payments on paypal. Note that no `paymentType` is needed. 
 
@@ -199,13 +300,14 @@ If you want to activate the **Paypal Seller Protection** you must:
 <Encrypt>
 ```
 
-| Name | max length | description |
-| ---- | :--------: | ----------- |
-| `payPalBillingAgreementDescription` | 127 | Description of the goods, terms and conditions of the billing agreement | 
-
 A Buyer will be able to subscribe a Billing Agreement on PayPal website so authorizing the Merchant to debit his/her PayPal account in future transactions.
 
 To use PayPal Reference Transaction it's necessary to fill the tag `PayPalBillingAgreementDescription` that can be present or not (in case of a normal PayPal payment it will be left empty or not passed at all).
+
+
+| Name | max length | description |
+| ---- | :--------: | ----------- |
+| `payPalBillingAgreementDescription` | 127 | Description of the goods, terms and conditions of the billing agreement |
 
 The Encryption service, if field `payPalBillingAgreementDescription` is present and not empty, assumes that the payment method is PayPal (so `paymentType` field in this case is **not mandatory**: if present it must be valued `PAYPAL`).
 
@@ -213,11 +315,9 @@ If this tag is passed to Encryption, GestPay bypasses the Pagam page in every ca
 
 This tag has to be filled with description of the goods, terms and conditions of the billing agreement.
 
-| Name | max length | description |
-| ---- | :--------: | ----------- |
-| `payPalBillingAgreementDescription` | 127 | Description of the goods, terms and conditions of the billing agreement | 
+<aside class="notice">When using paypal Billing Agreement, you will get a Token to use later with the callPagamS2S webservice. </aside>
 
-### IDeal and MyBank (`PaymentTypeDetail` tag)
+## Encrypt Example: IDeal and MyBank
 
 > MyBank example: 
 
@@ -268,7 +368,7 @@ More details can be found in at the [MyBank and IDeal](https://hype-app.github.i
 <sup id="fn5">5. **paymentTypeDetail**. In order to be able to activate the payment Type Detail the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The correct merchant configuration of Sofort and Ideal has to be configured in the specific interface of Back Office Merchant.(1) Each field can be up to a maximum of 300 characters in length<a href="#ref5" title="Jump back to footnote 5 in the text.">↩</a></sup>
 
 
-### Consel 
+## Encrypt Example: Consel 
 
 > Consel example: 
 
@@ -312,9 +412,7 @@ Here more info about [Consel Rate in Rete](https://hype-app.github.io/gestpay-do
 | `Phone` |  30   | Customer Phone |
 | `MobilePhone` |  30   | Customer Mobile phone | 
 
-<sup id="fn6">6. **Line Items**: in case the buyer selects PayPal as payment method in the payment page, fields Name, Description, Quantity and UnitPrice of every occurrency of the ProductDetail tag will be used to show the transaction items details in PayPal payment page.<a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a></sup>
-
-### Sofort 
+## Encrypt Example: Sofort 
 
 > SOFORT example: 
 
@@ -359,7 +457,7 @@ Sofort does not need mandatory parameters, but if you send the following paramet
   <amount>100</amount>
   <shopTransactionId>34az85ord19</shopTransactionId>
   <paymentTypes>
-    <paymentType>KLARNA</paymentType>
+    <paymentType>S2PKLA</paymentType>
   </paymentTypes>
   <OrderDetails>
     <CustomerDetails>
@@ -402,20 +500,114 @@ Klarna requires only two parameters as mandatory, children of `OrderDetails`:
 
 If you send other fields, your customer will find them already filled: 
 
-| Name | max length | description |
+|  |  |  |
 | ---- | :--------: | ----------- |
-| `CustomerDetail.FirstName` |  65  | [AT|DK|FI|DE|NL|NO|SE] |
+| `CustomerDetail.FirstName` |  65  | Customer First Name |
 | `CustomerDetail.Lastname` |  65  | the list of ordered products | 
 | `CustomerDetail.PrimaryEmail` | 100 | Customer primary email |
 | `CustomerDetail.SocialSecurityNumber` | 20 | Customer's social or fiscal identifier (for Klarna Use) |
-| `BillingAddress.StreetNumber` | 100 | Shipping Street |
-| `BillingAddress.StreetName` | 100 |  |
-| `BillingAddress.City` | 50 |  |
-| `BillingAddress.ZipCode` | 50 |  |
+| `BillingAddress.StreetNumber` | 5 | Shipping Street Number |
+| `BillingAddress.StreetName` | 100 | Shipping Street |
+| `BillingAddress.City` | 50 | Billing City |
+| `BillingAddress.ZipCode` | 50 | Billing Zip Code |
 
-For `ProductDetail` :
+`ProductDetails` can have one or more `ProductDetail`. Here is a description of its fields:
 
+|  |  |  |
+| ---- | :--------: | ----------- | 
+| `ProductCode` |  12  | Article’s product Code |
+| `SKU` |  50  | Article’s Stock Keeping Unit |
+| `Name` <sup><a href="#fn6" id="ref6">6</a></sup> |  100  | Article’s name |
+| `Description` <sup><a href="#fn6" id="ref6">6</a></sup> |  255  | Article’s description |
+| `Quantity` <sup><a href="#fn6" id="ref6">6</a></sup> |  3  | The number of products |
+| `Price` |  12  | Article’s price |
+| `UnitPrice` <sup><a href="#fn6" id="ref6">6</a></sup> |  12  | Article’s Unit Price |
+| `Type` |  2  | The type of article: 1-product, 2-shipping, 3-handling |
+| `Vat` |  2  | Value-Added Tax (the value of the tax) |
+| `Discount` |  2  | The amount offered by you as discount |
 
+<sup id="fn6">6. **Line Items**: in case the buyer selects PayPal as payment method in the payment page, fields Name, Description, Quantity and UnitPrice of every occurrency of the ProductDetail tag will be used to show the transaction items details in PayPal payment page.<a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a></sup>
 
+## Encrypt Example: Qiwi
 
-## Decrypt
+> Qiwi call example :
+
+```xml
+<Encrypt>
+  <shopLogin>9000001</shopLogin>
+  <uicCode>242</uicCode>
+  <amount>100</amount>
+  <shopTransactionId>34az85ord19</shopTransactionId>
+  <paymentTypes>
+    <paymentType>S2PQIW</paymentType>
+  </paymentTypes>
+  <OrderDetails>
+    <CustomerDetails>
+      <PrimaryPhone>0123456789</PrimaryPhone>
+    </CustomerDetails>
+    <BillingAddress>
+      <CountryCode>US</CountryCode>
+    </BillingAddress>
+  </OrderDetails>
+</Encrypt>
+```
+
+Qiwi does not need mandatory parameters, but if you send these few parameters you can have a frictionless call directly to the first screen of QIWI where authentication data are asked. These fields are children of `OrderDetails`:
+
+| Name | max length | description |
+| ---- | :--------: | ----------- |
+| `CustomerDetail.PrimaryPhone` | 20 | Customer's phone including prefix |
+| `BillingAddress.CountryCode` | 2 | Alpha-2 code example for US is “US” |
+
+This mean that no others values are asked to the buyers; but if these field are not sent with the payment, a page will be displayed in order to ask the necessary fields like Phone and CountryCode of the buyer.
+
+## Encrypt Example: Yandex
+
+> Yandex Example: 
+
+```xml
+<Encrypt>
+  <shopLogin>9000001</shopLogin>
+  <uicCode>242</uicCode>
+  <amount>100</amount>
+  <shopTransactionId>34az85ord19</shopTransactionId>
+  <paymentTypes>
+    <paymentType>S2PYAN</paymentType>
+  </paymentTypes>
+  <OrderDetails>
+    <CustomerDetails>
+      <PrimaryEmail>alfred.nobel@dynamite.se</PrimaryEmail>
+  </OrderDetails>
+</Encrypt>
+```
+
+Yandex does not need mandatory parameters; but if you send  `CustomerDetail.PrimaryEmail` you can have a frictionless call directly to the first screen of Yandex where authentication data are asked.
+
+| Name | max length | description |
+| ---- | :--------: | ----------- |
+| `CustomerDetail.PrimaryEmail` | 100 | Customer primary email |
+
+This mean that no others values are asked to the buyer; if this field is not sent with the payment, a page will ask the necessary fields.
+
+## Encrypt Example: Alipay
+
+> Alipay example: 
+
+```xml
+<Encrypt>
+  <shopLogin>9000001</shopLogin>
+  <uicCode>242</uicCode>
+  <amount>100</amount>
+  <shopTransactionId>34az85ord19</shopTransactionId>
+  <paymentTypes>
+    <paymentType>S2PALI</paymentType>
+  </paymentTypes>
+  <OrderDetails>
+    <CustomerDetails>
+      <PrimaryEmail>alfred.nobel@dynamite.se</PrimaryEmail>
+  </OrderDetails>
+</Encrypt>
+```
+
+Alipay does not need any mandatory parameters. Just specify the `PaymentType` `S2PALI` and the payment page will show to your user. 
+
