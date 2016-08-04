@@ -33,7 +33,7 @@ These are the **mandatory** fields.
 | Name | max length | description |
 | ---- | :--------: | ----------- |
 | **`shopLogin`** | 30 | shopLogin (Mandatory) |
-| **`uicCode`** | 3 | Code identifying currency in which transaction amount is denominated - see Currency Codes table TODO - (Mandatory) |
+| **`uicCode`** | 3 | Code identifying currency in which transaction amount is denominated - see [Currency Codes](#currency-codes) table - (Mandatory) |
 | **`amount`** | 9 | Transaction amount. Do not insert thousands separator. Decimals, max. 2 numbers, are optional and separator is the point (Mandatory) |
 | **`shopTransactionID`** | 50 | Identifier attributed to merchant’s transaction (Mandatory) |
 
@@ -151,7 +151,7 @@ In order to do that, merchants must properly set the tag `paymentType` that can 
 <sup id="fn4">4. **Payment Systems Visibility**. In order to be able to activate the Payment Systems Visibility the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The Payment System Visibility can be configured in the specific interface in the Back Office Merchant.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></sup>
 
 
-### Return 
+## Encrypt result 
 
 > A succesful `Encrypt` call would be like this: 
 
@@ -176,11 +176,6 @@ In order to do that, merchants must properly set the tag `paymentType` that can 
 | `CryptDecryptString` | ..... | Encrypted string get by parameter set in the xml request | 
 | `ErrorCode` | 9 | Error code | 
 | `ErrorDescription` | 255 | Error description | 
-
-
-## Decrypt
-
-prova prova sa sa sa
 
 ## Encrypt example: Paypal
 
@@ -610,4 +605,91 @@ This mean that no others values are asked to the buyer; if this field is not sen
 ```
 
 Alipay does not need any mandatory parameters. Just specify the `PaymentType` `S2PALI` and the payment page will show to your user. 
+
+
+## Decrypt
+
+> A `Decrypt` request: 
+
+```xml
+ <Decrypt>
+  <shopLogin>9000001</shopLogin>
+  <CryptedString>HT987YU....</CryptedString>
+ </Decrypt>
+```
+
+GestPay communicates the payment transaction result to the merchant through an encrypted string (parameter b of the call to the url preconfigured by the merchant) with a set of transaction's informations.
+
+To Decrypt the data it is necessary to use Decrypt method passing the following parameters, the tags' names are case sensitive:
+
+| Name | max length | description |
+| ---- | :--------: | ----------- |
+| `shopLogin` | 30 | Shop Login | 
+| `CryptedString` | ...... | Encrypted string get by parameter b of the call to the url preconfigured by the merchant | 
+
+## Decrypt result 
+
+> GestPay authenticates the calling server and checks the encrypted data string. If the checks are passed, it returns an unencrypted data string containing the transaction result: 
+
+```xml
+ <DecryptResult>
+  <GestPayCryptDecrypt xmlns="">
+    <TransactionType>DECRYPT</TransactionType>
+    <TransactionResult>OK</TransactionResult>
+    <ShopTransactionID>34az85ord19</ShopTransactionID>
+    <BankTransactionID>656</BankTransactionID>
+    <AuthorizationCode>983RT4</AuthorizationCode>
+    <Currency>242</Currency>
+    <Amount>985.40</Amount>
+    <ErrorCode>0</ErrorCode>
+    <ErrorDescription>Transazione correttamente effettuata</ErrorDescription>
+  </GestPayCryptDecrypt>
+</DecryptResult>
+```
+
+Decrypt webservice returns back the following information in the xml.
+
+The minimum information returned back as transaction result is marked in bold. 
+
+| Name | max length | description |
+| ---- | :--------: | ----------- |
+| `TransactionType` | 7 | Decode the transaction type request (`DECRYPT`, `ENCRYPT`) |
+| **`TransactionResult`** | **2** | **Transaction result (`OK`/`KO`)** | 
+| **`ShopTransactionID`** | **50** | **Identifier attributed to merchant’s transaction** | 
+| **`BankTransactionID`** | **9** | **Identifier attributed to the transaction by GestPay** |
+| **`AuthorizationCode`** | **6** | **Transaction authorisation code** | 
+| **`Currency`** | **3** | **Code identifying currency in which transaction amount is denominated (see [Currency Codes](#currency-codes) table)** |
+| **`Amount`** | **9** | **Transaction amount. Decimals (max. 2 numbers) are optional and separator is the point (see examples)** | 
+| `Country` | 30 | Nationality of the issuing card institute | 
+| `CustomInfo` | 1000 |  String that has the specific information as configured in themerchant’s profile. Each field can be up to a maximum of 300 characters in length. | 
+| `Buyer.BuyerName` | 50 | Buyer’s name and surname | 
+| `Buyer.BuyerEmail` | 50 | Buyer’s e-mail address | 
+| `TDLevel` | 255 | Level of authentication for VBV Visa / Mastercard Securecode transactions. The string may have the value `FULL` or `HALF` |
+| **`ErrorCode`** | **9** | **Error code** | 
+| **`ErrorDescription`** | **255** | **Error description (localized in your language)** | 
+| `AlertCode` | 9 | Alert code | 
+| `AlertDescription` | 255 | Alert description in chosen language | 
+| `CVVPresent` | 1| Credit Card security code flag | 
+| `MaskedPAN` | 25 | Masked Pan string | 
+| `PaymentMethod` | 100 | Indicates the used Payment Method | 
+| `TOKEN` | 25 | String containing the token value | 
+| `ProductType` | 100 |  String containing Card Type | 
+| `TokenExpiryMonth` | 2 | String containing the token expiry month | 
+| `TokenExpiryYear` | 2 | String containing the token expiry year | 
+| `TransactionKey` | 18 | Transaction identifier for 3D transactions. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions | 
+| `VbV` | 2 | Verified By Visa Flag | 
+| `VbVRisp` |  | Encrypted string containing information for 3D- Secure transactions. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions | 
+| `VbVBuyer` | 2 | Information about the enrolment of the buyer's card to 3D-Secure protocol: `OK` means that the card is enrolled, `KO` means that the card is not enrolled | 
+| `VbVFlag` | 2 | Information about the 3D-Secure status. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions. | 
+
+
+Other information is defined as optional and will be returned according to the merchant’s profile settings made in the GestPay Back Office environment.
+
+A transaction result can be interpreted by verifying the `TransactionResult` field value. The possible values are:
+
+|Transaction Result | Description | 
+| ----------------- | ----------- | 
+| `OK` | Positive transaction result | 
+| `KO` | Negative transaction result | 
+| `XX` | Suspended transaction result (This is not a final result. A new communication will be provided to the merchant when the transaction will assume the final `OK`/`KO` status). The customer with `XX` transaction is redirect to URL for positive response. | 
 

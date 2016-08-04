@@ -2,8 +2,9 @@
 title: API Reference
 
 language_tabs:
-  - xml
-  - javascript
+  - java
+  - php
+  - net
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -15,6 +16,7 @@ includes:
   - wss2s
   - errors
   - payment_type_codes
+  - currency_codes
 
 search: true
 ---
