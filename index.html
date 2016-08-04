@@ -172,10 +172,10 @@
 
 <p>The information containing the transaction result will be available by reading the information in the XML response file corresponding to the result of the transaction.</p>
 
-<h2 id="encrypt"> Encrypt</h2>
+<h2 id="encrypt">Encrypt</h2>
 
 <blockquote>
-<p>Example <code class="prettyprint">Encrypt</code> call with mandatory fields: </p>
+<p>A valid <code class="prettyprint">Encrypt</code> can be called with just these fields - very easy: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
@@ -187,7 +187,7 @@
 
 <p><code class="prettyprint">Encrypt</code> is the main entrypoint for Gestpay. You must call <code class="prettyprint">Encrypt</code> either if you want to use the standard payment page, or the custom iframe solution. </p>
 
-<p>These are the mandatory fields.</p>
+<p>These are the <strong>mandatory</strong> fields.</p>
 
 <table><thead>
 <tr>
@@ -232,6 +232,23 @@
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
 
+<blockquote>
+<p>The information included in <code class="prettyprint">customInfo</code> will follow this form:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>datum1=value1*P1*datum2=value2*P1* ... *P1*datumN=valueN
+</code></pre>
+
+<blockquote>
+<p>The separator between logically different information is the reserved sequence of characters <code class="prettyprint">*P1*</code>. </p>
+
+<p>Other characters that must not be used within the parameters encoded by GestPay and in customised information are: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>&amp;  (space)  §     (     )     * 
+&lt;     &gt;     ,     ;     :    *P1* 
+/     [     ]     ?     =     -- 
+/*    %     //
+</code></pre>
+
 <p>These are non-mandatory fields, but are direct children of the <code class="prettyprint">Encrypt</code> root.  </p>
 
 <table><thead>
@@ -265,11 +282,13 @@
 
 <p><sup id="fn1">1. Each field can be up to a maximum of 300 characters in length.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup></p>
 
-<blockquote>
-<p><code class="prettyprint">RequestToken</code> example we are requesting a token to store the payment data. </p>
-</blockquote>
+<p>Information included in the <code class="prettyprint">customInfo</code> attribute is defined in the Back Office environment in the <strong>&ldquo;Fields &amp; Parameters&rdquo;</strong> section.</p>
 
 <h3 id="requesttoken">RequestToken</h3>
+
+<blockquote>
+<p><code class="prettyprint">RequestToken</code> example we are requesting a token to store the payment data.</p>
+</blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
   <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
@@ -353,13 +372,162 @@
 
 <p><sup id="fn4">4. <strong>Payment Systems Visibility</strong>. In order to be able to activate the Payment Systems Visibility the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The Payment System Visibility can be configured in the specific interface in the Back Office Merchant.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></sup></p>
 
-<h3 id="paypal">Paypal</h3>
+<h3 id="return">Return</h3>
 
-<h4 id="enabling-paypal">Enabling Paypal</h4>
+<blockquote>
+<p>A succesful <code class="prettyprint">Encrypt</code> call would be like this: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;EncryptResult&gt;</span>
+  <span class="nt">&lt;GestPayCryptDecrypt&gt;</span>
+    <span class="nt">&lt;TransactionType&gt;</span>ENCRYPT<span class="nt">&lt;/TransactionType&gt;</span>
+    <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+    <span class="nt">&lt;CryptDecryptString&gt;</span>897543..<span class="nt">&lt;/CryptDecryptString&gt;</span>
+    <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+    <span class="nt">&lt;ErrorDescription/&gt;</span>
+  <span class="nt">&lt;/GestPayCryptDecrypt&gt;</span>
+<span class="nt">&lt;/EncryptResult&gt;</span>
+</code></pre>
 
-<p>See <code class="prettyprint">PaymentTypes</code> section.</p>
+<p><code class="prettyprint">Encrypt</code> web service returns back the following information in xml: </p>
 
-<h4 id="paypal-seller-protection">Paypal Seller Protection</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">TransactionType</code></td>
+<td style="text-align: center">7</td>
+<td>Decode the transaction type request (<code class="prettyprint">DECRYPT</code>, <code class="prettyprint">ENCRYPT</code>)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TransactionResult</code></td>
+<td style="text-align: center">2</td>
+<td>Transaction result (<code class="prettyprint">OK</code>/ <code class="prettyprint">KO</code>)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CryptDecryptString</code></td>
+<td style="text-align: center">&hellip;..</td>
+<td>Encrypted string get by parameter set in the xml request</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ErrorCode</code> </td>
+<td style="text-align: center">9</td>
+<td>Error code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ErrorDescription</code></td>
+<td style="text-align: center">255</td>
+<td>Error description</td>
+</tr>
+</tbody></table>
+
+<h2 id="decrypt">Decrypt</h2>
+
+<p>prova prova sa sa sa</p>
+
+<h2 id="encrypt-example-paypal">Encrypt example: Paypal</h2>
+
+<h3 id="enabling-paypal">Enabling Paypal</h3>
+
+<p>See <code class="prettyprint">PaymentTypes</code> example. </p>
+
+<h3 id="show-product-info-at-paypal-39-s-buying-page">Show product info at paypal&rsquo;s buying page</h3>
+
+<blockquote>
+<p>User will see a <code class="prettyprint">Television</code> in his paypal checkout. </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>100<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span> 
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>PAYPAL<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;ProductDetails&gt;</span><span class="c">&lt;!-- if present, will be shown in paypal checkout --&gt;</span>
+      <span class="nt">&lt;ProductDetail&gt;</span><span class="c">&lt;!-- one or more --&gt;</span>
+        <span class="nt">&lt;ProductCode&gt;</span>1<span class="nt">&lt;/ProductCode&gt;</span>
+        <span class="nt">&lt;SKU&gt;</span>AK-7<span class="nt">&lt;/SKU&gt;</span> 
+        <span class="nt">&lt;Name&gt;</span>TV2000<span class="nt">&lt;/Name&gt;</span> 
+        <span class="nt">&lt;Description&gt;</span>Television<span class="nt">&lt;/Description&gt;</span> 
+        <span class="nt">&lt;Quantity&gt;</span>1<span class="nt">&lt;/Quantity&gt;</span> 
+        <span class="nt">&lt;Price&gt;</span>100<span class="nt">&lt;/Price&gt;</span> 
+        <span class="nt">&lt;UnitPrice&gt;</span>100<span class="nt">&lt;/UnitPrice&gt;</span> 
+        <span class="nt">&lt;Type&gt;</span>1<span class="nt">&lt;/Type&gt;</span> 
+        <span class="nt">&lt;Vat&gt;</span>10<span class="nt">&lt;/Vat&gt;</span> 
+        <span class="nt">&lt;Discount&gt;</span>0<span class="nt">&lt;/Discount&gt;</span>
+      <span class="nt">&lt;/ProductDetail&gt;</span> 
+    <span class="nt">&lt;/ProductDetails&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
+<span class="nt">&lt;Encrypt&gt;</span>
+</code></pre>
+
+<p>If you populate these fields accordingly, you can show your user the list of products: </p>
+
+<table><thead>
+<tr>
+<th></th>
+<th style="text-align: center"></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">ProductCode</code></td>
+<td style="text-align: center">12</td>
+<td>Article’s product Code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">SKU</code></td>
+<td style="text-align: center">50</td>
+<td>Article’s Stock Keeping Unit</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Name</code> <sup><a href="#fn6" id="ref6">6</a></sup></td>
+<td style="text-align: center">100</td>
+<td>Article’s name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Description</code> <sup><a href="#fn6" id="ref6">6</a></sup></td>
+<td style="text-align: center">255</td>
+<td>Article’s description</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Quantity</code> <sup><a href="#fn6" id="ref6">6</a></sup></td>
+<td style="text-align: center">3</td>
+<td>The number of products</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Price</code></td>
+<td style="text-align: center">12</td>
+<td>Article’s price</td>
+</tr>
+<tr>
+<td><code class="prettyprint">UnitPrice</code> <sup><a href="#fn6" id="ref6">6</a></sup></td>
+<td style="text-align: center">12</td>
+<td>Article’s Unit Price</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Type</code></td>
+<td style="text-align: center">2</td>
+<td>The type of article: 1-product, 2-shipping, 3-handling</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Vat</code></td>
+<td style="text-align: center">2</td>
+<td>Value-Added Tax (the value of the tax)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Discount</code></td>
+<td style="text-align: center">2</td>
+<td>The amount offered by you as discount</td>
+</tr>
+</tbody></table>
+
+<h3 id="paypal-seller-protection">Paypal Seller Protection</h3>
 
 <blockquote>
 <p>Paypal Seller Protection example: </p>
@@ -454,7 +622,7 @@
 
 <p><sup id="fn3">3. <strong>PayPal Seller Protection parameter</strong>. In order to be able to activate the Seller Protection Option the merchants need to appropriately set &ldquo;Fields and Parameters&rdquo; in the dedicated section of GestPay Merchant Back Office.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a></sup></p>
 
-<h4 id="paypal-recurring-payments"> Paypal recurring payments</h4>
+<h3 id="paypal-recurring-payments"> Paypal recurring payments</h3>
 
 <blockquote>
 <p>In this way you can activate recurring payments on paypal. Note that no <code class="prettyprint">paymentType</code> is needed. </p>
@@ -470,6 +638,10 @@
 <span class="nt">&lt;Encrypt&gt;</span>
 </code></pre>
 
+<p>A Buyer will be able to subscribe a Billing Agreement on PayPal website so authorizing the Merchant to debit his/her PayPal account in future transactions.</p>
+
+<p>To use PayPal Reference Transaction it&rsquo;s necessary to fill the tag <code class="prettyprint">PayPalBillingAgreementDescription</code> that can be present or not (in case of a normal PayPal payment it will be left empty or not passed at all).</p>
+
 <table><thead>
 <tr>
 <th>Name</th>
@@ -483,10 +655,6 @@
 <td>Description of the goods, terms and conditions of the billing agreement</td>
 </tr>
 </tbody></table>
-
-<p>A Buyer will be able to subscribe a Billing Agreement on PayPal website so authorizing the Merchant to debit his/her PayPal account in future transactions.</p>
-
-<p>To use PayPal Reference Transaction it&rsquo;s necessary to fill the tag <code class="prettyprint">PayPalBillingAgreementDescription</code> that can be present or not (in case of a normal PayPal payment it will be left empty or not passed at all).</p>
 
 <p>The Encryption service, if field <code class="prettyprint">payPalBillingAgreementDescription</code> is present and not empty, assumes that the payment method is PayPal (so <code class="prettyprint">paymentType</code> field in this case is <strong>not mandatory</strong>: if present it must be valued <code class="prettyprint">PAYPAL</code>).</p>
 
@@ -494,21 +662,9 @@
 
 <p>This tag has to be filled with description of the goods, terms and conditions of the billing agreement.</p>
 
-<table><thead>
-<tr>
-<th>Name</th>
-<th style="text-align: center">max length</th>
-<th>description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">payPalBillingAgreementDescription</code></td>
-<td style="text-align: center">127</td>
-<td>Description of the goods, terms and conditions of the billing agreement</td>
-</tr>
-</tbody></table>
+<aside class="notice">When using paypal Billing Agreement, you will get a Token to use later with the callPagamS2S webservice. </aside>
 
-<h3 id="ideal-and-mybank-paymenttypedetail-tag">IDeal and MyBank (<code class="prettyprint">PaymentTypeDetail</code> tag)</h3>
+<h2 id="encrypt-example-ideal-and-mybank">Encrypt Example: IDeal and MyBank</h2>
 
 <blockquote>
 <p>MyBank example: </p>
@@ -574,7 +730,7 @@
 
 <p><sup id="fn5">5. <strong>paymentTypeDetail</strong>. In order to be able to activate the payment Type Detail the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The correct merchant configuration of Sofort and Ideal has to be configured in the specific interface of Back Office Merchant.(1) Each field can be up to a maximum of 300 characters in length<a href="#ref5" title="Jump back to footnote 5 in the text.">↩</a></sup></p>
 
-<h3 id="consel">Consel</h3>
+<h2 id="encrypt-example-consel">Encrypt Example: Consel</h2>
 
 <blockquote>
 <p>Consel example: </p>
@@ -668,9 +824,7 @@
 </tr>
 </tbody></table>
 
-<p><sup id="fn6">6. <strong>Line Items</strong>: in case the buyer selects PayPal as payment method in the payment page, fields Name, Description, Quantity and UnitPrice of every occurrency of the ProductDetail tag will be used to show the transaction items details in PayPal payment page.<a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a></sup></p>
-
-<h3 id="sofort">Sofort</h3>
+<h2 id="encrypt-example-sofort">Encrypt Example: Sofort</h2>
 
 <blockquote>
 <p>SOFORT example: </p>
@@ -737,7 +891,7 @@
   <span class="nt">&lt;amount&gt;</span>100<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
   <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>KLARNA<span class="nt">&lt;/paymentType&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PKLA<span class="nt">&lt;/paymentType&gt;</span>
   <span class="nt">&lt;/paymentTypes&gt;</span>
   <span class="nt">&lt;OrderDetails&gt;</span>
     <span class="nt">&lt;CustomerDetails&gt;</span>
@@ -796,15 +950,15 @@
 
 <table><thead>
 <tr>
-<th>Name</th>
-<th style="text-align: center">max length</th>
-<th>description</th>
+<th></th>
+<th style="text-align: center"></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">CustomerDetail.FirstName</code></td>
 <td style="text-align: center">65</td>
-<td>[AT</td>
+<td>Customer First Name</td>
 </tr>
 <tr>
 <td><code class="prettyprint">CustomerDetail.Lastname</code></td>
@@ -823,29 +977,195 @@
 </tr>
 <tr>
 <td><code class="prettyprint">BillingAddress.StreetNumber</code></td>
-<td style="text-align: center">100</td>
-<td>Shipping Street</td>
+<td style="text-align: center">5</td>
+<td>Shipping Street Number</td>
 </tr>
 <tr>
 <td><code class="prettyprint">BillingAddress.StreetName</code></td>
 <td style="text-align: center">100</td>
-<td></td>
+<td>Shipping Street</td>
 </tr>
 <tr>
 <td><code class="prettyprint">BillingAddress.City</code></td>
 <td style="text-align: center">50</td>
-<td></td>
+<td>Billing City</td>
 </tr>
 <tr>
 <td><code class="prettyprint">BillingAddress.ZipCode</code></td>
 <td style="text-align: center">50</td>
-<td></td>
+<td>Billing Zip Code</td>
 </tr>
 </tbody></table>
 
-<p>For <code class="prettyprint">ProductDetail</code> :</p>
+<p><code class="prettyprint">ProductDetails</code> can have one or more <code class="prettyprint">ProductDetail</code>. Here is a description of its fields:</p>
 
-<h2 id="decrypt">Decrypt</h2>
+<table><thead>
+<tr>
+<th></th>
+<th style="text-align: center"></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">ProductCode</code></td>
+<td style="text-align: center">12</td>
+<td>Article’s product Code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">SKU</code></td>
+<td style="text-align: center">50</td>
+<td>Article’s Stock Keeping Unit</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Name</code> <sup><a href="#fn6" id="ref6">6</a></sup></td>
+<td style="text-align: center">100</td>
+<td>Article’s name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Description</code> <sup><a href="#fn6" id="ref6">6</a></sup></td>
+<td style="text-align: center">255</td>
+<td>Article’s description</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Quantity</code> <sup><a href="#fn6" id="ref6">6</a></sup></td>
+<td style="text-align: center">3</td>
+<td>The number of products</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Price</code></td>
+<td style="text-align: center">12</td>
+<td>Article’s price</td>
+</tr>
+<tr>
+<td><code class="prettyprint">UnitPrice</code> <sup><a href="#fn6" id="ref6">6</a></sup></td>
+<td style="text-align: center">12</td>
+<td>Article’s Unit Price</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Type</code></td>
+<td style="text-align: center">2</td>
+<td>The type of article: 1-product, 2-shipping, 3-handling</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Vat</code></td>
+<td style="text-align: center">2</td>
+<td>Value-Added Tax (the value of the tax)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Discount</code></td>
+<td style="text-align: center">2</td>
+<td>The amount offered by you as discount</td>
+</tr>
+</tbody></table>
+
+<p><sup id="fn6">6. <strong>Line Items</strong>: in case the buyer selects PayPal as payment method in the payment page, fields Name, Description, Quantity and UnitPrice of every occurrency of the ProductDetail tag will be used to show the transaction items details in PayPal payment page.<a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a></sup></p>
+
+<h2 id="encrypt-example-qiwi">Encrypt Example: Qiwi</h2>
+
+<blockquote>
+<p>Qiwi call example :</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>100<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PQIW<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;CustomerDetails&gt;</span>
+      <span class="nt">&lt;PrimaryPhone&gt;</span>0123456789<span class="nt">&lt;/PrimaryPhone&gt;</span>
+    <span class="nt">&lt;/CustomerDetails&gt;</span>
+    <span class="nt">&lt;BillingAddress&gt;</span>
+      <span class="nt">&lt;CountryCode&gt;</span>US<span class="nt">&lt;/CountryCode&gt;</span>
+    <span class="nt">&lt;/BillingAddress&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+
+<p>Qiwi does not need mandatory parameters, but if you send these few parameters you can have a frictionless call directly to the first screen of QIWI where authentication data are asked. These fields are children of <code class="prettyprint">OrderDetails</code>:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">CustomerDetail.PrimaryPhone</code></td>
+<td style="text-align: center">20</td>
+<td>Customer&rsquo;s phone including prefix</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BillingAddress.CountryCode</code></td>
+<td style="text-align: center">2</td>
+<td>Alpha-2 code example for US is “US”</td>
+</tr>
+</tbody></table>
+
+<p>This mean that no others values are asked to the buyers; but if these field are not sent with the payment, a page will be displayed in order to ask the necessary fields like Phone and CountryCode of the buyer.</p>
+
+<h2 id="encrypt-example-yandex">Encrypt Example: Yandex</h2>
+
+<blockquote>
+<p>Yandex Example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>100<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PYAN<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;CustomerDetails&gt;</span>
+      <span class="nt">&lt;PrimaryEmail&gt;</span>alfred.nobel@dynamite.se<span class="nt">&lt;/PrimaryEmail&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+
+<p>Yandex does not need mandatory parameters; but if you send  <code class="prettyprint">CustomerDetail.PrimaryEmail</code> you can have a frictionless call directly to the first screen of Yandex where authentication data are asked.</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">CustomerDetail.PrimaryEmail</code></td>
+<td style="text-align: center">100</td>
+<td>Customer primary email</td>
+</tr>
+</tbody></table>
+
+<p>This mean that no others values are asked to the buyer; if this field is not sent with the payment, a page will ask the necessary fields.</p>
+
+<h2 id="encrypt-example-alipay">Encrypt Example: Alipay</h2>
+
+<blockquote>
+<p>Alipay example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>100<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PALI<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;CustomerDetails&gt;</span>
+      <span class="nt">&lt;PrimaryEmail&gt;</span>alfred.nobel@dynamite.se<span class="nt">&lt;/PrimaryEmail&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+
+<p>Alipay does not need any mandatory parameters. Just specify the <code class="prettyprint">PaymentType</code> <code class="prettyprint">S2PALI</code> and the payment page will show to your user. </p>
 
           <h1 id="js_gestpay-js">js_GestPay.js</h1>
 
