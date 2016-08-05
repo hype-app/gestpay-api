@@ -1,52 +1,111 @@
 # js_GestPay.js
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+> To start using this feature, import the script:
 
-WSCryptDecrypt web service is available on production and test servers and does not require any installation on the merchant’s server.
+```html
+ <script src="https://ecomm.sella.it/pagam/JavaScript/js_GestPay.js"
+  	type="text/javascript"></script>
+```
 
-The merchant must implement – in the page(s) of the virtual store configured to handle payments – a call to the webservice which handles requests to use the GestPay encryption service.
+> Once the script is imported, it will do some security checks. You can see this with the `BrowserEnabled` variable: 
 
-To request the encryption service it is necessary to call the Encrypt method.
+```javascript
+if ( BrowserEnabled ) {
+	//The Browser is supported! 
+	//Proceed to create the Payment page
+} else {
+	//The browser is not supported 
+	//Place here error handle code
+}
+```
 
-If the encryption operation is concluded correctly (TransactionResult tag value with OK), the encrypted data string returned by GestPay will be available by reading the value of the CryptDecryptString tag.
+js_Gestpay.js is a javascript that enable you to process payments on your website, leaving you with the ability to completely design your custom payment page. 
 
-If this is not the case, the values of the ErrorCode and ErrorDescription tag will make it possible to identify the reasons that prevented the encryption operation. To request the decryption service it is necessary to call the Decrypt method, passing the shopLogin and CryptedString tags with the values communicated by GestPay in Phase III.
+To use the following functionalities, you should first call [``WSCryptDecrypt.Encrypt` webservice](#encrypt). 
 
-The information containing the transaction result will be available by reading the information in the XML response file corresponding to the result of the transaction.
+## CreatePaymentPage
 
-## Encrypt
+> Syntax: 
 
-Some of the information to communicate to GestPay is required in order to complete the payment process, while other information can be omitted without compromising the processing of the transaction. Through the GestPay Back Office environment, merchants can define what information is required and what information is optional.
+```javascript
+GestPay.CreatePaymentPage(
+	MerchantCode, //I.E. 90000001
+	EncryptedString, // "CFD3732BB102..." 
+	PaymentPageLoad); // a callback to call on success
+```
 
-Some information that is essential to the payment process is configured as compulsory by GestPay. This attributes cannot be modified.
+> Example: 
 
-The following table gives the information that must be communicated to GestPay xml using Encrypt method in order to make a transaction, the tags' names are case sensitive.
+```javascript
+GestPay.CreatePaymentPage(
+	'9000001', 
+	'DcffrrnDNdjfnemfnermgnermNfdm,gnem/*ng',
+	function (Result) { 
+		if(Result.ErrorCode == 10){ 
+			//iFrame created and payment page correctly loaded
+		} else {
+			//An error has occurred, check ErrorCode and ErrorDescription
+			//properties of the Result object
+		} 
+	});
+```
 
-| Name | max length | description |
-| ---- | :--------: | ----------- |
-| **`shopLogin`** | 30 | shopLogin (Mandatory) |
-| **`uicCode`** | 3 | Code identifying currency in which transaction amount is denominated - see Currency Codes table TODO - (Mandatory) |
-| **`amount`** | 9 | Transaction amount. Do not insert thousands separator. Decimals, max. 2 numbers, are optional and separator is the point (Mandatory) |
-| **`shopTransactionID`** | 50 | Identifier attributed to merchant’s transaction (Mandatory) |
-| `buyerName` | 50 | Buyer’s name and surname |
-| `buyerEmail` | 50 | Buyer’s e-mail address |
-| `languageId` | 2 | Code identifying language used in communication with buyer |
-| `customInfo`<sup><a href="#fn1" id="ref1">1</a></sup> | 1000 | String containing specific information as configured in the merchant’s profile |
-| `requestToken` <sup><a href="#fn2" id="ref2">2</a></sup> | 25 | “MASKEDPAN” for a Standard Token any other value for Custom Token. Using :FORCED: before the token, it' s possible to have the token even if the transaction is not authorized. |
-| `ppSellerProtection` <sup><a href="#fn3" id="ref3">2</a></sup> | 1 | Parameter to set the use of a confirmed addresses |
-| `shippingDetails`: | | | 
-|alhoa  | | |
+The first thing to do to accept payments securely is to call `GestPay.CreatePaymentPage()`.
 
-<sup id="fn1">1. Each field can be up to a maximum of 300 characters in length.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup>
+The function will create an hidden iFrame into the body element and will load the payment page passing the merchant code and the generated encrypted string from the previous phase. 
 
-<sup id="fn2">2. Required only when a Token is needed within the transaction response. <br> In order to be able to request, obtain and use a Token, merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></sup>
+Name | Type | description
+-----|------| -------------
+Merchant Code | `string` | the code that identifies your shop. 
+Encrypted String | `string` | the string created with `WSCryptEncrypt.Encrypt` webservice. 
+callback | `function` | the callback that will be called with the result
 
-<sup id="fn3">3. **PayPal Seller Protection parameter**. In order to be able to activate the Seller Protection Option the merchants need to appropriately set "Fields and Parameters" in the dedicated section of GestPay Merchant Back Office.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a></sup>
+## SendPayment
 
-<sup id="fn4">4. **Payment Systems Visibility**. In order to be able to activate the Payment Systems Visibility the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The Payment System Visibility can be configured in the specific interface in the Back Office Merchant.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></sup>
+### Credit card authorization 
 
-<sup id="fn5">5. **paymentTypeDetail**. In order to be able to activate the payment Type Detail the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The correct merchant configuration of Sofort and Ideal has to be configured in the specific interface of Back Office Merchant.(1) Each field can be up to a maximum of 300 characters in length<a href="#ref5" title="Jump back to footnote 5 in the text.">↩</a></sup>
+> syntax: 
 
-<sup id="fn6">6. **Line Items**: in case the buyer selects PayPal as payment method in the payment page, fields Name, Description, Quantity and UnitPrice of every occurrency of the ProductDetail tag will be used to show the transaction items details in PayPal payment page.<a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a></sup>
+```javascript
+GestPay.SendPayment ({ 
+		CC : '', 
+		EXPMM :'', 
+		EXPYY :''
+		[,CVV2:''] //optional 
+	},
+	callBackObj);
+```
 
-## Decrypt
+> example:
+
+```javascript
+GestPay.SendPayment({
+		CC : '44444444444444444', 
+		EXPMM : '11',
+		EXPYY : '14' 
+	},
+	function (Result) {
+		if(Result.ErroCode == 0) {
+			//Transaction correctly processed
+			//Decrypt the Result.EncryptedString property to read the 
+			//transaction result
+		} else {
+			//An error has occurred, check ErrorCode and ErrorDescription //properties of the Result object
+		}
+});
+```
+
+To send the credit card data to the hidden iFrame, the checkout page will assign a function to the `OnSubimt` event of the credit card form, this function will retrieve the credit card data and will call the `GestPay.SendPayment` method providing an object with the credit card number (`CC`), the expiration month (`EXPMM`) and the expiration year (`EXPYY`), the CVV (`CVV2`) if enabled, and a CallBack object. 
+
+The input is composed of two arguments: 
+
+- The object `CCData`, with these fields
+
+Name | Description | Type | Size 
+---- | ----------- | ---- | ----
+`CC`   | Credit card number | `number` | min: 13, max: 19 
+`EXPMM` | Expiration Month | `number` | 2
+`EXPYY` | Expiration Year | `number` | 2
+`CVV2` (optional) | Cvv/4DBC | `number` | min:3, max:4 
+
+- a callback function, to handle the output. 
