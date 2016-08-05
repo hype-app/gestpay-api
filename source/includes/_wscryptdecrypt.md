@@ -691,5 +691,4 @@ A transaction result can be interpreted by verifying the `TransactionResult` fie
 | ----------------- | ----------- | 
 | `OK` | Positive transaction result | 
 | `KO` | Negative transaction result | 
-| `XX` | Suspended transaction result (This is not a final result. A new communication will be provided to the merchant when the transaction will assume the final `OK`/`KO` status). The customer with `XX` transaction is redirect to URL for positive response. | 
-
+| `XX` | Suspended transaction result. This is not a final result: Gestpay will send `XX` when the outcome is asynchronous. Right now these systems are `MyBank`, `Sofort`, `IDeal`, `Bank Transfer`. In the future, this code might be returned with other payment systems (bitcoins, for example). <br/> A new communication will be provided to the merchant when the transaction will assume the final `OK`/`KO` status). <br/> **If you receive a `XX` code, don't send your goods but wait to receive the actual payment.** The customer with `XX` transaction is redirect to URL for positive response.   | 

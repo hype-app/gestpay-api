@@ -17,6 +17,7 @@ includes:
   - errors
   - payment_type_codes
   - currency_codes
+  - paypal_country_codes
 
 search: true
 ---
