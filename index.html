@@ -92,7 +92,7 @@
     <script src="http://localhost:35729/livereload.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;xml&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;java&quot;,&quot;php&quot;,&quot;net&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -102,8 +102,9 @@
     <div class="tocify-wrapper">
       <img src="images/logo.png" />
         <div class="lang-selector">
-              <a href="#" data-language-name="xml">xml</a>
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="php">php</a>
+              <a href="#" data-language-name="net">net</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -204,7 +205,7 @@
 <tr>
 <td><strong><code class="prettyprint">uicCode</code></strong></td>
 <td style="text-align: center">3</td>
-<td>Code identifying currency in which transaction amount is denominated - see Currency Codes table TODO - (Mandatory)</td>
+<td>Code identifying currency in which transaction amount is denominated - see <a href="#currency-codes">Currency Codes</a> table - (Mandatory)</td>
 </tr>
 <tr>
 <td><strong><code class="prettyprint">amount</code></strong></td>
@@ -372,7 +373,7 @@
 
 <p><sup id="fn4">4. <strong>Payment Systems Visibility</strong>. In order to be able to activate the Payment Systems Visibility the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The Payment System Visibility can be configured in the specific interface in the Back Office Merchant.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></sup></p>
 
-<h3 id="return">Return</h3>
+<h2 id="encrypt-result">Encrypt result</h2>
 
 <blockquote>
 <p>A succesful <code class="prettyprint">Encrypt</code> call would be like this: </p>
@@ -423,10 +424,6 @@
 <td>Error description</td>
 </tr>
 </tbody></table>
-
-<h2 id="decrypt">Decrypt</h2>
-
-<p>prova prova sa sa sa</p>
 
 <h2 id="encrypt-example-paypal">Encrypt example: Paypal</h2>
 
@@ -1167,6 +1164,237 @@
 
 <p>Alipay does not need any mandatory parameters. Just specify the <code class="prettyprint">PaymentType</code> <code class="prettyprint">S2PALI</code> and the payment page will show to your user. </p>
 
+<h2 id="decrypt">Decrypt</h2>
+
+<blockquote>
+<p>A <code class="prettyprint">Decrypt</code> request: </p>
+</blockquote>
+<pre class="highlight xml"><code> <span class="nt">&lt;Decrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;CryptedString&gt;</span>HT987YU....<span class="nt">&lt;/CryptedString&gt;</span>
+ <span class="nt">&lt;/Decrypt&gt;</span>
+</code></pre>
+
+<p>GestPay communicates the payment transaction result to the merchant through an encrypted string (parameter b of the call to the url preconfigured by the merchant) with a set of transaction&rsquo;s informations.</p>
+
+<p>To Decrypt the data it is necessary to use Decrypt method passing the following parameters, the tags&rsquo; names are case sensitive:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td style="text-align: center">30</td>
+<td>Shop Login</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CryptedString</code></td>
+<td style="text-align: center">&hellip;&hellip;</td>
+<td>Encrypted string get by parameter b of the call to the url preconfigured by the merchant</td>
+</tr>
+</tbody></table>
+
+<h2 id="decrypt-result">Decrypt result</h2>
+
+<blockquote>
+<p>GestPay authenticates the calling server and checks the encrypted data string. If the checks are passed, it returns an unencrypted data string containing the transaction result: </p>
+</blockquote>
+<pre class="highlight xml"><code> <span class="nt">&lt;DecryptResult&gt;</span>
+  <span class="nt">&lt;GestPayCryptDecrypt</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;TransactionType&gt;</span>DECRYPT<span class="nt">&lt;/TransactionType&gt;</span>
+    <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+    <span class="nt">&lt;ShopTransactionID&gt;</span>34az85ord19<span class="nt">&lt;/ShopTransactionID&gt;</span>
+    <span class="nt">&lt;BankTransactionID&gt;</span>656<span class="nt">&lt;/BankTransactionID&gt;</span>
+    <span class="nt">&lt;AuthorizationCode&gt;</span>983RT4<span class="nt">&lt;/AuthorizationCode&gt;</span>
+    <span class="nt">&lt;Currency&gt;</span>242<span class="nt">&lt;/Currency&gt;</span>
+    <span class="nt">&lt;Amount&gt;</span>985.40<span class="nt">&lt;/Amount&gt;</span>
+    <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+    <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
+  <span class="nt">&lt;/GestPayCryptDecrypt&gt;</span>
+<span class="nt">&lt;/DecryptResult&gt;</span>
+</code></pre>
+
+<p>Decrypt webservice returns back the following information in the xml.</p>
+
+<p>The minimum information returned back as transaction result is marked in bold. </p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">TransactionType</code></td>
+<td style="text-align: center">7</td>
+<td>Decode the transaction type request (<code class="prettyprint">DECRYPT</code>, <code class="prettyprint">ENCRYPT</code>)</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">TransactionResult</code></strong></td>
+<td style="text-align: center"><strong>2</strong></td>
+<td><strong>Transaction result (<code class="prettyprint">OK</code>/<code class="prettyprint">KO</code>)</strong></td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">ShopTransactionID</code></strong></td>
+<td style="text-align: center"><strong>50</strong></td>
+<td><strong>Identifier attributed to merchant’s transaction</strong></td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">BankTransactionID</code></strong></td>
+<td style="text-align: center"><strong>9</strong></td>
+<td><strong>Identifier attributed to the transaction by GestPay</strong></td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">AuthorizationCode</code></strong></td>
+<td style="text-align: center"><strong>6</strong></td>
+<td><strong>Transaction authorisation code</strong></td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">Currency</code></strong></td>
+<td style="text-align: center"><strong>3</strong></td>
+<td><strong>Code identifying currency in which transaction amount is denominated (see <a href="#currency-codes">Currency Codes</a> table)</strong></td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">Amount</code></strong></td>
+<td style="text-align: center"><strong>9</strong></td>
+<td><strong>Transaction amount. Decimals (max. 2 numbers) are optional and separator is the point (see examples)</strong></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Country</code></td>
+<td style="text-align: center">30</td>
+<td>Nationality of the issuing card institute</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CustomInfo</code></td>
+<td style="text-align: center">1000</td>
+<td> String that has the specific information as configured in themerchant’s profile. Each field can be up to a maximum of 300 characters in length.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Buyer.BuyerName</code></td>
+<td style="text-align: center">50</td>
+<td>Buyer’s name and surname</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Buyer.BuyerEmail</code></td>
+<td style="text-align: center">50</td>
+<td>Buyer’s e-mail address</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TDLevel</code></td>
+<td style="text-align: center">255</td>
+<td>Level of authentication for VBV Visa / Mastercard Securecode transactions. The string may have the value <code class="prettyprint">FULL</code> or <code class="prettyprint">HALF</code></td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">ErrorCode</code></strong></td>
+<td style="text-align: center"><strong>9</strong></td>
+<td><strong>Error code</strong></td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">ErrorDescription</code></strong></td>
+<td style="text-align: center"><strong>255</strong></td>
+<td><strong>Error description (localized in your language)</strong></td>
+</tr>
+<tr>
+<td><code class="prettyprint">AlertCode</code></td>
+<td style="text-align: center">9</td>
+<td>Alert code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AlertDescription</code></td>
+<td style="text-align: center">255</td>
+<td>Alert description in chosen language</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CVVPresent</code></td>
+<td style="text-align: center">1</td>
+<td>Credit Card security code flag</td>
+</tr>
+<tr>
+<td><code class="prettyprint">MaskedPAN</code></td>
+<td style="text-align: center">25</td>
+<td>Masked Pan string</td>
+</tr>
+<tr>
+<td><code class="prettyprint">PaymentMethod</code></td>
+<td style="text-align: center">100</td>
+<td>Indicates the used Payment Method</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TOKEN</code> </td>
+<td style="text-align: center">25</td>
+<td>String containing the token value</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ProductType</code></td>
+<td style="text-align: center">100</td>
+<td> String containing Card Type</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TokenExpiryMonth</code> </td>
+<td style="text-align: center">2</td>
+<td>String containing the token expiry month</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TokenExpiryYear</code></td>
+<td style="text-align: center">2</td>
+<td>String containing the token expiry year</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TransactionKey</code> </td>
+<td style="text-align: center">18</td>
+<td>Transaction identifier for 3D transactions. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions</td>
+</tr>
+<tr>
+<td><code class="prettyprint">VbV</code></td>
+<td style="text-align: center">2</td>
+<td>Verified By Visa Flag</td>
+</tr>
+<tr>
+<td><code class="prettyprint">VbVRisp</code></td>
+<td style="text-align: center"></td>
+<td>Encrypted string containing information for 3D- Secure transactions. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions</td>
+</tr>
+<tr>
+<td><code class="prettyprint">VbVBuyer</code></td>
+<td style="text-align: center">2</td>
+<td>Information about the enrolment of the buyer&rsquo;s card to 3D-Secure protocol: <code class="prettyprint">OK</code> means that the card is enrolled, <code class="prettyprint">KO</code> means that the card is not enrolled</td>
+</tr>
+<tr>
+<td><code class="prettyprint">VbVFlag</code></td>
+<td style="text-align: center">2</td>
+<td>Information about the 3D-Secure status. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions.</td>
+</tr>
+</tbody></table>
+
+<p>Other information is defined as optional and will be returned according to the merchant’s profile settings made in the GestPay Back Office environment.</p>
+
+<p>A transaction result can be interpreted by verifying the <code class="prettyprint">TransactionResult</code> field value. The possible values are:</p>
+
+<table><thead>
+<tr>
+<th>Transaction Result</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">OK</code> </td>
+<td>Positive transaction result</td>
+</tr>
+<tr>
+<td><code class="prettyprint">KO</code> </td>
+<td>Negative transaction result</td>
+</tr>
+<tr>
+<td><code class="prettyprint">XX</code> </td>
+<td>Suspended transaction result. This is not a final result: Gestpay will send <code class="prettyprint">XX</code> when the outcome is asynchronous. Right now these systems are <code class="prettyprint">MyBank</code>, <code class="prettyprint">Sofort</code>, <code class="prettyprint">IDeal</code>, <code class="prettyprint">Bank Transfer</code>. In the future, this code might be returned with other payment systems (bitcoins, for example). <br/> A new communication will be provided to the merchant when the transaction will assume the final <code class="prettyprint">OK</code>/<code class="prettyprint">KO</code> status). <br/> <strong>If you receive a <code class="prettyprint">XX</code> code, don&rsquo;t send your goods but wait to receive the actual payment.</strong> The customer with <code class="prettyprint">XX</code> transaction is redirect to URL for positive response.</td>
+</tr>
+</tbody></table>
+
           <h1 id="js_gestpay-js">js_GestPay.js</h1>
 
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
@@ -1515,11 +1743,119 @@
 
 <p>For more informations about payment types, read <a href="https://hype-app.github.io/gestpay-doc/oth/what-does-it-really-mean-that-gestpay-is-a-payment-gateway.html">the docs</a>. </p>
 
+          <h1 id="currency-codes">Currency Codes</h1>
+
+<p>Currency codes are handled by GestPay using the currency attribute.</p>
+
+<table><thead>
+<tr>
+<th>UIC code</th>
+<th style="text-align: center">ISO code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">109</code></td>
+<td style="text-align: center">AUD</td>
+<td>Australia Dollar</td>
+</tr>
+<tr>
+<td><code class="prettyprint">234</code></td>
+<td style="text-align: center">BRL</td>
+<td>Brazil Real</td>
+</tr>
+<tr>
+<td><code class="prettyprint">12</code></td>
+<td style="text-align: center">CAD</td>
+<td>Canada Dollar</td>
+</tr>
+<tr>
+<td><code class="prettyprint">3</code></td>
+<td style="text-align: center">CHF</td>
+<td>Switzerland Franc</td>
+</tr>
+<tr>
+<td><code class="prettyprint">144</code></td>
+<td style="text-align: center">CNY</td>
+<td>China Yuan Renminbi</td>
+</tr>
+<tr>
+<td><code class="prettyprint">223</code></td>
+<td style="text-align: center">CZK</td>
+<td>Czech Republic Koruna</td>
+</tr>
+<tr>
+<td><code class="prettyprint">7</code></td>
+<td style="text-align: center">DKK</td>
+<td>Denmark Krone</td>
+</tr>
+<tr>
+<td><code class="prettyprint">242</code></td>
+<td style="text-align: center">EUR</td>
+<td>Euro Member Countries</td>
+</tr>
+<tr>
+<td><code class="prettyprint">2</code></td>
+<td style="text-align: center">GBP</td>
+<td>United Kingdom Pound</td>
+</tr>
+<tr>
+<td><code class="prettyprint">103</code></td>
+<td style="text-align: center">HKD</td>
+<td>Hong Kong Dollar</td>
+</tr>
+<tr>
+<td><code class="prettyprint">153</code></td>
+<td style="text-align: center">HUF</td>
+<td>Hungary Forint</td>
+</tr>
+<tr>
+<td><code class="prettyprint">71</code></td>
+<td style="text-align: center">JPY</td>
+<td>Japan Yen</td>
+</tr>
+<tr>
+<td><code class="prettyprint">8</code></td>
+<td style="text-align: center">NOK</td>
+<td>Norway Krone</td>
+</tr>
+<tr>
+<td><code class="prettyprint">237</code></td>
+<td style="text-align: center">PLN</td>
+<td>Poland Zloty</td>
+</tr>
+<tr>
+<td><code class="prettyprint">244</code></td>
+<td style="text-align: center">RUB</td>
+<td>Russian Ruble</td>
+</tr>
+<tr>
+<td><code class="prettyprint">9</code></td>
+<td style="text-align: center">SEK</td>
+<td>Sweden Krona</td>
+</tr>
+<tr>
+<td><code class="prettyprint">124</code></td>
+<td style="text-align: center">SGD</td>
+<td>Singapore Dollar</td>
+</tr>
+<tr>
+<td><code class="prettyprint">1</code></td>
+<td style="text-align: center">USD</td>
+<td>United States Dollar</td>
+</tr>
+</tbody></table>
+
+          <h1 id="paypal-country-codes">Paypal Country Codes</h1>
+
+<p>You can find all the Country Codes that are supported by Paypal at <a href="https://developer.paypal.com/docs/classic/api/country_codes/">this link</a>. </p>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="xml">xml</a>
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="java">java</a>
+                <a href="#" data-language-name="php">php</a>
+                <a href="#" data-language-name="net">net</a>
           </div>
       </div>
     </div>
