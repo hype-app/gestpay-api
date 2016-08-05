@@ -90,7 +90,8 @@ GestPay.SendPayment({
 			//Decrypt the Result.EncryptedString property to read the 
 			//transaction result
 		} else {
-			//An error has occurred, check ErrorCode and ErrorDescription //properties of the Result object
+			//An error has occurred, check ErrorCode and ErrorDescription 
+			//properties of the Result object
 		}
 });
 ```
