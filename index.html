@@ -1397,110 +1397,165 @@
 
           <h1 id="js_gestpay-js">js_GestPay.js</h1>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
+<blockquote>
+<p>To start using this feature, import the script:</p>
+</blockquote>
+<pre class="highlight html"><code> <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://ecomm.sella.it/pagam/JavaScript/js_GestPay.js"</span>
+    <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre>
 
-<p>WSCryptDecrypt web service is available on production and test servers and does not require any installation on the merchant’s server.</p>
+<blockquote>
+<p>Once the script is imported, it will do some security checks. You can see this with the <code class="prettyprint">BrowserEnabled</code> variable: </p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="k">if</span> <span class="p">(</span> <span class="nx">BrowserEnabled</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//The Browser is supported! </span>
+    <span class="c1">//Proceed to create the Payment page</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">//The browser is not supported </span>
+    <span class="c1">//Place here error handle code</span>
+<span class="p">}</span>
+</code></pre>
 
-<p>The merchant must implement – in the page(s) of the virtual store configured to handle payments – a call to the webservice which handles requests to use the GestPay encryption service.</p>
+<p>js_Gestpay.js is a javascript that enable you to process payments on your website, leaving you with the ability to completely design your custom payment page. </p>
 
-<p>To request the encryption service it is necessary to call the Encrypt method.</p>
+<p>To use the following functionalities, you should first call <a href="#encrypt">`<code class="prettyprint">WSCryptDecrypt.Encrypt</code> webservice</a>. </p>
 
-<p>If the encryption operation is concluded correctly (TransactionResult tag value with OK), the encrypted data string returned by GestPay will be available by reading the value of the CryptDecryptString tag.</p>
+<h2 id="createpaymentpage">CreatePaymentPage</h2>
 
-<p>If this is not the case, the values of the ErrorCode and ErrorDescription tag will make it possible to identify the reasons that prevented the encryption operation. To request the decryption service it is necessary to call the Decrypt method, passing the shopLogin and CryptedString tags with the values communicated by GestPay in Phase III.</p>
+<blockquote>
+<p>Syntax: </p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">CreatePaymentPage</span><span class="p">(</span>
+    <span class="nx">MerchantCode</span><span class="p">,</span> <span class="c1">//I.E. 90000001</span>
+    <span class="nx">EncryptedString</span><span class="p">,</span> <span class="c1">// "CFD3732BB102..." </span>
+    <span class="nx">PaymentPageLoad</span><span class="p">);</span> <span class="c1">// a callback to call on success</span>
+</code></pre>
 
-<p>The information containing the transaction result will be available by reading the information in the XML response file corresponding to the result of the transaction.</p>
+<blockquote>
+<p>Example: </p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">CreatePaymentPage</span><span class="p">(</span>
+    <span class="s1">'9000001'</span><span class="p">,</span> 
+    <span class="s1">'DcffrrnDNdjfnemfnermgnermNfdm,gnem/*ng'</span><span class="p">,</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span> 
+        <span class="k">if</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorCode</span> <span class="o">==</span> <span class="mi">10</span><span class="p">){</span> 
+            <span class="c1">//iFrame created and payment page correctly loaded</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">//An error has occurred, check ErrorCode and ErrorDescription</span>
+            <span class="c1">//properties of the Result object</span>
+        <span class="p">}</span> 
+    <span class="p">});</span>
+</code></pre>
 
-<h2 id="encrypt"> Encrypt</h2>
+<p>The first thing to do to accept payments securely is to call <code class="prettyprint">GestPay.CreatePaymentPage()</code>.</p>
 
-<p>Some of the information to communicate to GestPay is required in order to complete the payment process, while other information can be omitted without compromising the processing of the transaction. Through the GestPay Back Office environment, merchants can define what information is required and what information is optional.</p>
-
-<p>Some information that is essential to the payment process is configured as compulsory by GestPay. This attributes cannot be modified.</p>
-
-<p>The following table gives the information that must be communicated to GestPay xml using Encrypt method in order to make a transaction, the tags&rsquo; names are case sensitive.</p>
+<p>The function will create an hidden iFrame into the body element and will load the payment page passing the merchant code and the generated encrypted string from the previous phase. </p>
 
 <table><thead>
 <tr>
 <th>Name</th>
-<th style="text-align: center">max length</th>
+<th>Type</th>
 <th>description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong><code class="prettyprint">shopLogin</code></strong></td>
-<td style="text-align: center">30</td>
-<td>shopLogin (Mandatory)</td>
+<td>Merchant Code</td>
+<td><code class="prettyprint">string</code></td>
+<td>the code that identifies your shop.</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">uicCode</code></strong></td>
-<td style="text-align: center">3</td>
-<td>Code identifying currency in which transaction amount is denominated - see Currency Codes table TODO - (Mandatory)</td>
+<td>Encrypted String</td>
+<td><code class="prettyprint">string</code></td>
+<td>the string created with <code class="prettyprint">WSCryptEncrypt.Encrypt</code> webservice.</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">amount</code></strong></td>
-<td style="text-align: center">9</td>
-<td>Transaction amount. Do not insert thousands separator. Decimals, max. 2 numbers, are optional and separator is the point (Mandatory)</td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">shopTransactionID</code></strong></td>
-<td style="text-align: center">50</td>
-<td>Identifier attributed to merchant’s transaction (Mandatory)</td>
-</tr>
-<tr>
-<td><code class="prettyprint">buyerName</code></td>
-<td style="text-align: center">50</td>
-<td>Buyer’s name and surname</td>
-</tr>
-<tr>
-<td><code class="prettyprint">buyerEmail</code></td>
-<td style="text-align: center">50</td>
-<td>Buyer’s e-mail address</td>
-</tr>
-<tr>
-<td><code class="prettyprint">languageId</code></td>
-<td style="text-align: center">2</td>
-<td>Code identifying language used in communication with buyer</td>
-</tr>
-<tr>
-<td><code class="prettyprint">customInfo</code><sup><a href="#fn1" id="ref1">1</a></sup></td>
-<td style="text-align: center">1000</td>
-<td>String containing specific information as configured in the merchant’s profile</td>
-</tr>
-<tr>
-<td><code class="prettyprint">requestToken</code> <sup><a href="#fn2" id="ref2">2</a></sup></td>
-<td style="text-align: center">25</td>
-<td>“MASKEDPAN” for a Standard Token any other value for Custom Token. Using :FORCED: before the token, it&rsquo; s possible to have the token even if the transaction is not authorized.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">ppSellerProtection</code> <sup><a href="#fn3" id="ref3">2</a></sup></td>
-<td style="text-align: center">1</td>
-<td>Parameter to set the use of a confirmed addresses</td>
-</tr>
-<tr>
-<td><code class="prettyprint">shippingDetails</code>:</td>
-<td style="text-align: center"></td>
-<td></td>
-</tr>
-<tr>
-<td>alhoa</td>
-<td style="text-align: center"></td>
-<td></td>
+<td>callback</td>
+<td><code class="prettyprint">function</code></td>
+<td>the callback that will be called with the result</td>
 </tr>
 </tbody></table>
 
-<p><sup id="fn1">1. Each field can be up to a maximum of 300 characters in length.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup></p>
+<h2 id="sendpayment">SendPayment</h2>
 
-<p><sup id="fn2">2. Required only when a Token is needed within the transaction response. <br> In order to be able to request, obtain and use a Token, merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></sup></p>
+<h3 id="credit-card-authorization">Credit card authorization</h3>
 
-<p><sup id="fn3">3. <strong>PayPal Seller Protection parameter</strong>. In order to be able to activate the Seller Protection Option the merchants need to appropriately set &ldquo;Fields and Parameters&rdquo; in the dedicated section of GestPay Merchant Back Office.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a></sup></p>
+<blockquote>
+<p>syntax: </p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">SendPayment</span> <span class="p">({</span> 
+        <span class="na">CC</span> <span class="p">:</span> <span class="s1">''</span><span class="p">,</span> 
+        <span class="na">EXPMM</span> <span class="p">:</span><span class="s1">''</span><span class="p">,</span> 
+        <span class="na">EXPYY</span> <span class="p">:</span><span class="s1">''</span>
+        <span class="p">[,</span><span class="na">CVV2</span><span class="p">:</span><span class="s1">''</span><span class="p">]</span> <span class="c1">//optional </span>
+    <span class="p">},</span>
+    <span class="nx">callBackObj</span><span class="p">);</span>
+</code></pre>
 
-<p><sup id="fn4">4. <strong>Payment Systems Visibility</strong>. In order to be able to activate the Payment Systems Visibility the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The Payment System Visibility can be configured in the specific interface in the Back Office Merchant.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></sup></p>
+<blockquote>
+<p>example:</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">SendPayment</span><span class="p">({</span>
+        <span class="na">CC</span> <span class="p">:</span> <span class="s1">'44444444444444444'</span><span class="p">,</span> 
+        <span class="na">EXPMM</span> <span class="p">:</span> <span class="s1">'11'</span><span class="p">,</span>
+        <span class="na">EXPYY</span> <span class="p">:</span> <span class="s1">'14'</span> 
+    <span class="p">},</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErroCode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">//Transaction correctly processed</span>
+            <span class="c1">//Decrypt the Result.EncryptedString property to read the </span>
+            <span class="c1">//transaction result</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">//An error has occurred, check ErrorCode and ErrorDescription </span>
+            <span class="c1">//properties of the Result object</span>
+        <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
 
-<p><sup id="fn5">5. <strong>paymentTypeDetail</strong>. In order to be able to activate the payment Type Detail the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The correct merchant configuration of Sofort and Ideal has to be configured in the specific interface of Back Office Merchant.(1) Each field can be up to a maximum of 300 characters in length<a href="#ref5" title="Jump back to footnote 5 in the text.">↩</a></sup></p>
+<p>To send the credit card data to the hidden iFrame, the checkout page will assign a function to the <code class="prettyprint">OnSubimt</code> event of the credit card form, this function will retrieve the credit card data and will call the <code class="prettyprint">GestPay.SendPayment</code> method providing an object with the credit card number (<code class="prettyprint">CC</code>), the expiration month (<code class="prettyprint">EXPMM</code>) and the expiration year (<code class="prettyprint">EXPYY</code>), the CVV (<code class="prettyprint">CVV2</code>) if enabled, and a CallBack object. </p>
 
-<p><sup id="fn6">6. <strong>Line Items</strong>: in case the buyer selects PayPal as payment method in the payment page, fields Name, Description, Quantity and UnitPrice of every occurrency of the ProductDetail tag will be used to show the transaction items details in PayPal payment page.<a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a></sup></p>
+<p>The input is composed of two arguments: </p>
 
-<h2 id="decrypt">Decrypt</h2>
+<ul>
+<li>The object <code class="prettyprint">CCData</code>, with these fields</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Size</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">CC</code></td>
+<td>Credit card number</td>
+<td><code class="prettyprint">number</code></td>
+<td>min: 13, max: 19</td>
+</tr>
+<tr>
+<td><code class="prettyprint">EXPMM</code></td>
+<td>Expiration Month</td>
+<td><code class="prettyprint">number</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code class="prettyprint">EXPYY</code></td>
+<td>Expiration Year</td>
+<td><code class="prettyprint">number</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CVV2</code> (optional)</td>
+<td>Cvv/4DBC</td>
+<td><code class="prettyprint">number</code></td>
+<td>min:3, max:4</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>a callback function, to handle the output. </li>
+</ul>
 
           <h1 id="wss2s">WsS2S</h1>
 
