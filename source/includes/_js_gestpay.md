@@ -1,4 +1,4 @@
-# js_GestPay.js
+# js_GestPay.js API
 
 > To start using this feature, import the script:
 
@@ -29,18 +29,18 @@ To use the following functionalities, you should first call [``WSCryptDecrypt.En
 
 ```javascript
 GestPay.CreatePaymentPage(
-	MerchantCode, //I.E. 90000001
+	shopLogin, //I.E. 90000001
 	EncryptedString, // "CFD3732BB102..." 
-	PaymentPageLoad); // a callback to call on success
+	PaymentPageLoaded); // a callback to call on success
 ```
 
 > Example: 
 
 ```javascript
 GestPay.CreatePaymentPage(
-	'9000001', 
-	'DcffrrnDNdjfnemfnermgnermNfdm,gnem/*ng',
-	function (Result) { 
+	'9000001',  //shopLogin
+	'DcffrrnDNdjfnemfnermgnermNfdm,gnem/*ng', //EncryptedString 
+	function (Result) {  //callback 
 		if(Result.ErrorCode == 10){ 
 			//iFrame created and payment page correctly loaded
 		} else {
@@ -56,7 +56,7 @@ The function will create an hidden iFrame into the body element and will load th
 
 Name | Type | description
 -----|------| -------------
-Merchant Code | `string` | the code that identifies your shop. 
+Shop Login | `string` | the code that identifies your shop. 
 Encrypted String | `string` | the string created with `WSCryptEncrypt.Encrypt` webservice. 
 callback | `function` | the callback that will be called with the result
 
@@ -68,10 +68,10 @@ callback | `function` | the callback that will be called with the result
 
 ```javascript
 GestPay.SendPayment ({ 
-		CC : '', 
-		EXPMM :'', 
-		EXPYY :''
-		[,CVV2:''] //optional 
+		CC    : '', 
+		EXPMM : '', 
+		EXPYY : '', 
+		CVV2 : '' //optional 
 	},
 	callBackObj);
 ```
@@ -110,3 +110,7 @@ Name | Description | Type | Size
 `CVV2` (optional) | Cvv/4DBC | `number` | min:3, max:4 
 
 - a callback function, to handle the output. 
+
+<aside class="warning">To free the Shop from the need to comply with PCI Security standard, the OnSubmit event of the Credit card form must avoid to postback the data to the checkout page! </aside>
+
+
