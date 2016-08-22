@@ -113,4 +113,100 @@ Name | Description | Type | Size
 
 <aside class="warning">To free the Shop from the need to comply with PCI Security standard, the OnSubmit event of the Credit card form must avoid to postback the data to the checkout page! </aside>
 
+### Call after 3D Authentication 
+
+> Syntax: 
+
+```javascript
+GestPay.SendPayment({
+		PARes : '', 
+		TransKey : ''
+	},  
+	callbackFunction
+});
+```
+
+> Example:
+
+```javascript
+GestPay.SendPayment ({
+	PARes : 'xMNjdsre23214hjksBBDsjkrhewGSD/*dwhjdkhawNDAHDGUY', 
+	TransKey : 'eFtstSStefgd23432'
+	},
+	function (Result) {
+		if(Result.ErroCode == 0){
+			// Transaction correctly processed ! 
+			// Decrypt the Result.EncryptedString property to read the 
+			// transaction result
+		}else{
+			// An error has occurred, check ErrorCode and ErrorDescription
+			// properties of the Result object
+		}
+});
+``` 
+
+If during the first `SendPayment` call `Result.ErrorCode == 8006`, you should redirect the user to the `pagam3d.aspx` page. You can read about the process at this link: [Customizing the payment page](https://hype-app.github.io/gestpay-doc/pay/customizing-the-payment-page.html). 
+
+
+When card holder is verified and authorized, you have to re-call `SendPayment()` with some new parameters: 
+
+- `CCData` (`object`)
+	- `PARes` (`string`)
+	- `TransKey` (`string`)
+- callback (`function`) 
+
+
+## the Result Object 
+
+> Example: Merchant not 3D enabled or credit card not enrolled. 
+
+```javascript
+LocalObj.CallBack = function(Result){ 
+	if ( Result.ErrorCode != 0 ) {
+		//Call failed an error has occurred 
+		//.... place here error handle code...
+	} else {
+ 		// Transaction correctly processed proceed to decrypt the
+		// Result.EncryptedResponse property
+	} 
+}
+```
+
+> Example: Merchant 3D enabled and 3D enrolled credit card
+
+```javascript
+LocalObj.CallBack = function (Result) { 
+	if (Result.ErrorCode != 0){
+		if (Result.ErrorCode == 8006){
+			//3D Transaction - Card holder authorization required 
+			//Get the TransKey
+			//NOTE you have to store this value in your server for 
+			//further use
+			var TransKey = Result.TransKey;
+			//Get the VBVRisp
+			var VBVRisp = Result.VBVRisp;
+			//place here the code to redirect the card holder to the 
+			//authentication website
+		} else {
+			//Call failed an error has occurred 
+			//.... place here error handle code...
+		} 
+	} else {
+		//Transaction correctly processed proceed to decrypt the //Result.EncryptedResponse property
+	}
+}
+```
+
+
+When callbacks are executed, the `Result` object will contain useful properties, needed to understand if an error has occurred.
+
+| name | description |
+| ---- | ----------- | 
+| `Result.ErrorCode` | the error code |
+| `Result.ErrorDescription` | the error description |
+| `Result.EncryptedResponse` | returns the encrypted response string |
+| `Result.TransKey` | return the `TransKey` in case of 3D enrolled credit card |
+| `Result.VBVRisp` | return the ciphered string needed for the cardholder authentication in case of 3D enrolled credit card |
+
+The GestPay.SendPayment() function will send an asynchronous call to the hidden iFrame windows, the CallBack object will retrieve the Result object once the transaction result is thrown from the hidden payment page.
 
