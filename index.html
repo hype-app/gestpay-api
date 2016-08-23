@@ -159,7 +159,25 @@
 </tr>
 </tbody></table>
 
-          <h1 id="wscryptdecrypt">WSCryptDecrypt</h1>
+          <h1 id="wscryptdecrypt-api">WSCryptDecrypt API</h1>
+
+<p>GestPay <code class="prettyprint">WsCryptDecrypt</code> web service is exposed by GestPay at following URLs: </p>
+
+<table><thead>
+<tr>
+<th>environment</th>
+<th>URL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>test</td>
+<td><code class="prettyprint">https://testecomm.sella.it/gestpay/GestPayWS/WsCryptDecrypt.asmx?wsdl</code></td>
+</tr>
+<tr>
+<td>production</td>
+<td><code class="prettyprint">https://ecommS2S.sella.it/gestpay/GestPayWS/WsCryptDecrypt.asmx?wsdl</code></td>
+</tr>
+</tbody></table>
 
 <p>WSCryptDecrypt web service is available on production and test servers and does not require any installation on the merchant’s server.</p>
 
@@ -167,9 +185,9 @@
 
 <p>To request the encryption service it is necessary to call the Encrypt method.</p>
 
-<p>If the encryption operation is concluded correctly (TransactionResult tag value with OK), the encrypted data string returned by GestPay will be available by reading the value of the CryptDecryptString tag.</p>
+<p>If the encryption operation is concluded correctly (<code class="prettyprint">TransactionResult</code> tag value with OK), the encrypted data string returned by GestPay will be available by reading the value of the <code class="prettyprint">CryptDecryptString</code> tag.</p>
 
-<p>If this is not the case, the values of the ErrorCode and ErrorDescription tag will make it possible to identify the reasons that prevented the encryption operation. To request the decryption service it is necessary to call the Decrypt method, passing the shopLogin and CryptedString tags with the values communicated by GestPay in Phase III.</p>
+<p>If not, the values of the <code class="prettyprint">ErrorCode</code> and <code class="prettyprint">ErrorDescription</code> tag will make it possible to identify the reasons that prevented the encryption operation. To request the decryption service it is necessary to call the <code class="prettyprint">Decrypt</code> method, passing the <code class="prettyprint">shopLogin</code> and <code class="prettyprint">CryptedString</code> tags with the values communicated by GestPay.</p>
 
 <p>The information containing the transaction result will be available by reading the information in the XML response file corresponding to the result of the transaction.</p>
 
@@ -205,7 +223,7 @@
 <tr>
 <td><strong><code class="prettyprint">uicCode</code></strong></td>
 <td style="text-align: center">3</td>
-<td>Code identifying currency in which transaction amount is denominated - see <a href="#currency-codes">Currency Codes</a> table - (Mandatory)</td>
+<td>Code identifying currency in which transaction amount is denominated - see <a href="#currency-codes">Currency Codes table</a> - (Mandatory)</td>
 </tr>
 <tr>
 <td><strong><code class="prettyprint">amount</code></strong></td>
@@ -1395,7 +1413,7 @@
 </tr>
 </tbody></table>
 
-          <h1 id="js_gestpay-js">js_GestPay.js</h1>
+          <h1 id="js_gestpay-js-api">js_GestPay.js API</h1>
 
 <blockquote>
 <p>To start using this feature, import the script:</p>
@@ -1426,18 +1444,18 @@
 <p>Syntax: </p>
 </blockquote>
 <pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">CreatePaymentPage</span><span class="p">(</span>
-    <span class="nx">MerchantCode</span><span class="p">,</span> <span class="c1">//I.E. 90000001</span>
+    <span class="nx">shopLogin</span><span class="p">,</span> <span class="c1">//I.E. 90000001</span>
     <span class="nx">EncryptedString</span><span class="p">,</span> <span class="c1">// "CFD3732BB102..." </span>
-    <span class="nx">PaymentPageLoad</span><span class="p">);</span> <span class="c1">// a callback to call on success</span>
+    <span class="nx">PaymentPageLoaded</span><span class="p">);</span> <span class="c1">// a callback to call on success</span>
 </code></pre>
 
 <blockquote>
 <p>Example: </p>
 </blockquote>
 <pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">CreatePaymentPage</span><span class="p">(</span>
-    <span class="s1">'9000001'</span><span class="p">,</span> 
-    <span class="s1">'DcffrrnDNdjfnemfnermgnermNfdm,gnem/*ng'</span><span class="p">,</span>
-    <span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="s1">'9000001'</span><span class="p">,</span>  <span class="c1">//shopLogin</span>
+    <span class="s1">'DcffrrnDNdjfnemfnermgnermNfdm,gnem/*ng'</span><span class="p">,</span> <span class="c1">//EncryptedString </span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">//callback </span>
         <span class="k">if</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorCode</span> <span class="o">==</span> <span class="mi">10</span><span class="p">){</span> 
             <span class="c1">//iFrame created and payment page correctly loaded</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -1459,7 +1477,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>Merchant Code</td>
+<td>Shop Login</td>
 <td><code class="prettyprint">string</code></td>
 <td>the code that identifies your shop.</td>
 </tr>
@@ -1483,10 +1501,10 @@
 <p>syntax: </p>
 </blockquote>
 <pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">SendPayment</span> <span class="p">({</span> 
-        <span class="na">CC</span> <span class="p">:</span> <span class="s1">''</span><span class="p">,</span> 
-        <span class="na">EXPMM</span> <span class="p">:</span><span class="s1">''</span><span class="p">,</span> 
-        <span class="na">EXPYY</span> <span class="p">:</span><span class="s1">''</span>
-        <span class="p">[,</span><span class="na">CVV2</span><span class="p">:</span><span class="s1">''</span><span class="p">]</span> <span class="c1">//optional </span>
+        <span class="na">CC</span>    <span class="p">:</span> <span class="s1">''</span><span class="p">,</span> 
+        <span class="na">EXPMM</span> <span class="p">:</span> <span class="s1">''</span><span class="p">,</span> 
+        <span class="na">EXPYY</span> <span class="p">:</span> <span class="s1">''</span><span class="p">,</span> 
+        <span class="na">CVV2</span> <span class="p">:</span> <span class="s1">''</span> <span class="c1">//optional </span>
     <span class="p">},</span>
     <span class="nx">callBackObj</span><span class="p">);</span>
 </code></pre>
@@ -1557,168 +1575,1176 @@
 <li>a callback function, to handle the output. </li>
 </ul>
 
-          <h1 id="wss2s">WsS2S</h1>
+<aside class="warning">To free the Shop from the need to comply with PCI Security standard, the OnSubmit event of the Credit card form must avoid to postback the data to the checkout page! </aside>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
+<h3 id="call-after-3d-authentication">Call after 3D Authentication</h3>
 
-<p>WSCryptDecrypt web service is available on production and test servers and does not require any installation on the merchant’s server.</p>
+<blockquote>
+<p>Syntax: </p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">SendPayment</span><span class="p">({</span>
+        <span class="na">PARes</span> <span class="p">:</span> <span class="s1">''</span><span class="p">,</span> 
+        <span class="na">TransKey</span> <span class="p">:</span> <span class="s1">''</span>
+    <span class="p">},</span>  
+    <span class="nx">callbackFunction</span>
+<span class="p">});</span>
+</code></pre>
 
-<p>The merchant must implement – in the page(s) of the virtual store configured to handle payments – a call to the webservice which handles requests to use the GestPay encryption service.</p>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">SendPayment</span> <span class="p">({</span>
+    <span class="na">PARes</span> <span class="p">:</span> <span class="s1">'xMNjdsre23214hjksBBDsjkrhewGSD/*dwhjdkhawNDAHDGUY'</span><span class="p">,</span> 
+    <span class="na">TransKey</span> <span class="p">:</span> <span class="s1">'eFtstSStefgd23432'</span>
+    <span class="p">},</span>
+    <span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErroCode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="c1">// Transaction correctly processed ! </span>
+            <span class="c1">// Decrypt the Result.EncryptedString property to read the </span>
+            <span class="c1">// transaction result</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="c1">// An error has occurred, check ErrorCode and ErrorDescription</span>
+            <span class="c1">// properties of the Result object</span>
+        <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
 
-<p>To request the encryption service it is necessary to call the Encrypt method.</p>
+<p>If during the first <code class="prettyprint">SendPayment</code> call <code class="prettyprint">Result.ErrorCode == 8006</code>, you should redirect the user to the <code class="prettyprint">pagam3d.aspx</code> page. You can read about the process at this link: <a href="https://hype-app.github.io/gestpay-doc/pay/customizing-the-payment-page.html">Customizing the payment page</a>. </p>
 
-<p>If the encryption operation is concluded correctly (TransactionResult tag value with OK), the encrypted data string returned by GestPay will be available by reading the value of the CryptDecryptString tag.</p>
+<p>When card holder is verified and authorized, you have to re-call <code class="prettyprint">SendPayment()</code> with some new parameters: </p>
 
-<p>If this is not the case, the values of the ErrorCode and ErrorDescription tag will make it possible to identify the reasons that prevented the encryption operation. To request the decryption service it is necessary to call the Decrypt method, passing the shopLogin and CryptedString tags with the values communicated by GestPay in Phase III.</p>
+<ul>
+<li><code class="prettyprint">CCData</code> (<code class="prettyprint">object</code>)
 
-<p>The information containing the transaction result will be available by reading the information in the XML response file corresponding to the result of the transaction.</p>
+<ul>
+<li><code class="prettyprint">PARes</code> (<code class="prettyprint">string</code>)</li>
+<li><code class="prettyprint">TransKey</code> (<code class="prettyprint">string</code>)</li>
+</ul></li>
+<li>callback (<code class="prettyprint">function</code>) </li>
+</ul>
 
-<h2 id="encrypt"> Encrypt</h2>
+<h2 id="the-result-object"> the Result Object</h2>
 
-<p>Some of the information to communicate to GestPay is required in order to complete the payment process, while other information can be omitted without compromising the processing of the transaction. Through the GestPay Back Office environment, merchants can define what information is required and what information is optional.</p>
+<blockquote>
+<p>Example: Merchant not 3D enabled or credit card not enrolled. </p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">LocalObj</span><span class="p">.</span><span class="nx">CallBack</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Result</span><span class="p">){</span> 
+    <span class="k">if</span> <span class="p">(</span> <span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorCode</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//Call failed an error has occurred </span>
+        <span class="c1">//.... place here error handle code...</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// Transaction correctly processed proceed to decrypt the</span>
+        <span class="c1">// Result.EncryptedResponse property</span>
+    <span class="p">}</span> 
+<span class="p">}</span>
+</code></pre>
 
-<p>Some information that is essential to the payment process is configured as compulsory by GestPay. This attributes cannot be modified.</p>
+<blockquote>
+<p>Example: Merchant 3D enabled and 3D enrolled credit card</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">LocalObj</span><span class="p">.</span><span class="nx">CallBack</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="k">if</span> <span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorCode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorCode</span> <span class="o">==</span> <span class="mi">8006</span><span class="p">){</span>
+            <span class="c1">//3D Transaction - Card holder authorization required </span>
+            <span class="c1">//Get the TransKey</span>
+            <span class="c1">//NOTE you have to store this value in your server for </span>
+            <span class="c1">//further use</span>
+            <span class="kd">var</span> <span class="nx">TransKey</span> <span class="o">=</span> <span class="nx">Result</span><span class="p">.</span><span class="nx">TransKey</span><span class="p">;</span>
+            <span class="c1">//Get the VBVRisp</span>
+            <span class="kd">var</span> <span class="nx">VBVRisp</span> <span class="o">=</span> <span class="nx">Result</span><span class="p">.</span><span class="nx">VBVRisp</span><span class="p">;</span>
+            <span class="c1">//place here the code to redirect the card holder to the </span>
+            <span class="c1">//authentication website</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">//Call failed an error has occurred </span>
+            <span class="c1">//.... place here error handle code...</span>
+        <span class="p">}</span> 
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">//Transaction correctly processed proceed to decrypt the //Result.EncryptedResponse property</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
 
-<p>The following table gives the information that must be communicated to GestPay xml using Encrypt method in order to make a transaction, the tags&rsquo; names are case sensitive.</p>
+<p>When callbacks are executed, the <code class="prettyprint">Result</code> object will contain useful properties, needed to understand if an error has occurred.</p>
 
 <table><thead>
 <tr>
-<th>Name</th>
-<th style="text-align: center">max length</th>
+<th>name</th>
 <th>description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><strong><code class="prettyprint">shopLogin</code></strong></td>
-<td style="text-align: center">30</td>
-<td>shopLogin (Mandatory)</td>
+<td><code class="prettyprint">Result.ErrorCode</code></td>
+<td>the error code</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">uicCode</code></strong></td>
-<td style="text-align: center">3</td>
-<td>Code identifying currency in which transaction amount is denominated - see Currency Codes table TODO - (Mandatory)</td>
+<td><code class="prettyprint">Result.ErrorDescription</code></td>
+<td>the error description</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">amount</code></strong></td>
-<td style="text-align: center">9</td>
-<td>Transaction amount. Do not insert thousands separator. Decimals, max. 2 numbers, are optional and separator is the point (Mandatory)</td>
+<td><code class="prettyprint">Result.EncryptedResponse</code></td>
+<td>returns the encrypted response string</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">shopTransactionID</code></strong></td>
-<td style="text-align: center">50</td>
-<td>Identifier attributed to merchant’s transaction (Mandatory)</td>
+<td><code class="prettyprint">Result.TransKey</code></td>
+<td>return the <code class="prettyprint">TransKey</code> in case of 3D enrolled credit card</td>
 </tr>
 <tr>
-<td><code class="prettyprint">buyerName</code></td>
-<td style="text-align: center">50</td>
-<td>Buyer’s name and surname</td>
-</tr>
-<tr>
-<td><code class="prettyprint">buyerEmail</code></td>
-<td style="text-align: center">50</td>
-<td>Buyer’s e-mail address</td>
-</tr>
-<tr>
-<td><code class="prettyprint">languageId</code></td>
-<td style="text-align: center">2</td>
-<td>Code identifying language used in communication with buyer</td>
-</tr>
-<tr>
-<td><code class="prettyprint">customInfo</code><sup><a href="#fn1" id="ref1">1</a></sup></td>
-<td style="text-align: center">1000</td>
-<td>String containing specific information as configured in the merchant’s profile</td>
-</tr>
-<tr>
-<td><code class="prettyprint">requestToken</code> <sup><a href="#fn2" id="ref2">2</a></sup></td>
-<td style="text-align: center">25</td>
-<td>“MASKEDPAN” for a Standard Token any other value for Custom Token. Using :FORCED: before the token, it&rsquo; s possible to have the token even if the transaction is not authorized.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">ppSellerProtection</code> <sup><a href="#fn3" id="ref3">2</a></sup></td>
-<td style="text-align: center">1</td>
-<td>Parameter to set the use of a confirmed addresses</td>
-</tr>
-<tr>
-<td><code class="prettyprint">shippingDetails</code>:</td>
-<td style="text-align: center"></td>
-<td></td>
-</tr>
-<tr>
-<td>alhoa</td>
-<td style="text-align: center"></td>
-<td></td>
+<td><code class="prettyprint">Result.VBVRisp</code></td>
+<td>return the ciphered string needed for the cardholder authentication in case of 3D enrolled credit card</td>
 </tr>
 </tbody></table>
 
-<p><sup id="fn1">1. Each field can be up to a maximum of 300 characters in length.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup></p>
+<p>The GestPay.SendPayment() function will send an asynchronous call to the hidden iFrame windows, the CallBack object will retrieve the Result object once the transaction result is thrown from the hidden payment page.</p>
 
-<p><sup id="fn2">2. Required only when a Token is needed within the transaction response. <br> In order to be able to request, obtain and use a Token, merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></sup></p>
+          <h1 id="wss2s-api">WsS2S API</h1>
 
-<p><sup id="fn3">3. <strong>PayPal Seller Protection parameter</strong>. In order to be able to activate the Seller Protection Option the merchants need to appropriately set &ldquo;Fields and Parameters&rdquo; in the dedicated section of GestPay Merchant Back Office.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a></sup></p>
-
-<p><sup id="fn4">4. <strong>Payment Systems Visibility</strong>. In order to be able to activate the Payment Systems Visibility the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The Payment System Visibility can be configured in the specific interface in the Back Office Merchant.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></sup></p>
-
-<p><sup id="fn5">5. <strong>paymentTypeDetail</strong>. In order to be able to activate the payment Type Detail the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The correct merchant configuration of Sofort and Ideal has to be configured in the specific interface of Back Office Merchant.(1) Each field can be up to a maximum of 300 characters in length<a href="#ref5" title="Jump back to footnote 5 in the text.">↩</a></sup></p>
-
-<p><sup id="fn6">6. <strong>Line Items</strong>: in case the buyer selects PayPal as payment method in the payment page, fields Name, Description, Quantity and UnitPrice of every occurrency of the ProductDetail tag will be used to show the transaction items details in PayPal payment page.<a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a></sup></p>
-
-<h2 id="decrypt">Decrypt</h2>
+<p>qui metteremo le cose di S2S.</p>
 
           <h1 id="errors">Errors</h1>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<aside class="notice">The error codes returned by GestPay are constantly updated.</aside>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Code</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
+<td>0</td>
+<td>Transaction correctly processed</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Payment page correctly loaded</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Blocked credit card</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Confirmed amount exceeds authorized amount</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Demand for settlement of one nonexistent transaction</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Expired preauthorization</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Wrong currency</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Preauthorization already notified</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Transaction interrupted by bank authorizative system</td>
+</tr>
+<tr>
+<td>150</td>
+<td>Wrong merchant configuration in bank authorizative system</td>
+</tr>
+<tr>
+<td>208</td>
+<td>Wrong expiry date</td>
+</tr>
+<tr>
+<td>212</td>
+<td>Bank authorizative system not available</td>
+</tr>
+<tr>
+<td>251</td>
+<td>Insufficient credit</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
+<td>Call credit card company</td>
+</tr>
+<tr>
+<td>402</td>
+<td>Call credit card company</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+<td>Technical error</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
+<td>Collect card</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
+<td>Authorization refused by credit card companies</td>
 </tr>
 <tr>
 <td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
+<td>Technical error</td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
+<td>409</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>412</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>413</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>414</td>
+<td>Card not recognized</td>
+</tr>
+<tr>
+<td>415</td>
+<td>Technical error in connection with Credit Card Company network</td>
+</tr>
+<tr>
+<td>416</td>
+<td>Pin errato</td>
+</tr>
+<tr>
+<td>417</td>
+<td>Authorization denied</td>
 </tr>
 <tr>
 <td>418</td>
-<td>I&rsquo;m a teapot</td>
+<td>Network not available</td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
+<td>419</td>
+<td>Wrong transaction date</td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+<td>420</td>
+<td>Wrong card date</td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+<td>430</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>431</td>
+<td>Technical error in connection with Credit Card Company network</td>
+</tr>
+<tr>
+<td>433</td>
+<td>Card expired</td>
+</tr>
+<tr>
+<td>434</td>
+<td>Authorization refused by credit card companies</td>
+</tr>
+<tr>
+<td>435</td>
+<td>Authorization refused by credit card companies</td>
+</tr>
+<tr>
+<td>436</td>
+<td>Card not qualified</td>
+</tr>
+<tr>
+<td>437</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>438</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>950</td>
+<td>Not qualified credit card</td>
+</tr>
+<tr>
+<td>951</td>
+<td>Wrong merchant configuration in bank authorizative system</td>
+</tr>
+<tr>
+<td>998</td>
+<td>Credit card with wrong check-digit</td>
+</tr>
+<tr>
+<td>999</td>
+<td>Operation not performed</td>
+</tr>
+<tr>
+<td>1100</td>
+<td>Empty parameter string</td>
+</tr>
+<tr>
+<td>1101</td>
+<td>Invalid format of parameter string</td>
+</tr>
+<tr>
+<td>1102</td>
+<td>No parameter name precedes = symbol</td>
+</tr>
+<tr>
+<td>1103</td>
+<td>Parameter string ending with a separator</td>
+</tr>
+<tr>
+<td>1104</td>
+<td>Invalid parameter name</td>
+</tr>
+<tr>
+<td>1105</td>
+<td>Invalid parameter value</td>
+</tr>
+<tr>
+<td>1106</td>
+<td>Repeated parameter name</td>
+</tr>
+<tr>
+<td>1107</td>
+<td>Unexpected parameter name. Please double check Fields and Parameters configuration in Back Office.</td>
+</tr>
+<tr>
+<td>1108</td>
+<td>Compulsory parameter not set</td>
+</tr>
+<tr>
+<td>1109</td>
+<td>Missing parameter</td>
+</tr>
+<tr>
+<td>1110</td>
+<td>Missing PAY1_UICCODE parameter</td>
+</tr>
+<tr>
+<td>1111</td>
+<td>Invalid currency code</td>
+</tr>
+<tr>
+<td>1112</td>
+<td>Missing PAY1_AMOUNT parameter</td>
+</tr>
+<tr>
+<td>1113</td>
+<td>Not numeric amount</td>
+</tr>
+<tr>
+<td>1114</td>
+<td>Amount with a wrong number of decimal digits</td>
+</tr>
+<tr>
+<td>1115</td>
+<td>Missing P A Y1_SHOPTRANSACTIONID parameter</td>
+</tr>
+<tr>
+<td>1116</td>
+<td>Too long P A Y1_SHOPTRANSACTIONID parameter</td>
+</tr>
+<tr>
+<td>1117</td>
+<td>Invalid language identifier</td>
+</tr>
+<tr>
+<td>1118</td>
+<td>Not numeric characters in credit card number</td>
+</tr>
+<tr>
+<td>1119</td>
+<td>Credit card number with wrong length</td>
+</tr>
+<tr>
+<td>1120</td>
+<td>Credit card with wrong check-digit</td>
+</tr>
+<tr>
+<td>1121</td>
+<td>Credit card belongs to a Company not enabled</td>
+</tr>
+<tr>
+<td>1122</td>
+<td>Expiry year without expiry month</td>
+</tr>
+<tr>
+<td>1123</td>
+<td>Expiry month without expiry year</td>
+</tr>
+<tr>
+<td>1124</td>
+<td>Invalid expiry month</td>
+</tr>
+<tr>
+<td>1125</td>
+<td>Invalid expiry year</td>
+</tr>
+<tr>
+<td>1126</td>
+<td>Expired expiry date</td>
+</tr>
+<tr>
+<td>1127</td>
+<td>Invalid cardholder email address</td>
+</tr>
+<tr>
+<td>1128</td>
+<td>Too long parameter string</td>
+</tr>
+<tr>
+<td>1129</td>
+<td>Too long parameter value</td>
+</tr>
+<tr>
+<td>1130</td>
+<td>Not accepted call: missing parameter A</td>
+</tr>
+<tr>
+<td>1131</td>
+<td>Not accepted call: Shop not recognized</td>
+</tr>
+<tr>
+<td>1132</td>
+<td>Not accepted call: shop is not in active state</td>
+</tr>
+<tr>
+<td>1133</td>
+<td>Not accepted call: missing parameter B</td>
+</tr>
+<tr>
+<td>1134</td>
+<td>Not accepted call: empty parameter B</td>
+</tr>
+<tr>
+<td>1135</td>
+<td>Not accepted call: other parameters beside A and B are present</td>
+</tr>
+<tr>
+<td>1136</td>
+<td>Not accepted call: transaction did not begin with a call to server-server cryptography system</td>
+</tr>
+<tr>
+<td>1137</td>
+<td>Not accepted call: transaction already processed before</td>
+</tr>
+<tr>
+<td>1138</td>
+<td>Not accepted call: card number or expiry date are missing</td>
+</tr>
+<tr>
+<td>1139</td>
+<td>Not accepted call: missing published payment page</td>
+</tr>
+<tr>
+<td>1140</td>
+<td>Transaction cancelled by buyer</td>
+</tr>
+<tr>
+<td>1141</td>
+<td>Not accepted call: input parameter string not acceptable</td>
+</tr>
+<tr>
+<td>1142</td>
+<td>Not accepted call: invalid IP Address</td>
+</tr>
+<tr>
+<td>1143</td>
+<td>Transaction abandoned by buyer</td>
+</tr>
+<tr>
+<td>1144</td>
+<td>Compulsory field not set</td>
+</tr>
+<tr>
+<td>1145</td>
+<td>Invalid OTP</td>
+</tr>
+<tr>
+<td>1146</td>
+<td>Too small amount</td>
+</tr>
+<tr>
+<td>1147</td>
+<td>Too big amount</td>
+</tr>
+<tr>
+<td>1148</td>
+<td>Invalid cardholder name</td>
+</tr>
+<tr>
+<td>1149</td>
+<td>Missing or wrong CVV2</td>
+</tr>
+<tr>
+<td>1150</td>
+<td>IPIN must be set</td>
+</tr>
+<tr>
+<td>1151</td>
+<td>Parameters error</td>
+</tr>
+<tr>
+<td>1153</td>
+<td>GestPay failed to verify if the card is enrolled to VBV service</td>
+</tr>
+<tr>
+<td>1154</td>
+<td>Not accepterd call: missing parameter TransKey</td>
+</tr>
+<tr>
+<td>1160</td>
+<td>Wrong CustomToken length</td>
+</tr>
+<tr>
+<td>1161</td>
+<td>Wrong CustomToken digits number</td>
+</tr>
+<tr>
+<td>1162</td>
+<td>CustomToken with illegal characters</td>
+</tr>
+<tr>
+<td>1163</td>
+<td>CustomToken used for another card</td>
+</tr>
+<tr>
+<td>1164</td>
+<td>Expired Token</td>
+</tr>
+<tr>
+<td>1165</td>
+<td>Token not found</td>
+</tr>
+<tr>
+<td>1200</td>
+<td>No match between ABI code and BankPass Banks</td>
+</tr>
+<tr>
+<td>1201</td>
+<td>BankPass Transaction abandoned by buyer</td>
+</tr>
+<tr>
+<td>1202</td>
+<td>BankPass - Buyer login failed</td>
+</tr>
+<tr>
+<td>1203</td>
+<td>BankPass - no payment methods available</td>
+</tr>
+<tr>
+<td>1204</td>
+<td>BankPass - technical error</td>
+</tr>
+<tr>
+<td>1205</td>
+<td>BankPass Server-Server: URL Return must be set</td>
+</tr>
+<tr>
+<td>1206</td>
+<td>BankPass Server-Server: too long URL Return (max 250 char)</td>
+</tr>
+<tr>
+<td>1207</td>
+<td>BankPass Server-Server: invalid URL Return (it must begin with http:// or https://)</td>
+</tr>
+<tr>
+<td>1208</td>
+<td>BankPass Server-Server: URL Return parameter missing</td>
+</tr>
+<tr>
+<td>1209</td>
+<td>BankPass Server-Server: IDBankPass must be set</td>
+</tr>
+<tr>
+<td>1210</td>
+<td>BankPass Server-Server: invalid IDBankPass</td>
+</tr>
+<tr>
+<td>1300</td>
+<td>Shipping Address Country Error</td>
+</tr>
+<tr>
+<td>1301</td>
+<td>Shipping Address1 Empty</td>
+</tr>
+<tr>
+<td>1302</td>
+<td>Shipping Address City Empty</td>
+</tr>
+<tr>
+<td>1303</td>
+<td>Shipping Address State Empty</td>
+</tr>
+<tr>
+<td>1304</td>
+<td>Shipping Address Postal Code Empty</td>
+</tr>
+<tr>
+<td>1305</td>
+<td>Shipping Address Country Empty</td>
+</tr>
+<tr>
+<td>1306</td>
+<td>Shipping Address Invalid City State Postal Code</td>
+</tr>
+<tr>
+<td>1987</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>1999</td>
+<td>Technical error in connection with Credit Card Company network</td>
+</tr>
+<tr>
+<td>2000</td>
+<td>Transaction exceeds maximum operations number in time period</td>
+</tr>
+<tr>
+<td>2001</td>
+<td>Transaction exceeds maximum number of operations performed by the same buyer in time period</td>
+</tr>
+<tr>
+<td>2002</td>
+<td>Transaction exceeds maximum amount in time period</td>
+</tr>
+<tr>
+<td>2003</td>
+<td>Transaction exceeds maximum amount payable by same buyer in time period</td>
+</tr>
+<tr>
+<td>2004</td>
+<td>Transaction contains a field value that had been declared not acceptable</td>
+</tr>
+<tr>
+<td>2005</td>
+<td>Buyer abandoned the transaction because it was double</td>
+</tr>
+<tr>
+<td>2006</td>
+<td>Wrong line length</td>
+</tr>
+<tr>
+<td>2007</td>
+<td>Wrong value in SHOPTRANSACTIONID field</td>
+</tr>
+<tr>
+<td>2008</td>
+<td>Wrong value in CURRENCY field</td>
+</tr>
+<tr>
+<td>2009</td>
+<td>Wrong value in AMOUNT field</td>
+</tr>
+<tr>
+<td>2010</td>
+<td>Wrong value in AUTHORIZATION DATE field</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Transaction not found</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>Transaction ambiguous</td>
+</tr>
+<tr>
+<td>2013</td>
+<td>Text file contains more rows related to the same transaction</td>
+</tr>
+<tr>
+<td>2014</td>
+<td>You requested a refund operation with an amount exceeding transaction balance</td>
+</tr>
+<tr>
+<td>2015</td>
+<td>Wrong value in BANKTRANSACTIONID field</td>
+</tr>
+<tr>
+<td>2016</td>
+<td>Fields BANKTRANSACTIONID and SHOPTRANSACTIONID are empty</td>
+</tr>
+<tr>
+<td>2017</td>
+<td>Transaction can not be deleted</td>
+</tr>
+<tr>
+<td>2018</td>
+<td>Transaction can not be refunded</td>
+</tr>
+<tr>
+<td>2019</td>
+<td>Transaction can not be settled</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>Transaction can not be renounced</td>
+</tr>
+<tr>
+<td>2030</td>
+<td>Due to RED configuration, transaction is sent to credit card companies, even if 3d-Secure authentication is failed</td>
+</tr>
+<tr>
+<td>4001</td>
+<td>Unexpected parameter value</td>
+</tr>
+<tr>
+<td>4002</td>
+<td>Not numeric parameter value</td>
+</tr>
+<tr>
+<td>4100</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>4101</td>
+<td>Credit card number with wrong length</td>
+</tr>
+<tr>
+<td>4102</td>
+<td>Amount not available</td>
+</tr>
+<tr>
+<td>4103</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4104</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4105</td>
+<td>Technical</td>
+</tr>
+<tr>
+<td>4106</td>
+<td>Technical</td>
+</tr>
+<tr>
+<td>4108</td>
+<td>Technical error in connection with Credit Card Company network error</td>
+</tr>
+<tr>
+<td>4109</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4200</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4201</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4202</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4203</td>
+<td>Call credit card company</td>
+</tr>
+<tr>
+<td>4204</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>4205</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>4206</td>
+<td>Credit card with wrong check-digit. Please double-check the credit card number typed in.</td>
+</tr>
+<tr>
+<td>4207</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4208</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>4209</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4300</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4301</td>
+<td>Too big amount</td>
+</tr>
+<tr>
+<td>4302</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4303</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>4304</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4305</td>
+<td>Authorization refused by credit card companies</td>
+</tr>
+<tr>
+<td>4306</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>4307</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4308</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>4309</td>
+<td>Too big amount</td>
+</tr>
+<tr>
+<td>4400</td>
+<td>Wrong transaction date</td>
+</tr>
+<tr>
+<td>4401</td>
+<td>Wrong expiry date</td>
+</tr>
+<tr>
+<td>4402</td>
+<td>Technical error in connection with Credit Card Company network</td>
+</tr>
+<tr>
+<td>4403</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4404</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4405</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>4406</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>4407</td>
+<td>Amount not available</td>
+</tr>
+<tr>
+<td>4408</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>4409</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>4500</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4501</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4502</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4503</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>4504</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>4505</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>4506</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4507</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4508</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>4604</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>4701</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>4702</td>
+<td>Wrong expiry date</td>
+</tr>
+<tr>
+<td>4703</td>
+<td>Card not qualified</td>
+</tr>
+<tr>
+<td>4704</td>
+<td>Amount not available</td>
+</tr>
+<tr>
+<td>4705</td>
+<td>Technical error in connection with Credit Card Company network</td>
+</tr>
+<tr>
+<td>4706</td>
+<td>Technical error in connection with Credit Card Company network</td>
+</tr>
+<tr>
+<td>4707</td>
+<td>Transaction already processed</td>
+</tr>
+<tr>
+<td>4708</td>
+<td>MyBank: communication with the buyer&rsquo;s Bank failed</td>
+</tr>
+<tr>
+<td>4709</td>
+<td>Ideal: communication with the buyer&rsquo;s Bank failed</td>
+</tr>
+<tr>
+<td>4710</td>
+<td>PayPal Error</td>
+</tr>
+<tr>
+<td>4720</td>
+<td>Rate in Rete: communication with Consel failed</td>
+</tr>
+<tr>
+<td>4730</td>
+<td>C-pay: communication with Compass failed</td>
+</tr>
+<tr>
+<td>4731</td>
+<td>Not authorized transaction by Compass</td>
+</tr>
+<tr>
+<td>7400</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>7401</td>
+<td>Authorization refused by credit card companies</td>
+</tr>
+<tr>
+<td>7402</td>
+<td>Card not qualified</td>
+</tr>
+<tr>
+<td>7403</td>
+<td>Card not recognized</td>
+</tr>
+<tr>
+<td>7404</td>
+<td>Card expired</td>
+</tr>
+<tr>
+<td>7405</td>
+<td>Call credit card company</td>
+</tr>
+<tr>
+<td>7406</td>
+<td>Wrong card date</td>
+</tr>
+<tr>
+<td>7407</td>
+<td>Wrong transaction date</td>
+</tr>
+<tr>
+<td>7408</td>
+<td>System error</td>
+</tr>
+<tr>
+<td>7409</td>
+<td>Merchant not recognized</td>
+</tr>
+<tr>
+<td>7410</td>
+<td>Invalid format</td>
+</tr>
+<tr>
+<td>7411</td>
+<td>Amount not available</td>
+</tr>
+<tr>
+<td>7412</td>
+<td>Not settled</td>
+</tr>
+<tr>
+<td>7413</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>7414</td>
+<td>Network not available</td>
+</tr>
+<tr>
+<td>7415</td>
+<td>Collect card</td>
+</tr>
+<tr>
+<td>7416</td>
+<td>PIN attempts exhausted</td>
+</tr>
+<tr>
+<td>7417</td>
+<td>Blocked terminal</td>
+</tr>
+<tr>
+<td>7418</td>
+<td>Forcedly Closed terminal</td>
+</tr>
+<tr>
+<td>7419</td>
+<td>Not permitted transaction</td>
+</tr>
+<tr>
+<td>7420</td>
+<td>Not authorized transaction</td>
+</tr>
+<tr>
+<td>7421</td>
+<td>Service interrupted at 01/01/2002</td>
+</tr>
+<tr>
+<td>7500</td>
+<td>Authorization denied 7600 Authorization denied</td>
+</tr>
+<tr>
+<td>8000</td>
+<td>File correctly processed</td>
+</tr>
+<tr>
+<td>8001</td>
+<td>Header/bottom record not found</td>
+</tr>
+<tr>
+<td>8002</td>
+<td>Merchant code not set</td>
+</tr>
+<tr>
+<td>8003</td>
+<td>Incorrect row number</td>
+</tr>
+<tr>
+<td>8004</td>
+<td>Incorrect file format</td>
+</tr>
+<tr>
+<td>8005</td>
+<td>Merchant not enabled</td>
+</tr>
+<tr>
+<td>8006</td>
+<td>Verify By Visa</td>
+</tr>
+<tr>
+<td>8007</td>
+<td>Feature disabled for VISA credit card</td>
+</tr>
+<tr>
+<td>8009</td>
+<td>Payment interrupted</td>
+</tr>
+<tr>
+<td>8010</td>
+<td>Wrong credit card number for this transaction</td>
+</tr>
+<tr>
+<td>8011</td>
+<td>Transaction correctly received</td>
+</tr>
+<tr>
+<td>8012</td>
+<td>Authorization not found</td>
+</tr>
+<tr>
+<td>8013</td>
+<td>Settlement not found</td>
+</tr>
+<tr>
+<td>8014</td>
+<td>Settlement amount &gt; Authorization amount</td>
+</tr>
+<tr>
+<td>8015</td>
+<td>Refund amount &gt; balance</td>
+</tr>
+<tr>
+<td>8016</td>
+<td>Transaction without settlement</td>
+</tr>
+<tr>
+<td>8017</td>
+<td>File waiting to be processed</td>
+</tr>
+<tr>
+<td>8018</td>
+<td>File correctly processed</td>
+</tr>
+<tr>
+<td>8021</td>
+<td>Feature disable for MASTERCARD credit card</td>
+</tr>
+<tr>
+<td>8022</td>
+<td>Feature disable for JCB credit card</td>
+</tr>
+<tr>
+<td>8023</td>
+<td>Feature disabled for MAESTRO cards</td>
+</tr>
+<tr>
+<td>8888</td>
+<td>UP Mobile Payment</td>
+</tr>
+<tr>
+<td>9991</td>
+<td>Browser not supported</td>
+</tr>
+<tr>
+<td>9992</td>
+<td>Error creating iFrame</td>
+</tr>
+<tr>
+<td>9997</td>
+<td>Phase with error</td>
+</tr>
+<tr>
+<td>9998</td>
+<td>Phase correctly ended</td>
+</tr>
+<tr>
+<td>9999</td>
+<td>System Error</td>
 </tr>
 </tbody></table>
 
