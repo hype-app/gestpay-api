@@ -39,7 +39,7 @@ These are the **mandatory** fields.
 | Name | max length | description |
 | ---- | :--------: | ----------- |
 | **`shopLogin`** | 30 | shopLogin (Mandatory) |
-| **`uicCode`** | 3 | Code identifying currency in which transaction amount is denominated - see [Currency Codes](#currency-codes) table - (Mandatory) |
+| **`uicCode`** | 3 | Code identifying currency in which transaction amount is denominated - see [Currency Codes table](#currency-codes) - (Mandatory) | 
 | **`amount`** | 9 | Transaction amount. Do not insert thousands separator. Decimals, max. 2 numbers, are optional and separator is the point (Mandatory) |
 | **`shopTransactionID`** | 50 | Identifier attributed to merchant’s transaction (Mandatory) |
 
