@@ -1,3 +1,73 @@
 # WsS2S API
 
-qui metteremo le cose di S2S.
+*Server to Server* communication between merchants and GestPay is managed by consuming WSs2s [SOAP](http://www.w3.org/TR/soap/) web service.
+
+Consuming WSs2s methods allow merchants to send requests and retrieve responses in XML format.
+
+ - Test environment url:<br>
+`https://testecomm.sella.it/gestpay/gestpayws/WSs2s.asmx?WSDL`
+
+
+- Production environment url: <br>
+`https://ecomms2s.sella.it/gestpay/gestpayws/WSs2s.asmx?WSDL`
+
+<aside class="notice">To use *Server to Server* features, you must be authorized by Banca Sella or Easy Nolo.</aside>
+
+## callPagamS2S
+
+This service performs an authorization request. 
+
+Merchants can use this method to perform the transaction, passing all the parameters useful to define all the transaction’s features.
+
+### Request parameters 
+
+| Name | Description | Data Type | max length |
+| ---- | ----------- | --------- | ---------- |
+| `amount` | the amount of the transaction | numeric | 9 | 
+| `buyerEmail` |  buyer’s e-mail address. Using `:NOSEND:` before the email address, it' s possible to pass the email information but avoid to send an email to the buyer. | string | 50 |
+| `buyerName` | buyer’s name | string | 50 | 
+| `cardNumber` | card account number | string | 50 | 
+| `uicCode` | currency code | number | 3 |
+| `customInfo` | A string containing possible customised parameters (TODO ci devo mettere il riferimento ai parametri?) | string | 1000 | 
+| `cvv` | security code of the card | string | 4 | 
+| `expiryMonth` | card expiration month | string | 2 | 
+| `expiryYear` | card expiration year | string | 2 | 
+| `languageId` | language to use for e-mails to the buyer | number | 2 || `PARes` | encrypted string returned by Issuer  (for 3D-Secure   transactions only) | string | 4096 | 
+| `shopLogin` | shopLogin value | string | 30 |
+| `shopTransactionId` | shop transaction ID value | string | 30 | 
+| `transKey` | transaction ID value for 3D-Secure transactions | number | 18 | 
+| `requestToken` | `MASKEDPAN` for a Standard Token any other value for Custom  Token | string | 25 | 
+| `tokenValue` | String containing the token value, in case of `PayPalBillingAgreement` this token value is the Token returned back from PayPal during the Billing Agreements | string | 25 | 
+| `ClientIP` | For PayPal Billing Agreements it is required only in the "one click" mode transaction. <br> For AMEX transaction not in Euro, in this field the merchant could provide the client IP address to activate the Enhanced Authorization AAV | string | 45 |
+| `itemType` | Item Category: `digital`/`physical` (If `physical` the `ShippingDetails` have to be filled) | string | 250 | 
+
+- children of `ShippingDetails` :
+
+|               |           |          |       | 
+| ------------- | --------- | -------- |------ |
+| `shipToName` | shipping name | string | 32 | 
+| `shipToStreet` | shipping address | string | 100 |
+| `shipToState` | shipping state (see [State Codes - TODO]() table) | string | 40 | 
+| `shipToCountryCode` | shipping country code (see [Country Codes - TODO]() table) | string | 2 | 
+| `shipToZip` | the shipping Zip | string | 20 | 
+| `shipToStreet2` | an additional field for the shipping  address | string | 200 | 
+
+### Response fields 
+
+| Name           | Description | 
+| -------------- | ----------- |
+| `TransactionType` | `PAGAM` in response to `CallPagamS2S` |
+| `TransactionResult` | Returns transaction result with `OK` or `KO` |
+| `shopTransactionID` | shop transaction ID value |
+| `BankTransactionID` | ode given by bank to transaction | 
+| `AuthorizationCode` | authorisation code | 
+| `Currency` | [currency code](#currency-codes) |
+| `Country` | nationality of the card issuer | 
+| `CustomInfo` | custom parameters, if passed to the request | 
+| `BuyerType` | Returns address name and e-mail of thebuyer divided as follows: <br> <ul><li>`BuyerEmail`: Returns the e-mail of the buyer</li><li>`BuyerName`: Returns the name of the buyer</li></ul> | 
+| `ErrorCode` | a code related to the transaction result 
+| `ErrorDescription` | the description connected to the ErrorCode value
+| `Amount` | the amount of the transaction
+| `TransKey` | transaction ID value for 3D-Secure transactions 
+| `VBV` | Returns the values for 3D-Secure as follows: <br><ul><li>`VbVFlag`: 3D-secure flag (`OK` or `KO`)</li><li>`VbVBuyer`:returns the flag Full Verified by Visa transaction</li><li>`VbVRisp`: Returns the encrypted string obtained by 3D-Secure directory</li></ul> |
+| `TDLevel` | Level of authentication for 3D-Secure transactions. `FULL` or `HALF`
