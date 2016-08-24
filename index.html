@@ -1698,7 +1698,261 @@
 
           <h1 id="wss2s-api">WsS2S API</h1>
 
-<p>qui metteremo le cose di S2S.</p>
+<p><em>Server to Server</em> communication between merchants and GestPay is managed by consuming WSs2s <a href="http://www.w3.org/TR/soap/">SOAP</a> web service.</p>
+
+<p>Consuming WSs2s methods allow merchants to send requests and retrieve responses in XML format.</p>
+
+<ul>
+<li><p>Test environment url:<br>
+<code class="prettyprint">https://testecomm.sella.it/gestpay/gestpayws/WSs2s.asmx?WSDL</code></p>
+
+<ul>
+<li>Production environment url: <br>
+<code class="prettyprint">https://ecomms2s.sella.it/gestpay/gestpayws/WSs2s.asmx?WSDL</code></li>
+</ul></li>
+</ul>
+
+<aside class="notice">To use *Server to Server* features, you must be authorized by Banca Sella or Easy Nolo.</aside>
+
+<h2 id="callpagams2s">callPagamS2S</h2>
+
+<p>This service performs an authorization request. </p>
+
+<p>Merchants can use this method to perform the transaction, passing all the parameters useful to define all the transaction’s features.</p>
+
+<h3 id="request-parameters"> Request parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>max length</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">amount</code></td>
+<td>the amount of the transaction</td>
+<td>numeric</td>
+<td>9</td>
+</tr>
+<tr>
+<td><code class="prettyprint">buyerEmail</code></td>
+<td>buyer’s e-mail address. Using <code class="prettyprint">:NOSEND:</code> before the email address, it&rsquo; s possible to pass the email information but avoid to send an email to the buyer.</td>
+<td>string</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code class="prettyprint">buyerName</code></td>
+<td>buyer’s name</td>
+<td>string</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code class="prettyprint">cardNumber</code></td>
+<td>card account number</td>
+<td>string</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code class="prettyprint">uicCode</code> </td>
+<td>currency code</td>
+<td>number</td>
+<td>3</td>
+</tr>
+<tr>
+<td><code class="prettyprint">customInfo</code></td>
+<td>A string containing possible customised parameters (TODO ci devo mettere il riferimento ai parametri?)</td>
+<td>string</td>
+<td>1000</td>
+</tr>
+<tr>
+<td><code class="prettyprint">cvv</code></td>
+<td>security code of the card</td>
+<td>string</td>
+<td>4</td>
+</tr>
+<tr>
+<td><code class="prettyprint">expiryMonth</code></td>
+<td>card expiration month</td>
+<td>string</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code class="prettyprint">expiryYear</code></td>
+<td>card expiration year</td>
+<td>string</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code class="prettyprint">languageId</code></td>
+<td>language to use for e-mails to the buyer</td>
+<td>number</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shopLogin</code> </td>
+<td>shopLogin value</td>
+<td>string</td>
+<td>30</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shopTransactionId</code></td>
+<td>shop transaction ID value</td>
+<td>string</td>
+<td>30</td>
+</tr>
+<tr>
+<td><code class="prettyprint">transKey</code></td>
+<td>transaction ID value for 3D-Secure transactions</td>
+<td>number</td>
+<td>18</td>
+</tr>
+<tr>
+<td><code class="prettyprint">requestToken</code></td>
+<td><code class="prettyprint">MASKEDPAN</code> for a Standard Token any other value for Custom  Token</td>
+<td>string</td>
+<td>25</td>
+</tr>
+<tr>
+<td><code class="prettyprint">tokenValue</code></td>
+<td>String containing the token value, in case of <code class="prettyprint">PayPalBillingAgreement</code> this token value is the Token returned back from PayPal during the Billing Agreements</td>
+<td>string</td>
+<td>25</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ClientIP</code></td>
+<td>For PayPal Billing Agreements it is required only in the &ldquo;one click&rdquo; mode transaction. <br> For AMEX transaction not in Euro, in this field the merchant could provide the client IP address to activate the Enhanced Authorization AAV</td>
+<td>string</td>
+<td>45</td>
+</tr>
+<tr>
+<td><code class="prettyprint">itemType</code></td>
+<td>Item Category: <code class="prettyprint">digital</code>/<code class="prettyprint">physical</code> (If <code class="prettyprint">physical</code> the <code class="prettyprint">ShippingDetails</code> have to be filled)</td>
+<td>string</td>
+<td>250</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>children of <code class="prettyprint">ShippingDetails</code> :</li>
+</ul>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shipToName</code></td>
+<td>shipping name</td>
+<td>string</td>
+<td>32</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shipToStreet</code></td>
+<td>shipping address</td>
+<td>string</td>
+<td>100</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shipToState</code> </td>
+<td>shipping state (see <a href="#">State Codes - TODO</a> table)</td>
+<td>string</td>
+<td>40</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shipToCountryCode</code></td>
+<td>shipping country code (see <a href="#">Country Codes - TODO</a> table)</td>
+<td>string</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shipToZip</code></td>
+<td>the shipping Zip</td>
+<td>string</td>
+<td>20</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shipToStreet2</code></td>
+<td>an additional field for the shipping  address</td>
+<td>string</td>
+<td>200</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-fields">Response fields</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">TransactionType</code></td>
+<td><code class="prettyprint">PAGAM</code> in response to <code class="prettyprint">CallPagamS2S</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">TransactionResult</code></td>
+<td>Returns transaction result with <code class="prettyprint">OK</code> or <code class="prettyprint">KO</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">shopTransactionID</code></td>
+<td>shop transaction ID value</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BankTransactionID</code></td>
+<td>ode given by bank to transaction</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AuthorizationCode</code></td>
+<td>authorisation code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Currency</code></td>
+<td><a href="#currency-codes">currency code</a></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Country</code></td>
+<td>nationality of the card issuer</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CustomInfo</code></td>
+<td>custom parameters, if passed to the request</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BuyerType</code></td>
+<td>Returns address name and e-mail of thebuyer divided as follows: <br> <ul><li><code class="prettyprint">BuyerEmail</code>: Returns the e-mail of the buyer</li><li><code class="prettyprint">BuyerName</code>: Returns the name of the buyer</li></ul></td>
+</tr>
+<tr>
+<td><code class="prettyprint">ErrorCode</code></td>
+<td>a code related to the transaction result</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ErrorDescription</code></td>
+<td>the description connected to the ErrorCode value</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Amount</code></td>
+<td>the amount of the transaction</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TransKey</code></td>
+<td>transaction ID value for 3D-Secure transactions</td>
+</tr>
+<tr>
+<td><code class="prettyprint">VBV</code></td>
+<td>Returns the values for 3D-Secure as follows: <br><ul><li><code class="prettyprint">VbVFlag</code>: 3D-secure flag (<code class="prettyprint">OK</code> or <code class="prettyprint">KO</code>)</li><li><code class="prettyprint">VbVBuyer</code>:returns the flag Full Verified by Visa transaction</li><li><code class="prettyprint">VbVRisp</code>: Returns the encrypted string obtained by 3D-Secure directory</li></ul></td>
+</tr>
+<tr>
+<td><code class="prettyprint">TDLevel</code></td>
+<td>Level of authentication for 3D-Secure transactions. <code class="prettyprint">FULL</code> or <code class="prettyprint">HALF</code></td>
+</tr>
+</tbody></table>
 
           <h1 id="errors">Errors</h1>
 
