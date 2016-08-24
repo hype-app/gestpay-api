@@ -17,29 +17,32 @@ Consuming WSs2s methods allow merchants to send requests and retrieve responses 
 
 This service performs an authorization request. 
 
-Merchants can use this method to perform the transaction, passing all the parameters useful to define all the transaction’s features.
+Merchants can use this method to perform the transaction, passing all the parameters useful to define all the transaction’s features. 
+
+In bold, the mandatory attributes. 
 
 ### Request parameters 
 
 | Name | Description | Data Type | max length |
 | ---- | ----------- | --------- | ---------- |
-| `amount` | the amount of the transaction | numeric | 9 | 
+| **`amount`** | the amount of the transaction | numeric | 9 | 
 | `buyerEmail` |  buyer’s e-mail address. Using `:NOSEND:` before the email address, it' s possible to pass the email information but avoid to send an email to the buyer. | string | 50 |
 | `buyerName` | buyer’s name | string | 50 | 
-| `cardNumber` | card account number | string | 50 | 
-| `uicCode` | currency code | number | 3 |
+| **`cardNumber`** | card account number | string | 50 | 
+| **`uicCode`** | currency code | number | 3 |
 | `customInfo` | A string containing possible customised parameters (TODO ci devo mettere il riferimento ai parametri?) | string | 1000 | 
 | `cvv` | security code of the card | string | 4 | 
-| `expiryMonth` | card expiration month | string | 2 | 
-| `expiryYear` | card expiration year | string | 2 | 
+| **`expiryMonth`** | card expiration month | string | 2 | 
+| **`expiryYear`** | card expiration year | string | 2 | 
 | `languageId` | language to use for e-mails to the buyer | number | 2 || `PARes` | encrypted string returned by Issuer  (for 3D-Secure   transactions only) | string | 4096 | 
-| `shopLogin` | shopLogin value | string | 30 |
-| `shopTransactionId` | shop transaction ID value | string | 30 | 
+| **`shopLogin`** | shopLogin value | string | 30 |
+| **`shopTransactionId`** | shop transaction ID value | string | 30 | 
 | `transKey` | transaction ID value for 3D-Secure transactions | number | 18 | 
 | `requestToken` | `MASKEDPAN` for a Standard Token any other value for Custom  Token | string | 25 | 
 | `tokenValue` | String containing the token value, in case of `PayPalBillingAgreement` this token value is the Token returned back from PayPal during the Billing Agreements | string | 25 | 
 | `ClientIP` | For PayPal Billing Agreements it is required only in the "one click" mode transaction. <br> For AMEX transaction not in Euro, in this field the merchant could provide the client IP address to activate the Enhanced Authorization AAV | string | 45 |
 | `itemType` | Item Category: `digital`/`physical` (If `physical` the `ShippingDetails` have to be filled) | string | 250 | 
+| `shippingDetails` | contains the shipping address.
 
 - children of `ShippingDetails` :
 
@@ -71,3 +74,10 @@ Merchants can use this method to perform the transaction, passing all the parame
 | `TransKey` | transaction ID value for 3D-Secure transactions 
 | `VBV` | Returns the values for 3D-Secure as follows: <br><ul><li>`VbVFlag`: 3D-secure flag (`OK` or `KO`)</li><li>`VbVBuyer`:returns the flag Full Verified by Visa transaction</li><li>`VbVRisp`: Returns the encrypted string obtained by 3D-Secure directory</li></ul> |
 | `TDLevel` | Level of authentication for 3D-Secure transactions. `FULL` or `HALF`
+
+
+## CallSettleS2S
+
+This is the financial confirmation operation which may follow a positive authorisation.
+
+It exists only for merchants with a M.O.T.O. configuration when a separation between the authorisation and the settlement phase is anticipated.
