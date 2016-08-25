@@ -18,6 +18,7 @@ includes:
   - payment_type_codes
   - currency_codes
   - paypal_country_codes
+  - language_codes
 
 search: true
 ---

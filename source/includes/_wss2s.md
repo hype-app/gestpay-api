@@ -21,7 +21,69 @@ Merchants can use this method to perform the transaction, passing all the parame
 
 In bold, the mandatory attributes. 
 
-### Request parameters 
+### Request parameters
+
+> request example: 
+
+```xml
+<callPagamS2S>
+    <shopLogin>9000002</shopLogin>
+    <uicCode>242</uicCode><!-- euro -->
+    <amount>24.21</amount>
+    <shopTransactionId>MYSHOP-0001</shopTransactionId>
+    <cardNumber>1234567812345678</cardNumber>
+    <expiryMonth>06</expiryMonth>
+    <expiryYear>21</expiryYear>
+    <buyerName>John Fitzgerald Kennedy</buyerName>
+    <buyerEmail>johnny.kennedy@usa.com</buyerEmail>
+    <languageId>2</languageId><!-- english -->
+    <cvv>987</cvv>
+    <customInfo></customInfo>
+    <requestToken>MASKEDSPAN</requestToken>
+    <itemType>physical</itemType>
+    <shippingDetails>
+        <shipToName>Jonny Kennedy</shipToName>
+        <shipToStreet>83 Beals street</shipToStreet>
+        <shipToCity>Brookline</shipToCity>
+        <shipToState>MA</shipToState>
+        <shipToCountryCode>US</shipToCountryCode>
+        <shipToZip>02446</shipToZip>
+    </shippingDetails>
+</callPagamS2S>
+```
+
+> response example: 
+
+```xml
+<GestPayS2S xmlns="">
+  <TransactionType>PAGAM</TransactionType>
+  <TransactionResult>OK</TransactionResult>
+  <ShopTransactionID>MYSHOP-0001</ShopTransactionID>
+  <BankTransactionID>65</BankTransactionID>
+  <AuthorizationCode>365530</AuthorizationCode>
+  <Currency>242</Currency>
+  <Amount>24.21</Amount>
+  <Country>US</Country>
+  <Buyer>
+    <BuyerName>John Fitzgerald Kennedy</BuyerName>
+    <BuyerEmail>johnny.kennedy@usa.com</BuyerEmail>
+  </Buyer>
+  <CustomInfo/>
+  <TDLevel/>
+  <ErrorCode>0</ErrorCode>
+  <ErrorDescription>Transazione correttamente effettuata</ErrorDescription>
+  <AlertCode/>
+  <AlertDescription/>
+  <TransactionKey>579428899</TransactionKey>
+  <VbV>
+    <VbVFlag>KO</VbVFlag>
+    <VbVBuyer/>
+    <VbVRisp/>
+  </VbV>
+  <RedResponseCode/>
+  <RedResponseDescription/>
+</GestPayS2S>
+```
 
 | Name | Description | Data Type | max length |
 | ---- | ----------- | --------- | ---------- |
