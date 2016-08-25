@@ -1718,9 +1718,73 @@
 
 <p>This service performs an authorization request. </p>
 
-<p>Merchants can use this method to perform the transaction, passing all the parameters useful to define all the transaction’s features.</p>
+<p>Merchants can use this method to perform the transaction, passing all the parameters useful to define all the transaction’s features. </p>
+
+<p>In bold, the mandatory attributes. </p>
 
 <h3 id="request-parameters"> Request parameters</h3>
+
+<blockquote>
+<p>request example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;callPagamS2S&gt;</span>
+    <span class="nt">&lt;shopLogin&gt;</span>9000002<span class="nt">&lt;/shopLogin&gt;</span>
+    <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- euro --&gt;</span>
+    <span class="nt">&lt;amount&gt;</span>24.21<span class="nt">&lt;/amount&gt;</span>
+    <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-0001<span class="nt">&lt;/shopTransactionId&gt;</span>
+    <span class="nt">&lt;cardNumber&gt;</span>1234567812345678<span class="nt">&lt;/cardNumber&gt;</span>
+    <span class="nt">&lt;expiryMonth&gt;</span>06<span class="nt">&lt;/expiryMonth&gt;</span>
+    <span class="nt">&lt;expiryYear&gt;</span>21<span class="nt">&lt;/expiryYear&gt;</span>
+    <span class="nt">&lt;buyerName&gt;</span>John Fitzgerald Kennedy<span class="nt">&lt;/buyerName&gt;</span>
+    <span class="nt">&lt;buyerEmail&gt;</span>johnny.kennedy@usa.com<span class="nt">&lt;/buyerEmail&gt;</span>
+    <span class="nt">&lt;languageId&gt;</span>2<span class="nt">&lt;/languageId&gt;</span><span class="c">&lt;!-- english --&gt;</span>
+    <span class="nt">&lt;cvv&gt;</span>987<span class="nt">&lt;/cvv&gt;</span>
+    <span class="nt">&lt;customInfo&gt;&lt;/customInfo&gt;</span>
+    <span class="nt">&lt;requestToken&gt;</span>MASKEDSPAN<span class="nt">&lt;/requestToken&gt;</span>
+    <span class="nt">&lt;itemType&gt;</span>physical<span class="nt">&lt;/itemType&gt;</span>
+    <span class="nt">&lt;shippingDetails&gt;</span>
+        <span class="nt">&lt;shipToName&gt;</span>Jonny Kennedy<span class="nt">&lt;/shipToName&gt;</span>
+        <span class="nt">&lt;shipToStreet&gt;</span>83 Beals street<span class="nt">&lt;/shipToStreet&gt;</span>
+        <span class="nt">&lt;shipToCity&gt;</span>Brookline<span class="nt">&lt;/shipToCity&gt;</span>
+        <span class="nt">&lt;shipToState&gt;</span>MA<span class="nt">&lt;/shipToState&gt;</span>
+        <span class="nt">&lt;shipToCountryCode&gt;</span>US<span class="nt">&lt;/shipToCountryCode&gt;</span>
+        <span class="nt">&lt;shipToZip&gt;</span>02446<span class="nt">&lt;/shipToZip&gt;</span>
+    <span class="nt">&lt;/shippingDetails&gt;</span>
+<span class="nt">&lt;/callPagamS2S&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>response example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;TransactionType&gt;</span>PAGAM<span class="nt">&lt;/TransactionType&gt;</span>
+  <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+  <span class="nt">&lt;ShopTransactionID&gt;</span>MYSHOP-0001<span class="nt">&lt;/ShopTransactionID&gt;</span>
+  <span class="nt">&lt;BankTransactionID&gt;</span>65<span class="nt">&lt;/BankTransactionID&gt;</span>
+  <span class="nt">&lt;AuthorizationCode&gt;</span>365530<span class="nt">&lt;/AuthorizationCode&gt;</span>
+  <span class="nt">&lt;Currency&gt;</span>242<span class="nt">&lt;/Currency&gt;</span>
+  <span class="nt">&lt;Amount&gt;</span>24.21<span class="nt">&lt;/Amount&gt;</span>
+  <span class="nt">&lt;Country&gt;</span>US<span class="nt">&lt;/Country&gt;</span>
+  <span class="nt">&lt;Buyer&gt;</span>
+    <span class="nt">&lt;BuyerName&gt;</span>John Fitzgerald Kennedy<span class="nt">&lt;/BuyerName&gt;</span>
+    <span class="nt">&lt;BuyerEmail&gt;</span>johnny.kennedy@usa.com<span class="nt">&lt;/BuyerEmail&gt;</span>
+  <span class="nt">&lt;/Buyer&gt;</span>
+  <span class="nt">&lt;CustomInfo/&gt;</span>
+  <span class="nt">&lt;TDLevel/&gt;</span>
+  <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+  <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
+  <span class="nt">&lt;AlertCode/&gt;</span>
+  <span class="nt">&lt;AlertDescription/&gt;</span>
+  <span class="nt">&lt;TransactionKey&gt;</span>579428899<span class="nt">&lt;/TransactionKey&gt;</span>
+  <span class="nt">&lt;VbV&gt;</span>
+    <span class="nt">&lt;VbVFlag&gt;</span>KO<span class="nt">&lt;/VbVFlag&gt;</span>
+    <span class="nt">&lt;VbVBuyer/&gt;</span>
+    <span class="nt">&lt;VbVRisp/&gt;</span>
+  <span class="nt">&lt;/VbV&gt;</span>
+  <span class="nt">&lt;RedResponseCode/&gt;</span>
+  <span class="nt">&lt;RedResponseDescription/&gt;</span>
+<span class="nt">&lt;/GestPayS2S&gt;</span>
+</code></pre>
 
 <table><thead>
 <tr>
@@ -1731,7 +1795,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">amount</code></td>
+<td><strong><code class="prettyprint">amount</code></strong></td>
 <td>the amount of the transaction</td>
 <td>numeric</td>
 <td>9</td>
@@ -1749,13 +1813,13 @@
 <td>50</td>
 </tr>
 <tr>
-<td><code class="prettyprint">cardNumber</code></td>
+<td><strong><code class="prettyprint">cardNumber</code></strong></td>
 <td>card account number</td>
 <td>string</td>
 <td>50</td>
 </tr>
 <tr>
-<td><code class="prettyprint">uicCode</code> </td>
+<td><strong><code class="prettyprint">uicCode</code></strong> </td>
 <td>currency code</td>
 <td>number</td>
 <td>3</td>
@@ -1773,13 +1837,13 @@
 <td>4</td>
 </tr>
 <tr>
-<td><code class="prettyprint">expiryMonth</code></td>
+<td><strong><code class="prettyprint">expiryMonth</code></strong></td>
 <td>card expiration month</td>
 <td>string</td>
 <td>2</td>
 </tr>
 <tr>
-<td><code class="prettyprint">expiryYear</code></td>
+<td><strong><code class="prettyprint">expiryYear</code></strong></td>
 <td>card expiration year</td>
 <td>string</td>
 <td>2</td>
@@ -1791,13 +1855,13 @@
 <td>2</td>
 </tr>
 <tr>
-<td><code class="prettyprint">shopLogin</code> </td>
+<td><strong><code class="prettyprint">shopLogin</code></strong> </td>
 <td>shopLogin value</td>
 <td>string</td>
 <td>30</td>
 </tr>
 <tr>
-<td><code class="prettyprint">shopTransactionId</code></td>
+<td><strong><code class="prettyprint">shopTransactionId</code></strong></td>
 <td>shop transaction ID value</td>
 <td>string</td>
 <td>30</td>
@@ -1831,6 +1895,12 @@
 <td>Item Category: <code class="prettyprint">digital</code>/<code class="prettyprint">physical</code> (If <code class="prettyprint">physical</code> the <code class="prettyprint">ShippingDetails</code> have to be filled)</td>
 <td>string</td>
 <td>250</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shippingDetails</code></td>
+<td>contains the shipping address.</td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -1953,6 +2023,12 @@
 <td>Level of authentication for 3D-Secure transactions. <code class="prettyprint">FULL</code> or <code class="prettyprint">HALF</code></td>
 </tr>
 </tbody></table>
+
+<h2 id="callsettles2s">CallSettleS2S</h2>
+
+<p>This is the financial confirmation operation which may follow a positive authorisation.</p>
+
+<p>It exists only for merchants with a M.O.T.O. configuration when a separation between the authorisation and the settlement phase is anticipated.</p>
 
           <h1 id="errors">Errors</h1>
 
@@ -3184,6 +3260,38 @@
           <h1 id="paypal-country-codes">Paypal Country Codes</h1>
 
 <p>You can find all the Country Codes that are supported by Paypal at <a href="https://developer.paypal.com/docs/classic/api/country_codes/">this link</a>. </p>
+
+          <h1 id="language-codes">Language Codes</h1>
+
+<p>The language code is handled by GestPay using the Language attribute. </p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center"><code class="prettyprint">1</code></td>
+<td>Italian</td>
+</tr>
+<tr>
+<td style="text-align: center"><code class="prettyprint">2</code></td>
+<td>English</td>
+</tr>
+<tr>
+<td style="text-align: center"><code class="prettyprint">3</code></td>
+<td>Spanish</td>
+</tr>
+<tr>
+<td style="text-align: center"><code class="prettyprint">4</code></td>
+<td>Franch</td>
+</tr>
+<tr>
+<td style="text-align: center"><code class="prettyprint">5</code></td>
+<td>German</td>
+</tr>
+</tbody></table>
 
       </div>
       <div class="dark-box">
