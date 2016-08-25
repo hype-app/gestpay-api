@@ -52,37 +52,6 @@ In bold, the mandatory attributes.
 </callPagamS2S>
 ```
 
-> response example: 
-
-```xml
-<GestPayS2S xmlns="">
-  <TransactionType>PAGAM</TransactionType>
-  <TransactionResult>OK</TransactionResult>
-  <ShopTransactionID>MYSHOP-0001</ShopTransactionID>
-  <BankTransactionID>65</BankTransactionID>
-  <AuthorizationCode>365530</AuthorizationCode>
-  <Currency>242</Currency>
-  <Amount>24.21</Amount>
-  <Country>US</Country>
-  <Buyer>
-    <BuyerName>John Fitzgerald Kennedy</BuyerName>
-    <BuyerEmail>johnny.kennedy@usa.com</BuyerEmail>
-  </Buyer>
-  <CustomInfo/>
-  <TDLevel/>
-  <ErrorCode>0</ErrorCode>
-  <ErrorDescription>Transazione correttamente effettuata</ErrorDescription>
-  <AlertCode/>
-  <AlertDescription/>
-  <TransactionKey>579428899</TransactionKey>
-  <VbV>
-    <VbVFlag>KO</VbVFlag>
-    <VbVBuyer/>
-    <VbVRisp/>
-  </VbV>
-</GestPayS2S>
-```
-
 | Name | Description | Data Type | max length |
 | ---- | ----------- | --------- | ---------- |
 | **`amount`** | the amount of the transaction | numeric | 9 | 
@@ -116,6 +85,37 @@ In bold, the mandatory attributes.
 | `shipToStreet2` | an additional field for the shipping  address | string | 200 | 
 
 ### Response fields 
+
+> response example: 
+
+```xml
+<GestPayS2S xmlns="">
+  <TransactionType>PAGAM</TransactionType>
+  <TransactionResult>OK</TransactionResult>
+  <ShopTransactionID>MYSHOP-0001</ShopTransactionID>
+  <BankTransactionID>65</BankTransactionID>
+  <AuthorizationCode>365530</AuthorizationCode>
+  <Currency>242</Currency>
+  <Amount>24.21</Amount>
+  <Country>US</Country>
+  <Buyer>
+    <BuyerName>John Fitzgerald Kennedy</BuyerName>
+    <BuyerEmail>johnny.kennedy@usa.com</BuyerEmail>
+  </Buyer>
+  <CustomInfo/>
+  <TDLevel/>
+  <ErrorCode>0</ErrorCode>
+  <ErrorDescription>Transazione correttamente effettuata</ErrorDescription>
+  <AlertCode/>
+  <AlertDescription/>
+  <TransactionKey>579428899</TransactionKey>
+  <VbV>
+    <VbVFlag>KO</VbVFlag>
+    <VbVBuyer/>
+    <VbVRisp/>
+  </VbV>
+</GestPayS2S>
+```
 
 | Name           | Description | 
 | -------------- | ----------- |
@@ -159,6 +159,17 @@ Merchants can use this method to settle the transaction. **It's possible to sett
 </callSettleS2S>
 ```
 
+
+| parameter name | description | type | length | 
+| -------------- | ----------- | -----|--------| 
+| `shopLogin` | the merchant's code | string | 30 | 
+| `shopTransactionId` | shop transaction ID value | string | 50 
+| `amount` | amount |   number | 9 | 
+| `uicCode` | [currency code](#currency-codes) | number | 3 
+| `bankTransID` | BankTransactionID assigned to the transaction | number | 18 
+
+### Response details 
+
 > Response example: 
 
 ```xml
@@ -175,17 +186,6 @@ Merchants can use this method to settle the transaction. **It's possible to sett
 		</callSettleS2SResult>
 </callSettleS2SResponse>
 ```
-
-
-| parameter name | description | type | length | 
-| -------------- | ----------- | -----|--------| 
-| `shopLogin` | the merchant's code | string | 30 | 
-| `shopTransactionId` | shop transaction ID value | string | 50 
-| `amount` | amount |   number | 9 | 
-| `uicCode` | [currency code](#currency-codes) | number | 3 
-| `bankTransID` | BankTransactionID assigned to the transaction | number | 18 
-
-### Response details 
 
 | parameter name | description |  
 | -------------- | ----------- | 
