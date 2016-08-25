@@ -1753,37 +1753,6 @@
 <span class="nt">&lt;/callPagamS2S&gt;</span>
 </code></pre>
 
-<blockquote>
-<p>response example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;TransactionType&gt;</span>PAGAM<span class="nt">&lt;/TransactionType&gt;</span>
-  <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
-  <span class="nt">&lt;ShopTransactionID&gt;</span>MYSHOP-0001<span class="nt">&lt;/ShopTransactionID&gt;</span>
-  <span class="nt">&lt;BankTransactionID&gt;</span>65<span class="nt">&lt;/BankTransactionID&gt;</span>
-  <span class="nt">&lt;AuthorizationCode&gt;</span>365530<span class="nt">&lt;/AuthorizationCode&gt;</span>
-  <span class="nt">&lt;Currency&gt;</span>242<span class="nt">&lt;/Currency&gt;</span>
-  <span class="nt">&lt;Amount&gt;</span>24.21<span class="nt">&lt;/Amount&gt;</span>
-  <span class="nt">&lt;Country&gt;</span>US<span class="nt">&lt;/Country&gt;</span>
-  <span class="nt">&lt;Buyer&gt;</span>
-    <span class="nt">&lt;BuyerName&gt;</span>John Fitzgerald Kennedy<span class="nt">&lt;/BuyerName&gt;</span>
-    <span class="nt">&lt;BuyerEmail&gt;</span>johnny.kennedy@usa.com<span class="nt">&lt;/BuyerEmail&gt;</span>
-  <span class="nt">&lt;/Buyer&gt;</span>
-  <span class="nt">&lt;CustomInfo/&gt;</span>
-  <span class="nt">&lt;TDLevel/&gt;</span>
-  <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
-  <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
-  <span class="nt">&lt;AlertCode/&gt;</span>
-  <span class="nt">&lt;AlertDescription/&gt;</span>
-  <span class="nt">&lt;TransactionKey&gt;</span>579428899<span class="nt">&lt;/TransactionKey&gt;</span>
-  <span class="nt">&lt;VbV&gt;</span>
-    <span class="nt">&lt;VbVFlag&gt;</span>KO<span class="nt">&lt;/VbVFlag&gt;</span>
-    <span class="nt">&lt;VbVBuyer/&gt;</span>
-    <span class="nt">&lt;VbVRisp/&gt;</span>
-  <span class="nt">&lt;/VbV&gt;</span>
-<span class="nt">&lt;/GestPayS2S&gt;</span>
-</code></pre>
-
 <table><thead>
 <tr>
 <th>Name</th>
@@ -1954,6 +1923,37 @@
 
 <h3 id="response-fields">Response fields</h3>
 
+<blockquote>
+<p>response example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;TransactionType&gt;</span>PAGAM<span class="nt">&lt;/TransactionType&gt;</span>
+  <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+  <span class="nt">&lt;ShopTransactionID&gt;</span>MYSHOP-0001<span class="nt">&lt;/ShopTransactionID&gt;</span>
+  <span class="nt">&lt;BankTransactionID&gt;</span>65<span class="nt">&lt;/BankTransactionID&gt;</span>
+  <span class="nt">&lt;AuthorizationCode&gt;</span>365530<span class="nt">&lt;/AuthorizationCode&gt;</span>
+  <span class="nt">&lt;Currency&gt;</span>242<span class="nt">&lt;/Currency&gt;</span>
+  <span class="nt">&lt;Amount&gt;</span>24.21<span class="nt">&lt;/Amount&gt;</span>
+  <span class="nt">&lt;Country&gt;</span>US<span class="nt">&lt;/Country&gt;</span>
+  <span class="nt">&lt;Buyer&gt;</span>
+    <span class="nt">&lt;BuyerName&gt;</span>John Fitzgerald Kennedy<span class="nt">&lt;/BuyerName&gt;</span>
+    <span class="nt">&lt;BuyerEmail&gt;</span>johnny.kennedy@usa.com<span class="nt">&lt;/BuyerEmail&gt;</span>
+  <span class="nt">&lt;/Buyer&gt;</span>
+  <span class="nt">&lt;CustomInfo/&gt;</span>
+  <span class="nt">&lt;TDLevel/&gt;</span>
+  <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+  <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
+  <span class="nt">&lt;AlertCode/&gt;</span>
+  <span class="nt">&lt;AlertDescription/&gt;</span>
+  <span class="nt">&lt;TransactionKey&gt;</span>579428899<span class="nt">&lt;/TransactionKey&gt;</span>
+  <span class="nt">&lt;VbV&gt;</span>
+    <span class="nt">&lt;VbVFlag&gt;</span>KO<span class="nt">&lt;/VbVFlag&gt;</span>
+    <span class="nt">&lt;VbVBuyer/&gt;</span>
+    <span class="nt">&lt;VbVRisp/&gt;</span>
+  <span class="nt">&lt;/VbV&gt;</span>
+<span class="nt">&lt;/GestPayS2S&gt;</span>
+</code></pre>
+
 <table><thead>
 <tr>
 <th>Name</th>
@@ -2046,23 +2046,6 @@
 <span class="nt">&lt;/callSettleS2S&gt;</span>
 </code></pre>
 
-<blockquote>
-<p>Response example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;callSettleS2SResponse</span> <span class="na">xmlns=</span><span class="s">"https://ecomms2s.sella.it/"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;callSettleS2SResult&gt;</span>
-                <span class="nt">&lt;GestPayS2S&gt;</span>
-                        <span class="nt">&lt;TransactionType&gt;</span>Settle<span class="nt">&lt;/TransactionType&gt;</span>
-                        <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
-                        <span class="nt">&lt;ShopTransactionID&gt;</span>MYSHOP-00142<span class="nt">&lt;/ShopTransactionID&gt;</span>
-                        <span class="nt">&lt;BankTransactionID&gt;</span>159247522<span class="nt">&lt;/BankTransactionID&gt;</span>
-                        <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
-                        <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
-                <span class="nt">&lt;/GestPayS2S&gt;</span>
-        <span class="nt">&lt;/callSettleS2SResult&gt;</span>
-<span class="nt">&lt;/callSettleS2SResponse&gt;</span>
-</code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -2104,6 +2087,23 @@
 </tbody></table>
 
 <h3 id="response-details"> Response details</h3>
+
+<blockquote>
+<p>Response example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;callSettleS2SResponse</span> <span class="na">xmlns=</span><span class="s">"https://ecomms2s.sella.it/"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;callSettleS2SResult&gt;</span>
+                <span class="nt">&lt;GestPayS2S&gt;</span>
+                        <span class="nt">&lt;TransactionType&gt;</span>Settle<span class="nt">&lt;/TransactionType&gt;</span>
+                        <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+                        <span class="nt">&lt;ShopTransactionID&gt;</span>MYSHOP-00142<span class="nt">&lt;/ShopTransactionID&gt;</span>
+                        <span class="nt">&lt;BankTransactionID&gt;</span>159247522<span class="nt">&lt;/BankTransactionID&gt;</span>
+                        <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+                        <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
+                <span class="nt">&lt;/GestPayS2S&gt;</span>
+        <span class="nt">&lt;/callSettleS2SResult&gt;</span>
+<span class="nt">&lt;/callSettleS2SResponse&gt;</span>
+</code></pre>
 
 <table><thead>
 <tr>
