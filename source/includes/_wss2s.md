@@ -80,8 +80,6 @@ In bold, the mandatory attributes.
     <VbVBuyer/>
     <VbVRisp/>
   </VbV>
-  <RedResponseCode/>
-  <RedResponseDescription/>
 </GestPayS2S>
 ```
 
