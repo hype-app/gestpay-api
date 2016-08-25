@@ -162,11 +162,11 @@ Merchants can use this method to settle the transaction. **It's possible to sett
 
 | parameter name | description | type | length | 
 | -------------- | ----------- | -----|--------| 
-| `shopLogin` | the merchant's code | string | 30 | 
-| `shopTransactionId` | shop transaction ID value | string | 50 
+| `shopLogin` | the merchant's code | string | 30 |  
 | `amount` | amount |   number | 9 | 
 | `uicCode` | [currency code](#currency-codes) | number | 3 
-| `bankTransID` | BankTransactionID assigned to the transaction | number | 18 
+| `bankTransID` | BankTransactionID assigned to the transaction | number | 18
+| `shopTransID` | shop transaction ID value | string | 50 
 
 ### Response details 
 
