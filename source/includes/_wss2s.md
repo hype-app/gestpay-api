@@ -194,5 +194,5 @@ Merchants can use this method to settle the transaction. **It's possible to sett
 | `BankTransactionID` | Bank transaction ID assigned to the transaction 
 | `ShopTransactionID` | Shop transaction ID value assigned to the transaction
 | `ErrorCode` | transaction error code | 
-| `ErrorDescription` | transaction error description 
+| `ErrorDescription` | transaction error description
 
