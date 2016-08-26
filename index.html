@@ -191,7 +191,7 @@
 
 <p>The information containing the transaction result will be available by reading the information in the XML response file corresponding to the result of the transaction.</p>
 
-<h2 id="encrypt">Encrypt</h2>
+          <h2 id="encrypt">Encrypt</h2>
 
 <blockquote>
 <p>A valid <code class="prettyprint">Encrypt</code> can be called with just these fields - very easy: </p>
@@ -391,7 +391,7 @@
 
 <p><sup id="fn4">4. <strong>Payment Systems Visibility</strong>. In order to be able to activate the Payment Systems Visibility the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The Payment System Visibility can be configured in the specific interface in the Back Office Merchant.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></sup></p>
 
-<h2 id="encrypt-result">Encrypt result</h2>
+          <h2 id="encrypt-result">Encrypt result</h2>
 
 <blockquote>
 <p>A succesful <code class="prettyprint">Encrypt</code> call would be like this: </p>
@@ -443,7 +443,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="encrypt-example-paypal">Encrypt example: Paypal</h2>
+          <h2 id="encrypt-example-paypal">Encrypt example: Paypal</h2>
 
 <h3 id="enabling-paypal">Enabling Paypal</h3>
 
@@ -679,7 +679,7 @@
 
 <aside class="notice">When using paypal Billing Agreement, you will get a Token to use later with the callPagamS2S webservice. </aside>
 
-<h2 id="encrypt-example-ideal-and-mybank">Encrypt Example: IDeal and MyBank</h2>
+          <h2 id="encrypt-example-ideal-and-mybank">Encrypt Example: IDeal and MyBank</h2>
 
 <blockquote>
 <p>MyBank example: </p>
@@ -745,7 +745,7 @@
 
 <p><sup id="fn5">5. <strong>paymentTypeDetail</strong>. In order to be able to activate the payment Type Detail the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The correct merchant configuration of Sofort and Ideal has to be configured in the specific interface of Back Office Merchant.(1) Each field can be up to a maximum of 300 characters in length<a href="#ref5" title="Jump back to footnote 5 in the text.">↩</a></sup></p>
 
-<h2 id="encrypt-example-consel">Encrypt Example: Consel</h2>
+          <h2 id="encrypt-example-consel">Encrypt Example: Consel</h2>
 
 <blockquote>
 <p>Consel example: </p>
@@ -839,7 +839,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="encrypt-example-sofort">Encrypt Example: Sofort</h2>
+          <h2 id="encrypt-example-sofort">Encrypt Example: Sofort</h2>
 
 <blockquote>
 <p>SOFORT example: </p>
@@ -895,7 +895,7 @@
 </tr>
 </tbody></table>
 
-<h3 id="klarna"> Klarna</h3>
+          <h2 id="encrypt-example-klarna"> Encrypt Example: Klarna</h2>
 
 <blockquote>
 <p>Here is an example of how to enable Klarna with Gestpay.</p>
@@ -1075,7 +1075,7 @@
 
 <p><sup id="fn6">6. <strong>Line Items</strong>: in case the buyer selects PayPal as payment method in the payment page, fields Name, Description, Quantity and UnitPrice of every occurrency of the ProductDetail tag will be used to show the transaction items details in PayPal payment page.<a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a></sup></p>
 
-<h2 id="encrypt-example-qiwi">Encrypt Example: Qiwi</h2>
+          <h2 id="encrypt-example-qiwi">Encrypt Example: Qiwi</h2>
 
 <blockquote>
 <p>Qiwi call example :</p>
@@ -1122,7 +1122,7 @@
 
 <p>This mean that no others values are asked to the buyers; but if these field are not sent with the payment, a page will be displayed in order to ask the necessary fields like Phone and CountryCode of the buyer.</p>
 
-<h2 id="encrypt-example-yandex">Encrypt Example: Yandex</h2>
+          <h2 id="encrypt-example-yandex">Encrypt Example: Yandex</h2>
 
 <blockquote>
 <p>Yandex Example: </p>
@@ -1160,7 +1160,7 @@
 
 <p>This mean that no others values are asked to the buyer; if this field is not sent with the payment, a page will ask the necessary fields.</p>
 
-<h2 id="encrypt-example-alipay">Encrypt Example: Alipay</h2>
+          <h2 id="encrypt-example-alipay">Encrypt Example: Alipay</h2>
 
 <blockquote>
 <p>Alipay example: </p>
@@ -1182,7 +1182,7 @@
 
 <p>Alipay does not need any mandatory parameters. Just specify the <code class="prettyprint">PaymentType</code> <code class="prettyprint">S2PALI</code> and the payment page will show to your user. </p>
 
-<h2 id="decrypt">Decrypt</h2>
+          <h2 id="decrypt">Decrypt</h2>
 
 <blockquote>
 <p>A <code class="prettyprint">Decrypt</code> request: </p>
@@ -1216,7 +1216,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="decrypt-result">Decrypt result</h2>
+          <h2 id="decrypt-result">Decrypt result</h2>
 
 <blockquote>
 <p>GestPay authenticates the calling server and checks the encrypted data string. If the checks are passed, it returns an unencrypted data string containing the transaction result: </p>
@@ -1438,7 +1438,7 @@
 
 <p>To use the following functionalities, you should first call <a href="#encrypt">`<code class="prettyprint">WSCryptDecrypt.Encrypt</code> webservice</a>. </p>
 
-<h2 id="createpaymentpage">CreatePaymentPage</h2>
+          <h2 id="createpaymentpage">CreatePaymentPage</h2>
 
 <blockquote>
 <p>Syntax: </p>
@@ -1493,7 +1493,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="sendpayment">SendPayment</h2>
+          <h2 id="sendpayment">SendPayment</h2>
 
 <h3 id="credit-card-authorization">Credit card authorization</h3>
 
@@ -1623,7 +1623,7 @@
 <li>callback (<code class="prettyprint">function</code>) </li>
 </ul>
 
-<h2 id="the-result-object"> the Result Object</h2>
+          <h2 id="the-result-object"> the Result Object</h2>
 
 <blockquote>
 <p>Example: Merchant not 3D enabled or credit card not enrolled. </p>
@@ -1714,7 +1714,7 @@
 
 <aside class="notice">To use *Server to Server* features, you must be authorized by Banca Sella or Easy Nolo.</aside>
 
-<h2 id="callpagams2s">callPagamS2S</h2>
+          <h2 id="callpagams2s">callPagamS2S</h2>
 
 <p>This service performs an authorization request. </p>
 
@@ -2024,7 +2024,7 @@
 
 <aside class="notice">other fields that are undocumented are unused. This applies also to fields described in the old version of the documentation.</aside>
 
-<h2 id="callsettles2s">CallSettleS2S</h2>
+          <h2 id="callsettles2s">CallSettleS2S</h2>
 
 <p>This is the financial confirmation operation which may follow a positive authorisation.</p>
 
@@ -2137,7 +2137,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="calldeletes2s">CallDeleteS2S</h2>
+          <h2 id="calldeletes2s">CallDeleteS2S</h2>
 
 <p>This operation deletes an authorized transaction. </p>
 
@@ -2211,6 +2211,115 @@
 <tr>
 <td><code class="prettyprint">TransactionType</code> </td>
 <td>for <code class="prettyprint">CallDeleteS2S</code>, the value will be <code class="prettyprint">Delete</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">TransactionResult</code></td>
+<td><code class="prettyprint">OK</code> or <code class="prettyprint">KO</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">BankTransactionID</code></td>
+<td>Bank transaction ID assigned to the transaction</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ShopTransactionID</code></td>
+<td>Shop transaction ID value assigned to the transaction</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ErrorCode</code></td>
+<td>transaction error code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ErrorDescription</code></td>
+<td>transaction error description</td>
+</tr>
+</tbody></table>
+
+          <h2 id="callrefunds2s">CallRefundS2S</h2>
+
+<p>Merchants can use this method to perform a partial or complete transaction amount refund.</p>
+
+<h3 id="request-details">Request details</h3>
+
+<blockquote>
+<p>Request example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;callRefundS2S&gt;</span>
+        <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+        <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
+        <span class="nt">&lt;amount&gt;</span>55.00<span class="nt">&lt;/amount&gt;</span>
+        <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-00142<span class="nt">&lt;/shopTransactionId&gt;</span>
+        <span class="nt">&lt;bankTransactionId&gt;</span>159247522<span class="nt">&lt;/bankTransactionId&gt;</span>
+<span class="nt">&lt;/callRefundS2S&gt;</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>parameter name</th>
+<th>description</th>
+<th>type</th>
+<th>length</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>the merchant&rsquo;s code</td>
+<td>string</td>
+<td>30</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bankTransactionId</code></td>
+<td>ID of the transaction assigned by Gestpay</td>
+<td>number</td>
+<td>18</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shopTransactionId</code></td>
+<td>shop transaction ID value</td>
+<td>string</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code class="prettyprint">amount</code></td>
+<td>the amount to refund</td>
+<td>number</td>
+<td>9</td>
+</tr>
+<tr>
+<td><code class="prettyprint">uicCode</code></td>
+<td><a href="#currency-codes">currency code</a></td>
+<td>numeric</td>
+<td>3</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-details"> Response details</h3>
+
+<blockquote>
+<p>Response example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;callRefundS2SResponse</span> <span class="na">xmlns=</span><span class="s">"https://ecomms2s.sella.it/"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;callRefundS2SResult&gt;</span>
+                <span class="nt">&lt;GestPayS2S&gt;</span>
+                        <span class="nt">&lt;TransactionType&gt;</span>Refund<span class="nt">&lt;/TransactionType&gt;</span>
+                        <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+                        <span class="nt">&lt;ShopTransactionID&gt;</span>MYSHOP-00142<span class="nt">&lt;/ShopTransactionID&gt;</span>
+                        <span class="nt">&lt;BankTransactionID&gt;</span>159247522<span class="nt">&lt;/BankTransactionID&gt;</span>
+                        <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+                        <span class="nt">&lt;ErrorDescription/&gt;</span>
+                <span class="nt">&lt;/GestPayS2S&gt;</span>
+        <span class="nt">&lt;/callRefundS2SResult&gt;</span>
+<span class="nt">&lt;/callRefundS2SResponse&gt;</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>parameter name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">TransactionType</code> </td>
+<td>for <code class="prettyprint">CallRefundS2S</code>, the value will be <code class="prettyprint">Refund</code></td>
 </tr>
 <tr>
 <td><code class="prettyprint">TransactionResult</code></td>
