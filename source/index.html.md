@@ -33,6 +33,7 @@ includes:
   - wss2s_callsettles2s
   - wss2s_calldeletes2s
   - wss2s_callrefunds2s
+  - wss2s_callreadtrxs2s
   - errors
   - payment_type_codes
   - currency_codes
