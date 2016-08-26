@@ -1,0 +1,94 @@
+## SendPayment
+
+### Credit card authorization 
+
+> syntax: 
+
+```javascript
+GestPay.SendPayment ({ 
+		CC    : '', 
+		EXPMM : '', 
+		EXPYY : '', 
+		CVV2 : '' //optional 
+	},
+	callBackObj);
+```
+
+> example:
+
+```javascript
+GestPay.SendPayment({
+		CC : '44444444444444444', 
+		EXPMM : '11',
+		EXPYY : '14' 
+	},
+	function (Result) {
+		if(Result.ErroCode == 0) {
+			//Transaction correctly processed
+			//Decrypt the Result.EncryptedString property to read the 
+			//transaction result
+		} else {
+			//An error has occurred, check ErrorCode and ErrorDescription 
+			//properties of the Result object
+		}
+});
+```
+
+To send the credit card data to the hidden iFrame, the checkout page will assign a function to the `OnSubimt` event of the credit card form, this function will retrieve the credit card data and will call the `GestPay.SendPayment` method providing an object with the credit card number (`CC`), the expiration month (`EXPMM`) and the expiration year (`EXPYY`), the CVV (`CVV2`) if enabled, and a CallBack object. 
+
+The input is composed of two arguments: 
+
+- The object `CCData`, with these fields
+
+Name | Description | Type | Size 
+---- | ----------- | ---- | ----
+`CC`   | Credit card number | `number` | min: 13, max: 19 
+`EXPMM` | Expiration Month | `number` | 2
+`EXPYY` | Expiration Year | `number` | 2
+`CVV2` (optional) | Cvv/4DBC | `number` | min:3, max:4 
+
+- a callback function, to handle the output. 
+
+<aside class="warning">To free the Shop from the need to comply with PCI Security standard, the OnSubmit event of the Credit card form must avoid to postback the data to the checkout page! </aside>
+
+### Call after 3D Authentication 
+
+> Syntax: 
+
+```javascript
+GestPay.SendPayment({
+		PARes : '', 
+		TransKey : ''
+	},  
+	callbackFunction
+});
+```
+
+> Example:
+
+```javascript
+GestPay.SendPayment ({
+	PARes : 'xMNjdsre23214hjksBBDsjkrhewGSD/*dwhjdkhawNDAHDGUY', 
+	TransKey : 'eFtstSStefgd23432'
+	},
+	function (Result) {
+		if(Result.ErroCode == 0){
+			// Transaction correctly processed ! 
+			// Decrypt the Result.EncryptedString property to read the 
+			// transaction result
+		}else{
+			// An error has occurred, check ErrorCode and ErrorDescription
+			// properties of the Result object
+		}
+});
+``` 
+
+If during the first `SendPayment` call `Result.ErrorCode == 8006`, you should redirect the user to the `pagam3d.aspx` page. You can read about the process at this link: [Customizing the payment page](https://hype-app.github.io/gestpay-doc/pay/customizing-the-payment-page.html). 
+
+
+When card holder is verified and authorized, you have to re-call `SendPayment()` with some new parameters: 
+
+- `CCData` (`object`)
+	- `PARes` (`string`)
+	- `TransKey` (`string`)
+- callback (`function`) 

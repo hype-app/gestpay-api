@@ -12,8 +12,27 @@ toc_footers:
 
 includes:
   - wscryptdecrypt
+  - wscryptdecrypt_encrypt
+  - wscryptdecrypt_encryptresult
+  - wscryptdecrypt_encrypt_paypal
+  - wscryptdecrypt_encrypt_ideal_mybank
+  - wscryptdecrypt_encrypt_consel
+  - wscryptdecrypt_encrypt_sofort
+  - wscryptdecrypt_encrypt_klarna
+  - wscryptdecrypt_encrypt_qiwi
+  - wscryptdecrypt_encrypt_yandex
+  - wscryptdecrypt_encrypt_alipay
+  - wscryptdecrypt_decrypt
+  - wscryptdecrypt_decryptresult
   - js_gestpay
+  - js_gestpay_createpaymentpage
+  - js_gestpay_sendpayment
+  - js_gestpay_resultobject
   - wss2s
+  - wss2s_callpagams2s
+  - wss2s_callsettles2s
+  - wss2s_calldeletes2s
+  - wss2s_callrefunds2s
   - errors
   - payment_type_codes
   - currency_codes
