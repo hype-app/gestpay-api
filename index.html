@@ -2343,6 +2343,134 @@
 </tr>
 </tbody></table>
 
+          <h2 id="callreadtrxs2s"> CallReadTrxS2S</h2>
+
+<p>This method will return transaction status. </p>
+
+<p>This method can be called with a mandatory <code class="prettyprint">shopLogin</code>, then it&rsquo;s possible to pass <code class="prettyprint">shopTransactionID</code> or <code class="prettyprint">bankTransactionID</code> or both. If only <code class="prettyprint">shopLogin</code> and <code class="prettyprint">shopTransactionID</code> are passed, it’s mandatory that the last one is unique.</p>
+
+<h3 id="request-details">Request details</h3>
+<pre class="highlight xml"><code><span class="nt">&lt;callReadTrxS2S&gt;</span>
+        <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+        <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-4838<span class="nt">&lt;/shopTransactionId&gt;</span>
+        <span class="nt">&lt;bankTransactionId&gt;</span>334488931<span class="nt">&lt;/bankTransactionId&gt;</span>
+<span class="nt">&lt;/callReadTrxS2S&gt;</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>parameter name</th>
+<th>description</th>
+<th>type</th>
+<th>length</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>the merchant&rsquo;s code</td>
+<td>string</td>
+<td>30</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bankTransactionId</code></td>
+<td>ID of the transaction assigned by Gestpay</td>
+<td>number</td>
+<td>18</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shopTransactionId</code></td>
+<td>shop transaction ID value</td>
+<td>string</td>
+<td>50</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-details"> Response details</h3>
+
+<table><thead>
+<tr>
+<th>parameter name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">TransactionType</code> </td>
+<td>for <code class="prettyprint"> CallReadTrxS2S</code>, the value will be <code class="prettyprint">QUERYTX</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">TransactionResult</code></td>
+<td><code class="prettyprint">OK</code> or <code class="prettyprint">KO</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">BankTransactionID</code></td>
+<td>Bank transaction ID assigned to the transaction</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ShopTransactionID</code></td>
+<td>Shop transaction ID value assigned to the transaction</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ErrorCode</code></td>
+<td>transaction error code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ErrorDescription</code></td>
+<td>transaction error description</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AuthorizationCode</code></td>
+<td>the authorisation code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Currency</code></td>
+<td>the <a href="#currency-codes">currency code</a></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Country</code></td>
+<td>the nationality of the card issuer</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Events.eventtype</code></td>
+<td>one of <code class="prettyprint">AUT</code>, <code class="prettyprint">MOV</code>, <code class="prettyprint">CAN</code>, <code class="prettyprint">REQ</code>, <code class="prettyprint">STO</code>. There will be a node event for each existing event regarding the transaction.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Events.eventamount</code></td>
+<td>Relative value of the event</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Events.eventdate</code></td>
+<td>event date</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Company</code></td>
+<td>the card company: Visa, Mastercard, etc.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TransactionState</code></td>
+<td>the status of the transaction: one of <code class="prettyprint">AUT</code>, <code class="prettyprint">MOV</code>, <code class="prettyprint">CAN</code>, <code class="prettyprint">REQ</code>, <code class="prettyprint">STO</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AlertCode</code></td>
+<td>the violation code of the risk management criteria</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AlertDescription</code></td>
+<td>the description connected to the <code class="prettyprint">AlertCode</code> value</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TransKey</code></td>
+<td>Returns transaction ID value for 3D-Secure transactions</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Buyer.BayerName</code></td>
+<td>Returns the name of the buyer</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Buyer.BuyerEmail</code></td>
+<td>Returns the email of the buyer</td>
+</tr>
+</tbody></table>
+
           <h1 id="errors">Errors</h1>
 
 <aside class="notice">The error codes returned by GestPay are constantly updated.</aside>
