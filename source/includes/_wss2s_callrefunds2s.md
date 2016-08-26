@@ -1,19 +1,19 @@
 ## CallRefundS2S
 
-This operation deletes an authorized transaction. 
-
-It exists only for merchants with a M.O.T.O. configuration when a separation between the authorisation and the settlement phase is anticipated.
+Merchants can use this method to perform a partial or complete transaction amount refund.
 
 ### Request details
 
 > Request example: 
 
 ```xml
-<callDeleteS2S>
+<callRefundS2S>
 		<shopLogin>9000001</shopLogin>
-		<shopTransactionId>MYSHOP-4838</shopTransactionId>
-		<bankTransactionId>334488931</bankTransactionId>
-</callDeleteS2S>
+        <uicCode>242</uicCode><!-- Euro -->
+        <amount>55.00</amount>
+        <shopTransactionId>MYSHOP-00142</shopTransactionId>
+        <bankTransactionId>159247522</bankTransactionId>
+</callRefundS2S>
 ```
 
 
@@ -21,30 +21,32 @@ It exists only for merchants with a M.O.T.O. configuration when a separation bet
 | -------------- | ----------- | -----|--------| 
 | `shopLogin` | the merchant's code | string | 30 |  
 | `bankTransactionId` | ID of the transaction assigned by Gestpay | number | 18
-| `shopTransactionId` | shop transaction ID value | string | 50 
+| `shopTransactionId` | shop transaction ID value | string | 50
+| `amount` | the amount to refund | number | 9 
+| `uicCode` | [currency code](#currency-codes) | numeric | 3 
 
 ### Response details 
 
 > Response example: 
 
 ```xml
-<callDeleteS2SResponse xmlns="https://ecomms2s.sella.it/">
-		<callDeleteS2SResult>
+<callRefundS2SResponse xmlns="https://ecomms2s.sella.it/">
+		<callRefundS2SResult>
 				<GestPayS2S>
-						<TransactionType>Settle</TransactionType>
+						<TransactionType>Refund</TransactionType>
 						<TransactionResult>OK</TransactionResult>
 						<ShopTransactionID>MYSHOP-00142</ShopTransactionID>
 						<BankTransactionID>159247522</BankTransactionID>
 						<ErrorCode>0</ErrorCode>
-						<ErrorDescription>Transazione ritirata</ErrorDescription>
+						<ErrorDescription/>
 				</GestPayS2S>
-		</callSettleS2SResult>
-</callSettleS2SResponse>
+		</callRefundS2SResult>
+</callRefundS2SResponse>
 ```
 
 | parameter name | description |  
 | -------------- | ----------- | 
-| `TransactionType` | for `CallDeleteS2S`, the value will be `Delete` | 
+| `TransactionType` | for `CallRefundS2S`, the value will be `Refund` | 
 | `TransactionResult` | `OK` or `KO` | 
 | `BankTransactionID` | Bank transaction ID assigned to the transaction 
 | `ShopTransactionID` | Shop transaction ID value assigned to the transaction
