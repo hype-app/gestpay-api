@@ -2532,6 +2532,120 @@
 </tr>
 </tbody></table>
 
+          <h2 id="callverifycards2s">CallVerifycardS2S</h2>
+
+<p>Merchants can use this method to check the Credit Card. </p>
+
+<h3 id="request-details"> Request details</h3>
+
+<blockquote>
+<p>Request example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;callVerifycardS2S&gt;</span>
+        <span class="nt">&lt;shopLogin&gt;</span>GEST13578<span class="nt">&lt;/shopLogin&gt;</span>
+        <span class="nt">&lt;shopTransactionId&gt;</span>MY-SHOP1234<span class="nt">&lt;/shopTransactionId&gt;</span>
+        <span class="nt">&lt;cardNumber&gt;</span>1234567812345678<span class="nt">&lt;/cardNumber&gt;</span>
+        <span class="nt">&lt;expMonth&gt;</span>12<span class="nt">&lt;/expMonth&gt;</span>
+        <span class="nt">&lt;expYear&gt;</span>21<span class="nt">&lt;/expYear&gt;</span>
+        <span class="nt">&lt;CVV2&gt;</span>931<span class="nt">&lt;/CVV2&gt;</span>
+<span class="nt">&lt;/callVerifycardS2S&gt;</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>parameter name</th>
+<th>description</th>
+<th>type</th>
+<th>length</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>the merchant&rsquo;s code</td>
+<td>string</td>
+<td>30</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shopTransactionId</code></td>
+<td>shop transaction ID value</td>
+<td>string</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code class="prettyprint">cardNumber</code></td>
+<td>credit card number</td>
+<td>string</td>
+<td>20</td>
+</tr>
+<tr>
+<td><code class="prettyprint">expMonth</code></td>
+<td>card expiration month</td>
+<td>string</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code class="prettyprint">expYear</code></td>
+<td>card expiration year</td>
+<td>string</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CVV2</code></td>
+<td>security code of the card</td>
+<td>string</td>
+<td>4</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-details">Response details</h3>
+
+<blockquote>
+<p>Response example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;callVerifycardS2SResult&gt;</span>
+    <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;TransactionType&gt;</span>VerCard<span class="nt">&lt;/TransactionType&gt;</span>
+        <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+        <span class="nt">&lt;Country&gt;</span>Italia<span class="nt">&lt;/Country&gt;</span>
+        <span class="nt">&lt;Company&gt;</span>MasterCard<span class="nt">&lt;/Company&gt;</span>
+        <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+        <span class="nt">&lt;ErrorDescription&gt;&lt;/ErrorDescription&gt;</span>
+    <span class="nt">&lt;/GestPayS2S&gt;</span>
+<span class="nt">&lt;/callVerifycardS2SResult&gt;</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TransactionType</td>
+<td><code class="prettyprint">VerCard</code></td>
+</tr>
+<tr>
+<td>TransactionRsult</td>
+<td><code class="prettyprint">OK</code> or <code class="prettyprint">KO</code></td>
+</tr>
+<tr>
+<td>ErrorCode</td>
+<td>error code</td>
+</tr>
+<tr>
+<td>ErrorDescription</td>
+<td>error description</td>
+</tr>
+<tr>
+<td>Country</td>
+<td>nationality of the card issuer</td>
+</tr>
+<tr>
+<td>Company</td>
+<td>card company</td>
+</tr>
+</tbody></table>
+
           <h1 id="errors">Errors</h1>
 
 <aside class="notice">The error codes returned by GestPay are constantly updated.</aside>
