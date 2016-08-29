@@ -2350,10 +2350,14 @@
 <p>This method can be called with a mandatory <code class="prettyprint">shopLogin</code>, then it&rsquo;s possible to pass <code class="prettyprint">shopTransactionID</code> or <code class="prettyprint">bankTransactionID</code> or both. If only <code class="prettyprint">shopLogin</code> and <code class="prettyprint">shopTransactionID</code> are passed, it’s mandatory that the last one is unique.</p>
 
 <h3 id="request-details">Request details</h3>
+
+<blockquote>
+<p>Example request: </p>
+</blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;callReadTrxS2S&gt;</span>
-        <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-        <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-4838<span class="nt">&lt;/shopTransactionId&gt;</span>
-        <span class="nt">&lt;bankTransactionId&gt;</span>334488931<span class="nt">&lt;/bankTransactionId&gt;</span>
+    <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+    <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-4838<span class="nt">&lt;/shopTransactionId&gt;</span>
+    <span class="nt">&lt;bankTransactionId&gt;</span>334488931<span class="nt">&lt;/bankTransactionId&gt;</span>
 <span class="nt">&lt;/callReadTrxS2S&gt;</span>
 </code></pre>
 
@@ -2386,6 +2390,49 @@
 </tbody></table>
 
 <h3 id="response-details"> Response details</h3>
+
+<blockquote>
+<p>Response example. Here the transaction is cancelled. </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;callReadTrxS2SResult&gt;</span>
+  <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;TransactionType&gt;</span>QUERYTX<span class="nt">&lt;/TransactionType&gt;</span>
+    <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+    <span class="nt">&lt;TransactionState&gt;</span>CAN<span class="nt">&lt;/TransactionState&gt;</span>
+    <span class="nt">&lt;ShopTransactionID&gt;</span>MYSHOP-4838<span class="nt">&lt;/ShopTransactionID&gt;</span>
+    <span class="nt">&lt;BankTransactionID&gt;</span>334488931<span class="nt">&lt;/BankTransactionID&gt;</span>
+    <span class="nt">&lt;AuthorizationCode&gt;</span>971773<span class="nt">&lt;/AuthorizationCode&gt;</span>
+    <span class="nt">&lt;Currency&gt;</span>242<span class="nt">&lt;/Currency&gt;</span>
+    <span class="nt">&lt;Country&gt;</span>ITALIA<span class="nt">&lt;/Country&gt;</span>
+    <span class="nt">&lt;Company&gt;</span>MASTERCARD SECURECODE<span class="nt">&lt;/Company&gt;</span>
+    <span class="nt">&lt;TDLevel&gt;</span>FULL<span class="nt">&lt;/TDLevel&gt;</span>
+    <span class="nt">&lt;Events&gt;</span>
+      <span class="nt">&lt;event&gt;</span>
+        <span class="nt">&lt;eventtype&gt;</span>AUT<span class="nt">&lt;/eventtype&gt;</span>
+        <span class="nt">&lt;eventamount&gt;</span>0.10<span class="nt">&lt;/eventamount&gt;</span>
+        <span class="nt">&lt;eventdate&gt;</span>19/08/16 16:13:14<span class="nt">&lt;/eventdate&gt;</span>
+      <span class="nt">&lt;/event&gt;</span>
+      <span class="nt">&lt;event&gt;</span>
+        <span class="nt">&lt;eventtype&gt;</span>CAN<span class="nt">&lt;/eventtype&gt;</span>
+        <span class="nt">&lt;eventamount&gt;</span>0.10<span class="nt">&lt;/eventamount&gt;</span>
+        <span class="nt">&lt;eventdate&gt;</span>20/08/16 00:13:57<span class="nt">&lt;/eventdate&gt;</span>
+      <span class="nt">&lt;/event&gt;</span>
+    <span class="nt">&lt;/Events&gt;</span>
+    <span class="nt">&lt;Buyer&gt;</span>
+      <span class="nt">&lt;BuyerName/&gt;</span>
+      <span class="nt">&lt;BuyerEmail/&gt;</span>
+    <span class="nt">&lt;/Buyer&gt;</span>
+    <span class="nt">&lt;RISK&gt;</span>
+      <span class="nt">&lt;RiskResponseCode/&gt;</span>
+      <span class="nt">&lt;RiskResponseDescription/&gt;</span>
+    <span class="nt">&lt;/RISK&gt;</span>
+    <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+    <span class="nt">&lt;ErrorDescription&gt;</span>Transaction correctly processed<span class="nt">&lt;/ErrorDescription&gt;</span>
+    <span class="nt">&lt;AlertCode/&gt;</span>
+    <span class="nt">&lt;AlertDescription/&gt;</span>
+  <span class="nt">&lt;/GestPayS2S&gt;</span>
+<span class="nt">&lt;/callReadTrxS2SResult&gt;</span>
+</code></pre>
 
 <table><thead>
 <tr>
@@ -2430,18 +2477,6 @@
 <td>the nationality of the card issuer</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Events.eventtype</code></td>
-<td>one of <code class="prettyprint">AUT</code>, <code class="prettyprint">MOV</code>, <code class="prettyprint">CAN</code>, <code class="prettyprint">REQ</code>, <code class="prettyprint">STO</code>. There will be a node event for each existing event regarding the transaction.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Events.eventamount</code></td>
-<td>Relative value of the event</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Events.eventdate</code></td>
-<td>event date</td>
-</tr>
-<tr>
 <td><code class="prettyprint">Company</code></td>
 <td>the card company: Visa, Mastercard, etc.</td>
 </tr>
@@ -2468,6 +2503,32 @@
 <tr>
 <td><code class="prettyprint">Buyer.BuyerEmail</code></td>
 <td>Returns the email of the buyer</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Events</code></td>
+<td>contains <code class="prettyprint">event</code> elements. see the next table for more.</td>
+</tr>
+</tbody></table>
+
+<p>As said, <code class="prettyprint">&lt;Events&gt;</code> can contain one or more <code class="prettyprint">&lt;event&gt;</code> tags. the <code class="prettyprint">&lt;event&gt;</code> tag is composed of: </p>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">eventtype</code></td>
+<td>one of <code class="prettyprint">AUT</code>, <code class="prettyprint">MOV</code>, <code class="prettyprint">PRE</code>, <code class="prettyprint">CAN</code>, <code class="prettyprint">REQ</code>, <code class="prettyprint">STO</code>. There will be a node event for each existing event regarding the transaction.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">eventamount</code></td>
+<td>Relative value of the event</td>
+</tr>
+<tr>
+<td><code class="prettyprint">eventdate</code></td>
+<td>event date</td>
 </tr>
 </tbody></table>
 
