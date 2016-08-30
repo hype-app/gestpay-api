@@ -35,6 +35,7 @@ includes:
   - wss2s_callrefunds2s
   - wss2s_callreadtrxs2s
   - wss2s_callverifycards2s
+  - wss2s_callcheckcartas2s
   - errors
   - payment_type_codes
   - currency_codes
@@ -66,7 +67,7 @@ For every service, we will present both the test and the production endpoints.
 
 Our services are: 
 
-|     |     |   
+|     |     | 
 | --- | --- | 
 | [`WSCryptDecrypt`](/?xml#wscryptdecrypt) | used to start (and end) the payment process. | 
 | [`js_GestPay.js`](/?xml#js_gestpay) | Mainly used to build a customized payment page. | 
