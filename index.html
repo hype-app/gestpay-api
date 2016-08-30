@@ -2646,6 +2646,220 @@
 </tr>
 </tbody></table>
 
+          <h2 id="callcheckcartas2s">callCheckCartaS2S</h2>
+
+<p>Merchants can use this method to check the Credit Card. </p>
+
+<p>It&rsquo;s possible to check with or without verifying the Authorization, setting the flag <code class="prettyprint">withAuth</code>.</p>
+
+<h3 id="request-details"> Request details</h3>
+
+<blockquote>
+<p>Request example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;callCheckCartaS2S&gt;</span>
+        <span class="nt">&lt;shopLogin&gt;</span>GEST13578<span class="nt">&lt;/shopLogin&gt;</span>
+        <span class="nt">&lt;shopTransactionId&gt;</span>MY-SHOP1234<span class="nt">&lt;/shopTransactionId&gt;</span>
+        <span class="nt">&lt;cardNumber&gt;</span>1234567812345678<span class="nt">&lt;/cardNumber&gt;</span>
+        <span class="nt">&lt;expMonth&gt;</span>12<span class="nt">&lt;/expMonth&gt;</span>
+        <span class="nt">&lt;expYear&gt;</span>21<span class="nt">&lt;/expYear&gt;</span>
+        <span class="nt">&lt;CVV2&gt;</span>931<span class="nt">&lt;/CVV2&gt;</span>
+        <span class="nt">&lt;withAuth&gt;</span>Y<span class="nt">&lt;/withAuth&gt;</span>
+<span class="nt">&lt;/callCheckCartaS2S&gt;</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>parameter name</th>
+<th>description</th>
+<th>type</th>
+<th>length</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>the merchant&rsquo;s code</td>
+<td>string</td>
+<td>30</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shopTransactionId</code></td>
+<td>shop transaction ID value</td>
+<td>string</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code class="prettyprint">cardNumber</code></td>
+<td>credit card number</td>
+<td>string</td>
+<td>20</td>
+</tr>
+<tr>
+<td><code class="prettyprint">expMonth</code></td>
+<td>card expiration month</td>
+<td>string</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code class="prettyprint">expYear</code></td>
+<td>card expiration year</td>
+<td>string</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CVV2</code></td>
+<td>security code of the card</td>
+<td>string</td>
+<td>4</td>
+</tr>
+<tr>
+<td><code class="prettyprint">withAuth</code></td>
+<td>tries to authorize the card. <br> <code class="prettyprint">Y</code> on <code class="prettyprint">N</code></td>
+<td>string</td>
+<td>1</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-details">Response details</h3>
+
+<blockquote>
+<p>Response example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;callCheckCartaS2SResult&gt;</span>
+        <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;TransactionType&gt;</span>CHECKCARD<span class="nt">&lt;/TransactionType&gt;</span>
+            <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+            <span class="nt">&lt;TransactionErrorCode&gt;</span>0<span class="nt">&lt;/TransactionErrorCode&gt;</span>
+            <span class="nt">&lt;TransactionErrorDescription&gt;</span>Transaction correctly processed<span class="nt">&lt;/TransactionErrorDescription&gt;</span>
+            <span class="nt">&lt;AuthorizationErrorCode&gt;</span>456<span class="nt">&lt;/AuthorizationErrorCode&gt;</span>
+            <span class="nt">&lt;AuthorizationResult&gt;</span>KO<span class="nt">&lt;/AuthorizationResult&gt;</span>
+            <span class="nt">&lt;AuthorizationCodeDescription&gt;</span>Card not recognized<span class="nt">&lt;/AuthorizationCodeDescription&gt;</span>
+            <span class="nt">&lt;CardCountry&gt;</span>ITALIA<span class="nt">&lt;/CardCountry&gt;</span>
+            <span class="nt">&lt;CardCountryCode&gt;</span>380<span class="nt">&lt;/CardCountryCode&gt;</span>
+            <span class="nt">&lt;CheckCVV&gt;</span>OK<span class="nt">&lt;/CheckCVV&gt;</span>
+            <span class="nt">&lt;CheckCVVDescription&gt;</span>CVV VALID<span class="nt">&lt;/CheckCVVDescription&gt;</span>
+            <span class="nt">&lt;IssuerCountry&gt;</span>ITALIA<span class="nt">&lt;/IssuerCountry&gt;</span>
+            <span class="nt">&lt;IssuerCountryCode&gt;</span>380<span class="nt">&lt;/IssuerCountryCode&gt;</span>
+            <span class="nt">&lt;CompanyDescription&gt;</span>MASTERCARD<span class="nt">&lt;/CompanyDescription&gt;</span>
+            <span class="nt">&lt;CompanyCode&gt;</span>3<span class="nt">&lt;/CompanyCode&gt;</span>
+            <span class="nt">&lt;Commercial&gt;</span>N<span class="nt">&lt;/Commercial&gt;</span>
+            <span class="nt">&lt;ProductDescription&gt;</span>Standard MasterCard® Card<span class="nt">&lt;/ProductDescription&gt;</span>
+            <span class="nt">&lt;ProductType&gt;</span>Credit<span class="nt">&lt;/ProductType&gt;</span>
+            <span class="nt">&lt;CheckDigit&gt;</span>OK<span class="nt">&lt;/CheckDigit&gt;</span>
+            <span class="nt">&lt;CheckDigitDescription&gt;</span>CheckDigit VALID<span class="nt">&lt;/CheckDigitDescription&gt;</span>
+            <span class="nt">&lt;CheckDate&gt;</span>OK<span class="nt">&lt;/CheckDate&gt;</span>
+            <span class="nt">&lt;CheckDateDescription&gt;</span>DATE VALID<span class="nt">&lt;/CheckDateDescription&gt;</span>
+            <span class="nt">&lt;EnrolledCode&gt;</span>Y<span class="nt">&lt;/EnrolledCode&gt;</span>
+            <span class="nt">&lt;EnrolledDescription&gt;</span>ENROLLED<span class="nt">&lt;/EnrolledDescription&gt;</span>
+            <span class="nt">&lt;Prepaid/&gt;</span>
+        <span class="nt">&lt;/GestPayS2S&gt;</span>
+<span class="nt">&lt;/callCheckCartaS2SResult&gt;</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">TransactionType</code></td>
+<td><code class="prettyprint">CHECKCARD</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">TransactionRsult</code></td>
+<td><code class="prettyprint">OK</code> or <code class="prettyprint">KO</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">TransactionErrorDescription</code></td>
+<td>transaction error description</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AuthorizationErrorCode</code></td>
+<td>authorisation error code if an error occurred</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AuthorizationResult</code></td>
+<td>authorization result</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AuthorizationCodeDescription</code></td>
+<td>code description</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CardCountry</code></td>
+<td>nationality of the card</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CardCountryCode</code></td>
+<td>nationality code of the card</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CheckCVV</code></td>
+<td>result of the check CVV</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CheckCVVDescription</code></td>
+<td>description of CVV check results</td>
+</tr>
+<tr>
+<td><code class="prettyprint">IssuerCountry</code></td>
+<td>nationality of the card issuer</td>
+</tr>
+<tr>
+<td><code class="prettyprint">IssuerCountryCode</code></td>
+<td>nationality code of the card issuer</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CompanyDescription</code></td>
+<td>Description of the Card company</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CompanyCode</code></td>
+<td>Code of the Company</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Commercial</code></td>
+<td>Flag that indicates if the Card is commercial or not. <code class="prettyprint">Y</code> or <code class="prettyprint">N</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">ProductDescription</code></td>
+<td>Description of the product linked to the card</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ProductType</code></td>
+<td>type of the product: <code class="prettyprint">Credit</code> or <code class="prettyprint">Debit</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">CheckDigit</code></td>
+<td><code class="prettyprint">OK</code> or <code class="prettyprint">KO</code>, acording to the check digit of the card</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CheckDigitDescription</code></td>
+<td>description of the check digit response</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CheckDate</code></td>
+<td><code class="prettyprint">OK</code> or <code class="prettyprint">KO</code>, acording to the check date of the card</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CheckDateDescription</code></td>
+<td>description of the check date response</td>
+</tr>
+<tr>
+<td><code class="prettyprint">EnrolledCode</code></td>
+<td>3D Secure enabled: <ul><li><code class="prettyprint">Y</code> enabled </li><li><code class="prettyprint">N</code> not enabled</li><li><code class="prettyprint">U</code> could not verify</li></ul></td>
+</tr>
+<tr>
+<td><code class="prettyprint">EnrolledDescription</code></td>
+<td>enrolment description</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Prepaid</code></td>
+<td>indicates if the card is prepaid of not (<code class="prettyprint">Y</code>, <code class="prettyprint">N</code>, or empty)</td>
+</tr>
+</tbody></table>
+
           <h1 id="errors">Errors</h1>
 
 <aside class="notice">The error codes returned by GestPay are constantly updated.</aside>
