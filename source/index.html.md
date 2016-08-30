@@ -36,6 +36,7 @@ includes:
   - wss2s_callreadtrxs2s
   - wss2s_callverifycards2s
   - wss2s_callcheckcartas2s
+  - wss2s_callrequesttokens2s
   - errors
   - payment_type_codes
   - currency_codes
