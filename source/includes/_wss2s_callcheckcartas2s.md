@@ -42,9 +42,9 @@ It's possible to check with or without verifying the Authorization, setting the 
 			<TransactionResult>OK</TransactionResult>
 			<TransactionErrorCode>0</TransactionErrorCode>
 			<TransactionErrorDescription>Transaction correctly processed</TransactionErrorDescription>
-			<AuthorizationErrorCode>456</AuthorizationErrorCode>
+			<AuthorizationErrorCode>0</AuthorizationErrorCode>
 			<AuthorizationResult>KO</AuthorizationResult>
-			<AuthorizationCodeDescription>Card not recognized</AuthorizationCodeDescription>
+			<AuthorizationCodeDescription>negative balance</AuthorizationCodeDescription>
 			<CardCountry>ITALIA</CardCountry>
 			<CardCountryCode>380</CardCountryCode>
 			<CheckCVV>OK</CheckCVV>
