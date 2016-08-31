@@ -13,11 +13,11 @@ Merchants can use this method to settle the transaction. **It's possible to sett
 
 ```xml
 <callSettleS2S>
-		<shopLogin>9000001</shopLogin>
-		<uicCode>242</uicCode><!-- Euro -->
-		<amount>55.00</amount>
-		<shopTransID>MYSHOP-00142</shopTransID>
-		<bankTransID>159247522</bankTransID>
+	<shopLogin>9000001</shopLogin>
+	<uicCode>242</uicCode><!-- Euro -->
+	<amount>55.00</amount>
+	<shopTransID>MYSHOP-00142</shopTransID>
+	<bankTransID>159247522</bankTransID>
 </callSettleS2S>
 ```
 
@@ -36,16 +36,16 @@ Merchants can use this method to settle the transaction. **It's possible to sett
 
 ```xml
 <callSettleS2SResponse xmlns="https://ecomms2s.sella.it/">
-		<callSettleS2SResult>
-				<GestPayS2S>
-						<TransactionType>Settle</TransactionType>
-						<TransactionResult>OK</TransactionResult>
-						<ShopTransactionID>MYSHOP-00142</ShopTransactionID>
-						<BankTransactionID>159247522</BankTransactionID>
-						<ErrorCode>0</ErrorCode>
-						<ErrorDescription>Transazione correttamente effettuata</ErrorDescription>
-				</GestPayS2S>
-		</callSettleS2SResult>
+	<callSettleS2SResult>
+		<GestPayS2S>
+			<TransactionType>Settle</TransactionType>
+			<TransactionResult>OK</TransactionResult>
+			<ShopTransactionID>MYSHOP-00142</ShopTransactionID>
+			<BankTransactionID>159247522</BankTransactionID>
+			<ErrorCode>0</ErrorCode>
+			<ErrorDescription>Transazione correttamente effettuata</ErrorDescription>
+		</GestPayS2S>
+	</callSettleS2SResult>
 </callSettleS2SResponse>
 ```
 
