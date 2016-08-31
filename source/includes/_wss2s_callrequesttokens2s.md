@@ -93,7 +93,7 @@ Merchants can use this method to request the token generation for a Credit Card.
 | `CheckDigitDescription` | description of the check digit response
 | `CheckDate` | `OK` or `KO`, acording to the check date of the card 
 | `CheckDateDescription` | description of the check date response  
-| `EnrolledCode` | 3D Secure enabled: <ul><li>`Y` enabled </li><li>`N` not enabled</li><li>`U` could not verify</li></ul>  
+| `EnrolledCode` | 3D Secure enabled: <ul><li>`Y` enabled </li><li>`N` not enabled</li><li>`U` could not verify</li><li>`E` error: could not contact the credit card company</li></ul>  
 | `EnrolledDescription` | enrolment description 
 | `Prepaid` | indicates if the card is prepaid of not (`Y`, `N`, or empty)
 | `Token` | the token value 

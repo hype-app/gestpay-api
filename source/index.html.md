@@ -37,7 +37,8 @@ includes:
   - wss2s_callverifycards2s
   - wss2s_callcheckcartas2s
   - wss2s_callrequesttokens2s
-  - wss2s_calldeletetokens2s   
+  - wss2s_calldeletetokens2s
+  - wss2s_callupdatetokens2s
   - errors
   - payment_type_codes
   - currency_codes

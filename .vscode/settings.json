@@ -1,0 +1,7 @@
+// Inserire le impostazioni in questo file per sovrascrivere quelle utente e predefinite.
+{
+  // Numero di spazi a cui equivale una tabulazione.
+	"editor.tabSize": 2,
+	// Inserisce spazi quando si preme TAB.
+	"editor.insertSpaces": true
+}
