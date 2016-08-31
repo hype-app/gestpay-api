@@ -2245,10 +2245,10 @@
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;callRefundS2S&gt;</span>
         <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-        <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
-        <span class="nt">&lt;amount&gt;</span>55.00<span class="nt">&lt;/amount&gt;</span>
-        <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-00142<span class="nt">&lt;/shopTransactionId&gt;</span>
-        <span class="nt">&lt;bankTransactionId&gt;</span>159247522<span class="nt">&lt;/bankTransactionId&gt;</span>
+    <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
+    <span class="nt">&lt;amount&gt;</span>55.00<span class="nt">&lt;/amount&gt;</span>
+    <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-00142<span class="nt">&lt;/shopTransactionId&gt;</span>
+    <span class="nt">&lt;bankTransactionId&gt;</span>159247522<span class="nt">&lt;/bankTransactionId&gt;</span>
 <span class="nt">&lt;/callRefundS2S&gt;</span>
 </code></pre>
 
@@ -3260,6 +3260,92 @@
 <tr>
 <td><code class="prettyprint">ErrorDescription</code></td>
 <td>transaction error description</td>
+</tr>
+</tbody></table>
+
+          <h2 id="callideallists2s"> CallIdealListS2S</h2>
+
+<p>Merchants can use this method to have the list of the Banks available for their customers for IDeal payment method.</p>
+
+<h3 id="request-details">Request details</h3>
+
+<blockquote>
+<p>Request example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;CallIdealListS2S&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>900000001<span class="nt">&lt;/shopLogin&gt;</span>
+<span class="nt">&lt;/CallIdealListS2S&gt;</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>parameter name</th>
+<th>description</th>
+<th>type</th>
+<th>length</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>the merchant&rsquo;s code</td>
+<td>string</td>
+<td>30</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-details"> Response details</h3>
+
+<blockquote>
+<p>Response example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;CallIdealListS2SResult&gt;</span>
+    <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;TransactionType&gt;</span>RequestIdealBankList<span class="nt">&lt;/TransactionType&gt;</span>
+        <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+        <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+        <span class="nt">&lt;ErrorDescription</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;BankList&gt;</span>
+          <span class="nt">&lt;Bank&gt;</span>
+            <span class="nt">&lt;BankCode&gt;</span>0001<span class="nt">&lt;/BankCode&gt;</span>
+            <span class="nt">&lt;BankName&gt;</span>E-Corp<span class="nt">&lt;/BankName&gt;</span>
+          <span class="nt">&lt;/Bank&gt;</span>
+          <span class="nt">&lt;Bank&gt;</span>
+            ... 
+          <span class="nt">&lt;/Bank&gt;</span>
+        <span class="nt">&lt;/BankList&gt;</span>
+    <span class="nt">&lt;/GestPayS2S&gt;</span>
+<span class="nt">&lt;/CallIdealListS2SResult&gt;</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>parameter name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">TransactionType</code> </td>
+<td>for <code class="prettyprint"> CallIdealListS2S</code>, the value will be <code class="prettyprint">RequestIdealBankList</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">TransactionResult</code></td>
+<td><code class="prettyprint">OK</code> or <code class="prettyprint">KO</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">ErrorCode</code></td>
+<td>transaction error code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ErrorDescription</code></td>
+<td>transaction error description</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BankList.Bank.BankCode</code> </td>
+<td>Returns Ideal Bank List, for each bank returns the Bank Code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BankList.Bank.BankName</code> </td>
+<td>Returns Ideal Bank List, for each bank returns the Bank Name</td>
 </tr>
 </tbody></table>
 
