@@ -3349,6 +3349,99 @@
 </tr>
 </tbody></table>
 
+          <h2 id="callmybanklists2s">CallMyBankListS2S</h2>
+
+<p>Merchants can use this method to have the list of the Banks available for their customers for MyBank payment method.</p>
+
+<h3 id="request-details">Request details</h3>
+
+<blockquote>
+<p>Request example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;CallMyBankListS2S&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>900000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;langugeId&gt;</span>1<span class="nt">&lt;/languageId&gt;</span>
+<span class="nt">&lt;/CallMyBankListS2S&gt;</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>parameter name</th>
+<th>description</th>
+<th>type</th>
+<th>length</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>the merchant&rsquo;s code</td>
+<td>string</td>
+<td>30</td>
+</tr>
+<tr>
+<td><code class="prettyprint">languageId</code></td>
+<td>Assigns the response language of the Bank list. Values: <br><ul><li><code class="prettyprint">1</code> Italian</li><li><code class="prettyprint">2</code> English</li><li><code class="prettyprint">3</code> Spanish</li><li><code class="prettyprint">4</code> French</li><li><code class="prettyprint">5</code> German</li></ul></td>
+<td>number</td>
+<td>2</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-details"> Response details</h3>
+
+<blockquote>
+<p>Response example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;CallMyBankListS2SResult&gt;</span>
+    <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;TransactionType&gt;</span>MyBank<span class="nt">&lt;/TransactionType&gt;</span>
+        <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+        <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+        <span class="nt">&lt;ErrorDescription</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;BankList&gt;</span>
+          <span class="nt">&lt;Bank&gt;</span>
+            <span class="nt">&lt;BankCode&gt;</span>0001<span class="nt">&lt;/BankCode&gt;</span>
+            <span class="nt">&lt;BankName&gt;</span>E-Corp<span class="nt">&lt;/BankName&gt;</span>
+          <span class="nt">&lt;/Bank&gt;</span>
+          <span class="nt">&lt;Bank&gt;</span>
+            ... 
+          <span class="nt">&lt;/Bank&gt;</span>
+        <span class="nt">&lt;/BankList&gt;</span>
+    <span class="nt">&lt;/GestPayS2S&gt;</span>
+<span class="nt">&lt;/CallMyBankListS2SResult&gt;</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>parameter name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">TransactionType</code> </td>
+<td>for <code class="prettyprint">callMyBankListS2S</code>, the value will be <code class="prettyprint">MyBank</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">TransactionResult</code></td>
+<td><code class="prettyprint">OK</code> or <code class="prettyprint">KO</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">ErrorCode</code></td>
+<td>transaction error code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ErrorDescription</code></td>
+<td>transaction error description</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BankList.Bank.BankCode</code> </td>
+<td>Returns MyBank Bank List, for each bank returns the Bank Code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BankList.Bank.BankName</code> </td>
+<td>Returns MyBank Bank List, for each bank returns the Bank Name</td>
+</tr>
+</tbody></table>
+
           <h1 id="errors">Errors</h1>
 
 <aside class="notice">The error codes returned by GestPay are constantly updated.</aside>
