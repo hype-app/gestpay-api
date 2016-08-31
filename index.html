@@ -3064,7 +3064,7 @@
 </tr>
 <tr>
 <td><code class="prettyprint">EnrolledCode</code></td>
-<td>3D Secure enabled: <ul><li><code class="prettyprint">Y</code> enabled </li><li><code class="prettyprint">N</code> not enabled</li><li><code class="prettyprint">U</code> could not verify</li></ul></td>
+<td>3D Secure enabled: <ul><li><code class="prettyprint">Y</code> enabled </li><li><code class="prettyprint">N</code> not enabled</li><li><code class="prettyprint">U</code> could not verify</li><li><code class="prettyprint">E</code> error: could not contact the credit card company</li></ul></td>
 </tr>
 <tr>
 <td><code class="prettyprint">EnrolledDescription</code></td>
@@ -3149,6 +3149,105 @@
 <tr>
 <td><code class="prettyprint">TransactionType</code></td>
 <td><code class="prettyprint">DisableToken</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">TransactionRsult</code></td>
+<td><code class="prettyprint">OK</code> or <code class="prettyprint">KO</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">ErrorCode</code></td>
+<td>transaction error code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ErrorDescription</code></td>
+<td>transaction error description</td>
+</tr>
+</tbody></table>
+
+          <h2 id="callupdatetokens2s">callUpdateTokenS2S</h2>
+
+<p>Merchants can use this method to update the expiry date of a token.</p>
+
+<p>Merchants belonging to a group are allowed to update also tokens created by other merchants of the same group. If a merchant belongs to a group, can update also token created by the other group&rsquo;s merchants.</p>
+
+<h3 id="request-details">Request details</h3>
+
+<blockquote>
+<p>Request example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;callUpdateTokenS2S&gt;</span>
+    <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
+    <span class="nt">&lt;tokenValue&gt;</span>1234WJFXABCD5678<span class="nt">&lt;/tokenValue&gt;</span>
+    <span class="nt">&lt;expiryMonth&gt;</span>12<span class="nt">&lt;/expiryMonth&gt;</span>
+    <span class="nt">&lt;expiryYear&gt;</span>21<span class="nt">&lt;/expiryYear&gt;</span>
+    <span class="nt">&lt;withAut&gt;</span>Y<span class="nt">&lt;/withAut&gt;</span>
+<span class="nt">&lt;/callUpdateTokenS2S&gt;</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>parameter name</th>
+<th>description</th>
+<th>type</th>
+<th>length</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>the merchant&rsquo;s code</td>
+<td>string</td>
+<td>30</td>
+</tr>
+<tr>
+<td><code class="prettyprint">tokenValue</code></td>
+<td>Token value to delete</td>
+<td>string</td>
+<td>25</td>
+</tr>
+<tr>
+<td><code class="prettyprint">expiryMonth</code></td>
+<td>Assigns card expiration month</td>
+<td>string</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code class="prettyprint">expiryYear</code></td>
+<td>Assigns card expiration year</td>
+<td>string</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code class="prettyprint">withAut</code></td>
+<td>tries also to authorize the card. <br> <code class="prettyprint">Y</code> on <code class="prettyprint">N</code></td>
+<td>string</td>
+<td>1</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-details">Response details</h3>
+
+<blockquote>
+<p>Response example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;callUpdateTokenS2SResult&gt;</span>
+    <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;TransactionType&gt;</span>UpdateToken<span class="nt">&lt;/TransactionType&gt;</span>
+        <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+        <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+        <span class="nt">&lt;ErrorDescription</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/GestPayS2S&gt;</span>
+<span class="nt">&lt;/callUpdateTokenS2SResult&gt;</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>parameter name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">TransactionType</code></td>
+<td><code class="prettyprint">UpdateToken</code></td>
 </tr>
 <tr>
 <td><code class="prettyprint">TransactionRsult</code></td>
