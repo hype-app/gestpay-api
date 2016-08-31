@@ -39,6 +39,7 @@ includes:
   - wss2s_callrequesttokens2s
   - wss2s_calldeletetokens2s
   - wss2s_callupdatetokens2s
+  - wss2s_callideallists2s
   - errors
   - payment_type_codes
   - currency_codes

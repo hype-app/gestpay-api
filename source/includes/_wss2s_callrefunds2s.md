@@ -9,10 +9,10 @@ Merchants can use this method to perform a partial or complete transaction amoun
 ```xml
 <callRefundS2S>
 		<shopLogin>9000001</shopLogin>
-        <uicCode>242</uicCode><!-- Euro -->
-        <amount>55.00</amount>
-        <shopTransactionId>MYSHOP-00142</shopTransactionId>
-        <bankTransactionId>159247522</bankTransactionId>
+    <uicCode>242</uicCode><!-- Euro -->
+    <amount>55.00</amount>
+    <shopTransactionId>MYSHOP-00142</shopTransactionId>
+    <bankTransactionId>159247522</bankTransactionId>
 </callRefundS2S>
 ```
 
