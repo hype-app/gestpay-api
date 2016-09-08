@@ -3,7 +3,7 @@
 
 ### Enabling Paypal 
 
-See `PaymentTypes` example. 
+See [`PaymentTypes` example](#paymentTypes). 
 
 ### Show product info at paypal's buying page 
 
@@ -94,7 +94,7 @@ If you want to activate the **Paypal Seller Protection** you must:
 | `shipToStreet` | 100 | String containing the shipping address |
 | `shipToCity` | 40 | String containing the shipping city |
 | `shipToState` | 40 | String containing the shipping state (see [State Codes table - TODO]()) |
-| `shipToCountryCode` | 2 | String containing the shipping country code (see [Country Codes table - TODO]()) |
+| `shipToCountryCode` | 2 | String containing the shipping country code (see [Paypal Country Codes table](#paypal-country-codes)) |
 | `shipToZip` | 20 | String containing the shipping zip |
 | `shipToStreet2` | 100 | String containing an additional shipping address field | 
 

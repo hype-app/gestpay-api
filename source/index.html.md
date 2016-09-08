@@ -7,7 +7,6 @@ language_tabs:
   - net
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -45,6 +44,7 @@ includes:
   - payment_type_codes
   - currency_codes
   - paypal_country_codes
+  - paypal_state_codes
   - language_codes
 
 search: true

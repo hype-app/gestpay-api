@@ -93,6 +93,8 @@ You can request a token that will represent the credit card for your website. Yo
 
 <sup id="fn2">2. Required only when a Token is needed within the transaction response. <br> In order to be able to request, obtain and use a Token, merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></sup>
 
+<a name="paymentTypes"></a>
+
 ### PaymentTypes
 
 > If you want to enable only Credit Card or Masterpass for this payment, you can send the request like this: 
