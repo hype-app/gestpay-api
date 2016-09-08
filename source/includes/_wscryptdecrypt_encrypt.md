@@ -121,7 +121,7 @@ You can request a token that will represent the credit card for your website. Yo
   <amount>985</amount>
   <shopTransactionId>34az85ord19</shopTransactionId> 
   <paymentTypes>
-    <paymentType>PAYPAL</paymentType>
+    <paymentType>MASTERPASS</paymentType>
   </paymentTypes>
 <Encrypt>
 ```

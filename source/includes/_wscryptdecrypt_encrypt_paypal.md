@@ -3,7 +3,21 @@
 
 ### Enabling Paypal 
 
-See [`PaymentTypes` example](#paymentTypes). 
+> If you only specify `PAYPAL` payment type, Gestpay won't show the payment page but will redirect directly to Paypal's payment page: 
+
+```xml
+<Encrypt>
+  <shopLogin>9000001</shopLogin>
+  <uicCode>242</uicCode>
+  <amount>985</amount>
+  <shopTransactionId>34az85ord19</shopTransactionId> 
+  <paymentTypes>
+    <paymentType>PAYPAL</paymentType>
+  </paymentTypes>
+<Encrypt>
+```
+
+To enable Paypal, follow the same steps of the paragraph [`PaymentTypes` example](#paymentTypes). Remeber to enable the fields in the backoffice. 
 
 ### Show product info at paypal's buying page 
 
