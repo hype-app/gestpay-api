@@ -126,7 +126,6 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -348,6 +347,8 @@
 
 <p><sup id="fn2">2. Required only when a Token is needed within the transaction response. <br> In order to be able to request, obtain and use a Token, merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></sup></p>
 
+<p><a name="paymentTypes"></a></p>
+
 <h3 id="paymenttypes">PaymentTypes</h3>
 
 <blockquote>
@@ -374,7 +375,7 @@
   <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span> 
   <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>PAYPAL<span class="nt">&lt;/paymentType&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>MASTERPASS<span class="nt">&lt;/paymentType&gt;</span>
   <span class="nt">&lt;/paymentTypes&gt;</span>
 <span class="nt">&lt;Encrypt&gt;</span>
 </code></pre>
@@ -460,7 +461,21 @@
 
 <h3 id="enabling-paypal">Enabling Paypal</h3>
 
-<p>See <code class="prettyprint">PaymentTypes</code> example. </p>
+<blockquote>
+<p>If you only specify <code class="prettyprint">PAYPAL</code> payment type, Gestpay won&rsquo;t show the payment page but will redirect directly to Paypal&rsquo;s payment page: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span> 
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>PAYPAL<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+<span class="nt">&lt;Encrypt&gt;</span>
+</code></pre>
+
+<p>To enable Paypal, follow the same steps of the paragraph <a href="#paymentTypes"><code class="prettyprint">PaymentTypes</code> example</a>. Remeber to enable the fields in the backoffice. </p>
 
 <h3 id="show-product-info-at-paypal-39-s-buying-page">Show product info at paypal&rsquo;s buying page</h3>
 
@@ -570,7 +585,7 @@
     <span class="nt">&lt;shipToName&gt;</span>Marco Bianchi<span class="nt">&lt;/shipToName&gt;</span>
     <span class="nt">&lt;shipToStreet&gt;</span>Via Milano 1<span class="nt">&lt;/shipToStreet&gt;</span>
     <span class="nt">&lt;shipToCity&gt;</span>Torino<span class="nt">&lt;/shipToCity&gt;</span>
-    <span class="nt">&lt;shipToState&gt;</span>Torino<span class="nt">&lt;/shipToState&gt;</span>
+    <span class="nt">&lt;shipToState&gt;</span>TO<span class="nt">&lt;/shipToState&gt;</span>
     <span class="nt">&lt;shipToCountryCode&gt;</span>IT<span class="nt">&lt;/shipToCountryCode&gt;</span>
     <span class="nt">&lt;shipToZip&gt;</span>10100<span class="nt">&lt;/shipToZip&gt;</span>
     <span class="nt">&lt;shipToStreet2/&gt;</span>
@@ -629,12 +644,12 @@
 <tr>
 <td><code class="prettyprint">shipToState</code></td>
 <td style="text-align: center">40</td>
-<td>String containing the shipping state (see <a href="#">State Codes table - TODO</a>)</td>
+<td>String containing the shipping state (see <a href="#paypal-state-amp-province-codes">Paypal State Codes table</a>)</td>
 </tr>
 <tr>
 <td><code class="prettyprint">shipToCountryCode</code></td>
 <td style="text-align: center">2</td>
-<td>String containing the shipping country code (see <a href="#">Country Codes table - TODO</a>)</td>
+<td>String containing the shipping country code (see <a href="#paypal-country-codes">Paypal Country Codes table</a>)</td>
 </tr>
 <tr>
 <td><code class="prettyprint">shipToZip</code></td>
@@ -1910,13 +1925,13 @@
 </tr>
 <tr>
 <td><code class="prettyprint">shipToState</code> </td>
-<td>shipping state (see <a href="#">State Codes - TODO</a> table)</td>
+<td>shipping state (see <a href="#paypal-state-amp-province-codes">Paypal State Codes</a> table)</td>
 <td>string</td>
 <td>40</td>
 </tr>
 <tr>
 <td><code class="prettyprint">shipToCountryCode</code></td>
-<td>shipping country code (see <a href="#">Country Codes - TODO</a> table)</td>
+<td>shipping country code (see <a href="#paypal-country-codes">Paypal Country Codes</a> table)</td>
 <td>string</td>
 <td>2</td>
 </tr>
@@ -4684,7 +4699,2598 @@
 
           <h1 id="paypal-country-codes">Paypal Country Codes</h1>
 
-<p>You can find all the Country Codes that are supported by Paypal at <a href="https://developer.paypal.com/docs/classic/api/country_codes/">this link</a>. </p>
+<p>You can find all the Country Codes that are supported by Paypal at <a href="https://developer.paypal.com/docs/classic/api/country_codes/">this link</a> and are also reported here for simplicity.</p>
+
+<table><thead>
+<tr>
+<th>Country or Region Supported</th>
+<th>Country or Region Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ALBANIA</td>
+<td>AL</td>
+</tr>
+<tr>
+<td>ALGERIA</td>
+<td>DZ</td>
+</tr>
+<tr>
+<td>ANDORRA</td>
+<td>AD</td>
+</tr>
+<tr>
+<td>ANGOLA</td>
+<td>AO</td>
+</tr>
+<tr>
+<td>ANGUILLA</td>
+<td>AI</td>
+</tr>
+<tr>
+<td>ANTIGUA &amp; BARBUDA</td>
+<td>AG</td>
+</tr>
+<tr>
+<td>ARGENTINA</td>
+<td>AR</td>
+</tr>
+<tr>
+<td>ARMENIA</td>
+<td>AM</td>
+</tr>
+<tr>
+<td>ARUBA</td>
+<td>AW</td>
+</tr>
+<tr>
+<td>AUSTRALIA</td>
+<td>AU</td>
+</tr>
+<tr>
+<td>AUSTRIA</td>
+<td>AT</td>
+</tr>
+<tr>
+<td>AZERBAIJAN</td>
+<td>AZ</td>
+</tr>
+<tr>
+<td>BAHAMAS</td>
+<td>BS</td>
+</tr>
+<tr>
+<td>BAHRAIN</td>
+<td>BH</td>
+</tr>
+<tr>
+<td>BARBADOS</td>
+<td>BB</td>
+</tr>
+<tr>
+<td>BELARUS</td>
+<td>BY</td>
+</tr>
+<tr>
+<td>BELGIUM</td>
+<td>BE</td>
+</tr>
+<tr>
+<td>BELIZE</td>
+<td>BZ</td>
+</tr>
+<tr>
+<td>BENIN</td>
+<td>BJ</td>
+</tr>
+<tr>
+<td>BERMUDA</td>
+<td>BM</td>
+</tr>
+<tr>
+<td>BHUTAN</td>
+<td>BT</td>
+</tr>
+<tr>
+<td>BOLIVIA</td>
+<td>BO</td>
+</tr>
+<tr>
+<td>BOSNIA &amp; HERZEGOVINA</td>
+<td>BA</td>
+</tr>
+<tr>
+<td>BOTSWANA</td>
+<td>BW</td>
+</tr>
+<tr>
+<td>BRAZIL</td>
+<td>BR</td>
+</tr>
+<tr>
+<td>BRITISH VIRGIN ISLANDS</td>
+<td>VG</td>
+</tr>
+<tr>
+<td>BRUNEI</td>
+<td>BN</td>
+</tr>
+<tr>
+<td>BULGARIA</td>
+<td>BG</td>
+</tr>
+<tr>
+<td>BURKINA FASO</td>
+<td>BF</td>
+</tr>
+<tr>
+<td>BURUNDI</td>
+<td>BI</td>
+</tr>
+<tr>
+<td>CAMBODIA</td>
+<td>KH</td>
+</tr>
+<tr>
+<td>CAMEROON</td>
+<td>CM</td>
+</tr>
+<tr>
+<td>CANADA</td>
+<td>CA</td>
+</tr>
+<tr>
+<td>CAPE VERDE</td>
+<td>CV</td>
+</tr>
+<tr>
+<td>CAYMAN ISLANDS</td>
+<td>KY</td>
+</tr>
+<tr>
+<td>CHAD</td>
+<td>TD</td>
+</tr>
+<tr>
+<td>CHILE</td>
+<td>CL</td>
+</tr>
+<tr>
+<td>CHINA</td>
+<td>CN (For domestic Chinese bank transactions only)</td>
+</tr>
+<tr>
+<td>CHINA WORLDWIDE</td>
+<td>C2 (For CUP, bank card and cross-border transactions)</td>
+</tr>
+<tr>
+<td>COLOMBIA</td>
+<td>CO</td>
+</tr>
+<tr>
+<td>COMOROS</td>
+<td>KM</td>
+</tr>
+<tr>
+<td>CONGO - BRAZZAVILLE</td>
+<td>CG</td>
+</tr>
+<tr>
+<td>CONGO - KINSHASA</td>
+<td>CD</td>
+</tr>
+<tr>
+<td>COOK ISLANDS</td>
+<td>CK</td>
+</tr>
+<tr>
+<td>COSTA RICA</td>
+<td>CR</td>
+</tr>
+<tr>
+<td>CÔTE D’IVOIRE</td>
+<td>CI</td>
+</tr>
+<tr>
+<td>CROATIA</td>
+<td>HR</td>
+</tr>
+<tr>
+<td>CYPRUS</td>
+<td>CY</td>
+</tr>
+<tr>
+<td>CZECH REPUBLIC</td>
+<td>CZ</td>
+</tr>
+<tr>
+<td>DENMARK</td>
+<td>DK</td>
+</tr>
+<tr>
+<td>DJIBOUTI</td>
+<td>DJ</td>
+</tr>
+<tr>
+<td>DOMINICA</td>
+<td>DM</td>
+</tr>
+<tr>
+<td>DOMINICAN REPUBLIC</td>
+<td>DO</td>
+</tr>
+<tr>
+<td>ECUADOR</td>
+<td>EC</td>
+</tr>
+<tr>
+<td>EGYPT</td>
+<td>EG</td>
+</tr>
+<tr>
+<td>EL SALVADOR</td>
+<td>SV</td>
+</tr>
+<tr>
+<td>ERITREA</td>
+<td>ER</td>
+</tr>
+<tr>
+<td>ESTONIA</td>
+<td>EE</td>
+</tr>
+<tr>
+<td>ETHIOPIA</td>
+<td>ET</td>
+</tr>
+<tr>
+<td>FALKLAND ISLANDS</td>
+<td>FK</td>
+</tr>
+<tr>
+<td>FAROE ISLANDS</td>
+<td>FO</td>
+</tr>
+<tr>
+<td>FIJI</td>
+<td>FJ</td>
+</tr>
+<tr>
+<td>FINLAND</td>
+<td>FI</td>
+</tr>
+<tr>
+<td>FRANCE</td>
+<td>FR</td>
+</tr>
+<tr>
+<td>FRENCH GUIANA</td>
+<td>GF</td>
+</tr>
+<tr>
+<td>FRENCH POLYNESIA</td>
+<td>PF</td>
+</tr>
+<tr>
+<td>GABON</td>
+<td>GA</td>
+</tr>
+<tr>
+<td>GAMBIA</td>
+<td>GM</td>
+</tr>
+<tr>
+<td>GEORGIA</td>
+<td>GE</td>
+</tr>
+<tr>
+<td>GERMANY</td>
+<td>DE</td>
+</tr>
+<tr>
+<td>GIBRALTAR</td>
+<td>GI</td>
+</tr>
+<tr>
+<td>GREECE</td>
+<td>GR</td>
+</tr>
+<tr>
+<td>GREENLAND</td>
+<td>GL</td>
+</tr>
+<tr>
+<td>GRENADA</td>
+<td>GD</td>
+</tr>
+<tr>
+<td>GUADELOUPE</td>
+<td>GP</td>
+</tr>
+<tr>
+<td>GUATEMALA</td>
+<td>GT</td>
+</tr>
+<tr>
+<td>GUINEA</td>
+<td>GN</td>
+</tr>
+<tr>
+<td>GUINEA-BISSAU</td>
+<td>GW</td>
+</tr>
+<tr>
+<td>GUYANA</td>
+<td>GY</td>
+</tr>
+<tr>
+<td>HONDURAS</td>
+<td>HN</td>
+</tr>
+<tr>
+<td>HONG KONG SAR CHINA</td>
+<td>HK</td>
+</tr>
+<tr>
+<td>HUNGARY</td>
+<td>HU</td>
+</tr>
+<tr>
+<td>ICELAND</td>
+<td>IS</td>
+</tr>
+<tr>
+<td>INDIA</td>
+<td>IN</td>
+</tr>
+<tr>
+<td>INDONESIA</td>
+<td>ID</td>
+</tr>
+<tr>
+<td>IRELAND</td>
+<td>IE</td>
+</tr>
+<tr>
+<td>ISRAEL</td>
+<td>IL</td>
+</tr>
+<tr>
+<td>ITALY</td>
+<td>IT</td>
+</tr>
+<tr>
+<td>JAMAICA</td>
+<td>JM</td>
+</tr>
+<tr>
+<td>JAPAN</td>
+<td>JP</td>
+</tr>
+<tr>
+<td>JORDAN</td>
+<td>JO</td>
+</tr>
+<tr>
+<td>KAZAKHSTAN</td>
+<td>KZ</td>
+</tr>
+<tr>
+<td>KENYA</td>
+<td>KE</td>
+</tr>
+<tr>
+<td>KIRIBATI</td>
+<td>KI</td>
+</tr>
+<tr>
+<td>KUWAIT</td>
+<td>KW</td>
+</tr>
+<tr>
+<td>KYRGYZSTAN</td>
+<td>KG</td>
+</tr>
+<tr>
+<td>LAOS</td>
+<td>LA</td>
+</tr>
+<tr>
+<td>LATVIA</td>
+<td>LV</td>
+</tr>
+<tr>
+<td>LESOTHO</td>
+<td>LS</td>
+</tr>
+<tr>
+<td>LIECHTENSTEIN</td>
+<td>LI</td>
+</tr>
+<tr>
+<td>LITHUANIA</td>
+<td>LT</td>
+</tr>
+<tr>
+<td>LUXEMBOURG</td>
+<td>LU</td>
+</tr>
+<tr>
+<td>MACEDONIA</td>
+<td>MK</td>
+</tr>
+<tr>
+<td>MADAGASCAR</td>
+<td>MG</td>
+</tr>
+<tr>
+<td>MALAWI</td>
+<td>MW</td>
+</tr>
+<tr>
+<td>MALAYSIA</td>
+<td>MY</td>
+</tr>
+<tr>
+<td>MALDIVES</td>
+<td>MV</td>
+</tr>
+<tr>
+<td>MALI</td>
+<td>ML</td>
+</tr>
+<tr>
+<td>MALTA</td>
+<td>MT</td>
+</tr>
+<tr>
+<td>MARSHALL ISLANDS</td>
+<td>MH</td>
+</tr>
+<tr>
+<td>MARTINIQUE</td>
+<td>MQ</td>
+</tr>
+<tr>
+<td>MAURITANIA</td>
+<td>MR</td>
+</tr>
+<tr>
+<td>MAURITIUS</td>
+<td>MU</td>
+</tr>
+<tr>
+<td>MAYOTTE</td>
+<td>YT</td>
+</tr>
+<tr>
+<td>MEXICO</td>
+<td>MX</td>
+</tr>
+<tr>
+<td>MICRONESIA</td>
+<td>FM</td>
+</tr>
+<tr>
+<td>MOLDOVA</td>
+<td>MD</td>
+</tr>
+<tr>
+<td>MONACO</td>
+<td>MC</td>
+</tr>
+<tr>
+<td>MONGOLIA</td>
+<td>MN</td>
+</tr>
+<tr>
+<td>MONTENEGRO</td>
+<td>ME</td>
+</tr>
+<tr>
+<td>MONTSERRAT</td>
+<td>MS</td>
+</tr>
+<tr>
+<td>MOROCCO</td>
+<td>MA</td>
+</tr>
+<tr>
+<td>MOZAMBIQUE</td>
+<td>MZ</td>
+</tr>
+<tr>
+<td>NAMIBIA</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>NAURU</td>
+<td>NR</td>
+</tr>
+<tr>
+<td>NEPAL</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>NETHERLANDS</td>
+<td>NL</td>
+</tr>
+<tr>
+<td>NEW CALEDONIA</td>
+<td>NC</td>
+</tr>
+<tr>
+<td>NEW ZEALAND</td>
+<td>NZ</td>
+</tr>
+<tr>
+<td>NICARAGUA</td>
+<td>NI</td>
+</tr>
+<tr>
+<td>NIGER</td>
+<td>NE</td>
+</tr>
+<tr>
+<td>NIGERIA</td>
+<td>NG</td>
+</tr>
+<tr>
+<td>NIUE</td>
+<td>NU</td>
+</tr>
+<tr>
+<td>NORFOLK ISLAND</td>
+<td>NF</td>
+</tr>
+<tr>
+<td>NORWAY</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>OMAN</td>
+<td>OM</td>
+</tr>
+<tr>
+<td>PALAU</td>
+<td>PW</td>
+</tr>
+<tr>
+<td>PANAMA</td>
+<td>PA</td>
+</tr>
+<tr>
+<td>PAPUA NEW GUINEA</td>
+<td>PG</td>
+</tr>
+<tr>
+<td>PARAGUAY</td>
+<td>PY</td>
+</tr>
+<tr>
+<td>PERU</td>
+<td>PE</td>
+</tr>
+<tr>
+<td>PHILIPPINES</td>
+<td>PH</td>
+</tr>
+<tr>
+<td>PITCAIRN ISLANDS</td>
+<td>PN</td>
+</tr>
+<tr>
+<td>POLAND</td>
+<td>PL</td>
+</tr>
+<tr>
+<td>PORTUGAL</td>
+<td>PT</td>
+</tr>
+<tr>
+<td>QATAR</td>
+<td>QA</td>
+</tr>
+<tr>
+<td>RÉUNION</td>
+<td>RE</td>
+</tr>
+<tr>
+<td>ROMANIA</td>
+<td>RO</td>
+</tr>
+<tr>
+<td>RUSSIA</td>
+<td>RU</td>
+</tr>
+<tr>
+<td>RWANDA</td>
+<td>RW</td>
+</tr>
+<tr>
+<td>SAMOA</td>
+<td>WS</td>
+</tr>
+<tr>
+<td>SAN MARINO</td>
+<td>SM</td>
+</tr>
+<tr>
+<td>SÃO TOMÉ &amp; PRÍNCIPE</td>
+<td>ST</td>
+</tr>
+<tr>
+<td>SAUDI ARABIA</td>
+<td>SA</td>
+</tr>
+<tr>
+<td>SENEGAL</td>
+<td>SN</td>
+</tr>
+<tr>
+<td>SERBIA</td>
+<td>RS</td>
+</tr>
+<tr>
+<td>SEYCHELLES</td>
+<td>SC</td>
+</tr>
+<tr>
+<td>SIERRA LEONE</td>
+<td>SL</td>
+</tr>
+<tr>
+<td>SINGAPORE</td>
+<td>SG</td>
+</tr>
+<tr>
+<td>SLOVAKIA</td>
+<td>SK</td>
+</tr>
+<tr>
+<td>SLOVENIA</td>
+<td>SI</td>
+</tr>
+<tr>
+<td>SOLOMON ISLANDS</td>
+<td>SB</td>
+</tr>
+<tr>
+<td>SOMALIA</td>
+<td>SO</td>
+</tr>
+<tr>
+<td>SOUTH AFRICA</td>
+<td>ZA</td>
+</tr>
+<tr>
+<td>SOUTH KOREA</td>
+<td>KR</td>
+</tr>
+<tr>
+<td>SPAIN</td>
+<td>ES</td>
+</tr>
+<tr>
+<td>SRI LANKA</td>
+<td>LK</td>
+</tr>
+<tr>
+<td>ST. HELENA</td>
+<td>SH</td>
+</tr>
+<tr>
+<td>ST. KITTS &amp; NEVIS</td>
+<td>KN</td>
+</tr>
+<tr>
+<td>ST. LUCIA</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>ST. PIERRE &amp; MIQUELON</td>
+<td>PM</td>
+</tr>
+<tr>
+<td>ST. VINCENT &amp; GRENADINES</td>
+<td>VC</td>
+</tr>
+<tr>
+<td>SURINAME</td>
+<td>SR</td>
+</tr>
+<tr>
+<td>SVALBARD &amp; JAN MAYEN</td>
+<td>SJ</td>
+</tr>
+<tr>
+<td>SWAZILAND</td>
+<td>SZ</td>
+</tr>
+<tr>
+<td>SWEDEN</td>
+<td>SE</td>
+</tr>
+<tr>
+<td>SWITZERLAND</td>
+<td>CH</td>
+</tr>
+<tr>
+<td>TAIWAN</td>
+<td>TW</td>
+</tr>
+<tr>
+<td>TAJIKISTAN</td>
+<td>TJ</td>
+</tr>
+<tr>
+<td>TANZANIA</td>
+<td>TZ</td>
+</tr>
+<tr>
+<td>THAILAND</td>
+<td>TH</td>
+</tr>
+<tr>
+<td>TOGO</td>
+<td>TG</td>
+</tr>
+<tr>
+<td>TONGA</td>
+<td>TO</td>
+</tr>
+<tr>
+<td>TRINIDAD &amp; TOBAGO</td>
+<td>TT</td>
+</tr>
+<tr>
+<td>TUNISIA</td>
+<td>TN</td>
+</tr>
+<tr>
+<td>TURKMENISTAN</td>
+<td>TM</td>
+</tr>
+<tr>
+<td>TURKS &amp; CAICOS ISLANDS</td>
+<td>TC</td>
+</tr>
+<tr>
+<td>TUVALU</td>
+<td>TV</td>
+</tr>
+<tr>
+<td>UGANDA</td>
+<td>UG</td>
+</tr>
+<tr>
+<td>UKRAINE</td>
+<td>UA</td>
+</tr>
+<tr>
+<td>UNITED ARAB EMIRATES</td>
+<td>AE</td>
+</tr>
+<tr>
+<td>UNITED KINGDOM</td>
+<td>GB</td>
+</tr>
+<tr>
+<td>UNITED STATES</td>
+<td>US</td>
+</tr>
+<tr>
+<td>URUGUAY</td>
+<td>UY</td>
+</tr>
+<tr>
+<td>VANUATU</td>
+<td>VU</td>
+</tr>
+<tr>
+<td>VATICAN CITY</td>
+<td>VA</td>
+</tr>
+<tr>
+<td>VENEZUELA</td>
+<td>VE</td>
+</tr>
+<tr>
+<td>VIETNAM</td>
+<td>VN</td>
+</tr>
+<tr>
+<td>WALLIS &amp; FUTUNA</td>
+<td>WF</td>
+</tr>
+<tr>
+<td>YEMEN</td>
+<td>YE</td>
+</tr>
+<tr>
+<td>ZAMBIA</td>
+<td>ZM</td>
+</tr>
+<tr>
+<td>ZIMBABWE</td>
+<td>ZW</td>
+</tr>
+</tbody></table>
+
+          <h1 id="paypal-state-amp-province-codes">Paypal State &amp; Province Codes</h1>
+
+<p>Paypal state codes can be found at <a href="https://developer.paypal.com/docs/classic/api/state_codes/">this link</a>. </p>
+
+<p>Here are reported for simplicity. </p>
+
+<blockquote>
+<p>Note: Some of the following tables list only the State or Province name and do not include a <code class="prettyprint">State</code> or <code class="prettyprint">Province</code> code. For these countries, use the spelling of the State or Province name exactly as it is written in the table.</p>
+</blockquote>
+
+<p>Countries that use State Codes:</p>
+
+<ul>
+<li><a href="#argentina">Argentina</a></li>
+<li><a href="#brazil">Brazil</a></li>
+<li><a href="#canada">Canada</a></li>
+<li><a href="#india">India</a></li>
+<li><a href="#italy">Italy</a></li>
+<li><a href="#japan">Japan</a></li>
+<li><a href="#mexico">Mexico</a></li>
+<li><a href="#thailand">Thailand</a></li>
+<li><a href="#united-states">United States</a> </li>
+</ul>
+
+<h2 id="argentina">Argentina</h2>
+
+<table><thead>
+<tr>
+<th>Province Name</th>
+<th>Province Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Buenos Aires (Ciudad)</td>
+<td>CIUDAD AUTÓNOMA DE BUENOS AIRES</td>
+</tr>
+<tr>
+<td>Buenos Aires (Provincia)</td>
+<td>BUENOS AIRES</td>
+</tr>
+<tr>
+<td>Catamarca</td>
+<td>CATAMARCA</td>
+</tr>
+<tr>
+<td>Chaco</td>
+<td>CHACO</td>
+</tr>
+<tr>
+<td>Chubut</td>
+<td>CHUBUT</td>
+</tr>
+<tr>
+<td>Corrientes</td>
+<td>CORRIENTES</td>
+</tr>
+<tr>
+<td>Córdoba</td>
+<td>CÓRDOBA</td>
+</tr>
+<tr>
+<td>Entre Ríos</td>
+<td>ENTRE RÍOS</td>
+</tr>
+<tr>
+<td>Formosa</td>
+<td>FORMOSA</td>
+</tr>
+<tr>
+<td>Jujuy</td>
+<td>JUJUY</td>
+</tr>
+<tr>
+<td>La Pampa</td>
+<td>LA PAMPA</td>
+</tr>
+<tr>
+<td>La Rioja</td>
+<td>LA RIOJA</td>
+</tr>
+<tr>
+<td>Mendoza</td>
+<td>MENDOZA</td>
+</tr>
+<tr>
+<td>Misiones</td>
+<td>MISIONES</td>
+</tr>
+<tr>
+<td>Neuquén</td>
+<td>NEUQUÉN</td>
+</tr>
+<tr>
+<td>Río Negro</td>
+<td>RÍO NEGRO</td>
+</tr>
+<tr>
+<td>Salta</td>
+<td>SALTA</td>
+</tr>
+<tr>
+<td>San Juan</td>
+<td>SAN JUAN</td>
+</tr>
+<tr>
+<td>San Luis</td>
+<td>SAN LUIS</td>
+</tr>
+<tr>
+<td>Santa Cruz</td>
+<td>SANTA CRUZ</td>
+</tr>
+<tr>
+<td>Santa Fe</td>
+<td>SANTA FE</td>
+</tr>
+<tr>
+<td>Santiago del Estero</td>
+<td>SANTIAGO DEL ESTERO</td>
+</tr>
+<tr>
+<td>Tierra del Fuego</td>
+<td>TIERRA DEL FUEGO</td>
+</tr>
+<tr>
+<td>Tucumán</td>
+<td>TUCUMÁN</td>
+</tr>
+</tbody></table>
+
+<h2 id="brazil">Brazil</h2>
+
+<table><thead>
+<tr>
+<th>State Name</th>
+<th>State Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Acre</td>
+<td>AC</td>
+</tr>
+<tr>
+<td>Alagoas</td>
+<td>AL</td>
+</tr>
+<tr>
+<td>Amapá</td>
+<td>AP</td>
+</tr>
+<tr>
+<td>Amazonas</td>
+<td>AM</td>
+</tr>
+<tr>
+<td>Bahia</td>
+<td>BA</td>
+</tr>
+<tr>
+<td>Ceará</td>
+<td>CE</td>
+</tr>
+<tr>
+<td>Distrito Federal</td>
+<td>DF</td>
+</tr>
+<tr>
+<td>Espírito Santo</td>
+<td>ES</td>
+</tr>
+<tr>
+<td>Goiás</td>
+<td>GO</td>
+</tr>
+<tr>
+<td>Maranhão</td>
+<td>MA</td>
+</tr>
+<tr>
+<td>Mato Grosso</td>
+<td>MT</td>
+</tr>
+<tr>
+<td>Mato Grosso do Sul</td>
+<td>MS</td>
+</tr>
+<tr>
+<td>Minas Gerais</td>
+<td>MG</td>
+</tr>
+<tr>
+<td>Paraná</td>
+<td>PR</td>
+</tr>
+<tr>
+<td>Paraíba</td>
+<td>PB</td>
+</tr>
+<tr>
+<td>Pará</td>
+<td>PA</td>
+</tr>
+<tr>
+<td>Pernambuco</td>
+<td>PE</td>
+</tr>
+<tr>
+<td>Piauí</td>
+<td>PI</td>
+</tr>
+<tr>
+<td>Rio Grande do Norte</td>
+<td>RN</td>
+</tr>
+<tr>
+<td>Rio Grande do Sul</td>
+<td>RS</td>
+</tr>
+<tr>
+<td>Rio de Janeiro</td>
+<td>RJ</td>
+</tr>
+<tr>
+<td>Rondônia</td>
+<td>RO</td>
+</tr>
+<tr>
+<td>Roraima</td>
+<td>RR</td>
+</tr>
+<tr>
+<td>Santa Catarina</td>
+<td>SC</td>
+</tr>
+<tr>
+<td>Sergipe</td>
+<td>SE</td>
+</tr>
+<tr>
+<td>São Paulo</td>
+<td>SP</td>
+</tr>
+<tr>
+<td>Tocantins</td>
+<td>TO</td>
+</tr>
+</tbody></table>
+
+<h2 id="canada">Canada</h2>
+
+<table><thead>
+<tr>
+<th>Province Name</th>
+<th>Province Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Alberta</td>
+<td>AB</td>
+</tr>
+<tr>
+<td>British Columbia</td>
+<td>BC</td>
+</tr>
+<tr>
+<td>Manitoba</td>
+<td>MB</td>
+</tr>
+<tr>
+<td>New Brunswick</td>
+<td>NB</td>
+</tr>
+<tr>
+<td>Newfoundland and Labrador</td>
+<td>NL</td>
+</tr>
+<tr>
+<td>Northwest Territories</td>
+<td>NT</td>
+</tr>
+<tr>
+<td>Nova Scotia</td>
+<td>NS</td>
+</tr>
+<tr>
+<td>Nunavut</td>
+<td>NU</td>
+</tr>
+<tr>
+<td>Ontario</td>
+<td>ON</td>
+</tr>
+<tr>
+<td>Prince Edward Island</td>
+<td>PE</td>
+</tr>
+<tr>
+<td>Quebec</td>
+<td>QC</td>
+</tr>
+<tr>
+<td>Saskatchewan</td>
+<td>SK</td>
+</tr>
+<tr>
+<td>Yukon</td>
+<td>YT</td>
+</tr>
+</tbody></table>
+
+<h2 id="india">India</h2>
+
+<table><thead>
+<tr>
+<th>State Name</th>
+<th>State Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Andaman and Nicobar Islands</td>
+<td>Andaman and Nicobar Islands</td>
+</tr>
+<tr>
+<td>Andhra Pradesh</td>
+<td>Andhra Pradesh</td>
+</tr>
+<tr>
+<td>Army Post Office</td>
+<td>APO</td>
+</tr>
+<tr>
+<td>Arunachal Pradesh</td>
+<td>Arunachal Pradesh</td>
+</tr>
+<tr>
+<td>Assam</td>
+<td>Assam</td>
+</tr>
+<tr>
+<td>Bihar</td>
+<td>Bihar</td>
+</tr>
+<tr>
+<td>Chandigarh</td>
+<td>Chandigarh</td>
+</tr>
+<tr>
+<td>Chhattisgarh</td>
+<td>Chhattisgarh</td>
+</tr>
+<tr>
+<td>Dadra and Nagar Haveli</td>
+<td>Dadra and Nagar Haveli</td>
+</tr>
+<tr>
+<td>Daman and Diu</td>
+<td>Daman and Diu</td>
+</tr>
+<tr>
+<td>Goa</td>
+<td>Goa</td>
+</tr>
+<tr>
+<td>Gujarat</td>
+<td>Gujarat</td>
+</tr>
+<tr>
+<td>Haryana</td>
+<td>Haryana</td>
+</tr>
+<tr>
+<td>Himachal Pradesh</td>
+<td>Himachal Pradesh</td>
+</tr>
+<tr>
+<td>Jammu and Kashmir</td>
+<td>Jammu and Kashmir</td>
+</tr>
+<tr>
+<td>Jharkhand</td>
+<td>Jharkhand</td>
+</tr>
+<tr>
+<td>Karnataka</td>
+<td>Karnataka</td>
+</tr>
+<tr>
+<td>Kerala</td>
+<td>Kerala</td>
+</tr>
+<tr>
+<td>Lakshadweep</td>
+<td>Lakshadweep</td>
+</tr>
+<tr>
+<td>Madhya Pradesh</td>
+<td>Madhya Pradesh</td>
+</tr>
+<tr>
+<td>Maharashtra</td>
+<td>Maharashtra</td>
+</tr>
+<tr>
+<td>Manipur</td>
+<td>Manipur</td>
+</tr>
+<tr>
+<td>Meghalaya</td>
+<td>Meghalaya</td>
+</tr>
+<tr>
+<td>Mizoram</td>
+<td>Mizoram</td>
+</tr>
+<tr>
+<td>Nagaland</td>
+<td>Nagaland</td>
+</tr>
+<tr>
+<td>National Capital Territory of Delhi</td>
+<td>Delhi (NCT)</td>
+</tr>
+<tr>
+<td>Odisha</td>
+<td>Odisha</td>
+</tr>
+<tr>
+<td>Puducherry</td>
+<td>Puducherry</td>
+</tr>
+<tr>
+<td>Punjab</td>
+<td>Punjab</td>
+</tr>
+<tr>
+<td>Rajasthan</td>
+<td>Rajasthan</td>
+</tr>
+<tr>
+<td>Sikkim</td>
+<td>Sikkim</td>
+</tr>
+<tr>
+<td>Tamil Nadu</td>
+<td>Tamil Nadu</td>
+</tr>
+<tr>
+<td>Telangana</td>
+<td>Telangana</td>
+</tr>
+<tr>
+<td>Tripura</td>
+<td>Tripura</td>
+</tr>
+<tr>
+<td>Uttar Pradesh</td>
+<td>Uttar Pradesh</td>
+</tr>
+<tr>
+<td>Uttarakhand</td>
+<td>Uttarakhand</td>
+</tr>
+<tr>
+<td>West Bengal</td>
+<td>West Bengal</td>
+</tr>
+</tbody></table>
+
+<h2 id="italy">Italy</h2>
+
+<table><thead>
+<tr>
+<th>Province Name</th>
+<th>Province Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Agrigento</td>
+<td>AG</td>
+</tr>
+<tr>
+<td>Alessandria</td>
+<td>AL</td>
+</tr>
+<tr>
+<td>Ancona</td>
+<td>AN</td>
+</tr>
+<tr>
+<td>Aosta</td>
+<td>AO</td>
+</tr>
+<tr>
+<td>Arezzo</td>
+<td>AR</td>
+</tr>
+<tr>
+<td>Ascoli Piceno</td>
+<td>AP</td>
+</tr>
+<tr>
+<td>Asti</td>
+<td>AT</td>
+</tr>
+<tr>
+<td>Avellino</td>
+<td>AV</td>
+</tr>
+<tr>
+<td>Bari</td>
+<td>BA</td>
+</tr>
+<tr>
+<td>Barletta-Andria-Trani</td>
+<td>BT</td>
+</tr>
+<tr>
+<td>Belluno</td>
+<td>BL</td>
+</tr>
+<tr>
+<td>Benevento</td>
+<td>BN</td>
+</tr>
+<tr>
+<td>Bergamo</td>
+<td>BG</td>
+</tr>
+<tr>
+<td>Biella</td>
+<td>BI</td>
+</tr>
+<tr>
+<td>Bologna</td>
+<td>BO</td>
+</tr>
+<tr>
+<td>Bolzano</td>
+<td>BZ</td>
+</tr>
+<tr>
+<td>Brescia</td>
+<td>BS</td>
+</tr>
+<tr>
+<td>Brindisi</td>
+<td>BR</td>
+</tr>
+<tr>
+<td>Cagliari</td>
+<td>CA</td>
+</tr>
+<tr>
+<td>Caltanissetta</td>
+<td>CL</td>
+</tr>
+<tr>
+<td>Campobasso</td>
+<td>CB</td>
+</tr>
+<tr>
+<td>Carbonia-Iglesias</td>
+<td>CI</td>
+</tr>
+<tr>
+<td>Caserta</td>
+<td>CE</td>
+</tr>
+<tr>
+<td>Catania</td>
+<td>CT</td>
+</tr>
+<tr>
+<td>Catanzaro</td>
+<td>CZ</td>
+</tr>
+<tr>
+<td>Chieti</td>
+<td>CH</td>
+</tr>
+<tr>
+<td>Como</td>
+<td>CO</td>
+</tr>
+<tr>
+<td>Cosenza</td>
+<td>CS</td>
+</tr>
+<tr>
+<td>Cremona</td>
+<td>CR</td>
+</tr>
+<tr>
+<td>Crotone</td>
+<td>KR</td>
+</tr>
+<tr>
+<td>Cuneo</td>
+<td>CN</td>
+</tr>
+<tr>
+<td>Enna</td>
+<td>EN</td>
+</tr>
+<tr>
+<td>Fermo</td>
+<td>FM</td>
+</tr>
+<tr>
+<td>Ferrara</td>
+<td>FE</td>
+</tr>
+<tr>
+<td>Firenze</td>
+<td>FI</td>
+</tr>
+<tr>
+<td>Foggia</td>
+<td>FG</td>
+</tr>
+<tr>
+<td>Forlì-Cesena</td>
+<td>FC</td>
+</tr>
+<tr>
+<td>Frosinone</td>
+<td>FR</td>
+</tr>
+<tr>
+<td>Genova</td>
+<td>GE</td>
+</tr>
+<tr>
+<td>Gorizia</td>
+<td>GO</td>
+</tr>
+<tr>
+<td>Grosseto</td>
+<td>GR</td>
+</tr>
+<tr>
+<td>Imperia</td>
+<td>IM</td>
+</tr>
+<tr>
+<td>Isernia</td>
+<td>IS</td>
+</tr>
+<tr>
+<td>L&#39;Aquila</td>
+<td>AQ</td>
+</tr>
+<tr>
+<td>La Spezia</td>
+<td>SP</td>
+</tr>
+<tr>
+<td>Latina</td>
+<td>LT</td>
+</tr>
+<tr>
+<td>Lecce</td>
+<td>LE</td>
+</tr>
+<tr>
+<td>Lecco</td>
+<td>LC</td>
+</tr>
+<tr>
+<td>Livorno</td>
+<td>LI</td>
+</tr>
+<tr>
+<td>Lodi</td>
+<td>LO</td>
+</tr>
+<tr>
+<td>Lucca</td>
+<td>LU</td>
+</tr>
+<tr>
+<td>Macerata</td>
+<td>MC</td>
+</tr>
+<tr>
+<td>Mantova</td>
+<td>MN</td>
+</tr>
+<tr>
+<td>Massa-Carrara</td>
+<td>MS</td>
+</tr>
+<tr>
+<td>Matera</td>
+<td>MT</td>
+</tr>
+<tr>
+<td>Medio Campidano</td>
+<td>VS</td>
+</tr>
+<tr>
+<td>Messina</td>
+<td>ME</td>
+</tr>
+<tr>
+<td>Milano</td>
+<td>MI</td>
+</tr>
+<tr>
+<td>Modena</td>
+<td>MO</td>
+</tr>
+<tr>
+<td>Monza e della Brianza</td>
+<td>MB</td>
+</tr>
+<tr>
+<td>Napoli</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>Novara</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>Nuoro</td>
+<td>NU</td>
+</tr>
+<tr>
+<td>Ogliastra</td>
+<td>OG</td>
+</tr>
+<tr>
+<td>Olbia-Tempio</td>
+<td>OT</td>
+</tr>
+<tr>
+<td>Oristano</td>
+<td>OR</td>
+</tr>
+<tr>
+<td>Padova</td>
+<td>PD</td>
+</tr>
+<tr>
+<td>Palermo</td>
+<td>PA</td>
+</tr>
+<tr>
+<td>Parma</td>
+<td>PR</td>
+</tr>
+<tr>
+<td>Pavia</td>
+<td>PV</td>
+</tr>
+<tr>
+<td>Perugia</td>
+<td>PG</td>
+</tr>
+<tr>
+<td>Pesaro e Urbino</td>
+<td>PU</td>
+</tr>
+<tr>
+<td>Pescara</td>
+<td>PE</td>
+</tr>
+<tr>
+<td>Piacenza</td>
+<td>PC</td>
+</tr>
+<tr>
+<td>Pisa</td>
+<td>PI</td>
+</tr>
+<tr>
+<td>Pistoia</td>
+<td>PT</td>
+</tr>
+<tr>
+<td>Pordenone</td>
+<td>PN</td>
+</tr>
+<tr>
+<td>Potenza</td>
+<td>PZ</td>
+</tr>
+<tr>
+<td>Prato</td>
+<td>PO</td>
+</tr>
+<tr>
+<td>Ragusa</td>
+<td>RG</td>
+</tr>
+<tr>
+<td>Ravenna</td>
+<td>RA</td>
+</tr>
+<tr>
+<td>Reggio Calabria</td>
+<td>RC</td>
+</tr>
+<tr>
+<td>Reggio Emilia</td>
+<td>RE</td>
+</tr>
+<tr>
+<td>Rieti</td>
+<td>RI</td>
+</tr>
+<tr>
+<td>Rimini</td>
+<td>RN</td>
+</tr>
+<tr>
+<td>Roma</td>
+<td>RM</td>
+</tr>
+<tr>
+<td>Rovigo</td>
+<td>RO</td>
+</tr>
+<tr>
+<td>Salerno</td>
+<td>SA</td>
+</tr>
+<tr>
+<td>Sassari</td>
+<td>SS</td>
+</tr>
+<tr>
+<td>Savona</td>
+<td>SV</td>
+</tr>
+<tr>
+<td>Siena</td>
+<td>SI</td>
+</tr>
+<tr>
+<td>Siracusa</td>
+<td>SR</td>
+</tr>
+<tr>
+<td>Sondrio</td>
+<td>SO</td>
+</tr>
+<tr>
+<td>Taranto</td>
+<td>TA</td>
+</tr>
+<tr>
+<td>Teramo</td>
+<td>TE</td>
+</tr>
+<tr>
+<td>Terni</td>
+<td>TR</td>
+</tr>
+<tr>
+<td>Torino</td>
+<td>TO</td>
+</tr>
+<tr>
+<td>Trapani</td>
+<td>TP</td>
+</tr>
+<tr>
+<td>Trento</td>
+<td>TN</td>
+</tr>
+<tr>
+<td>Treviso</td>
+<td>TV</td>
+</tr>
+<tr>
+<td>Trieste</td>
+<td>TS</td>
+</tr>
+<tr>
+<td>Udine</td>
+<td>UD</td>
+</tr>
+<tr>
+<td>Varese</td>
+<td>VA</td>
+</tr>
+<tr>
+<td>Venezia</td>
+<td>VE</td>
+</tr>
+<tr>
+<td>Verbano-Cusio-Ossola</td>
+<td>VB</td>
+</tr>
+<tr>
+<td>Vercelli</td>
+<td>VC</td>
+</tr>
+<tr>
+<td>Verona</td>
+<td>VR</td>
+</tr>
+<tr>
+<td>Vibo Valentia</td>
+<td>VV</td>
+</tr>
+<tr>
+<td>Vicenza</td>
+<td>VI</td>
+</tr>
+<tr>
+<td>Viterbo</td>
+<td>VT</td>
+</tr>
+</tbody></table>
+
+<h2 id="japan">Japan</h2>
+
+<table><thead>
+<tr>
+<th>Prefecture Name</th>
+<th>Prefecture Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Aichi</td>
+<td>AICHI-KEN</td>
+</tr>
+<tr>
+<td>Akita</td>
+<td>AKITA-KEN</td>
+</tr>
+<tr>
+<td>Aomori</td>
+<td>AOMORI-KEN</td>
+</tr>
+<tr>
+<td>Chiba</td>
+<td>CHIBA-KEN</td>
+</tr>
+<tr>
+<td>Ehime</td>
+<td>EHIME-KEN</td>
+</tr>
+<tr>
+<td>Fukui</td>
+<td>FUKUI-KEN</td>
+</tr>
+<tr>
+<td>Fukuoka</td>
+<td>FUKUOKA-KEN</td>
+</tr>
+<tr>
+<td>Fukushima</td>
+<td>FUKUSHIMA-KEN</td>
+</tr>
+<tr>
+<td>Gifu</td>
+<td>GIFU-KEN</td>
+</tr>
+<tr>
+<td>Gunma</td>
+<td>GUNMA-KEN</td>
+</tr>
+<tr>
+<td>Hiroshima</td>
+<td>HIROSHIMA-KEN</td>
+</tr>
+<tr>
+<td>Hokkaido</td>
+<td>HOKKAIDO</td>
+</tr>
+<tr>
+<td>Hyogo</td>
+<td>HYOGO-KEN</td>
+</tr>
+<tr>
+<td>Ibaraki</td>
+<td>IBARAKI-KEN</td>
+</tr>
+<tr>
+<td>Ishikawa</td>
+<td>ISHIKAWA-KEN</td>
+</tr>
+<tr>
+<td>Iwate</td>
+<td>IWATE-KEN</td>
+</tr>
+<tr>
+<td>Kagawa</td>
+<td>KAGAWA-KEN</td>
+</tr>
+<tr>
+<td>Kagoshima</td>
+<td>KAGOSHIMA-KEN</td>
+</tr>
+<tr>
+<td>Kanagawa</td>
+<td>KANAGAWA-KEN</td>
+</tr>
+<tr>
+<td>Kochi</td>
+<td>KOCHI-KEN</td>
+</tr>
+<tr>
+<td>Kumamoto</td>
+<td>KUMAMOTO-KEN</td>
+</tr>
+<tr>
+<td>Kyoto</td>
+<td>KYOTO-FU</td>
+</tr>
+<tr>
+<td>Mie</td>
+<td>MIE-KEN</td>
+</tr>
+<tr>
+<td>Miyagi</td>
+<td>MIYAGI-KEN</td>
+</tr>
+<tr>
+<td>Miyazaki</td>
+<td>MIYAZAKI-KEN</td>
+</tr>
+<tr>
+<td>Nagano</td>
+<td>NAGANO-KEN</td>
+</tr>
+<tr>
+<td>Nagasaki</td>
+<td>NAGASAKI-KEN</td>
+</tr>
+<tr>
+<td>Nara</td>
+<td>NARA-KEN</td>
+</tr>
+<tr>
+<td>Niigata</td>
+<td>NIIGATA-KEN</td>
+</tr>
+<tr>
+<td>Oita</td>
+<td>OITA-KEN</td>
+</tr>
+<tr>
+<td>Okayama</td>
+<td>OKAYAMA-KEN</td>
+</tr>
+<tr>
+<td>Okinawa</td>
+<td>OKINAWA-KEN</td>
+</tr>
+<tr>
+<td>Osaka</td>
+<td>OSAKA-FU</td>
+</tr>
+<tr>
+<td>Saga</td>
+<td>SAGA-KEN</td>
+</tr>
+<tr>
+<td>Saitama</td>
+<td>SAITAMA-KEN</td>
+</tr>
+<tr>
+<td>Shiga</td>
+<td>SHIGA-KEN</td>
+</tr>
+<tr>
+<td>Shimane</td>
+<td>SHIMANE-KEN</td>
+</tr>
+<tr>
+<td>Shizuoka</td>
+<td>SHIZUOKA-KEN</td>
+</tr>
+<tr>
+<td>Tochigi</td>
+<td>TOCHIGI-KEN</td>
+</tr>
+<tr>
+<td>Tokushima</td>
+<td>TOKUSHIMA-KEN</td>
+</tr>
+<tr>
+<td>Tokyo</td>
+<td>TOKYO-TO</td>
+</tr>
+<tr>
+<td>Tottori</td>
+<td>TOTTORI-KEN</td>
+</tr>
+<tr>
+<td>Toyama</td>
+<td>TOYAMA-KEN</td>
+</tr>
+<tr>
+<td>Wakayama</td>
+<td>WAKAYAMA-KEN</td>
+</tr>
+<tr>
+<td>Yamagata</td>
+<td>YAMAGATA-KEN</td>
+</tr>
+<tr>
+<td>Yamaguchi</td>
+<td>YAMAGUCHI-KEN</td>
+</tr>
+<tr>
+<td>Yamanashi</td>
+<td>YAMANASHI-KEN</td>
+</tr>
+</tbody></table>
+
+<h2 id="mexico">Mexico</h2>
+
+<table><thead>
+<tr>
+<th>State Name</th>
+<th>State Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Aguascalientes</td>
+<td>AGS</td>
+</tr>
+<tr>
+<td>Baja California</td>
+<td>BC</td>
+</tr>
+<tr>
+<td>Baja California Sur</td>
+<td>BCS</td>
+</tr>
+<tr>
+<td>Campeche</td>
+<td>CAMP</td>
+</tr>
+<tr>
+<td>Chiapas</td>
+<td>CHIS</td>
+</tr>
+<tr>
+<td>Chihuahua</td>
+<td>CHIH</td>
+</tr>
+<tr>
+<td>Coahuila</td>
+<td>COAH</td>
+</tr>
+<tr>
+<td>Colima</td>
+<td>COL</td>
+</tr>
+<tr>
+<td>Distrito Federal</td>
+<td>DF</td>
+</tr>
+<tr>
+<td>Durango</td>
+<td>DGO</td>
+</tr>
+<tr>
+<td>Estado de México</td>
+<td>MEX</td>
+</tr>
+<tr>
+<td>Guanajuato</td>
+<td>GTO</td>
+</tr>
+<tr>
+<td>Guerrero</td>
+<td>GRO</td>
+</tr>
+<tr>
+<td>Hidalgo</td>
+<td>HGO</td>
+</tr>
+<tr>
+<td>Jalisco</td>
+<td>JAL</td>
+</tr>
+<tr>
+<td>Michoacán</td>
+<td>MICH</td>
+</tr>
+<tr>
+<td>Morelos</td>
+<td>MOR</td>
+</tr>
+<tr>
+<td>Nayarit</td>
+<td>NAY</td>
+</tr>
+<tr>
+<td>Nuevo León</td>
+<td>NL</td>
+</tr>
+<tr>
+<td>Oaxaca</td>
+<td>OAX</td>
+</tr>
+<tr>
+<td>Puebla</td>
+<td>PUE</td>
+</tr>
+<tr>
+<td>Querétaro</td>
+<td>QRO</td>
+</tr>
+<tr>
+<td>Quintana Roo</td>
+<td>Q ROO</td>
+</tr>
+<tr>
+<td>San Luis Potosí</td>
+<td>SLP</td>
+</tr>
+<tr>
+<td>Sinaloa</td>
+<td>SIN</td>
+</tr>
+<tr>
+<td>Sonora</td>
+<td>SON</td>
+</tr>
+<tr>
+<td>Tabasco</td>
+<td>TAB</td>
+</tr>
+<tr>
+<td>Tamaulipas</td>
+<td>TAMPS</td>
+</tr>
+<tr>
+<td>Tlaxcala</td>
+<td>TLAX</td>
+</tr>
+<tr>
+<td>Veracruz</td>
+<td>VER</td>
+</tr>
+<tr>
+<td>Yucatán</td>
+<td>YUC</td>
+</tr>
+<tr>
+<td>Zacatecas</td>
+<td>ZAC</td>
+</tr>
+</tbody></table>
+
+<h2 id="thailand">Thailand</h2>
+
+<table><thead>
+<tr>
+<th>Province Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Amnat Charoen</td>
+</tr>
+<tr>
+<td>Ang Thong</td>
+</tr>
+<tr>
+<td>Bangkok</td>
+</tr>
+<tr>
+<td>Bueng Kan</td>
+</tr>
+<tr>
+<td>Buri Ram</td>
+</tr>
+<tr>
+<td>Chachoengsao</td>
+</tr>
+<tr>
+<td>Chai Nat</td>
+</tr>
+<tr>
+<td>Chaiyaphum</td>
+</tr>
+<tr>
+<td>Chanthaburi</td>
+</tr>
+<tr>
+<td>Chiang Mai</td>
+</tr>
+<tr>
+<td>Chiang Rai</td>
+</tr>
+<tr>
+<td>Chon Buri</td>
+</tr>
+<tr>
+<td>Chumphon</td>
+</tr>
+<tr>
+<td>Kalasin</td>
+</tr>
+<tr>
+<td>Kamphaeng Phet</td>
+</tr>
+<tr>
+<td>Kanchanaburi</td>
+</tr>
+<tr>
+<td>Khon Kaen</td>
+</tr>
+<tr>
+<td>Krabi</td>
+</tr>
+<tr>
+<td>Lampang</td>
+</tr>
+<tr>
+<td>Lamphun</td>
+</tr>
+<tr>
+<td>Loei</td>
+</tr>
+<tr>
+<td>Lop Buri</td>
+</tr>
+<tr>
+<td>Mae Hong Son</td>
+</tr>
+<tr>
+<td>Maha Sarakham</td>
+</tr>
+<tr>
+<td>Mukdahan</td>
+</tr>
+<tr>
+<td>Nakhon Nayok</td>
+</tr>
+<tr>
+<td>Nakhon Pathom</td>
+</tr>
+<tr>
+<td>Nakhon Phanom</td>
+</tr>
+<tr>
+<td>Nakhon Ratchasima</td>
+</tr>
+<tr>
+<td>Nakhon Sawan</td>
+</tr>
+<tr>
+<td>Nakhon Si Thammarat</td>
+</tr>
+<tr>
+<td>Nan</td>
+</tr>
+<tr>
+<td>Narathiwat</td>
+</tr>
+<tr>
+<td>Nong Bua Lamphu</td>
+</tr>
+<tr>
+<td>Nong Khai</td>
+</tr>
+<tr>
+<td>Nonthaburi</td>
+</tr>
+<tr>
+<td>Pathum Thani</td>
+</tr>
+<tr>
+<td>Pattani</td>
+</tr>
+<tr>
+<td>Phang Nga</td>
+</tr>
+<tr>
+<td>Phatthalung</td>
+</tr>
+<tr>
+<td>Phatthaya</td>
+</tr>
+<tr>
+<td>Phayao</td>
+</tr>
+<tr>
+<td>Phetchabun</td>
+</tr>
+<tr>
+<td>Phetchaburi</td>
+</tr>
+<tr>
+<td>Phichit</td>
+</tr>
+<tr>
+<td>Phitsanulok</td>
+</tr>
+<tr>
+<td>Phra Nakhon Si Ayutthaya</td>
+</tr>
+<tr>
+<td>Phrae</td>
+</tr>
+<tr>
+<td>Phuket</td>
+</tr>
+<tr>
+<td>Prachin Buri</td>
+</tr>
+<tr>
+<td>Prachuap Khiri Khan</td>
+</tr>
+<tr>
+<td>Ranong</td>
+</tr>
+<tr>
+<td>Ratchaburi</td>
+</tr>
+<tr>
+<td>Rayong</td>
+</tr>
+<tr>
+<td>Roi Et</td>
+</tr>
+<tr>
+<td>Sa Kaeo</td>
+</tr>
+<tr>
+<td>Sakon Nakhon</td>
+</tr>
+<tr>
+<td>Samut Prakan</td>
+</tr>
+<tr>
+<td>Samut Sakhon</td>
+</tr>
+<tr>
+<td>Samut Songkhram</td>
+</tr>
+<tr>
+<td>Saraburi</td>
+</tr>
+<tr>
+<td>Satun</td>
+</tr>
+<tr>
+<td>Si Sa Ket</td>
+</tr>
+<tr>
+<td>Sing Buri</td>
+</tr>
+<tr>
+<td>Songkhla</td>
+</tr>
+<tr>
+<td>Sukhothai</td>
+</tr>
+<tr>
+<td>Suphan Buri</td>
+</tr>
+<tr>
+<td>Surat Thani</td>
+</tr>
+<tr>
+<td>Surin</td>
+</tr>
+<tr>
+<td>Tak</td>
+</tr>
+<tr>
+<td>Trang</td>
+</tr>
+<tr>
+<td>Trat</td>
+</tr>
+<tr>
+<td>Ubon Ratchathani</td>
+</tr>
+<tr>
+<td>Udon Thani</td>
+</tr>
+<tr>
+<td>Uthai Thani</td>
+</tr>
+<tr>
+<td>Uttaradit</td>
+</tr>
+<tr>
+<td>Yala</td>
+</tr>
+<tr>
+<td>Yasothon</td>
+</tr>
+</tbody></table>
+
+<h2 id="united-states">United States</h2>
+
+<table><thead>
+<tr>
+<th>State Name</th>
+<th>State Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Alabama</td>
+<td>AL</td>
+</tr>
+<tr>
+<td>Alaska</td>
+<td>AK</td>
+</tr>
+<tr>
+<td>Arizona</td>
+<td>AZ</td>
+</tr>
+<tr>
+<td>Arkansas</td>
+<td>AR</td>
+</tr>
+<tr>
+<td>California</td>
+<td>CA</td>
+</tr>
+<tr>
+<td>Colorado</td>
+<td>CO</td>
+</tr>
+<tr>
+<td>Connecticut</td>
+<td>CT</td>
+</tr>
+<tr>
+<td>Delaware</td>
+<td>DE</td>
+</tr>
+<tr>
+<td>District of Columbia</td>
+<td>DC</td>
+</tr>
+<tr>
+<td>Florida</td>
+<td>FL</td>
+</tr>
+<tr>
+<td>Georgia</td>
+<td>GA</td>
+</tr>
+<tr>
+<td>Hawaii</td>
+<td>HI</td>
+</tr>
+<tr>
+<td>Idaho</td>
+<td>ID</td>
+</tr>
+<tr>
+<td>Illinois</td>
+<td>IL</td>
+</tr>
+<tr>
+<td>Indiana</td>
+<td>IN</td>
+</tr>
+<tr>
+<td>Iowa</td>
+<td>IA</td>
+</tr>
+<tr>
+<td>Kansas</td>
+<td>KS</td>
+</tr>
+<tr>
+<td>Kentucky</td>
+<td>KY</td>
+</tr>
+<tr>
+<td>Louisiana</td>
+<td>LA</td>
+</tr>
+<tr>
+<td>Maine</td>
+<td>ME</td>
+</tr>
+<tr>
+<td>Maryland</td>
+<td>MD</td>
+</tr>
+<tr>
+<td>Massachusetts</td>
+<td>MA</td>
+</tr>
+<tr>
+<td>Michigan</td>
+<td>MI</td>
+</tr>
+<tr>
+<td>Minnesota</td>
+<td>MN</td>
+</tr>
+<tr>
+<td>Mississippi</td>
+<td>MS</td>
+</tr>
+<tr>
+<td>Missouri</td>
+<td>MO</td>
+</tr>
+<tr>
+<td>Montana</td>
+<td>MT</td>
+</tr>
+<tr>
+<td>Nebraska</td>
+<td>NE</td>
+</tr>
+<tr>
+<td>Nevada</td>
+<td>NV</td>
+</tr>
+<tr>
+<td>New Hampshire</td>
+<td>NH</td>
+</tr>
+<tr>
+<td>New Jersey</td>
+<td>NJ</td>
+</tr>
+<tr>
+<td>New Mexico</td>
+<td>NM</td>
+</tr>
+<tr>
+<td>New York</td>
+<td>NY</td>
+</tr>
+<tr>
+<td>North Carolina</td>
+<td>NC</td>
+</tr>
+<tr>
+<td>North Dakota</td>
+<td>ND</td>
+</tr>
+<tr>
+<td>Ohio</td>
+<td>OH</td>
+</tr>
+<tr>
+<td>Oklahoma</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>Oregon</td>
+<td>OR</td>
+</tr>
+<tr>
+<td>Pennsylvania</td>
+<td>PA</td>
+</tr>
+<tr>
+<td>Puerto Rico</td>
+<td>PR</td>
+</tr>
+<tr>
+<td>Rhode Island</td>
+<td>RI</td>
+</tr>
+<tr>
+<td>South Carolina</td>
+<td>SC</td>
+</tr>
+<tr>
+<td>South Dakota</td>
+<td>SD</td>
+</tr>
+<tr>
+<td>Tennessee</td>
+<td>TN</td>
+</tr>
+<tr>
+<td>Texas</td>
+<td>TX</td>
+</tr>
+<tr>
+<td>Utah</td>
+<td>UT</td>
+</tr>
+<tr>
+<td>Vermont</td>
+<td>VT</td>
+</tr>
+<tr>
+<td>Virginia</td>
+<td>VA</td>
+</tr>
+<tr>
+<td>Washington</td>
+<td>WA</td>
+</tr>
+<tr>
+<td>West Virginia</td>
+<td>WV</td>
+</tr>
+<tr>
+<td>Wisconsin</td>
+<td>WI</td>
+</tr>
+<tr>
+<td>Wyoming</td>
+<td>WY</td>
+</tr>
+</tbody></table>
+
+<h3 id="armed-forces-apo">Armed Forces APO</h3>
+
+<table><thead>
+<tr>
+<th>State Name</th>
+<th>State Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Armed Forces Americas</td>
+<td>AA</td>
+</tr>
+<tr>
+<td>Armed Forces Europe</td>
+<td>AE</td>
+</tr>
+<tr>
+<td>Armed Forces Pacific</td>
+<td>AP</td>
+</tr>
+</tbody></table>
+
+<h3 id="outlying-areas">Outlying Areas</h3>
+
+<table><thead>
+<tr>
+<th>State Name</th>
+<th>State Code</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>American Samoa</td>
+<td>AS</td>
+</tr>
+<tr>
+<td>Federated States of Micronesia</td>
+<td>FM</td>
+</tr>
+<tr>
+<td>Guam</td>
+<td>GU</td>
+</tr>
+<tr>
+<td>Marshall Islands</td>
+<td>MH</td>
+</tr>
+<tr>
+<td>Northern Mariana Islands</td>
+<td>MP</td>
+</tr>
+<tr>
+<td>Palau</td>
+<td>PW</td>
+</tr>
+<tr>
+<td>Virgin Islands</td>
+<td>VI</td>
+</tr>
+</tbody></table>
 
           <h1 id="language-codes">Language Codes</h1>
 
