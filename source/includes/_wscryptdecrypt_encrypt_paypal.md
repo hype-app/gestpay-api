@@ -67,7 +67,7 @@ If you populate these fields accordingly, you can show your user the list of pro
     <shipToName>Marco Bianchi</shipToName>
     <shipToStreet>Via Milano 1</shipToStreet>
     <shipToCity>Torino</shipToCity>
-    <shipToState>Torino</shipToState>
+    <shipToState>TO</shipToState>
     <shipToCountryCode>IT</shipToCountryCode>
     <shipToZip>10100</shipToZip>
     <shipToStreet2/>
@@ -93,7 +93,7 @@ If you want to activate the **Paypal Seller Protection** you must:
 | `shipToName` | 32 | String containing the shipping name |
 | `shipToStreet` | 100 | String containing the shipping address |
 | `shipToCity` | 40 | String containing the shipping city |
-| `shipToState` | 40 | String containing the shipping state (see [State Codes table - TODO]()) |
+| `shipToState` | 40 | String containing the shipping state (see [Paypal State Codes table](#paypal-state-amp-province-codes)) |
 | `shipToCountryCode` | 2 | String containing the shipping country code (see [Paypal Country Codes table](#paypal-country-codes)) |
 | `shipToZip` | 20 | String containing the shipping zip |
 | `shipToStreet2` | 100 | String containing an additional shipping address field | 

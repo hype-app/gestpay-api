@@ -64,8 +64,8 @@ In bold, the mandatory attributes.
 | ------------- | --------- | -------- |------ |
 | `shipToName` | shipping name | string | 32 | 
 | `shipToStreet` | shipping address | string | 100 |
-| `shipToState` | shipping state (see [State Codes - TODO]() table) | string | 40 | 
-| `shipToCountryCode` | shipping country code (see [Country Codes - TODO]() table) | string | 2 | 
+| `shipToState` | shipping state (see [Paypal State Codes](#paypal-state-amp-province-codes) table) | string | 40 | 
+| `shipToCountryCode` | shipping country code (see [Paypal Country Codes](#paypal-country-codes) table) | string | 2 | 
 | `shipToZip` | the shipping Zip | string | 20 | 
 | `shipToStreet2` | an additional field for the shipping  address | string | 200 | 
 
