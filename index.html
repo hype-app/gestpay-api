@@ -1210,6 +1210,32 @@
 
 <p>Alipay does not need any mandatory parameters. Just specify the <code class="prettyprint">PaymentType</code> <code class="prettyprint">S2PALI</code> and the payment page will show to your user. </p>
 
+          <h2 id="encrypt-example-unionpay">Encrypt Example: UnionPay</h2>
+
+<blockquote>
+<p>UnionPay example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>10<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>SP_S2P_UnionPay_001<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PUNI<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;CustomerDetail&gt;</span>
+      <span class="nt">&lt;PrimaryPhone&gt;</span>+85211112222<span class="nt">&lt;/PrimaryPhone&gt;</span>
+      <span class="nt">&lt;PrimaryEmail&gt;</span>yangchenning@physics.cn<span class="nt">&lt;/PrimaryEmail&gt;</span>
+    <span class="nt">&lt;/CustomerDetail&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+
+<p>Unipay does not need mandatory parameters. </p>
+
+<p>However, if you send the <code class="prettyprint">PrimaryEmail</code> and <code class="prettyprint">PrimaryPhone</code> fields, you will jump straight to the UnionPay payment page; otherwise, an intermediary page asking for the email address is showed. </p>
+
           <h2 id="decrypt">Decrypt</h2>
 
 <blockquote>
