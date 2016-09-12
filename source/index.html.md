@@ -22,6 +22,7 @@ includes:
   - wscryptdecrypt_encrypt_yandex
   - wscryptdecrypt_encrypt_alipay
   - wscryptdecrypt_encrypt_unionpay
+  - wscryptdecrypt_encrypt_tenpay
   - wscryptdecrypt_decrypt
   - wscryptdecrypt_decryptresult
   - js_gestpay
