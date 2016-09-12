@@ -27,3 +27,4 @@ TenPay does not need mandatory parameters.
 You must use `S2PTEN` as `paymentType`.
 
 However, if you send the `PrimaryEmail`, `FirstName` and `Lastname` fields, you will be redirected straight to TenPay payment page; otherwise, an intermediary page asking for this data is showed. 
+
