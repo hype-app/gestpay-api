@@ -43,4 +43,8 @@ end
 # If you want Middleman to listen on a different port, you can set that below
 set :port, 4567
 
+#to use this, <%= config[:doc_url] %>
+set :doc_url, "http://hype-app.github.io/gestpay-doc"
+
 activate :livereload
+
