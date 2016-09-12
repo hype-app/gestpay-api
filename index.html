@@ -1234,7 +1234,38 @@
 
 <p>Unipay does not need mandatory parameters. </p>
 
+<p>You must use <code class="prettyprint">S2PUNI</code> as <code class="prettyprint">paymentType</code>.</p>
+
 <p>However, if you send the <code class="prettyprint">PrimaryEmail</code> and <code class="prettyprint">PrimaryPhone</code> fields, you will jump straight to the UnionPay payment page; otherwise, an intermediary page asking for the email address is showed. </p>
+
+          <h2 id="encrypt-example-tenpay">Encrypt Example: TenPay</h2>
+
+<blockquote>
+<p>TenPay example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>103<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!--Hong Kong dollar--&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>0.01<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>SP_S2P_TenPay_001<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PTEN<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;CustomerDetail&gt;</span>
+      <span class="nt">&lt;FirstName&gt;</span>Charles Kuen<span class="nt">&lt;/FirstName&gt;</span>
+      <span class="nt">&lt;Lastname&gt;</span>Kao<span class="nt">&lt;/Lastname&gt;</span>
+      <span class="nt">&lt;PrimaryEmail&gt;</span>charleskuenkao@opticfiber.hk<span class="nt">&lt;/PrimaryEmail&gt;</span>
+    <span class="nt">&lt;/CustomerDetail&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+
+<p>TenPay does not need mandatory parameters. </p>
+
+<p>You must use <code class="prettyprint">S2PTEN</code> as <code class="prettyprint">paymentType</code>.</p>
+
+<p>However, if you send the <code class="prettyprint">PrimaryEmail</code>, <code class="prettyprint">FirstName</code> and <code class="prettyprint">Lastname</code> fields, you will be redirected straight to TenPay payment page; otherwise, an intermediary page asking for this data is showed. </p>
 
           <h2 id="decrypt">Decrypt</h2>
 
