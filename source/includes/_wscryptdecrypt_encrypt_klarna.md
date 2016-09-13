@@ -12,12 +12,12 @@
     <paymentType>S2PKLA</paymentType>
   </paymentTypes>
   <OrderDetails>
-    <CustomerDetails>
+    <CustomerDetail>
       <FirstName>Alfred</FirstName>
       <Lastname>Nobel<Lastname>
       <PrimaryEmail>alfred.nobel@dynamite.se</PrimaryEmail>
       <SocialSecurityNumber>18331021+129</SocialSecurityNumber>
-    </CustomerDetails>
+    </CustomerDetail>
     <BillingAddress>
       <StreetNumber>14<StreetNumber>
       <StreetName>Sturegatan</StreetName>

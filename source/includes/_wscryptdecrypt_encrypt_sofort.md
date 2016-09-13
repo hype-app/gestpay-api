@@ -13,11 +13,11 @@
     <paymentType>SOFORT</paymentType>
   </paymentTypes>
   <OrderDetails>
-    <CustomerDetails>
+    <CustomerDetail>
       <FirstName>Albert</FirstName>
       <Lastname>Einstein<Lastname>
       <PrimaryEmail>albert.einstein@princeton.edu</PrimaryEmail>
-    </CustomerDetails>
+    </CustomerDetail>
     <BillingAddress>
       <CountryCode>DE</CountryCode>
     </BillingAddress>

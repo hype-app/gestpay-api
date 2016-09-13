@@ -13,9 +13,9 @@
     <paymentType>S2PQIW</paymentType>
   </paymentTypes>
   <OrderDetails>
-    <CustomerDetails>
+    <CustomerDetail>
       <PrimaryPhone>0123456789</PrimaryPhone>
-    </CustomerDetails>
+    </CustomerDetail>
     <BillingAddress>
       <CountryCode>US</CountryCode>
     </BillingAddress>

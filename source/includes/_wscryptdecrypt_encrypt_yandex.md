@@ -13,8 +13,9 @@
     <paymentType>S2PYAN</paymentType>
   </paymentTypes>
   <OrderDetails>
-    <CustomerDetails>
+    <CustomerDetail>
       <PrimaryEmail>alfred.nobel@dynamite.se</PrimaryEmail>
+    </CustomerDetail>
   </OrderDetails>
 </Encrypt>
 ```
