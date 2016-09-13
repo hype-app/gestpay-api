@@ -458,6 +458,10 @@ html, body {
     max-width: 100%;
   }
 
+  h3 > code {
+    font-size: 20px;
+  }
+
   code {
     background-color: rgba(0,0,0,0.05);
     padding: 3px;

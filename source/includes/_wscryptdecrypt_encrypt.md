@@ -36,24 +36,7 @@ These are the **mandatory** fields.
   <buyerEmail>mario.bianchi@isp.it</buyerEmail>
   <customInfo>BV_CODCLIENTE=12*P1*BV_SESSIONID=398</customInfo>
 </Encrypt>
-```
-
-> The information included in `customInfo` will follow this form:
-
-```
-datum1=value1*P1*datum2=value2*P1* ... *P1*datumN=valueN
-```
-
->The separator between logically different information is the reserved sequence of characters `*P1*`. 
-
-> Other characters that must not be used within the parameters encoded by GestPay and in customised information are: 
-
-```
-&  (space)  §     (     )     * 
-<     >     ,     ;     :    *P1* 
-/     [     ]     ?     =     -- 
-/*    %     //
-```
+``` 
 
 
 These are non-mandatory fields, but are direct children of the `Encrypt` root.  
@@ -63,13 +46,36 @@ These are non-mandatory fields, but are direct children of the `Encrypt` root.
 | `buyerName` | 50 | Buyer’s name and surname |
 | `buyerEmail` | 50 | Buyer’s e-mail address |
 | `languageId` | 2 | Code identifying language used in communication with buyer |
-| `customInfo`<sup><a href="#fn1" id="ref1">1</a></sup> | 1000 | String containing specific information as configured in the merchant’s profile |
+| `customInfo`<sup><a href="#fn1" id="ref1">1</a></sup> | 1000 | String containing specific information as configured in the merchant’s profile. See the next section for further explanations. |
 
 <sup id="fn1">1. Each field can be up to a maximum of 300 characters in length.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup>
 
 Information included in the `customInfo` attribute is defined in the Back Office environment in the **"Fields & Parameters"** section.
 
 
+### Sending custom data to Gestpay: `<customInfo>`
+
+> The information included in `customInfo` will follow this form:
+
+```xml
+<customInfo>datum1=value1*P1*datum2=value2*P1* ... *P1*datumN=valueN</customInfo>
+```
+
+>Let's dig in it better: it is a string containing couples of **`"key"="value"`** separated by the special string **`*P1*`**. <br>
+ Other characters that must not be used within the parameters encoded by GestPay and in customised information are: 
+
+```
+&  (space)  §     (     )     * 
+<     >     ,     ;     :    *P1* 
+/     [     ]     ?     =     -- 
+/*    %     //
+```
+
+`<customInfo>` is a special Gestpay field; it is used to send custom merchant-defined parameters that Gestpay will not touch. You can store everything, as long as the data respects the syntax described on the right. 
+
+To start sending custom parameters, you must configure Gestpay to receive them. This can be done in the backoffice, in **Payment Page -> Fields & Parameters -> Add Parameter**. Here you can configure some aspects of this parameter, for example if has to be returned by the `Decrypt` webservice. Don't forget to populate the "languages" section. 
+
+With this customization, you can *send* all the parameters you want, as long they fit the 1000 characters length. If you also want to **receive** the same parameters back when you `Decrypt` the response, enable `CustomInfo` parameter in the backoffice. 
 
 ### RequestToken
 
