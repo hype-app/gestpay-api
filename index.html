@@ -307,13 +307,21 @@
 <tr>
 <td><code class="prettyprint">customInfo</code><sup><a href="#fn1" id="ref1">1</a></sup></td>
 <td style="text-align: center">1000</td>
-<td>String containing specific information as configured in the merchant’s profile</td>
+<td>String containing specific information as configured in the merchant’s profile. See the next section for further explanations.</td>
 </tr>
 </tbody></table>
 
 <p><sup id="fn1">1. Each field can be up to a maximum of 300 characters in length.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup></p>
 
 <p>Information included in the <code class="prettyprint">customInfo</code> attribute is defined in the Back Office environment in the <strong>&ldquo;Fields &amp; Parameters&rdquo;</strong> section.</p>
+
+<h4 id="custominfo">customInfo</h4>
+
+<p><code class="prettyprint">&lt;customInfo&gt;</code> is a special Gestpay field; it is used to send custom mercant-defined parameters that Gestpay will not touch. You can store everything, as long as the data respects the following syntax: </p>
+
+<p><code class="prettyprint">datum1=value1*P1*datum2=value2*P1* ... *P1*datumN=valueN</code></p>
+
+<p>To start using <code class="prettyprint">&lt;customInfo&gt;</code>, you must enable the parameter correspondng parameter in the backoffice </p>
 
 <h3 id="requesttoken">RequestToken</h3>
 
@@ -732,7 +740,7 @@
 <pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
   <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>10<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
   <span class="nt">&lt;paymentTypes&gt;</span>
     <span class="nt">&lt;paymentType&gt;</span>IDEAL<span class="nt">&lt;/paymentType&gt;</span>
@@ -875,7 +883,7 @@
 <pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
   <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>10<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
   <span class="nt">&lt;paymentTypes&gt;</span>
     <span class="nt">&lt;paymentType&gt;</span>SOFORT<span class="nt">&lt;/paymentType&gt;</span>
@@ -931,7 +939,7 @@
 <pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
   <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>100<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>10<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
   <span class="nt">&lt;paymentTypes&gt;</span>
     <span class="nt">&lt;paymentType&gt;</span>S2PKLA<span class="nt">&lt;/paymentType&gt;</span>
@@ -1111,7 +1119,7 @@
 <pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
   <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>100<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
   <span class="nt">&lt;paymentTypes&gt;</span>
     <span class="nt">&lt;paymentType&gt;</span>S2PQIW<span class="nt">&lt;/paymentType&gt;</span>
@@ -1158,7 +1166,7 @@
 <pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
   <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>100<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>10<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
   <span class="nt">&lt;paymentTypes&gt;</span>
     <span class="nt">&lt;paymentType&gt;</span>S2PYAN<span class="nt">&lt;/paymentType&gt;</span>
