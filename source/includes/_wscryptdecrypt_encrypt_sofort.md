@@ -7,7 +7,7 @@
 <Encrypt>
   <shopLogin>9000001</shopLogin>
   <uicCode>242</uicCode>
-  <amount>985</amount>
+  <amount>10</amount>
   <shopTransactionId>34az85ord19</shopTransactionId>
   <paymentTypes>
     <paymentType>SOFORT</paymentType>
