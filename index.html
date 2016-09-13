@@ -263,23 +263,6 @@
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
 
-<blockquote>
-<p>The information included in <code class="prettyprint">customInfo</code> will follow this form:</p>
-</blockquote>
-<pre class="highlight plaintext"><code>datum1=value1*P1*datum2=value2*P1* ... *P1*datumN=valueN
-</code></pre>
-
-<blockquote>
-<p>The separator between logically different information is the reserved sequence of characters <code class="prettyprint">*P1*</code>. </p>
-
-<p>Other characters that must not be used within the parameters encoded by GestPay and in customised information are: </p>
-</blockquote>
-<pre class="highlight plaintext"><code>&amp;  (space)  §     (     )     * 
-&lt;     &gt;     ,     ;     :    *P1* 
-/     [     ]     ?     =     -- 
-/*    %     //
-</code></pre>
-
 <p>These are non-mandatory fields, but are direct children of the <code class="prettyprint">Encrypt</code> root.  </p>
 
 <table><thead>
@@ -315,13 +298,29 @@
 
 <p>Information included in the <code class="prettyprint">customInfo</code> attribute is defined in the Back Office environment in the <strong>&ldquo;Fields &amp; Parameters&rdquo;</strong> section.</p>
 
-<h4 id="custominfo">customInfo</h4>
+<h3 id="sending-custom-data-to-gestpay-lt-custominfo-gt">Sending custom data to Gestpay: <code class="prettyprint">&lt;customInfo&gt;</code></h3>
 
-<p><code class="prettyprint">&lt;customInfo&gt;</code> is a special Gestpay field; it is used to send custom mercant-defined parameters that Gestpay will not touch. You can store everything, as long as the data respects the following syntax: </p>
+<blockquote>
+<p>The information included in <code class="prettyprint">customInfo</code> will follow this form:</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;customInfo&gt;</span>datum1=value1*P1*datum2=value2*P1* ... *P1*datumN=valueN<span class="nt">&lt;/customInfo&gt;</span>
+</code></pre>
 
-<p><code class="prettyprint">datum1=value1*P1*datum2=value2*P1* ... *P1*datumN=valueN</code></p>
+<blockquote>
+<p>Let&rsquo;s dig in it better: it is a string containing couples of <strong><code class="prettyprint">&quot;key&quot;=&quot;value&quot;</code></strong> separated by the special string <strong><code class="prettyprint">*P1*</code></strong>. <br>
+ Other characters that must not be used within the parameters encoded by GestPay and in customised information are: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>&amp;  (space)  §     (     )     * 
+&lt;     &gt;     ,     ;     :    *P1* 
+/     [     ]     ?     =     -- 
+/*    %     //
+</code></pre>
 
-<p>To start using <code class="prettyprint">&lt;customInfo&gt;</code>, you must enable the parameter correspondng parameter in the backoffice </p>
+<p><code class="prettyprint">&lt;customInfo&gt;</code> is a special Gestpay field; it is used to send custom merchant-defined parameters that Gestpay will not touch. You can store everything, as long as the data respects the syntax described on the right. </p>
+
+<p>To start sending custom parameters, you must configure Gestpay to receive them. This can be done in the backoffice, in <strong>Payment Page -&gt; Fields &amp; Parameters -&gt; Add Parameter</strong>. Here you can configure some aspects of this parameter, for example if has to be returned by the <code class="prettyprint">Decrypt</code> webservice. Don&rsquo;t forget to populate the &ldquo;languages&rdquo; section. </p>
+
+<p>With this customization, you can <em>send</em> all the parameters you want, as long they fit the 1000 characters length. If you also want to <strong>receive</strong> the same parameters back when you <code class="prettyprint">Decrypt</code> the response, enable <code class="prettyprint">CustomInfo</code> parameter in the backoffice. </p>
 
 <h3 id="requesttoken">RequestToken</h3>
 
