@@ -1,4 +1,4 @@
-## Encrypt Example: Klarna
+## Encrypt Example: Klarna
 
 > Here is an example of how to enable Klarna with Gestpay.
 

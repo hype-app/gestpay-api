@@ -38,8 +38,8 @@ The minimum information returned back as transaction result is marked in bold.
 | `TDLevel` | 255 | Level of authentication for VBV Visa / Mastercard Securecode transactions. The string may have the value `FULL` or `HALF` |
 | **`ErrorCode`** | **9** | **Error code** | 
 | **`ErrorDescription`** | **255** | **Error description (localized in your language)** | 
-| `AlertCode` | 9 | Alert code | 
-| `AlertDescription` | 255 | Alert description in chosen language | 
+| `AlertCode` | 9 | Alert code. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description. 
+| `AlertDescription` | 255 | Alert description in chosen language. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description.  | 
 | `CVVPresent` | 1| Credit Card security code flag | 
 | `MaskedPAN` | 25 | Masked Pan string | 
 | `PaymentMethod` | 100 | Indicates the used Payment Method | 
