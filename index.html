@@ -307,6 +307,8 @@
 
 <p>To send one or more of these parameters, you have to go in  <strong>Payment Page -&gt; Fields &amp; Parameters</strong> and enable the ones you want to send. </p>
 
+<p><a name="customInfo"></p>
+
 <h3 id="sending-custom-data-to-gestpay-lt-custominfo-gt">Sending custom data to Gestpay: <code class="prettyprint">&lt;customInfo&gt;</code></h3>
 
 <blockquote>
@@ -935,7 +937,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="encrypt-example-klarna"> Encrypt Example: Klarna</h2>
+          <h2 id="encrypt-example-klarna">Encrypt Example: Klarna</h2>
 
 <blockquote>
 <p>Here is an example of how to enable Klarna with Gestpay.</p>
@@ -1421,12 +1423,12 @@
 <tr>
 <td><code class="prettyprint">AlertCode</code></td>
 <td style="text-align: center">9</td>
-<td>Alert code</td>
+<td>Alert code. See <a href="http://hype-app.github.io/gestpay-doc/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">AlertDescription</code></td>
 <td style="text-align: center">255</td>
-<td>Alert description in chosen language</td>
+<td>Alert description in chosen language. See <a href="http://hype-app.github.io/gestpay-doc/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">CVVPresent</code></td>
@@ -1804,13 +1806,10 @@
 <p>Consuming WSs2s methods allow merchants to send requests and retrieve responses in XML format.</p>
 
 <ul>
-<li><p>Test environment url:<br>
-<code class="prettyprint">https://testecomm.sella.it/gestpay/gestpayws/WSs2s.asmx?WSDL</code></p>
-
-<ul>
+<li>Test environment url:<br>
+<code class="prettyprint">https://testecomm.sella.it/gestpay/gestpayws/WSs2s.asmx?WSDL</code></li>
 <li>Production environment url: <br>
 <code class="prettyprint">https://ecomms2s.sella.it/gestpay/gestpayws/WSs2s.asmx?WSDL</code></li>
-</ul></li>
 </ul>
 
 <aside class="notice">To use *Server to Server* features, you must be authorized by Banca Sella or Easy Nolo.</aside>
@@ -1820,8 +1819,6 @@
 <p>This service performs an authorization request. </p>
 
 <p>Merchants can use this method to perform the transaction, passing all the parameters useful to define all the transaction’s features. </p>
-
-<p>In bold, the mandatory attributes. </p>
 
 <h3 id="request-parameters"> Request parameters</h3>
 
@@ -1854,6 +1851,8 @@
 <span class="nt">&lt;/callPagamS2S&gt;</span>
 </code></pre>
 
+<p>First we describe the mandatory attributes. </p>
+
 <table><thead>
 <tr>
 <th>Name</th>
@@ -1863,28 +1862,10 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><strong><code class="prettyprint">amount</code></strong></td>
-<td>the amount of the transaction</td>
-<td>numeric</td>
-<td>9</td>
-</tr>
-<tr>
-<td><code class="prettyprint">buyerEmail</code></td>
-<td>buyer’s e-mail address. Using <code class="prettyprint">:NOSEND:</code> before the email address, it&rsquo; s possible to pass the email information but avoid to send an email to the buyer.</td>
+<td><strong><code class="prettyprint">shopLogin</code></strong> </td>
+<td>shopLogin value</td>
 <td>string</td>
-<td>50</td>
-</tr>
-<tr>
-<td><code class="prettyprint">buyerName</code></td>
-<td>buyer’s name</td>
-<td>string</td>
-<td>50</td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">cardNumber</code></strong></td>
-<td>card account number</td>
-<td>string</td>
-<td>50</td>
+<td>30</td>
 </tr>
 <tr>
 <td><strong><code class="prettyprint">uicCode</code></strong> </td>
@@ -1893,16 +1874,22 @@
 <td>3</td>
 </tr>
 <tr>
-<td><code class="prettyprint">customInfo</code></td>
-<td>A string containing possible customised parameters (TODO ci devo mettere il riferimento ai parametri?)</td>
-<td>string</td>
-<td>1000</td>
+<td><strong><code class="prettyprint">amount</code></strong></td>
+<td>the amount of the transaction</td>
+<td>numeric</td>
+<td>9</td>
 </tr>
 <tr>
-<td><code class="prettyprint">cvv</code></td>
-<td>security code of the card</td>
+<td><strong><code class="prettyprint">shopTransactionId</code></strong></td>
+<td>shop transaction ID value</td>
 <td>string</td>
-<td>4</td>
+<td>30</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">cardNumber</code></strong></td>
+<td>card account number</td>
+<td>string</td>
+<td>50</td>
 </tr>
 <tr>
 <td><strong><code class="prettyprint">expiryMonth</code></strong></td>
@@ -1916,6 +1903,42 @@
 <td>string</td>
 <td>2</td>
 </tr>
+</tbody></table>
+
+<p>The following features may be optionally assigned, upon appropriate configuration in <strong>Client coniguration -&gt; Fields &amp; Parameters</strong> section:   </p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>max length</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">buyerEmail</code></td>
+<td>buyer’s e-mail address. Using <code class="prettyprint">:NOSEND:</code> before the email address, it&rsquo; s possible to pass the email information but avoid to send an email to the buyer.</td>
+<td>string</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code class="prettyprint">buyerName</code></td>
+<td>buyer’s name</td>
+<td>string</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code class="prettyprint">customInfo</code></td>
+<td>A string containing optional customised parameters. See <a href="#customInfo">customInfo</a> section for more details.</td>
+<td>string</td>
+<td>1000</td>
+</tr>
+<tr>
+<td><code class="prettyprint">cvv</code></td>
+<td>security code of the card. Refer to <a href="http://hype-app.github.io/gestpay-doc/adv/cvv-field-handling.html">this page</a> to enable and use it.</td>
+<td>string</td>
+<td>4</td>
+</tr>
 <tr>
 <td><code class="prettyprint">languageId</code></td>
 <td>language to use for e-mails to the buyer</td>
@@ -1923,20 +1946,14 @@
 <td>2</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">shopLogin</code></strong> </td>
-<td>shopLogin value</td>
+<td><code class="prettyprint">PARes</code>        </td>
+<td>encrypted string returned by Issuer  (for 3D-Secure   transactions only. See <a href="http://hype-app.github.io/gestpay-doc/adv/3dsecure-transactions.html">3D-secure transactions</a> for more details.) </td>
 <td>string</td>
-<td>30</td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">shopTransactionId</code></strong></td>
-<td>shop transaction ID value</td>
-<td>string</td>
-<td>30</td>
+<td>4096</td>
 </tr>
 <tr>
 <td><code class="prettyprint">transKey</code></td>
-<td>transaction ID value for 3D-Secure transactions</td>
+<td>transaction ID value for 3D-Secure transactions. See <a href="http://hype-app.github.io/gestpay-doc/adv/3dsecure-transactions.html">3D-secure transactions</a> for more details.</td>
 <td>number</td>
 <td>18</td>
 </tr>
@@ -2104,6 +2121,14 @@
 <tr>
 <td><code class="prettyprint">ErrorDescription</code></td>
 <td>the description connected to the ErrorCode value</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AlertCode</code></td>
+<td>the violation code of the risk management criteria. See <a href="http://hype-app.github.io/gestpay-doc/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AlertDescription</code></td>
+<td>the description connected to the AlertCode value. See <a href="http://hype-app.github.io/gestpay-doc/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">Amount</code></td>
@@ -2587,11 +2612,11 @@
 </tr>
 <tr>
 <td><code class="prettyprint">AlertCode</code></td>
-<td>the violation code of the risk management criteria</td>
+<td>the violation code of the risk management criteria. See <a href="http://hype-app.github.io/gestpay-doc/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">AlertDescription</code></td>
-<td>the description connected to the <code class="prettyprint">AlertCode</code> value</td>
+<td>the description connected to the <code class="prettyprint">AlertCode</code> value. See <a href="http://hype-app.github.io/gestpay-doc/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">TransKey</code></td>
