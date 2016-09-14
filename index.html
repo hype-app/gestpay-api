@@ -158,15 +158,15 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><a href="/?xml#wscryptdecrypt"><code class="prettyprint">WSCryptDecrypt</code></a></td>
+<td><a href="#wscryptdecrypt-api"><code class="prettyprint">WSCryptDecrypt</code></a></td>
 <td>used to start (and end) the payment process.</td>
 </tr>
 <tr>
-<td><a href="/?xml#js_gestpay"><code class="prettyprint">js_GestPay.js</code></a></td>
+<td><a href="#js_gestpay-js-api"><code class="prettyprint">js_GestPay.js</code></a></td>
 <td>Mainly used to build a customized payment page.</td>
 </tr>
 <tr>
-<td><a href="/?xml#wss2s"><code class="prettyprint">WSs2s</code></a></td>
+<td><a href="#wss2s-api"><code class="prettyprint">WSs2s</code></a></td>
 <td>To control every aspect of your transactions and your shop.</td>
 </tr>
 </tbody></table>
@@ -214,6 +214,15 @@
   <span class="nt">&lt;amount&gt;</span>985.21<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+
+<blockquote>
+<p>Characters and strings that must not be used within the parameters encoded by GestPay and in customised information are: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>&amp;  (space)  §     (     )     * 
+&lt;     &gt;     ,     ;     :    *P1* 
+/     [     ]     ?     =     -- 
+/*    %     //
 </code></pre>
 
 <p><code class="prettyprint">Encrypt</code> is the main entrypoint for Gestpay. You must call <code class="prettyprint">Encrypt</code> either if you want to use the standard payment page, or the custom iframe solution. </p>
@@ -294,9 +303,9 @@
 </tr>
 </tbody></table>
 
-<p><sup id="fn1">1. Each field can be up to a maximum of 300 characters in length.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup></p>
+<p><sup id="fn1">1. Each field can be up to a maximum of 300 characters in length. See next section for further explanations.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup></p>
 
-<p>Information included in the <code class="prettyprint">customInfo</code> attribute is defined in the Back Office environment in the <strong>&ldquo;Fields &amp; Parameters&rdquo;</strong> section.</p>
+<p>To send one or more of these parameters, you have to go in  <strong>Payment Page -&gt; Fields &amp; Parameters</strong> and enable the ones you want to send. </p>
 
 <h3 id="sending-custom-data-to-gestpay-lt-custominfo-gt">Sending custom data to Gestpay: <code class="prettyprint">&lt;customInfo&gt;</code></h3>
 
@@ -307,16 +316,12 @@
 </code></pre>
 
 <blockquote>
-<p>Let&rsquo;s dig in it better: it is a string containing couples of <strong><code class="prettyprint">&quot;key&quot;=&quot;value&quot;</code></strong> separated by the special string <strong><code class="prettyprint">*P1*</code></strong>. <br>
- Other characters that must not be used within the parameters encoded by GestPay and in customised information are: </p>
+<p>Formally, it is a string containing couples of <strong><code class="prettyprint">&quot;key&quot;=&quot;value&quot;</code></strong> separated by the special string <strong><code class="prettyprint">*P1*</code></strong>. <br></p>
 </blockquote>
-<pre class="highlight plaintext"><code>&amp;  (space)  §     (     )     * 
-&lt;     &gt;     ,     ;     :    *P1* 
-/     [     ]     ?     =     -- 
-/*    %     //
-</code></pre>
 
-<p><code class="prettyprint">&lt;customInfo&gt;</code> is a special Gestpay field; it is used to send custom merchant-defined parameters that Gestpay will not touch. You can store everything, as long as the data respects the syntax described on the right. </p>
+<p><code class="prettyprint">&lt;customInfo&gt;</code> is a special Gestpay field; it is used to send custom merchant-defined parameters that Gestpay will not touch. You can store everything, as long as the data respects the syntax described on the right.</p>
+
+<p>The maximum length of the field is 1000 characters, and each individual parameter can be max 300 characters.</p>
 
 <p>To start sending custom parameters, you must configure Gestpay to receive them. This can be done in the backoffice, in <strong>Payment Page -&gt; Fields &amp; Parameters -&gt; Add Parameter</strong>. Here you can configure some aspects of this parameter, for example if has to be returned by the <code class="prettyprint">Decrypt</code> webservice. Don&rsquo;t forget to populate the &ldquo;languages&rdquo; section. </p>
 
