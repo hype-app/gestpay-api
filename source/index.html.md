@@ -48,6 +48,7 @@ includes:
   - paypal_country_codes
   - paypal_state_codes
   - language_codes
+  - alert_codes
 
 search: true
 ---
