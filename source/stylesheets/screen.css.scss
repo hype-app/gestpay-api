@@ -83,6 +83,8 @@ html, body {
   &>img {
     display: block;
     max-width: 100%;
+    padding: 28px 18px;
+    width: 175px;
   }
 
   &>.search {
@@ -632,4 +634,11 @@ html, body {
 
 .highlight, .highlight .w {
   background-color: $code-bg;
+}
+
+.nt {
+ color: #7ED321 !important;
+}
+#doorbell-button {
+  background-color: #282941;
 }
