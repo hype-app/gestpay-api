@@ -61,7 +61,7 @@ These are non-mandatory fields, but are direct children of the `Encrypt` root.
 
 To send one or more of these parameters, you have to go in  **Payment Page -> Fields & Parameters** and enable the ones you want to send. 
 
-<a name="customInfo">
+<a name="customInfo"></a>
 
 ### Sending custom data to Gestpay: `<customInfo>`
 

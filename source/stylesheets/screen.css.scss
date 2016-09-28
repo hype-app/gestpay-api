@@ -46,18 +46,15 @@ html, body {
   width: 20px;
 }
 
+
 @mixin embossed-bg {
   background:
-    linear-gradient(to bottom, rgba(#000, 0.2), rgba(#000, 0) 8px),
-    linear-gradient(to top, rgba(#000, 0.2), rgba(#000, 0) 8px),
-    linear-gradient(to bottom, rgba($nav-embossed-border-top, 1), rgba($nav-embossed-border-top, 0) 1.5px),
-    linear-gradient(to top, rgba($nav-embossed-border-bottom, 1), rgba($nav-embossed-border-bottom, 0) 1.5px),
     $nav-subitem-bg;
 }
 
 .tocify-wrapper {
   transition: left 0.3s ease-in-out;
-
+  border-right: 1px solid #D4D4D9;
   overflow-y: auto;
   overflow-x: hidden;
   position: fixed;
@@ -175,7 +172,6 @@ html, body {
 
   // This is the currently selected ToC entry
   .tocify-focus {
-    box-shadow: 0px 1px 0px $nav-active-shadow;
     background-color: $nav-active-bg;
     color: $nav-active-text;
   }
@@ -188,7 +184,7 @@ html, body {
     font-weight: 500;
     .tocify-item>a {
       padding-left: $nav-padding + $nav-indent;
-      font-size: 12px;
+      font-size: 13px;
     }
 
     // for embossed look:
@@ -265,7 +261,6 @@ html, body {
   z-index: 10;
   background-color: $main-bg;
   min-height: 100%;
-
   padding-bottom: 1px; // prevent margin overflow
 
   // The dark box is what gives the code samples their dark background.
@@ -287,6 +282,10 @@ html, body {
     z-index: 50;
     border-bottom: 5px solid $lang-select-active-bg;
   }
+  a{
+    color: #2E91B1;
+  }
+
 }
 
 .lang-selector {
@@ -357,14 +356,13 @@ html, body {
 
   h1 {
     @extend %header-font;
-    font-size: 32px;
+    font-size: 28px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid #ccc;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
     border-top: 1px solid #ddd;
-    background-image: linear-gradient(to bottom, #fff, #f9f9f9);
+    background-color: #F8F8F8;
   }
 
   h1:first-child, div:first-child + h1 {
