@@ -12,6 +12,7 @@ toc_footers:
 includes:
   - wscryptdecrypt
   - wscryptdecrypt_encrypt
+  - wscryptdecrypt_encrypt_orderdetails
   - wscryptdecrypt_encryptresult
   - wscryptdecrypt_encrypt_paypal
   - wscryptdecrypt_encrypt_ideal_mybank
