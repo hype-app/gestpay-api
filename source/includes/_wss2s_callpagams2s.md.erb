@@ -31,7 +31,11 @@ Merchants can use this method to perform the transaction, passing all the parame
         <shipToState>MA</shipToState>
         <shipToCountryCode>US</shipToCountryCode>
         <shipToZip>02446</shipToZip>
+        <shipToStreet2 />
     </shippingDetails>
+    <OrderDetails>
+      ... 
+    <OrderDetails>
 </callPagamS2S>
 ```
 
@@ -63,6 +67,7 @@ The following features may be optionally assigned, upon appropriate configuratio
 | `ClientIP`        | For PayPal Billing Agreements it is required only in the "one click" mode transaction. <br> For AMEX transaction not in Euro, in this field the merchant could provide the client IP address to activate the Enhanced Authorization AAV   | string | 45 |
 | `itemType`     | Item Category: `digital`/`physical` (If `physical` the `ShippingDetails` have to be filled) | string | 250 | 
 | `shippingDetails` | contains the shipping address.
+| `OrderDetails` | contains every other info needed to handle the payment. It is used for Riskified integration. Refer to [OrderDetails](#orderdetails) for a detailed description of its fields. 
 
 - children of `ShippingDetails` :
 
