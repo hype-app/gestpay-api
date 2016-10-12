@@ -57,7 +57,7 @@ This method can be called with a mandatory `shopLogin`, then it's possible to pa
       <BuyerEmail/>
     </Buyer>
     <RISK>
-      <RiskResponseCode/>
+      <RiskResponseCode>approved<RiskResponseCode>
       <RiskResponseDescription/>
     </RISK>
     <ErrorCode>0</ErrorCode>
@@ -87,6 +87,8 @@ This method can be called with a mandatory `shopLogin`, then it's possible to pa
 | `Buyer.BayerName` | Returns the name of the buyer 
 | `Buyer.BuyerEmail` | Returns the email of the buyer 
 | `Events`| contains `event` elements. see the next table for more.  
+| `RiskResponseCode` | Risk Fraud Score of the transaction, given by [Riskified](<%= config[:doc_url] %>/sec/fraud-detection-with-riskified.html). Possible values are: <ul><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by Riskified</li><li>`declined`: transaction not approved by Riskified</li><li>`captured`: For *Select&Submit* plan, `caputred` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by Riskified.</li></ul>
+| `RiskResponseDescription` | Risk Description of the RiskResponseCode 
 
 As said, `<Events>` can contain one or more `<event>` tags. the `<event>` tag is composed of: 
 
