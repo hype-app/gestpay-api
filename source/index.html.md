@@ -44,6 +44,7 @@ includes:
   - wss2s_callupdatetokens2s
   - wss2s_callideallists2s
   - wss2s_callmybanklists2s
+  - wss2s_callupdateorders2s
   - errors
   - payment_type_codes
   - currency_codes

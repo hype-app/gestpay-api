@@ -1,0 +1,49 @@
+## CallUpdateOrderS2S
+
+Merchants can use this method to update the order values for Risk Fraud management. For example, if the buyer changes the Shipping Address, this must be notified to Riskified in order to review again the Order. Riskified decides if the Order must be reviewed based on the changed values.
+
+### Request parameters
+
+> request example: 
+
+```xml
+<CallUpdateOrderS2S>
+  <shopLogin>9000002</shopLogin>
+  <shopTransactionId>MYSHOP-0001</shopTransactionId>
+  <bankTransactionId>13675333225</bankTransactionId>
+  <OrderDetails>
+    ... <!-- the OrderDetails object -->
+  <OrderDetails>
+</CallUpdateOrderS2S>
+```
+
+The attributes are: 
+
+| Name | Description | Data Type | max length |
+| ---- | ----------- | --------- | ---------- |
+| `shopLogin` | shopLogin value | string | 30 |
+| `shopTransactionId` | shop transaction ID value | string | 50 |
+| `bankTransactionId` | the bank ID value | string | 50 |
+| `OrderDetails` | contains every other info needed to evaluate the payment. Refer to [OrderDetails](#orderdetails) for a detailed description of its fields. 
+
+### Response fields 
+
+> response example: 
+
+```xml
+<GestPayS2S xmlns="">
+  <TransactionType>RiskifiedUpdateOrder</TransactionType>
+  <TransactionResult>OK</TransactionResult>
+  <ErrorCode>0</ErrorCode>
+  <ErrorDescription>Transazione correttamente effettuata</ErrorDescription>
+</GestPayS2S>
+```
+
+
+
+| Name           | Description | 
+| -------------- | ----------- |
+| `TransactionType` | `RiskifiedUpdateOrder` in response to `CallUpdateOrderS2S` | 
+| `TransactionResult` | Returns transaction result with `OK` or `KO` |
+| `ErrorCode` | a code related to the transaction result 
+| `ErrorDescription` | the description connected to the ErrorCode value

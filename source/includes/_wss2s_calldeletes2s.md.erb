@@ -13,6 +13,7 @@ It exists only for merchants with a [M.O.T.O.](<%= config[:doc_url] %>/gs/how-ge
 		<shopLogin>9000001</shopLogin>
 		<shopTransactionId>MYSHOP-4838</shopTransactionId>
 		<bankTransactionId>334488931</bankTransactionId>
+    <CancelReason>potential fraud</CancelReason>
 </callDeleteS2S>
 ```
 
@@ -22,6 +23,7 @@ It exists only for merchants with a [M.O.T.O.](<%= config[:doc_url] %>/gs/how-ge
 | `shopLogin` | the merchant's code | string | 30 |  
 | `bankTransactionId` | ID of the transaction assigned by Gestpay | number | 18
 | `shopTransactionId` | shop transaction ID value | string | 50 
+| `CancelReason` | free text of cancel reason | string | 50 
 
 ### Response details 
 
