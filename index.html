@@ -2852,6 +2852,37 @@
     <span class="nt">&lt;amount&gt;</span>55.00<span class="nt">&lt;/amount&gt;</span>
     <span class="nt">&lt;shopTransID&gt;</span>MYSHOP-00142<span class="nt">&lt;/shopTransID&gt;</span>
     <span class="nt">&lt;bankTransID&gt;</span>159247522<span class="nt">&lt;/bankTransID&gt;</span>
+  <span class="nt">&lt;FullFillment&gt;</span>
+    <span class="nt">&lt;FullFillmentlst&gt;</span>
+      <span class="nt">&lt;FullfillmentDetail&gt;</span>
+        <span class="nt">&lt;Status&gt;</span>success<span class="nt">&lt;/Status&gt;</span>
+        <span class="nt">&lt;TrackingCompany&gt;</span>Shippers, Inc.<span class="nt">&lt;/TrackingCompany&gt;</span>
+        <span class="nt">&lt;TrackingNumbers&gt;</span>GD-52563-2233-4422<span class="nt">&lt;/TrackingNumbers&gt;</span>
+        <span class="nt">&lt;TrackingUrls&gt;</span>www.shippers.com/track?id=GD-52563-2233-4422<span class="nt">&lt;/TrackingUrls&gt;</span>
+        <span class="nt">&lt;Message&gt;</span>items in stock<span class="nt">&lt;/Message&gt;</span>
+        <span class="nt">&lt;Receipt&gt;</span>s.f. 351<span class="nt">&lt;/Receipt&gt;</span>
+        <span class="nt">&lt;ProductDetails&gt;</span>
+          <span class="nt">&lt;ProductCode&gt;</span>223311<span class="nt">&lt;/ProductCode&gt;</span>
+          <span class="nt">&lt;SKU&gt;</span>ART-244742-1231<span class="nt">&lt;/SKU&gt;</span>
+          <span class="nt">&lt;Name&gt;</span>Unicorn<span class="nt">&lt;/Name&gt;</span>
+          <span class="nt">&lt;Description&gt;</span>a horse with a horn<span class="nt">&lt;/Description&gt;</span>
+          <span class="nt">&lt;Quantity&gt;</span>1<span class="nt">&lt;/Quantity&gt;</span>
+          <span class="nt">&lt;Price&gt;</span>3500<span class="nt">&lt;/Price&gt;</span>
+          <span class="nt">&lt;UnitPrice&gt;</span>3500<span class="nt">&lt;/UnitPrice&gt;</span>
+          <span class="nt">&lt;Type&gt;</span>horse<span class="nt">&lt;/Type&gt;</span>
+          <span class="nt">&lt;Vat&gt;</span>22<span class="nt">&lt;/Vat&gt;</span>
+          <span class="nt">&lt;Discount&gt;</span>0<span class="nt">&lt;/Discount&gt;</span>
+          <span class="nt">&lt;RequiresShipping&gt;</span>true<span class="nt">&lt;/RequiresShipping&gt;</span>
+          <span class="nt">&lt;Condition&gt;</span>new<span class="nt">&lt;/Condition&gt;</span>
+          <span class="nt">&lt;Seller&gt;</span>Flying Horses<span class="nt">&lt;/Seller&gt;</span>
+          <span class="nt">&lt;Category&gt;</span>Horse<span class="nt">&lt;/Category&gt;</span>
+          <span class="nt">&lt;SubCategory&gt;</span>Special Horse<span class="nt">&lt;/SubCategory&gt;</span>
+          <span class="nt">&lt;Brand&gt;</span>Custom<span class="nt">&lt;/Brand&gt;</span>
+          <span class="nt">&lt;DeliveryAt&gt;</span>19/05/2016<span class="nt">&lt;/DeliveryAt&gt;</span>
+        <span class="nt">&lt;/ProductDetails&gt;</span>
+      <span class="nt">&lt;/FullfillmentDetail&gt;</span>
+    <span class="nt">&lt;/FullFillmentlst&gt;</span>
+  <span class="nt">&lt;/FullFillment&gt;</span>
 <span class="nt">&lt;/callSettleS2S&gt;</span>
 </code></pre>
 
@@ -2892,6 +2923,132 @@
 <td>shop transaction ID value</td>
 <td>string</td>
 <td>50</td>
+</tr>
+<tr>
+<td><code class="prettyprint">FullFillment</code></td>
+<td>An object describing the final fulfillment status of an order.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><code class="prettyprint">FullFillment</code> tag must be filled if you are using <a href="http://hype-app.github.io/gestpay-doc/sec/fraud-detection-with-riskified.html">Riskified</a>, an anti fraud evaluating system. If you are not using it, you can skip this. </p>
+
+<p>When you <em>settle</em> a payment, Riskified wants to be notified that an existing order has been fulfilled, both the success and error case. </p>
+
+<p><code class="prettyprint">FillFillment</code> contains a <code class="prettyprint">FullFillmentlst</code> that contains one or more <code class="prettyprint">FullfillmentDetail</code>, whose fields are: </p>
+
+<table><thead>
+<tr>
+<th>parameter name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Status</code></td>
+<td><ul><li><code class="prettyprint">success</code>: the fulfillment was successful.</li><li><code class="prettyprint">cancelled</code>: the fulfillment was cancelled.</li><li><code class="prettyprint">error</code>: there was an error with the fulfillment request.</li><li><code class="prettyprint">failure</code>: the fulfillment request failed.</li></ul></td>
+</tr>
+<tr>
+<td><code class="prettyprint">TrackingCompany</code></td>
+<td>the name of the shipping company</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TrackingNumbers</code></td>
+<td>A list of shipping numbers, provided by the shipping company.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TrackingUrls</code></td>
+<td>The URLs to track the fulfillment.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Message</code></td>
+<td>Additional textual description regarding the fulfillment status.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Receipt</code> </td>
+<td>Information about the Receipt</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ProductDetails</code></td>
+<td>container object that contains info about the fulfilled item.</td>
+</tr>
+</tbody></table>
+
+<p>Here is a description of the children of <code class="prettyprint">ProductDetails</code>: </p>
+
+<table><thead>
+<tr>
+<th>parameter name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">ProductCode</code></td>
+<td>Article’s product Code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">SKU</code></td>
+<td>Article’s Stock Keeping Unit</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Name</code></td>
+<td>Article’s name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Description</code></td>
+<td>Article’s description</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Quantity</code></td>
+<td>The number of products</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Price</code></td>
+<td>Article’s price</td>
+</tr>
+<tr>
+<td><code class="prettyprint">UnitPrice</code></td>
+<td>Article’s Unit price</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Type</code></td>
+<td>The type of article: <code class="prettyprint">digital</code> , <code class="prettyprint">downloadable</code>,  <code class="prettyprint">physical</code>,<code class="prettyprint">composite</code>, <code class="prettyprint">event</code>, <code class="prettyprint">travel</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Vat</code></td>
+<td>Value-Added Tax (the value of the tax)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Discount</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">RequiresShipping</code></td>
+<td>boolean, States whether or not the fulfillment requires shipping. This field is important for merchants dealing with digital goods.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Condition</code></td>
+<td>Description of the physical condition of the item, mostly relevant for used items.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Seller</code></td>
+<td>Details about the seller of the item, relevant for marketplace orders.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Category</code></td>
+<td>The category of the item. For event tickets: the category of the event.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">SubCategory</code></td>
+<td>The sub-category of the item. For event tickets: the sub-category of the event.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Brand</code></td>
+<td>The brand name of the item.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">DeliveryAt</code></td>
+<td>The planned delivery date of the product or item.</td>
 </tr>
 </tbody></table>
 
@@ -2961,6 +3118,7 @@
         <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
         <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-4838<span class="nt">&lt;/shopTransactionId&gt;</span>
         <span class="nt">&lt;bankTransactionId&gt;</span>334488931<span class="nt">&lt;/bankTransactionId&gt;</span>
+    <span class="nt">&lt;CancelReason&gt;</span>potential fraud<span class="nt">&lt;/CancelReason&gt;</span>
 <span class="nt">&lt;/callDeleteS2S&gt;</span>
 </code></pre>
 
@@ -2987,6 +3145,12 @@
 <tr>
 <td><code class="prettyprint">shopTransactionId</code></td>
 <td>shop transaction ID value</td>
+<td>string</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CancelReason</code></td>
+<td>free text of cancel reason</td>
 <td>string</td>
 <td>50</td>
 </tr>
@@ -3058,6 +3222,8 @@
     <span class="nt">&lt;amount&gt;</span>55.00<span class="nt">&lt;/amount&gt;</span>
     <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-00142<span class="nt">&lt;/shopTransactionId&gt;</span>
     <span class="nt">&lt;bankTransactionId&gt;</span>159247522<span class="nt">&lt;/bankTransactionId&gt;</span>
+    <span class="nt">&lt;RefundReason&gt;</span>item our of stock<span class="nt">&lt;/RefundReason&gt;</span>
+    <span class="nt">&lt;chargeBackFraud&gt;</span>N<span class="nt">&lt;/chargeBackFraud&gt;</span>
 <span class="nt">&lt;/callRefundS2S&gt;</span>
 </code></pre>
 
@@ -3098,6 +3264,18 @@
 <td><a href="#currency-codes">currency code</a></td>
 <td>numeric</td>
 <td>3</td>
+</tr>
+<tr>
+<td><code class="prettyprint">RefundReason</code></td>
+<td>a free-text reason for the refund. Used with fraud protection.</td>
+<td>string</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code class="prettyprint">chargeBackFraud</code></td>
+<td>Flag for risk: <ul><li><code class="prettyprint">Y</code> - chargeback for fraud</li><li><code class="prettyprint">N</code> - chargeback not for a fraud</li></ul></td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -3232,7 +3410,7 @@
       <span class="nt">&lt;BuyerEmail/&gt;</span>
     <span class="nt">&lt;/Buyer&gt;</span>
     <span class="nt">&lt;RISK&gt;</span>
-      <span class="nt">&lt;RiskResponseCode/&gt;</span>
+      <span class="nt">&lt;RiskResponseCode&gt;</span>approved<span class="nt">&lt;RiskResponseCode&gt;</span>
       <span class="nt">&lt;RiskResponseDescription/&gt;</span>
     <span class="nt">&lt;/RISK&gt;</span>
     <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
@@ -3316,6 +3494,14 @@
 <tr>
 <td><code class="prettyprint">Events</code></td>
 <td>contains <code class="prettyprint">event</code> elements. see the next table for more.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">RiskResponseCode</code></td>
+<td>Risk Fraud Score of the transaction, given by <a href="http://hype-app.github.io/gestpay-doc/sec/fraud-detection-with-riskified.html">Riskified</a>. Possible values are: <ul><li><code class="prettyprint">submitted</code>: transaction is under review</li><li><code class="prettyprint">approved</code>: transaction approved by Riskified</li><li><code class="prettyprint">declined</code>: transaction not approved by Riskified</li><li><code class="prettyprint">captured</code>: For <em>Select&amp;Submit</em> plan, <code class="prettyprint">caputred</code> is returned for transactions that are not marked for review.</li><li><strong>any other value</strong> is an error returned by Riskified.</li></ul></td>
+</tr>
+<tr>
+<td><code class="prettyprint">RiskResponseDescription</code></td>
+<td>Risk Description of the RiskResponseCode</td>
 </tr>
 </tbody></table>
 
@@ -4248,6 +4434,98 @@
 <tr>
 <td><code class="prettyprint">BankList.Bank.BankName</code> </td>
 <td>Returns MyBank Bank List, for each bank returns the Bank Name</td>
+</tr>
+</tbody></table>
+
+          <h2 id="callupdateorders2s">CallUpdateOrderS2S</h2>
+
+<p>Merchants can use this method to update the order values for Risk Fraud management. For example, if the buyer changes the Shipping Address, this must be notified to Riskified in order to review again the Order. Riskified decides if the Order must be reviewed based on the changed values.</p>
+
+<h3 id="request-parameters"> Request parameters</h3>
+
+<blockquote>
+<p>request example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;CallUpdateOrderS2S&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000002<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-0001<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;bankTransactionId&gt;</span>13675333225<span class="nt">&lt;/bankTransactionId&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    ... <span class="c">&lt;!-- the OrderDetails object --&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+<span class="nt">&lt;/CallUpdateOrderS2S&gt;</span>
+</code></pre>
+
+<p>The attributes are: </p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>max length</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code> </td>
+<td>shopLogin value</td>
+<td>string</td>
+<td>30</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shopTransactionId</code></td>
+<td>shop transaction ID value</td>
+<td>string</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bankTransactionId</code></td>
+<td>the bank ID value</td>
+<td>string</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code class="prettyprint">OrderDetails</code></td>
+<td>contains every other info needed to evaluate the payment. Refer to <a href="#orderdetails">OrderDetails</a> for a detailed description of its fields.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="response-fields">Response fields</h3>
+
+<blockquote>
+<p>response example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;TransactionType&gt;</span>RiskifiedUpdateOrder<span class="nt">&lt;/TransactionType&gt;</span>
+  <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+  <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+  <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
+<span class="nt">&lt;/GestPayS2S&gt;</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">TransactionType</code></td>
+<td><code class="prettyprint">RiskifiedUpdateOrder</code> in response to <code class="prettyprint">CallUpdateOrderS2S</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">TransactionResult</code></td>
+<td>Returns transaction result with <code class="prettyprint">OK</code> or <code class="prettyprint">KO</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">ErrorCode</code></td>
+<td>a code related to the transaction result</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ErrorDescription</code></td>
+<td>the description connected to the ErrorCode value</td>
 </tr>
 </tbody></table>
 
