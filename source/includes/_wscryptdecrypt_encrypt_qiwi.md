@@ -23,7 +23,7 @@
 </Encrypt>
 ```
 
-Qiwi does not need mandatory parameters, but if you send these few parameters you can have a frictionless call directly to the first screen of QIWI where authentication data are asked. These fields are children of `OrderDetails`:
+Qiwi does not need mandatory parameters, but if you send these few parameters you can have a frictionless call directly to the first screen of QIWI where authentication data are asked. These fields are children of [`OrderDetails`](#orderdetails):
 
 | Name | max length | description |
 | ---- | :--------: | ----------- |

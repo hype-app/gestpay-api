@@ -20,7 +20,7 @@
 </Encrypt>
 ```
 
-Yandex does not need mandatory parameters; but if you send  `CustomerDetail.PrimaryEmail` you can have a frictionless call directly to the first screen of Yandex where authentication data are asked.
+Yandex does not need mandatory parameters; but if you send `CustomerDetail.PrimaryEmail` in the [`OrderDetails`](#orderdetails) tag you can have a frictionless call directly to the first screen of Yandex where authentication data are asked.
 
 | Name | max length | description |
 | ---- | :--------: | ----------- |

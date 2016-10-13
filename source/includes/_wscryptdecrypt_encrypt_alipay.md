@@ -22,3 +22,4 @@
 
 Alipay does not need any mandatory parameters. Just specify the `PaymentType` `S2PALI` and the payment page will show to your user. 
 
+If you specify the `PrimaryEmail` in the [`OrderDetails`](#orderdetails) tag, you will redirect your user to Alipay payment page where some fields are already filled. 

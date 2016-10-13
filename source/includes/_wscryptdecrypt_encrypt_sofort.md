@@ -24,7 +24,7 @@
   </OrderDetails>
 ``` 
 
-Sofort does not need mandatory parameters, but if you send the following parameters, you will jump straight to the SOFORT payment page without authenticating. All these fields are children of `OrderDetails`. 
+Sofort does not need mandatory parameters, but if you send the following parameters, you will jump straight to the SOFORT payment page without authenticating. All these fields are children of [`OrderDetails`](#orderdetails).
 
 | Name | max length | description |
 | ---- | :--------: | ----------- |

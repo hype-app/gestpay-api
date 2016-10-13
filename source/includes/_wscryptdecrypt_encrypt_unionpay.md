@@ -25,4 +25,4 @@ Unipay does not need mandatory parameters.
 
 You must use `S2PUNI` as `paymentType`.
 
-However, if you send the `PrimaryEmail` and `PrimaryPhone` fields, you will jump straight to the UnionPay payment page; otherwise, an intermediary page asking for the email address is showed. 
+However, if you send the `PrimaryEmail` and `PrimaryPhone` fields in the [`OrderDetails`](#orderdetails) tag, you will jump straight to the UnionPay payment page; otherwise, an intermediary page asking for the email address is showed. 

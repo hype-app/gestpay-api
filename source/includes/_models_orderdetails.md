@@ -1,145 +1,138 @@
-
-### OrderDetails
+## OrderDetails
 
 > `OrderDetails` tag example: 
 
 ```xml
-<Encrypt>
-  <shopLogin>90000001</shopLogin>
-  <uicCode>103</uicCode><!--Hong Kong dollar-->
-  <amount>100.10</amount>
-  <shopTransactionId>13573322</shopTransactionId>
-  <OrderDetails>
-    <FraudPrevention>
-      <SubmitForReview>1</SubmitForReview>
-      <OrderDateTime>2017-12-26</OrderDateTime>
-      <OrderNote>Please send me the blue version</OrderNote>
-      <Source>website</Source>
-      <SubmissonReason>rule_decision</SubmissonReason>
-      <BeaconSessionID>ff1db05b-81db-4ca0-a728-4797bfe796ff</BeaconSessionID>
-    </FraudPrevention>
-    <CustomerDetail>
-      <ProfileID />
-      <MerchantCustomerID/>
-      <FirstName>Michael</FirstName>
-      <MiddleName>J.</MiddleName>
-      <Lastname>Fox</Lastname>
-      <PrimaryEmail>martymcfly@backtothefuture.com</PrimaryEmail>
-      <SecondaryEmail />
-      <PrimaryPhone>+390298987643</PrimaryPhone>
-      <SecondaryPhone>+393351029384</SecondaryPhone>
-      <DateOfBirth>29/09/1932</DateOfBirth>
-      <SocialSecurityNumber>BRLSLV36P29F205W</SocialSecurityNumber>
-      <Company />
-      <CreatedAtDate>31/12/2017</CreatedAtDate>
-      <VerifiedEmail>true</VerifiedEmail>
-      <AccountType>premium</AccountType>
-    </CustomerDetail>
-    <CustomerSocial>
-      <Network>Facebook</Network>
-      <PublicUserName>Marty McFly</PublicUserName>
-      <CommunityScore>100</CommunityScore>
-      <ProfilePicture>https://external-mxp1-1.xx.fbcdn.net/safe_image.php?d=AQCSnRebJp1o3AR9&w=264&h=264&url=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fit%2Fthumb%2F1%2F1d%2FMartyMcFly.JPG%2F720px-MartyMcFly.JPG&colorbox&f</ProfilePicture>
-      <Email>martymcfly@backtothefuture.com</Email>
-      <Bio>Martin Seamus "Marty" McFly is a fictional character in the Back to the Future trilogy. He is portrayed by actor Michael J. Fox.</Bio>
-      <AccountUrl>https://www.facebook.com/pages/Marty-McFly/103151259725141?fref=ts&rf=105623692803833</AccountUrl>
-      <Following>0</Following>
-      <Followed>1157</Followed>
-      <Id>103151259725141</Id>
-      <AuthToken>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</AuthToken>
-      <SocialData />
-    </CustomerSocial>
-    <ShippingAddress>
-      <ProfileID />
-      <FirstName>Michael</FirstName>
-      <MiddleName>J.</MiddleName>
-      <Lastname>Fox</Lastname>
-      <Company>Universal Studios</Company>
-      <StreetName>Holliwood Boulevard</StreetName>
-      <StreetName2 />
-      <HouseNumber>1432</HouseNumber>
-      <HouseExtension />
-      <City>Los Angeles</City>
-      <ZipCode>90213</ZipCode>
-      <State>California</State>
-      <CountryCode>US</CountryCode>
-      <Email>martymcfly@backtothefuture.com</Email>
-      <PrimaryPhone>+0199332285321</PrimaryPhone>
-      <SecondaryPhone />
-    </ShippingAddress>
-     <BillingAddress>
-      <ProfileID />
-      <FirstName>Michael</FirstName>
-      <MiddleName>J.</MiddleName>
-      <Lastname>Fox</Lastname>
-      <Company>Universal Studios</Company>
-      <StreetName>Holliwood Boulevard</StreetName>
-      <StreetName2 />
-      <HouseNumber>1432</HouseNumber>
-      <HouseExtension />
-      <City>Los Angeles</City>
-      <ZipCode>90213</ZipCode>
-      <State>California</State>
-      <CountryCode>US</CountryCode>
-      <Email>martymcfly@backtothefuture.com</Email>
-      <PrimaryPhone>+0199332285321</PrimaryPhone>
-      <SecondaryPhone />
-    </BillingAddress>
-    <ProductDetails>
-      <ProductDetail><!-- first of 1...N products -->
-        <ProductCode>135798642</ProductCode>
-        <SKU>AB-333222-WFG-4</SKU>
-        <Name>Porche Carrera scale model</Name>
-        <Description>Porche Carrera scale model</Description>
-        <Quantity>1</Quantity>
-        <Price>50.5</Price>
-        <UnitPrice>50.5</UnitPrice>
-        <Type>1</Type><!-- 1: product -->
-        <Vat>22%</Vat>
-        <Discount />
-        <Category>Scale Models</Category>
-        <Subcategory>cars</Subcategory>
-        <Brand>LittleCars</Brand>
-        <RequiresShipping>true</RequiresShipping>
-        <DeliveryAt>2017-12-29</DeliveryAt>
-        <Condition>new</Condition>
-        <Seller /><!-- relevant for marketplace orders --> 
-      </ProductDetail>
-      <ProductDetail>
-        <ProductCode>135798642</ProductCode>
-        <SKU>AB-333222-WFG-5</SKU>
-        <Name>Ferrari scale model</Name>
-        <Description>Ferrari scale model</Description>
-        <Quantity>1</Quantity>
-        <Price>50.5</Price>
-        <UnitPrice>50.5</UnitPrice>
-        <Type>1</Type><!-- 1: product -->
-        <Vat>22%</Vat>
-        <Discount />
-        <Category>Scale Models</Category>
-        <Subcategory>cars</Subcategory>
-        <Brand>LittleCars</Brand>
-        <RequiresShipping>true</RequiresShipping>
-        <DeliveryAt>2017-12-29</DeliveryAt>
-        <Condition>new</Condition>
-        <Seller /><!-- relevant for marketplace orders -->
-      </ProductDetail><!-- last of 1...N products -->
-    </ProductDetails>
-    <DiscountCodes>
-      <DiscountCode><!-- one or more -->
-        <Amount>10</Amount>
-        <Code>53232</Code>
-      </DiscountCode>
-    </DiscountCodes>
-    <ShippingLines>
-      <ShippingLine>
-        <Price>20</Price>
-        <Title>FedEx</Title>
-        <Code>72-B03</Code>
-      </ShippingLine>
-    </ShippingLines>
-  </OrderDetails>
-</Encrypt>
+<OrderDetails>
+  <FraudPrevention>
+    <SubmitForReview>1</SubmitForReview>
+    <OrderDateTime>2017-12-26</OrderDateTime>
+    <OrderNote>Please send me the blue version</OrderNote>
+    <Source>website</Source>
+    <SubmissonReason>rule_decision</SubmissonReason>
+    <BeaconSessionID>ff1db05b-81db-4ca0-a728-4797bfe796ff</BeaconSessionID>
+  </FraudPrevention>
+  <CustomerDetail>
+    <ProfileID />
+    <MerchantCustomerID/>
+    <FirstName>Michael</FirstName>
+    <MiddleName>J.</MiddleName>
+    <Lastname>Fox</Lastname>
+    <PrimaryEmail>martymcfly@backtothefuture.com</PrimaryEmail>
+    <SecondaryEmail />
+    <PrimaryPhone>+390298987643</PrimaryPhone>
+    <SecondaryPhone>+393351029384</SecondaryPhone>
+    <DateOfBirth>29/09/1932</DateOfBirth>
+    <SocialSecurityNumber>BRLSLV36P29F205W</SocialSecurityNumber>
+    <Company />
+    <CreatedAtDate>31/12/2017</CreatedAtDate>
+    <VerifiedEmail>true</VerifiedEmail>
+    <AccountType>premium</AccountType>
+  </CustomerDetail>
+  <CustomerSocial>
+    <Network>Facebook</Network>
+    <PublicUserName>Marty McFly</PublicUserName>
+    <CommunityScore>100</CommunityScore>
+    <ProfilePicture>https://external-mxp1-1.xx.fbcdn.net/safe_image.php?d=AQCSnRebJp1o3AR9&w=264&h=264&url=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fit%2Fthumb%2F1%2F1d%2FMartyMcFly.JPG%2F720px-MartyMcFly.JPG&colorbox&f</ProfilePicture>
+    <Email>martymcfly@backtothefuture.com</Email>
+    <Bio>Martin Seamus "Marty" McFly is a fictional character in the Back to the Future trilogy. He is portrayed by actor Michael J. Fox.</Bio>
+    <AccountUrl>https://www.facebook.com/pages/Marty-McFly/103151259725141?fref=ts&rf=105623692803833</AccountUrl>
+    <Following>0</Following>
+    <Followed>1157</Followed>
+    <Id>103151259725141</Id>
+    <AuthToken>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</AuthToken>
+    <SocialData />
+  </CustomerSocial>
+  <ShippingAddress>
+    <ProfileID />
+    <FirstName>Michael</FirstName>
+    <MiddleName>J.</MiddleName>
+    <Lastname>Fox</Lastname>
+    <Company>Universal Studios</Company>
+    <StreetName>Holliwood Boulevard</StreetName>
+    <StreetName2 />
+    <HouseNumber>1432</HouseNumber>
+    <HouseExtension />
+    <City>Los Angeles</City>
+    <ZipCode>90213</ZipCode>
+    <State>California</State>
+    <CountryCode>US</CountryCode>
+    <Email>martymcfly@backtothefuture.com</Email>
+    <PrimaryPhone>+0199332285321</PrimaryPhone>
+    <SecondaryPhone />
+  </ShippingAddress>
+    <BillingAddress>
+    <ProfileID />
+    <FirstName>Michael</FirstName>
+    <MiddleName>J.</MiddleName>
+    <Lastname>Fox</Lastname>
+    <Company>Universal Studios</Company>
+    <StreetName>Holliwood Boulevard</StreetName>
+    <StreetName2 />
+    <HouseNumber>1432</HouseNumber>
+    <HouseExtension />
+    <City>Los Angeles</City>
+    <ZipCode>90213</ZipCode>
+    <State>California</State>
+    <CountryCode>US</CountryCode>
+    <Email>martymcfly@backtothefuture.com</Email>
+    <PrimaryPhone>+0199332285321</PrimaryPhone>
+    <SecondaryPhone />
+  </BillingAddress>
+  <ProductDetails>
+    <ProductDetail><!-- first of 1...N products -->
+      <ProductCode>135798642</ProductCode>
+      <SKU>AB-333222-WFG-4</SKU>
+      <Name>Porche Carrera scale model</Name>
+      <Description>Porche Carrera scale model</Description>
+      <Quantity>1</Quantity>
+      <Price>50.5</Price>
+      <UnitPrice>50.5</UnitPrice>
+      <Type>1</Type><!-- 1: product -->
+      <Vat>22%</Vat>
+      <Discount />
+      <Category>Scale Models</Category>
+      <Subcategory>cars</Subcategory>
+      <Brand>LittleCars</Brand>
+      <RequiresShipping>true</RequiresShipping>
+      <DeliveryAt>2017-12-29</DeliveryAt>
+      <Condition>new</Condition>
+      <Seller /><!-- relevant for marketplace orders --> 
+    </ProductDetail>
+    <ProductDetail>
+      <ProductCode>135798642</ProductCode>
+      <SKU>AB-333222-WFG-5</SKU>
+      <Name>Ferrari scale model</Name>
+      <Description>Ferrari scale model</Description>
+      <Quantity>1</Quantity>
+      <Price>50.5</Price>
+      <UnitPrice>50.5</UnitPrice>
+      <Type>1</Type><!-- 1: product -->
+      <Vat>22%</Vat>
+      <Discount />
+      <Category>Scale Models</Category>
+      <Subcategory>cars</Subcategory>
+      <Brand>LittleCars</Brand>
+      <RequiresShipping>true</RequiresShipping>
+      <DeliveryAt>2017-12-29</DeliveryAt>
+      <Condition>new</Condition>
+      <Seller /><!-- relevant for marketplace orders -->
+    </ProductDetail><!-- last of 1...N products -->
+  </ProductDetails>
+  <DiscountCodes>
+    <DiscountCode><!-- one or more -->
+      <Amount>10</Amount>
+      <Code>53232</Code>
+    </DiscountCode>
+  </DiscountCodes>
+  <ShippingLines>
+    <ShippingLine>
+      <Price>20</Price>
+      <Title>FedEx</Title>
+      <Code>72-B03</Code>
+    </ShippingLine>
+  </ShippingLines>
+</OrderDetails>
 ``` 
 
 `OrderDetails` tag contains all the info that can be sent together with a transaction. The more data you sent, the better is for Gestpay to analyze your request. 

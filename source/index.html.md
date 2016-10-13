@@ -12,8 +12,10 @@ toc_footers:
 includes:
   - wscryptdecrypt
   - wscryptdecrypt_encrypt
-  - wscryptdecrypt_encrypt_orderdetails
   - wscryptdecrypt_encryptresult
+  - wscryptdecrypt_decrypt
+  - wscryptdecrypt_decryptresult
+  - alternative_payments
   - wscryptdecrypt_encrypt_paypal
   - wscryptdecrypt_encrypt_ideal_mybank
   - wscryptdecrypt_encrypt_consel
@@ -24,9 +26,6 @@ includes:
   - wscryptdecrypt_encrypt_alipay
   - wscryptdecrypt_encrypt_unionpay
   - wscryptdecrypt_encrypt_tenpay
-  - wscryptdecrypt_encrypt_riskified
-  - wscryptdecrypt_decrypt
-  - wscryptdecrypt_decryptresult
   - js_gestpay
   - js_gestpay_createpaymentpage
   - js_gestpay_sendpayment
@@ -45,6 +44,9 @@ includes:
   - wss2s_callideallists2s
   - wss2s_callmybanklists2s
   - wss2s_callupdateorders2s
+  - riskified
+  - models
+  - models_orderdetails
   - errors
   - payment_type_codes
   - currency_codes

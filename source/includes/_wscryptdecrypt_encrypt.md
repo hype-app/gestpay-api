@@ -44,6 +44,9 @@ These are the **mandatory** fields.
   <buyerName>Mario Bianchi</buyerName>
   <buyerEmail>mario.bianchi@isp.it</buyerEmail>
   <customInfo>BV_CODCLIENTE=12*P1*BV_SESSIONID=398</customInfo>
+  <OrderDetails>
+    ...
+  </OrderDetails>
 </Encrypt>
 ``` 
 
@@ -56,6 +59,7 @@ These are non-mandatory fields, but are direct children of the `Encrypt` root.
 | `buyerEmail` | 50 | Buyer’s e-mail address |
 | `languageId` | 2 | Code identifying language used in communication with buyer |
 | `customInfo`<sup><a href="#fn1" id="ref1">1</a></sup> | 1000 | String containing specific information as configured in the merchant’s profile. See the next section for further explanations. |
+| [`OrderDetails`](#orderdetails) |  | a container ojbect of other data. It is used by [Riskified](#riskified) and by some alternative payments.
 
 <sup id="fn1">1. Each field can be up to a maximum of 300 characters in length. See next section for further explanations.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup>
 

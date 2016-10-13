@@ -1,0 +1,7 @@
+# Alternative Payments Examples
+
+[`Encrypt`](#encrypt) can be used to  start a payment process in one of the several alternative payments that Gestpay supports. 
+
+You can see the [complete list of Gestpay alternative payments](<% config[:doc_url] %>/oth/what-does-it-really-mean-that-gestpay-is-a-payment-gateway.html) in the docs. 
+
+As a recap, you can use the [`<paymentType>`](#paymenttypes) tag to specify which payment methods you want to enable. In the next paragraphs we will show some alternative payment examples. 
