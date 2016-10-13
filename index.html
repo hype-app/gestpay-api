@@ -270,6 +270,9 @@
   <span class="nt">&lt;buyerName&gt;</span>Mario Bianchi<span class="nt">&lt;/buyerName&gt;</span>
   <span class="nt">&lt;buyerEmail&gt;</span>mario.bianchi@isp.it<span class="nt">&lt;/buyerEmail&gt;</span>
   <span class="nt">&lt;customInfo&gt;</span>BV_CODCLIENTE=12*P1*BV_SESSIONID=398<span class="nt">&lt;/customInfo&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    ...
+  <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
 
@@ -301,6 +304,11 @@
 <td><code class="prettyprint">customInfo</code><sup><a href="#fn1" id="ref1">1</a></sup></td>
 <td style="text-align: center">1000</td>
 <td>String containing specific information as configured in the merchant’s profile. See the next section for further explanations.</td>
+</tr>
+<tr>
+<td><a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a></td>
+<td style="text-align: center"></td>
+<td>a container ojbect of other data. It is used by <a href="#riskified">Riskified</a> and by some alternative payments.</td>
 </tr>
 </tbody></table>
 
@@ -420,662 +428,6 @@
 
 <p><sup id="fn4">4. <strong>Payment Systems Visibility</strong>. In order to be able to activate the Payment Systems Visibility the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The Payment System Visibility can be configured in the specific interface in the Back Office Merchant.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></sup></p>
 
-          <h3 id="orderdetails">OrderDetails</h3>
-
-<blockquote>
-<p><code class="prettyprint">OrderDetails</code> tag example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>103<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!--Hong Kong dollar--&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>100.10<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>13573322<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;OrderDetails&gt;</span>
-    <span class="nt">&lt;FraudPrevention&gt;</span>
-      <span class="nt">&lt;SubmitForReview&gt;</span>1<span class="nt">&lt;/SubmitForReview&gt;</span>
-      <span class="nt">&lt;OrderDateTime&gt;</span>2017-12-26<span class="nt">&lt;/OrderDateTime&gt;</span>
-      <span class="nt">&lt;OrderNote&gt;</span>Please send me the blue version<span class="nt">&lt;/OrderNote&gt;</span>
-      <span class="nt">&lt;Source&gt;</span>website<span class="nt">&lt;/Source&gt;</span>
-      <span class="nt">&lt;SubmissonReason&gt;</span>rule_decision<span class="nt">&lt;/SubmissonReason&gt;</span>
-      <span class="nt">&lt;BeaconSessionID&gt;</span>ff1db05b-81db-4ca0-a728-4797bfe796ff<span class="nt">&lt;/BeaconSessionID&gt;</span>
-    <span class="nt">&lt;/FraudPrevention&gt;</span>
-    <span class="nt">&lt;CustomerDetail&gt;</span>
-      <span class="nt">&lt;ProfileID</span> <span class="nt">/&gt;</span>
-      <span class="nt">&lt;MerchantCustomerID/&gt;</span>
-      <span class="nt">&lt;FirstName&gt;</span>Michael<span class="nt">&lt;/FirstName&gt;</span>
-      <span class="nt">&lt;MiddleName&gt;</span>J.<span class="nt">&lt;/MiddleName&gt;</span>
-      <span class="nt">&lt;Lastname&gt;</span>Fox<span class="nt">&lt;/Lastname&gt;</span>
-      <span class="nt">&lt;PrimaryEmail&gt;</span>martymcfly@backtothefuture.com<span class="nt">&lt;/PrimaryEmail&gt;</span>
-      <span class="nt">&lt;SecondaryEmail</span> <span class="nt">/&gt;</span>
-      <span class="nt">&lt;PrimaryPhone&gt;</span>+390298987643<span class="nt">&lt;/PrimaryPhone&gt;</span>
-      <span class="nt">&lt;SecondaryPhone&gt;</span>+393351029384<span class="nt">&lt;/SecondaryPhone&gt;</span>
-      <span class="nt">&lt;DateOfBirth&gt;</span>29/09/1932<span class="nt">&lt;/DateOfBirth&gt;</span>
-      <span class="nt">&lt;SocialSecurityNumber&gt;</span>BRLSLV36P29F205W<span class="nt">&lt;/SocialSecurityNumber&gt;</span>
-      <span class="nt">&lt;Company</span> <span class="nt">/&gt;</span>
-      <span class="nt">&lt;CreatedAtDate&gt;</span>31/12/2017<span class="nt">&lt;/CreatedAtDate&gt;</span>
-      <span class="nt">&lt;VerifiedEmail&gt;</span>true<span class="nt">&lt;/VerifiedEmail&gt;</span>
-      <span class="nt">&lt;AccountType&gt;</span>premium<span class="nt">&lt;/AccountType&gt;</span>
-    <span class="nt">&lt;/CustomerDetail&gt;</span>
-    <span class="nt">&lt;CustomerSocial&gt;</span>
-      <span class="nt">&lt;Network&gt;</span>Facebook<span class="nt">&lt;/Network&gt;</span>
-      <span class="nt">&lt;PublicUserName&gt;</span>Marty McFly<span class="nt">&lt;/PublicUserName&gt;</span>
-      <span class="nt">&lt;CommunityScore&gt;</span>100<span class="nt">&lt;/CommunityScore&gt;</span>
-      <span class="nt">&lt;ProfilePicture&gt;</span>https://external-mxp1-1.xx.fbcdn.net/safe_image.php?d=AQCSnRebJp1o3AR9<span class="err">&amp;</span>w=264<span class="err">&amp;</span>h=264<span class="err">&amp;</span>url=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fit%2Fthumb%2F1%2F1d%2FMartyMcFly.JPG%2F720px-MartyMcFly.JPG<span class="err">&amp;</span>colorbox<span class="err">&amp;</span>f<span class="nt">&lt;/ProfilePicture&gt;</span>
-      <span class="nt">&lt;Email&gt;</span>martymcfly@backtothefuture.com<span class="nt">&lt;/Email&gt;</span>
-      <span class="nt">&lt;Bio&gt;</span>Martin Seamus "Marty" McFly is a fictional character in the Back to the Future trilogy. He is portrayed by actor Michael J. Fox.<span class="nt">&lt;/Bio&gt;</span>
-      <span class="nt">&lt;AccountUrl&gt;</span>https://www.facebook.com/pages/Marty-McFly/103151259725141?fref=ts<span class="err">&amp;</span>rf=105623692803833<span class="nt">&lt;/AccountUrl&gt;</span>
-      <span class="nt">&lt;Following&gt;</span>0<span class="nt">&lt;/Following&gt;</span>
-      <span class="nt">&lt;Followed&gt;</span>1157<span class="nt">&lt;/Followed&gt;</span>
-      <span class="nt">&lt;Id&gt;</span>103151259725141<span class="nt">&lt;/Id&gt;</span>
-      <span class="nt">&lt;AuthToken&gt;</span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...<span class="nt">&lt;/AuthToken&gt;</span>
-      <span class="nt">&lt;SocialData</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/CustomerSocial&gt;</span>
-    <span class="nt">&lt;ShippingAddress&gt;</span>
-      <span class="nt">&lt;ProfileID</span> <span class="nt">/&gt;</span>
-      <span class="nt">&lt;FirstName&gt;</span>Michael<span class="nt">&lt;/FirstName&gt;</span>
-      <span class="nt">&lt;MiddleName&gt;</span>J.<span class="nt">&lt;/MiddleName&gt;</span>
-      <span class="nt">&lt;Lastname&gt;</span>Fox<span class="nt">&lt;/Lastname&gt;</span>
-      <span class="nt">&lt;Company&gt;</span>Universal Studios<span class="nt">&lt;/Company&gt;</span>
-      <span class="nt">&lt;StreetName&gt;</span>Holliwood Boulevard<span class="nt">&lt;/StreetName&gt;</span>
-      <span class="nt">&lt;StreetName2</span> <span class="nt">/&gt;</span>
-      <span class="nt">&lt;HouseNumber&gt;</span>1432<span class="nt">&lt;/HouseNumber&gt;</span>
-      <span class="nt">&lt;HouseExtension</span> <span class="nt">/&gt;</span>
-      <span class="nt">&lt;City&gt;</span>Los Angeles<span class="nt">&lt;/City&gt;</span>
-      <span class="nt">&lt;ZipCode&gt;</span>90213<span class="nt">&lt;/ZipCode&gt;</span>
-      <span class="nt">&lt;State&gt;</span>California<span class="nt">&lt;/State&gt;</span>
-      <span class="nt">&lt;CountryCode&gt;</span>US<span class="nt">&lt;/CountryCode&gt;</span>
-      <span class="nt">&lt;Email&gt;</span>martymcfly@backtothefuture.com<span class="nt">&lt;/Email&gt;</span>
-      <span class="nt">&lt;PrimaryPhone&gt;</span>+0199332285321<span class="nt">&lt;/PrimaryPhone&gt;</span>
-      <span class="nt">&lt;SecondaryPhone</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/ShippingAddress&gt;</span>
-     <span class="nt">&lt;BillingAddress&gt;</span>
-      <span class="nt">&lt;ProfileID</span> <span class="nt">/&gt;</span>
-      <span class="nt">&lt;FirstName&gt;</span>Michael<span class="nt">&lt;/FirstName&gt;</span>
-      <span class="nt">&lt;MiddleName&gt;</span>J.<span class="nt">&lt;/MiddleName&gt;</span>
-      <span class="nt">&lt;Lastname&gt;</span>Fox<span class="nt">&lt;/Lastname&gt;</span>
-      <span class="nt">&lt;Company&gt;</span>Universal Studios<span class="nt">&lt;/Company&gt;</span>
-      <span class="nt">&lt;StreetName&gt;</span>Holliwood Boulevard<span class="nt">&lt;/StreetName&gt;</span>
-      <span class="nt">&lt;StreetName2</span> <span class="nt">/&gt;</span>
-      <span class="nt">&lt;HouseNumber&gt;</span>1432<span class="nt">&lt;/HouseNumber&gt;</span>
-      <span class="nt">&lt;HouseExtension</span> <span class="nt">/&gt;</span>
-      <span class="nt">&lt;City&gt;</span>Los Angeles<span class="nt">&lt;/City&gt;</span>
-      <span class="nt">&lt;ZipCode&gt;</span>90213<span class="nt">&lt;/ZipCode&gt;</span>
-      <span class="nt">&lt;State&gt;</span>California<span class="nt">&lt;/State&gt;</span>
-      <span class="nt">&lt;CountryCode&gt;</span>US<span class="nt">&lt;/CountryCode&gt;</span>
-      <span class="nt">&lt;Email&gt;</span>martymcfly@backtothefuture.com<span class="nt">&lt;/Email&gt;</span>
-      <span class="nt">&lt;PrimaryPhone&gt;</span>+0199332285321<span class="nt">&lt;/PrimaryPhone&gt;</span>
-      <span class="nt">&lt;SecondaryPhone</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/BillingAddress&gt;</span>
-    <span class="nt">&lt;ProductDetails&gt;</span>
-      <span class="nt">&lt;ProductDetail&gt;</span><span class="c">&lt;!-- first of 1...N products --&gt;</span>
-        <span class="nt">&lt;ProductCode&gt;</span>135798642<span class="nt">&lt;/ProductCode&gt;</span>
-        <span class="nt">&lt;SKU&gt;</span>AB-333222-WFG-4<span class="nt">&lt;/SKU&gt;</span>
-        <span class="nt">&lt;Name&gt;</span>Porche Carrera scale model<span class="nt">&lt;/Name&gt;</span>
-        <span class="nt">&lt;Description&gt;</span>Porche Carrera scale model<span class="nt">&lt;/Description&gt;</span>
-        <span class="nt">&lt;Quantity&gt;</span>1<span class="nt">&lt;/Quantity&gt;</span>
-        <span class="nt">&lt;Price&gt;</span>50.5<span class="nt">&lt;/Price&gt;</span>
-        <span class="nt">&lt;UnitPrice&gt;</span>50.5<span class="nt">&lt;/UnitPrice&gt;</span>
-        <span class="nt">&lt;Type&gt;</span>1<span class="nt">&lt;/Type&gt;</span><span class="c">&lt;!-- 1: product --&gt;</span>
-        <span class="nt">&lt;Vat&gt;</span>22%<span class="nt">&lt;/Vat&gt;</span>
-        <span class="nt">&lt;Discount</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;Category&gt;</span>Scale Models<span class="nt">&lt;/Category&gt;</span>
-        <span class="nt">&lt;Subcategory&gt;</span>cars<span class="nt">&lt;/Subcategory&gt;</span>
-        <span class="nt">&lt;Brand&gt;</span>LittleCars<span class="nt">&lt;/Brand&gt;</span>
-        <span class="nt">&lt;RequiresShipping&gt;</span>true<span class="nt">&lt;/RequiresShipping&gt;</span>
-        <span class="nt">&lt;DeliveryAt&gt;</span>2017-12-29<span class="nt">&lt;/DeliveryAt&gt;</span>
-        <span class="nt">&lt;Condition&gt;</span>new<span class="nt">&lt;/Condition&gt;</span>
-        <span class="nt">&lt;Seller</span> <span class="nt">/&gt;</span><span class="c">&lt;!-- relevant for marketplace orders --&gt;</span> 
-      <span class="nt">&lt;/ProductDetail&gt;</span>
-      <span class="nt">&lt;ProductDetail&gt;</span>
-        <span class="nt">&lt;ProductCode&gt;</span>135798642<span class="nt">&lt;/ProductCode&gt;</span>
-        <span class="nt">&lt;SKU&gt;</span>AB-333222-WFG-5<span class="nt">&lt;/SKU&gt;</span>
-        <span class="nt">&lt;Name&gt;</span>Ferrari scale model<span class="nt">&lt;/Name&gt;</span>
-        <span class="nt">&lt;Description&gt;</span>Ferrari scale model<span class="nt">&lt;/Description&gt;</span>
-        <span class="nt">&lt;Quantity&gt;</span>1<span class="nt">&lt;/Quantity&gt;</span>
-        <span class="nt">&lt;Price&gt;</span>50.5<span class="nt">&lt;/Price&gt;</span>
-        <span class="nt">&lt;UnitPrice&gt;</span>50.5<span class="nt">&lt;/UnitPrice&gt;</span>
-        <span class="nt">&lt;Type&gt;</span>1<span class="nt">&lt;/Type&gt;</span><span class="c">&lt;!-- 1: product --&gt;</span>
-        <span class="nt">&lt;Vat&gt;</span>22%<span class="nt">&lt;/Vat&gt;</span>
-        <span class="nt">&lt;Discount</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;Category&gt;</span>Scale Models<span class="nt">&lt;/Category&gt;</span>
-        <span class="nt">&lt;Subcategory&gt;</span>cars<span class="nt">&lt;/Subcategory&gt;</span>
-        <span class="nt">&lt;Brand&gt;</span>LittleCars<span class="nt">&lt;/Brand&gt;</span>
-        <span class="nt">&lt;RequiresShipping&gt;</span>true<span class="nt">&lt;/RequiresShipping&gt;</span>
-        <span class="nt">&lt;DeliveryAt&gt;</span>2017-12-29<span class="nt">&lt;/DeliveryAt&gt;</span>
-        <span class="nt">&lt;Condition&gt;</span>new<span class="nt">&lt;/Condition&gt;</span>
-        <span class="nt">&lt;Seller</span> <span class="nt">/&gt;</span><span class="c">&lt;!-- relevant for marketplace orders --&gt;</span>
-      <span class="nt">&lt;/ProductDetail&gt;</span><span class="c">&lt;!-- last of 1...N products --&gt;</span>
-    <span class="nt">&lt;/ProductDetails&gt;</span>
-    <span class="nt">&lt;DiscountCodes&gt;</span>
-      <span class="nt">&lt;DiscountCode&gt;</span><span class="c">&lt;!-- one or more --&gt;</span>
-        <span class="nt">&lt;Amount&gt;</span>10<span class="nt">&lt;/Amount&gt;</span>
-        <span class="nt">&lt;Code&gt;</span>53232<span class="nt">&lt;/Code&gt;</span>
-      <span class="nt">&lt;/DiscountCode&gt;</span>
-    <span class="nt">&lt;/DiscountCodes&gt;</span>
-    <span class="nt">&lt;ShippingLines&gt;</span>
-      <span class="nt">&lt;ShippingLine&gt;</span>
-        <span class="nt">&lt;Price&gt;</span>20<span class="nt">&lt;/Price&gt;</span>
-        <span class="nt">&lt;Title&gt;</span>FedEx<span class="nt">&lt;/Title&gt;</span>
-        <span class="nt">&lt;Code&gt;</span>72-B03<span class="nt">&lt;/Code&gt;</span>
-      <span class="nt">&lt;/ShippingLine&gt;</span>
-    <span class="nt">&lt;/ShippingLines&gt;</span>
-  <span class="nt">&lt;/OrderDetails&gt;</span>
-<span class="nt">&lt;/Encrypt&gt;</span>
-</code></pre>
-
-<p><code class="prettyprint">OrderDetails</code> tag contains all the info that can be sent together with a transaction. The more data you sent, the better is for Gestpay to analyze your request. </p>
-
-<p>Many external systems, like the one presented in the next sections, use <code class="prettyprint">OrderDetails</code> fields to work. <a href="#riskified">Riskified</a> (an antifraud system) massively uses <code class="prettyprint">OrderDetails</code> to get the job done. </p>
-
-<p>In this section we will analyze indipendently all the fields. </p>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Max Size</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">FraudPrevention</code></td>
-<td></td>
-<td>container</td>
-<td>Contains fields related to fraud prevention.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">CustomerDetail</code></td>
-<td></td>
-<td>container</td>
-<td>Contains customer data</td>
-</tr>
-<tr>
-<td><code class="prettyprint">CustomerSocial</code></td>
-<td></td>
-<td>container</td>
-<td>if you have access to a customer&rsquo; social profile, you can also send this data</td>
-</tr>
-<tr>
-<td><code class="prettyprint">ShippingAddress</code></td>
-<td></td>
-<td>container</td>
-<td>Contains shipping address</td>
-</tr>
-<tr>
-<td><code class="prettyprint">BillingAddress</code></td>
-<td></td>
-<td>container</td>
-<td>contains the billing address</td>
-</tr>
-<tr>
-<td><code class="prettyprint">ProductDetails</code></td>
-<td></td>
-<td>container</td>
-<td>contains one or more <code class="prettyprint">ProductDetail</code>s items buyed</td>
-</tr>
-<tr>
-<td><code class="prettyprint">DiscountCodes</code></td>
-<td></td>
-<td>container</td>
-<td>contains one or more <code class="prettyprint">DiscountCode</code>s, if discounts are applicable</td>
-</tr>
-<tr>
-<td><code class="prettyprint">ShippingLines</code></td>
-<td></td>
-<td>container</td>
-<td>contains one or more <code class="prettyprint">ShippingLine</code>s, that contain the price and the shipping courier.</td>
-</tr>
-</tbody></table>
-
-<h4 id="children-of-fraudprevention">Children of <code class="prettyprint">FraudPrevention</code></h4>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Max Size</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">SubmitForReview</code></td>
-<td>1</td>
-<td>Flag to activate review over Riskified.  <br><ul><li><code class="prettyprint">0</code> no submit</li><li><code class="prettyprint">1</code> submit</li></ul>If your active plan is <strong>Select&amp;Submit</strong> you can decide which transaction must be submitted to riskified setting the flag to <code class="prettyprint">1</code>. With <strong>Shop Protection</strong> all transactions are submitted for review by default.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">OrderDateTime</code></td>
-<td>10</td>
-<td>Order date time. Format: YYYY-MM-DD</td>
-</tr>
-<tr>
-<td><code class="prettyprint">OrderNote</code></td>
-<td>50</td>
-<td>Buyer&rsquo;s order note</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Source</code></td>
-<td>10</td>
-<td><code class="prettyprint">website</code>, <code class="prettyprint">mobile</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">SubmissionReason</code></td>
-<td>20</td>
-<td>the underlying reason for submitting the order to review. It must be one of the following values: <ul><li><code class="prettyprint">failed_verification</code>: order failed (phone, email) verification.</li><li><code class="prettyprint">rule_decision</code>: Order was flagged by an automatic rule. </li><li><code class="prettyprint">third_party</code>: Order was flagged by a third-party service.</li><li><code class="prettyprint">manual_decision</code>: Order was flagged after manual review.</li><li><code class="prettyprint">policy_decision</code>: order was flagged by a non-fraud related rule.</li></ul> This field must be sent either if the shop adheres to <em>Shop Protection</em> or <em>Selct &amp; Submit</em> plan; if the plan is <em>Shop Protection</em>, the default is <code class="prettyprint">rule_decision</code>.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">BeaconSessionID</code></td>
-<td>100</td>
-<td>Session ID of the Beacon for this transaction. This value must be collected when the user first connects to your website and be sent to Riskified to analyze it. With this field, Riskified knows what actions the user did on your website.</td>
-</tr>
-</tbody></table>
-
-<h4 id="children-of-customerdetail">Children of <code class="prettyprint">CustomerDetail</code></h4>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Max Size</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">ProfileID</code></td>
-<td>12</td>
-<td>Customer profile ID (reserved for future use)</td>
-</tr>
-<tr>
-<td><code class="prettyprint">MerchantCustomerID</code></td>
-<td>50</td>
-<td>Merchant customer ID (reserved for future use)</td>
-</tr>
-<tr>
-<td><code class="prettyprint">FirstName</code></td>
-<td>65</td>
-<td>Customer First Name</td>
-</tr>
-<tr>
-<td><code class="prettyprint">MiddleName</code></td>
-<td>65</td>
-<td>Customer Middle Name</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Lastname</code></td>
-<td>65</td>
-<td>Customer Last name</td>
-</tr>
-<tr>
-<td><code class="prettyprint">PrimaryEmail</code></td>
-<td>100</td>
-<td>Customer primary email</td>
-</tr>
-<tr>
-<td><code class="prettyprint">SecondaryEmail</code></td>
-<td>100</td>
-<td>Customer secondary email</td>
-</tr>
-<tr>
-<td><code class="prettyprint">PrimaryPhone</code></td>
-<td>20</td>
-<td>Customer&rsquo;s phone including prefix</td>
-</tr>
-<tr>
-<td><code class="prettyprint">SecondaryPhone</code></td>
-<td>20</td>
-<td>Customer&rsquo;s phone including prefix</td>
-</tr>
-<tr>
-<td><code class="prettyprint">DateOfBirth</code></td>
-<td>10</td>
-<td>Customer Date of Birth (dd/mm/yyyy)</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Gender</code></td>
-<td>1</td>
-<td>Customer Gender (<code class="prettyprint">0</code>=Male <code class="prettyprint">1</code>=Female)</td>
-</tr>
-<tr>
-<td><code class="prettyprint">SocialSecurityNumber</code></td>
-<td>20</td>
-<td>Customer&rsquo;s social or fiscal identifier (KlarnaUse)</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Company</code></td>
-<td>255</td>
-<td>Customer Company</td>
-</tr>
-<tr>
-<td><code class="prettyprint">CreatedAtDate</code></td>
-<td>10</td>
-<td>Date of Customer creation on merchant site</td>
-</tr>
-<tr>
-<td><code class="prettyprint">VerifiedEmail</code></td>
-<td>5</td>
-<td>Email is verified? <code class="prettyprint">true</code>/<code class="prettyprint">false</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">AccountType</code></td>
-<td>20</td>
-<td><code class="prettyprint">free</code>/<code class="prettyprint">premium</code> etc</td>
-</tr>
-</tbody></table>
-
-<h4 id="customersocial-field"><code class="prettyprint">CustomerSocial</code> field</h4>
-
-<p>If you have access to socal data of your customers, you can send them along with the other data.</p>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Max Size</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">Network</code></td>
-<td>12</td>
-<td>The name of the social network.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">PublicUserName</code></td>
-<td>50</td>
-<td>The customer&rsquo;s public username.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">CommunityScore</code></td>
-<td>65</td>
-<td>holds the score for networks where its relevant</td>
-</tr>
-<tr>
-<td><code class="prettyprint">ProfilePicture</code></td>
-<td>65</td>
-<td>URL of the customer&rsquo;s profile picture</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Email</code></td>
-<td>65</td>
-<td>Customer&rsquo;s email address registered on the social network.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Bio</code></td>
-<td>100</td>
-<td>Short biography of the customer on the social network</td>
-</tr>
-<tr>
-<td><code class="prettyprint">AccountUrl</code></td>
-<td>100</td>
-<td>Direct URL to the customer&rsquo;s profile page on the social network</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Following</code></td>
-<td>20</td>
-<td>Direct URL to the customer&rsquo;s profile page on the social network</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Followed</code></td>
-<td>20</td>
-<td>Number of users followed by the customer on the social network.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Id</code></td>
-<td>10</td>
-<td>The customer&rsquo;s profile id.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">AuthToken</code></td>
-<td>1</td>
-<td>The authentication token of the user.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">SocialData</code></td>
-<td>20</td>
-<td>Open field for additional data from the social network.</td>
-</tr>
-</tbody></table>
-
-<h4 id="shippingaddress-and-billingaddress-field"><code class="prettyprint">ShippingAddress</code> and <code class="prettyprint">BillingAddress</code> field</h4>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Max Size</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">ProfileID</code></td>
-<td>12</td>
-<td>Profile ID (reserved for future use)</td>
-</tr>
-<tr>
-<td><code class="prettyprint">FirstName</code></td>
-<td>65</td>
-<td>First Name</td>
-</tr>
-<tr>
-<td><code class="prettyprint">MiddleName</code></td>
-<td>65</td>
-<td>Middle Name</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Lastname</code></td>
-<td>65</td>
-<td>Last name</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Company</code></td>
-<td>255</td>
-<td>Company Name</td>
-</tr>
-<tr>
-<td><code class="prettyprint">StreetName</code></td>
-<td>100</td>
-<td>Shipping Street</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Streetname2</code></td>
-<td>100</td>
-<td>Shipping Street second line</td>
-</tr>
-<tr>
-<td><code class="prettyprint">HouseNumber</code></td>
-<td>5</td>
-<td></td>
-</tr>
-<tr>
-<td><code class="prettyprint">HouseExtention</code></td>
-<td>5</td>
-<td></td>
-</tr>
-<tr>
-<td><code class="prettyprint">City</code></td>
-<td>50</td>
-<td>Shipping City</td>
-</tr>
-<tr>
-<td><code class="prettyprint">ZipCode</code></td>
-<td>50</td>
-<td>Shipping Zip Code</td>
-</tr>
-<tr>
-<td><code class="prettyprint">State</code></td>
-<td>50</td>
-<td>Shipping State</td>
-</tr>
-<tr>
-<td><code class="prettyprint">CountryCode</code></td>
-<td>2</td>
-<td>Alpha-2 code; for example, United States is &ldquo;US&rdquo;</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Email</code></td>
-<td>100</td>
-<td>Shipping Contact Email</td>
-</tr>
-<tr>
-<td><code class="prettyprint">PrimaryPhone</code></td>
-<td>20</td>
-<td>Shipping Primary Phone</td>
-</tr>
-<tr>
-<td><code class="prettyprint">SecondaryPhone</code></td>
-<td>20</td>
-<td>Shipping Secondary Phone</td>
-</tr>
-</tbody></table>
-
-<h4 id="productdetails-and-productdetail-field"> <code class="prettyprint">ProductDetails</code> and <code class="prettyprint">ProductDetail</code> field</h4>
-
-<p><code class="prettyprint">ProductDetails</code> will contain one or more <code class="prettyprint">ProductDetail</code>. </p>
-
-<p><code class="prettyprint">ProductDetail</code> describes a bought item.</p>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Max Size</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">ProductCode</code></td>
-<td>12</td>
-<td>Article’s product Code</td>
-</tr>
-<tr>
-<td><code class="prettyprint">SKU</code></td>
-<td>50</td>
-<td>Article’s Stock Keeping Unit</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Name</code></td>
-<td>100</td>
-<td>Article’s name</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Description</code></td>
-<td>255</td>
-<td>Article’s description</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Quantity</code></td>
-<td>3</td>
-<td>The number of products</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Price</code></td>
-<td>12</td>
-<td>Article’s price</td>
-</tr>
-<tr>
-<td><code class="prettyprint">UnitPrice</code></td>
-<td>12</td>
-<td>Article’s Unit Price</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Type</code></td>
-<td>2</td>
-<td>The type of article: 1-product, 2-shipping, 3-handling</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Vat</code></td>
-<td>2</td>
-<td>Value-Added Tax (the value of the tax)</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Discount</code></td>
-<td>2</td>
-<td>The amount offered by you as discount</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Category</code></td>
-<td></td>
-<td>Product Category</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Subcategory</code></td>
-<td></td>
-<td>Product Sub Category</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Brand</code></td>
-<td></td>
-<td>Product Brand</td>
-</tr>
-<tr>
-<td><code class="prettyprint">RequiresShipping</code></td>
-<td></td>
-<td><code class="prettyprint">true</code>/<code class="prettyprint">false</code> States whether or not the fulfillment requires shipping. This field is important for merchants dealing with digital goods.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">DeliveryAt</code></td>
-<td>10</td>
-<td>The planned delivery date of the product or item.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Condition</code></td>
-<td>100</td>
-<td>Description of the physical condition of the item, mostly relevant for used items</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Seller</code></td>
-<td></td>
-<td><code class="prettyprint">public_username</code> Details about the seller of the item, relevant for marketplace orders.</td>
-</tr>
-</tbody></table>
-
-<h4 id="discountcodes-and-discountcode-fields"><code class="prettyprint">DiscountCodes</code> and <code class="prettyprint">DiscountCode</code> fields</h4>
-
-<p>If you apply discounts for your products you should add discount info.</p>
-
-<p>in <code class="prettyprint">DiscountCodes</code> you may have one or more <code class="prettyprint">DiscountCode</code>, that contain these fields: </p>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Max Size</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">Amount</code></td>
-<td>12</td>
-<td>The amount of the discount.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Code</code></td>
-<td>50</td>
-<td>The code of the discount.</td>
-</tr>
-</tbody></table>
-
-<h4 id="shippinglines-and-shippingline-fields"> <code class="prettyprint">ShippingLines</code> and <code class="prettyprint">ShippingLine</code> fields</h4>
-
-<p>With this fields you can define the price and the kind of shipping that you use for your products, if applicable. </p>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Max Size</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">Price</code></td>
-<td>12</td>
-<td>The price of the shipping method.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Title</code></td>
-<td>100</td>
-<td>The title of the shipping method.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Code</code></td>
-<td>50</td>
-<td>Code of the shipping method.</td>
-</tr>
-</tbody></table>
-
           <h2 id="encrypt-result">Encrypt result</h2>
 
 <blockquote>
@@ -1127,6 +479,245 @@
 <td>Error description</td>
 </tr>
 </tbody></table>
+
+          <h2 id="decrypt">Decrypt</h2>
+
+<blockquote>
+<p>A <code class="prettyprint">Decrypt</code> request: </p>
+</blockquote>
+<pre class="highlight xml"><code> <span class="nt">&lt;Decrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;CryptedString&gt;</span>HT987YU....<span class="nt">&lt;/CryptedString&gt;</span>
+ <span class="nt">&lt;/Decrypt&gt;</span>
+</code></pre>
+
+<p>GestPay communicates the payment transaction result to the merchant through an encrypted string (parameter b of the call to the url preconfigured by the merchant) with a set of transaction&rsquo;s informations.</p>
+
+<p>To Decrypt the data it is necessary to use Decrypt method passing the following parameters, the tags&rsquo; names are case sensitive:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td style="text-align: center">30</td>
+<td>Shop Login</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CryptedString</code></td>
+<td style="text-align: center">&hellip;&hellip;</td>
+<td>Encrypted string get by parameter b of the call to the url preconfigured by the merchant</td>
+</tr>
+</tbody></table>
+
+          <h2 id="decrypt-result">Decrypt result</h2>
+
+<blockquote>
+<p>GestPay authenticates the calling server and checks the encrypted data string. If the checks are passed, it returns an unencrypted data string containing the transaction result: </p>
+</blockquote>
+<pre class="highlight xml"><code> <span class="nt">&lt;DecryptResult&gt;</span>
+  <span class="nt">&lt;GestPayCryptDecrypt</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;TransactionType&gt;</span>DECRYPT<span class="nt">&lt;/TransactionType&gt;</span>
+    <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+    <span class="nt">&lt;ShopTransactionID&gt;</span>34az85ord19<span class="nt">&lt;/ShopTransactionID&gt;</span>
+    <span class="nt">&lt;BankTransactionID&gt;</span>656<span class="nt">&lt;/BankTransactionID&gt;</span>
+    <span class="nt">&lt;AuthorizationCode&gt;</span>983RT4<span class="nt">&lt;/AuthorizationCode&gt;</span>
+    <span class="nt">&lt;Currency&gt;</span>242<span class="nt">&lt;/Currency&gt;</span>
+    <span class="nt">&lt;Amount&gt;</span>985.40<span class="nt">&lt;/Amount&gt;</span>
+    <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+    <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
+  <span class="nt">&lt;/GestPayCryptDecrypt&gt;</span>
+<span class="nt">&lt;/DecryptResult&gt;</span>
+</code></pre>
+
+<p>Decrypt webservice returns back the following information in the xml.</p>
+
+<p>The minimum information returned back as transaction result is marked in bold. </p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">TransactionType</code></td>
+<td style="text-align: center">7</td>
+<td>Decode the transaction type request (<code class="prettyprint">DECRYPT</code>, <code class="prettyprint">ENCRYPT</code>)</td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">TransactionResult</code></strong></td>
+<td style="text-align: center"><strong>2</strong></td>
+<td><strong>Transaction result (<code class="prettyprint">OK</code>/<code class="prettyprint">KO</code>)</strong></td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">ShopTransactionID</code></strong></td>
+<td style="text-align: center"><strong>50</strong></td>
+<td><strong>Identifier attributed to merchant’s transaction</strong></td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">BankTransactionID</code></strong></td>
+<td style="text-align: center"><strong>9</strong></td>
+<td><strong>Identifier attributed to the transaction by GestPay</strong></td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">AuthorizationCode</code></strong></td>
+<td style="text-align: center"><strong>6</strong></td>
+<td><strong>Transaction authorisation code</strong></td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">Currency</code></strong></td>
+<td style="text-align: center"><strong>3</strong></td>
+<td><strong>Code identifying currency in which transaction amount is denominated (see <a href="#currency-codes">Currency Codes</a> table)</strong></td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">Amount</code></strong></td>
+<td style="text-align: center"><strong>9</strong></td>
+<td><strong>Transaction amount. Decimals (max. 2 numbers) are optional and separator is the point (see examples)</strong></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Country</code></td>
+<td style="text-align: center">30</td>
+<td>Nationality of the issuing card institute</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CustomInfo</code></td>
+<td style="text-align: center">1000</td>
+<td> String that has the specific information as configured in themerchant’s profile. Each field can be up to a maximum of 300 characters in length.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Buyer.BuyerName</code></td>
+<td style="text-align: center">50</td>
+<td>Buyer’s name and surname</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Buyer.BuyerEmail</code></td>
+<td style="text-align: center">50</td>
+<td>Buyer’s e-mail address</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TDLevel</code></td>
+<td style="text-align: center">255</td>
+<td>Level of authentication for VBV Visa / Mastercard Securecode transactions. The string may have the value <code class="prettyprint">FULL</code> or <code class="prettyprint">HALF</code></td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">ErrorCode</code></strong></td>
+<td style="text-align: center"><strong>9</strong></td>
+<td><strong>Error code</strong></td>
+</tr>
+<tr>
+<td><strong><code class="prettyprint">ErrorDescription</code></strong></td>
+<td style="text-align: center"><strong>255</strong></td>
+<td><strong>Error description (localized in your language)</strong></td>
+</tr>
+<tr>
+<td><code class="prettyprint">AlertCode</code></td>
+<td style="text-align: center">9</td>
+<td>Alert code. See <a href="http://hype-app.github.io/gestpay-doc/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AlertDescription</code></td>
+<td style="text-align: center">255</td>
+<td>Alert description in chosen language. See <a href="http://hype-app.github.io/gestpay-doc/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CVVPresent</code></td>
+<td style="text-align: center">1</td>
+<td>Credit Card security code flag</td>
+</tr>
+<tr>
+<td><code class="prettyprint">MaskedPAN</code></td>
+<td style="text-align: center">25</td>
+<td>Masked Pan string</td>
+</tr>
+<tr>
+<td><code class="prettyprint">PaymentMethod</code></td>
+<td style="text-align: center">100</td>
+<td>Indicates the used Payment Method</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TOKEN</code> </td>
+<td style="text-align: center">25</td>
+<td>String containing the token value</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ProductType</code></td>
+<td style="text-align: center">100</td>
+<td> String containing Card Type</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TokenExpiryMonth</code> </td>
+<td style="text-align: center">2</td>
+<td>String containing the token expiry month</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TokenExpiryYear</code></td>
+<td style="text-align: center">2</td>
+<td>String containing the token expiry year</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TransactionKey</code> </td>
+<td style="text-align: center">18</td>
+<td>Transaction identifier for 3D transactions. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions</td>
+</tr>
+<tr>
+<td><code class="prettyprint">VbV</code></td>
+<td style="text-align: center">2</td>
+<td>Verified By Visa Flag</td>
+</tr>
+<tr>
+<td><code class="prettyprint">VbVRisp</code></td>
+<td style="text-align: center"></td>
+<td>Encrypted string containing information for 3D- Secure transactions. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions</td>
+</tr>
+<tr>
+<td><code class="prettyprint">VbVBuyer</code></td>
+<td style="text-align: center">2</td>
+<td>Information about the enrolment of the buyer&rsquo;s card to 3D-Secure protocol: <code class="prettyprint">OK</code> means that the card is enrolled, <code class="prettyprint">KO</code> means that the card is not enrolled</td>
+</tr>
+<tr>
+<td><code class="prettyprint">VbVFlag</code></td>
+<td style="text-align: center">2</td>
+<td>Information about the 3D-Secure status. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions.</td>
+</tr>
+</tbody></table>
+
+<p>Other information is defined as optional and will be returned according to the merchant’s profile settings made in the GestPay Back Office environment.</p>
+
+<p>A transaction result can be interpreted by verifying the <code class="prettyprint">TransactionResult</code> field value. The possible values are:</p>
+
+<table><thead>
+<tr>
+<th>Transaction Result</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">OK</code> </td>
+<td>Positive transaction result</td>
+</tr>
+<tr>
+<td><code class="prettyprint">KO</code> </td>
+<td>Negative transaction result</td>
+</tr>
+<tr>
+<td><code class="prettyprint">XX</code> </td>
+<td>Suspended transaction result. This is not a final result: Gestpay will send <code class="prettyprint">XX</code> when the outcome is asynchronous. Right now these systems are <code class="prettyprint">MyBank</code>, <code class="prettyprint">Sofort</code>, <code class="prettyprint">IDeal</code>, <code class="prettyprint">Bank Transfer</code>. In the future, this code might be returned with other payment systems (bitcoins, for example). <br/> A new communication will be provided to the merchant when the transaction will assume the final <code class="prettyprint">OK</code>/<code class="prettyprint">KO</code> status). <br/> <strong>If you receive a <code class="prettyprint">XX</code> code, don&rsquo;t send your goods but wait to receive the actual payment.</strong> The customer with <code class="prettyprint">XX</code> transaction is redirect to URL for positive response.</td>
+</tr>
+</tbody></table>
+
+          <h1 id="alternative-payments-examples">Alternative Payments Examples</h1>
+
+<p><a href="#encrypt"><code class="prettyprint">Encrypt</code></a> can be used to  start a payment process in one of the several alternative payments that Gestpay supports. </p>
+
+<p>You can see the <a href="% config[:doc_url] %&gt;/oth/what-does-it-really-mean-that-gestpay-is-a-payment-gateway.html">complete list of Gestpay alternative payments</a> in the docs. </p>
+
+<p>As a recap, you can use the <a href="#paymenttypes"><code class="prettyprint">&lt;paymentType&gt;</code></a> tag to specify which payment methods you want to enable. In the next paragraphs we will show some alternative payment examples. </p>
 
           <h2 id="encrypt-example-paypal">Encrypt example: Paypal</h2>
 
@@ -1563,7 +1154,7 @@
   <span class="nt">&lt;/OrderDetails&gt;</span>
 </code></pre>
 
-<p>Sofort does not need mandatory parameters, but if you send the following parameters, you will jump straight to the SOFORT payment page without authenticating. All these fields are children of <code class="prettyprint">OrderDetails</code>. </p>
+<p>Sofort does not need mandatory parameters, but if you send the following parameters, you will jump straight to the SOFORT payment page without authenticating. All these fields are children of <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a>.</p>
 
 <table><thead>
 <tr>
@@ -1798,7 +1389,7 @@
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
 
-<p>Qiwi does not need mandatory parameters, but if you send these few parameters you can have a frictionless call directly to the first screen of QIWI where authentication data are asked. These fields are children of <code class="prettyprint">OrderDetails</code>:</p>
+<p>Qiwi does not need mandatory parameters, but if you send these few parameters you can have a frictionless call directly to the first screen of QIWI where authentication data are asked. These fields are children of <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a>:</p>
 
 <table><thead>
 <tr>
@@ -1842,7 +1433,7 @@
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
 
-<p>Yandex does not need mandatory parameters; but if you send  <code class="prettyprint">CustomerDetail.PrimaryEmail</code> you can have a frictionless call directly to the first screen of Yandex where authentication data are asked.</p>
+<p>Yandex does not need mandatory parameters; but if you send <code class="prettyprint">CustomerDetail.PrimaryEmail</code> in the <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> tag you can have a frictionless call directly to the first screen of Yandex where authentication data are asked.</p>
 
 <table><thead>
 <tr>
@@ -1883,6 +1474,8 @@
 
 <p>Alipay does not need any mandatory parameters. Just specify the <code class="prettyprint">PaymentType</code> <code class="prettyprint">S2PALI</code> and the payment page will show to your user. </p>
 
+<p>If you specify the <code class="prettyprint">PrimaryEmail</code> in the <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> tag, you will redirect your user to Alipay payment page where some fields are already filled. </p>
+
           <h2 id="encrypt-example-unionpay">Encrypt Example: UnionPay</h2>
 
 <blockquote>
@@ -1909,7 +1502,7 @@
 
 <p>You must use <code class="prettyprint">S2PUNI</code> as <code class="prettyprint">paymentType</code>.</p>
 
-<p>However, if you send the <code class="prettyprint">PrimaryEmail</code> and <code class="prettyprint">PrimaryPhone</code> fields, you will jump straight to the UnionPay payment page; otherwise, an intermediary page asking for the email address is showed. </p>
+<p>However, if you send the <code class="prettyprint">PrimaryEmail</code> and <code class="prettyprint">PrimaryPhone</code> fields in the <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> tag, you will jump straight to the UnionPay payment page; otherwise, an intermediary page asking for the email address is showed. </p>
 
           <h2 id="encrypt-example-tenpay">Encrypt Example: TenPay</h2>
 
@@ -1938,246 +1531,9 @@
 
 <p>You must use <code class="prettyprint">S2PTEN</code> as <code class="prettyprint">paymentType</code>.</p>
 
-<p>However, if you send the <code class="prettyprint">PrimaryEmail</code>, <code class="prettyprint">FirstName</code> and <code class="prettyprint">Lastname</code> fields, you will be redirected straight to TenPay payment page; otherwise, an intermediary page asking for this data is showed. </p>
+<p>However, if you send the <code class="prettyprint">PrimaryEmail</code>, <code class="prettyprint">FirstName</code> and <code class="prettyprint">Lastname</code> fields in the <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> tag, you will be redirected straight to TenPay payment page; otherwise, an intermediary page asking for this data is showed. </p>
 
 <p>More information about TenPay and how to test are <a href="http://hype-app.github.io/gestpay-doc/oth/tenpay.html">in the doc</a>. </p>
-
-          <h2 id="riskified">Riskified</h2>
-
-<p>Riskified is a fraud detection service. To get more info, visit <a href="http://hype-app.github.io/gestpay-doc/sec/fraud-detection-with-riskified.html">Riskified documentation</a>. </p>
-
-<p>All Riskified data goes inside the tag <a href="#orderdetails"><code class="prettyprint">&lt;OrderDetails&gt;</code></a>. There you will find a detailed description of every field.  </p>
-
-          <h2 id="decrypt">Decrypt</h2>
-
-<blockquote>
-<p>A <code class="prettyprint">Decrypt</code> request: </p>
-</blockquote>
-<pre class="highlight xml"><code> <span class="nt">&lt;Decrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;CryptedString&gt;</span>HT987YU....<span class="nt">&lt;/CryptedString&gt;</span>
- <span class="nt">&lt;/Decrypt&gt;</span>
-</code></pre>
-
-<p>GestPay communicates the payment transaction result to the merchant through an encrypted string (parameter b of the call to the url preconfigured by the merchant) with a set of transaction&rsquo;s informations.</p>
-
-<p>To Decrypt the data it is necessary to use Decrypt method passing the following parameters, the tags&rsquo; names are case sensitive:</p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th style="text-align: center">max length</th>
-<th>description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">shopLogin</code></td>
-<td style="text-align: center">30</td>
-<td>Shop Login</td>
-</tr>
-<tr>
-<td><code class="prettyprint">CryptedString</code></td>
-<td style="text-align: center">&hellip;&hellip;</td>
-<td>Encrypted string get by parameter b of the call to the url preconfigured by the merchant</td>
-</tr>
-</tbody></table>
-
-          <h2 id="decrypt-result">Decrypt result</h2>
-
-<blockquote>
-<p>GestPay authenticates the calling server and checks the encrypted data string. If the checks are passed, it returns an unencrypted data string containing the transaction result: </p>
-</blockquote>
-<pre class="highlight xml"><code> <span class="nt">&lt;DecryptResult&gt;</span>
-  <span class="nt">&lt;GestPayCryptDecrypt</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;TransactionType&gt;</span>DECRYPT<span class="nt">&lt;/TransactionType&gt;</span>
-    <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
-    <span class="nt">&lt;ShopTransactionID&gt;</span>34az85ord19<span class="nt">&lt;/ShopTransactionID&gt;</span>
-    <span class="nt">&lt;BankTransactionID&gt;</span>656<span class="nt">&lt;/BankTransactionID&gt;</span>
-    <span class="nt">&lt;AuthorizationCode&gt;</span>983RT4<span class="nt">&lt;/AuthorizationCode&gt;</span>
-    <span class="nt">&lt;Currency&gt;</span>242<span class="nt">&lt;/Currency&gt;</span>
-    <span class="nt">&lt;Amount&gt;</span>985.40<span class="nt">&lt;/Amount&gt;</span>
-    <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
-    <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
-  <span class="nt">&lt;/GestPayCryptDecrypt&gt;</span>
-<span class="nt">&lt;/DecryptResult&gt;</span>
-</code></pre>
-
-<p>Decrypt webservice returns back the following information in the xml.</p>
-
-<p>The minimum information returned back as transaction result is marked in bold. </p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th style="text-align: center">max length</th>
-<th>description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">TransactionType</code></td>
-<td style="text-align: center">7</td>
-<td>Decode the transaction type request (<code class="prettyprint">DECRYPT</code>, <code class="prettyprint">ENCRYPT</code>)</td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">TransactionResult</code></strong></td>
-<td style="text-align: center"><strong>2</strong></td>
-<td><strong>Transaction result (<code class="prettyprint">OK</code>/<code class="prettyprint">KO</code>)</strong></td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">ShopTransactionID</code></strong></td>
-<td style="text-align: center"><strong>50</strong></td>
-<td><strong>Identifier attributed to merchant’s transaction</strong></td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">BankTransactionID</code></strong></td>
-<td style="text-align: center"><strong>9</strong></td>
-<td><strong>Identifier attributed to the transaction by GestPay</strong></td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">AuthorizationCode</code></strong></td>
-<td style="text-align: center"><strong>6</strong></td>
-<td><strong>Transaction authorisation code</strong></td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">Currency</code></strong></td>
-<td style="text-align: center"><strong>3</strong></td>
-<td><strong>Code identifying currency in which transaction amount is denominated (see <a href="#currency-codes">Currency Codes</a> table)</strong></td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">Amount</code></strong></td>
-<td style="text-align: center"><strong>9</strong></td>
-<td><strong>Transaction amount. Decimals (max. 2 numbers) are optional and separator is the point (see examples)</strong></td>
-</tr>
-<tr>
-<td><code class="prettyprint">Country</code></td>
-<td style="text-align: center">30</td>
-<td>Nationality of the issuing card institute</td>
-</tr>
-<tr>
-<td><code class="prettyprint">CustomInfo</code></td>
-<td style="text-align: center">1000</td>
-<td> String that has the specific information as configured in themerchant’s profile. Each field can be up to a maximum of 300 characters in length.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Buyer.BuyerName</code></td>
-<td style="text-align: center">50</td>
-<td>Buyer’s name and surname</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Buyer.BuyerEmail</code></td>
-<td style="text-align: center">50</td>
-<td>Buyer’s e-mail address</td>
-</tr>
-<tr>
-<td><code class="prettyprint">TDLevel</code></td>
-<td style="text-align: center">255</td>
-<td>Level of authentication for VBV Visa / Mastercard Securecode transactions. The string may have the value <code class="prettyprint">FULL</code> or <code class="prettyprint">HALF</code></td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">ErrorCode</code></strong></td>
-<td style="text-align: center"><strong>9</strong></td>
-<td><strong>Error code</strong></td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">ErrorDescription</code></strong></td>
-<td style="text-align: center"><strong>255</strong></td>
-<td><strong>Error description (localized in your language)</strong></td>
-</tr>
-<tr>
-<td><code class="prettyprint">AlertCode</code></td>
-<td style="text-align: center">9</td>
-<td>Alert code. See <a href="http://hype-app.github.io/gestpay-doc/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">AlertDescription</code></td>
-<td style="text-align: center">255</td>
-<td>Alert description in chosen language. See <a href="http://hype-app.github.io/gestpay-doc/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">CVVPresent</code></td>
-<td style="text-align: center">1</td>
-<td>Credit Card security code flag</td>
-</tr>
-<tr>
-<td><code class="prettyprint">MaskedPAN</code></td>
-<td style="text-align: center">25</td>
-<td>Masked Pan string</td>
-</tr>
-<tr>
-<td><code class="prettyprint">PaymentMethod</code></td>
-<td style="text-align: center">100</td>
-<td>Indicates the used Payment Method</td>
-</tr>
-<tr>
-<td><code class="prettyprint">TOKEN</code> </td>
-<td style="text-align: center">25</td>
-<td>String containing the token value</td>
-</tr>
-<tr>
-<td><code class="prettyprint">ProductType</code></td>
-<td style="text-align: center">100</td>
-<td> String containing Card Type</td>
-</tr>
-<tr>
-<td><code class="prettyprint">TokenExpiryMonth</code> </td>
-<td style="text-align: center">2</td>
-<td>String containing the token expiry month</td>
-</tr>
-<tr>
-<td><code class="prettyprint">TokenExpiryYear</code></td>
-<td style="text-align: center">2</td>
-<td>String containing the token expiry year</td>
-</tr>
-<tr>
-<td><code class="prettyprint">TransactionKey</code> </td>
-<td style="text-align: center">18</td>
-<td>Transaction identifier for 3D transactions. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions</td>
-</tr>
-<tr>
-<td><code class="prettyprint">VbV</code></td>
-<td style="text-align: center">2</td>
-<td>Verified By Visa Flag</td>
-</tr>
-<tr>
-<td><code class="prettyprint">VbVRisp</code></td>
-<td style="text-align: center"></td>
-<td>Encrypted string containing information for 3D- Secure transactions. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions</td>
-</tr>
-<tr>
-<td><code class="prettyprint">VbVBuyer</code></td>
-<td style="text-align: center">2</td>
-<td>Information about the enrolment of the buyer&rsquo;s card to 3D-Secure protocol: <code class="prettyprint">OK</code> means that the card is enrolled, <code class="prettyprint">KO</code> means that the card is not enrolled</td>
-</tr>
-<tr>
-<td><code class="prettyprint">VbVFlag</code></td>
-<td style="text-align: center">2</td>
-<td>Information about the 3D-Secure status. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions.</td>
-</tr>
-</tbody></table>
-
-<p>Other information is defined as optional and will be returned according to the merchant’s profile settings made in the GestPay Back Office environment.</p>
-
-<p>A transaction result can be interpreted by verifying the <code class="prettyprint">TransactionResult</code> field value. The possible values are:</p>
-
-<table><thead>
-<tr>
-<th>Transaction Result</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">OK</code> </td>
-<td>Positive transaction result</td>
-</tr>
-<tr>
-<td><code class="prettyprint">KO</code> </td>
-<td>Negative transaction result</td>
-</tr>
-<tr>
-<td><code class="prettyprint">XX</code> </td>
-<td>Suspended transaction result. This is not a final result: Gestpay will send <code class="prettyprint">XX</code> when the outcome is asynchronous. Right now these systems are <code class="prettyprint">MyBank</code>, <code class="prettyprint">Sofort</code>, <code class="prettyprint">IDeal</code>, <code class="prettyprint">Bank Transfer</code>. In the future, this code might be returned with other payment systems (bitcoins, for example). <br/> A new communication will be provided to the merchant when the transaction will assume the final <code class="prettyprint">OK</code>/<code class="prettyprint">KO</code> status). <br/> <strong>If you receive a <code class="prettyprint">XX</code> code, don&rsquo;t send your goods but wait to receive the actual payment.</strong> The customer with <code class="prettyprint">XX</code> transaction is redirect to URL for positive response.</td>
-</tr>
-</tbody></table>
 
           <h1 id="js_gestpay-js-api">js_GestPay.js API</h1>
 
@@ -2650,13 +2006,13 @@
 </tr>
 <tr>
 <td><code class="prettyprint">shippingDetails</code></td>
-<td>contains the shipping address.</td>
+<td>contains the shipping address. Used for <a href="http://hype-app.github.io/gestpay-doc/oth/paypal.html">paypal seller protection</a>.</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="prettyprint">OrderDetails</code></td>
-<td>contains every other info needed to handle the payment. It is used for Riskified integration. Refer to <a href="#orderdetails">OrderDetails</a> for a detailed description of its fields.</td>
+<td><a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a></td>
+<td>contains every other info needed to handle the payment. It is used by Riskified.</td>
 <td></td>
 <td></td>
 </tr>
@@ -2823,7 +2179,7 @@
 </tr>
 <tr>
 <td><code class="prettyprint">RiskResponseCode</code></td>
-<td>Risk Fraud Score of the transaction, given by <a href="http://hype-app.github.io/gestpay-doc/sec/fraud-detection-with-riskified.html">Riskified</a>. Possible values are: <ul><li><code class="prettyprint">submitted</code>: transaction is under review</li><li><code class="prettyprint">approved</code>: transaction approved by Riskified</li><li><code class="prettyprint">declined</code>: transaction not approved by Riskified</li><li><code class="prettyprint">captured</code>: For <em>Select&amp;Submit</em> plan, <code class="prettyprint">caputred</code> is returned for transactions that are not marked for review.</li><li><strong>any other value</strong> is an error returned by Riskified.</li></ul></td>
+<td>Risk Fraud Score of the transaction, given by <a href="http://hype-app.github.io/gestpay-doc/sec/fraud-detection-with-riskified.html">Riskified</a>. Possible values are: <ul><li><code class="prettyprint">submitted</code>: transaction is under review</li><li><code class="prettyprint">approved</code>: transaction approved by Riskified</li><li><code class="prettyprint">declined</code>: transaction not approved by Riskified</li><li><code class="prettyprint">captured</code>: For <em>Select&amp;Submit</em> plan, <code class="prettyprint">captured</code> is returned for transactions that are not marked for review.</li><li><strong>any other value</strong> is an error returned by Riskified.</li></ul></td>
 </tr>
 <tr>
 <td><code class="prettyprint">RiskResponseDescription</code></td>
@@ -3150,7 +2506,7 @@
 </tr>
 <tr>
 <td><code class="prettyprint">CancelReason</code></td>
-<td>free text of cancel reason</td>
+<td>free text of cancel reason.For Riskified users, this field is mandatory.</td>
 <td>string</td>
 <td>50</td>
 </tr>
@@ -4439,6 +3795,8 @@
 
           <h2 id="callupdateorders2s">CallUpdateOrderS2S</h2>
 
+<aside class="notice">This service is intended to be used only by Riskified users.</aside>
+
 <p>Merchants can use this method to update the order values for Risk Fraud management. For example, if the buyer changes the Shipping Address, this must be notified to Riskified in order to review again the Order. Riskified decides if the Order must be reviewed based on the changed values.</p>
 
 <h3 id="request-parameters"> Request parameters</h3>
@@ -4526,6 +3884,672 @@
 <tr>
 <td><code class="prettyprint">ErrorDescription</code></td>
 <td>the description connected to the ErrorCode value</td>
+</tr>
+</tbody></table>
+
+          <h1 id="riskified">Riskified</h1>
+
+<p>Riskified is a fraud detection service. To get more info, visit <a href="http://hype-app.github.io/gestpay-doc/sec/fraud-detection-with-riskified.html">Riskified documentation</a>. </p>
+
+<aside class="notice">
+Riskified is reserved to users that have signed an agreement with Gestpay.
+</aside>
+
+<p>Riskified can be used both in <a href="#encrypt"><code class="prettyprint">Encrypt</code></a> and in S2S webservices (like <a href="#callpagams2s">callPagamS2S</a> and others).  </p>
+
+<p>All Riskified data goes inside the tag <a href="#orderdetails"><code class="prettyprint">&lt;OrderDetails&gt;</code></a>. There you will find a detailed description of every field.  </p>
+
+          <h1 id="models">Models</h1>
+
+<p>In this section we will discuss the container objects needed by the API. </p>
+
+          <h2 id="orderdetails">OrderDetails</h2>
+
+<blockquote>
+<p><code class="prettyprint">OrderDetails</code> tag example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;OrderDetails&gt;</span>
+  <span class="nt">&lt;FraudPrevention&gt;</span>
+    <span class="nt">&lt;SubmitForReview&gt;</span>1<span class="nt">&lt;/SubmitForReview&gt;</span>
+    <span class="nt">&lt;OrderDateTime&gt;</span>2017-12-26<span class="nt">&lt;/OrderDateTime&gt;</span>
+    <span class="nt">&lt;OrderNote&gt;</span>Please send me the blue version<span class="nt">&lt;/OrderNote&gt;</span>
+    <span class="nt">&lt;Source&gt;</span>website<span class="nt">&lt;/Source&gt;</span>
+    <span class="nt">&lt;SubmissonReason&gt;</span>rule_decision<span class="nt">&lt;/SubmissonReason&gt;</span>
+    <span class="nt">&lt;BeaconSessionID&gt;</span>ff1db05b-81db-4ca0-a728-4797bfe796ff<span class="nt">&lt;/BeaconSessionID&gt;</span>
+  <span class="nt">&lt;/FraudPrevention&gt;</span>
+  <span class="nt">&lt;CustomerDetail&gt;</span>
+    <span class="nt">&lt;ProfileID</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;MerchantCustomerID/&gt;</span>
+    <span class="nt">&lt;FirstName&gt;</span>Michael<span class="nt">&lt;/FirstName&gt;</span>
+    <span class="nt">&lt;MiddleName&gt;</span>J.<span class="nt">&lt;/MiddleName&gt;</span>
+    <span class="nt">&lt;Lastname&gt;</span>Fox<span class="nt">&lt;/Lastname&gt;</span>
+    <span class="nt">&lt;PrimaryEmail&gt;</span>martymcfly@backtothefuture.com<span class="nt">&lt;/PrimaryEmail&gt;</span>
+    <span class="nt">&lt;SecondaryEmail</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;PrimaryPhone&gt;</span>+390298987643<span class="nt">&lt;/PrimaryPhone&gt;</span>
+    <span class="nt">&lt;SecondaryPhone&gt;</span>+393351029384<span class="nt">&lt;/SecondaryPhone&gt;</span>
+    <span class="nt">&lt;DateOfBirth&gt;</span>29/09/1932<span class="nt">&lt;/DateOfBirth&gt;</span>
+    <span class="nt">&lt;SocialSecurityNumber&gt;</span>BRLSLV36P29F205W<span class="nt">&lt;/SocialSecurityNumber&gt;</span>
+    <span class="nt">&lt;Company</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;CreatedAtDate&gt;</span>31/12/2017<span class="nt">&lt;/CreatedAtDate&gt;</span>
+    <span class="nt">&lt;VerifiedEmail&gt;</span>true<span class="nt">&lt;/VerifiedEmail&gt;</span>
+    <span class="nt">&lt;AccountType&gt;</span>premium<span class="nt">&lt;/AccountType&gt;</span>
+  <span class="nt">&lt;/CustomerDetail&gt;</span>
+  <span class="nt">&lt;CustomerSocial&gt;</span>
+    <span class="nt">&lt;Network&gt;</span>Facebook<span class="nt">&lt;/Network&gt;</span>
+    <span class="nt">&lt;PublicUserName&gt;</span>Marty McFly<span class="nt">&lt;/PublicUserName&gt;</span>
+    <span class="nt">&lt;CommunityScore&gt;</span>100<span class="nt">&lt;/CommunityScore&gt;</span>
+    <span class="nt">&lt;ProfilePicture&gt;</span>https://external-mxp1-1.xx.fbcdn.net/safe_image.php?d=AQCSnRebJp1o3AR9<span class="err">&amp;</span>w=264<span class="err">&amp;</span>h=264<span class="err">&amp;</span>url=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fit%2Fthumb%2F1%2F1d%2FMartyMcFly.JPG%2F720px-MartyMcFly.JPG<span class="err">&amp;</span>colorbox<span class="err">&amp;</span>f<span class="nt">&lt;/ProfilePicture&gt;</span>
+    <span class="nt">&lt;Email&gt;</span>martymcfly@backtothefuture.com<span class="nt">&lt;/Email&gt;</span>
+    <span class="nt">&lt;Bio&gt;</span>Martin Seamus "Marty" McFly is a fictional character in the Back to the Future trilogy. He is portrayed by actor Michael J. Fox.<span class="nt">&lt;/Bio&gt;</span>
+    <span class="nt">&lt;AccountUrl&gt;</span>https://www.facebook.com/pages/Marty-McFly/103151259725141?fref=ts<span class="err">&amp;</span>rf=105623692803833<span class="nt">&lt;/AccountUrl&gt;</span>
+    <span class="nt">&lt;Following&gt;</span>0<span class="nt">&lt;/Following&gt;</span>
+    <span class="nt">&lt;Followed&gt;</span>1157<span class="nt">&lt;/Followed&gt;</span>
+    <span class="nt">&lt;Id&gt;</span>103151259725141<span class="nt">&lt;/Id&gt;</span>
+    <span class="nt">&lt;AuthToken&gt;</span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...<span class="nt">&lt;/AuthToken&gt;</span>
+    <span class="nt">&lt;SocialData</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/CustomerSocial&gt;</span>
+  <span class="nt">&lt;ShippingAddress&gt;</span>
+    <span class="nt">&lt;ProfileID</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;FirstName&gt;</span>Michael<span class="nt">&lt;/FirstName&gt;</span>
+    <span class="nt">&lt;MiddleName&gt;</span>J.<span class="nt">&lt;/MiddleName&gt;</span>
+    <span class="nt">&lt;Lastname&gt;</span>Fox<span class="nt">&lt;/Lastname&gt;</span>
+    <span class="nt">&lt;Company&gt;</span>Universal Studios<span class="nt">&lt;/Company&gt;</span>
+    <span class="nt">&lt;StreetName&gt;</span>Holliwood Boulevard<span class="nt">&lt;/StreetName&gt;</span>
+    <span class="nt">&lt;StreetName2</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;HouseNumber&gt;</span>1432<span class="nt">&lt;/HouseNumber&gt;</span>
+    <span class="nt">&lt;HouseExtension</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;City&gt;</span>Los Angeles<span class="nt">&lt;/City&gt;</span>
+    <span class="nt">&lt;ZipCode&gt;</span>90213<span class="nt">&lt;/ZipCode&gt;</span>
+    <span class="nt">&lt;State&gt;</span>California<span class="nt">&lt;/State&gt;</span>
+    <span class="nt">&lt;CountryCode&gt;</span>US<span class="nt">&lt;/CountryCode&gt;</span>
+    <span class="nt">&lt;Email&gt;</span>martymcfly@backtothefuture.com<span class="nt">&lt;/Email&gt;</span>
+    <span class="nt">&lt;PrimaryPhone&gt;</span>+0199332285321<span class="nt">&lt;/PrimaryPhone&gt;</span>
+    <span class="nt">&lt;SecondaryPhone</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/ShippingAddress&gt;</span>
+    <span class="nt">&lt;BillingAddress&gt;</span>
+    <span class="nt">&lt;ProfileID</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;FirstName&gt;</span>Michael<span class="nt">&lt;/FirstName&gt;</span>
+    <span class="nt">&lt;MiddleName&gt;</span>J.<span class="nt">&lt;/MiddleName&gt;</span>
+    <span class="nt">&lt;Lastname&gt;</span>Fox<span class="nt">&lt;/Lastname&gt;</span>
+    <span class="nt">&lt;Company&gt;</span>Universal Studios<span class="nt">&lt;/Company&gt;</span>
+    <span class="nt">&lt;StreetName&gt;</span>Holliwood Boulevard<span class="nt">&lt;/StreetName&gt;</span>
+    <span class="nt">&lt;StreetName2</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;HouseNumber&gt;</span>1432<span class="nt">&lt;/HouseNumber&gt;</span>
+    <span class="nt">&lt;HouseExtension</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;City&gt;</span>Los Angeles<span class="nt">&lt;/City&gt;</span>
+    <span class="nt">&lt;ZipCode&gt;</span>90213<span class="nt">&lt;/ZipCode&gt;</span>
+    <span class="nt">&lt;State&gt;</span>California<span class="nt">&lt;/State&gt;</span>
+    <span class="nt">&lt;CountryCode&gt;</span>US<span class="nt">&lt;/CountryCode&gt;</span>
+    <span class="nt">&lt;Email&gt;</span>martymcfly@backtothefuture.com<span class="nt">&lt;/Email&gt;</span>
+    <span class="nt">&lt;PrimaryPhone&gt;</span>+0199332285321<span class="nt">&lt;/PrimaryPhone&gt;</span>
+    <span class="nt">&lt;SecondaryPhone</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/BillingAddress&gt;</span>
+  <span class="nt">&lt;ProductDetails&gt;</span>
+    <span class="nt">&lt;ProductDetail&gt;</span><span class="c">&lt;!-- first of 1...N products --&gt;</span>
+      <span class="nt">&lt;ProductCode&gt;</span>135798642<span class="nt">&lt;/ProductCode&gt;</span>
+      <span class="nt">&lt;SKU&gt;</span>AB-333222-WFG-4<span class="nt">&lt;/SKU&gt;</span>
+      <span class="nt">&lt;Name&gt;</span>Porche Carrera scale model<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;Description&gt;</span>Porche Carrera scale model<span class="nt">&lt;/Description&gt;</span>
+      <span class="nt">&lt;Quantity&gt;</span>1<span class="nt">&lt;/Quantity&gt;</span>
+      <span class="nt">&lt;Price&gt;</span>50.5<span class="nt">&lt;/Price&gt;</span>
+      <span class="nt">&lt;UnitPrice&gt;</span>50.5<span class="nt">&lt;/UnitPrice&gt;</span>
+      <span class="nt">&lt;Type&gt;</span>1<span class="nt">&lt;/Type&gt;</span><span class="c">&lt;!-- 1: product --&gt;</span>
+      <span class="nt">&lt;Vat&gt;</span>22%<span class="nt">&lt;/Vat&gt;</span>
+      <span class="nt">&lt;Discount</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;Category&gt;</span>Scale Models<span class="nt">&lt;/Category&gt;</span>
+      <span class="nt">&lt;Subcategory&gt;</span>cars<span class="nt">&lt;/Subcategory&gt;</span>
+      <span class="nt">&lt;Brand&gt;</span>LittleCars<span class="nt">&lt;/Brand&gt;</span>
+      <span class="nt">&lt;RequiresShipping&gt;</span>true<span class="nt">&lt;/RequiresShipping&gt;</span>
+      <span class="nt">&lt;DeliveryAt&gt;</span>2017-12-29<span class="nt">&lt;/DeliveryAt&gt;</span>
+      <span class="nt">&lt;Condition&gt;</span>new<span class="nt">&lt;/Condition&gt;</span>
+      <span class="nt">&lt;Seller</span> <span class="nt">/&gt;</span><span class="c">&lt;!-- relevant for marketplace orders --&gt;</span> 
+    <span class="nt">&lt;/ProductDetail&gt;</span>
+    <span class="nt">&lt;ProductDetail&gt;</span>
+      <span class="nt">&lt;ProductCode&gt;</span>135798642<span class="nt">&lt;/ProductCode&gt;</span>
+      <span class="nt">&lt;SKU&gt;</span>AB-333222-WFG-5<span class="nt">&lt;/SKU&gt;</span>
+      <span class="nt">&lt;Name&gt;</span>Ferrari scale model<span class="nt">&lt;/Name&gt;</span>
+      <span class="nt">&lt;Description&gt;</span>Ferrari scale model<span class="nt">&lt;/Description&gt;</span>
+      <span class="nt">&lt;Quantity&gt;</span>1<span class="nt">&lt;/Quantity&gt;</span>
+      <span class="nt">&lt;Price&gt;</span>50.5<span class="nt">&lt;/Price&gt;</span>
+      <span class="nt">&lt;UnitPrice&gt;</span>50.5<span class="nt">&lt;/UnitPrice&gt;</span>
+      <span class="nt">&lt;Type&gt;</span>1<span class="nt">&lt;/Type&gt;</span><span class="c">&lt;!-- 1: product --&gt;</span>
+      <span class="nt">&lt;Vat&gt;</span>22%<span class="nt">&lt;/Vat&gt;</span>
+      <span class="nt">&lt;Discount</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;Category&gt;</span>Scale Models<span class="nt">&lt;/Category&gt;</span>
+      <span class="nt">&lt;Subcategory&gt;</span>cars<span class="nt">&lt;/Subcategory&gt;</span>
+      <span class="nt">&lt;Brand&gt;</span>LittleCars<span class="nt">&lt;/Brand&gt;</span>
+      <span class="nt">&lt;RequiresShipping&gt;</span>true<span class="nt">&lt;/RequiresShipping&gt;</span>
+      <span class="nt">&lt;DeliveryAt&gt;</span>2017-12-29<span class="nt">&lt;/DeliveryAt&gt;</span>
+      <span class="nt">&lt;Condition&gt;</span>new<span class="nt">&lt;/Condition&gt;</span>
+      <span class="nt">&lt;Seller</span> <span class="nt">/&gt;</span><span class="c">&lt;!-- relevant for marketplace orders --&gt;</span>
+    <span class="nt">&lt;/ProductDetail&gt;</span><span class="c">&lt;!-- last of 1...N products --&gt;</span>
+  <span class="nt">&lt;/ProductDetails&gt;</span>
+  <span class="nt">&lt;DiscountCodes&gt;</span>
+    <span class="nt">&lt;DiscountCode&gt;</span><span class="c">&lt;!-- one or more --&gt;</span>
+      <span class="nt">&lt;Amount&gt;</span>10<span class="nt">&lt;/Amount&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>53232<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;/DiscountCode&gt;</span>
+  <span class="nt">&lt;/DiscountCodes&gt;</span>
+  <span class="nt">&lt;ShippingLines&gt;</span>
+    <span class="nt">&lt;ShippingLine&gt;</span>
+      <span class="nt">&lt;Price&gt;</span>20<span class="nt">&lt;/Price&gt;</span>
+      <span class="nt">&lt;Title&gt;</span>FedEx<span class="nt">&lt;/Title&gt;</span>
+      <span class="nt">&lt;Code&gt;</span>72-B03<span class="nt">&lt;/Code&gt;</span>
+    <span class="nt">&lt;/ShippingLine&gt;</span>
+  <span class="nt">&lt;/ShippingLines&gt;</span>
+<span class="nt">&lt;/OrderDetails&gt;</span>
+</code></pre>
+
+<p><code class="prettyprint">OrderDetails</code> tag contains all the info that can be sent together with a transaction. The more data you sent, the better is for Gestpay to analyze your request. </p>
+
+<p>Many external systems, like the one presented in the next sections, use <code class="prettyprint">OrderDetails</code> fields to work. <a href="#riskified">Riskified</a> (an antifraud system) massively uses <code class="prettyprint">OrderDetails</code> to get the job done. </p>
+
+<p>In this section we will analyze indipendently all the fields. </p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Max Size</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">FraudPrevention</code></td>
+<td></td>
+<td>container</td>
+<td>Contains fields related to fraud prevention.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CustomerDetail</code></td>
+<td></td>
+<td>container</td>
+<td>Contains customer data</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CustomerSocial</code></td>
+<td></td>
+<td>container</td>
+<td>if you have access to a customer&rsquo; social profile, you can also send this data</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ShippingAddress</code></td>
+<td></td>
+<td>container</td>
+<td>Contains shipping address</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BillingAddress</code></td>
+<td></td>
+<td>container</td>
+<td>contains the billing address</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ProductDetails</code></td>
+<td></td>
+<td>container</td>
+<td>contains one or more <code class="prettyprint">ProductDetail</code>s items buyed</td>
+</tr>
+<tr>
+<td><code class="prettyprint">DiscountCodes</code></td>
+<td></td>
+<td>container</td>
+<td>contains one or more <code class="prettyprint">DiscountCode</code>s, if discounts are applicable</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ShippingLines</code></td>
+<td></td>
+<td>container</td>
+<td>contains one or more <code class="prettyprint">ShippingLine</code>s, that contain the price and the shipping courier.</td>
+</tr>
+</tbody></table>
+
+<h4 id="children-of-fraudprevention">Children of <code class="prettyprint">FraudPrevention</code></h4>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Max Size</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">SubmitForReview</code></td>
+<td>1</td>
+<td>Flag to activate review over Riskified.  <br><ul><li><code class="prettyprint">0</code> no submit</li><li><code class="prettyprint">1</code> submit</li></ul>If your active plan is <strong>Select&amp;Submit</strong> you can decide which transaction must be submitted to riskified setting the flag to <code class="prettyprint">1</code>. With <strong>Shop Protection</strong> all transactions are submitted for review by default.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">OrderDateTime</code></td>
+<td>10</td>
+<td>Order date time. Format: YYYY-MM-DD</td>
+</tr>
+<tr>
+<td><code class="prettyprint">OrderNote</code></td>
+<td>50</td>
+<td>Buyer&rsquo;s order note</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Source</code></td>
+<td>10</td>
+<td><code class="prettyprint">website</code>, <code class="prettyprint">mobile</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">SubmissionReason</code></td>
+<td>20</td>
+<td>the underlying reason for submitting the order to review. It must be one of the following values: <ul><li><code class="prettyprint">failed_verification</code>: order failed (phone, email) verification.</li><li><code class="prettyprint">rule_decision</code>: Order was flagged by an automatic rule. </li><li><code class="prettyprint">third_party</code>: Order was flagged by a third-party service.</li><li><code class="prettyprint">manual_decision</code>: Order was flagged after manual review.</li><li><code class="prettyprint">policy_decision</code>: order was flagged by a non-fraud related rule.</li></ul> This field must be sent either if the shop adheres to <em>Shop Protection</em> or <em>Selct &amp; Submit</em> plan; if the plan is <em>Shop Protection</em>, the default is <code class="prettyprint">rule_decision</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BeaconSessionID</code></td>
+<td>100</td>
+<td>Session ID of the Beacon for this transaction. This value must be collected when the user first connects to your website and be sent to Riskified to analyze it. With this field, Riskified knows what actions the user did on your website.</td>
+</tr>
+</tbody></table>
+
+<h4 id="children-of-customerdetail">Children of <code class="prettyprint">CustomerDetail</code></h4>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Max Size</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">ProfileID</code></td>
+<td>12</td>
+<td>Customer profile ID (reserved for future use)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">MerchantCustomerID</code></td>
+<td>50</td>
+<td>Merchant customer ID (reserved for future use)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">FirstName</code></td>
+<td>65</td>
+<td>Customer First Name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">MiddleName</code></td>
+<td>65</td>
+<td>Customer Middle Name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Lastname</code></td>
+<td>65</td>
+<td>Customer Last name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">PrimaryEmail</code></td>
+<td>100</td>
+<td>Customer primary email</td>
+</tr>
+<tr>
+<td><code class="prettyprint">SecondaryEmail</code></td>
+<td>100</td>
+<td>Customer secondary email</td>
+</tr>
+<tr>
+<td><code class="prettyprint">PrimaryPhone</code></td>
+<td>20</td>
+<td>Customer&rsquo;s phone including prefix</td>
+</tr>
+<tr>
+<td><code class="prettyprint">SecondaryPhone</code></td>
+<td>20</td>
+<td>Customer&rsquo;s phone including prefix</td>
+</tr>
+<tr>
+<td><code class="prettyprint">DateOfBirth</code></td>
+<td>10</td>
+<td>Customer Date of Birth (dd/mm/yyyy)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Gender</code></td>
+<td>1</td>
+<td>Customer Gender (<code class="prettyprint">0</code>=Male <code class="prettyprint">1</code>=Female)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">SocialSecurityNumber</code></td>
+<td>20</td>
+<td>Customer&rsquo;s social or fiscal identifier (KlarnaUse)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Company</code></td>
+<td>255</td>
+<td>Customer Company</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CreatedAtDate</code></td>
+<td>10</td>
+<td>Date of Customer creation on merchant site</td>
+</tr>
+<tr>
+<td><code class="prettyprint">VerifiedEmail</code></td>
+<td>5</td>
+<td>Email is verified? <code class="prettyprint">true</code>/<code class="prettyprint">false</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">AccountType</code></td>
+<td>20</td>
+<td><code class="prettyprint">free</code>/<code class="prettyprint">premium</code> etc</td>
+</tr>
+</tbody></table>
+
+<h4 id="customersocial-field"><code class="prettyprint">CustomerSocial</code> field</h4>
+
+<p>If you have access to socal data of your customers, you can send them along with the other data.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Max Size</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Network</code></td>
+<td>12</td>
+<td>The name of the social network.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">PublicUserName</code></td>
+<td>50</td>
+<td>The customer&rsquo;s public username.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CommunityScore</code></td>
+<td>65</td>
+<td>holds the score for networks where its relevant</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ProfilePicture</code></td>
+<td>65</td>
+<td>URL of the customer&rsquo;s profile picture</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Email</code></td>
+<td>65</td>
+<td>Customer&rsquo;s email address registered on the social network.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Bio</code></td>
+<td>100</td>
+<td>Short biography of the customer on the social network</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AccountUrl</code></td>
+<td>100</td>
+<td>Direct URL to the customer&rsquo;s profile page on the social network</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Following</code></td>
+<td>20</td>
+<td>Direct URL to the customer&rsquo;s profile page on the social network</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Followed</code></td>
+<td>20</td>
+<td>Number of users followed by the customer on the social network.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Id</code></td>
+<td>10</td>
+<td>The customer&rsquo;s profile id.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AuthToken</code></td>
+<td>1</td>
+<td>The authentication token of the user.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">SocialData</code></td>
+<td>20</td>
+<td>Open field for additional data from the social network.</td>
+</tr>
+</tbody></table>
+
+<h4 id="shippingaddress-and-billingaddress-field"><code class="prettyprint">ShippingAddress</code> and <code class="prettyprint">BillingAddress</code> field</h4>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Max Size</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">ProfileID</code></td>
+<td>12</td>
+<td>Profile ID (reserved for future use)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">FirstName</code></td>
+<td>65</td>
+<td>First Name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">MiddleName</code></td>
+<td>65</td>
+<td>Middle Name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Lastname</code></td>
+<td>65</td>
+<td>Last name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Company</code></td>
+<td>255</td>
+<td>Company Name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">StreetName</code></td>
+<td>100</td>
+<td>Shipping Street</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Streetname2</code></td>
+<td>100</td>
+<td>Shipping Street second line</td>
+</tr>
+<tr>
+<td><code class="prettyprint">HouseNumber</code></td>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">HouseExtention</code></td>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">City</code></td>
+<td>50</td>
+<td>Shipping City</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ZipCode</code></td>
+<td>50</td>
+<td>Shipping Zip Code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">State</code></td>
+<td>50</td>
+<td>Shipping State</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CountryCode</code></td>
+<td>2</td>
+<td>Alpha-2 code; for example, United States is &ldquo;US&rdquo;</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Email</code></td>
+<td>100</td>
+<td>Shipping Contact Email</td>
+</tr>
+<tr>
+<td><code class="prettyprint">PrimaryPhone</code></td>
+<td>20</td>
+<td>Shipping Primary Phone</td>
+</tr>
+<tr>
+<td><code class="prettyprint">SecondaryPhone</code></td>
+<td>20</td>
+<td>Shipping Secondary Phone</td>
+</tr>
+</tbody></table>
+
+<h4 id="productdetails-and-productdetail-field"> <code class="prettyprint">ProductDetails</code> and <code class="prettyprint">ProductDetail</code> field</h4>
+
+<p><code class="prettyprint">ProductDetails</code> will contain one or more <code class="prettyprint">ProductDetail</code>. </p>
+
+<p><code class="prettyprint">ProductDetail</code> describes a bought item.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Max Size</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">ProductCode</code></td>
+<td>12</td>
+<td>Article’s product Code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">SKU</code></td>
+<td>50</td>
+<td>Article’s Stock Keeping Unit</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Name</code></td>
+<td>100</td>
+<td>Article’s name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Description</code></td>
+<td>255</td>
+<td>Article’s description</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Quantity</code></td>
+<td>3</td>
+<td>The number of products</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Price</code></td>
+<td>12</td>
+<td>Article’s price</td>
+</tr>
+<tr>
+<td><code class="prettyprint">UnitPrice</code></td>
+<td>12</td>
+<td>Article’s Unit Price</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Type</code></td>
+<td>2</td>
+<td>The type of article: 1-product, 2-shipping, 3-handling</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Vat</code></td>
+<td>2</td>
+<td>Value-Added Tax (the value of the tax)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Discount</code></td>
+<td>2</td>
+<td>The amount offered by you as discount</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Category</code></td>
+<td></td>
+<td>Product Category</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Subcategory</code></td>
+<td></td>
+<td>Product Sub Category</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Brand</code></td>
+<td></td>
+<td>Product Brand</td>
+</tr>
+<tr>
+<td><code class="prettyprint">RequiresShipping</code></td>
+<td></td>
+<td><code class="prettyprint">true</code>/<code class="prettyprint">false</code> States whether or not the fulfillment requires shipping. This field is important for merchants dealing with digital goods.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">DeliveryAt</code></td>
+<td>10</td>
+<td>The planned delivery date of the product or item.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Condition</code></td>
+<td>100</td>
+<td>Description of the physical condition of the item, mostly relevant for used items</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Seller</code></td>
+<td></td>
+<td><code class="prettyprint">public_username</code> Details about the seller of the item, relevant for marketplace orders.</td>
+</tr>
+</tbody></table>
+
+<h4 id="discountcodes-and-discountcode-fields"><code class="prettyprint">DiscountCodes</code> and <code class="prettyprint">DiscountCode</code> fields</h4>
+
+<p>If you apply discounts for your products you should add discount info.</p>
+
+<p>in <code class="prettyprint">DiscountCodes</code> you may have one or more <code class="prettyprint">DiscountCode</code>, that contain these fields: </p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Max Size</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Amount</code></td>
+<td>12</td>
+<td>The amount of the discount.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Code</code></td>
+<td>50</td>
+<td>The code of the discount.</td>
+</tr>
+</tbody></table>
+
+<h4 id="shippinglines-and-shippingline-fields"> <code class="prettyprint">ShippingLines</code> and <code class="prettyprint">ShippingLine</code> fields</h4>
+
+<p>With this fields you can define the price and the kind of shipping that you use for your products, if applicable. </p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Max Size</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Price</code></td>
+<td>12</td>
+<td>The price of the shipping method.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Title</code></td>
+<td>100</td>
+<td>The title of the shipping method.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Code</code></td>
+<td>50</td>
+<td>Code of the shipping method.</td>
 </tr>
 </tbody></table>
 
