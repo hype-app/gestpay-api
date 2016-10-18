@@ -2,9 +2,7 @@
 title: API Reference
 
 language_tabs:
-  - java
-  - php
-  - net
+  
 
 toc_footers:
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
