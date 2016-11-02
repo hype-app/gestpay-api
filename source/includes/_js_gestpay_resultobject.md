@@ -36,7 +36,8 @@ LocalObj.CallBack = function (Result) {
 			//.... place here error handle code...
 		} 
 	} else {
-		//Transaction correctly processed proceed to decrypt the //Result.EncryptedResponse property
+      //Transaction correctly processed proceed to decrypt the
+      //Result.EncryptedResponse property
 	}
 }
 ```
