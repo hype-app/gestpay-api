@@ -1620,10 +1620,12 @@
 <p>syntax: </p>
 </blockquote>
 <pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">SendPayment</span> <span class="p">({</span> 
-        <span class="na">CC</span>    <span class="p">:</span> <span class="s1">''</span><span class="p">,</span> 
-        <span class="na">EXPMM</span> <span class="p">:</span> <span class="s1">''</span><span class="p">,</span> 
-        <span class="na">EXPYY</span> <span class="p">:</span> <span class="s1">''</span><span class="p">,</span> 
-        <span class="na">CVV2</span> <span class="p">:</span> <span class="s1">''</span> <span class="c1">//optional </span>
+        <span class="na">CC</span>    <span class="p">:</span> <span class="s1">'1234567812345678'</span><span class="p">,</span> 
+        <span class="na">EXPMM</span> <span class="p">:</span> <span class="s1">'06'</span><span class="p">,</span> 
+        <span class="na">EXPYY</span> <span class="p">:</span> <span class="s1">'12'</span><span class="p">,</span> 
+        <span class="na">CVV2</span> <span class="p">:</span> <span class="s1">'123'</span><span class="p">,</span> <span class="c1">//optional</span>
+        <span class="na">BuyerName</span> <span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="c1">//optional </span>
+        <span class="na">BuyerEmail</span><span class="p">:</span> <span class="s1">''</span> <span class="c1">//optional  </span>
     <span class="p">},</span>
     <span class="nx">callBackObj</span><span class="p">);</span>
 </code></pre>
@@ -1634,7 +1636,10 @@
 <pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">SendPayment</span><span class="p">({</span>
         <span class="na">CC</span> <span class="p">:</span> <span class="s1">'44444444444444444'</span><span class="p">,</span> 
         <span class="na">EXPMM</span> <span class="p">:</span> <span class="s1">'11'</span><span class="p">,</span>
-        <span class="na">EXPYY</span> <span class="p">:</span> <span class="s1">'14'</span> 
+        <span class="na">EXPYY</span> <span class="p">:</span> <span class="s1">'14'</span><span class="p">,</span>
+        <span class="na">CVV2</span> <span class="p">:</span> <span class="s1">'123'</span><span class="p">,</span>
+        <span class="na">BuyerName</span> <span class="p">:</span> <span class="s1">'Some Dude'</span><span class="p">,</span> 
+        <span class="na">BuyerEmail</span><span class="p">:</span> <span class="s1">'some@dude.net'</span> 
     <span class="p">},</span>
     <span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErroCode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
