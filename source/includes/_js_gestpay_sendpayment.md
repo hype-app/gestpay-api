@@ -6,10 +6,12 @@
 
 ```javascript
 GestPay.SendPayment ({ 
-		CC    : '', 
-		EXPMM : '', 
-		EXPYY : '', 
-		CVV2 : '' //optional 
+		CC    : '1234567812345678', 
+		EXPMM : '06', 
+		EXPYY : '12', 
+		CVV2 : '123', //optional
+		BuyerName : '', //optional 
+		BuyerEmail: '' //optional  
 	},
 	callBackObj);
 ```
@@ -20,7 +22,10 @@ GestPay.SendPayment ({
 GestPay.SendPayment({
 		CC : '44444444444444444', 
 		EXPMM : '11',
-		EXPYY : '14' 
+		EXPYY : '14',
+		CVV2 : '123',
+		BuyerName : 'Some Dude', 
+		BuyerEmail: 'some@dude.net' 
 	},
 	function (Result) {
 		if(Result.ErroCode == 0) {
