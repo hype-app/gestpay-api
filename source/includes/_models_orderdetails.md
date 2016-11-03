@@ -137,7 +137,7 @@
 
 `OrderDetails` tag contains all the info that can be sent together with a transaction. The more data you sent, the better is for Gestpay to analyze your request. 
 
-Many external systems, like the one presented in the next sections, use `OrderDetails` fields to work. [Riskified](#riskified) (an antifraud system) massively uses `OrderDetails` to get the job done. 
+Many external systems, like the one presented in the next sections, use `OrderDetails` fields to work. [Gestpay Guaranteed Checkout](#gestpay-guaranteed-checkout) (an antifraud system) massively uses `OrderDetails` to get the job done. 
 
 In this section we will analyze indipendently all the fields. 
 
@@ -157,12 +157,12 @@ In this section we will analyze indipendently all the fields.
 
 | Field | Max Size | Description |
 | ----- | -------- | ----------- |
-| `SubmitForReview` | 1 |  Flag to activate review over Riskified.  <br><ul><li>`0` no submit</li><li>`1` submit</li></ul>If your active plan is **Select&Submit** you can decide which transaction must be submitted to riskified setting the flag to `1`. With **Shop Protection** all transactions are submitted for review by default.
+| `SubmitForReview` | 1 |  Flag to activate review over Gestpay Guaranteed Checkout.  <br><ul><li>`0` no submit</li><li>`1` submit</li></ul>If your active plan is **Select&Submit** you can decide which transaction must be submitted to Gestpay Guaranteed Checkout setting the flag to `1`. With **Shop Protection** all transactions are submitted for review by default.
 | `OrderDateTime` | 10 | Order date time. Format: YYYY-MM-DD
 | `OrderNote` | 50 | Buyer's order note 
 | `Source` | 10 | `website`, `mobile` 
 | `SubmissionReason` | 20 | the underlying reason for submitting the order to review. It must be one of the following values: <ul><li>`failed_verification`: order failed (phone, email) verification.</li><li>`rule_decision`: Order was flagged by an automatic rule. </li><li>`third_party`: Order was flagged by a third-party service.</li><li>`manual_decision`: Order was flagged after manual review.</li><li>`policy_decision`: order was flagged by a non-fraud related rule.</li></ul> This field must be sent either if the shop adheres to *Shop Protection* or *Selct & Submit* plan; if the plan is *Shop Protection*, the default is `rule_decision`.
-| `BeaconSessionID` | 100 | Session ID of the Beacon for this transaction. This value must be collected when the user first connects to your website and be sent to Riskified to analyze it. With this field, Riskified knows what actions the user did on your website. 
+| `BeaconSessionID` | 100 | Session ID of the Beacon for this transaction. This value must be collected when the user first connects to your website and be sent to  Gestpay Guaranteed Checkout to analyze it. With this field,  Gestpay Guaranteed Checkout knows what actions the user did on your website. 
 
 #### Children of `CustomerDetail`
 

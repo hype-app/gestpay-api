@@ -46,5 +46,8 @@ set :port, 4567
 #to use this, <%= config[:doc_url] %>
 set :doc_url, "http://docs.gestpay.it"
 
+#<%= config[:riskified] %>
+set :riskified, "Gestpay Guaranteed Checkout"
+
 activate :livereload
 
