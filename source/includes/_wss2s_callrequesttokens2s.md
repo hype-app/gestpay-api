@@ -72,7 +72,7 @@ Merchants can use this method to request the token generation for a Credit Card.
 
 | name | description 
 | ---- | -----------
-| `TransactionType` | `CHECKCARD`
+| `TransactionType` | `REQUESTTOKEN`
 | `TransactionRsult` | `OK` or `KO`
 | `TransactionErrorDescription` | transaction error description
 | `AuthorizationErrorCode` | authorisation error code if an error occurred
