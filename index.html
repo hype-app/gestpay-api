@@ -2206,11 +2206,11 @@
 <p>Request example: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;callSettleS2S&gt;</span>
-    <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-    <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
-    <span class="nt">&lt;amount&gt;</span>55.00<span class="nt">&lt;/amount&gt;</span>
-    <span class="nt">&lt;shopTransID&gt;</span>MYSHOP-00142<span class="nt">&lt;/shopTransID&gt;</span>
-    <span class="nt">&lt;bankTransID&gt;</span>159247522<span class="nt">&lt;/bankTransID&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>55.00<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransID&gt;</span>MYSHOP-00142<span class="nt">&lt;/shopTransID&gt;</span>
+  <span class="nt">&lt;bankTransID&gt;</span>159247522<span class="nt">&lt;/bankTransID&gt;</span>
   <span class="nt">&lt;FullFillment&gt;</span>
     <span class="nt">&lt;FullFillmentlst&gt;</span>
       <span class="nt">&lt;FullfillmentDetail&gt;</span>
@@ -2417,16 +2417,16 @@
 <p>Response example: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;callSettleS2SResponse</span> <span class="na">xmlns=</span><span class="s">"https://ecomms2s.sella.it/"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;callSettleS2SResult&gt;</span>
-        <span class="nt">&lt;GestPayS2S&gt;</span>
-            <span class="nt">&lt;TransactionType&gt;</span>Settle<span class="nt">&lt;/TransactionType&gt;</span>
-            <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
-            <span class="nt">&lt;ShopTransactionID&gt;</span>MYSHOP-00142<span class="nt">&lt;/ShopTransactionID&gt;</span>
-            <span class="nt">&lt;BankTransactionID&gt;</span>159247522<span class="nt">&lt;/BankTransactionID&gt;</span>
-            <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
-            <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
-        <span class="nt">&lt;/GestPayS2S&gt;</span>
-    <span class="nt">&lt;/callSettleS2SResult&gt;</span>
+  <span class="nt">&lt;callSettleS2SResult&gt;</span>
+    <span class="nt">&lt;GestPayS2S&gt;</span>
+      <span class="nt">&lt;TransactionType&gt;</span>Settle<span class="nt">&lt;/TransactionType&gt;</span>
+      <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+      <span class="nt">&lt;ShopTransactionID&gt;</span>MYSHOP-00142<span class="nt">&lt;/ShopTransactionID&gt;</span>
+      <span class="nt">&lt;BankTransactionID&gt;</span>159247522<span class="nt">&lt;/BankTransactionID&gt;</span>
+      <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+      <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
+    <span class="nt">&lt;/GestPayS2S&gt;</span>
+  <span class="nt">&lt;/callSettleS2SResult&gt;</span>
 <span class="nt">&lt;/callSettleS2SResponse&gt;</span>
 </code></pre>
 
@@ -2474,10 +2474,10 @@
 <p>Request example: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;callDeleteS2S&gt;</span>
-        <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-        <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-4838<span class="nt">&lt;/shopTransactionId&gt;</span>
-        <span class="nt">&lt;bankTransactionId&gt;</span>334488931<span class="nt">&lt;/bankTransactionId&gt;</span>
-    <span class="nt">&lt;CancelReason&gt;</span>potential fraud<span class="nt">&lt;/CancelReason&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-4838<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;bankTransactionId&gt;</span>334488931<span class="nt">&lt;/bankTransactionId&gt;</span>
+  <span class="nt">&lt;CancelReason&gt;</span>potential fraud<span class="nt">&lt;/CancelReason&gt;</span>
 <span class="nt">&lt;/callDeleteS2S&gt;</span>
 </code></pre>
 
@@ -2521,16 +2521,16 @@
 <p>Response example: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;callDeleteS2SResponse</span> <span class="na">xmlns=</span><span class="s">"https://ecomms2s.sella.it/"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;callDeleteS2SResult&gt;</span>
-                <span class="nt">&lt;GestPayS2S&gt;</span>
-                        <span class="nt">&lt;TransactionType&gt;</span>Settle<span class="nt">&lt;/TransactionType&gt;</span>
-                        <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
-                        <span class="nt">&lt;ShopTransactionID&gt;</span>MYSHOP-00142<span class="nt">&lt;/ShopTransactionID&gt;</span>
-                        <span class="nt">&lt;BankTransactionID&gt;</span>159247522<span class="nt">&lt;/BankTransactionID&gt;</span>
-                        <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
-                        <span class="nt">&lt;ErrorDescription&gt;</span>Transazione ritirata<span class="nt">&lt;/ErrorDescription&gt;</span>
-                <span class="nt">&lt;/GestPayS2S&gt;</span>
-        <span class="nt">&lt;/callSettleS2SResult&gt;</span>
+  <span class="nt">&lt;callDeleteS2SResult&gt;</span>
+    <span class="nt">&lt;GestPayS2S&gt;</span>
+      <span class="nt">&lt;TransactionType&gt;</span>Settle<span class="nt">&lt;/TransactionType&gt;</span>
+      <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+      <span class="nt">&lt;ShopTransactionID&gt;</span>MYSHOP-00142<span class="nt">&lt;/ShopTransactionID&gt;</span>
+      <span class="nt">&lt;BankTransactionID&gt;</span>159247522<span class="nt">&lt;/BankTransactionID&gt;</span>
+      <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+      <span class="nt">&lt;ErrorDescription&gt;</span>Transazione ritirata<span class="nt">&lt;/ErrorDescription&gt;</span>
+    <span class="nt">&lt;/GestPayS2S&gt;</span>
+  <span class="nt">&lt;/callSettleS2SResult&gt;</span>
 <span class="nt">&lt;/callSettleS2SResponse&gt;</span>
 </code></pre>
 
@@ -2576,13 +2576,13 @@
 <p>Request example: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;callRefundS2S&gt;</span>
-        <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-    <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
-    <span class="nt">&lt;amount&gt;</span>55.00<span class="nt">&lt;/amount&gt;</span>
-    <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-00142<span class="nt">&lt;/shopTransactionId&gt;</span>
-    <span class="nt">&lt;bankTransactionId&gt;</span>159247522<span class="nt">&lt;/bankTransactionId&gt;</span>
-    <span class="nt">&lt;RefundReason&gt;</span>item our of stock<span class="nt">&lt;/RefundReason&gt;</span>
-    <span class="nt">&lt;chargeBackFraud&gt;</span>N<span class="nt">&lt;/chargeBackFraud&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>55.00<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-00142<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;bankTransactionId&gt;</span>159247522<span class="nt">&lt;/bankTransactionId&gt;</span>
+  <span class="nt">&lt;RefundReason&gt;</span>item our of stock<span class="nt">&lt;/RefundReason&gt;</span>
+  <span class="nt">&lt;chargeBackFraud&gt;</span>N<span class="nt">&lt;/chargeBackFraud&gt;</span>
 <span class="nt">&lt;/callRefundS2S&gt;</span>
 </code></pre>
 
@@ -2644,16 +2644,16 @@
 <p>Response example: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;callRefundS2SResponse</span> <span class="na">xmlns=</span><span class="s">"https://ecomms2s.sella.it/"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;callRefundS2SResult&gt;</span>
-                <span class="nt">&lt;GestPayS2S&gt;</span>
-                        <span class="nt">&lt;TransactionType&gt;</span>Refund<span class="nt">&lt;/TransactionType&gt;</span>
-                        <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
-                        <span class="nt">&lt;ShopTransactionID&gt;</span>MYSHOP-00142<span class="nt">&lt;/ShopTransactionID&gt;</span>
-                        <span class="nt">&lt;BankTransactionID&gt;</span>159247522<span class="nt">&lt;/BankTransactionID&gt;</span>
-                        <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
-                        <span class="nt">&lt;ErrorDescription/&gt;</span>
-                <span class="nt">&lt;/GestPayS2S&gt;</span>
-        <span class="nt">&lt;/callRefundS2SResult&gt;</span>
+  <span class="nt">&lt;callRefundS2SResult&gt;</span>
+    <span class="nt">&lt;GestPayS2S&gt;</span>
+      <span class="nt">&lt;TransactionType&gt;</span>Refund<span class="nt">&lt;/TransactionType&gt;</span>
+      <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+      <span class="nt">&lt;ShopTransactionID&gt;</span>MYSHOP-00142<span class="nt">&lt;/ShopTransactionID&gt;</span>
+      <span class="nt">&lt;BankTransactionID&gt;</span>159247522<span class="nt">&lt;/BankTransactionID&gt;</span>
+      <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+      <span class="nt">&lt;ErrorDescription/&gt;</span>
+    <span class="nt">&lt;/GestPayS2S&gt;</span>
+  <span class="nt">&lt;/callRefundS2SResult&gt;</span>
 <span class="nt">&lt;/callRefundS2SResponse&gt;</span>
 </code></pre>
 
@@ -2701,9 +2701,9 @@
 <p>Example request: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;callReadTrxS2S&gt;</span>
-    <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-    <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-4838<span class="nt">&lt;/shopTransactionId&gt;</span>
-    <span class="nt">&lt;bankTransactionId&gt;</span>334488931<span class="nt">&lt;/bankTransactionId&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-4838<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;bankTransactionId&gt;</span>334488931<span class="nt">&lt;/bankTransactionId&gt;</span>
 <span class="nt">&lt;/callReadTrxS2S&gt;</span>
 </code></pre>
 
@@ -2892,12 +2892,12 @@
 <p>Request example: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;callVerifycardS2S&gt;</span>
-        <span class="nt">&lt;shopLogin&gt;</span>GEST13578<span class="nt">&lt;/shopLogin&gt;</span>
-        <span class="nt">&lt;shopTransactionId&gt;</span>MY-SHOP1234<span class="nt">&lt;/shopTransactionId&gt;</span>
-        <span class="nt">&lt;cardNumber&gt;</span>1234567812345678<span class="nt">&lt;/cardNumber&gt;</span>
-        <span class="nt">&lt;expMonth&gt;</span>12<span class="nt">&lt;/expMonth&gt;</span>
-        <span class="nt">&lt;expYear&gt;</span>21<span class="nt">&lt;/expYear&gt;</span>
-        <span class="nt">&lt;CVV2&gt;</span>931<span class="nt">&lt;/CVV2&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>GEST13578<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MY-SHOP1234<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;cardNumber&gt;</span>1234567812345678<span class="nt">&lt;/cardNumber&gt;</span>
+  <span class="nt">&lt;expMonth&gt;</span>12<span class="nt">&lt;/expMonth&gt;</span>
+  <span class="nt">&lt;expYear&gt;</span>21<span class="nt">&lt;/expYear&gt;</span>
+  <span class="nt">&lt;CVV2&gt;</span>931<span class="nt">&lt;/CVV2&gt;</span>
 <span class="nt">&lt;/callVerifycardS2S&gt;</span>
 </code></pre>
 
@@ -2953,14 +2953,14 @@
 <p>Response example: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;callVerifycardS2SResult&gt;</span>
-    <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;TransactionType&gt;</span>VerCard<span class="nt">&lt;/TransactionType&gt;</span>
-        <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
-        <span class="nt">&lt;Country&gt;</span>Italia<span class="nt">&lt;/Country&gt;</span>
-        <span class="nt">&lt;Company&gt;</span>MasterCard<span class="nt">&lt;/Company&gt;</span>
-        <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
-        <span class="nt">&lt;ErrorDescription&gt;&lt;/ErrorDescription&gt;</span>
-    <span class="nt">&lt;/GestPayS2S&gt;</span>
+  <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;TransactionType&gt;</span>VerCard<span class="nt">&lt;/TransactionType&gt;</span>
+    <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+    <span class="nt">&lt;Country&gt;</span>Italia<span class="nt">&lt;/Country&gt;</span>
+    <span class="nt">&lt;Company&gt;</span>MasterCard<span class="nt">&lt;/Company&gt;</span>
+    <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+    <span class="nt">&lt;ErrorDescription&gt;&lt;/ErrorDescription&gt;</span>
+  <span class="nt">&lt;/GestPayS2S&gt;</span>
 <span class="nt">&lt;/callVerifycardS2SResult&gt;</span>
 </code></pre>
 
@@ -2975,7 +2975,7 @@
 <td><code class="prettyprint">VerCard</code></td>
 </tr>
 <tr>
-<td>TransactionRsult</td>
+<td>TransactionResult</td>
 <td><code class="prettyprint">OK</code> or <code class="prettyprint">KO</code></td>
 </tr>
 <tr>
@@ -3008,13 +3008,13 @@
 <p>Request example: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;callCheckCartaS2S&gt;</span>
-        <span class="nt">&lt;shopLogin&gt;</span>GEST13578<span class="nt">&lt;/shopLogin&gt;</span>
-        <span class="nt">&lt;shopTransactionId&gt;</span>MY-SHOP1234<span class="nt">&lt;/shopTransactionId&gt;</span>
-        <span class="nt">&lt;cardNumber&gt;</span>1234567812345678<span class="nt">&lt;/cardNumber&gt;</span>
-        <span class="nt">&lt;expMonth&gt;</span>12<span class="nt">&lt;/expMonth&gt;</span>
-        <span class="nt">&lt;expYear&gt;</span>21<span class="nt">&lt;/expYear&gt;</span>
-        <span class="nt">&lt;CVV2&gt;</span>931<span class="nt">&lt;/CVV2&gt;</span>
-        <span class="nt">&lt;withAuth&gt;</span>Y<span class="nt">&lt;/withAuth&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>GEST13578<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MY-SHOP1234<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;cardNumber&gt;</span>1234567812345678<span class="nt">&lt;/cardNumber&gt;</span>
+  <span class="nt">&lt;expMonth&gt;</span>12<span class="nt">&lt;/expMonth&gt;</span>
+  <span class="nt">&lt;expYear&gt;</span>21<span class="nt">&lt;/expYear&gt;</span>
+  <span class="nt">&lt;CVV2&gt;</span>931<span class="nt">&lt;/CVV2&gt;</span>
+  <span class="nt">&lt;withAuth&gt;</span>Y<span class="nt">&lt;/withAuth&gt;</span>
 <span class="nt">&lt;/callCheckCartaS2S&gt;</span>
 </code></pre>
 
@@ -3076,33 +3076,33 @@
 <p>Response example: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;callCheckCartaS2SResult&gt;</span>
-        <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;TransactionType&gt;</span>CHECKCARD<span class="nt">&lt;/TransactionType&gt;</span>
-            <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
-            <span class="nt">&lt;TransactionErrorCode&gt;</span>0<span class="nt">&lt;/TransactionErrorCode&gt;</span>
-            <span class="nt">&lt;TransactionErrorDescription&gt;</span>Transaction correctly processed<span class="nt">&lt;/TransactionErrorDescription&gt;</span>
-            <span class="nt">&lt;AuthorizationErrorCode&gt;</span>0<span class="nt">&lt;/AuthorizationErrorCode&gt;</span>
-            <span class="nt">&lt;AuthorizationResult&gt;</span>KO<span class="nt">&lt;/AuthorizationResult&gt;</span>
-            <span class="nt">&lt;AuthorizationCodeDescription&gt;</span>negative balance<span class="nt">&lt;/AuthorizationCodeDescription&gt;</span>
-            <span class="nt">&lt;CardCountry&gt;</span>ITALIA<span class="nt">&lt;/CardCountry&gt;</span>
-            <span class="nt">&lt;CardCountryCode&gt;</span>380<span class="nt">&lt;/CardCountryCode&gt;</span>
-            <span class="nt">&lt;CheckCVV&gt;</span>OK<span class="nt">&lt;/CheckCVV&gt;</span>
-            <span class="nt">&lt;CheckCVVDescription&gt;</span>CVV VALID<span class="nt">&lt;/CheckCVVDescription&gt;</span>
-            <span class="nt">&lt;IssuerCountry&gt;</span>ITALIA<span class="nt">&lt;/IssuerCountry&gt;</span>
-            <span class="nt">&lt;IssuerCountryCode&gt;</span>380<span class="nt">&lt;/IssuerCountryCode&gt;</span>
-            <span class="nt">&lt;CompanyDescription&gt;</span>MASTERCARD<span class="nt">&lt;/CompanyDescription&gt;</span>
-            <span class="nt">&lt;CompanyCode&gt;</span>3<span class="nt">&lt;/CompanyCode&gt;</span>
-            <span class="nt">&lt;Commercial&gt;</span>N<span class="nt">&lt;/Commercial&gt;</span>
-            <span class="nt">&lt;ProductDescription&gt;</span>Standard MasterCard® Card<span class="nt">&lt;/ProductDescription&gt;</span>
-            <span class="nt">&lt;ProductType&gt;</span>Credit<span class="nt">&lt;/ProductType&gt;</span>
-            <span class="nt">&lt;CheckDigit&gt;</span>OK<span class="nt">&lt;/CheckDigit&gt;</span>
-            <span class="nt">&lt;CheckDigitDescription&gt;</span>CheckDigit VALID<span class="nt">&lt;/CheckDigitDescription&gt;</span>
-            <span class="nt">&lt;CheckDate&gt;</span>OK<span class="nt">&lt;/CheckDate&gt;</span>
-            <span class="nt">&lt;CheckDateDescription&gt;</span>DATE VALID<span class="nt">&lt;/CheckDateDescription&gt;</span>
-            <span class="nt">&lt;EnrolledCode&gt;</span>Y<span class="nt">&lt;/EnrolledCode&gt;</span>
-            <span class="nt">&lt;EnrolledDescription&gt;</span>ENROLLED<span class="nt">&lt;/EnrolledDescription&gt;</span>
-            <span class="nt">&lt;Prepaid/&gt;</span>
-        <span class="nt">&lt;/GestPayS2S&gt;</span>
+  <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;TransactionType&gt;</span>CHECKCARD<span class="nt">&lt;/TransactionType&gt;</span>
+    <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+    <span class="nt">&lt;TransactionErrorCode&gt;</span>0<span class="nt">&lt;/TransactionErrorCode&gt;</span>
+    <span class="nt">&lt;TransactionErrorDescription&gt;</span>Transaction correctly processed<span class="nt">&lt;/TransactionErrorDescription&gt;</span>
+    <span class="nt">&lt;AuthorizationErrorCode&gt;</span>0<span class="nt">&lt;/AuthorizationErrorCode&gt;</span>
+    <span class="nt">&lt;AuthorizationResult&gt;</span>KO<span class="nt">&lt;/AuthorizationResult&gt;</span>
+    <span class="nt">&lt;AuthorizationCodeDescription&gt;</span>negative balance<span class="nt">&lt;/AuthorizationCodeDescription&gt;</span>
+    <span class="nt">&lt;CardCountry&gt;</span>ITALIA<span class="nt">&lt;/CardCountry&gt;</span>
+    <span class="nt">&lt;CardCountryCode&gt;</span>380<span class="nt">&lt;/CardCountryCode&gt;</span>
+    <span class="nt">&lt;CheckCVV&gt;</span>OK<span class="nt">&lt;/CheckCVV&gt;</span>
+    <span class="nt">&lt;CheckCVVDescription&gt;</span>CVV VALID<span class="nt">&lt;/CheckCVVDescription&gt;</span>
+    <span class="nt">&lt;IssuerCountry&gt;</span>ITALIA<span class="nt">&lt;/IssuerCountry&gt;</span>
+    <span class="nt">&lt;IssuerCountryCode&gt;</span>380<span class="nt">&lt;/IssuerCountryCode&gt;</span>
+    <span class="nt">&lt;CompanyDescription&gt;</span>MASTERCARD<span class="nt">&lt;/CompanyDescription&gt;</span>
+    <span class="nt">&lt;CompanyCode&gt;</span>3<span class="nt">&lt;/CompanyCode&gt;</span>
+    <span class="nt">&lt;Commercial&gt;</span>N<span class="nt">&lt;/Commercial&gt;</span>
+    <span class="nt">&lt;ProductDescription&gt;</span>Standard MasterCard® Card<span class="nt">&lt;/ProductDescription&gt;</span>
+    <span class="nt">&lt;ProductType&gt;</span>Credit<span class="nt">&lt;/ProductType&gt;</span>
+    <span class="nt">&lt;CheckDigit&gt;</span>OK<span class="nt">&lt;/CheckDigit&gt;</span>
+    <span class="nt">&lt;CheckDigitDescription&gt;</span>CheckDigit VALID<span class="nt">&lt;/CheckDigitDescription&gt;</span>
+    <span class="nt">&lt;CheckDate&gt;</span>OK<span class="nt">&lt;/CheckDate&gt;</span>
+    <span class="nt">&lt;CheckDateDescription&gt;</span>DATE VALID<span class="nt">&lt;/CheckDateDescription&gt;</span>
+    <span class="nt">&lt;EnrolledCode&gt;</span>Y<span class="nt">&lt;/EnrolledCode&gt;</span>
+    <span class="nt">&lt;EnrolledDescription&gt;</span>ENROLLED<span class="nt">&lt;/EnrolledDescription&gt;</span>
+    <span class="nt">&lt;Prepaid/&gt;</span>
+  <span class="nt">&lt;/GestPayS2S&gt;</span>
 <span class="nt">&lt;/callCheckCartaS2SResult&gt;</span>
 </code></pre>
 
@@ -3117,7 +3117,7 @@
 <td><code class="prettyprint">CHECKCARD</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">TransactionRsult</code></td>
+<td><code class="prettyprint">TransactionResult</code></td>
 <td><code class="prettyprint">OK</code> or <code class="prettyprint">KO</code></td>
 </tr>
 <tr>
@@ -3220,13 +3220,13 @@
 <p>Request example: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;CallRequestTokenS2S&gt;</span>
-    <span class="nt">&lt;shopLogin&gt;</span>GEST13578<span class="nt">&lt;/shopLogin&gt;</span>
-    <span class="nt">&lt;requestToken&gt;</span>MASKEDPAN<span class="nt">&lt;/shopTransactionId&gt;</span>
-    <span class="nt">&lt;cardNumber&gt;</span>1234567812345678<span class="nt">&lt;/cardNumber&gt;</span>
-    <span class="nt">&lt;expMonth&gt;</span>12<span class="nt">&lt;/expMonth&gt;</span>
-    <span class="nt">&lt;expYear&gt;</span>21<span class="nt">&lt;/expYear&gt;</span>
-    <span class="nt">&lt;CVV2&gt;</span>931<span class="nt">&lt;/CVV2&gt;</span>
-    <span class="nt">&lt;withAuth&gt;</span>Y<span class="nt">&lt;/withAuth&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>GEST13578<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;requestToken&gt;</span>MASKEDPAN<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;cardNumber&gt;</span>1234567812345678<span class="nt">&lt;/cardNumber&gt;</span>
+  <span class="nt">&lt;expMonth&gt;</span>12<span class="nt">&lt;/expMonth&gt;</span>
+  <span class="nt">&lt;expYear&gt;</span>21<span class="nt">&lt;/expYear&gt;</span>
+  <span class="nt">&lt;CVV2&gt;</span>931<span class="nt">&lt;/CVV2&gt;</span>
+  <span class="nt">&lt;withAuth&gt;</span>Y<span class="nt">&lt;/withAuth&gt;</span>
 <span class="nt">&lt;/callCheckCartaS2S&gt;</span>
 </code></pre>
 
@@ -3318,7 +3318,7 @@
     <span class="nt">&lt;Token&gt;</span>44MRWNA710AC4448<span class="nt">&lt;/Token&gt;</span>
     <span class="nt">&lt;TokenExpiryMonth&gt;</span>12<span class="nt">&lt;/TokenExpiryMonth&gt;</span>
     <span class="nt">&lt;TokenExpiryYear&gt;</span>16<span class="nt">&lt;/TokenExpiryYear&gt;</span>
-<span class="nt">&lt;/GestPayS2S&gt;</span>
+  <span class="nt">&lt;/GestPayS2S&gt;</span>
 <span class="nt">&lt;/CallRequestTokenS2SResult&gt;</span>
 </code></pre>
 
@@ -3333,7 +3333,7 @@
 <td><code class="prettyprint">REQUESTTOKEN</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">TransactionRsult</code></td>
+<td><code class="prettyprint">TransactionResult</code></td>
 <td><code class="prettyprint">OK</code> or <code class="prettyprint">KO</code></td>
 </tr>
 <tr>
@@ -3501,7 +3501,7 @@
 <td><code class="prettyprint">DisableToken</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">TransactionRsult</code></td>
+<td><code class="prettyprint">TransactionResult</code></td>
 <td><code class="prettyprint">OK</code> or <code class="prettyprint">KO</code></td>
 </tr>
 <tr>
@@ -3526,11 +3526,11 @@
 <p>Request example: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;callUpdateTokenS2S&gt;</span>
-    <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
-    <span class="nt">&lt;tokenValue&gt;</span>1234WJFXABCD5678<span class="nt">&lt;/tokenValue&gt;</span>
-    <span class="nt">&lt;expiryMonth&gt;</span>12<span class="nt">&lt;/expiryMonth&gt;</span>
-    <span class="nt">&lt;expiryYear&gt;</span>21<span class="nt">&lt;/expiryYear&gt;</span>
-    <span class="nt">&lt;withAut&gt;</span>Y<span class="nt">&lt;/withAut&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;tokenValue&gt;</span>1234WJFXABCD5678<span class="nt">&lt;/tokenValue&gt;</span>
+  <span class="nt">&lt;expiryMonth&gt;</span>12<span class="nt">&lt;/expiryMonth&gt;</span>
+  <span class="nt">&lt;expiryYear&gt;</span>21<span class="nt">&lt;/expiryYear&gt;</span>
+  <span class="nt">&lt;withAut&gt;</span>Y<span class="nt">&lt;/withAut&gt;</span>
 <span class="nt">&lt;/callUpdateTokenS2S&gt;</span>
 </code></pre>
 
@@ -3580,12 +3580,12 @@
 <p>Response example: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;callUpdateTokenS2SResult&gt;</span>
-    <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;TransactionType&gt;</span>UpdateToken<span class="nt">&lt;/TransactionType&gt;</span>
-        <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
-        <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
-        <span class="nt">&lt;ErrorDescription</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/GestPayS2S&gt;</span>
+  <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;TransactionType&gt;</span>UpdateToken<span class="nt">&lt;/TransactionType&gt;</span>
+    <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+    <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+    <span class="nt">&lt;ErrorDescription</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/GestPayS2S&gt;</span>
 <span class="nt">&lt;/callUpdateTokenS2SResult&gt;</span>
 </code></pre>
 
@@ -3600,7 +3600,7 @@
 <td><code class="prettyprint">UpdateToken</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">TransactionRsult</code></td>
+<td><code class="prettyprint">TransactionResult</code></td>
 <td><code class="prettyprint">OK</code> or <code class="prettyprint">KO</code></td>
 </tr>
 <tr>
