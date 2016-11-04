@@ -1,3 +1,3 @@
 # Models
 
-In this section we will discuss the container objects needed by the API. 
+In this section we'll discuss shared objects used in the API.  
