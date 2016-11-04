@@ -80,10 +80,9 @@ This method can be called with a mandatory `shopLogin`, then it's possible to pa
 | `Currency` | the [currency code](#currency-codes)
 | `Country` | the nationality of the card issuer
 | `Company` | the card company: Visa, Mastercard, etc. 
-| `TransactionState` | the status of the transaction: one of `AUT`, `MOV`, `CAN`, `REQ`, `STO`. Follow the link for a [detailed explanation of transaction statuses](<%= config[:doc_url] %>/adv/query-transaction-status.html).
+| `TransactionState` | the status of the transaction: one of `AUT`, `MOV`, `CAN`, `STO`. Follow the link for a [detailed explanation of transaction statuses](<%= config[:doc_url] %>/adv/query-transaction-status.html).
 | `AlertCode` | the violation code of the risk management criteria. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description. 
 | `AlertDescription` | the description connected to the `AlertCode` value. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description.   
-| `TransKey` | Returns transaction ID value for 3D-Secure transactions
 | `Buyer.BayerName` | Returns the name of the buyer 
 | `Buyer.BuyerEmail` | Returns the email of the buyer 
 | `Events`| contains `event` elements. see the next table for more.  
