@@ -11,11 +11,11 @@ Merchants belonging to a group are allowed to update also tokens created by othe
 
 ```xml
 <callUpdateTokenS2S>
-    <shopLogin>90000001</shopLogin>
-    <tokenValue>1234WJFXABCD5678</tokenValue>
-    <expiryMonth>12</expiryMonth>
-    <expiryYear>21</expiryYear>
-    <withAut>Y</withAut>
+  <shopLogin>90000001</shopLogin>
+  <tokenValue>1234WJFXABCD5678</tokenValue>
+  <expiryMonth>12</expiryMonth>
+  <expiryYear>21</expiryYear>
+  <withAut>Y</withAut>
 </callUpdateTokenS2S>
 ```
 
@@ -33,18 +33,18 @@ Merchants belonging to a group are allowed to update also tokens created by othe
 
 ```xml
 <callUpdateTokenS2SResult>
-    <GestPayS2S xmlns="">
-        <TransactionType>UpdateToken</TransactionType>
-        <TransactionResult>OK</TransactionResult>
-        <ErrorCode>0</ErrorCode>
-        <ErrorDescription />
-    </GestPayS2S>
+  <GestPayS2S xmlns="">
+    <TransactionType>UpdateToken</TransactionType>
+    <TransactionResult>OK</TransactionResult>
+    <ErrorCode>0</ErrorCode>
+    <ErrorDescription />
+  </GestPayS2S>
 </callUpdateTokenS2SResult>
 ```
 
 | parameter name | description |  
 | -------------- | ----------- |  
 | `TransactionType` | `UpdateToken`
-| `TransactionRsult` | `OK` or `KO`
+| `TransactionResult` | `OK` or `KO`
 | `ErrorCode` | transaction error code | 
 | `ErrorDescription` | transaction error description

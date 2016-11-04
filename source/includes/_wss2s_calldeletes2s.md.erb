@@ -10,10 +10,10 @@ It exists only for merchants with a [M.O.T.O.](<%= config[:doc_url] %>/gs/how-ge
 
 ```xml
 <callDeleteS2S>
-		<shopLogin>9000001</shopLogin>
-		<shopTransactionId>MYSHOP-4838</shopTransactionId>
-		<bankTransactionId>334488931</bankTransactionId>
-    <CancelReason>potential fraud</CancelReason>
+  <shopLogin>9000001</shopLogin>
+  <shopTransactionId>MYSHOP-4838</shopTransactionId>
+  <bankTransactionId>334488931</bankTransactionId>
+  <CancelReason>potential fraud</CancelReason>
 </callDeleteS2S>
 ```
 
@@ -31,16 +31,16 @@ It exists only for merchants with a [M.O.T.O.](<%= config[:doc_url] %>/gs/how-ge
 
 ```xml
 <callDeleteS2SResponse xmlns="https://ecomms2s.sella.it/">
-		<callDeleteS2SResult>
-				<GestPayS2S>
-						<TransactionType>Settle</TransactionType>
-						<TransactionResult>OK</TransactionResult>
-						<ShopTransactionID>MYSHOP-00142</ShopTransactionID>
-						<BankTransactionID>159247522</BankTransactionID>
-						<ErrorCode>0</ErrorCode>
-						<ErrorDescription>Transazione ritirata</ErrorDescription>
-				</GestPayS2S>
-		</callSettleS2SResult>
+  <callDeleteS2SResult>
+    <GestPayS2S>
+      <TransactionType>Settle</TransactionType>
+      <TransactionResult>OK</TransactionResult>
+      <ShopTransactionID>MYSHOP-00142</ShopTransactionID>
+      <BankTransactionID>159247522</BankTransactionID>
+      <ErrorCode>0</ErrorCode>
+      <ErrorDescription>Transazione ritirata</ErrorDescription>
+    </GestPayS2S>
+  </callSettleS2SResult>
 </callSettleS2SResponse>
 ```
 

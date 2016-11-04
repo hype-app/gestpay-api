@@ -9,13 +9,13 @@ Merchants can use this method to request the token generation for a Credit Card.
 
 ```xml
 <CallRequestTokenS2S>
-    <shopLogin>GEST13578</shopLogin>
-    <requestToken>MASKEDPAN</shopTransactionId>
-    <cardNumber>1234567812345678</cardNumber>
-    <expMonth>12</expMonth>
-    <expYear>21</expYear>
-    <CVV2>931</CVV2>
-    <withAuth>Y</withAuth>
+  <shopLogin>GEST13578</shopLogin>
+  <requestToken>MASKEDPAN</shopTransactionId>
+  <cardNumber>1234567812345678</cardNumber>
+  <expMonth>12</expMonth>
+  <expYear>21</expYear>
+  <CVV2>931</CVV2>
+  <withAuth>Y</withAuth>
 </callCheckCartaS2S>
 ```
 
@@ -66,14 +66,14 @@ Merchants can use this method to request the token generation for a Credit Card.
     <Token>44MRWNA710AC4448</Token>
     <TokenExpiryMonth>12</TokenExpiryMonth>
     <TokenExpiryYear>16</TokenExpiryYear>
-</GestPayS2S>
+  </GestPayS2S>
 </CallRequestTokenS2SResult>
 ```
 
 | name | description 
 | ---- | -----------
 | `TransactionType` | `REQUESTTOKEN`
-| `TransactionRsult` | `OK` or `KO`
+| `TransactionResult` | `OK` or `KO`
 | `TransactionErrorDescription` | transaction error description
 | `AuthorizationErrorCode` | authorisation error code if an error occurred
 | `AuthorizationResult` | authorization result 

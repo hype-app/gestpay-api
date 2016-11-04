@@ -8,13 +8,13 @@ Merchants can use this method to perform a partial or complete transaction amoun
 
 ```xml
 <callRefundS2S>
-		<shopLogin>9000001</shopLogin>
-    <uicCode>242</uicCode><!-- Euro -->
-    <amount>55.00</amount>
-    <shopTransactionId>MYSHOP-00142</shopTransactionId>
-    <bankTransactionId>159247522</bankTransactionId>
-    <RefundReason>item our of stock</RefundReason>
-    <chargeBackFraud>N</chargeBackFraud>
+  <shopLogin>9000001</shopLogin>
+  <uicCode>242</uicCode><!-- Euro -->
+  <amount>55.00</amount>
+  <shopTransactionId>MYSHOP-00142</shopTransactionId>
+  <bankTransactionId>159247522</bankTransactionId>
+  <RefundReason>item our of stock</RefundReason>
+  <chargeBackFraud>N</chargeBackFraud>
 </callRefundS2S>
 ```
 
@@ -35,16 +35,16 @@ Merchants can use this method to perform a partial or complete transaction amoun
 
 ```xml
 <callRefundS2SResponse xmlns="https://ecomms2s.sella.it/">
-		<callRefundS2SResult>
-				<GestPayS2S>
-						<TransactionType>Refund</TransactionType>
-						<TransactionResult>OK</TransactionResult>
-						<ShopTransactionID>MYSHOP-00142</ShopTransactionID>
-						<BankTransactionID>159247522</BankTransactionID>
-						<ErrorCode>0</ErrorCode>
-						<ErrorDescription/>
-				</GestPayS2S>
-		</callRefundS2SResult>
+  <callRefundS2SResult>
+    <GestPayS2S>
+      <TransactionType>Refund</TransactionType>
+      <TransactionResult>OK</TransactionResult>
+      <ShopTransactionID>MYSHOP-00142</ShopTransactionID>
+      <BankTransactionID>159247522</BankTransactionID>
+      <ErrorCode>0</ErrorCode>
+      <ErrorDescription/>
+    </GestPayS2S>
+  </callRefundS2SResult>
 </callRefundS2SResponse>
 ```
 

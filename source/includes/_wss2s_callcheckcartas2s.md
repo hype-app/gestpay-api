@@ -10,13 +10,13 @@ It's possible to check with or without verifying the Authorization, setting the 
 
 ```xml
 <callCheckCartaS2S>
-		<shopLogin>GEST13578</shopLogin>
-		<shopTransactionId>MY-SHOP1234</shopTransactionId>
-		<cardNumber>1234567812345678</cardNumber>
-		<expMonth>12</expMonth>
-		<expYear>21</expYear>
-		<CVV2>931</CVV2>
-		<withAuth>Y</withAuth>
+  <shopLogin>GEST13578</shopLogin>
+  <shopTransactionId>MY-SHOP1234</shopTransactionId>
+  <cardNumber>1234567812345678</cardNumber>
+  <expMonth>12</expMonth>
+  <expYear>21</expYear>
+  <CVV2>931</CVV2>
+  <withAuth>Y</withAuth>
 </callCheckCartaS2S>
 ```
 
@@ -37,40 +37,40 @@ It's possible to check with or without verifying the Authorization, setting the 
 
 ```xml
 <callCheckCartaS2SResult>
-		<GestPayS2S xmlns="">
-			<TransactionType>CHECKCARD</TransactionType>
-			<TransactionResult>OK</TransactionResult>
-			<TransactionErrorCode>0</TransactionErrorCode>
-			<TransactionErrorDescription>Transaction correctly processed</TransactionErrorDescription>
-			<AuthorizationErrorCode>0</AuthorizationErrorCode>
-			<AuthorizationResult>KO</AuthorizationResult>
-			<AuthorizationCodeDescription>negative balance</AuthorizationCodeDescription>
-			<CardCountry>ITALIA</CardCountry>
-			<CardCountryCode>380</CardCountryCode>
-			<CheckCVV>OK</CheckCVV>
-			<CheckCVVDescription>CVV VALID</CheckCVVDescription>
-			<IssuerCountry>ITALIA</IssuerCountry>
-			<IssuerCountryCode>380</IssuerCountryCode>
-			<CompanyDescription>MASTERCARD</CompanyDescription>
-			<CompanyCode>3</CompanyCode>
-			<Commercial>N</Commercial>
-			<ProductDescription>Standard MasterCard® Card</ProductDescription>
-			<ProductType>Credit</ProductType>
-			<CheckDigit>OK</CheckDigit>
-			<CheckDigitDescription>CheckDigit VALID</CheckDigitDescription>
-			<CheckDate>OK</CheckDate>
-			<CheckDateDescription>DATE VALID</CheckDateDescription>
-			<EnrolledCode>Y</EnrolledCode>
-			<EnrolledDescription>ENROLLED</EnrolledDescription>
-			<Prepaid/>
-		</GestPayS2S>
+  <GestPayS2S xmlns="">
+    <TransactionType>CHECKCARD</TransactionType>
+    <TransactionResult>OK</TransactionResult>
+    <TransactionErrorCode>0</TransactionErrorCode>
+    <TransactionErrorDescription>Transaction correctly processed</TransactionErrorDescription>
+    <AuthorizationErrorCode>0</AuthorizationErrorCode>
+    <AuthorizationResult>KO</AuthorizationResult>
+    <AuthorizationCodeDescription>negative balance</AuthorizationCodeDescription>
+    <CardCountry>ITALIA</CardCountry>
+    <CardCountryCode>380</CardCountryCode>
+    <CheckCVV>OK</CheckCVV>
+    <CheckCVVDescription>CVV VALID</CheckCVVDescription>
+    <IssuerCountry>ITALIA</IssuerCountry>
+    <IssuerCountryCode>380</IssuerCountryCode>
+    <CompanyDescription>MASTERCARD</CompanyDescription>
+    <CompanyCode>3</CompanyCode>
+    <Commercial>N</Commercial>
+    <ProductDescription>Standard MasterCard® Card</ProductDescription>
+    <ProductType>Credit</ProductType>
+    <CheckDigit>OK</CheckDigit>
+    <CheckDigitDescription>CheckDigit VALID</CheckDigitDescription>
+    <CheckDate>OK</CheckDate>
+    <CheckDateDescription>DATE VALID</CheckDateDescription>
+    <EnrolledCode>Y</EnrolledCode>
+    <EnrolledDescription>ENROLLED</EnrolledDescription>
+    <Prepaid/>
+  </GestPayS2S>
 </callCheckCartaS2SResult>
 ```
 
 | name | description 
 | ---- | -----------
 | `TransactionType` | `CHECKCARD`
-| `TransactionRsult` | `OK` or `KO`
+| `TransactionResult` | `OK` or `KO`
 | `TransactionErrorDescription` | transaction error description
 | `AuthorizationErrorCode` | authorisation error code if an error occurred
 | `AuthorizationResult` | authorization result 

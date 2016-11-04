@@ -36,6 +36,6 @@ Merchants can use this method to disable a token linked to a Credit Card or to c
 | parameter name | description |  
 | -------------- | ----------- |  
 | `TransactionType` | `DisableToken`
-| `TransactionRsult` | `OK` or `KO`
+| `TransactionResult` | `OK` or `KO`
 | `ErrorCode` | transaction error code | 
 | `ErrorDescription` | transaction error description
