@@ -788,17 +788,17 @@
 <td>Article’s Stock Keeping Unit</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Name</code> <sup><a href="#fn6" id="ref6">6</a></sup></td>
+<td><code class="prettyprint">Name</code> <sup><a href="#fnPP" id="refPP">1</a></sup></td>
 <td style="text-align: center">100</td>
 <td>Article’s name</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Description</code> <sup><a href="#fn6" id="ref6">6</a></sup></td>
+<td><code class="prettyprint">Description</code> <sup><a href="#fnPP" id="refPP">1</a></sup></td>
 <td style="text-align: center">255</td>
 <td>Article’s description</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Quantity</code> <sup><a href="#fn6" id="ref6">6</a></sup></td>
+<td><code class="prettyprint">Quantity</code> <sup><a href="#fnPP" id="refPP">1</a></sup></td>
 <td style="text-align: center">3</td>
 <td>The number of products</td>
 </tr>
@@ -808,7 +808,7 @@
 <td>Article’s price</td>
 </tr>
 <tr>
-<td><code class="prettyprint">UnitPrice</code> <sup><a href="#fn6" id="ref6">6</a></sup></td>
+<td><code class="prettyprint">UnitPrice</code> <sup><a href="#fnPP" id="refPP">1</a></sup></td>
 <td style="text-align: center">12</td>
 <td>Article’s Unit Price</td>
 </tr>
@@ -828,6 +828,8 @@
 <td>The amount offered by you as discount</td>
 </tr>
 </tbody></table>
+
+<p><sup id="fnPP">1. <strong>Line Items</strong>: in case the buyer selects PayPal as payment method in the payment page, fields <code class="prettyprint">Name</code>, <code class="prettyprint">Description</code>, <code class="prettyprint">Quantity</code> and <code class="prettyprint">UnitPrice</code> of every occurrency of the <code class="prettyprint">ProductDetail</code> tag will be used to show the transaction items details in PayPal payment page.</sup></p>
 
 <h3 id="paypal-seller-protection">Paypal Seller Protection</h3>
 
@@ -1319,17 +1321,17 @@
 <td>Article’s Stock Keeping Unit</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Name</code> <sup><a href="#fn6" id="ref6">6</a></sup></td>
+<td><code class="prettyprint">Name</code></td>
 <td style="text-align: center">100</td>
 <td>Article’s name</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Description</code> <sup><a href="#fn6" id="ref6">6</a></sup></td>
+<td><code class="prettyprint">Description</code></td>
 <td style="text-align: center">255</td>
 <td>Article’s description</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Quantity</code> <sup><a href="#fn6" id="ref6">6</a></sup></td>
+<td><code class="prettyprint">Quantity</code></td>
 <td style="text-align: center">3</td>
 <td>The number of products</td>
 </tr>
@@ -1339,7 +1341,7 @@
 <td>Article’s price</td>
 </tr>
 <tr>
-<td><code class="prettyprint">UnitPrice</code> <sup><a href="#fn6" id="ref6">6</a></sup></td>
+<td><code class="prettyprint">UnitPrice</code></td>
 <td style="text-align: center">12</td>
 <td>Article’s Unit Price</td>
 </tr>
@@ -1360,7 +1362,15 @@
 </tr>
 </tbody></table>
 
-<p><sup id="fn6">6. <strong>Line Items</strong>: in case the buyer selects PayPal as payment method in the payment page, fields Name, Description, Quantity and UnitPrice of every occurrency of the ProductDetail tag will be used to show the transaction items details in PayPal payment page.<a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a></sup></p>
+<aside class="active" markdown="1">
+
+Please note: 
+<ul>
+<li>The total value for the <code>ProductDetails</code> needs to be the same as the total amount sent otherwise the transaction fails.</li>
+<li>The <code>Discount</code> is a percentage and must be considered in the Total Amount Value.</li>
+<li>For example if the <code>Quantity</code> is 1 the <code>Price</code> is 10 and the <code>Discount</code> is 10(%) the Total Amount of the transaction must be 9, otherwise the transaction is refused.</li>
+</ul>
+</aside>
 
           <h2 id="encrypt-example-qiwi">Encrypt Example: Qiwi</h2>
 
