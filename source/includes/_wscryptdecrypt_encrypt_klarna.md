@@ -69,13 +69,21 @@ If you send other fields, your customer will find them already filled:
 | ---- | :--------: | ----------- | 
 | `ProductCode` |  12  | Article’s product Code |
 | `SKU` |  50  | Article’s Stock Keeping Unit |
-| `Name` <sup><a href="#fn6" id="ref6">6</a></sup> |  100  | Article’s name |
-| `Description` <sup><a href="#fn6" id="ref6">6</a></sup> |  255  | Article’s description |
-| `Quantity` <sup><a href="#fn6" id="ref6">6</a></sup> |  3  | The number of products |
+| `Name` |  100  | Article’s name |
+| `Description` |  255  | Article’s description |
+| `Quantity` |  3  | The number of products |
 | `Price` |  12  | Article’s price |
-| `UnitPrice` <sup><a href="#fn6" id="ref6">6</a></sup> |  12  | Article’s Unit Price |
+| `UnitPrice` |  12  | Article’s Unit Price |
 | `Type` |  2  | The type of article: 1-product, 2-shipping, 3-handling |
 | `Vat` |  2  | Value-Added Tax (the value of the tax) |
 | `Discount` |  2  | The amount offered by you as discount |
 
-<sup id="fn6">6. **Line Items**: in case the buyer selects PayPal as payment method in the payment page, fields Name, Description, Quantity and UnitPrice of every occurrency of the ProductDetail tag will be used to show the transaction items details in PayPal payment page.<a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a></sup>
+<aside class="active" markdown="1">
+
+Please note: 
+<ul>
+<li>The total value for the <code>ProductDetails</code> needs to be the same as the total amount sent otherwise the transaction fails.</li>
+<li>The <code>Discount</code> is a percentage and must be considered in the Total Amount Value.</li>
+<li>For example if the <code>Quantity</code> is 1 the <code>Price</code> is 10 and the <code>Discount</code> is 10(%) the Total Amount of the transaction must be 9, otherwise the transaction is refused.</li>
+</ul>
+</aside>

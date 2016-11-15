@@ -57,14 +57,16 @@ If you populate these fields accordingly, you can show your user the list of pro
 | ---- | :--------: | ----------- | 
 | `ProductCode` |  12  | Article’s product Code |
 | `SKU` |  50  | Article’s Stock Keeping Unit |
-| `Name` <sup><a href="#fn6" id="ref6">6</a></sup> |  100  | Article’s name |
-| `Description` <sup><a href="#fn6" id="ref6">6</a></sup> |  255  | Article’s description |
-| `Quantity` <sup><a href="#fn6" id="ref6">6</a></sup> |  3  | The number of products |
+| `Name` <sup><a href="#fnPP" id="refPP">1</a></sup> |  100  | Article’s name |
+| `Description` <sup><a href="#fnPP" id="refPP">1</a></sup> |  255  | Article’s description |
+| `Quantity` <sup><a href="#fnPP" id="refPP">1</a></sup> |  3  | The number of products |
 | `Price` |  12  | Article’s price |
-| `UnitPrice` <sup><a href="#fn6" id="ref6">6</a></sup> |  12  | Article’s Unit Price |
+| `UnitPrice` <sup><a href="#fnPP" id="refPP">1</a></sup> |  12  | Article’s Unit Price |
 | `Type` |  2  | The type of article: 1-product, 2-shipping, 3-handling |
 | `Vat` |  2  | Value-Added Tax (the value of the tax) |
 | `Discount` |  2  | The amount offered by you as discount |
+
+<sup id="fnPP">1. **Line Items**: in case the buyer selects PayPal as payment method in the payment page, fields `Name`, `Description`, `Quantity` and `UnitPrice` of every occurrency of the `ProductDetail` tag will be used to show the transaction items details in PayPal payment page.</sup>
 
 ### Paypal Seller Protection 
 
