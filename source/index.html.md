@@ -27,6 +27,14 @@ includes:
   - js_gestpay
   - js_gestpay_createpaymentpage
   - js_gestpay_sendpayment
+  - js_gestpay_ping
+  - js_gestpay_getlastanswer
+  - js_gestpay_checkcc
+  - js_gestpay_checcvv
+  - js_gestpay_checkexpmm
+  - js_gestpay_checkexpyy
+  - js_gestpay_checkexpdate
+  - js_gestpay_checkemail
   - js_gestpay_resultobject
   - wss2s
   - wss2s_callpagams2s

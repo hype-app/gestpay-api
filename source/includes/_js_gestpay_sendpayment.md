@@ -6,36 +6,36 @@
 
 ```javascript
 GestPay.SendPayment ({ 
-		CC    : '1234567812345678', 
-		EXPMM : '06', 
-		EXPYY : '12', 
-		CVV2 : '123', //optional
-		BuyerName : '', //optional 
-		BuyerEmail: '' //optional  
-	},
-	callBackObj);
+    CC    : '1234567812345678', 
+    EXPMM : '06', 
+    EXPYY : '12', 
+    CVV2 : '123', //optional
+    Name : 'Some Dude', //optional 
+    Mail: 'some@dude.net' //optional  
+  },
+  callBackObj);
 ```
 
 > example:
 
 ```javascript
 GestPay.SendPayment({
-		CC : '44444444444444444', 
-		EXPMM : '11',
-		EXPYY : '14',
-		CVV2 : '123',
-		BuyerName : 'Some Dude', 
-		BuyerEmail: 'some@dude.net' 
-	},
-	function (Result) {
-		if(Result.ErroCode == 0) {
-			//Transaction correctly processed
-			//Decrypt the Result.EncryptedString property to read the 
-			//transaction result
-		} else {
-			//An error has occurred, check ErrorCode and ErrorDescription 
-			//properties of the Result object
-		}
+    CC : document.getElementById('CC').value, 
+    EXPMM : document.getElementById('EXPMM').value, 
+    EXPYY: document.getElementById('EXPYY').value, 
+    CVV2: document.getElementById('CVV2').value, 
+    Name: document.getElementById('Name').value, 
+    Email: document.getElementById('Email').value
+  },
+  function (Result) {
+    if(Result.ErroCode == 0) {
+      //Transaction correctly processed
+      //Decrypt the Result.EncryptedString property to read the 
+      //transaction result
+    } else {
+      //An error has occurred, check ErrorCode and ErrorDescription 
+      //properties of the Result object
+    }
 });
 ```
 
@@ -51,8 +51,12 @@ Name | Description | Type | Size
 `EXPMM` | Expiration Month | `number` | 2
 `EXPYY` | Expiration Year | `number` | 2
 `CVV2` (optional) | Cvv/4DBC | `number` | min:3, max:4 
+`Name` (optional) | Buyer's name | `string` 
+`Email` (optional) | Buyer's email | `string` 
 
 - a callback function, to handle the output. 
+
+`CVV2`, `Name` and `Email` are optional but **highly recommended**. 
 
 <aside class="warning">To free the Shop from the need to comply with PCI Security standard, the OnSubmit event of the Credit card form must avoid to postback the data to the checkout page! </aside>
 
@@ -62,10 +66,10 @@ Name | Description | Type | Size
 
 ```javascript
 GestPay.SendPayment({
-		PARes : '', 
-		TransKey : ''
-	},  
-	callbackFunction
+    PARes : '', 
+    TransKey : ''
+  },  
+  callbackFunction
 });
 ```
 
@@ -73,18 +77,18 @@ GestPay.SendPayment({
 
 ```javascript
 GestPay.SendPayment ({
-	PARes : 'xMNjdsre23214hjksBBDsjkrhewGSD/*dwhjdkhawNDAHDGUY', 
-	TransKey : 'eFtstSStefgd23432'
-	},
-	function (Result) {
-		if(Result.ErroCode == 0){
-			// Transaction correctly processed ! 
-			// Decrypt the Result.EncryptedString property to read the 
-			// transaction result
-		}else{
-			// An error has occurred, check ErrorCode and ErrorDescription
-			// properties of the Result object
-		}
+  PARes : 'xMNjdsre23214hjksBBDsjkrhewGSD/*dwhjdkhawNDAHDGUY', 
+  TransKey : 'eFtstSStefgd23432'
+  },
+  function (Result) {
+    if(Result.ErroCode == 0){
+      // Transaction correctly processed ! 
+      // Decrypt the Result.EncryptedString property to read the 
+      // transaction result
+    }else{
+      // An error has occurred, check ErrorCode and ErrorDescription
+      // properties of the Result object
+    }
 });
 ``` 
 
@@ -94,6 +98,6 @@ If during the first `SendPayment` call `Result.ErrorCode == 8006`, you should re
 When card holder is verified and authorized, you have to re-call `SendPayment()` with some new parameters: 
 
 - `CCData` (`object`)
-	- `PARes` (`string`)
-	- `TransKey` (`string`)
+  - `PARes` (`string`)
+  - `TransKey` (`string`)
 - callback (`function`) 
