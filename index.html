@@ -305,7 +305,7 @@
 <tr>
 <td><a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a></td>
 <td style="text-align: center"></td>
-<td>a container ojbect of other data. It is used by <a href="#gestpay-guaranteed-checkout"> Gestpay Guaranteed Checkout</a> and by some alternative payments.</td>
+<td>a container ojbect of other data. It is used by <a href="#gestpay-guaranteed-checkout"> Gestpay Guaranteed Checkout</a> and by alternative payments.</td>
 </tr>
 </tbody></table>
 
@@ -704,7 +704,7 @@
 </tr>
 <tr>
 <td><code class="prettyprint">XX</code> </td>
-<td>Suspended transaction result. This is not a final result: Gestpay will send <code class="prettyprint">XX</code> when the outcome is asynchronous. Right now these systems are <code class="prettyprint">MyBank</code>, <code class="prettyprint">Sofort</code>, <code class="prettyprint">IDeal</code>, <code class="prettyprint">Bank Transfer</code>. In the future, this code might be returned with other payment systems (bitcoins, for example). <br/> A new communication will be provided to the merchant when the transaction will assume the final <code class="prettyprint">OK</code>/<code class="prettyprint">KO</code> status). <br/> <strong>If you receive a <code class="prettyprint">XX</code> code, don&rsquo;t send your goods but wait to receive the actual payment.</strong> The customer with <code class="prettyprint">XX</code> transaction is redirect to URL for positive response.</td>
+<td>Suspended transaction result. This is not a final result: Gestpay will send <code class="prettyprint">XX</code> when the outcome is asynchronous. Right now these systems are <code class="prettyprint">MyBank</code>, <code class="prettyprint">Sofort</code>, <code class="prettyprint">IDeal</code>, <code class="prettyprint">Bank Transfer</code>. In the future, this code might be returned with other payment systems (bitcoins, for example). <br/> A new communication will be provided to the merchant when the transaction will assume the final <code class="prettyprint">OK</code>/<code class="prettyprint">KO</code> status. <br/> <strong>If you receive a <code class="prettyprint">XX</code> code, don&rsquo;t send your goods but wait to receive the actual payment.</strong> The customer with <code class="prettyprint">XX</code> transaction is redirect to URL for positive response.</td>
 </tr>
 </tbody></table>
 
