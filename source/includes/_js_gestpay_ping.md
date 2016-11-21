@@ -1,9 +1,9 @@
-## Ping
+## ping
 
 > syntax: 
 
 ```javascript
-GestPay.ping (callBackObj);
+GestPay.ping(callBackObj);
 ```
 
 > example:

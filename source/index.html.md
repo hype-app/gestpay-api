@@ -30,7 +30,7 @@ includes:
   - js_gestpay_ping
   - js_gestpay_getlastanswer
   - js_gestpay_checkcc
-  - js_gestpay_checcvv
+  - js_gestpay_checkcvv
   - js_gestpay_checkexpmm
   - js_gestpay_checkexpyy
   - js_gestpay_checkexpdate
