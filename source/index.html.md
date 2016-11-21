@@ -82,5 +82,5 @@ Our services are:
 | --- | --- | 
 | [`WSCryptDecrypt`](#wscryptdecrypt-api) | used to start (and end) the payment process. | 
 | [`js_GestPay.js`](#js_gestpay-js-api) | Mainly used to build a customized payment page. | 
-| [`WSs2s`](#wss2s-api) | To control every aspect of your transactions and your shop. |
+| [`WSs2s`](#wss2s-api) | Allows to control via a programmable interface many aspects of your transactions. |
 
