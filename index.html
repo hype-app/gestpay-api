@@ -1630,36 +1630,36 @@ Please note:
 <p>syntax: </p>
 </blockquote>
 <pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">SendPayment</span> <span class="p">({</span> 
-        <span class="na">CC</span>    <span class="p">:</span> <span class="s1">'1234567812345678'</span><span class="p">,</span> 
-        <span class="na">EXPMM</span> <span class="p">:</span> <span class="s1">'06'</span><span class="p">,</span> 
-        <span class="na">EXPYY</span> <span class="p">:</span> <span class="s1">'12'</span><span class="p">,</span> 
-        <span class="na">CVV2</span> <span class="p">:</span> <span class="s1">'123'</span><span class="p">,</span> <span class="c1">//optional</span>
-        <span class="na">BuyerName</span> <span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="c1">//optional </span>
-        <span class="na">BuyerEmail</span><span class="p">:</span> <span class="s1">''</span> <span class="c1">//optional  </span>
-    <span class="p">},</span>
-    <span class="nx">callBackObj</span><span class="p">);</span>
+    <span class="na">CC</span>    <span class="p">:</span> <span class="s1">'1234567812345678'</span><span class="p">,</span> 
+    <span class="na">EXPMM</span> <span class="p">:</span> <span class="s1">'06'</span><span class="p">,</span> 
+    <span class="na">EXPYY</span> <span class="p">:</span> <span class="s1">'12'</span><span class="p">,</span> 
+    <span class="na">CVV2</span> <span class="p">:</span> <span class="s1">'123'</span><span class="p">,</span> <span class="c1">//optional</span>
+    <span class="na">Name</span> <span class="p">:</span> <span class="s1">'Some Dude'</span><span class="p">,</span> <span class="c1">//optional </span>
+    <span class="na">Mail</span><span class="p">:</span> <span class="s1">'some@dude.net'</span> <span class="c1">//optional  </span>
+  <span class="p">},</span>
+  <span class="nx">callBackObj</span><span class="p">);</span>
 </code></pre>
 
 <blockquote>
 <p>example:</p>
 </blockquote>
 <pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">SendPayment</span><span class="p">({</span>
-        <span class="na">CC</span> <span class="p">:</span> <span class="s1">'44444444444444444'</span><span class="p">,</span> 
-        <span class="na">EXPMM</span> <span class="p">:</span> <span class="s1">'11'</span><span class="p">,</span>
-        <span class="na">EXPYY</span> <span class="p">:</span> <span class="s1">'14'</span><span class="p">,</span>
-        <span class="na">CVV2</span> <span class="p">:</span> <span class="s1">'123'</span><span class="p">,</span>
-        <span class="na">BuyerName</span> <span class="p">:</span> <span class="s1">'Some Dude'</span><span class="p">,</span> 
-        <span class="na">BuyerEmail</span><span class="p">:</span> <span class="s1">'some@dude.net'</span> 
-    <span class="p">},</span>
-    <span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErroCode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="c1">//Transaction correctly processed</span>
-            <span class="c1">//Decrypt the Result.EncryptedString property to read the </span>
-            <span class="c1">//transaction result</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="c1">//An error has occurred, check ErrorCode and ErrorDescription </span>
-            <span class="c1">//properties of the Result object</span>
-        <span class="p">}</span>
+    <span class="na">CC</span> <span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'CC'</span><span class="p">).</span><span class="nx">value</span><span class="p">,</span> 
+    <span class="na">EXPMM</span> <span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'EXPMM'</span><span class="p">).</span><span class="nx">value</span><span class="p">,</span> 
+    <span class="na">EXPYY</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'EXPYY'</span><span class="p">).</span><span class="nx">value</span><span class="p">,</span> 
+    <span class="na">CVV2</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'CVV2'</span><span class="p">).</span><span class="nx">value</span><span class="p">,</span> 
+    <span class="na">Name</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'Name'</span><span class="p">).</span><span class="nx">value</span><span class="p">,</span> 
+    <span class="na">Email</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'Email'</span><span class="p">).</span><span class="nx">value</span>
+  <span class="p">},</span>
+  <span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErroCode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//Transaction correctly processed</span>
+      <span class="c1">//Decrypt the Result.EncryptedString property to read the </span>
+      <span class="c1">//transaction result</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">//An error has occurred, check ErrorCode and ErrorDescription </span>
+      <span class="c1">//properties of the Result object</span>
+    <span class="p">}</span>
 <span class="p">});</span>
 </code></pre>
 
@@ -1703,11 +1703,25 @@ Please note:
 <td><code class="prettyprint">number</code></td>
 <td>min:3, max:4</td>
 </tr>
+<tr>
+<td><code class="prettyprint">Name</code> (optional)</td>
+<td>Buyer&rsquo;s name</td>
+<td><code class="prettyprint">string</code> </td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Email</code> (optional)</td>
+<td>Buyer&rsquo;s email</td>
+<td><code class="prettyprint">string</code></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <ul>
 <li>a callback function, to handle the output. </li>
 </ul>
+
+<p><code class="prettyprint">CVV2</code>, <code class="prettyprint">Name</code> and <code class="prettyprint">Email</code> are optional but <strong>highly recommended</strong>. </p>
 
 <aside class="warning">To free the Shop from the need to comply with PCI Security standard, the OnSubmit event of the Credit card form must avoid to postback the data to the checkout page! </aside>
 
@@ -1717,10 +1731,10 @@ Please note:
 <p>Syntax: </p>
 </blockquote>
 <pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">SendPayment</span><span class="p">({</span>
-        <span class="na">PARes</span> <span class="p">:</span> <span class="s1">''</span><span class="p">,</span> 
-        <span class="na">TransKey</span> <span class="p">:</span> <span class="s1">''</span>
-    <span class="p">},</span>  
-    <span class="nx">callbackFunction</span>
+    <span class="na">PARes</span> <span class="p">:</span> <span class="s1">''</span><span class="p">,</span> 
+    <span class="na">TransKey</span> <span class="p">:</span> <span class="s1">''</span>
+  <span class="p">},</span>  
+  <span class="nx">callbackFunction</span>
 <span class="p">});</span>
 </code></pre>
 
@@ -1728,18 +1742,18 @@ Please note:
 <p>Example:</p>
 </blockquote>
 <pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">SendPayment</span> <span class="p">({</span>
-    <span class="na">PARes</span> <span class="p">:</span> <span class="s1">'xMNjdsre23214hjksBBDsjkrhewGSD/*dwhjdkhawNDAHDGUY'</span><span class="p">,</span> 
-    <span class="na">TransKey</span> <span class="p">:</span> <span class="s1">'eFtstSStefgd23432'</span>
-    <span class="p">},</span>
-    <span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErroCode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
-            <span class="c1">// Transaction correctly processed ! </span>
-            <span class="c1">// Decrypt the Result.EncryptedString property to read the </span>
-            <span class="c1">// transaction result</span>
-        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-            <span class="c1">// An error has occurred, check ErrorCode and ErrorDescription</span>
-            <span class="c1">// properties of the Result object</span>
-        <span class="p">}</span>
+  <span class="na">PARes</span> <span class="p">:</span> <span class="s1">'xMNjdsre23214hjksBBDsjkrhewGSD/*dwhjdkhawNDAHDGUY'</span><span class="p">,</span> 
+  <span class="na">TransKey</span> <span class="p">:</span> <span class="s1">'eFtstSStefgd23432'</span>
+  <span class="p">},</span>
+  <span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErroCode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+      <span class="c1">// Transaction correctly processed ! </span>
+      <span class="c1">// Decrypt the Result.EncryptedString property to read the </span>
+      <span class="c1">// transaction result</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+      <span class="c1">// An error has occurred, check ErrorCode and ErrorDescription</span>
+      <span class="c1">// properties of the Result object</span>
+    <span class="p">}</span>
 <span class="p">});</span>
 </code></pre>
 
@@ -1756,6 +1770,203 @@ Please note:
 </ul></li>
 <li>callback (<code class="prettyprint">function</code>) </li>
 </ul>
+
+          <h2 id="ping">ping</h2>
+
+<blockquote>
+<p>syntax: </p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">ping</span><span class="p">(</span><span class="nx">callBackObj</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>example:</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">ping</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErroCode</span> <span class="o">==</span> <span class="mi">1111</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//connection estabilished: servers are available</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorDescription</span><span class="p">)</span> <span class="c1">// outputs 'Ping Back'</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">//An error has occurred, check ErrorCode and ErrorDescription </span>
+      <span class="c1">//properties of the Result object</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+
+<p>The <code class="prettyprint">Ping</code> function checks that there is an active connection with Gestpay. </p>
+
+<p>Useful for troubleshooting connection errors. </p>
+
+          <h2 id="getlastanswer">getLastAnswer</h2>
+
+<blockquote>
+<p>syntax: </p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">getLastAnswer</span><span class="p">(</span><span class="nx">callBackObj</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>example:</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">getLastAnswer</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// asks Gestpay to re-send the last Result object. </span>
+  <span class="p">});</span>
+</code></pre>
+
+<p><code class="prettyprint">getLastAnswer</code> asks Gestpay to send back the last received Result object.   </p>
+
+          <h2 id="checkcc">checkCC</h2>
+
+<blockquote>
+<p>syntax: </p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">checkCC</span><span class="p">(</span><span class="nx">CCNum</span><span class="p">,</span> <span class="nx">callBackObj</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>example:</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">checkCC</span><span class="p">(</span><span class="s1">'12345678'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorCode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorCode</span><span class="p">);</span> <span class="c1">// i.e. 1119</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorDescription</span><span class="p">);</span> <span class="c1">// 'Credit card number with wrong length'</span>
+    <span class="p">...</span> <span class="c1">//handle the error</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'the Credit Card Number is valid'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+
+<p><code class="prettyprint">checkCC</code> checks the formal correctness of the credit card number. </p>
+
+          <h2 id="checkcvv">checkCVV</h2>
+
+<blockquote>
+<p>syntax: </p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">checkCVV</span><span class="p">(</span><span class="nx">CVVNum</span><span class="p">,</span> <span class="nx">callBackObj</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>example:</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">CVV</span> <span class="o">=</span> <span class="s1">'XY@Z'</span><span class="p">;</span>
+
+<span class="nx">GestPay</span><span class="p">.</span><span class="nx">checkCVV</span><span class="p">(</span><span class="nx">CVV</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorCode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorCode</span><span class="p">);</span> <span class="c1">// i.e. 1149</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorDescription</span><span class="p">);</span> <span class="c1">// 'Missing or wrong CVV2'</span>
+    <span class="p">...</span> <span class="c1">//handle the error</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'the CVV value is valid'</span><span class="p">);</span> 
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+
+<p><code class="prettyprint">checkCVV</code> checks the formal correctness of the value sent as CVV. </p>
+
+          <h2 id="checkexpmm">checkEXPMM</h2>
+
+<blockquote>
+<p>syntax: </p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">checkEXPMM</span><span class="p">(</span><span class="nx">EXPMMVal</span><span class="p">,</span> <span class="nx">callBackObj</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>example:</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">EXPMMVal</span> <span class="o">=</span> <span class="s1">'123'</span><span class="p">;</span> <span class="c1">//not valid ! </span>
+
+<span class="nx">GestPay</span><span class="p">.</span><span class="nx">checkEXPMM</span><span class="p">(</span><span class="nx">EXPMMVal</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorCode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorCode</span><span class="p">);</span> <span class="c1">// i.e. 1124</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorDescription</span><span class="p">);</span> <span class="c1">// 'Invalid expiry month'</span>
+    <span class="p">...</span> <span class="c1">//handle the error</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'the expiring month value is valid'</span><span class="p">);</span> 
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+
+<p><code class="prettyprint">checkEXPMM</code> checks the formal correctness of the value sent as <code class="prettyprint">EXPMMVal</code>. It represents the <strong>expiring month</strong> so it should be a value between <code class="prettyprint">0</code> and <code class="prettyprint">12</code>. </p>
+
+          <h2 id="checkexpyy">checkEXPYY</h2>
+
+<blockquote>
+<p>syntax: </p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">checkEXPYY</span><span class="p">(</span><span class="nx">EXPYYVal</span><span class="p">,</span> <span class="nx">callBackObj</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>example:</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">EXPYYVal</span> <span class="o">=</span> <span class="s1">'99999'</span><span class="p">;</span> <span class="c1">//not a valid year ! </span>
+
+<span class="nx">GestPay</span><span class="p">.</span><span class="nx">checkEXPYY</span><span class="p">(</span><span class="nx">EXPYYVal</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorCode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorCode</span><span class="p">);</span> <span class="c1">// i.e. 1125</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorDescription</span><span class="p">);</span> <span class="c1">// 'Invalid expiry year'</span>
+    <span class="p">...</span> <span class="c1">//handle the error</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'the expiring year is valid'</span><span class="p">);</span> 
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+
+<p><code class="prettyprint">checkEXPYY</code> checks the formal correctness of the value sent as <code class="prettyprint">EXPYYVal</code>. It represents the <strong>expiring year</strong> so it should be a value between <code class="prettyprint">0</code> and <code class="prettyprint">99</code>. </p>
+
+          <h2 id="checkexpdate">checkEXPDATE</h2>
+
+<blockquote>
+<p>syntax: </p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">checkEXPDATE</span><span class="p">(</span><span class="nx">EXPMMVal</span><span class="p">,</span> <span class="nx">EXPYYVal</span><span class="p">,</span> <span class="nx">callBackObj</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>example:</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">EXPMMVal</span> <span class="o">=</span> <span class="s1">'11'</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">EXPYYVal</span> <span class="o">=</span> <span class="s1">'211'</span><span class="p">;</span> 
+
+<span class="nx">GestPay</span><span class="p">.</span><span class="nx">checkEXPDATE</span><span class="p">(</span><span class="nx">EXPMMVal</span><span class="p">,</span> <span class="nx">EXPYYVal</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorCode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorCode</span><span class="p">);</span> <span class="c1">// i.e. 1125</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorDescription</span><span class="p">);</span> <span class="c1">// 'Invalid expiry year'</span>
+    <span class="p">...</span> <span class="c1">//handle the error</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'the expiring year is valid'</span><span class="p">);</span> 
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+
+<p><code class="prettyprint">checkEXPDATE</code> checks the formal correctness of the <strong>expiry date</strong>, sent as two variables for month and year. </p>
+
+          <h2 id="checkemail">checkEMAIL</h2>
+
+<blockquote>
+<p>syntax: </p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">checkEMAIL</span><span class="p">(</span><span class="nx">EmailVal</span><span class="p">,</span> <span class="nx">callBackObj</span><span class="p">);</span>
+</code></pre>
+
+<blockquote>
+<p>example:</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">checkEMAIL</span><span class="p">(</span> <span class="s1">'email@example.com'</span> <span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">Result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorCode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// mail is valid, ErrorCode is 0 </span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorCode</span><span class="p">);</span> 
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Result</span><span class="p">.</span><span class="nx">ErrorDescription</span><span class="p">);</span>
+    <span class="p">...</span> <span class="c1">//handle error</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'the email is valid'</span><span class="p">);</span>  <span class="c1">//prints 'the email is valid'</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+
+<p><code class="prettyprint">checkEMAIL</code> checks the formal correctness of the <strong>email address</strong>.</p>
 
           <h2 id="the-result-object"> the Result Object</h2>
 
