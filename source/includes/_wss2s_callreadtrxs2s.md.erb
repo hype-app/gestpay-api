@@ -25,7 +25,7 @@ This method can be called with a mandatory `shopLogin`, then it's possible to pa
 
 ### Response details 
 
-> Response example. Here the transaction is cancelled. 
+> Response example 
 
 ```xml
 <callReadTrxS2SResult>
@@ -83,7 +83,7 @@ This method can be called with a mandatory `shopLogin`, then it's possible to pa
 | `TransactionState` | the status of the transaction: one of `AUT`, `MOV`, `CAN`, `STO`. Follow the link for a [detailed explanation of transaction statuses](<%= config[:doc_url] %>/adv/query-transaction-status.html).
 | `AlertCode` | the violation code of the risk management criteria. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description. 
 | `AlertDescription` | the description connected to the `AlertCode` value. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description.   
-| `Buyer.BayerName` | Returns the name of the buyer 
+| `Buyer.BuyerName` | Returns the name of the buyer 
 | `Buyer.BuyerEmail` | Returns the email of the buyer 
 | `Events`| contains `event` elements. see the next table for more.  
 | `RiskResponseCode` | Risk Fraud Score of the transaction, given by [ Gestpay Guaranteed Checkout](<%= config[:doc_url] %>/sec/gestpay-guaranteed-checkout.html). Possible values are: <ul><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Gestpay Guaranteed Checkout</li><li>`declined`: transaction not approved by  Gestpay Guaranteed Checkout</li><li>`captured`: For *Select&Submit* plan, `caputred` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Gestpay Guaranteed Checkout.</li></ul>
