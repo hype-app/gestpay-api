@@ -76,11 +76,11 @@ Merchants can use this method to request the token generation for a Credit Card.
 | `TransactionResult` | `OK` or `KO`
 | `TransactionErrorDescription` | transaction error description
 | `AuthorizationErrorCode` | authorisation error code if an error occurred
-| `AuthorizationResult` | authorization result 
+| `AuthorizationResult` | Authorization result. It can be `OK` or `KO` or `NULL`
 | `AuthorizationCodeDescription` | code description 
 | `CardCountry` | nationality of the card 
 | `CardCountryCode` | nationality code of the card 
-| `CheckCVV` | result of the check CVV
+| `CheckCVV` | result of the check CVV. It can be `OK` or `KO` or `NULL`
 | `CheckCVVDescription` | description of CVV check results
 | `IssuerCountry` | nationality of the card issuer 
 | `IssuerCountryCode` | nationality code of the card issuer
