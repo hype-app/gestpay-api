@@ -21,9 +21,12 @@ Merchants can use this method to perform the transaction, passing all the parame
     <buyerEmail>johnny.kennedy@usa.com</buyerEmail>
     <languageId>2</languageId><!-- english -->
     <cvv>987</cvv>
+    <PARes />
+    <transKey />
     <customInfo></customInfo>
     <requestToken>MASKEDSPAN</requestToken>
     <itemType>physical</itemType>
+    <recurrent>false</recurrent>
     <shippingDetails>
         <shipToName>Jonny Kennedy</shipToName>
         <shipToStreet>83 Beals street</shipToStreet>
@@ -60,7 +63,7 @@ The following features may be optionally assigned, upon appropriate configuratio
 | `customInfo`      | A string containing optional customised parameters. See [customInfo](#customInfo) section for more details. | string | 1000 | 
 | `cvv`             | security code of the card. Refer to [this page](<%= config[:doc_url] %>/adv/cvv-field-handling.html) to enable and use it. | string | 4 | 
 | `languageId`      | language to use for e-mails to the buyer | number | 2 |
-| `PARes`        | encrypted string returned by Issuer  (for 3D-Secure   transactions only. See [3D-secure transactions](<%= config[:doc_url] %>/adv/3dsecure-transactions.html) for more details.) | string | 4096 | 
+| `PARes`        | encrypted string returned by Issuer (for 3D-Secure   transactions only. See [3D-secure transactions](<%= config[:doc_url] %>/adv/3dsecure-transactions.html) for more details.) | string | 4096 | 
 | `transKey`        | transaction ID value for 3D-Secure transactions. See [3D-secure transactions](<%= config[:doc_url] %>/adv/3dsecure-transactions.html) for more details. | number | 18 | 
 | `requestToken`    | `MASKEDPAN` for a Standard Token any other value for Custom  Token | string | 25 | 
 | `tokenValue`      | String containing the token value, in case of `PayPalBillingAgreement` this token value is the Token returned back from PayPal during the Billing Agreements | string | 25 | 
@@ -117,7 +120,6 @@ The following features may be optionally assigned, upon appropriate configuratio
   <TOKEN></TOKEN>
   <TokenExpiryMonth></TokenExpiryMonth>
   <TokenExpiryYear></TokenExpiryYear>
-  <CardBIN>401200</CardBIN>
   <PayPalFee></PayPalFee>
   <RiskResponseCode>approved</RiskResponseCode>
   <RiskResponseDescription>the transaction is approved</RiskResponseDescription>
@@ -144,14 +146,13 @@ The following features may be optionally assigned, upon appropriate configuratio
 | `Amount` | the amount of the transaction
 | `TransKey` | transaction ID value for 3D-Secure transactions 
 | `VBV` | Returns the values for 3D-Secure as follows: <br><ul><li>`VbVFlag`: 3D-secure flag (`OK` or `KO`)</li><li>`VbVBuyer`:returns the flag Full Verified by Visa transaction</li><li>`VbVRisp`: Returns the encrypted string obtained by 3D-Secure directory</li></ul> |
-| `MaskedPAN` | contains a token that represents the credit card number. See [Handling Subscriptions](<%= config[:doc_url] %>/rec/handling-subscriptions.html) in the docs.
+| `MaskedPAN` | this field returns a token that should not be stored or used as a credit card token. With this parameter the merchant can know with wich card the payment has been processed (for example, for risk management)
 | `PaymentMethod` | the credit card circuit / payment system used 
 | `ProductType` | can be `Credit`, `Debit`, or empty.
 | `CVVPresent` | `Y` if the CVV is present, `N` if not.
-| `TOKEN` | 
-| `TokenExpiryMonth` | 
-| `TokenExpiryYear` | 
-| `CardBIN` | contains the first 6 digits of the credit card.
+| `TOKEN` | contains a token that represents the credit card number. See [Handling Subscriptions](<%= config[:doc_url] %>/rec/handling-subscriptions.html) in the docs.
+| `TokenExpiryMonth` | the token exiration month
+| `TokenExpiryYear` | the token expiration year 
 | `PayPalFee` | the fee owed to paypal. 
 | `TDLevel` | Level of authentication for 3D-Secure transactions. `FULL` or `HALF`
 | `RiskResponseCode` | Risk Fraud Score of the transaction, given by [ Gestpay Guaranteed Checkout](<%= config[:doc_url] %>/sec/gestpay-guaranteed-checkout.html). Possible values are: <ul><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Gestpay Guaranteed Checkout</li><li>`declined`: transaction not approved by  Gestpay Guaranteed Checkout</li><li>`captured`: For *Select&Submit* plan, `captured` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Gestpay Guaranteed Checkout.</li></ul>
