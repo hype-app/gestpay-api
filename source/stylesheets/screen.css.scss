@@ -109,7 +109,7 @@ html, body {
     }
   }
 
-  img+.tocify {
+  img+.tocify, .lang-selector+.tocify {
     margin-top: $logo-margin;
   }
 
@@ -636,7 +636,6 @@ html, body {
 .highlight, .highlight .w {
   background-color: $code-bg;
 }
-
 .nt {
  color: #3DB8DE !important;
 }
