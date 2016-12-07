@@ -69,6 +69,7 @@ The following features may be optionally assigned, upon appropriate configuratio
 | `tokenValue`      | String containing the token value, in case of `PayPalBillingAgreement` this token value is the Token returned back from PayPal during the Billing Agreements | string | 25 | 
 | `ClientIP`        | For PayPal Billing Agreements it is required only in the "one click" mode transaction. <br> For AMEX transaction not in Euro, in this field the merchant could provide the client IP address to activate the Enhanced Authorization AAV   | string | 45 |
 | `itemType`     | Item Category: `digital`/`physical` (If `physical` the `ShippingDetails` have to be filled) | string | 250 | 
+| `recurrent` | true if it's a recurrent payment, false if not. | boolean | 5 | 
 | `shippingDetails` | contains the shipping address. Used for [paypal seller protection](<%= config[:doc_url] %>/oth/paypal.html).
 | [`OrderDetails`](#orderdetails) | contains every other info needed to handle the payment. It is used by  Gestpay Guaranteed Checkout. 
 
@@ -117,7 +118,7 @@ The following features may be optionally assigned, upon appropriate configuratio
   <PaymentMethod>VISA VBV</PaymentMethod>
   <ProductType></ProductType>
   <CVVPresent>Y</CVVPresent>
-  <TOKEN></TOKEN>
+  <TOKEN>40L76FDIEFMH1112</TOKEN>
   <TokenExpiryMonth></TokenExpiryMonth>
   <TokenExpiryYear></TokenExpiryYear>
   <PayPalFee></PayPalFee>
@@ -146,7 +147,7 @@ The following features may be optionally assigned, upon appropriate configuratio
 | `Amount` | the amount of the transaction
 | `TransKey` | transaction ID value for 3D-Secure transactions 
 | `VBV` | Returns the values for 3D-Secure as follows: <br><ul><li>`VbVFlag`: 3D-secure flag (`OK` or `KO`)</li><li>`VbVBuyer`:returns the flag Full Verified by Visa transaction</li><li>`VbVRisp`: Returns the encrypted string obtained by 3D-Secure directory</li></ul> |
-| `MaskedPAN` | this field returns a token that should not be stored or used as a credit card token. With this parameter the merchant can know with wich card the payment has been processed (for example, for risk management)
+| `MaskedPAN` | this field returns a token (to not confuse with `TOKEN`) that should not be stored or used as a credit card token. With this parameter the merchant can assess some risk management analisys, for example he can check if the same `MaskedPAN` has already done some purchases or is involved in frauds.  
 | `PaymentMethod` | the credit card circuit / payment system used 
 | `ProductType` | can be `Credit`, `Debit`, or empty.
 | `CVVPresent` | `Y` if the CVV is present, `N` if not.
