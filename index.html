@@ -14,11 +14,11 @@
   background-color: #272822;
 }
 .highlight .err {
-  color: #151515;
-  background-color: #ac4142;
+  color: #272822;
+  background-color: #f92672;
 }
 .highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
-  color: #505050;
+  color: #75715e;
 }
 .highlight .cp {
   color: #f4bf75;
@@ -27,45 +27,45 @@
   color: #f4bf75;
 }
 .highlight .o, .highlight .ow {
-  color: #d0d0d0;
+  color: #f8f8f2;
 }
 .highlight .p, .highlight .pi {
-  color: #d0d0d0;
+  color: #f8f8f2;
 }
 .highlight .gi {
-  color: #90a959;
+  color: #a6e22e;
 }
 .highlight .gd {
-  color: #ac4142;
+  color: #f92672;
 }
 .highlight .gh {
-  color: #6a9fb5;
-  background-color: #151515;
+  color: #66d9ef;
+  background-color: #272822;
   font-weight: bold;
 }
 .highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #aa759f;
+  color: #ae81ff;
 }
 .highlight .kc {
-  color: #d28445;
+  color: #fd971f;
 }
 .highlight .kt {
-  color: #d28445;
+  color: #fd971f;
 }
 .highlight .kd {
-  color: #d28445;
+  color: #fd971f;
 }
 .highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #90a959;
+  color: #a6e22e;
 }
 .highlight .sr {
-  color: #75b5aa;
+  color: #a1efe4;
 }
 .highlight .si {
-  color: #8f5536;
+  color: #cc6633;
 }
 .highlight .se {
-  color: #8f5536;
+  color: #cc6633;
 }
 .highlight .nn {
   color: #f4bf75;
@@ -77,13 +77,13 @@
   color: #f4bf75;
 }
 .highlight .na {
-  color: #6a9fb5;
+  color: #66d9ef;
 }
 .highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
-  color: #90a959;
+  color: #a6e22e;
 }
 .highlight .ss {
-  color: #90a959;
+  color: #a6e22e;
 }
     </style>
     <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
@@ -110,13 +110,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
-        <div class="lang-selector">
-        </div>
+      <img src="images/logo.png" alt="Logo" />
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -140,7 +138,6 @@
                       | |           __/ |
                       |_|          |___/ 
 </code></pre>
-
 <p>Gestpay API documentation aims to be a comprehensive and living catalog of Gestpay services.</p>
 
 <p>Our API is SOAP-based, so you must encode your requests in XML to communicate with Gestpay.</p>
@@ -213,7 +210,6 @@
   <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-
 <blockquote>
 <p>Characters and strings that must not be used within the parameters encoded by GestPay and in customised information are: </p>
 </blockquote>
@@ -222,7 +218,6 @@
 /     [     ]     ?     =     -- 
 /*    %     //
 </code></pre>
-
 <p><code class="prettyprint">Encrypt</code> is the main entrypoint for Gestpay. You must call <code class="prettyprint">Encrypt</code> either if you want to use the standard payment page, or the custom iframe solution. </p>
 
 <p>These are the <strong>mandatory</strong> fields.</p>
@@ -272,7 +267,6 @@
   <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-
 <p>These are non-mandatory fields, but are direct children of the <code class="prettyprint">Encrypt</code> root.  </p>
 
 <table><thead>
@@ -322,7 +316,6 @@
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;customInfo&gt;</span>datum1=value1*P1*datum2=value2*P1* ... *P1*datumN=valueN<span class="nt">&lt;/customInfo&gt;</span>
 </code></pre>
-
 <blockquote>
 <p>Formally, it is a string containing couples of <strong><code class="prettyprint">&quot;key&quot;=&quot;value&quot;</code></strong> separated by the special string <strong><code class="prettyprint">*P1*</code></strong>. <br></p>
 </blockquote>
@@ -348,7 +341,6 @@
   <span class="nt">&lt;requestToken&gt;</span>MASKEDPAN<span class="nt">&lt;/requestToken&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-
 <p>You can request a token that will represent the credit card for your website. You can use it later to handle recurring payments, or to avoid your customer to insert again his credit card data. This behaviour is compliant with PCI. Read more <a href="https://hype-app.github.io/gestpay-doc/rec/handling-subscriptions.html">here</a>.</p>
 
 <table><thead>
@@ -385,7 +377,6 @@
   <span class="nt">&lt;/paymentTypes&gt;</span>
 <span class="nt">&lt;Encrypt&gt;</span>
 </code></pre>
-
 <blockquote>
 <p>If you only specify one payment type, Gestpay won&rsquo;t show the payment page but will redirect directly to the third party payment page: </p>
 </blockquote>
@@ -399,7 +390,6 @@
   <span class="nt">&lt;/paymentTypes&gt;</span>
 <span class="nt">&lt;Encrypt&gt;</span>
 </code></pre>
-
 <p>GestPay provides a way for merchants to dinamically define which payment methods must be displayed for each transaction.</p>
 
 <p>In order to do that, merchants must properly set the tag <code class="prettyprint">paymentType</code> that can be repeated as many times as needed, inside the tag <code class="prettyprint">paymentTypes</code> (with a final “s”).</p>
@@ -440,7 +430,6 @@
   <span class="nt">&lt;/GestPayCryptDecrypt&gt;</span>
 <span class="nt">&lt;/EncryptResult&gt;</span>
 </code></pre>
-
 <p><code class="prettyprint">Encrypt</code> web service returns back the following information in xml: </p>
 
 <table><thead>
@@ -487,7 +476,6 @@
   <span class="nt">&lt;CryptedString&gt;</span>HT987YU....<span class="nt">&lt;/CryptedString&gt;</span>
  <span class="nt">&lt;/Decrypt&gt;</span>
 </code></pre>
-
 <p>GestPay communicates the payment transaction result to the merchant through an encrypted string (parameter b of the call to the url preconfigured by the merchant) with a set of transaction&rsquo;s informations.</p>
 
 <p>To Decrypt the data it is necessary to use Decrypt method passing the following parameters, the tags&rsquo; names are case sensitive:</p>
@@ -530,7 +518,6 @@
   <span class="nt">&lt;/GestPayCryptDecrypt&gt;</span>
 <span class="nt">&lt;/DecryptResult&gt;</span>
 </code></pre>
-
 <p>Decrypt webservice returns back the following information in the xml.</p>
 
 <p>The minimum information returned back as transaction result is marked in bold. </p>
@@ -733,7 +720,6 @@
   <span class="nt">&lt;/paymentTypes&gt;</span>
 <span class="nt">&lt;Encrypt&gt;</span>
 </code></pre>
-
 <p>To enable Paypal, follow the same steps of the paragraph <a href="#paymentTypes"><code class="prettyprint">PaymentTypes</code> example</a>. Remeber to enable the fields in the backoffice. </p>
 
 <h3 id="show-product-info-at-paypal-39-s-buying-page">Show product info at paypal&rsquo;s buying page</h3>
@@ -767,7 +753,6 @@
   <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;Encrypt&gt;</span>
 </code></pre>
-
 <p>If you populate these fields accordingly, you can show your user the list of products: </p>
 
 <table><thead>
@@ -853,7 +838,6 @@
   <span class="nt">&lt;/shippingDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-
 <p>For more informations, checkout the <a href="https://hype-app.github.io/gestpay-doc/gs/how-gestpay-works.html">Seller Protection: Fields &amp; Parameters</a> page.</p>
 
 <p>If you want to activate the <strong>Paypal Seller Protection</strong> you must:</p>
@@ -941,7 +925,6 @@
   <span class="nt">&lt;/payPalBillingAgreementDescription&gt;</span>
 <span class="nt">&lt;Encrypt&gt;</span>
 </code></pre>
-
 <p>A Buyer will be able to subscribe a Billing Agreement on PayPal website so authorizing the Merchant to debit his/her PayPal account in future transactions.</p>
 
 <p>To use PayPal Reference Transaction it&rsquo;s necessary to fill the tag <code class="prettyprint">PayPalBillingAgreementDescription</code> that can be present or not (in case of a normal PayPal payment it will be left empty or not passed at all).</p>
@@ -986,7 +969,6 @@
   <span class="nt">&lt;/paymentTypeDetail&gt;</span> 
 <span class="nt">&lt;/Enrcypt&gt;</span>
 </code></pre>
-
 <blockquote>
 <p>IDeal example: </p>
 </blockquote>
@@ -1003,7 +985,6 @@
   <span class="nt">&lt;/paymentTypeDetail&gt;</span> 
 <span class="nt">&lt;/Enrcypt&gt;</span>
 </code></pre>
-
 <p>If you choose let your users pay with MyBank or IDeal, you have to compile other two fileds.</p>
 
 <p>More details can be found in at the <a href="https://hype-app.github.io/gestpay-doc/oth/mybank.html">MyBank and IDeal</a> page.</p>
@@ -1061,7 +1042,6 @@
   <span class="nt">&lt;/Consel_CustomerInfo&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-
 <p>Here more info about <a href="https://hype-app.github.io/gestpay-doc/oth/consel-rate-in-rete.html">Consel Rate in Rete</a>.</p>
 
 <table><thead>
@@ -1152,7 +1132,6 @@
     <span class="nt">&lt;/BillingAddress&gt;</span>
   <span class="nt">&lt;/OrderDetails&gt;</span>
 </code></pre>
-
 <p>Sofort does not need mandatory parameters, but if you send the following parameters, you will jump straight to the SOFORT payment page without authenticating. All these fields are children of <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a>.</p>
 
 <table><thead>
@@ -1228,7 +1207,6 @@
   <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-
 <p>Klarna requires only two parameters as mandatory, children of <code class="prettyprint">OrderDetails</code>: </p>
 
 <table><thead>
@@ -1395,7 +1373,6 @@ Please note:
   <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-
 <p>Qiwi does not need mandatory parameters, but if you send these few parameters you can have a frictionless call directly to the first screen of QIWI where authentication data are asked. These fields are children of <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a>:</p>
 
 <table><thead>
@@ -1439,7 +1416,6 @@ Please note:
   <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-
 <p>Yandex does not need mandatory parameters; but if you send <code class="prettyprint">CustomerDetail.PrimaryEmail</code> in the <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> tag you can have a frictionless call directly to the first screen of Yandex where authentication data are asked.</p>
 
 <table><thead>
@@ -1478,7 +1454,6 @@ Please note:
   <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-
 <p>Alipay does not need any mandatory parameters. Just specify the <code class="prettyprint">PaymentType</code> <code class="prettyprint">S2PALI</code> and the payment page will show to your user. </p>
 
 <p>If you specify the <code class="prettyprint">PrimaryEmail</code> in the <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> tag, you will redirect your user to Alipay payment page where some fields are already filled. </p>
@@ -1504,7 +1479,6 @@ Please note:
   <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-
 <p>Unipay does not need mandatory parameters. </p>
 
 <p>You must use <code class="prettyprint">S2PUNI</code> as <code class="prettyprint">paymentType</code>.</p>
@@ -1533,7 +1507,6 @@ Please note:
   <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-
 <p>TenPay does not need mandatory parameters. </p>
 
 <p>You must use <code class="prettyprint">S2PTEN</code> as <code class="prettyprint">paymentType</code>.</p>
@@ -1550,7 +1523,6 @@ Please note:
 <pre class="highlight html"><code> <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://ecomm.sella.it/pagam/JavaScript/js_GestPay.js"</span>
     <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre>
-
 <blockquote>
 <p>Once the script is imported, it will do some security checks. You can see this with the <code class="prettyprint">BrowserEnabled</code> variable: </p>
 </blockquote>
@@ -1562,7 +1534,6 @@ Please note:
     <span class="c1">//Place here error handle code</span>
 <span class="p">}</span>
 </code></pre>
-
 <p>js_Gestpay.js is a javascript that enable you to process payments on your website, leaving you with the ability to completely design your custom payment page. </p>
 
 <p>To use the following functionalities, you should first call <a href="#encrypt">`<code class="prettyprint">WSCryptDecrypt.Encrypt</code> webservice</a>. </p>
@@ -1577,7 +1548,6 @@ Please note:
     <span class="nx">EncryptedString</span><span class="p">,</span> <span class="c1">// "CFD3732BB102..." </span>
     <span class="nx">PaymentPageLoaded</span><span class="p">);</span> <span class="c1">// a callback to call on success</span>
 </code></pre>
-
 <blockquote>
 <p>Example: </p>
 </blockquote>
@@ -1593,7 +1563,6 @@ Please note:
         <span class="p">}</span> 
     <span class="p">});</span>
 </code></pre>
-
 <p>The first thing to do to accept payments securely is to call <code class="prettyprint">GestPay.CreatePaymentPage()</code>.</p>
 
 <p>The function will create an hidden iFrame into the body element and will load the payment page passing the merchant code and the generated encrypted string from the previous phase. </p>
@@ -1639,7 +1608,6 @@ Please note:
   <span class="p">},</span>
   <span class="nx">callBackObj</span><span class="p">);</span>
 </code></pre>
-
 <blockquote>
 <p>example:</p>
 </blockquote>
@@ -1662,7 +1630,6 @@ Please note:
     <span class="p">}</span>
 <span class="p">});</span>
 </code></pre>
-
 <p>To send the credit card data to the hidden iFrame, the checkout page will assign a function to the <code class="prettyprint">OnSubimt</code> event of the credit card form, this function will retrieve the credit card data and will call the <code class="prettyprint">GestPay.SendPayment</code> method providing an object with the credit card number (<code class="prettyprint">CC</code>), the expiration month (<code class="prettyprint">EXPMM</code>) and the expiration year (<code class="prettyprint">EXPYY</code>), the CVV (<code class="prettyprint">CVV2</code>) if enabled, and a CallBack object. </p>
 
 <p>The input is composed of two arguments: </p>
@@ -1737,7 +1704,6 @@ Please note:
   <span class="nx">callbackFunction</span>
 <span class="p">});</span>
 </code></pre>
-
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -1756,7 +1722,6 @@ Please note:
     <span class="p">}</span>
 <span class="p">});</span>
 </code></pre>
-
 <p>If during the first <code class="prettyprint">SendPayment</code> call <code class="prettyprint">Result.ErrorCode == 8006</code>, you should redirect the user to the <code class="prettyprint">pagam3d.aspx</code> page. You can read about the process at this link: <a href="https://hype-app.github.io/gestpay-doc/pay/customizing-the-payment-page.html">Customizing the payment page</a>. </p>
 
 <p>When card holder is verified and authorized, you have to re-call <code class="prettyprint">SendPayment()</code> with some new parameters: </p>
@@ -1778,7 +1743,6 @@ Please note:
 </blockquote>
 <pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">ping</span><span class="p">(</span><span class="nx">callBackObj</span><span class="p">);</span>
 </code></pre>
-
 <blockquote>
 <p>example:</p>
 </blockquote>
@@ -1792,7 +1756,6 @@ Please note:
     <span class="p">}</span>
 <span class="p">});</span>
 </code></pre>
-
 <p>The <code class="prettyprint">Ping</code> function checks that there is an active connection with Gestpay. </p>
 
 <p>Useful for troubleshooting connection errors. </p>
@@ -1804,7 +1767,6 @@ Please note:
 </blockquote>
 <pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">getLastAnswer</span><span class="p">(</span><span class="nx">callBackObj</span><span class="p">);</span>
 </code></pre>
-
 <blockquote>
 <p>example:</p>
 </blockquote>
@@ -1812,7 +1774,6 @@ Please note:
   <span class="c1">// asks Gestpay to re-send the last Result object. </span>
   <span class="p">});</span>
 </code></pre>
-
 <p><code class="prettyprint">getLastAnswer</code> asks Gestpay to send back the last received Result object.   </p>
 
           <h2 id="checkcc">checkCC</h2>
@@ -1822,7 +1783,6 @@ Please note:
 </blockquote>
 <pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">checkCC</span><span class="p">(</span><span class="nx">CCNum</span><span class="p">,</span> <span class="nx">callBackObj</span><span class="p">);</span>
 </code></pre>
-
 <blockquote>
 <p>example:</p>
 </blockquote>
@@ -1836,7 +1796,6 @@ Please note:
   <span class="p">}</span>
 <span class="p">});</span>
 </code></pre>
-
 <p><code class="prettyprint">checkCC</code> checks the formal correctness of the credit card number. </p>
 
           <h2 id="checkcvv">checkCVV</h2>
@@ -1846,7 +1805,6 @@ Please note:
 </blockquote>
 <pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">checkCVV</span><span class="p">(</span><span class="nx">CVVNum</span><span class="p">,</span> <span class="nx">callBackObj</span><span class="p">);</span>
 </code></pre>
-
 <blockquote>
 <p>example:</p>
 </blockquote>
@@ -1862,7 +1820,6 @@ Please note:
   <span class="p">}</span>
 <span class="p">});</span>
 </code></pre>
-
 <p><code class="prettyprint">checkCVV</code> checks the formal correctness of the value sent as CVV. </p>
 
           <h2 id="checkexpmm">checkEXPMM</h2>
@@ -1872,7 +1829,6 @@ Please note:
 </blockquote>
 <pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">checkEXPMM</span><span class="p">(</span><span class="nx">EXPMMVal</span><span class="p">,</span> <span class="nx">callBackObj</span><span class="p">);</span>
 </code></pre>
-
 <blockquote>
 <p>example:</p>
 </blockquote>
@@ -1888,7 +1844,6 @@ Please note:
   <span class="p">}</span>
 <span class="p">});</span>
 </code></pre>
-
 <p><code class="prettyprint">checkEXPMM</code> checks the formal correctness of the value sent as <code class="prettyprint">EXPMMVal</code>. It represents the <strong>expiring month</strong> so it should be a value between <code class="prettyprint">0</code> and <code class="prettyprint">12</code>. </p>
 
           <h2 id="checkexpyy">checkEXPYY</h2>
@@ -1898,7 +1853,6 @@ Please note:
 </blockquote>
 <pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">checkEXPYY</span><span class="p">(</span><span class="nx">EXPYYVal</span><span class="p">,</span> <span class="nx">callBackObj</span><span class="p">);</span>
 </code></pre>
-
 <blockquote>
 <p>example:</p>
 </blockquote>
@@ -1914,7 +1868,6 @@ Please note:
   <span class="p">}</span>
 <span class="p">});</span>
 </code></pre>
-
 <p><code class="prettyprint">checkEXPYY</code> checks the formal correctness of the value sent as <code class="prettyprint">EXPYYVal</code>. It represents the <strong>expiring year</strong> so it should be a value between <code class="prettyprint">0</code> and <code class="prettyprint">99</code>. </p>
 
           <h2 id="checkexpdate">checkEXPDATE</h2>
@@ -1924,7 +1877,6 @@ Please note:
 </blockquote>
 <pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">checkEXPDATE</span><span class="p">(</span><span class="nx">EXPMMVal</span><span class="p">,</span> <span class="nx">EXPYYVal</span><span class="p">,</span> <span class="nx">callBackObj</span><span class="p">);</span>
 </code></pre>
-
 <blockquote>
 <p>example:</p>
 </blockquote>
@@ -1941,7 +1893,6 @@ Please note:
   <span class="p">}</span>
 <span class="p">});</span>
 </code></pre>
-
 <p><code class="prettyprint">checkEXPDATE</code> checks the formal correctness of the <strong>expiry date</strong>, sent as two variables for month and year. </p>
 
           <h2 id="checkemail">checkEMAIL</h2>
@@ -1951,7 +1902,6 @@ Please note:
 </blockquote>
 <pre class="highlight javascript"><code><span class="nx">GestPay</span><span class="p">.</span><span class="nx">checkEMAIL</span><span class="p">(</span><span class="nx">EmailVal</span><span class="p">,</span> <span class="nx">callBackObj</span><span class="p">);</span>
 </code></pre>
-
 <blockquote>
 <p>example:</p>
 </blockquote>
@@ -1965,7 +1915,6 @@ Please note:
   <span class="p">}</span>
 <span class="p">});</span>
 </code></pre>
-
 <p><code class="prettyprint">checkEMAIL</code> checks the formal correctness of the <strong>email address</strong>.</p>
 
           <h2 id="the-result-object"> the Result Object</h2>
@@ -1983,7 +1932,6 @@ Please note:
     <span class="p">}</span> 
 <span class="p">}</span>
 </code></pre>
-
 <blockquote>
 <p>Example: Merchant 3D enabled and 3D enrolled credit card</p>
 </blockquote>
@@ -2009,7 +1957,6 @@ Please note:
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-
 <p>When callbacks are executed, the <code class="prettyprint">Result</code> object will contain useful properties, needed to understand if an error has occurred.</p>
 
 <table><thead>
@@ -2080,9 +2027,12 @@ Please note:
     <span class="nt">&lt;buyerEmail&gt;</span>johnny.kennedy@usa.com<span class="nt">&lt;/buyerEmail&gt;</span>
     <span class="nt">&lt;languageId&gt;</span>2<span class="nt">&lt;/languageId&gt;</span><span class="c">&lt;!-- english --&gt;</span>
     <span class="nt">&lt;cvv&gt;</span>987<span class="nt">&lt;/cvv&gt;</span>
+    <span class="nt">&lt;PARes</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;transKey</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;customInfo&gt;&lt;/customInfo&gt;</span>
     <span class="nt">&lt;requestToken&gt;</span>MASKEDSPAN<span class="nt">&lt;/requestToken&gt;</span>
     <span class="nt">&lt;itemType&gt;</span>physical<span class="nt">&lt;/itemType&gt;</span>
+    <span class="nt">&lt;recurrent&gt;</span>false<span class="nt">&lt;/recurrent&gt;</span>
     <span class="nt">&lt;shippingDetails&gt;</span>
         <span class="nt">&lt;shipToName&gt;</span>Jonny Kennedy<span class="nt">&lt;/shipToName&gt;</span>
         <span class="nt">&lt;shipToStreet&gt;</span>83 Beals street<span class="nt">&lt;/shipToStreet&gt;</span>
@@ -2097,7 +2047,6 @@ Please note:
     <span class="nt">&lt;OrderDetails&gt;</span>
 <span class="nt">&lt;/callPagamS2S&gt;</span>
 </code></pre>
-
 <p>First we describe the mandatory attributes. </p>
 
 <table><thead>
@@ -2194,7 +2143,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">PARes</code>        </td>
-<td>encrypted string returned by Issuer  (for 3D-Secure   transactions only. See <a href="http://docs.gestpay.it/adv/3dsecure-transactions.html">3D-secure transactions</a> for more details.) </td>
+<td>encrypted string returned by Issuer (for 3D-Secure   transactions only. See <a href="http://docs.gestpay.it/adv/3dsecure-transactions.html">3D-secure transactions</a> for more details.) </td>
 <td>string</td>
 <td>4096</td>
 </tr>
@@ -2227,6 +2176,12 @@ Please note:
 <td>Item Category: <code class="prettyprint">digital</code>/<code class="prettyprint">physical</code> (If <code class="prettyprint">physical</code> the <code class="prettyprint">ShippingDetails</code> have to be filled)</td>
 <td>string</td>
 <td>250</td>
+</tr>
+<tr>
+<td><code class="prettyprint">recurrent</code></td>
+<td>true if it&rsquo;s a recurrent payment, false if not.</td>
+<td>boolean</td>
+<td>5</td>
 </tr>
 <tr>
 <td><code class="prettyprint">shippingDetails</code></td>
@@ -2326,16 +2281,14 @@ Please note:
   <span class="nt">&lt;PaymentMethod&gt;</span>VISA VBV<span class="nt">&lt;/PaymentMethod&gt;</span>
   <span class="nt">&lt;ProductType&gt;&lt;/ProductType&gt;</span>
   <span class="nt">&lt;CVVPresent&gt;</span>Y<span class="nt">&lt;/CVVPresent&gt;</span>
-  <span class="nt">&lt;TOKEN&gt;&lt;/TOKEN&gt;</span>
+  <span class="nt">&lt;TOKEN&gt;</span>40L76FDIEFMH1112<span class="nt">&lt;/TOKEN&gt;</span>
   <span class="nt">&lt;TokenExpiryMonth&gt;&lt;/TokenExpiryMonth&gt;</span>
   <span class="nt">&lt;TokenExpiryYear&gt;&lt;/TokenExpiryYear&gt;</span>
-  <span class="nt">&lt;CardBIN&gt;</span>401200<span class="nt">&lt;/CardBIN&gt;</span>
   <span class="nt">&lt;PayPalFee&gt;&lt;/PayPalFee&gt;</span>
   <span class="nt">&lt;RiskResponseCode&gt;</span>approved<span class="nt">&lt;/RiskResponseCode&gt;</span>
   <span class="nt">&lt;RiskResponseDescription&gt;</span>the transaction is approved<span class="nt">&lt;/RiskResponseDescription&gt;</span>
 <span class="nt">&lt;/GestPayS2S&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>Name</th>
@@ -2408,7 +2361,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">MaskedPAN</code></td>
-<td>contains a token that represents the credit card number. See <a href="http://docs.gestpay.it/rec/handling-subscriptions.html">Handling Subscriptions</a> in the docs.</td>
+<td>this field returns a token (to not confuse with <code class="prettyprint">TOKEN</code>) that should not be stored or used as a credit card token. With this parameter the merchant can assess some risk management analisys, for example he can check if the same <code class="prettyprint">MaskedPAN</code> has already done some purchases or is involved in frauds.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">PaymentMethod</code></td>
@@ -2424,19 +2377,15 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">TOKEN</code> </td>
-<td></td>
+<td>contains a token that represents the credit card number. See <a href="http://docs.gestpay.it/rec/handling-subscriptions.html">Handling Subscriptions</a> in the docs.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">TokenExpiryMonth</code> </td>
-<td></td>
+<td>the token exiration month</td>
 </tr>
 <tr>
 <td><code class="prettyprint">TokenExpiryYear</code> </td>
-<td></td>
-</tr>
-<tr>
-<td><code class="prettyprint">CardBIN</code> </td>
-<td>contains the first 6 digits of the credit card.</td>
+<td>the token expiration year</td>
 </tr>
 <tr>
 <td><code class="prettyprint">PayPalFee</code></td>
@@ -2510,7 +2459,6 @@ Please note:
   <span class="nt">&lt;/FullFillment&gt;</span>
 <span class="nt">&lt;/callSettleS2S&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -2695,7 +2643,6 @@ Please note:
   <span class="nt">&lt;/callSettleS2SResult&gt;</span>
 <span class="nt">&lt;/callSettleS2SResponse&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -2746,7 +2693,6 @@ Please note:
   <span class="nt">&lt;CancelReason&gt;</span>potential fraud<span class="nt">&lt;/CancelReason&gt;</span>
 <span class="nt">&lt;/callDeleteS2S&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -2799,7 +2745,6 @@ Please note:
   <span class="nt">&lt;/callSettleS2SResult&gt;</span>
 <span class="nt">&lt;/callSettleS2SResponse&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -2851,7 +2796,6 @@ Please note:
   <span class="nt">&lt;chargeBackFraud&gt;</span>N<span class="nt">&lt;/chargeBackFraud&gt;</span>
 <span class="nt">&lt;/callRefundS2S&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -2922,7 +2866,6 @@ Please note:
   <span class="nt">&lt;/callRefundS2SResult&gt;</span>
 <span class="nt">&lt;/callRefundS2SResponse&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -2972,7 +2915,6 @@ Please note:
   <span class="nt">&lt;bankTransactionId&gt;</span>334488931<span class="nt">&lt;/bankTransactionId&gt;</span>
 <span class="nt">&lt;/callReadTrxS2S&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3045,7 +2987,6 @@ Please note:
   <span class="nt">&lt;/GestPayS2S&gt;</span>
 <span class="nt">&lt;/callReadTrxS2SResult&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3166,7 +3107,6 @@ Please note:
   <span class="nt">&lt;CVV2&gt;</span>931<span class="nt">&lt;/CVV2&gt;</span>
 <span class="nt">&lt;/callVerifycardS2S&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3229,7 +3169,6 @@ Please note:
   <span class="nt">&lt;/GestPayS2S&gt;</span>
 <span class="nt">&lt;/callVerifycardS2SResult&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>name</th>
@@ -3283,7 +3222,6 @@ Please note:
   <span class="nt">&lt;withAuth&gt;</span>Y<span class="nt">&lt;/withAuth&gt;</span>
 <span class="nt">&lt;/callCheckCartaS2S&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3371,7 +3309,6 @@ Please note:
   <span class="nt">&lt;/GestPayS2S&gt;</span>
 <span class="nt">&lt;/callCheckCartaS2SResult&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>name</th>
@@ -3495,7 +3432,6 @@ Please note:
   <span class="nt">&lt;withAuth&gt;</span>Y<span class="nt">&lt;/withAuth&gt;</span>
 <span class="nt">&lt;/callCheckCartaS2S&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3587,7 +3523,6 @@ Please note:
   <span class="nt">&lt;/GestPayS2S&gt;</span>
 <span class="nt">&lt;/CallRequestTokenS2SResult&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>name</th>
@@ -3718,7 +3653,6 @@ Please note:
   <span class="nt">&lt;tokenValue&gt;</span>1234WJFXABCD5678<span class="nt">&lt;/tokenValue&gt;</span>
 <span class="nt">&lt;/callDeleteTokenS2S&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3755,7 +3689,6 @@ Please note:
   <span class="nt">&lt;/GestPayS2S&gt;</span>
 <span class="nt">&lt;/callDeleteTokenS2SResult&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3799,7 +3732,6 @@ Please note:
   <span class="nt">&lt;withAut&gt;</span>Y<span class="nt">&lt;/withAut&gt;</span>
 <span class="nt">&lt;/callUpdateTokenS2S&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3854,7 +3786,6 @@ Please note:
   <span class="nt">&lt;/GestPayS2S&gt;</span>
 <span class="nt">&lt;/callUpdateTokenS2SResult&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3892,7 +3823,6 @@ Please note:
   <span class="nt">&lt;shopLogin&gt;</span>900000001<span class="nt">&lt;/shopLogin&gt;</span>
 <span class="nt">&lt;/CallIdealListS2S&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3932,7 +3862,6 @@ Please note:
     <span class="nt">&lt;/GestPayS2S&gt;</span>
 <span class="nt">&lt;/CallIdealListS2SResult&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3979,7 +3908,6 @@ Please note:
   <span class="nt">&lt;langugeId&gt;</span>1<span class="nt">&lt;/languageId&gt;</span>
 <span class="nt">&lt;/CallMyBankListS2S&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -4025,7 +3953,6 @@ Please note:
     <span class="nt">&lt;/GestPayS2S&gt;</span>
 <span class="nt">&lt;/CallMyBankListS2SResult&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -4078,7 +4005,6 @@ Please note:
   <span class="nt">&lt;OrderDetails&gt;</span>
 <span class="nt">&lt;/CallUpdateOrderS2S&gt;</span>
 </code></pre>
-
 <p>The attributes are: </p>
 
 <table><thead>
@@ -4127,7 +4053,6 @@ Please note:
   <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
 <span class="nt">&lt;/GestPayS2S&gt;</span>
 </code></pre>
-
 <table><thead>
 <tr>
 <th>Name</th>
@@ -4304,7 +4229,6 @@ Gestpay Guaranteed Checkout is reserved to users that have signed an agreement w
   <span class="nt">&lt;/ShippingLines&gt;</span>
 <span class="nt">&lt;/OrderDetails&gt;</span>
 </code></pre>
-
 <p><code class="prettyprint">OrderDetails</code> tag contains all the info that can be sent together with a transaction. The more data you sent, the better is for Gestpay to analyze your request. </p>
 
 <p>Many external systems, like the one presented in the next sections, use <code class="prettyprint">OrderDetails</code> fields to work. <a href="#gestpay-guaranteed-checkout">Gestpay Guaranteed Checkout</a> (an antifraud system) massively uses <code class="prettyprint">OrderDetails</code> to get the job done. </p>
@@ -8708,8 +8632,6 @@ Gestpay Guaranteed Checkout is reserved to users that have signed an agreement w
 
       </div>
       <div class="dark-box">
-          <div class="lang-selector">
-          </div>
       </div>
     </div>
 
