@@ -2020,9 +2020,13 @@ Please note:
     <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- euro --&gt;</span>
     <span class="nt">&lt;amount&gt;</span>24.21<span class="nt">&lt;/amount&gt;</span>
     <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-0001<span class="nt">&lt;/shopTransactionId&gt;</span>
+    <span class="c">&lt;!-- here we have choosen to pay with credit card data --&gt;</span>
     <span class="nt">&lt;cardNumber&gt;</span>1234567812345678<span class="nt">&lt;/cardNumber&gt;</span>
     <span class="nt">&lt;expiryMonth&gt;</span>06<span class="nt">&lt;/expiryMonth&gt;</span>
     <span class="nt">&lt;expiryYear&gt;</span>21<span class="nt">&lt;/expiryYear&gt;</span>
+    <span class="c">&lt;!-- if we wanted to pay by token: 
+    &lt;tokenValue&gt;ABCD12345678EFGD&lt;/tokenValue&gt;
+    --&gt;</span>
     <span class="nt">&lt;buyerName&gt;</span>John Fitzgerald Kennedy<span class="nt">&lt;/buyerName&gt;</span>
     <span class="nt">&lt;buyerEmail&gt;</span>johnny.kennedy@usa.com<span class="nt">&lt;/buyerEmail&gt;</span>
     <span class="nt">&lt;languageId&gt;</span>2<span class="nt">&lt;/languageId&gt;</span><span class="c">&lt;!-- english --&gt;</span>
@@ -2030,7 +2034,7 @@ Please note:
     <span class="nt">&lt;PARes</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;transKey</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;customInfo&gt;&lt;/customInfo&gt;</span>
-    <span class="nt">&lt;requestToken&gt;</span>MASKEDSPAN<span class="nt">&lt;/requestToken&gt;</span>
+    <span class="nt">&lt;requestToken&gt;</span>MASKEDPAN<span class="nt">&lt;/requestToken&gt;</span>
     <span class="nt">&lt;itemType&gt;</span>physical<span class="nt">&lt;/itemType&gt;</span>
     <span class="nt">&lt;recurrent&gt;</span>false<span class="nt">&lt;/recurrent&gt;</span>
     <span class="nt">&lt;shippingDetails&gt;</span>
@@ -2081,6 +2085,18 @@ Please note:
 <td>string</td>
 <td>30</td>
 </tr>
+</tbody></table>
+
+<p>Depending on the payment method, you can choose to send <strong>Credit Card</strong> data: </p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>max length</th>
+</tr>
+</thead><tbody>
 <tr>
 <td><strong><code class="prettyprint">cardNumber</code></strong></td>
 <td>card account number</td>
@@ -2100,6 +2116,26 @@ Please note:
 <td>2</td>
 </tr>
 </tbody></table>
+
+<p>Or a <strong>token</strong>: </p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Data Type</th>
+<th>max length</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><code class="prettyprint">tokenValue</code></strong></td>
+<td>String containing the <code class="prettyprint">token</code> value returned by Gestpay. <br/> In case of <code class="prettyprint">PayPalBillingAgreement</code> this token value is the token returned by PayPal during the Billing Agreements.</td>
+<td>string</td>
+<td>25</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">You must use exactly one among <strong>Credit Card data</strong> and <strong>Token value</strong>.</aside>
 
 <p>The following features may be optionally assigned, upon appropriate configuration in <strong>Client configuration -&gt; Fields &amp; Parameters</strong> section:   </p>
 
@@ -2156,12 +2192,6 @@ Please note:
 <tr>
 <td><code class="prettyprint">requestToken</code></td>
 <td><code class="prettyprint">MASKEDPAN</code> for a Standard Token any other value for Custom  Token</td>
-<td>string</td>
-<td>25</td>
-</tr>
-<tr>
-<td><code class="prettyprint">tokenValue</code></td>
-<td>String containing the token value, in case of <code class="prettyprint">PayPalBillingAgreement</code> this token value is the Token returned back from PayPal during the Billing Agreements</td>
 <td>string</td>
 <td>25</td>
 </tr>
