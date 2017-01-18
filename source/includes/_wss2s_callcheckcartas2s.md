@@ -12,25 +12,41 @@ It's possible to check with or without verifying the Authorization, setting the 
 <callCheckCartaS2S>
   <shopLogin>GEST13578</shopLogin>
   <shopTransactionId>MY-SHOP1234</shopTransactionId>
+  <!-- check a card --> 
   <cardNumber>1234567812345678</cardNumber>
   <expMonth>12</expMonth>
   <expYear>21</expYear>
   <CVV2>931</CVV2>
-  <withAuth>Y</withAuth>
+  <!-- alternatively, you can check a token: 
+    <tokenValue>ABCD12345678EFGD</tokenValue>
+    -->
+    <withAuth>Y</withAuth>
 </callCheckCartaS2S>
 ```
-
 
 | parameter name | description | type | length | 
 | -------------- | ----------- | -----|--------| 
 | `shopLogin` | the merchant's code | string | 30 |
 | `shopTransactionId` | shop transaction ID value | string | 50  
+| `withAuth` | tries to authorize the card. <br> `Y` on `N` | string | 1  
+
+If you want to check a credit card by credit card number, month and year of expiration, use these fields: 
+
+| parameter name | description | type | length | 
+| -------------- | ----------- | -----|--------| 
 | `cardNumber` | credit card number | string | 20 | 
 | `expMonth` | card expiration month | string | 2
 | `expYear` | card expiration year | string | 2 
 | `CVV2` | security code of the card | string | 4
-| `withAuth` | tries to authorize the card. <br> `Y` on `N` | string | 1
- 
+
+Alternatively, you can use  `tokenValue` to check if a token is still valid: 
+
+| parameter name | description | type | length | 
+| -------------- | ----------- | -----|--------|
+| **`tokenValue`**   | String containing the `token` value returned by Gestpay. <br/> In case of `PayPalBillingAgreement` this token value is the token returned by PayPal during the Billing Agreements. | string | 25 | 
+
+<aside class="notice">You must use exactly one among <strong>Credit Card data</strong> and <strong>Token value</strong>.</aside>
+
 ### Response details
 
 > Response example: 
