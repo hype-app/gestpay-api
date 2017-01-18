@@ -3245,11 +3245,15 @@ Please note:
 <pre class="highlight xml"><code><span class="nt">&lt;callCheckCartaS2S&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>GEST13578<span class="nt">&lt;/shopLogin&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>MY-SHOP1234<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="c">&lt;!-- check a card --&gt;</span> 
   <span class="nt">&lt;cardNumber&gt;</span>1234567812345678<span class="nt">&lt;/cardNumber&gt;</span>
   <span class="nt">&lt;expMonth&gt;</span>12<span class="nt">&lt;/expMonth&gt;</span>
   <span class="nt">&lt;expYear&gt;</span>21<span class="nt">&lt;/expYear&gt;</span>
   <span class="nt">&lt;CVV2&gt;</span>931<span class="nt">&lt;/CVV2&gt;</span>
-  <span class="nt">&lt;withAuth&gt;</span>Y<span class="nt">&lt;/withAuth&gt;</span>
+  <span class="c">&lt;!-- alternatively, you can check a token: 
+    &lt;tokenValue&gt;ABCD12345678EFGD&lt;/tokenValue&gt;
+    --&gt;</span>
+    <span class="nt">&lt;withAuth&gt;</span>Y<span class="nt">&lt;/withAuth&gt;</span>
 <span class="nt">&lt;/callCheckCartaS2S&gt;</span>
 </code></pre>
 <table><thead>
@@ -3272,6 +3276,24 @@ Please note:
 <td>string</td>
 <td>50</td>
 </tr>
+<tr>
+<td><code class="prettyprint">withAuth</code></td>
+<td>tries to authorize the card. <br> <code class="prettyprint">Y</code> on <code class="prettyprint">N</code></td>
+<td>string</td>
+<td>1</td>
+</tr>
+</tbody></table>
+
+<p>If you want to check a credit card by credit card number, month and year of expiration, use these fields: </p>
+
+<table><thead>
+<tr>
+<th>parameter name</th>
+<th>description</th>
+<th>type</th>
+<th>length</th>
+</tr>
+</thead><tbody>
 <tr>
 <td><code class="prettyprint">cardNumber</code></td>
 <td>credit card number</td>
@@ -3296,13 +3318,27 @@ Please note:
 <td>string</td>
 <td>4</td>
 </tr>
+</tbody></table>
+
+<p>Alternatively, you can use  <code class="prettyprint">tokenValue</code> to check if a token is still valid: </p>
+
+<table><thead>
 <tr>
-<td><code class="prettyprint">withAuth</code></td>
-<td>tries to authorize the card. <br> <code class="prettyprint">Y</code> on <code class="prettyprint">N</code></td>
+<th>parameter name</th>
+<th>description</th>
+<th>type</th>
+<th>length</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><code class="prettyprint">tokenValue</code></strong></td>
+<td>String containing the <code class="prettyprint">token</code> value returned by Gestpay. <br/> In case of <code class="prettyprint">PayPalBillingAgreement</code> this token value is the token returned by PayPal during the Billing Agreements.</td>
 <td>string</td>
-<td>1</td>
+<td>25</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">You must use exactly one among <strong>Credit Card data</strong> and <strong>Token value</strong>.</aside>
 
 <h3 id="response-details">Response details</h3>
 
