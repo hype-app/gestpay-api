@@ -1,0 +1,22 @@
+
+## Encrypt Example: TIMpersonal 
+
+> TIMpersonal example: 
+
+```xml
+<Encrypt>
+  <shopLogin>90000001</shopLogin>
+  <uicCode>242</uicCode><!--Hong Kong dollar-->
+  <amount>0.10</amount>
+  <shopTransactionId>SP_S2P_TIMpersonal_001</shopTransactionId>
+  <paymentTypes>
+    <paymentType>TIMPERSONAL</paymentType>
+  </paymentTypes>
+</Encrypt>
+``` 
+
+TIMpersonal does not need mandatory parameters. 
+
+You must use `TIMPERSONAL` as `paymentType`.
+
+More information about TIMpersonal are [in the doc]( <%= config[:doc_url] %>/oth/tim-personal.html). 
