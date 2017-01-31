@@ -37,7 +37,7 @@
 
 If you choose let your users pay with MyBank or IDeal, you have to compile other two fileds.
 
-More details can be found in at the [MyBank and IDeal](https://hype-app.github.io/gestpay-doc/oth/mybank.html) page.
+More details can be found in at the [MyBank and IDeal](https://hype-app.github.io/gestpay-doc/oth/mybank_and_ideal.html) page.
 
  
 | Name | max length | description |
