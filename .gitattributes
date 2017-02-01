@@ -1,1 +1,3 @@
 deploy.sh merge=ours
+CNAME merge=ours
+robots.txt merge=ours
