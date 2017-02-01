@@ -1536,6 +1536,27 @@ Please note:
 
 <p>More information about TIMpersonal are <a href="http://docs.gestpay.it/oth/tim-personal.html">in the doc</a>. </p>
 
+          <h2 id="encrypt-example-bitcoin">Encrypt Example: Bitcoin</h2>
+
+<blockquote>
+<p>Bitcoin example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PBIT<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>Bitcoin does not need mandatory parameters. </p>
+
+<p>You must use <code class="prettyprint">S2PBIT</code> as <code class="prettyprint">paymentType</code>.</p>
+
+<p>More information about Bitcoin are <a href="http://docs.gestpay.it/oth/bitcoin.html">in the doc</a>. </p>
+
           <h1 id="js_gestpay-js-api">js_GestPay.js API</h1>
 
 <blockquote>
