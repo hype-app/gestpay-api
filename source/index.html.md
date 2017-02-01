@@ -26,6 +26,7 @@ includes:
   - wscryptdecrypt_encrypt_tenpay
   - wscryptdecrypt_encrypt_timpersonal
   - wscryptdecrypt_encrypt_bitcoin
+  - wscryptdecrypt_encrypt_webmoney
   - js_gestpay
   - js_gestpay_createpaymentpage
   - js_gestpay_sendpayment
