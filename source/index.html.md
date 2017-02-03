@@ -28,6 +28,7 @@ includes:
   - wscryptdecrypt_encrypt_bitcoin
   - wscryptdecrypt_encrypt_webmoney
   - wscryptdecrypt_encrypt_mercadopago
+  - wscryptdecrypt_encrypt_paysafecard
   - js_gestpay
   - js_gestpay_createpaymentpage
   - js_gestpay_sendpayment
