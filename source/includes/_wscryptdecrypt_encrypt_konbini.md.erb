@@ -1,0 +1,22 @@
+
+## Encrypt Example: Konbini
+
+> Konbini example: 
+
+```xml
+<Encrypt>
+  <shopLogin>90000001</shopLogin>
+  <uicCode>242</uicCode><!-- Euro -->
+  <amount>0.10</amount>
+  <shopTransactionId>MYSHOP_001</shopTransactionId>
+  <paymentTypes>
+    <paymentType>S2PKON</paymentType>
+  </paymentTypes>
+</Encrypt>
+```
+
+Konbini does not need mandatory parameters. 
+
+You must use `S2PKON` as `paymentType`.
+
+More informations about Konbini are [in the doc]( <%= config[:doc_url] %>/oth/konbini.html). 

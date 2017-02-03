@@ -29,6 +29,7 @@ includes:
   - wscryptdecrypt_encrypt_webmoney
   - wscryptdecrypt_encrypt_mercadopago
   - wscryptdecrypt_encrypt_paysafecard
+  - wscryptdecrypt_encrypt_konbini
   - js_gestpay
   - js_gestpay_createpaymentpage
   - js_gestpay_sendpayment
