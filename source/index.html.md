@@ -27,6 +27,7 @@ includes:
   - wscryptdecrypt_encrypt_timpersonal
   - wscryptdecrypt_encrypt_bitcoin
   - wscryptdecrypt_encrypt_webmoney
+  - wscryptdecrypt_encrypt_mercadopago
   - js_gestpay
   - js_gestpay_createpaymentpage
   - js_gestpay_sendpayment
