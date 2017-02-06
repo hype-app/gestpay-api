@@ -31,6 +31,7 @@ includes:
   - wscryptdecrypt_encrypt_paysafecard
   - wscryptdecrypt_encrypt_konbini
   - wscryptdecrypt_encrypt_multibanco
+  - wscryptdecrypt_encrypt_giropay
   - js_gestpay
   - js_gestpay_createpaymentpage
   - js_gestpay_sendpayment
