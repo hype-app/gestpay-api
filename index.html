@@ -1683,6 +1683,27 @@ Please note:
 
 <p>More informations about Giropay are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/giropay.html">in the doc</a>. </p>
 
+          <h2 id="encrypt-example-eps">Encrypt Example: EPS</h2>
+
+<blockquote>
+<p>EPS example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PEPS<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>EPS does not need mandatory parameters. </p>
+
+<p>You must use <code class="prettyprint">S2PEPS</code> as <code class="prettyprint">paymentType</code>.</p>
+
+<p>More informations about EPS are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/eps.html">in the doc</a>. </p>
+
           <h1 id="js_gestpay-js-api">js_GestPay.js API</h1>
 
 <blockquote>
