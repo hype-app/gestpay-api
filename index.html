@@ -1549,9 +1549,16 @@ Please note:
   <span class="nt">&lt;paymentTypes&gt;</span>
     <span class="nt">&lt;paymentType&gt;</span>S2PBIT<span class="nt">&lt;/paymentType&gt;</span>
   <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="c">&lt;!-- optional --&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;CustomerDetails&gt;</span>
+      <span class="nt">&lt;PrimaryEmail&gt;</span>satoshi.nakamoto@bitcoin.com<span class="nt">&lt;/PrimaryEmail&gt;</span>
+      <span class="nt">&lt;LastName&gt;</span>Nakamoto<span class="nt">&lt;/LastName&gt;</span>
+    <span class="nt">&lt;/CustomerDetails&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-<p>Bitcoin does not need mandatory parameters. </p>
+<p>Bitcoin does not need mandatory parameters, however if you send the <code class="prettyprint">LastName</code> and the <code class="prettyprint">PrimaryEmail</code> address the buyer will be redirected to the payment page without filling additional fields. </p>
 
 <p>You must use <code class="prettyprint">S2PBIT</code> as <code class="prettyprint">paymentType</code>.</p>
 
