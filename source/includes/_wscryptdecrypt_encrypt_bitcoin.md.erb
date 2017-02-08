@@ -12,10 +12,17 @@
   <paymentTypes>
     <paymentType>S2PBIT</paymentType>
   </paymentTypes>
+  <!-- optional -->
+  <OrderDetails>
+    <CustomerDetails>
+      <PrimaryEmail>satoshi.nakamoto@bitcoin.com</PrimaryEmail>
+      <LastName>Nakamoto</LastName>
+    </CustomerDetails>
+  </OrderDetails>
 </Encrypt>
 ``` 
 
-Bitcoin does not need mandatory parameters. 
+Bitcoin does not need mandatory parameters, however if you send the `LastName` and the `PrimaryEmail` address the buyer will be redirected to the payment page without filling additional fields. 
 
 You must use `S2PBIT` as `paymentType`.
 
