@@ -1633,11 +1633,19 @@ Please note:
   <span class="nt">&lt;paymentTypes&gt;</span>
     <span class="nt">&lt;paymentType&gt;</span>S2PKON<span class="nt">&lt;/paymentType&gt;</span>
   <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="c">&lt;!--optional, to skip authentication --&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;CustomerDetail&gt;</span>
+      <span class="nt">&lt;PrimaryEmail&gt;</span>yamauchi.fusajiro@nintendo.jp<span class="nt">&lt;/PrimaryEmail&gt;</span>
+    <span class="nt">&lt;/CustomerDetail&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
 <p>Konbini does not need mandatory parameters. </p>
 
 <p>You must use <code class="prettyprint">S2PKON</code> as <code class="prettyprint">paymentType</code>.</p>
+
+<p>If you pass the <code class="prettyprint">PrimaryEmail</code> tag, the customer will be redirected directly to the payment page. </p>
 
 <p>More informations about Konbini are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/konbini.html">in the doc</a>. </p>
 
