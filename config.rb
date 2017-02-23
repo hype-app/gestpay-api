@@ -49,7 +49,7 @@ set :port, 4567
 set :doc_url, "http://hype-app.github.io/gestpay-doc-beta"  
 
 #<%= config[:riskified] %>
-set :riskified, "Gestpay Guaranteed Payment"
+set :riskified, "Gestpay Guaranteed Payment" 
 
 activate :livereload
 
