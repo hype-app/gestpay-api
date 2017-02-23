@@ -11,6 +11,8 @@
     <Source>website</Source>
     <SubmissonReason>rule_decision</SubmissonReason>
     <BeaconSessionID>ff1db05b-81db-4ca0-a728-4797bfe796ff</BeaconSessionID>
+    <VendorID>9000002</VendorID>
+    <VendorName>www.yourdomain.it</VendorName>
   </FraudPrevention>
   <CustomerDetail>
     <ProfileID />
@@ -163,6 +165,8 @@ In this section we will analyze indipendently all the fields.
 | `Source` | 10 | `website`, `mobile` 
 | `SubmissionReason` | 20 | the underlying reason for submitting the order to review. It must be one of the following values: <ul><li>`failed_verification`: order failed (phone, email) verification.</li><li>`rule_decision`: Order was flagged by an automatic rule. </li><li>`third_party`: Order was flagged by a third-party service.</li><li>`manual_decision`: Order was flagged after manual review.</li><li>`policy_decision`: order was flagged by a non-fraud related rule.</li></ul> This field must be sent either if the shop adheres to *Shop Protection* or *Selct & Submit* plan; if the plan is *Shop Protection*, the default is `rule_decision`.
 | `BeaconSessionID` | 100 | Session ID of the Beacon for this transaction. This value must be collected when the user first connects to your website and be sent to  Gestpay Guaranteed Checkout to analyze it. With this field,  Gestpay Guaranteed Checkout knows what actions the user did on your website. 
+| `VendorID` |  | A unique ID representing the selling vendor. Mandatory in case of different domain use. 
+| `VendorName` | | The name of the selling vendor. Mandatory in case of different domain use
 
 #### Children of `CustomerDetail`
 
