@@ -4376,6 +4376,8 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
     <span class="nt">&lt;Source&gt;</span>website<span class="nt">&lt;/Source&gt;</span>
     <span class="nt">&lt;SubmissonReason&gt;</span>rule_decision<span class="nt">&lt;/SubmissonReason&gt;</span>
     <span class="nt">&lt;BeaconSessionID&gt;</span>ff1db05b-81db-4ca0-a728-4797bfe796ff<span class="nt">&lt;/BeaconSessionID&gt;</span>
+    <span class="nt">&lt;VendorID&gt;</span>9000002<span class="nt">&lt;/VendorID&gt;</span>
+    <span class="nt">&lt;VendorName&gt;</span>www.yourdomain.it<span class="nt">&lt;/VendorName&gt;</span>
   <span class="nt">&lt;/FraudPrevention&gt;</span>
   <span class="nt">&lt;CustomerDetail&gt;</span>
     <span class="nt">&lt;ProfileID</span> <span class="nt">/&gt;</span>
@@ -4601,6 +4603,16 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <td><code class="prettyprint">BeaconSessionID</code></td>
 <td>100</td>
 <td>Session ID of the Beacon for this transaction. This value must be collected when the user first connects to your website and be sent to  Gestpay Guaranteed Checkout to analyze it. With this field,  Gestpay Guaranteed Checkout knows what actions the user did on your website.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">VendorID</code></td>
+<td></td>
+<td>A unique ID representing the selling vendor. Mandatory in case of different domain use.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">VendorName</code></td>
+<td></td>
+<td>The name of the selling vendor. Mandatory in case of different domain use</td>
 </tr>
 </tbody></table>
 
