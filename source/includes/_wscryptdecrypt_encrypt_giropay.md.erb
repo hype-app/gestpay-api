@@ -1,0 +1,22 @@
+
+## Encrypt Example: Giropay
+
+> Giropay example: 
+
+```xml
+<Encrypt>
+  <shopLogin>90000001</shopLogin>
+  <uicCode>242</uicCode><!-- Euro -->
+  <amount>0.10</amount>
+  <shopTransactionId>MYSHOP_001</shopTransactionId>
+  <paymentTypes>
+    <paymentType>S2PGIR</paymentType>
+  </paymentTypes>
+</Encrypt>
+```
+
+Giropay does not need mandatory parameters. 
+
+You must use `S2PGIR` as `paymentType`.
+
+More informations about Giropay are [in the doc]( <%= config[:doc_url] %>/oth/giropay.html). 

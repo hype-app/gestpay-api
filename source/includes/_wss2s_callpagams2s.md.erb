@@ -83,7 +83,7 @@ The following features may be optionally assigned, upon appropriate configuratio
 | `PARes`        | encrypted string returned by Issuer (for 3D-Secure   transactions only. See [3D-secure transactions](<%= config[:doc_url] %>/adv/3dsecure-transactions.html) for more details.) | string | 4096 | 
 | `transKey`        | transaction ID value for 3D-Secure transactions. See [3D-secure transactions](<%= config[:doc_url] %>/adv/3dsecure-transactions.html) for more details. | number | 18 | 
 | `requestToken`    | `MASKEDPAN` for a Standard Token any other value for Custom  Token | string | 25 | 
-| `clientIP`        | For PayPal Billing Agreements it is required only in the "one click" mode transaction. <br> For AMEX transaction not in Euro, in this field the merchant could provide the client IP address to activate the Enhanced Authorization AAV   | string | 45 |
+| `clientIP`        | For PayPal Billing Agreements it is required only in "one click" mode transaction. <br> For AMEX transaction not in Euro, in this field the merchant could provide the client IP address to activate the Enhanced Authorization AAV.<br>**Mandatory if you use RiskiFied with S2S.** | string | 45 |
 | `itemType`     | Item Category: `digital`/`physical` (If `physical` the `ShippingDetails` have to be filled) | string | 250 | 
 | `recurrent` | true if it's a recurrent payment, false if not. | boolean | 5 | 
 | `shippingDetails` | contains the shipping address. Used for [paypal seller protection](<%= config[:doc_url] %>/oth/paypal.html).

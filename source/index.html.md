@@ -25,6 +25,14 @@ includes:
   - wscryptdecrypt_encrypt_unionpay
   - wscryptdecrypt_encrypt_tenpay
   - wscryptdecrypt_encrypt_timpersonal
+  - wscryptdecrypt_encrypt_bitcoin
+  - wscryptdecrypt_encrypt_webmoney
+  - wscryptdecrypt_encrypt_mercadopago
+  - wscryptdecrypt_encrypt_paysafecard
+  - wscryptdecrypt_encrypt_konbini
+  - wscryptdecrypt_encrypt_multibanco
+  - wscryptdecrypt_encrypt_giropay
+  - wscryptdecrypt_encrypt_eps
   - js_gestpay
   - js_gestpay_createpaymentpage
   - js_gestpay_sendpayment
