@@ -51,5 +51,5 @@ set :doc_url, "http://docs.gestpay.it"
 #<%= config[:riskified] %>
 set :riskified, "Gestpay Guaranteed Payment"
 
-activate :livereload
+activate :livereload 
 
