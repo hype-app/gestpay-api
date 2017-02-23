@@ -30,7 +30,7 @@ These are the **mandatory** fields.
 | **`shopLogin`** | 30 | shopLogin (Mandatory) |
 | **`uicCode`** | 3 | Code identifying currency in which transaction amount is denominated - see [Currency Codes table](#currency-codes) - (Mandatory) | 
 | **`amount`** | 9 | Transaction amount. Do not insert thousands separator. Decimals, max. 2 numbers, are optional and separator is the point (Mandatory) |
-| **`shopTransactionID`** | 50 | Identifier attributed to merchant’s transaction (Mandatory) |
+| **`shopTransactionId`** | 50 | Identifier attributed to merchant’s transaction (Mandatory) |
 
 
 > Here is an example where we use `customInfo` and other non-mandatory fields. 
