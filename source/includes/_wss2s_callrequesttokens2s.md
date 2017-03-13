@@ -12,9 +12,9 @@ Merchants can use this method to request the token generation for a Credit Card.
   <shopLogin>GEST13578</shopLogin>
   <requestToken>MASKEDPAN</shopTransactionId>
   <cardNumber>1234567812345678</cardNumber>
-  <expMonth>12</expMonth>
-  <expYear>21</expYear>
-  <CVV2>931</CVV2>
+  <expiryMonth>12</expiryMonth>
+  <expiryYear>21</expiryYear>
+  <cvv>931</cvv>
   <withAuth>Y</withAuth>
 </callCheckCartaS2S>
 ```
@@ -25,9 +25,9 @@ Merchants can use this method to request the token generation for a Credit Card.
 | `shopLogin` | the merchant's code | string | 30 |
 | `requestToken` | `MASKEDPAN` for a Standard Token; any other value for Custom Token | string | 24  
 | `cardNumber` | credit card number | string | 20 | 
-| `expMonth` | card expiration month | string | 2
-| `expYear` | card expiration year | string | 2 
-| `CVV2` | security code of the card | string | 4
+| `expiryMonth` | card expiration month | string | 2
+| `expiryYear` | card expiration year | string | 2 
+| `cvv` | security code of the card | string | 4
 | `withAuth` | tries to authorize the card. <br> `Y` on `N` | string | 1
  
 ### Response details
