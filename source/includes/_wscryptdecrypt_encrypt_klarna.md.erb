@@ -20,9 +20,9 @@
     </CustomerDetail>
     <BillingAddress>
       <StreetNumber>14<StreetNumber>
-      <StreetName>Sturegatan</StreetName>
-      <City>Stockholm</City>
-      <ZipCode>SE-102</ZipCode>
+      <StreetName>Sturegatan</StreetName><!--mandatory-->
+      <City>Stockholm</City><!--mandatory-->
+      <ZipCode>SE-102</ZipCode><!--mandatory-->
       <CountryCode>SE</CountryCode><!--mandatory-->
     </BillingAddress>
     <ProductDetails>
@@ -43,10 +43,13 @@
 </Encrypt>
 ```
 
-Klarna requires only two parameters as mandatory, children of `OrderDetails`: 
+Klarna requires these parameters as mandatory, children of `OrderDetails`: 
 
 | Name | max length | description |
 | ---- | :--------: | ----------- |
+| `BillingAddress.StreetName` | 100 | Shipping street name |
+| `BillingAddress.City` | 50 | Shipping city name |
+| `BillingAddress.ZipCode` | 50 | Shipping zip code |
 | `BillingAddress.CountryCode` | 2 | one of [AT &#124; DK &#124; FI &#124; DE &#124; NL &#124; NO &#124; SE] |
 | `ProductDetails.ProductDetail` |    | the list of ordered products |
 
@@ -59,9 +62,6 @@ If you send other fields, your customer will find them already filled:
 | `CustomerDetail.PrimaryEmail` | 100 | Customer primary email |
 | `CustomerDetail.SocialSecurityNumber` | 20 | Customer's social or fiscal identifier (for Klarna Use) |
 | `BillingAddress.StreetNumber` | 5 | Shipping Street Number |
-| `BillingAddress.StreetName` | 100 | Shipping Street |
-| `BillingAddress.City` | 50 | Billing City |
-| `BillingAddress.ZipCode` | 50 | Billing Zip Code |
 
 `ProductDetails` can have one or more `ProductDetail`. Here is a description of its fields:
 
@@ -87,3 +87,5 @@ Please note:
 <li>For example if the <code>Quantity</code> is 1 the <code>Price</code> is 10 and the <code>Discount</code> is 10(%) the Total Amount of the transaction must be 9, otherwise the transaction is refused.</li>
 </ul>
 </aside>
+
+More details about Klarna are in [the documentation](<%= config[:doc_url] %>/oth/klarna.html). 
