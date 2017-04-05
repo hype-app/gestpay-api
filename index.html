@@ -1185,9 +1185,9 @@
     <span class="nt">&lt;/CustomerDetail&gt;</span>
     <span class="nt">&lt;BillingAddress&gt;</span>
       <span class="nt">&lt;StreetNumber&gt;</span>14<span class="nt">&lt;StreetNumber&gt;</span>
-      <span class="nt">&lt;StreetName&gt;</span>Sturegatan<span class="nt">&lt;/StreetName&gt;</span>
-      <span class="nt">&lt;City&gt;</span>Stockholm<span class="nt">&lt;/City&gt;</span>
-      <span class="nt">&lt;ZipCode&gt;</span>SE-102<span class="nt">&lt;/ZipCode&gt;</span>
+      <span class="nt">&lt;StreetName&gt;</span>Sturegatan<span class="nt">&lt;/StreetName&gt;</span><span class="c">&lt;!--mandatory--&gt;</span>
+      <span class="nt">&lt;City&gt;</span>Stockholm<span class="nt">&lt;/City&gt;</span><span class="c">&lt;!--mandatory--&gt;</span>
+      <span class="nt">&lt;ZipCode&gt;</span>SE-102<span class="nt">&lt;/ZipCode&gt;</span><span class="c">&lt;!--mandatory--&gt;</span>
       <span class="nt">&lt;CountryCode&gt;</span>SE<span class="nt">&lt;/CountryCode&gt;</span><span class="c">&lt;!--mandatory--&gt;</span>
     <span class="nt">&lt;/BillingAddress&gt;</span>
     <span class="nt">&lt;ProductDetails&gt;</span>
@@ -1207,7 +1207,7 @@
   <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-<p>Klarna requires only two parameters as mandatory, children of <code class="prettyprint">OrderDetails</code>: </p>
+<p>Klarna requires these parameters as mandatory, children of <code class="prettyprint">OrderDetails</code>: </p>
 
 <table><thead>
 <tr>
@@ -1216,6 +1216,21 @@
 <th>description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code class="prettyprint">BillingAddress.StreetName</code></td>
+<td style="text-align: center">100</td>
+<td>Shipping street name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BillingAddress.City</code></td>
+<td style="text-align: center">50</td>
+<td>Shipping city name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BillingAddress.ZipCode</code></td>
+<td style="text-align: center">50</td>
+<td>Shipping zip code</td>
+</tr>
 <tr>
 <td><code class="prettyprint">BillingAddress.CountryCode</code></td>
 <td style="text-align: center">2</td>
@@ -1227,6 +1242,8 @@
 <td>the list of ordered products</td>
 </tr>
 </tbody></table>
+
+<p>We strongly suggest you to <a href="http://docs.gestpay.it/oth/klarna.html#some-clarifications-on-mandatory-fields">read these notes on <code class="prettyprint">BillingAddress</code> and <code class="prettyprint">ShippingAddress</code></a>.</p>
 
 <p>If you send other fields, your customer will find them already filled: </p>
 
@@ -1261,21 +1278,6 @@
 <td><code class="prettyprint">BillingAddress.StreetNumber</code></td>
 <td style="text-align: center">5</td>
 <td>Shipping Street Number</td>
-</tr>
-<tr>
-<td><code class="prettyprint">BillingAddress.StreetName</code></td>
-<td style="text-align: center">100</td>
-<td>Shipping Street</td>
-</tr>
-<tr>
-<td><code class="prettyprint">BillingAddress.City</code></td>
-<td style="text-align: center">50</td>
-<td>Billing City</td>
-</tr>
-<tr>
-<td><code class="prettyprint">BillingAddress.ZipCode</code></td>
-<td style="text-align: center">50</td>
-<td>Billing Zip Code</td>
 </tr>
 </tbody></table>
 
@@ -1349,6 +1351,8 @@ Please note:
 <li>For example if the <code>Quantity</code> is 1 the <code>Price</code> is 10 and the <code>Discount</code> is 10(%) the Total Amount of the transaction must be 9, otherwise the transaction is refused.</li>
 </ul>
 </aside>
+
+<p>More details about Klarna are in <a href="http://docs.gestpay.it/oth/klarna.html">the documentation</a>. </p>
 
           <h2 id="encrypt-example-qiwi">Encrypt Example: Qiwi</h2>
 
@@ -2969,7 +2973,7 @@ Please note:
 <pre class="highlight xml"><code><span class="nt">&lt;callDeleteS2SResponse</span> <span class="na">xmlns=</span><span class="s">"https://ecomms2s.sella.it/"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;callDeleteS2SResult&gt;</span>
     <span class="nt">&lt;GestPayS2S&gt;</span>
-      <span class="nt">&lt;TransactionType&gt;</span>Settle<span class="nt">&lt;/TransactionType&gt;</span>
+      <span class="nt">&lt;TransactionType&gt;</span>Delete<span class="nt">&lt;/TransactionType&gt;</span>
       <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
       <span class="nt">&lt;ShopTransactionID&gt;</span>MYSHOP-00142<span class="nt">&lt;/ShopTransactionID&gt;</span>
       <span class="nt">&lt;BankTransactionID&gt;</span>159247522<span class="nt">&lt;/BankTransactionID&gt;</span>
@@ -3026,7 +3030,7 @@ Please note:
   <span class="nt">&lt;amount&gt;</span>55.00<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-00142<span class="nt">&lt;/shopTransactionId&gt;</span>
   <span class="nt">&lt;bankTransactionId&gt;</span>159247522<span class="nt">&lt;/bankTransactionId&gt;</span>
-  <span class="nt">&lt;RefundReason&gt;</span>item our of stock<span class="nt">&lt;/RefundReason&gt;</span>
+  <span class="nt">&lt;RefundReason&gt;</span>item out of stock<span class="nt">&lt;/RefundReason&gt;</span>
   <span class="nt">&lt;chargeBackFraud&gt;</span>N<span class="nt">&lt;/chargeBackFraud&gt;</span>
 <span class="nt">&lt;/callRefundS2S&gt;</span>
 </code></pre>
