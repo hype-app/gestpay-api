@@ -14,25 +14,25 @@ includes:
   - wscryptdecrypt_decrypt
   - wscryptdecrypt_decryptresult
   - alternative_payments
-  - wscryptdecrypt_encrypt_paypal
-  - wscryptdecrypt_encrypt_ideal_mybank
-  - wscryptdecrypt_encrypt_consel
-  - wscryptdecrypt_encrypt_sofort
-  - wscryptdecrypt_encrypt_klarna
-  - wscryptdecrypt_encrypt_qiwi
-  - wscryptdecrypt_encrypt_yandex
   - wscryptdecrypt_encrypt_alipay
-  - wscryptdecrypt_encrypt_unionpay
+  - wscryptdecrypt_encrypt_bitcoin
+  - wscryptdecrypt_encrypt_consel
+  - wscryptdecrypt_encrypt_eps
+  - wscryptdecrypt_encrypt_giropay
+  - wscryptdecrypt_encrypt_ideal_mybank
+  - wscryptdecrypt_encrypt_klarna
+  - wscryptdecrypt_encrypt_konbini
+  - wscryptdecrypt_encrypt_mercadopago
+  - wscryptdecrypt_encrypt_multibanco
+  - wscryptdecrypt_encrypt_paypal
+  - wscryptdecrypt_encrypt_paysafecard
+  - wscryptdecrypt_encrypt_qiwi
+  - wscryptdecrypt_encrypt_sofort
   - wscryptdecrypt_encrypt_tenpay
   - wscryptdecrypt_encrypt_timpersonal
-  - wscryptdecrypt_encrypt_bitcoin
+  - wscryptdecrypt_encrypt_unionpay
   - wscryptdecrypt_encrypt_webmoney
-  - wscryptdecrypt_encrypt_mercadopago
-  - wscryptdecrypt_encrypt_paysafecard
-  - wscryptdecrypt_encrypt_konbini
-  - wscryptdecrypt_encrypt_multibanco
-  - wscryptdecrypt_encrypt_giropay
-  - wscryptdecrypt_encrypt_eps
+  - wscryptdecrypt_encrypt_yandex
   - js_gestpay
   - js_gestpay_createpaymentpage
   - js_gestpay_sendpayment
