@@ -703,6 +703,519 @@
 
 <p>As a recap, you can use the <a href="#paymenttypes"><code class="prettyprint">&lt;paymentType&gt;</code></a> tag to specify which payment methods you want to enable. In the next paragraphs we will show some alternative payment examples. </p>
 
+          <h2 id="encrypt-example-alipay">Encrypt Example: Alipay</h2>
+
+<blockquote>
+<p>Alipay example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>100<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PALI<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;CustomerDetail&gt;</span>
+      <span class="nt">&lt;PrimaryEmail&gt;</span>alfred.nobel@dynamite.se<span class="nt">&lt;/PrimaryEmail&gt;</span>
+    <span class="nt">&lt;/CustomerDetail&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>Alipay does not need any mandatory parameters. Just specify the <code class="prettyprint">PaymentType</code> <code class="prettyprint">S2PALI</code> and the payment page will show to your user. </p>
+
+<p>If you specify the <code class="prettyprint">PrimaryEmail</code> in the <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> tag, you will redirect your user to Alipay payment page where some fields are already filled. </p>
+
+          <h2 id="encrypt-example-bitcoin">Encrypt Example: Bitcoin</h2>
+
+<blockquote>
+<p>Bitcoin example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PBIT<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="c">&lt;!-- optional --&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;CustomerDetails&gt;</span>
+      <span class="nt">&lt;PrimaryEmail&gt;</span>satoshi.nakamoto@bitcoin.com<span class="nt">&lt;/PrimaryEmail&gt;</span>
+      <span class="nt">&lt;LastName&gt;</span>Nakamoto<span class="nt">&lt;/LastName&gt;</span>
+    <span class="nt">&lt;/CustomerDetails&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>Bitcoin does not need mandatory parameters, however if you send the <code class="prettyprint">LastName</code> and the <code class="prettyprint">PrimaryEmail</code> address the buyer will be redirected to the payment page without filling additional fields. </p>
+
+<p>You must use <code class="prettyprint">S2PBIT</code> as <code class="prettyprint">paymentType</code>.</p>
+
+<p>More informations about Bitcoin are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/bitcoin.html">in the doc</a>. </p>
+
+          <h2 id="encrypt-example-consel">Encrypt Example: Consel</h2>
+
+<blockquote>
+<p>Consel example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>CONSEL<span class="nt">&lt;/paymentType&gt;</span><span class="c">&lt;!-- select CONSEL --&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;Consel_MerchantPro&gt;</span>WIK<span class="nt">&lt;/Consel_MerchantPro&gt;</span>
+  <span class="nt">&lt;Consel_CustomerInfo&gt;</span>
+    <span class="nt">&lt;Surname&gt;</span>Rossi<span class="nt">&lt;/Surname&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Mario<span class="nt">&lt;/Name&gt;</span> 
+    <span class="nt">&lt;TaxationCode&gt;</span>RSSMRA70D23H501H<span class="nt">&lt;/TaxationCode&gt;</span> 
+    <span class="nt">&lt;Address&gt;</span>Via Torino<span class="nt">&lt;/Address&gt;</span>
+    <span class="nt">&lt;City&gt;</span>Roma<span class="nt">&lt;/City&gt;</span> 
+    <span class="nt">&lt;StateCode&gt;</span>RM<span class="nt">&lt;/StateCode&gt;</span> 
+    <span class="nt">&lt;DateAddress&gt;</span>11/04/1999<span class="nt">&lt;/DateAddress&gt;</span> 
+    <span class="nt">&lt;Phone&gt;</span>0632...<span class="nt">&lt;/Phone&gt;</span> 
+    <span class="nt">&lt;MobilePhone&gt;</span>331...<span class="nt">&lt;/MobilePhone&gt;</span>
+  <span class="nt">&lt;/Consel_CustomerInfo&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>Here more info about <a href="https://hype-app.github.io/gestpay-doc/oth/consel-rate-in-rete.html">Consel Rate in Rete</a>.</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Consel_MerchantPro</code></td>
+<td style="text-align: center">3</td>
+<td>Merchant Promotional Code (Mandatory to show Consel in the pagam&rsquo;s Payment Method)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Consel_CustomerInfo</code></td>
+<td style="text-align: center"></td>
+<td>Wrapper for Consel tags)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Surname</code></td>
+<td style="text-align: center">30</td>
+<td>Customer Surname</td>
+</tr>
+<tr>
+<td><code class="prettyprint">NAme</code></td>
+<td style="text-align: center">30</td>
+<td>Customer Name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TaxationCode</code></td>
+<td style="text-align: center">30</td>
+<td>Customer Taxation Code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Address</code></td>
+<td style="text-align: center">30</td>
+<td>Customer Address</td>
+</tr>
+<tr>
+<td><code class="prettyprint">City</code></td>
+<td style="text-align: center">30</td>
+<td>Customer City</td>
+</tr>
+<tr>
+<td><code class="prettyprint">StateCode</code></td>
+<td style="text-align: center">30</td>
+<td>Customer State Code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">DateAddress</code></td>
+<td style="text-align: center">30</td>
+<td>Date since the customer lives in the declared address (dd/mm/yyyy)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Phone</code></td>
+<td style="text-align: center">30</td>
+<td>Customer Phone</td>
+</tr>
+<tr>
+<td><code class="prettyprint">MobilePhone</code></td>
+<td style="text-align: center">30</td>
+<td>Customer Mobile phone</td>
+</tr>
+</tbody></table>
+
+          <h2 id="encrypt-example-eps">Encrypt Example: EPS</h2>
+
+<blockquote>
+<p>EPS example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PEPS<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>EPS does not need mandatory parameters. </p>
+
+<p>You must use <code class="prettyprint">S2PEPS</code> as <code class="prettyprint">paymentType</code>.</p>
+
+<p>More informations about EPS are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/eps.html">in the doc</a>. </p>
+
+          <h2 id="encrypt-example-giropay">Encrypt Example: Giropay</h2>
+
+<blockquote>
+<p>Giropay example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PGIR<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>Giropay does not need mandatory parameters. </p>
+
+<p>You must use <code class="prettyprint">S2PGIR</code> as <code class="prettyprint">paymentType</code>.</p>
+
+<p>More informations about Giropay are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/giropay.html">in the doc</a>. </p>
+
+          <h2 id="encrypt-example-ideal-and-mybank">Encrypt Example: IDeal and MyBank</h2>
+
+<blockquote>
+<p>MyBank example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>MYBANK<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;paymentTypeDetail&gt;</span> 
+    <span class="nt">&lt;MyBankBankCode&gt;</span>Code0000X<span class="nt">&lt;/MyBankBankCode&gt;</span>
+  <span class="nt">&lt;/paymentTypeDetail&gt;</span> 
+<span class="nt">&lt;/Enrcypt&gt;</span>
+</code></pre>
+<blockquote>
+<p>IDeal example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>10<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>IDEAL<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;paymentTypeDetail&gt;</span> 
+    <span class="nt">&lt;MyBankBankCode&gt;</span>Code0000Y<span class="nt">&lt;/MyBankBankCode&gt;</span>
+  <span class="nt">&lt;/paymentTypeDetail&gt;</span> 
+<span class="nt">&lt;/Enrcypt&gt;</span>
+</code></pre>
+<p>If you choose let your users pay with MyBank or IDeal, you have to compile other two fileds.</p>
+
+<p>More details can be found in at the <a href="http://hype-app.github.io/gestpay-doc-beta/oth/mybank_and_ideal.html">MyBank and IDeal</a> page.</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">paymentTypeDetail</code></td>
+<td style="text-align: center"></td>
+<td>container of one of <code class="prettyprint">MyBankBankCode</code> or <code class="prettyprint">IdealBankCode</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">MyBankBankCode</code><sup><a href="#fn5" id="ref5">5</a></sup></td>
+<td style="text-align: center">25</td>
+<td>Tag to set the Bank to show on payment page (the bank List is retrieved from <code class="prettyprint">WsS2S.CallMyBankListS2S</code>)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">IdealBankCode</code><sup><a href="#fn5" id="ref5">5</a></sup></td>
+<td style="text-align: center">25</td>
+<td>Tag to set the Bank to show on payment page (the bank List is retrieved from <code class="prettyprint">WsS2S.CallIdealListS2S</code>)</td>
+</tr>
+</tbody></table>
+
+<p><sup id="fn5">5. <strong>paymentTypeDetail</strong>. In order to be able to activate the payment Type Detail the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The correct merchant configuration of Sofort and Ideal has to be configured in the specific interface of Back Office Merchant.(1) Each field can be up to a maximum of 300 characters in length<a href="#ref5" title="Jump back to footnote 5 in the text.">↩</a></sup></p>
+
+          <h2 id="encrypt-example-klarna">Encrypt Example: Klarna</h2>
+
+<blockquote>
+<p>Here is an example of how to enable Klarna with Gestpay.</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>100<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PKLA<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;CustomerDetail&gt;</span>
+      <span class="nt">&lt;FirstName&gt;</span>Alfred<span class="nt">&lt;/FirstName&gt;</span>
+      <span class="nt">&lt;Lastname&gt;</span>Nobel<span class="nt">&lt;Lastname&gt;</span>
+      <span class="nt">&lt;PrimaryEmail&gt;</span>alfred.nobel@dynamite.se<span class="nt">&lt;/PrimaryEmail&gt;</span>
+      <span class="nt">&lt;SocialSecurityNumber&gt;</span>18331021+129<span class="nt">&lt;/SocialSecurityNumber&gt;</span>
+    <span class="nt">&lt;/CustomerDetail&gt;</span>
+    <span class="nt">&lt;BillingAddress&gt;</span>
+      <span class="nt">&lt;StreetNumber&gt;</span>14<span class="nt">&lt;StreetNumber&gt;</span>
+      <span class="nt">&lt;StreetName&gt;</span>Sturegatan<span class="nt">&lt;/StreetName&gt;</span><span class="c">&lt;!--mandatory--&gt;</span>
+      <span class="nt">&lt;City&gt;</span>Stockholm<span class="nt">&lt;/City&gt;</span><span class="c">&lt;!--mandatory--&gt;</span>
+      <span class="nt">&lt;ZipCode&gt;</span>SE-102<span class="nt">&lt;/ZipCode&gt;</span><span class="c">&lt;!--mandatory--&gt;</span>
+      <span class="nt">&lt;CountryCode&gt;</span>SE<span class="nt">&lt;/CountryCode&gt;</span><span class="c">&lt;!--mandatory--&gt;</span>
+    <span class="nt">&lt;/BillingAddress&gt;</span>
+    <span class="nt">&lt;ProductDetails&gt;</span>
+      <span class="nt">&lt;ProductDetail&gt;</span><span class="c">&lt;!-- mandatory --&gt;</span>
+        <span class="nt">&lt;ProductCode&gt;</span>1<span class="nt">&lt;/ProductCode&gt;</span>
+        <span class="nt">&lt;SKU&gt;</span>AK-7<span class="nt">&lt;/SKU&gt;</span> 
+        <span class="nt">&lt;Name&gt;</span>TV2000<span class="nt">&lt;/Name&gt;</span> 
+        <span class="nt">&lt;Description&gt;</span>Television<span class="nt">&lt;/Description&gt;</span> 
+        <span class="nt">&lt;Quantity&gt;</span>1<span class="nt">&lt;/Quantity&gt;</span> 
+        <span class="nt">&lt;Price&gt;</span>100<span class="nt">&lt;/Price&gt;</span> 
+        <span class="nt">&lt;UnitPrice&gt;</span>100<span class="nt">&lt;/UnitPrice&gt;</span> 
+        <span class="nt">&lt;Type&gt;</span>1<span class="nt">&lt;/Type&gt;</span> 
+        <span class="nt">&lt;Vat&gt;</span>10<span class="nt">&lt;/Vat&gt;</span> 
+        <span class="nt">&lt;Discount&gt;</span>0<span class="nt">&lt;/Discount&gt;</span>
+      <span class="nt">&lt;/ProductDetail&gt;</span> 
+    <span class="nt">&lt;/ProductDetails&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>Klarna requires these parameters as mandatory, children of <code class="prettyprint">OrderDetails</code>: </p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">BillingAddress.StreetName</code></td>
+<td style="text-align: center">100</td>
+<td>Shipping street name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BillingAddress.City</code></td>
+<td style="text-align: center">50</td>
+<td>Shipping city name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BillingAddress.ZipCode</code></td>
+<td style="text-align: center">50</td>
+<td>Shipping zip code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BillingAddress.CountryCode</code></td>
+<td style="text-align: center">2</td>
+<td>one of [AT &#124; DK &#124; FI &#124; DE &#124; NL &#124; NO &#124; SE]</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ProductDetails.ProductDetail</code></td>
+<td style="text-align: center"></td>
+<td>the list of ordered products</td>
+</tr>
+</tbody></table>
+
+<p>We strongly suggest you to <a href="http://hype-app.github.io/gestpay-doc-beta/oth/klarna.html#some-clarifications-on-mandatory-fields">read these notes on <code class="prettyprint">BillingAddress</code> and <code class="prettyprint">ShippingAddress</code></a>.</p>
+
+<p>If you send other fields, your customer will find them already filled: </p>
+
+<table><thead>
+<tr>
+<th></th>
+<th style="text-align: center"></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">CustomerDetail.FirstName</code></td>
+<td style="text-align: center">65</td>
+<td>Customer First Name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CustomerDetail.Lastname</code></td>
+<td style="text-align: center">65</td>
+<td>the list of ordered products</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CustomerDetail.PrimaryEmail</code></td>
+<td style="text-align: center">100</td>
+<td>Customer primary email</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CustomerDetail.SocialSecurityNumber</code></td>
+<td style="text-align: center">20</td>
+<td>Customer&rsquo;s social or fiscal identifier (for Klarna Use)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BillingAddress.StreetNumber</code></td>
+<td style="text-align: center">5</td>
+<td>Shipping Street Number</td>
+</tr>
+</tbody></table>
+
+<p><code class="prettyprint">ProductDetails</code> can have one or more <code class="prettyprint">ProductDetail</code>. Here is a description of its fields:</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th style="text-align: center"></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">ProductCode</code></td>
+<td style="text-align: center">12</td>
+<td>Article’s product Code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">SKU</code></td>
+<td style="text-align: center">50</td>
+<td>Article’s Stock Keeping Unit</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Name</code></td>
+<td style="text-align: center">100</td>
+<td>Article’s name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Description</code></td>
+<td style="text-align: center">255</td>
+<td>Article’s description</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Quantity</code></td>
+<td style="text-align: center">3</td>
+<td>The number of products</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Price</code></td>
+<td style="text-align: center">12</td>
+<td>Article’s price</td>
+</tr>
+<tr>
+<td><code class="prettyprint">UnitPrice</code></td>
+<td style="text-align: center">12</td>
+<td>Article’s Unit Price</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Type</code></td>
+<td style="text-align: center">2</td>
+<td>The type of article: 1-product, 2-shipping, 3-handling</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Vat</code></td>
+<td style="text-align: center">2</td>
+<td>Value-Added Tax (the value of the tax)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Discount</code></td>
+<td style="text-align: center">2</td>
+<td>The amount offered by you as discount</td>
+</tr>
+</tbody></table>
+
+<aside class="active" markdown="1">
+
+Please note: 
+<ul>
+<li>The total value for the <code>ProductDetails</code> needs to be the same as the total amount sent otherwise the transaction fails.</li>
+<li>The <code>Discount</code> is a percentage and must be considered in the Total Amount Value.</li>
+<li>For example if the <code>Quantity</code> is 1 the <code>Price</code> is 10 and the <code>Discount</code> is 10(%) the Total Amount of the transaction must be 9, otherwise the transaction is refused.</li>
+</ul>
+</aside>
+
+<p>More details about Klarna are in <a href="http://hype-app.github.io/gestpay-doc-beta/oth/klarna.html">the documentation</a>. </p>
+
+          <h2 id="encrypt-example-konbini">Encrypt Example: Konbini</h2>
+
+<blockquote>
+<p>Konbini example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PKON<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="c">&lt;!--optional, to skip authentication --&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;CustomerDetail&gt;</span>
+      <span class="nt">&lt;PrimaryEmail&gt;</span>yamauchi.fusajiro@nintendo.jp<span class="nt">&lt;/PrimaryEmail&gt;</span>
+    <span class="nt">&lt;/CustomerDetail&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>Konbini does not need mandatory parameters. </p>
+
+<p>You must use <code class="prettyprint">S2PKON</code> as <code class="prettyprint">paymentType</code>.</p>
+
+<p>If you pass the <code class="prettyprint">PrimaryEmail</code> tag, the customer will be redirected directly to the payment page. </p>
+
+<p>More informations about Konbini are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/konbini.html">in the doc</a>. </p>
+
+          <h2 id="encrypt-example-mercadopago">Encrypt Example: MercadoPago</h2>
+
+<blockquote>
+<p>MercadoPago example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PMER<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>MercadoPago does not need mandatory parameters. </p>
+
+<p>You must use <code class="prettyprint">S2PMER</code> as <code class="prettyprint">paymentType</code>.</p>
+
+<p>More informations about MercadoPago are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/mercadopago.html">in the doc</a>. </p>
+
+          <h2 id="encrypt-example-multibanco">Encrypt Example: Multibanco</h2>
+
+<blockquote>
+<p>Multibanco example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PMUL<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>Multibanco does not need mandatory parameters. </p>
+
+<p>You must use <code class="prettyprint">S2PMUL</code> as <code class="prettyprint">paymentType</code>.</p>
+
+<p>More informations about Multibanco are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/multibanco.html">in the doc</a>. </p>
+
           <h2 id="encrypt-example-paypal">Encrypt example: Paypal</h2>
 
 <h3 id="enabling-paypal">Enabling Paypal</h3>
@@ -951,98 +1464,51 @@
 
 <aside class="notice">When using paypal Billing Agreement, you will get a Token to use later with the callPagamS2S webservice. </aside>
 
-          <h2 id="encrypt-example-ideal-and-mybank">Encrypt Example: IDeal and MyBank</h2>
+          <h2 id="encrypt-example-paysafecard">Encrypt Example: Paysafecard</h2>
 
 <blockquote>
-<p>MyBank example: </p>
+<p>Paysafecard example: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
   <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>MYBANK<span class="nt">&lt;/paymentType&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PPSC<span class="nt">&lt;/paymentType&gt;</span>
   <span class="nt">&lt;/paymentTypes&gt;</span>
-  <span class="nt">&lt;paymentTypeDetail&gt;</span> 
-    <span class="nt">&lt;MyBankBankCode&gt;</span>Code0000X<span class="nt">&lt;/MyBankBankCode&gt;</span>
-  <span class="nt">&lt;/paymentTypeDetail&gt;</span> 
-<span class="nt">&lt;/Enrcypt&gt;</span>
-</code></pre>
-<blockquote>
-<p>IDeal example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>10<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>IDEAL<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-  <span class="nt">&lt;paymentTypeDetail&gt;</span> 
-    <span class="nt">&lt;MyBankBankCode&gt;</span>Code0000Y<span class="nt">&lt;/MyBankBankCode&gt;</span>
-  <span class="nt">&lt;/paymentTypeDetail&gt;</span> 
-<span class="nt">&lt;/Enrcypt&gt;</span>
-</code></pre>
-<p>If you choose let your users pay with MyBank or IDeal, you have to compile other two fileds.</p>
-
-<p>More details can be found in at the <a href="http://hype-app.github.io/gestpay-doc-beta/oth/mybank_and_ideal.html">MyBank and IDeal</a> page.</p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th style="text-align: center">max length</th>
-<th>description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">paymentTypeDetail</code></td>
-<td style="text-align: center"></td>
-<td>container of one of <code class="prettyprint">MyBankBankCode</code> or <code class="prettyprint">IdealBankCode</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">MyBankBankCode</code><sup><a href="#fn5" id="ref5">5</a></sup></td>
-<td style="text-align: center">25</td>
-<td>Tag to set the Bank to show on payment page (the bank List is retrieved from <code class="prettyprint">WsS2S.CallMyBankListS2S</code>)</td>
-</tr>
-<tr>
-<td><code class="prettyprint">IdealBankCode</code><sup><a href="#fn5" id="ref5">5</a></sup></td>
-<td style="text-align: center">25</td>
-<td>Tag to set the Bank to show on payment page (the bank List is retrieved from <code class="prettyprint">WsS2S.CallIdealListS2S</code>)</td>
-</tr>
-</tbody></table>
-
-<p><sup id="fn5">5. <strong>paymentTypeDetail</strong>. In order to be able to activate the payment Type Detail the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The correct merchant configuration of Sofort and Ideal has to be configured in the specific interface of Back Office Merchant.(1) Each field can be up to a maximum of 300 characters in length<a href="#ref5" title="Jump back to footnote 5 in the text.">↩</a></sup></p>
-
-          <h2 id="encrypt-example-consel">Encrypt Example: Consel</h2>
-
-<blockquote>
-<p>Consel example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>CONSEL<span class="nt">&lt;/paymentType&gt;</span><span class="c">&lt;!-- select CONSEL --&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-  <span class="nt">&lt;Consel_MerchantPro&gt;</span>WIK<span class="nt">&lt;/Consel_MerchantPro&gt;</span>
-  <span class="nt">&lt;Consel_CustomerInfo&gt;</span>
-    <span class="nt">&lt;Surname&gt;</span>Rossi<span class="nt">&lt;/Surname&gt;</span>
-    <span class="nt">&lt;Name&gt;</span>Mario<span class="nt">&lt;/Name&gt;</span> 
-    <span class="nt">&lt;TaxationCode&gt;</span>RSSMRA70D23H501H<span class="nt">&lt;/TaxationCode&gt;</span> 
-    <span class="nt">&lt;Address&gt;</span>Via Torino<span class="nt">&lt;/Address&gt;</span>
-    <span class="nt">&lt;City&gt;</span>Roma<span class="nt">&lt;/City&gt;</span> 
-    <span class="nt">&lt;StateCode&gt;</span>RM<span class="nt">&lt;/StateCode&gt;</span> 
-    <span class="nt">&lt;DateAddress&gt;</span>11/04/1999<span class="nt">&lt;/DateAddress&gt;</span> 
-    <span class="nt">&lt;Phone&gt;</span>0632...<span class="nt">&lt;/Phone&gt;</span> 
-    <span class="nt">&lt;MobilePhone&gt;</span>331...<span class="nt">&lt;/MobilePhone&gt;</span>
-  <span class="nt">&lt;/Consel_CustomerInfo&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-<p>Here more info about <a href="https://hype-app.github.io/gestpay-doc/oth/consel-rate-in-rete.html">Consel Rate in Rete</a>.</p>
+<p>Paysafecard does not need mandatory parameters. </p>
+
+<p>You must use <code class="prettyprint">S2PPSC</code> as <code class="prettyprint">paymentType</code>.</p>
+
+<p>More informations about Paysafecard are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/paysafecard.html">in the doc</a>. </p>
+
+          <h2 id="encrypt-example-qiwi">Encrypt Example: Qiwi</h2>
+
+<blockquote>
+<p>Qiwi call example :</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PQIW<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;CustomerDetail&gt;</span>
+      <span class="nt">&lt;PrimaryPhone&gt;</span>0123456789<span class="nt">&lt;/PrimaryPhone&gt;</span>
+    <span class="nt">&lt;/CustomerDetail&gt;</span>
+    <span class="nt">&lt;BillingAddress&gt;</span>
+      <span class="nt">&lt;CountryCode&gt;</span>US<span class="nt">&lt;/CountryCode&gt;</span>
+    <span class="nt">&lt;/BillingAddress&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>Qiwi does not need mandatory parameters, but if you send these few parameters you can have a frictionless call directly to the first screen of QIWI where authentication data are asked. These fields are children of <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a>:</p>
 
 <table><thead>
 <tr>
@@ -1052,61 +1518,18 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Consel_MerchantPro</code></td>
-<td style="text-align: center">3</td>
-<td>Merchant Promotional Code (Mandatory to show Consel in the pagam&rsquo;s Payment Method)</td>
+<td><code class="prettyprint">CustomerDetail.PrimaryPhone</code></td>
+<td style="text-align: center">20</td>
+<td>Customer&rsquo;s phone including prefix</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Consel_CustomerInfo</code></td>
-<td style="text-align: center"></td>
-<td>Wrapper for Consel tags)</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Surname</code></td>
-<td style="text-align: center">30</td>
-<td>Customer Surname</td>
-</tr>
-<tr>
-<td><code class="prettyprint">NAme</code></td>
-<td style="text-align: center">30</td>
-<td>Customer Name</td>
-</tr>
-<tr>
-<td><code class="prettyprint">TaxationCode</code></td>
-<td style="text-align: center">30</td>
-<td>Customer Taxation Code</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Address</code></td>
-<td style="text-align: center">30</td>
-<td>Customer Address</td>
-</tr>
-<tr>
-<td><code class="prettyprint">City</code></td>
-<td style="text-align: center">30</td>
-<td>Customer City</td>
-</tr>
-<tr>
-<td><code class="prettyprint">StateCode</code></td>
-<td style="text-align: center">30</td>
-<td>Customer State Code</td>
-</tr>
-<tr>
-<td><code class="prettyprint">DateAddress</code></td>
-<td style="text-align: center">30</td>
-<td>Date since the customer lives in the declared address (dd/mm/yyyy)</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Phone</code></td>
-<td style="text-align: center">30</td>
-<td>Customer Phone</td>
-</tr>
-<tr>
-<td><code class="prettyprint">MobilePhone</code></td>
-<td style="text-align: center">30</td>
-<td>Customer Mobile phone</td>
+<td><code class="prettyprint">BillingAddress.CountryCode</code></td>
+<td style="text-align: center">2</td>
+<td>Alpha-2 code example for US is “US”</td>
 </tr>
 </tbody></table>
+
+<p>This mean that no others values are asked to the buyers; but if these field are not sent with the payment, a page will be displayed in order to ask the necessary fields like Phone and CountryCode of the buyer.</p>
 
           <h2 id="encrypt-example-sofort">Encrypt Example: Sofort</h2>
 
@@ -1163,332 +1586,6 @@
 </tr>
 </tbody></table>
 
-          <h2 id="encrypt-example-klarna">Encrypt Example: Klarna</h2>
-
-<blockquote>
-<p>Here is an example of how to enable Klarna with Gestpay.</p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>100<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>S2PKLA<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-  <span class="nt">&lt;OrderDetails&gt;</span>
-    <span class="nt">&lt;CustomerDetail&gt;</span>
-      <span class="nt">&lt;FirstName&gt;</span>Alfred<span class="nt">&lt;/FirstName&gt;</span>
-      <span class="nt">&lt;Lastname&gt;</span>Nobel<span class="nt">&lt;Lastname&gt;</span>
-      <span class="nt">&lt;PrimaryEmail&gt;</span>alfred.nobel@dynamite.se<span class="nt">&lt;/PrimaryEmail&gt;</span>
-      <span class="nt">&lt;SocialSecurityNumber&gt;</span>18331021+129<span class="nt">&lt;/SocialSecurityNumber&gt;</span>
-    <span class="nt">&lt;/CustomerDetail&gt;</span>
-    <span class="nt">&lt;BillingAddress&gt;</span>
-      <span class="nt">&lt;StreetNumber&gt;</span>14<span class="nt">&lt;StreetNumber&gt;</span>
-      <span class="nt">&lt;StreetName&gt;</span>Sturegatan<span class="nt">&lt;/StreetName&gt;</span><span class="c">&lt;!--mandatory--&gt;</span>
-      <span class="nt">&lt;City&gt;</span>Stockholm<span class="nt">&lt;/City&gt;</span><span class="c">&lt;!--mandatory--&gt;</span>
-      <span class="nt">&lt;ZipCode&gt;</span>SE-102<span class="nt">&lt;/ZipCode&gt;</span><span class="c">&lt;!--mandatory--&gt;</span>
-      <span class="nt">&lt;CountryCode&gt;</span>SE<span class="nt">&lt;/CountryCode&gt;</span><span class="c">&lt;!--mandatory--&gt;</span>
-    <span class="nt">&lt;/BillingAddress&gt;</span>
-    <span class="nt">&lt;ProductDetails&gt;</span>
-      <span class="nt">&lt;ProductDetail&gt;</span><span class="c">&lt;!-- mandatory --&gt;</span>
-        <span class="nt">&lt;ProductCode&gt;</span>1<span class="nt">&lt;/ProductCode&gt;</span>
-        <span class="nt">&lt;SKU&gt;</span>AK-7<span class="nt">&lt;/SKU&gt;</span> 
-        <span class="nt">&lt;Name&gt;</span>TV2000<span class="nt">&lt;/Name&gt;</span> 
-        <span class="nt">&lt;Description&gt;</span>Television<span class="nt">&lt;/Description&gt;</span> 
-        <span class="nt">&lt;Quantity&gt;</span>1<span class="nt">&lt;/Quantity&gt;</span> 
-        <span class="nt">&lt;Price&gt;</span>100<span class="nt">&lt;/Price&gt;</span> 
-        <span class="nt">&lt;UnitPrice&gt;</span>100<span class="nt">&lt;/UnitPrice&gt;</span> 
-        <span class="nt">&lt;Type&gt;</span>1<span class="nt">&lt;/Type&gt;</span> 
-        <span class="nt">&lt;Vat&gt;</span>10<span class="nt">&lt;/Vat&gt;</span> 
-        <span class="nt">&lt;Discount&gt;</span>0<span class="nt">&lt;/Discount&gt;</span>
-      <span class="nt">&lt;/ProductDetail&gt;</span> 
-    <span class="nt">&lt;/ProductDetails&gt;</span>
-  <span class="nt">&lt;/OrderDetails&gt;</span>
-<span class="nt">&lt;/Encrypt&gt;</span>
-</code></pre>
-<p>Klarna requires these parameters as mandatory, children of <code class="prettyprint">OrderDetails</code>: </p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th style="text-align: center">max length</th>
-<th>description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">BillingAddress.StreetName</code></td>
-<td style="text-align: center">100</td>
-<td>Shipping street name</td>
-</tr>
-<tr>
-<td><code class="prettyprint">BillingAddress.City</code></td>
-<td style="text-align: center">50</td>
-<td>Shipping city name</td>
-</tr>
-<tr>
-<td><code class="prettyprint">BillingAddress.ZipCode</code></td>
-<td style="text-align: center">50</td>
-<td>Shipping zip code</td>
-</tr>
-<tr>
-<td><code class="prettyprint">BillingAddress.CountryCode</code></td>
-<td style="text-align: center">2</td>
-<td>one of [AT &#124; DK &#124; FI &#124; DE &#124; NL &#124; NO &#124; SE]</td>
-</tr>
-<tr>
-<td><code class="prettyprint">ProductDetails.ProductDetail</code></td>
-<td style="text-align: center"></td>
-<td>the list of ordered products</td>
-</tr>
-</tbody></table>
-
-<p>We strongly suggest you to <a href="http://hype-app.github.io/gestpay-doc-beta/oth/klarna.html#some-clarifications-on-mandatory-fields">read these notes on <code class="prettyprint">BillingAddress</code> and <code class="prettyprint">ShippingAddress</code></a>.</p>
-
-<p>If you send other fields, your customer will find them already filled: </p>
-
-<table><thead>
-<tr>
-<th></th>
-<th style="text-align: center"></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">CustomerDetail.FirstName</code></td>
-<td style="text-align: center">65</td>
-<td>Customer First Name</td>
-</tr>
-<tr>
-<td><code class="prettyprint">CustomerDetail.Lastname</code></td>
-<td style="text-align: center">65</td>
-<td>the list of ordered products</td>
-</tr>
-<tr>
-<td><code class="prettyprint">CustomerDetail.PrimaryEmail</code></td>
-<td style="text-align: center">100</td>
-<td>Customer primary email</td>
-</tr>
-<tr>
-<td><code class="prettyprint">CustomerDetail.SocialSecurityNumber</code></td>
-<td style="text-align: center">20</td>
-<td>Customer&rsquo;s social or fiscal identifier (for Klarna Use)</td>
-</tr>
-<tr>
-<td><code class="prettyprint">BillingAddress.StreetNumber</code></td>
-<td style="text-align: center">5</td>
-<td>Shipping Street Number</td>
-</tr>
-</tbody></table>
-
-<p><code class="prettyprint">ProductDetails</code> can have one or more <code class="prettyprint">ProductDetail</code>. Here is a description of its fields:</p>
-
-<table><thead>
-<tr>
-<th></th>
-<th style="text-align: center"></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">ProductCode</code></td>
-<td style="text-align: center">12</td>
-<td>Article’s product Code</td>
-</tr>
-<tr>
-<td><code class="prettyprint">SKU</code></td>
-<td style="text-align: center">50</td>
-<td>Article’s Stock Keeping Unit</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Name</code></td>
-<td style="text-align: center">100</td>
-<td>Article’s name</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Description</code></td>
-<td style="text-align: center">255</td>
-<td>Article’s description</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Quantity</code></td>
-<td style="text-align: center">3</td>
-<td>The number of products</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Price</code></td>
-<td style="text-align: center">12</td>
-<td>Article’s price</td>
-</tr>
-<tr>
-<td><code class="prettyprint">UnitPrice</code></td>
-<td style="text-align: center">12</td>
-<td>Article’s Unit Price</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Type</code></td>
-<td style="text-align: center">2</td>
-<td>The type of article: 1-product, 2-shipping, 3-handling</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Vat</code></td>
-<td style="text-align: center">2</td>
-<td>Value-Added Tax (the value of the tax)</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Discount</code></td>
-<td style="text-align: center">2</td>
-<td>The amount offered by you as discount</td>
-</tr>
-</tbody></table>
-
-<aside class="active" markdown="1">
-
-Please note: 
-<ul>
-<li>The total value for the <code>ProductDetails</code> needs to be the same as the total amount sent otherwise the transaction fails.</li>
-<li>The <code>Discount</code> is a percentage and must be considered in the Total Amount Value.</li>
-<li>For example if the <code>Quantity</code> is 1 the <code>Price</code> is 10 and the <code>Discount</code> is 10(%) the Total Amount of the transaction must be 9, otherwise the transaction is refused.</li>
-</ul>
-</aside>
-
-<p>More details about Klarna are in <a href="http://hype-app.github.io/gestpay-doc-beta/oth/klarna.html">the documentation</a>. </p>
-
-          <h2 id="encrypt-example-qiwi">Encrypt Example: Qiwi</h2>
-
-<blockquote>
-<p>Qiwi call example :</p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>S2PQIW<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-  <span class="nt">&lt;OrderDetails&gt;</span>
-    <span class="nt">&lt;CustomerDetail&gt;</span>
-      <span class="nt">&lt;PrimaryPhone&gt;</span>0123456789<span class="nt">&lt;/PrimaryPhone&gt;</span>
-    <span class="nt">&lt;/CustomerDetail&gt;</span>
-    <span class="nt">&lt;BillingAddress&gt;</span>
-      <span class="nt">&lt;CountryCode&gt;</span>US<span class="nt">&lt;/CountryCode&gt;</span>
-    <span class="nt">&lt;/BillingAddress&gt;</span>
-  <span class="nt">&lt;/OrderDetails&gt;</span>
-<span class="nt">&lt;/Encrypt&gt;</span>
-</code></pre>
-<p>Qiwi does not need mandatory parameters, but if you send these few parameters you can have a frictionless call directly to the first screen of QIWI where authentication data are asked. These fields are children of <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a>:</p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th style="text-align: center">max length</th>
-<th>description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">CustomerDetail.PrimaryPhone</code></td>
-<td style="text-align: center">20</td>
-<td>Customer&rsquo;s phone including prefix</td>
-</tr>
-<tr>
-<td><code class="prettyprint">BillingAddress.CountryCode</code></td>
-<td style="text-align: center">2</td>
-<td>Alpha-2 code example for US is “US”</td>
-</tr>
-</tbody></table>
-
-<p>This mean that no others values are asked to the buyers; but if these field are not sent with the payment, a page will be displayed in order to ask the necessary fields like Phone and CountryCode of the buyer.</p>
-
-          <h2 id="encrypt-example-yandex">Encrypt Example: Yandex</h2>
-
-<blockquote>
-<p>Yandex Example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>10<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>S2PYAN<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-  <span class="nt">&lt;OrderDetails&gt;</span>
-    <span class="nt">&lt;CustomerDetail&gt;</span>
-      <span class="nt">&lt;PrimaryEmail&gt;</span>alfred.nobel@dynamite.se<span class="nt">&lt;/PrimaryEmail&gt;</span>
-    <span class="nt">&lt;/CustomerDetail&gt;</span>
-  <span class="nt">&lt;/OrderDetails&gt;</span>
-<span class="nt">&lt;/Encrypt&gt;</span>
-</code></pre>
-<p>Yandex does not need mandatory parameters; but if you send <code class="prettyprint">CustomerDetail.PrimaryEmail</code> in the <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> tag you can have a frictionless call directly to the first screen of Yandex where authentication data are asked.</p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th style="text-align: center">max length</th>
-<th>description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">CustomerDetail.PrimaryEmail</code></td>
-<td style="text-align: center">100</td>
-<td>Customer primary email</td>
-</tr>
-</tbody></table>
-
-<p>This mean that no others values are asked to the buyer; if this field is not sent with the payment, a page will ask the necessary fields.</p>
-
-          <h2 id="encrypt-example-alipay">Encrypt Example: Alipay</h2>
-
-<blockquote>
-<p>Alipay example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>100<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>S2PALI<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-  <span class="nt">&lt;OrderDetails&gt;</span>
-    <span class="nt">&lt;CustomerDetail&gt;</span>
-      <span class="nt">&lt;PrimaryEmail&gt;</span>alfred.nobel@dynamite.se<span class="nt">&lt;/PrimaryEmail&gt;</span>
-    <span class="nt">&lt;/CustomerDetail&gt;</span>
-  <span class="nt">&lt;/OrderDetails&gt;</span>
-<span class="nt">&lt;/Encrypt&gt;</span>
-</code></pre>
-<p>Alipay does not need any mandatory parameters. Just specify the <code class="prettyprint">PaymentType</code> <code class="prettyprint">S2PALI</code> and the payment page will show to your user. </p>
-
-<p>If you specify the <code class="prettyprint">PrimaryEmail</code> in the <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> tag, you will redirect your user to Alipay payment page where some fields are already filled. </p>
-
-          <h2 id="encrypt-example-unionpay">Encrypt Example: UnionPay</h2>
-
-<blockquote>
-<p>UnionPay example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>10<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>SP_S2P_UnionPay_001<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>S2PUNI<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-  <span class="nt">&lt;OrderDetails&gt;</span>
-    <span class="nt">&lt;CustomerDetail&gt;</span>
-      <span class="nt">&lt;PrimaryPhone&gt;</span>+85211112222<span class="nt">&lt;/PrimaryPhone&gt;</span>
-      <span class="nt">&lt;PrimaryEmail&gt;</span>yangchenning@physics.cn<span class="nt">&lt;/PrimaryEmail&gt;</span>
-    <span class="nt">&lt;/CustomerDetail&gt;</span>
-  <span class="nt">&lt;/OrderDetails&gt;</span>
-<span class="nt">&lt;/Encrypt&gt;</span>
-</code></pre>
-<p>Unipay does not need mandatory parameters. </p>
-
-<p>You must use <code class="prettyprint">S2PUNI</code> as <code class="prettyprint">paymentType</code>.</p>
-
-<p>However, if you send the <code class="prettyprint">PrimaryEmail</code> and <code class="prettyprint">PrimaryPhone</code> fields in the <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> tag, you will jump straight to the UnionPay payment page; otherwise, an intermediary page asking for the email address is showed. </p>
-
           <h2 id="encrypt-example-tenpay">Encrypt Example: TenPay</h2>
 
 <blockquote>
@@ -1540,33 +1637,32 @@ Please note:
 
 <p>More information about TIMpersonal are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/tim-personal.html">in the doc</a>. </p>
 
-          <h2 id="encrypt-example-bitcoin">Encrypt Example: Bitcoin</h2>
+          <h2 id="encrypt-example-unionpay">Encrypt Example: UnionPay</h2>
 
 <blockquote>
-<p>Bitcoin example: </p>
+<p>UnionPay example: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>10<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>SP_S2P_UnionPay_001<span class="nt">&lt;/shopTransactionId&gt;</span>
   <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>S2PBIT<span class="nt">&lt;/paymentType&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PUNI<span class="nt">&lt;/paymentType&gt;</span>
   <span class="nt">&lt;/paymentTypes&gt;</span>
-  <span class="c">&lt;!-- optional --&gt;</span>
   <span class="nt">&lt;OrderDetails&gt;</span>
-    <span class="nt">&lt;CustomerDetails&gt;</span>
-      <span class="nt">&lt;PrimaryEmail&gt;</span>satoshi.nakamoto@bitcoin.com<span class="nt">&lt;/PrimaryEmail&gt;</span>
-      <span class="nt">&lt;LastName&gt;</span>Nakamoto<span class="nt">&lt;/LastName&gt;</span>
-    <span class="nt">&lt;/CustomerDetails&gt;</span>
+    <span class="nt">&lt;CustomerDetail&gt;</span>
+      <span class="nt">&lt;PrimaryPhone&gt;</span>+85211112222<span class="nt">&lt;/PrimaryPhone&gt;</span>
+      <span class="nt">&lt;PrimaryEmail&gt;</span>yangchenning@physics.cn<span class="nt">&lt;/PrimaryEmail&gt;</span>
+    <span class="nt">&lt;/CustomerDetail&gt;</span>
   <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-<p>Bitcoin does not need mandatory parameters, however if you send the <code class="prettyprint">LastName</code> and the <code class="prettyprint">PrimaryEmail</code> address the buyer will be redirected to the payment page without filling additional fields. </p>
+<p>Unipay does not need mandatory parameters. </p>
 
-<p>You must use <code class="prettyprint">S2PBIT</code> as <code class="prettyprint">paymentType</code>.</p>
+<p>You must use <code class="prettyprint">S2PUNI</code> as <code class="prettyprint">paymentType</code>.</p>
 
-<p>More informations about Bitcoin are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/bitcoin.html">in the doc</a>. </p>
+<p>However, if you send the <code class="prettyprint">PrimaryEmail</code> and <code class="prettyprint">PrimaryPhone</code> fields in the <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> tag, you will jump straight to the UnionPay payment page; otherwise, an intermediary page asking for the email address is showed. </p>
 
           <h2 id="encrypt-example-webmoney">Encrypt Example: WebMoney</h2>
 
@@ -1589,139 +1685,43 @@ Please note:
 
 <p>More informations about WebMoney are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/webmoney.html">in the doc</a>. </p>
 
-          <h2 id="encrypt-example-mercadopago">Encrypt Example: MercadoPago</h2>
+          <h2 id="encrypt-example-yandex">Encrypt Example: Yandex</h2>
 
 <blockquote>
-<p>MercadoPago example: </p>
+<p>Yandex Example: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>10<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
   <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>S2PMER<span class="nt">&lt;/paymentType&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>S2PYAN<span class="nt">&lt;/paymentType&gt;</span>
   <span class="nt">&lt;/paymentTypes&gt;</span>
-<span class="nt">&lt;/Encrypt&gt;</span>
-</code></pre>
-<p>MercadoPago does not need mandatory parameters. </p>
-
-<p>You must use <code class="prettyprint">S2PMER</code> as <code class="prettyprint">paymentType</code>.</p>
-
-<p>More informations about MercadoPago are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/mercadopago.html">in the doc</a>. </p>
-
-          <h2 id="encrypt-example-paysafecard">Encrypt Example: Paysafecard</h2>
-
-<blockquote>
-<p>Paysafecard example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>S2PPSC<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-<span class="nt">&lt;/Encrypt&gt;</span>
-</code></pre>
-<p>Paysafecard does not need mandatory parameters. </p>
-
-<p>You must use <code class="prettyprint">S2PPSC</code> as <code class="prettyprint">paymentType</code>.</p>
-
-<p>More informations about Paysafecard are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/paysafecard.html">in the doc</a>. </p>
-
-          <h2 id="encrypt-example-konbini">Encrypt Example: Konbini</h2>
-
-<blockquote>
-<p>Konbini example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>S2PKON<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-  <span class="c">&lt;!--optional, to skip authentication --&gt;</span>
   <span class="nt">&lt;OrderDetails&gt;</span>
     <span class="nt">&lt;CustomerDetail&gt;</span>
-      <span class="nt">&lt;PrimaryEmail&gt;</span>yamauchi.fusajiro@nintendo.jp<span class="nt">&lt;/PrimaryEmail&gt;</span>
+      <span class="nt">&lt;PrimaryEmail&gt;</span>alfred.nobel@dynamite.se<span class="nt">&lt;/PrimaryEmail&gt;</span>
     <span class="nt">&lt;/CustomerDetail&gt;</span>
   <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-<p>Konbini does not need mandatory parameters. </p>
+<p>Yandex does not need mandatory parameters; but if you send <code class="prettyprint">CustomerDetail.PrimaryEmail</code> in the <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> tag you can have a frictionless call directly to the first screen of Yandex where authentication data are asked.</p>
 
-<p>You must use <code class="prettyprint">S2PKON</code> as <code class="prettyprint">paymentType</code>.</p>
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">CustomerDetail.PrimaryEmail</code></td>
+<td style="text-align: center">100</td>
+<td>Customer primary email</td>
+</tr>
+</tbody></table>
 
-<p>If you pass the <code class="prettyprint">PrimaryEmail</code> tag, the customer will be redirected directly to the payment page. </p>
-
-<p>More informations about Konbini are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/konbini.html">in the doc</a>. </p>
-
-          <h2 id="encrypt-example-multibanco">Encrypt Example: Multibanco</h2>
-
-<blockquote>
-<p>Multibanco example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>S2PMUL<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-<span class="nt">&lt;/Encrypt&gt;</span>
-</code></pre>
-<p>Multibanco does not need mandatory parameters. </p>
-
-<p>You must use <code class="prettyprint">S2PMUL</code> as <code class="prettyprint">paymentType</code>.</p>
-
-<p>More informations about Multibanco are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/multibanco.html">in the doc</a>. </p>
-
-          <h2 id="encrypt-example-giropay">Encrypt Example: Giropay</h2>
-
-<blockquote>
-<p>Giropay example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>S2PGIR<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-<span class="nt">&lt;/Encrypt&gt;</span>
-</code></pre>
-<p>Giropay does not need mandatory parameters. </p>
-
-<p>You must use <code class="prettyprint">S2PGIR</code> as <code class="prettyprint">paymentType</code>.</p>
-
-<p>More informations about Giropay are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/giropay.html">in the doc</a>. </p>
-
-          <h2 id="encrypt-example-eps">Encrypt Example: EPS</h2>
-
-<blockquote>
-<p>EPS example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>S2PEPS<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-<span class="nt">&lt;/Encrypt&gt;</span>
-</code></pre>
-<p>EPS does not need mandatory parameters. </p>
-
-<p>You must use <code class="prettyprint">S2PEPS</code> as <code class="prettyprint">paymentType</code>.</p>
-
-<p>More informations about EPS are <a href="http://hype-app.github.io/gestpay-doc-beta/oth/eps.html">in the doc</a>. </p>
+<p>This mean that no others values are asked to the buyer; if this field is not sent with the payment, a page will ask the necessary fields.</p>
 
           <h1 id="js_gestpay-js-api">js_GestPay.js API</h1>
 
