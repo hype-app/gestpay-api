@@ -19,14 +19,18 @@ Merchants can use this method to update the order values for Risk Fraud manageme
 </CallUpdateOrderS2S>
 ```
 
-The attributes are: 
+Mandatory parameters are in **bold**. The attributes are: 
 
 | Name | Description | Data Type | max length |
 | ---- | ----------- | --------- | ---------- |
-| `shopLogin` | shopLogin value | string | 30 |
-| `shopTransactionId` | shop transaction ID value | string | 50 |
-| `bankTransactionId` | the bank ID value | string | 50 |
-| `OrderDetails` | contains every other info needed to evaluate the payment. Refer to [OrderDetails](#orderdetails) for a detailed description of its fields. 
+| **`shopLogin`** | shopLogin value | string | 30 |
+| **`shopTransactionId`** | shop transaction ID value | string | 50 |
+| **`bankTransactionId`** | the bank ID value | string | 50 |
+| **`OrderDetails`** | contains every other info needed to evaluate the payment. Refer to [OrderDetails](#orderdetails) for a detailed description of its fields. 
+
+<aside class="active">
+A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransactionId</code>. However, if the <code>shopTransactionId</code> is unique, the merchant can just send <code>shopLogin</code> + <code>shopTransactionId</code>. 
+</aside>
 
 ### Response fields 
 

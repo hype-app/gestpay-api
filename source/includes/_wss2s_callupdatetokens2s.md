@@ -19,13 +19,15 @@ Merchants belonging to a group are allowed to update also tokens created by othe
 </callUpdateTokenS2S>
 ```
 
+Mandatory parameters are in **bold**. 
+
 | parameter name | description | type | length | 
 | -------------- | ----------- | -----|--------| 
-| `shopLogin` | the merchant's code | string | 30 |  
-| `tokenValue` | Token value to update | string | 25 
-| `expiryMonth` | Assigns card expiration month | string | 2
-| `expiryYear` | Assigns card expiration year | string | 2 
-| `withAut` | tries also to authorize the card. <br> `Y` on `N` | string | 1
+| **`shopLogin`** | the merchant's code | string | 30 |  
+| **`tokenValue`** | Token value to update | string | 25 
+| **`expiryMonth`** | Assigns card expiration month | string | 2
+| **`expiryYear`** | Assigns card expiration year | string | 2 
+| **`withAut`** | tries also to authorize the card. <br> `Y` on `N` | string | 1
 
 ### Response details 
 

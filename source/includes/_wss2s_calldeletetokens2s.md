@@ -13,10 +13,12 @@ Merchants can use this method to disable a token linked to a Credit Card or to c
 </callDeleteTokenS2S>
 ```
 
+Mandatory parameters are in **bold**. 
+
 | parameter name | description | type | length | 
 | -------------- | ----------- | -----|--------| 
-| `shopLogin` | the merchant's code | string | 30 |  
-| `tokenValue` | Token value to delete | string | 25 
+| **`shopLogin`** | the merchant's code | string | 30 |  
+| **`tokenValue`** | Token value to delete | string | 25 
 
 ### Response details 
 

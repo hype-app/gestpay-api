@@ -12,11 +12,11 @@ Merchants can use this method to have the list of the Banks available for their 
 </CallIdealListS2S>
 ```
 
-
+Mandatory parameters are in **bold**.
 
 | parameter name | description | type | length | 
 | -------------- | ----------- | -----|--------| 
-| `shopLogin` | the merchant's code | string | 30 | 
+| **`shopLogin`** | the merchant's code | string | 30 | 
 
 
 
