@@ -24,11 +24,13 @@ It's possible to check with or without verifying the Authorization, setting the 
 </callCheckCartaS2S>
 ```
 
+Parameters in **bold** are mandatory. 
+
 | parameter name | description | type | length | 
 | -------------- | ----------- | -----|--------| 
-| `shopLogin` | the merchant's code | string | 30 |
-| `shopTransactionId` | shop transaction ID value | string | 50  
-| `withAuth` | tries to authorize the card. <br> `Y` on `N` | string | 1  
+| **`shopLogin`** | the merchant's code | string | 30 |
+| **`shopTransactionId`** | shop transaction ID value | string | 50  
+| **`withAuth`** | tries to authorize the card. <br> `Y` on `N` | string | 1  
 
 If you want to check a credit card by credit card number, month and year of expiration, use these fields: 
 
@@ -43,9 +45,9 @@ Alternatively, you can use  `tokenValue` to check if a token is still valid:
 
 | parameter name | description | type | length | 
 | -------------- | ----------- | -----|--------|
-| **`tokenValue`**   | String containing the `token` value returned by Gestpay. <br/> In case of `PayPalBillingAgreement` this token value is the token returned by PayPal during the Billing Agreements. | string | 25 | 
+| `tokenValue`   | String containing the `token` value returned by Gestpay. <br/> In case of `PayPalBillingAgreement` this token value is the token returned by PayPal during the Billing Agreements. | string | 25 | 
 
-<aside class="notice">You must use exactly one among <strong>Credit Card data</strong> and <strong>Token value</strong>.</aside>
+<aside class="notice">You must use <strong>exactly one</strong> among <strong>Credit Card data</strong> and <strong>Token value</strong>.</aside>
 
 ### Response details
 

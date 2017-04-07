@@ -15,13 +15,17 @@ This method can be called with a mandatory `shopLogin`, then it's possible to pa
   <bankTransactionId>334488931</bankTransactionId>
 </callReadTrxS2S>
 ```
-
+Parameters in **bold** are mandatory.
 
 | parameter name | description | type | length | 
 | -------------- | ----------- | -----|--------| 
-| `shopLogin` | the merchant's code | string | 30 |  
-| `bankTransactionId` | ID of the transaction assigned by Gestpay | number | 18
-| `shopTransactionId` | shop transaction ID value | string | 50
+| **`shopLogin`** | the merchant's code | string | 30 |  
+| **`bankTransactionId`** | ID of the transaction assigned by Gestpay | number | 18
+| **`shopTransactionId`** | shop transaction ID value | string | 50
+
+<aside class="active">
+A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransactionId</code>. However, if the <code>shopTransactionId</code> is unique, the merchant can just send <code>shopLogin</code> + <code>shopTransactionId</code>. 
+</aside>
 
 ### Response details 
 

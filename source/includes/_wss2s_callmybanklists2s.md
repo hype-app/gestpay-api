@@ -13,12 +13,12 @@ Merchants can use this method to have the list of the Banks available for their 
 </CallMyBankListS2S>
 ```
 
-
+Mandatory parameters are in **bold**.
 
 | parameter name | description | type | length | 
 | -------------- | ----------- | -----|--------| 
-| `shopLogin` | the merchant's code | string | 30 | 
-| `languageId` | Assigns the response language of the Bank list. Values: <br><ul><li>`1` Italian</li><li>`2` English</li><li>`3` Spanish</li><li>`4` French</li><li>`5` German</li></ul> | number | 2 | 
+| **`shopLogin`** | the merchant's code | string | 30 | 
+| **`languageId`** | Assigns the response language of the Bank list. Values: <br><ul><li>`1` Italian</li><li>`2` English</li><li>`3` Spanish</li><li>`4` French</li><li>`5` German</li></ul> | number | 2 | 
 
 
 

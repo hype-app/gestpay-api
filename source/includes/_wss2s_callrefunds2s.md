@@ -18,16 +18,21 @@ Merchants can use this method to perform a partial or complete transaction amoun
 </callRefundS2S>
 ```
 
+Mandatory parameters are in **bold**.
 
 | parameter name | description | type | length | 
 | -------------- | ----------- | -----|--------| 
-| `shopLogin` | the merchant's code | string | 30 |  
-| `bankTransactionId` | ID of the transaction assigned by Gestpay | number | 18
-| `shopTransactionId` | shop transaction ID value | string | 50
-| `amount` | the amount to refund | number | 9 
-| `uicCode` | [currency code](#currency-codes) | numeric | 3 
+| **`shopLogin`** | the merchant's code | string | 30 |  
+| **`bankTransactionId`** | ID of the transaction assigned by Gestpay | number | 18
+| **`shopTransactionId`** | shop transaction ID value | string | 50
+| **`amount`** | the amount to refund | number | 9 
+| **`uicCode`** | [currency code](#currency-codes) | numeric | 3 
 | `RefundReason` | a free-text reason for the refund. Used with fraud protection. | string | 50 
 | `chargeBackFraud` | Flag for risk: <ul><li>`Y` - chargeback for fraud</li><li>`N` - chargeback not for a fraud</li></ul>
+
+<aside class="active">
+A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransactionId</code>. However, if the <code>shopTransactionId</code> is unique, the merchant can send just <code>shopLogin</code> + <code>shopTransactionId</code>. 
+</aside>
 
 ### Response details 
 

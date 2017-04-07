@@ -19,16 +19,17 @@ Merchants can use this method to request the token generation for a Credit Card.
 </callCheckCartaS2S>
 ```
 
+Parameters in **bold** are mandatory. 
 
 | parameter name | description | type | length | 
 | -------------- | ----------- | -----|--------| 
-| `shopLogin` | the merchant's code | string | 30 |
-| `requestToken` | `MASKEDPAN` for a Standard Token; any other value for Custom Token | string | 24  
-| `cardNumber` | credit card number | string | 20 | 
-| `expiryMonth` | card expiration month | string | 2
-| `expiryYear` | card expiration year | string | 2 
-| `cvv` | security code of the card | string | 4
-| `withAuth` | tries to authorize the card. <br> `Y` on `N` | string | 1
+| **`shopLogin`** | the merchant's code | string | 30 |
+| **`requestToken`** | `MASKEDPAN` for a Standard Token; any other value for Custom Token | string | 24  
+| **`cardNumber`** | credit card number | string | 20 | 
+| **`expiryMonth`** | card expiration month | string | 2
+| **`expiryYear`** | card expiration year | string | 2 
+| **`cvv`** | security code of the card | string | 4
+| **`withAuth`** | tries to authorize the card. <br> `Y` on `N` | string | 1
  
 ### Response details
 
