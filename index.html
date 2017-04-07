@@ -2697,6 +2697,8 @@ Please note:
   <span class="nt">&lt;/FullFillment&gt;</span>
 <span class="nt">&lt;/callSettleS2S&gt;</span>
 </code></pre>
+<p>Parameters in <strong>bold</strong> are mandatory.  </p>
+
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -2706,31 +2708,31 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">shopLogin</code></td>
+<td><strong><code class="prettyprint">shopLogin</code></strong></td>
 <td>the merchant&rsquo;s code</td>
 <td>string</td>
 <td>30</td>
 </tr>
 <tr>
-<td><code class="prettyprint">amount</code></td>
+<td><strong><code class="prettyprint">amount</code></strong></td>
 <td>amount</td>
 <td>  number</td>
 <td>9</td>
 </tr>
 <tr>
-<td><code class="prettyprint">uicCode</code></td>
+<td><strong><code class="prettyprint">uicCode</code></strong></td>
 <td><a href="#currency-codes">currency code</a></td>
 <td>number</td>
 <td>3</td>
 </tr>
 <tr>
-<td><code class="prettyprint">bankTransID</code></td>
+<td><strong><code class="prettyprint">bankTransID</code></strong></td>
 <td>BankTransactionID assigned to the transaction</td>
 <td>number</td>
 <td>18</td>
 </tr>
 <tr>
-<td><code class="prettyprint">shopTransID</code></td>
+<td><strong><code class="prettyprint">shopTransID</code></strong></td>
 <td>shop transaction ID value</td>
 <td>string</td>
 <td>50</td>
@@ -2742,6 +2744,10 @@ Please note:
 <td></td>
 </tr>
 </tbody></table>
+
+<aside class="active">
+A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransID</code>. However, if the <code>shopTransID</code> is unique, the merchant can send just <code>shopLogin</code> + <code>shopTransID</code>. 
+</aside>
 
 <p><code class="prettyprint">FullFillment</code> tag must be filled if you are using <a href="http://docs.gestpay.it/sec/gestpay-guaranteed-checkout.html"> Gestpay Guaranteed Checkout</a>, an anti fraud evaluating system. If you are not using it, you can skip this. </p>
 
@@ -2931,6 +2937,8 @@ Please note:
   <span class="nt">&lt;CancelReason&gt;</span>potential fraud<span class="nt">&lt;/CancelReason&gt;</span>
 <span class="nt">&lt;/callDeleteS2S&gt;</span>
 </code></pre>
+<p>Mandatory parameters are in bold.</p>
+
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -2940,19 +2948,19 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">shopLogin</code></td>
+<td><strong><code class="prettyprint">shopLogin</code></strong></td>
 <td>the merchant&rsquo;s code</td>
 <td>string</td>
 <td>30</td>
 </tr>
 <tr>
-<td><code class="prettyprint">bankTransactionId</code></td>
+<td><strong><code class="prettyprint">bankTransactionId</code></strong></td>
 <td>ID of the transaction assigned by Gestpay</td>
 <td>number</td>
 <td>18</td>
 </tr>
 <tr>
-<td><code class="prettyprint">shopTransactionId</code></td>
+<td><strong><code class="prettyprint">shopTransactionId</code></strong></td>
 <td>shop transaction ID value</td>
 <td>string</td>
 <td>50</td>
@@ -2964,6 +2972,10 @@ Please note:
 <td>50</td>
 </tr>
 </tbody></table>
+
+<aside class="active">
+A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransactionId</code>. However, if the <code>shopTransactionId</code> is unique, the merchant can send just <code>shopLogin</code> + <code>shopTransactionId</code>. 
+</aside>
 
 <h3 id="response-details"> Response details</h3>
 
@@ -3034,6 +3046,8 @@ Please note:
   <span class="nt">&lt;chargeBackFraud&gt;</span>N<span class="nt">&lt;/chargeBackFraud&gt;</span>
 <span class="nt">&lt;/callRefundS2S&gt;</span>
 </code></pre>
+<p>Mandatory parameters are in <strong>bold</strong>.</p>
+
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3043,31 +3057,31 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">shopLogin</code></td>
+<td><strong><code class="prettyprint">shopLogin</code></strong></td>
 <td>the merchant&rsquo;s code</td>
 <td>string</td>
 <td>30</td>
 </tr>
 <tr>
-<td><code class="prettyprint">bankTransactionId</code></td>
+<td><strong><code class="prettyprint">bankTransactionId</code></strong></td>
 <td>ID of the transaction assigned by Gestpay</td>
 <td>number</td>
 <td>18</td>
 </tr>
 <tr>
-<td><code class="prettyprint">shopTransactionId</code></td>
+<td><strong><code class="prettyprint">shopTransactionId</code></strong></td>
 <td>shop transaction ID value</td>
 <td>string</td>
 <td>50</td>
 </tr>
 <tr>
-<td><code class="prettyprint">amount</code></td>
+<td><strong><code class="prettyprint">amount</code></strong></td>
 <td>the amount to refund</td>
 <td>number</td>
 <td>9</td>
 </tr>
 <tr>
-<td><code class="prettyprint">uicCode</code></td>
+<td><strong><code class="prettyprint">uicCode</code></strong></td>
 <td><a href="#currency-codes">currency code</a></td>
 <td>numeric</td>
 <td>3</td>
@@ -3085,6 +3099,10 @@ Please note:
 <td></td>
 </tr>
 </tbody></table>
+
+<aside class="active">
+A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransactionId</code>. However, if the <code>shopTransactionId</code> is unique, the merchant can send just <code>shopLogin</code> + <code>shopTransactionId</code>. 
+</aside>
 
 <h3 id="response-details"> Response details</h3>
 
@@ -3153,6 +3171,8 @@ Please note:
   <span class="nt">&lt;bankTransactionId&gt;</span>334488931<span class="nt">&lt;/bankTransactionId&gt;</span>
 <span class="nt">&lt;/callReadTrxS2S&gt;</span>
 </code></pre>
+<p>Parameters in <strong>bold</strong> are mandatory.</p>
+
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3162,24 +3182,28 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">shopLogin</code></td>
+<td><strong><code class="prettyprint">shopLogin</code></strong></td>
 <td>the merchant&rsquo;s code</td>
 <td>string</td>
 <td>30</td>
 </tr>
 <tr>
-<td><code class="prettyprint">bankTransactionId</code></td>
+<td><strong><code class="prettyprint">bankTransactionId</code></strong></td>
 <td>ID of the transaction assigned by Gestpay</td>
 <td>number</td>
 <td>18</td>
 </tr>
 <tr>
-<td><code class="prettyprint">shopTransactionId</code></td>
+<td><strong><code class="prettyprint">shopTransactionId</code></strong></td>
 <td>shop transaction ID value</td>
 <td>string</td>
 <td>50</td>
 </tr>
 </tbody></table>
+
+<aside class="active">
+A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransactionId</code>. However, if the <code>shopTransactionId</code> is unique, the merchant can just send <code>shopLogin</code> + <code>shopTransactionId</code>. 
+</aside>
 
 <h3 id="response-details"> Response details</h3>
 
@@ -3345,6 +3369,8 @@ Please note:
   <span class="nt">&lt;CVV2&gt;</span>931<span class="nt">&lt;/CVV2&gt;</span>
 <span class="nt">&lt;/callVerifycardS2S&gt;</span>
 </code></pre>
+<p>Parameters in <strong>bold</strong> are mandatory. </p>
+
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3354,37 +3380,37 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">shopLogin</code></td>
+<td><strong><code class="prettyprint">shopLogin</code></strong></td>
 <td>the merchant&rsquo;s code</td>
 <td>string</td>
 <td>30</td>
 </tr>
 <tr>
-<td><code class="prettyprint">shopTransactionId</code></td>
+<td><strong><code class="prettyprint">shopTransactionId</code></strong></td>
 <td>shop transaction ID value</td>
 <td>string</td>
 <td>50</td>
 </tr>
 <tr>
-<td><code class="prettyprint">cardNumber</code></td>
+<td><strong><code class="prettyprint">cardNumber</code></strong></td>
 <td>credit card number</td>
 <td>string</td>
 <td>20</td>
 </tr>
 <tr>
-<td><code class="prettyprint">expMonth</code></td>
+<td><strong><code class="prettyprint">expMonth</code></strong></td>
 <td>card expiration month</td>
 <td>string</td>
 <td>2</td>
 </tr>
 <tr>
-<td><code class="prettyprint">expYear</code></td>
+<td><strong><code class="prettyprint">expYear</code></strong></td>
 <td>card expiration year</td>
 <td>string</td>
 <td>2</td>
 </tr>
 <tr>
-<td><code class="prettyprint">CVV2</code></td>
+<td><strong><code class="prettyprint">CVV2</code></strong></td>
 <td>security code of the card</td>
 <td>string</td>
 <td>4</td>
@@ -3464,6 +3490,8 @@ Please note:
     <span class="nt">&lt;withAuth&gt;</span>Y<span class="nt">&lt;/withAuth&gt;</span>
 <span class="nt">&lt;/callCheckCartaS2S&gt;</span>
 </code></pre>
+<p>Parameters in <strong>bold</strong> are mandatory. </p>
+
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3473,19 +3501,19 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">shopLogin</code></td>
+<td><strong><code class="prettyprint">shopLogin</code></strong></td>
 <td>the merchant&rsquo;s code</td>
 <td>string</td>
 <td>30</td>
 </tr>
 <tr>
-<td><code class="prettyprint">shopTransactionId</code></td>
+<td><strong><code class="prettyprint">shopTransactionId</code></strong></td>
 <td>shop transaction ID value</td>
 <td>string</td>
 <td>50</td>
 </tr>
 <tr>
-<td><code class="prettyprint">withAuth</code></td>
+<td><strong><code class="prettyprint">withAuth</code></strong></td>
 <td>tries to authorize the card. <br> <code class="prettyprint">Y</code> on <code class="prettyprint">N</code></td>
 <td>string</td>
 <td>1</td>
@@ -3539,14 +3567,14 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><strong><code class="prettyprint">tokenValue</code></strong></td>
+<td><code class="prettyprint">tokenValue</code></td>
 <td>String containing the <code class="prettyprint">token</code> value returned by Gestpay. <br/> In case of <code class="prettyprint">PayPalBillingAgreement</code> this token value is the token returned by PayPal during the Billing Agreements.</td>
 <td>string</td>
 <td>25</td>
 </tr>
 </tbody></table>
 
-<aside class="notice">You must use exactly one among <strong>Credit Card data</strong> and <strong>Token value</strong>.</aside>
+<aside class="notice">You must use <strong>exactly one</strong> among <strong>Credit Card data</strong> and <strong>Token value</strong>.</aside>
 
 <h3 id="response-details">Response details</h3>
 
@@ -3706,6 +3734,8 @@ Please note:
   <span class="nt">&lt;withAuth&gt;</span>Y<span class="nt">&lt;/withAuth&gt;</span>
 <span class="nt">&lt;/callCheckCartaS2S&gt;</span>
 </code></pre>
+<p>Parameters in <strong>bold</strong> are mandatory. </p>
+
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3715,43 +3745,43 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">shopLogin</code></td>
+<td><strong><code class="prettyprint">shopLogin</code></strong></td>
 <td>the merchant&rsquo;s code</td>
 <td>string</td>
 <td>30</td>
 </tr>
 <tr>
-<td><code class="prettyprint">requestToken</code></td>
+<td><strong><code class="prettyprint">requestToken</code></strong></td>
 <td><code class="prettyprint">MASKEDPAN</code> for a Standard Token; any other value for Custom Token</td>
 <td>string</td>
 <td>24</td>
 </tr>
 <tr>
-<td><code class="prettyprint">cardNumber</code></td>
+<td><strong><code class="prettyprint">cardNumber</code></strong></td>
 <td>credit card number</td>
 <td>string</td>
 <td>20</td>
 </tr>
 <tr>
-<td><code class="prettyprint">expiryMonth</code></td>
+<td><strong><code class="prettyprint">expiryMonth</code></strong></td>
 <td>card expiration month</td>
 <td>string</td>
 <td>2</td>
 </tr>
 <tr>
-<td><code class="prettyprint">expiryYear</code></td>
+<td><strong><code class="prettyprint">expiryYear</code></strong></td>
 <td>card expiration year</td>
 <td>string</td>
 <td>2</td>
 </tr>
 <tr>
-<td><code class="prettyprint">cvv</code></td>
+<td><strong><code class="prettyprint">cvv</code></strong></td>
 <td>security code of the card</td>
 <td>string</td>
 <td>4</td>
 </tr>
 <tr>
-<td><code class="prettyprint">withAuth</code></td>
+<td><strong><code class="prettyprint">withAuth</code></strong></td>
 <td>tries to authorize the card. <br> <code class="prettyprint">Y</code> on <code class="prettyprint">N</code></td>
 <td>string</td>
 <td>1</td>
@@ -3927,6 +3957,8 @@ Please note:
   <span class="nt">&lt;tokenValue&gt;</span>1234WJFXABCD5678<span class="nt">&lt;/tokenValue&gt;</span>
 <span class="nt">&lt;/callDeleteTokenS2S&gt;</span>
 </code></pre>
+<p>Mandatory parameters are in <strong>bold</strong>. </p>
+
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3936,13 +3968,13 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">shopLogin</code></td>
+<td><strong><code class="prettyprint">shopLogin</code></strong></td>
 <td>the merchant&rsquo;s code</td>
 <td>string</td>
 <td>30</td>
 </tr>
 <tr>
-<td><code class="prettyprint">tokenValue</code></td>
+<td><strong><code class="prettyprint">tokenValue</code></strong></td>
 <td>Token value to delete</td>
 <td>string</td>
 <td>25</td>
@@ -4006,6 +4038,8 @@ Please note:
   <span class="nt">&lt;withAut&gt;</span>Y<span class="nt">&lt;/withAut&gt;</span>
 <span class="nt">&lt;/callUpdateTokenS2S&gt;</span>
 </code></pre>
+<p>Mandatory parameters are in <strong>bold</strong>. </p>
+
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -4015,31 +4049,31 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">shopLogin</code></td>
+<td><strong><code class="prettyprint">shopLogin</code></strong></td>
 <td>the merchant&rsquo;s code</td>
 <td>string</td>
 <td>30</td>
 </tr>
 <tr>
-<td><code class="prettyprint">tokenValue</code></td>
+<td><strong><code class="prettyprint">tokenValue</code></strong></td>
 <td>Token value to update</td>
 <td>string</td>
 <td>25</td>
 </tr>
 <tr>
-<td><code class="prettyprint">expiryMonth</code></td>
+<td><strong><code class="prettyprint">expiryMonth</code></strong></td>
 <td>Assigns card expiration month</td>
 <td>string</td>
 <td>2</td>
 </tr>
 <tr>
-<td><code class="prettyprint">expiryYear</code></td>
+<td><strong><code class="prettyprint">expiryYear</code></strong></td>
 <td>Assigns card expiration year</td>
 <td>string</td>
 <td>2</td>
 </tr>
 <tr>
-<td><code class="prettyprint">withAut</code></td>
+<td><strong><code class="prettyprint">withAut</code></strong></td>
 <td>tries also to authorize the card. <br> <code class="prettyprint">Y</code> on <code class="prettyprint">N</code></td>
 <td>string</td>
 <td>1</td>
@@ -4097,6 +4131,8 @@ Please note:
   <span class="nt">&lt;shopLogin&gt;</span>900000001<span class="nt">&lt;/shopLogin&gt;</span>
 <span class="nt">&lt;/CallIdealListS2S&gt;</span>
 </code></pre>
+<p>Mandatory parameters are in <strong>bold</strong>.</p>
+
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -4106,7 +4142,7 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">shopLogin</code></td>
+<td><strong><code class="prettyprint">shopLogin</code></strong></td>
 <td>the merchant&rsquo;s code</td>
 <td>string</td>
 <td>30</td>
@@ -4182,6 +4218,8 @@ Please note:
   <span class="nt">&lt;langugeId&gt;</span>1<span class="nt">&lt;/languageId&gt;</span>
 <span class="nt">&lt;/CallMyBankListS2S&gt;</span>
 </code></pre>
+<p>Mandatory parameters are in <strong>bold</strong>.</p>
+
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -4191,13 +4229,13 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">shopLogin</code></td>
+<td><strong><code class="prettyprint">shopLogin</code></strong></td>
 <td>the merchant&rsquo;s code</td>
 <td>string</td>
 <td>30</td>
 </tr>
 <tr>
-<td><code class="prettyprint">languageId</code></td>
+<td><strong><code class="prettyprint">languageId</code></strong></td>
 <td>Assigns the response language of the Bank list. Values: <br><ul><li><code class="prettyprint">1</code> Italian</li><li><code class="prettyprint">2</code> English</li><li><code class="prettyprint">3</code> Spanish</li><li><code class="prettyprint">4</code> French</li><li><code class="prettyprint">5</code> German</li></ul></td>
 <td>number</td>
 <td>2</td>
@@ -4279,7 +4317,7 @@ Please note:
   <span class="nt">&lt;OrderDetails&gt;</span>
 <span class="nt">&lt;/CallUpdateOrderS2S&gt;</span>
 </code></pre>
-<p>The attributes are: </p>
+<p>Mandatory parameters are in <strong>bold</strong>. The attributes are: </p>
 
 <table><thead>
 <tr>
@@ -4290,30 +4328,34 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">shopLogin</code> </td>
+<td><strong><code class="prettyprint">shopLogin</code></strong> </td>
 <td>shopLogin value</td>
 <td>string</td>
 <td>30</td>
 </tr>
 <tr>
-<td><code class="prettyprint">shopTransactionId</code></td>
+<td><strong><code class="prettyprint">shopTransactionId</code></strong></td>
 <td>shop transaction ID value</td>
 <td>string</td>
 <td>50</td>
 </tr>
 <tr>
-<td><code class="prettyprint">bankTransactionId</code></td>
+<td><strong><code class="prettyprint">bankTransactionId</code></strong></td>
 <td>the bank ID value</td>
 <td>string</td>
 <td>50</td>
 </tr>
 <tr>
-<td><code class="prettyprint">OrderDetails</code></td>
+<td><strong><code class="prettyprint">OrderDetails</code></strong></td>
 <td>contains every other info needed to evaluate the payment. Refer to <a href="#orderdetails">OrderDetails</a> for a detailed description of its fields.</td>
 <td></td>
 <td></td>
 </tr>
 </tbody></table>
+
+<aside class="active">
+A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransactionId</code>. However, if the <code>shopTransactionId</code> is unique, the merchant can just send <code>shopLogin</code> + <code>shopTransactionId</code>. 
+</aside>
 
 <h3 id="response-fields">Response fields</h3>
 
