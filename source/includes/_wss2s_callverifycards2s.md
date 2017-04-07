@@ -16,16 +16,16 @@ Merchants can use this method to check the Credit Card.
   <CVV2>931</CVV2>
 </callVerifycardS2S>
 ```
-
+Parameters in **bold** are mandatory. 
 
 | parameter name | description | type | length | 
 | -------------- | ----------- | -----|--------| 
-| `shopLogin` | the merchant's code | string | 30 |
-| `shopTransactionId` | shop transaction ID value | string | 50  
-| `cardNumber` | credit card number | string | 20 | 
-| `expMonth` | card expiration month | string | 2
-| `expYear` | card expiration year | string | 2 
-| `CVV2` | security code of the card | string | 4
+| **`shopLogin`** | the merchant's code | string | 30 |
+| **`shopTransactionId`** | shop transaction ID value | string | 50  
+| **`cardNumber`** | credit card number | string | 20 | 
+| **`expMonth`** | card expiration month | string | 2
+| **`expYear`** | card expiration year | string | 2 
+| **`CVV2`** | security code of the card | string | 4
  
 ### Response details
 
