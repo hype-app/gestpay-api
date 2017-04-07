@@ -59,6 +59,7 @@ includes:
   - wss2s_callideallists2s
   - wss2s_callmybanklists2s
   - wss2s_callupdateorders2s
+  - wss2s_callexchangerates2s
   - riskified
   - models
   - models_orderdetails
