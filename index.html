@@ -4393,6 +4393,146 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 </tr>
 </tbody></table>
 
+          <h2 id="callexchangerates2s">CallExchangeRateS2S</h2>
+
+<p>Merchants can use this method to retrieve the exchange rate for a different currency, in the 7 previous days. </p>
+
+<h3 id="request-details"> Request details</h3>
+
+<blockquote>
+<p>Request example:</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;eco:callExchangeRateS2S&gt;</span>
+    <span class="nt">&lt;eco:shopLogin&gt;</span>GESPAY65987<span class="nt">&lt;/eco:shopLogin&gt;</span>
+    <span class="nt">&lt;eco:uicCode&gt;</span>1<span class="nt">&lt;/eco:uicCode&gt;</span>
+    <span class="nt">&lt;eco:isoCode&gt;</span>USD<span class="nt">&lt;/eco:isoCode&gt;</span>
+    <span class="nt">&lt;eco:numericIsoCode&gt;</span>840<span class="nt">&lt;/eco:numericIsoCode&gt;</span>
+<span class="nt">&lt;/eco:callExchangeRateS2S&gt;</span>
+</code></pre>
+<p>Parameters in <strong>bold</strong> are mandatory. </p>
+
+<table><thead>
+<tr>
+<th>parameter name</th>
+<th>description</th>
+<th>type</th>
+<th>length</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong><code class="prettyprint">shopLogin</code></strong></td>
+<td>the merchant&rsquo;s code</td>
+<td>string</td>
+<td>30</td>
+</tr>
+<tr>
+<td><code class="prettyprint">uicCode</code></td>
+<td>the <a href="http://api.gestpay.it/#currency-codes">UIC code</a></td>
+<td>string</td>
+<td>10</td>
+</tr>
+<tr>
+<td><code class="prettyprint">isoCode</code></td>
+<td>the <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO code</a> - see the <code class="prettyprint">Code</code> column.</td>
+<td>string</td>
+<td>10</td>
+</tr>
+<tr>
+<td><code class="prettyprint">numericIsoCode</code></td>
+<td>the <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO code</a> - see the <code class="prettyprint">Num</code> column.</td>
+<td>string</td>
+<td>10</td>
+</tr>
+</tbody></table>
+
+<aside class="active">
+The three parameters <code>UICCode</code>, <code>ISOCode</code> and <code>NumericISOCode</code> are individually optional, but you must select at least one. 
+</aside>
+ 
+
+<h3 id="response-details">Response details</h3>
+
+<blockquote>
+<p>Response example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;callExchangeRateS2SResult&gt;</span>
+  <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;TransactionType&gt;</span>ExchangeRate<span class="nt">&lt;/TransactionType&gt;</span>
+      <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+      <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+      <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
+      <span class="nt">&lt;ExchangeRates&gt;</span>
+          <span class="nt">&lt;ExchangeRate&gt;</span>
+              <span class="nt">&lt;UICCode&gt;</span>1<span class="nt">&lt;/UICCode&gt;</span>
+              <span class="nt">&lt;ISOCode&gt;</span>USD<span class="nt">&lt;/ISOCode&gt;</span>
+              <span class="nt">&lt;NumericISOCode&gt;</span>840<span class="nt">&lt;/NumericISOCode&gt;</span>
+              <span class="nt">&lt;ExchangeRate&gt;</span>1,0639<span class="nt">&lt;/ExchangeRate&gt;</span>
+              <span class="nt">&lt;CreditDate</span> <span class="na">DateFormat=</span><span class="s">"DD/MM/YYYY"</span><span class="nt">&gt;</span>07/04/2017<span class="nt">&lt;/CreditDate&gt;</span>
+          <span class="nt">&lt;/ExchangeRate&gt;</span>
+          <span class="nt">&lt;ExchangeRate&gt;</span>
+              <span class="nt">&lt;UICCode&gt;</span>1<span class="nt">&lt;/UICCode&gt;</span>
+              <span class="nt">&lt;ISOCode&gt;</span>USD<span class="nt">&lt;/ISOCode&gt;</span>
+              <span class="nt">&lt;NumericISOCode&gt;</span>840<span class="nt">&lt;/NumericISOCode&gt;</span>
+              <span class="nt">&lt;ExchangeRate&gt;</span>1,0647<span class="nt">&lt;/ExchangeRate&gt;</span>
+              <span class="nt">&lt;CreditDate</span> <span class="na">DateFormat=</span><span class="s">"DD/MM/YYYY"</span><span class="nt">&gt;</span>06/04/2017<span class="nt">&lt;/CreditDate&gt;</span>
+          <span class="nt">&lt;/ExchangeRate&gt;</span>
+          ...
+      <span class="nt">&lt;/ExchangeRates&gt;</span>
+  <span class="nt">&lt;/GestPayS2S&gt;</span>
+  <span class="nt">&lt;/callExchangeRateS2SResult&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">TransactionType</code></td>
+<td><code class="prettyprint">ExchangeRate</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">TransactionResult</code></td>
+<td><code class="prettyprint">OK</code> or <code class="prettyprint">KO</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">ErrorCode</code></td>
+<td>error code occurred</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ErrorDescription</code></td>
+<td>error description relative to error code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ExchangeRates</code></td>
+<td>Tag for list of exchange rates</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ExchangeRate</code></td>
+<td>Tag for exchange rate detail</td>
+</tr>
+<tr>
+<td><code class="prettyprint">UICCode</code></td>
+<td>UIC code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ISOCode</code></td>
+<td>ISO code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">NumericISOCode</code></td>
+<td>Numeric ISO code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ExchangeRate</code></td>
+<td>Value of exchange rate</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CreditDate</code></td>
+<td>Day of validity for this Exchange Rate</td>
+</tr>
+</tbody></table>
+
           <h1 id="gestpay-guaranteed-payment">Gestpay Guaranteed Payment</h1>
 
 <p>Gestpay Guaranteed Payment is a fraud detection service, offered in partnership with Riskified. To get more info, visit <a href="http://hype-app.github.io/gestpay-doc-beta/sec/gestpay-guaranteed-payment.html">Gestpay Guaranteed Payment documentation</a>. </p>
