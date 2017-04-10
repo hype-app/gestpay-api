@@ -1,6 +1,6 @@
 ## CallExchangeRateS2S
 
-Merchants can use this method to retrieve the exchange rate for a different currency,in the 7 previous days. 
+Merchants can use this method to retrieve the exchange rate for a different currency, in the 7 previous days. 
 
 ### Request details 
 
@@ -58,6 +58,7 @@ The three parameters <code>UICCode</code>, <code>ISOCode</code> and <code>Numeri
   </GestPayS2S>
   </callExchangeRateS2SResult>
 ```
+
 
 | name | description 
 | ---- | -----------
