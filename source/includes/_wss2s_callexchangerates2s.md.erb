@@ -1,6 +1,8 @@
 ## callExchangeRateS2S
 
-Merchants can use this method to retrieve the exchange rate for a different currency, in the 7 previous days. 
+Merchants can use this method to retrieve the exchange rates for a specified currency, in the last 7 days (current day and 6 previous days).
+
+Exchange rates are meant as the conversion rates applied on that day to that currency by the phases that credit that amount on the bank account of the merchant, in order to get the corresponding EUR value. 
 
 A more descriptive explanation of `callExchangeRateS2S` is [in the docs](<%= config[:doc_url] %>/adv/obtaining-the-exchange-rates/). 
 
@@ -36,27 +38,61 @@ The three parameters <code>UICCode</code>, <code>ISOCode</code> and <code>Numeri
 ```xml
 <callExchangeRateS2SResult>
   <GestPayS2S xmlns="">
-      <TransactionType>ExchangeRate</TransactionType>
-      <TransactionResult>OK</TransactionResult>
-      <ErrorCode>0</ErrorCode>
-      <ErrorDescription>Transazione correttamente effettuata</ErrorDescription>
-      <ExchangeRates>
-          <ExchangeRate>
-              <UICCode>1</UICCode>
-              <ISOCode>USD</ISOCode>
-              <NumericISOCode>840</NumericISOCode>
-              <ExchangeRate>1,0639</ExchangeRate>
-              <CreditDate DateFormat="DD/MM/YYYY">07/04/2017</CreditDate>
-          </ExchangeRate>
-          <ExchangeRate>
-              <UICCode>1</UICCode>
-              <ISOCode>USD</ISOCode>
-              <NumericISOCode>840</NumericISOCode>
-              <ExchangeRate>1,0647</ExchangeRate>
-              <CreditDate DateFormat="DD/MM/YYYY">06/04/2017</CreditDate>
-          </ExchangeRate>
-          ...
-      </ExchangeRates>
+    <TransactionType>ExchangeRate</TransactionType>
+    <TransactionResult>OK</TransactionResult>
+    <ErrorCode>0</ErrorCode>
+    <ErrorDescription>Transazione correttamente effettuata</ErrorDescription>
+    <ExchangeRates>
+        <ExchangeRate>
+            <UICCode>1</UICCode>
+            <ISOCode>USD</ISOCode>
+            <NumericISOCode>840</NumericISOCode>
+            <ExchangeRate>1,0617</ExchangeRate>
+            <CreditDate DateFormat="DD/MM/YYYY">14/04/2017</CreditDate>
+        </ExchangeRate>
+        <ExchangeRate>
+            <UICCode>1</UICCode>
+            <ISOCode>USD</ISOCode>
+            <NumericISOCode>840</NumericISOCode>
+            <ExchangeRate>1,0602</ExchangeRate>
+            <CreditDate DateFormat="DD/MM/YYYY">13/04/2017</CreditDate>
+        </ExchangeRate>
+        <ExchangeRate>
+            <UICCode>1</UICCode>
+            <ISOCode>USD</ISOCode>
+            <NumericISOCode>840</NumericISOCode>
+            <ExchangeRate>1,0603</ExchangeRate>
+            <CreditDate DateFormat="DD/MM/YYYY">12/04/2017</CreditDate>
+        </ExchangeRate>
+        <ExchangeRate>
+            <UICCode>1</UICCode>
+            <ISOCode>USD</ISOCode>
+            <NumericISOCode>840</NumericISOCode>
+            <ExchangeRate>1,0599</ExchangeRate>
+            <CreditDate DateFormat="DD/MM/YYYY">11/04/2017</CreditDate>
+        </ExchangeRate>
+        <ExchangeRate>
+            <UICCode>1</UICCode>
+            <ISOCode>USD</ISOCode>
+            <NumericISOCode>840</NumericISOCode>
+            <ExchangeRate>1,0595</ExchangeRate>
+            <CreditDate DateFormat="DD/MM/YYYY">10/04/2017</CreditDate>
+        </ExchangeRate>
+        <ExchangeRate>
+            <UICCode>1</UICCode>
+            <ISOCode>USD</ISOCode>
+            <NumericISOCode>840</NumericISOCode>
+            <ExchangeRate>1,0595</ExchangeRate>
+            <CreditDate DateFormat="DD/MM/YYYY">09/04/2017</CreditDate>
+        </ExchangeRate>
+        <ExchangeRate>
+            <UICCode>1</UICCode>
+            <ISOCode>USD</ISOCode>
+            <NumericISOCode>840</NumericISOCode>
+            <ExchangeRate>1,0595</ExchangeRate>
+            <CreditDate DateFormat="DD/MM/YYYY">08/04/2017</CreditDate>
+        </ExchangeRate>
+    </ExchangeRates>
   </GestPayS2S>
   </callExchangeRateS2SResult>
 ```
