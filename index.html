@@ -4395,7 +4395,9 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 
           <h2 id="callexchangerates2s">callExchangeRateS2S</h2>
 
-<p>Merchants can use this method to retrieve the exchange rate for a different currency, in the 7 previous days. </p>
+<p>Merchants can use this method to retrieve the exchange rates for a specified currency, in the last 7 days (current day and 6 previous days).</p>
+
+<p>Exchange rates are meant as the conversion rates applied on that day to that currency by the phases that credit that amount on the bank account of the merchant, in order to get the corresponding EUR value. </p>
 
 <p>A more descriptive explanation of <code class="prettyprint">callExchangeRateS2S</code> is <a href="http://hype-app.github.io/gestpay-doc-beta/adv/obtaining-the-exchange-rates/">in the docs</a>. </p>
 
@@ -4459,27 +4461,61 @@ The three parameters <code>UICCode</code>, <code>ISOCode</code> and <code>Numeri
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;callExchangeRateS2SResult&gt;</span>
   <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;TransactionType&gt;</span>ExchangeRate<span class="nt">&lt;/TransactionType&gt;</span>
-      <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
-      <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
-      <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
-      <span class="nt">&lt;ExchangeRates&gt;</span>
-          <span class="nt">&lt;ExchangeRate&gt;</span>
-              <span class="nt">&lt;UICCode&gt;</span>1<span class="nt">&lt;/UICCode&gt;</span>
-              <span class="nt">&lt;ISOCode&gt;</span>USD<span class="nt">&lt;/ISOCode&gt;</span>
-              <span class="nt">&lt;NumericISOCode&gt;</span>840<span class="nt">&lt;/NumericISOCode&gt;</span>
-              <span class="nt">&lt;ExchangeRate&gt;</span>1,0639<span class="nt">&lt;/ExchangeRate&gt;</span>
-              <span class="nt">&lt;CreditDate</span> <span class="na">DateFormat=</span><span class="s">"DD/MM/YYYY"</span><span class="nt">&gt;</span>07/04/2017<span class="nt">&lt;/CreditDate&gt;</span>
-          <span class="nt">&lt;/ExchangeRate&gt;</span>
-          <span class="nt">&lt;ExchangeRate&gt;</span>
-              <span class="nt">&lt;UICCode&gt;</span>1<span class="nt">&lt;/UICCode&gt;</span>
-              <span class="nt">&lt;ISOCode&gt;</span>USD<span class="nt">&lt;/ISOCode&gt;</span>
-              <span class="nt">&lt;NumericISOCode&gt;</span>840<span class="nt">&lt;/NumericISOCode&gt;</span>
-              <span class="nt">&lt;ExchangeRate&gt;</span>1,0647<span class="nt">&lt;/ExchangeRate&gt;</span>
-              <span class="nt">&lt;CreditDate</span> <span class="na">DateFormat=</span><span class="s">"DD/MM/YYYY"</span><span class="nt">&gt;</span>06/04/2017<span class="nt">&lt;/CreditDate&gt;</span>
-          <span class="nt">&lt;/ExchangeRate&gt;</span>
-          ...
-      <span class="nt">&lt;/ExchangeRates&gt;</span>
+    <span class="nt">&lt;TransactionType&gt;</span>ExchangeRate<span class="nt">&lt;/TransactionType&gt;</span>
+    <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+    <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+    <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
+    <span class="nt">&lt;ExchangeRates&gt;</span>
+        <span class="nt">&lt;ExchangeRate&gt;</span>
+            <span class="nt">&lt;UICCode&gt;</span>1<span class="nt">&lt;/UICCode&gt;</span>
+            <span class="nt">&lt;ISOCode&gt;</span>USD<span class="nt">&lt;/ISOCode&gt;</span>
+            <span class="nt">&lt;NumericISOCode&gt;</span>840<span class="nt">&lt;/NumericISOCode&gt;</span>
+            <span class="nt">&lt;ExchangeRate&gt;</span>1,0617<span class="nt">&lt;/ExchangeRate&gt;</span>
+            <span class="nt">&lt;CreditDate</span> <span class="na">DateFormat=</span><span class="s">"DD/MM/YYYY"</span><span class="nt">&gt;</span>14/04/2017<span class="nt">&lt;/CreditDate&gt;</span>
+        <span class="nt">&lt;/ExchangeRate&gt;</span>
+        <span class="nt">&lt;ExchangeRate&gt;</span>
+            <span class="nt">&lt;UICCode&gt;</span>1<span class="nt">&lt;/UICCode&gt;</span>
+            <span class="nt">&lt;ISOCode&gt;</span>USD<span class="nt">&lt;/ISOCode&gt;</span>
+            <span class="nt">&lt;NumericISOCode&gt;</span>840<span class="nt">&lt;/NumericISOCode&gt;</span>
+            <span class="nt">&lt;ExchangeRate&gt;</span>1,0602<span class="nt">&lt;/ExchangeRate&gt;</span>
+            <span class="nt">&lt;CreditDate</span> <span class="na">DateFormat=</span><span class="s">"DD/MM/YYYY"</span><span class="nt">&gt;</span>13/04/2017<span class="nt">&lt;/CreditDate&gt;</span>
+        <span class="nt">&lt;/ExchangeRate&gt;</span>
+        <span class="nt">&lt;ExchangeRate&gt;</span>
+            <span class="nt">&lt;UICCode&gt;</span>1<span class="nt">&lt;/UICCode&gt;</span>
+            <span class="nt">&lt;ISOCode&gt;</span>USD<span class="nt">&lt;/ISOCode&gt;</span>
+            <span class="nt">&lt;NumericISOCode&gt;</span>840<span class="nt">&lt;/NumericISOCode&gt;</span>
+            <span class="nt">&lt;ExchangeRate&gt;</span>1,0603<span class="nt">&lt;/ExchangeRate&gt;</span>
+            <span class="nt">&lt;CreditDate</span> <span class="na">DateFormat=</span><span class="s">"DD/MM/YYYY"</span><span class="nt">&gt;</span>12/04/2017<span class="nt">&lt;/CreditDate&gt;</span>
+        <span class="nt">&lt;/ExchangeRate&gt;</span>
+        <span class="nt">&lt;ExchangeRate&gt;</span>
+            <span class="nt">&lt;UICCode&gt;</span>1<span class="nt">&lt;/UICCode&gt;</span>
+            <span class="nt">&lt;ISOCode&gt;</span>USD<span class="nt">&lt;/ISOCode&gt;</span>
+            <span class="nt">&lt;NumericISOCode&gt;</span>840<span class="nt">&lt;/NumericISOCode&gt;</span>
+            <span class="nt">&lt;ExchangeRate&gt;</span>1,0599<span class="nt">&lt;/ExchangeRate&gt;</span>
+            <span class="nt">&lt;CreditDate</span> <span class="na">DateFormat=</span><span class="s">"DD/MM/YYYY"</span><span class="nt">&gt;</span>11/04/2017<span class="nt">&lt;/CreditDate&gt;</span>
+        <span class="nt">&lt;/ExchangeRate&gt;</span>
+        <span class="nt">&lt;ExchangeRate&gt;</span>
+            <span class="nt">&lt;UICCode&gt;</span>1<span class="nt">&lt;/UICCode&gt;</span>
+            <span class="nt">&lt;ISOCode&gt;</span>USD<span class="nt">&lt;/ISOCode&gt;</span>
+            <span class="nt">&lt;NumericISOCode&gt;</span>840<span class="nt">&lt;/NumericISOCode&gt;</span>
+            <span class="nt">&lt;ExchangeRate&gt;</span>1,0595<span class="nt">&lt;/ExchangeRate&gt;</span>
+            <span class="nt">&lt;CreditDate</span> <span class="na">DateFormat=</span><span class="s">"DD/MM/YYYY"</span><span class="nt">&gt;</span>10/04/2017<span class="nt">&lt;/CreditDate&gt;</span>
+        <span class="nt">&lt;/ExchangeRate&gt;</span>
+        <span class="nt">&lt;ExchangeRate&gt;</span>
+            <span class="nt">&lt;UICCode&gt;</span>1<span class="nt">&lt;/UICCode&gt;</span>
+            <span class="nt">&lt;ISOCode&gt;</span>USD<span class="nt">&lt;/ISOCode&gt;</span>
+            <span class="nt">&lt;NumericISOCode&gt;</span>840<span class="nt">&lt;/NumericISOCode&gt;</span>
+            <span class="nt">&lt;ExchangeRate&gt;</span>1,0595<span class="nt">&lt;/ExchangeRate&gt;</span>
+            <span class="nt">&lt;CreditDate</span> <span class="na">DateFormat=</span><span class="s">"DD/MM/YYYY"</span><span class="nt">&gt;</span>09/04/2017<span class="nt">&lt;/CreditDate&gt;</span>
+        <span class="nt">&lt;/ExchangeRate&gt;</span>
+        <span class="nt">&lt;ExchangeRate&gt;</span>
+            <span class="nt">&lt;UICCode&gt;</span>1<span class="nt">&lt;/UICCode&gt;</span>
+            <span class="nt">&lt;ISOCode&gt;</span>USD<span class="nt">&lt;/ISOCode&gt;</span>
+            <span class="nt">&lt;NumericISOCode&gt;</span>840<span class="nt">&lt;/NumericISOCode&gt;</span>
+            <span class="nt">&lt;ExchangeRate&gt;</span>1,0595<span class="nt">&lt;/ExchangeRate&gt;</span>
+            <span class="nt">&lt;CreditDate</span> <span class="na">DateFormat=</span><span class="s">"DD/MM/YYYY"</span><span class="nt">&gt;</span>08/04/2017<span class="nt">&lt;/CreditDate&gt;</span>
+        <span class="nt">&lt;/ExchangeRate&gt;</span>
+    <span class="nt">&lt;/ExchangeRates&gt;</span>
   <span class="nt">&lt;/GestPayS2S&gt;</span>
   <span class="nt">&lt;/callExchangeRateS2SResult&gt;</span>
 </code></pre>
