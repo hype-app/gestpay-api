@@ -1225,6 +1225,31 @@ Please note:
 
 <p>More informations about Multibanco are <a href="http://hype-app.github.io/gestpay-doc-beta//oth/multibanco.html">in the doc</a>. </p>
 
+          <h2 id="encrypt-example-onecard">Encrypt Example: OneCard</h2>
+
+<blockquote>
+<p>OneCard example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>ONECARD<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>OneCard does not need mandatory parameters. </p>
+
+<p>You must use <code class="prettyprint">ONECARD</code> as <code class="prettyprint">paymentType</code>.</p>
+
+<p><a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> is not mandatory; however if you send it, <code class="prettyprint">OrderDetails.BillingAddress.CountryCode</code> must be one of the following:  </p>
+
+<p><code class="prettyprint">[AE&#39;,&#39;BH&#39;,&#39;CY&#39;,&#39;EG&#39;,&#39;IL&#39;,&#39;IQ&#39;,&#39;JO&#39;,&#39;KW&#39;,&#39;LB&#39;,&#39;MA&#39;,&#39;OM&#39;,&#39;PS&#39;,&#39;QA&#39;,&#39;SA&#39;,&#39;TN&#39;,&#39;TR]</code></p>
+
+<p>More informations about OneCard are <a href="http://hype-app.github.io/gestpay-doc-beta//oth/onecard.html">in the doc</a>. </p>
+
           <h2 id="encrypt-example-paypal">Encrypt example: Paypal</h2>
 
 <h3 id="enabling-paypal">Enabling Paypal</h3>
