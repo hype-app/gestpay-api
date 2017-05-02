@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+mv source/robots.txt.beta source/robots.txt
+mv source/CNAME.beta source/CNAME
+
 set -o errexit #abort if any command fails
 me=$(basename "$0")
 
@@ -17,7 +21,7 @@ Options:
                            commit's message.
 "
 
-bundle exec middleman build --clean
+SITE="DEV" bundle exec middleman build --clean
 
 parse_args() {
   # Set args from a local environment file.
@@ -201,3 +205,6 @@ sanitize() {
 }
 
 [[ $1 = --source-only ]] || main "$@"
+
+mv source/robots.txt source/robots.txt.beta
+mv source/CNAME source/CNAME.beta
