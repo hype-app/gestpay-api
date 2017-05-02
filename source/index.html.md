@@ -17,6 +17,7 @@ includes:
   - wscryptdecrypt_encrypt_alipay
   - wscryptdecrypt_encrypt_bitcoin
   - wscryptdecrypt_encrypt_consel
+  - wscryptdecrypt_encrypt_cashu
   - wscryptdecrypt_encrypt_eps
   - wscryptdecrypt_encrypt_giropay
   - wscryptdecrypt_encrypt_ideal_mybank

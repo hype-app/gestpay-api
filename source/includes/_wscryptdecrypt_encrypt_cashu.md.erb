@@ -1,0 +1,22 @@
+
+## Encrypt Example: CashU
+
+> CashU example: 
+
+```xml
+<Encrypt>
+  <shopLogin>90000001</shopLogin>
+  <uicCode>242</uicCode><!-- Euro -->
+  <amount>0.10</amount>
+  <shopTransactionId>MYSHOP_001</shopTransactionId>
+  <paymentTypes>
+    <paymentType>CASHU</paymentType>
+  </paymentTypes>
+</Encrypt>
+```
+
+CashU does not need mandatory parameters. 
+
+You must use `CASHU` as `paymentType`.
+
+More informations about CashU are [in the doc]( <%= config[:doc_url] %>/oth/cashu.html). 
