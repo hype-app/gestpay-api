@@ -1,0 +1,27 @@
+
+## Encrypt Example: OneCard
+
+> OneCard example: 
+
+```xml
+<Encrypt>
+  <shopLogin>90000001</shopLogin>
+  <uicCode>242</uicCode><!-- Euro -->
+  <amount>0.10</amount>
+  <shopTransactionId>MYSHOP_001</shopTransactionId>
+  <paymentTypes>
+    <paymentType>ONECARD</paymentType>
+  </paymentTypes>
+</Encrypt>
+```
+
+OneCard does not need mandatory parameters. 
+
+You must use `ONECARD` as `paymentType`.
+
+[`OrderDetails`](#orderdetails) is not mandatory; however if you send it, `OrderDetails.BillingAddress.CountryCode` must be one of the following:  
+
+`[AE','BH','CY','EG','IL','IQ','JO','KW','LB','MA','OM','PS','QA','SA','TN','TR]`
+
+More informations about OneCard are [in the doc]( <%= config[:doc_url] %>/oth/onecard.html). 
+
