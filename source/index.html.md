@@ -25,6 +25,7 @@ includes:
   - wscryptdecrypt_encrypt_konbini
   - wscryptdecrypt_encrypt_mercadopago
   - wscryptdecrypt_encrypt_multibanco
+  - wscryptdecrypt_encrypt_onecard
   - wscryptdecrypt_encrypt_paypal
   - wscryptdecrypt_encrypt_paysafecard
   - wscryptdecrypt_encrypt_qiwi
