@@ -47,7 +47,7 @@ set :port, 4567
 
 if ENV["SITE"] == "DEV"
   #to use this, <%= config[:doc_url] %>
-  set :doc_url, "http://hype-app.github.io/gestpay-doc-beta/"  
+  set :doc_url, "http://hype-app.github.io/gestpay-doc-beta"  
 else
   set :doc_url, "http://docs.gestpay.it"  
 end
