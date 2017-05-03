@@ -9,7 +9,7 @@
     <OrderDateTime>2017-12-26</OrderDateTime>
     <OrderNote>Please send me the blue version</OrderNote>
     <Source>website</Source>
-    <SubmissonReason>rule_decision</SubmissonReason>
+    <SubmissionReason>rule_decision</SubmissionReason>
     <BeaconSessionID>ff1db05b-81db-4ca0-a728-4797bfe796ff</BeaconSessionID>
     <VendorID>9000002</VendorID>
     <VendorName>www.yourdomain.it</VendorName>
