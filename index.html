@@ -711,6 +711,35 @@
 
 <p>If you specify the <code class="prettyprint">PrimaryEmail</code> in the <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> tag, you will redirect your user to Alipay payment page where some fields are already filled. </p>
 
+          <h2 id="encrypt-example-bancontact-mrcash">Encrypt Example: Bancontact - MrCash</h2>
+
+<blockquote>
+<p>Bancontact - MrCash example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>BANCONTACT<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="c">&lt;!-- optional --&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;BillingAddress&gt;</span>
+      <span class="nt">&lt;CountryCode&gt;</span>BE<span class="nt">&lt;/CountryCode&gt;</span>
+    <span class="nt">&lt;/BillingAddress&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>You must use <code class="prettyprint">BANCONTACT</code> as <code class="prettyprint">paymentType</code>.</p>
+
+<p>Bancontact doesn&rsquo;t require any mandatory parameters, however if you send the <code class="prettyprint">CountryCode</code> it must be <code class="prettyprint">BE</code>.</p>
+
+<p>Click on <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> to know more about its structure.</p>
+
+<p>More informations about Bancontact - MrCash are <a href="http://hype-app.github.io/gestpay-doc-beta//oth/bancontact-mrcash.html">in the doc</a>. </p>
+
           <h2 id="encrypt-example-bitcoin">Encrypt Example: Bitcoin</h2>
 
 <blockquote>
