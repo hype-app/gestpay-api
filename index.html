@@ -1246,7 +1246,7 @@ Please note:
 
 <p><a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> is not mandatory; however if you send it, <code class="prettyprint">OrderDetails.BillingAddress.CountryCode</code> must be one of the following:  </p>
 
-<p><code class="prettyprint">[AE&#39;,&#39;BH&#39;,&#39;CY&#39;,&#39;EG&#39;,&#39;IL&#39;,&#39;IQ&#39;,&#39;JO&#39;,&#39;KW&#39;,&#39;LB&#39;,&#39;MA&#39;,&#39;OM&#39;,&#39;PS&#39;,&#39;QA&#39;,&#39;SA&#39;,&#39;TN&#39;,&#39;TR]</code></p>
+<p><code class="prettyprint">[AE&#39;, &#39;BH&#39;, &#39;CY&#39;, &#39;EG&#39;, &#39;IL&#39;, &#39;IQ&#39;, &#39;JO&#39;, &#39;KW&#39;, &#39;LB&#39;, &#39;MA&#39;, &#39;OM&#39;, &#39;PS&#39;, &#39;QA&#39;, &#39;SA&#39;, &#39;TN&#39;, &#39;TR]</code></p>
 
 <p>More informations about OneCard are <a href="http://hype-app.github.io/gestpay-doc-beta//oth/onecard.html">in the doc</a>. </p>
 
@@ -1670,6 +1670,53 @@ Please note:
 <p>You must use <code class="prettyprint">TIMPERSONAL</code> as <code class="prettyprint">paymentType</code>.</p>
 
 <p>More information about TIMpersonal are <a href="http://hype-app.github.io/gestpay-doc-beta//oth/tim-personal.html">in the doc</a>. </p>
+
+          <h2 id="encrypt-example-trustpay">Encrypt Example: TrustPay</h2>
+
+<blockquote>
+<p>TrustPay example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>TRUSTPAY<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;CutomerDetail&gt;</span>
+      <span class="nt">&lt;PrimaryEmail&gt;</span>indiana@jones.com<span class="nt">&lt;/PrimaryEmail&gt;</span>
+    <span class="nt">&lt;/CustomerDetail&gt;</span>
+    <span class="nt">&lt;BillingAddress&gt;</span>
+      <span class="nt">&lt;CountryCode&gt;</span>CZ<span class="nt">&lt;/CountryCode&gt;</span>
+    <span class="nt">&lt;/BillingAddress&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>You must use <code class="prettyprint">TRUSTPAY</code> as <code class="prettyprint">paymentType</code>.</p>
+
+<p>TrustPay requires some mandatory parameters: </p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">PrimaryEmail</code></td>
+<td>The user email address, contained in <code class="prettyprint">OrderDetails.CustomerDetail</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">CountryCode</code></td>
+<td>In <code class="prettyprint">OrderDetails.BillingAddress</code>, there must be one of the allowed Country codes: <code class="prettyprint">[&#39;CZ&#39;, &#39;EE&#39;, &#39;HU&#39;, &#39;LT&#39;, &#39;LV&#39;, &#39;SI&#39;, &#39;SK&#39;, &#39;TR&#39;]</code>.</td>
+</tr>
+</tbody></table>
+
+<p>Click on <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> to know more about its structure.</p>
+
+<p>More informations about TrustPay are <a href="http://hype-app.github.io/gestpay-doc-beta//oth/trustpay.html">in the doc</a>. </p>
 
           <h2 id="encrypt-example-unionpay">Encrypt Example: UnionPay</h2>
 
