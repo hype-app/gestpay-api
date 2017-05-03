@@ -15,6 +15,7 @@ includes:
   - wscryptdecrypt_decryptresult
   - alternative_payments
   - wscryptdecrypt_encrypt_alipay
+  - wscryptdecrypt_encrypt_bancontact
   - wscryptdecrypt_encrypt_bitcoin
   - wscryptdecrypt_encrypt_consel
   - wscryptdecrypt_encrypt_cashu

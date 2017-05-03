@@ -1,0 +1,31 @@
+
+## Encrypt Example: Bancontact - MrCash
+
+> Bancontact - MrCash example: 
+
+```xml
+<Encrypt>
+  <shopLogin>90000001</shopLogin>
+  <uicCode>242</uicCode><!-- Euro -->
+  <amount>0.10</amount>
+  <shopTransactionId>MYSHOP_001</shopTransactionId>
+  <paymentTypes>
+    <paymentType>BANCONTACT</paymentType>
+  </paymentTypes>
+  <!-- optional -->
+  <OrderDetails>
+    <BillingAddress>
+      <CountryCode>BE</CountryCode>
+    </BillingAddress>
+  </OrderDetails>
+</Encrypt>
+```
+
+You must use `BANCONTACT` as `paymentType`.
+
+Bancontact doesn't require any mandatory parameters, however if you send the `CountryCode` it must be `BE`.
+
+Click on [`OrderDetails`](#orderdetails) to know more about its structure.
+
+More informations about Bancontact - MrCash are [in the doc]( <%= config[:doc_url] %>/oth/bancontact-mrcash.html). 
+
