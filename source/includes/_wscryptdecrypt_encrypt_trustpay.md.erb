@@ -1,0 +1,38 @@
+
+## Encrypt Example: TrustPay
+
+> TrustPay example: 
+
+```xml
+<Encrypt>
+  <shopLogin>90000001</shopLogin>
+  <uicCode>242</uicCode><!-- Euro -->
+  <amount>0.10</amount>
+  <shopTransactionId>MYSHOP_001</shopTransactionId>
+  <paymentTypes>
+    <paymentType>TRUSTPAY</paymentType>
+  </paymentTypes>
+  <OrderDetails>
+    <CutomerDetail>
+      <PrimaryEmail>indiana@jones.com</PrimaryEmail>
+    </CustomerDetail>
+    <BillingAddress>
+      <CountryCode>CZ</CountryCode>
+    </BillingAddress>
+  </OrderDetails>
+</Encrypt>
+```
+
+You must use `TRUSTPAY` as `paymentType`.
+
+TrustPay requires some mandatory parameters: 
+
+| Field | Description | 
+| ----- | ----------- | 
+| `PrimaryEmail` | The user email address, contained in `OrderDetails.CustomerDetail` |
+| `CountryCode` | In `OrderDetails.BillingAddress`, there must be one of the allowed Country codes: `['CZ', 'EE', 'HU', 'LT', 'LV', 'SI', 'SK', 'TR']`. | 
+
+Click on [`OrderDetails`](#orderdetails) to know more about its structure.
+
+More informations about TrustPay are [in the doc]( <%= config[:doc_url] %>/oth/trustpay.html). 
+

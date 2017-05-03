@@ -32,6 +32,7 @@ includes:
   - wscryptdecrypt_encrypt_sofort
   - wscryptdecrypt_encrypt_tenpay
   - wscryptdecrypt_encrypt_timpersonal
+  - wscryptdecrypt_encrypt_trustpay
   - wscryptdecrypt_encrypt_unionpay
   - wscryptdecrypt_encrypt_webmoney
   - wscryptdecrypt_encrypt_yandex
