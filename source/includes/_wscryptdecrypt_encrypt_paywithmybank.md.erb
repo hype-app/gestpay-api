@@ -1,0 +1,41 @@
+
+## Encrypt Example: PayWithMyBank
+
+> PayWithMyBank example: 
+
+```xml
+<Encrypt>
+  <shopLogin>90000001</shopLogin>
+  <uicCode>242</uicCode><!-- Euro -->
+  <amount>0.10</amount>
+  <shopTransactionId>MYSHOP_001</shopTransactionId>
+  <paymentTypes>
+    <paymentType>PWMYBANK</paymentType>
+  </paymentTypes>
+  <!-- optional -->
+  <OrderDetails>
+    <CustomerDetail>
+      <PrimaryEmail>kesuke.myagi@karatekid.com</PrimaryEmail>
+      <FirstName>Kesuke</FirstName>
+    </CustomerDetail>
+    <BillingAddress>
+      <CountryCode>US</CountryCode>
+    </BillingAddress>
+  </OrderDetails>
+</Encrypt>
+```
+
+You must use `PWMYBANK` as `paymentType`.
+
+PayWithMyBank requires two mandatory parameters: 
+
+| Parameter | Description | 
+| --------- | ----------- | 
+| `PrimaryEmail` | _required_. the email address. Found in `OrderDetails` -> `CustomerDetail` |
+| `FirstName` | _required_. the customer's name. Found in `OrderDetails` -> `CustomerDetail` |
+| `CountryCode` | _optional_. Found in `OrderDetails` -> `BillingAddress`. With PayWithMyBank, this value must be `US`. | 
+
+Click on [`OrderDetails`](#orderdetails) to know more about its structure.
+
+More informations about PayWithMyBank are [in the doc]( <%= config[:doc_url] %>/oth/paywithmybank.html). 
+

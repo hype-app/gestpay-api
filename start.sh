@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-bundle exec middleman serve
+SITE=DEV bundle exec middleman serve

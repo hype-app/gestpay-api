@@ -29,6 +29,7 @@ includes:
   - wscryptdecrypt_encrypt_onecard
   - wscryptdecrypt_encrypt_paypal
   - wscryptdecrypt_encrypt_paysafecard
+  - wscryptdecrypt_encrypt_paywithmybank
   - wscryptdecrypt_encrypt_qiwi
   - wscryptdecrypt_encrypt_sofort
   - wscryptdecrypt_encrypt_tenpay
