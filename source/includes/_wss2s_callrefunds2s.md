@@ -13,8 +13,13 @@ Merchants can use this method to perform a partial or complete transaction amoun
   <amount>55.00</amount>
   <shopTransactionId>MYSHOP-00142</shopTransactionId>
   <bankTransactionId>159247522</bankTransactionId>
-  <RefundReason>item out of stock</RefundReason>
+  <RefundReason>item our of stock</RefundReason>
   <chargeBackFraud>N</chargeBackFraud>
+  <OrderDetail>
+    <ProductDetails>
+      ...
+    </ProductDetails>
+  </OrderDetail>
 </callRefundS2S>
 ```
 
@@ -29,6 +34,7 @@ Mandatory parameters are in **bold**.
 | **`uicCode`** | [currency code](#currency-codes) | numeric | 3 
 | `RefundReason` | a free-text reason for the refund. Used with fraud protection. | string | 50 
 | `chargeBackFraud` | Flag for risk: <ul><li>`Y` - chargeback for fraud</li><li>`N` - chargeback not for a fraud</li></ul>
+| `orderDetail.ProductDetails` | in case you are using _Klarna_, fill this fields with info about the products that are refunded. A description of this field is in [OrderDetails](#orderdetails). 
 
 <aside class="active">
 A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransactionId</code>. However, if the <code>shopTransactionId</code> is unique, the merchant can send just <code>shopLogin</code> + <code>shopTransactionId</code>. 
