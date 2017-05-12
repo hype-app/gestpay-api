@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+yes | cp -f source/robots.txt.prod source/robots.txt
+yes | cp -f source/CNAME.prod source/CNAME
+
 set -o errexit #abort if any command fails
 me=$(basename "$0")
 
