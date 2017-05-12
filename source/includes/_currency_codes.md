@@ -3,7 +3,7 @@
 Currency codes are handled by GestPay using the currency attribute.
 
 | UIC code | ISO code | ISO number | Description |
-| -------- | :------: | ---------- | ----------- |  
+| -------: | :------: | ---------: | ----------- |  
 187 | AED | 784  |  United Arab Emirates dirham
 109 | AUD | 36  |  Australian dollar
 262  |  BGN | 975 |   Bulgarian lev
