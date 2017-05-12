@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-mv source/robots.txt.prod source/robots.txt
-mv source/CNAME.prod source/CNAME
+yes | cp -f source/robots.txt.prod source/robots.txt
+yes | cp -f source/CNAME.prod source/CNAME
 
 set -o errexit #abort if any command fails
 me=$(basename "$0")
@@ -206,5 +206,5 @@ sanitize() {
 
 [[ $1 = --source-only ]] || main "$@"
 
-mv source/robots.txt source/robots.txt.prod
-mv source/CNAME source/CNAME.prod
+rm source/robots.txt
+rm source/CNAME
