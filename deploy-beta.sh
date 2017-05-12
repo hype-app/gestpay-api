@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+yes | cp -f source/robots.txt.beta source/robots.txt
+yes | cp -f source/CNAME.beta source/CNAME
+
 set -o errexit #abort if any command fails
 me=$(basename "$0")
 
@@ -17,7 +21,7 @@ Options:
                            commit's message.
 "
 
-bundle exec middleman build --clean
+SITE="DEV" bundle exec middleman build --clean
 
 parse_args() {
   # Set args from a local environment file.
