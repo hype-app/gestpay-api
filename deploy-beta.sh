@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-mv source/robots.txt.beta source/robots.txt
-mv source/CNAME.beta source/CNAME
+yes | cp source/robots.txt.beta source/robots.txt
+yes | cp source/CNAME.beta source/CNAME
 
 set -o errexit #abort if any command fails
 me=$(basename "$0")
