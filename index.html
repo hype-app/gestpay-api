@@ -3026,8 +3026,13 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
   <span class="nt">&lt;amount&gt;</span>55.00<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-00142<span class="nt">&lt;/shopTransactionId&gt;</span>
   <span class="nt">&lt;bankTransactionId&gt;</span>159247522<span class="nt">&lt;/bankTransactionId&gt;</span>
-  <span class="nt">&lt;RefundReason&gt;</span>item out of stock<span class="nt">&lt;/RefundReason&gt;</span>
+  <span class="nt">&lt;RefundReason&gt;</span>item our of stock<span class="nt">&lt;/RefundReason&gt;</span>
   <span class="nt">&lt;chargeBackFraud&gt;</span>N<span class="nt">&lt;/chargeBackFraud&gt;</span>
+  <span class="nt">&lt;OrderDetail&gt;</span>
+    <span class="nt">&lt;ProductDetails&gt;</span>
+      ...
+    <span class="nt">&lt;/ProductDetails&gt;</span>
+  <span class="nt">&lt;/OrderDetail&gt;</span>
 <span class="nt">&lt;/callRefundS2S&gt;</span>
 </code></pre>
 <p>Mandatory parameters are in <strong>bold</strong>.</p>
@@ -3079,6 +3084,12 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <tr>
 <td><code class="prettyprint">chargeBackFraud</code></td>
 <td>Flag for risk: <ul><li><code class="prettyprint">Y</code> - chargeback for fraud</li><li><code class="prettyprint">N</code> - chargeback not for a fraud</li></ul></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">orderDetail.ProductDetails</code></td>
+<td>in case you are using <em>Klarna</em>, fill this fields with info about the products that are refunded. A description of this field is in <a href="#orderdetails">OrderDetails</a>.</td>
 <td></td>
 <td></td>
 </tr>
