@@ -205,6 +205,3 @@ sanitize() {
 }
 
 [[ $1 = --source-only ]] || main "$@"
-
-rm source/robots.txt
-rm source/CNAME
