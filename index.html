@@ -1020,6 +1020,7 @@
       <span class="nt">&lt;FirstName&gt;</span>Alfred<span class="nt">&lt;/FirstName&gt;</span>
       <span class="nt">&lt;Lastname&gt;</span>Nobel<span class="nt">&lt;Lastname&gt;</span>
       <span class="nt">&lt;PrimaryEmail&gt;</span>alfred.nobel@dynamite.se<span class="nt">&lt;/PrimaryEmail&gt;</span>
+      <span class="nt">&lt;PrimaryPhone&gt;</span>00491522113356<span class="nt">&lt;/PrimaryPhone&gt;</span>
       <span class="nt">&lt;SocialSecurityNumber&gt;</span>18331021+129<span class="nt">&lt;/SocialSecurityNumber&gt;</span>
     <span class="nt">&lt;/CustomerDetail&gt;</span>
     <span class="nt">&lt;BillingAddress&gt;</span>
@@ -1058,7 +1059,7 @@
 <tr>
 <td><code class="prettyprint">BillingAddress.StreetName</code></td>
 <td style="text-align: center">100</td>
-<td>Shipping street name</td>
+<td>Shipping street name. <strong>Accepts only alpha-numeric characters.</strong></td>
 </tr>
 <tr>
 <td><code class="prettyprint">BillingAddress.City</code></td>
@@ -1083,6 +1084,10 @@
 </tbody></table>
 
 <p>We strongly suggest you to <a href="http://docs.gestpay.it/oth/klarna.html#some-clarifications-on-mandatory-fields">read these notes on <code class="prettyprint">BillingAddress</code> and <code class="prettyprint">ShippingAddress</code></a>.</p>
+
+<aside class="active">
+<code>StreetName</code> and <code>StreetNumber</code>, either in <code>BillingAddress</code> or <code>ShippingAddress</code>, must contain only alphanumeric characters. 
+</aside>
 
 <p>If you send other fields, your customer will find them already filled: </p>
 
@@ -1109,6 +1114,11 @@
 <td>Customer primary email</td>
 </tr>
 <tr>
+<td><code class="prettyprint">CustomerDetail.PrimaryPhone</code></td>
+<td style="text-align: center">100</td>
+<td>Customer’s phone including prefix. See below on how to use it.</td>
+</tr>
+<tr>
 <td><code class="prettyprint">CustomerDetail.SocialSecurityNumber</code></td>
 <td style="text-align: center">20</td>
 <td>Customer&rsquo;s social or fiscal identifier (for Klarna Use)</td>
@@ -1116,9 +1126,18 @@
 <tr>
 <td><code class="prettyprint">BillingAddress.StreetNumber</code></td>
 <td style="text-align: center">5</td>
-<td>Shipping Street Number</td>
+<td>Shipping Street Number. <strong>Accepts only numbers.</strong></td>
 </tr>
 </tbody></table>
+
+<aside class="active" markdown="1">
+<code>PrimaryPhone</code> must follow these rules: 
+<ul>
+<li>it must contain only numbers;</li>
+<li>if the number does not contain a country code, it must be preceeded by <code>0</code> followed by the phone number; for example, <code>01522113356</code></li>
+<li>If the number contains a country code, it must be set to CountryCode + phone number, without the <code>0</code> prefix; for example <code>00491522113356</code>.</li>
+</ul>
+</aside>
 
 <p><code class="prettyprint">ProductDetails</code> can have one or more <code class="prettyprint">ProductDetail</code>. Here is a description of its fields:</p>
 
@@ -6359,137 +6378,137 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 
 <table><thead>
 <tr>
-<th><strong>PaymentType</strong></th>
 <th>Description</th>
+<th>PaymentType</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>C</td>
-<td>CREDITCARD</td>
-</tr>
-<tr>
-<td>PP</td>
-<td>PAYPAL</td>
-</tr>
-<tr>
-<td>MB</td>
-<td>MYBANK</td>
-</tr>
-<tr>
-<td>PAS</td>
-<td>MASTERPASS</td>
-</tr>
-<tr>
-<td>SOF</td>
-<td>SOFORT (Direct)</td>
-</tr>
-<tr>
-<td>IDE</td>
-<td>IDEAL (Direct)</td>
-</tr>
-<tr>
-<td>CON</td>
-<td>CONSEL RATE IN RETE</td>
-</tr>
-<tr>
-<td>CMP</td>
-<td>COMPASS C-PAY</td>
-</tr>
-<tr>
-<td>HYPE</td>
-<td>HYPE</td>
-</tr>
-<tr>
-<td>TIMPERSONAL</td>
-<td>TIM</td>
-</tr>
-<tr>
-<td>APPLEPAY</td>
-<td>APPLEPAY</td>
-</tr>
-<tr>
-<td>S2PALI</td>
 <td>ALIPAY</td>
+<td><code class="prettyprint">S2PALI</code></td>
 </tr>
 <tr>
-<td>S2PKLA</td>
-<td>KLARNA</td>
+<td>APPLEPAY</td>
+<td><code class="prettyprint">APPLEPAY</code></td>
 </tr>
 <tr>
-<td>S2PQIW</td>
-<td>QIWI</td>
+<td>BANCONTACT</td>
+<td><code class="prettyprint">BANCONTACT</code></td>
 </tr>
 <tr>
-<td>S2PYAN</td>
-<td>YANDEX</td>
-</tr>
-<tr>
-<td>S2PSOF</td>
-<td>SOFORT</td>
-</tr>
-<tr>
-<td>S2PIDE</td>
-<td>IDEAL</td>
-</tr>
-<tr>
-<td>S2PGIR</td>
-<td>GIROPAY</td>
-</tr>
-<tr>
-<td>S2PEPS</td>
-<td>EPS</td>
-</tr>
-<tr>
-<td>S2PUNI</td>
-<td>UNIONPAY</td>
-</tr>
-<tr>
-<td>S2PMUL</td>
-<td>MULTIBANCO</td>
-</tr>
-<tr>
-<td>S2PMER</td>
-<td>MERCADOPAGO</td>
-</tr>
-<tr>
-<td>S2PBIT</td>
 <td>BITCOIN</td>
+<td><code class="prettyprint">S2PBIT</code></td>
 </tr>
 <tr>
-<td>S2PWMO</td>
-<td>WEBMONEY</td>
-</tr>
-<tr>
-<td>S2PKON</td>
-<td>KONBINI</td>
-</tr>
-<tr>
-<td>S2PCRU</td>
 <td>CARDSRUSSIA</td>
+<td><code class="prettyprint">S2PCRU</code></td>
 </tr>
 <tr>
-<td>S2PTEN</td>
-<td>TENPAY</td>
+<td>CASHU</td>
+<td><code class="prettyprint">CASHU</code></td>
 </tr>
 <tr>
-<td>S2PPSC</td>
+<td>COMPASS C-PAY</td>
+<td><code class="prettyprint">COMPASS</code></td>
+</tr>
+<tr>
+<td>CONSEL RATE IN RETE</td>
+<td><code class="prettyprint">CONSEL</code></td>
+</tr>
+<tr>
+<td>CREDIT CARDS</td>
+<td><code class="prettyprint">CREDITCARD</code></td>
+</tr>
+<tr>
+<td>EPS</td>
+<td><code class="prettyprint">S2PEPS</code></td>
+</tr>
+<tr>
+<td>GIROPAY</td>
+<td><code class="prettyprint">S2PGIR</code></td>
+</tr>
+<tr>
+<td>HYPE</td>
+<td><code class="prettyprint">HYPE</code></td>
+</tr>
+<tr>
+<td>IDEAL</td>
+<td><code class="prettyprint">S2PIDE</code></td>
+</tr>
+<tr>
+<td>IDEAL (Direct)</td>
+<td><code class="prettyprint">IDEAL</code></td>
+</tr>
+<tr>
+<td>KLARNA</td>
+<td><code class="prettyprint">S2PKLA</code></td>
+</tr>
+<tr>
+<td>KONBINI</td>
+<td><code class="prettyprint">S2PKON</code></td>
+</tr>
+<tr>
+<td>MASTERPASS</td>
+<td><code class="prettyprint">MASTERPASS</code></td>
+</tr>
+<tr>
+<td>MERCADOPAGO</td>
+<td><code class="prettyprint">S2PMER</code></td>
+</tr>
+<tr>
+<td>MULTIBANCO</td>
+<td><code class="prettyprint">S2PMUL</code></td>
+</tr>
+<tr>
+<td>MYBANK</td>
+<td><code class="prettyprint">MYBANK</code></td>
+</tr>
+<tr>
+<td>ONECARD</td>
+<td><code class="prettyprint">ONECARD</code></td>
+</tr>
+<tr>
+<td>PAYPAL</td>
+<td><code class="prettyprint">PAYPAL</code></td>
+</tr>
+<tr>
 <td>PAYSAFECARD</td>
+<td><code class="prettyprint">S2PPSC</code></td>
 </tr>
 <tr>
-<td>CASHU</td>
-<td>CASHU</td>
+<td>QIWI</td>
+<td><code class="prettyprint">S2PQIW</code></td>
 </tr>
 <tr>
-<td>ONECARD</td>
-<td>ONECARD</td>
+<td>SOFORT</td>
+<td><code class="prettyprint">S2PSOF</code></td>
+</tr>
+<tr>
+<td>SOFORT (Direct)</td>
+<td><code class="prettyprint">SOFORT</code></td>
+</tr>
+<tr>
+<td>TENPAY</td>
+<td><code class="prettyprint">S2PTEN</code></td>
+</tr>
+<tr>
+<td>TIM</td>
+<td><code class="prettyprint">TIMPERSONAL</code></td>
 </tr>
 <tr>
 <td>TRUSTPAY</td>
-<td>TRUSTPAY</td>
+<td><code class="prettyprint">TRUSTPAY</code></td>
 </tr>
 <tr>
-<td>BANCONTACT</td>
-<td>BANCONTACT</td>
+<td>UNIONPAY</td>
+<td><code class="prettyprint">S2PUNI</code></td>
+</tr>
+<tr>
+<td>WEBMONEY</td>
+<td><code class="prettyprint">S2PWMO</code></td>
+</tr>
+<tr>
+<td>YANDEX</td>
+<td><code class="prettyprint">S2PYAN</code></td>
 </tr>
 </tbody></table>
 
