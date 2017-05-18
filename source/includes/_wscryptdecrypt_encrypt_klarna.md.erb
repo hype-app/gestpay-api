@@ -16,6 +16,7 @@
       <FirstName>Alfred</FirstName>
       <Lastname>Nobel<Lastname>
       <PrimaryEmail>alfred.nobel@dynamite.se</PrimaryEmail>
+      <PrimaryPhone>00491522113356</PrimaryPhone>
       <SocialSecurityNumber>18331021+129</SocialSecurityNumber>
     </CustomerDetail>
     <BillingAddress>
@@ -47,13 +48,17 @@ Klarna requires these parameters as mandatory, children of `OrderDetails`:
 
 | Name | max length | description |
 | ---- | :--------: | ----------- |
-| `BillingAddress.StreetName` | 100 | Shipping street name |
+| `BillingAddress.StreetName` | 100 | Shipping street name. **Accepts only alpha-numeric characters.** |
 | `BillingAddress.City` | 50 | Shipping city name |
 | `BillingAddress.ZipCode` | 50 | Shipping zip code |
 | `BillingAddress.CountryCode` | 2 | one of [AT &#124; DK &#124; FI &#124; DE &#124; NL &#124; NO &#124; SE] |
 | `ProductDetails.ProductDetail` |    | the list of ordered products |
 
 We strongly suggest you to [read these notes on `BillingAddress` and `ShippingAddress`](<%= config[:doc_url] %>/oth/klarna.html#some-clarifications-on-mandatory-fields).
+
+<aside class="active">
+<code>StreetName</code> and <code>StreetNumber</code>, either in <code>BillingAddress</code> or <code>ShippingAddress</code>, must contain only alphanumeric characters. 
+</aside>
 
 If you send other fields, your customer will find them already filled: 
 
@@ -62,8 +67,18 @@ If you send other fields, your customer will find them already filled:
 | `CustomerDetail.FirstName` |  65  | Customer First Name |
 | `CustomerDetail.Lastname` |  65  | the list of ordered products | 
 | `CustomerDetail.PrimaryEmail` | 100 | Customer primary email |
+| `CustomerDetail.PrimaryPhone` | 100 | Customer’s phone including prefix. See below on how to use it. |
 | `CustomerDetail.SocialSecurityNumber` | 20 | Customer's social or fiscal identifier (for Klarna Use) |
-| `BillingAddress.StreetNumber` | 5 | Shipping Street Number |
+| `BillingAddress.StreetNumber` | 5 | Shipping Street Number. **Accepts only numbers.** |
+
+<aside class="active" markdown="1">
+<code>PrimaryPhone</code> must follow these rules: 
+<ul>
+<li>it must contain only numbers;</li>
+<li>if the number does not contain a country code, it must be preceeded by <code>0</code> followed by the phone number; for example, <code>01522113356</code></li>
+<li>If the number contains a country code, it must be set to CountryCode + phone number, without the <code>0</code> prefix; for example <code>00491522113356</code>.</li>
+</ul>
+</aside>
 
 `ProductDetails` can have one or more `ProductDetail`. Here is a description of its fields:
 
