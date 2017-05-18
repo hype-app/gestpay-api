@@ -956,6 +956,7 @@
       <span class="nt">&lt;FirstName&gt;</span>Alfred<span class="nt">&lt;/FirstName&gt;</span>
       <span class="nt">&lt;Lastname&gt;</span>Nobel<span class="nt">&lt;Lastname&gt;</span>
       <span class="nt">&lt;PrimaryEmail&gt;</span>alfred.nobel@dynamite.se<span class="nt">&lt;/PrimaryEmail&gt;</span>
+      <span class="nt">&lt;PrimaryPhone&gt;</span>00491522113356<span class="nt">&lt;/PrimaryPhone&gt;</span>
       <span class="nt">&lt;SocialSecurityNumber&gt;</span>18331021+129<span class="nt">&lt;/SocialSecurityNumber&gt;</span>
     <span class="nt">&lt;/CustomerDetail&gt;</span>
     <span class="nt">&lt;BillingAddress&gt;</span>
@@ -994,7 +995,7 @@
 <tr>
 <td><code class="prettyprint">BillingAddress.StreetName</code></td>
 <td style="text-align: center">100</td>
-<td>Shipping street name</td>
+<td>Shipping street name. <strong>Accepts only alpha-numeric characters.</strong></td>
 </tr>
 <tr>
 <td><code class="prettyprint">BillingAddress.City</code></td>
@@ -1019,6 +1020,10 @@
 </tbody></table>
 
 <p>We strongly suggest you to <a href="http://docs.gestpay.it/oth/klarna.html#some-clarifications-on-mandatory-fields">read these notes on <code class="prettyprint">BillingAddress</code> and <code class="prettyprint">ShippingAddress</code></a>.</p>
+
+<aside class="active">
+<code>StreetName</code> and <code>StreetNumber</code>, either in <code>BillingAddress</code> or <code>ShippingAddress</code>, must contain only alphanumeric characters. 
+</aside>
 
 <p>If you send other fields, your customer will find them already filled: </p>
 
@@ -1045,6 +1050,11 @@
 <td>Customer primary email</td>
 </tr>
 <tr>
+<td><code class="prettyprint">CustomerDetail.PrimaryPhone</code></td>
+<td style="text-align: center">100</td>
+<td>Customer’s phone including prefix. See below on how to use it.</td>
+</tr>
+<tr>
 <td><code class="prettyprint">CustomerDetail.SocialSecurityNumber</code></td>
 <td style="text-align: center">20</td>
 <td>Customer&rsquo;s social or fiscal identifier (for Klarna Use)</td>
@@ -1052,9 +1062,18 @@
 <tr>
 <td><code class="prettyprint">BillingAddress.StreetNumber</code></td>
 <td style="text-align: center">5</td>
-<td>Shipping Street Number</td>
+<td>Shipping Street Number. <strong>Accepts only numbers.</strong></td>
 </tr>
 </tbody></table>
+
+<aside class="active" markdown="1">
+<code>PrimaryPhone</code> must follow these rules: 
+<ul>
+<li>it must contain only numbers;</li>
+<li>if the number does not contain a country code, it must be preceeded by <code>0</code> followed by the phone number; for example, <code>01522113356</code></li>
+<li>If the number contains a country code, it must be set to CountryCode + phone number, without the <code>0</code> prefix; for example <code>00491522113356</code>.</li>
+</ul>
+</aside>
 
 <p><code class="prettyprint">ProductDetails</code> can have one or more <code class="prettyprint">ProductDetail</code>. Here is a description of its fields:</p>
 
