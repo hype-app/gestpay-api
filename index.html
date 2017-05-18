@@ -687,6 +687,70 @@
 
 <p>As a recap, you can use the <a href="#paymenttypes"><code class="prettyprint">&lt;paymentType&gt;</code></a> tag to specify which payment methods you want to enable. In the next paragraphs we will show some alternative payment examples. </p>
 
+          <h2 id="wss2s-example-apple-pay">WsS2S Example: Apple Pay</h2>
+
+<blockquote>
+<p>Apple Pay example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;callPagamS2S&gt;</span>
+  <span class="c">&lt;!-- mandatory data --&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000002<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- code for euro --&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>24.21<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-0001<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="c">&lt;!-- insert here data from Apple Pay --&gt;</span>
+  <span class="nt">&lt;applePay&gt;</span> 
+    <span class="nt">&lt;applePayPKPaymentToken&gt;</span>
+    {
+      "paymentData": {
+        "data": "Q0tfx6QzXdx...",
+        "signature": "MIAGCSqGSIb3DQEHAq...",
+        "header": {
+          "publicKeyHash": "b9OHKov7pD...",
+          "ephemeralPublicKey": "MFkwE...",
+          "transactionId": "df9ea7239074..."
+        },
+        "version": "EC_v1"
+      },
+      "transactionIdentifier": "DF9EA72390...",
+      "paymentMethod": {
+        "network": "Visa",
+        "type": "debit",
+        "displayName": "Visa0492"
+      }
+    }
+    <span class="nt">&lt;/applePayPKPaymentToken&gt;</span>
+  <span class="nt">&lt;/applePay&gt;</span>
+  <span class="c">&lt;!-- fill the remaining fields with usual data --&gt;</span> 
+  ...
+<span class="nt">&lt;/callPagamS2S&gt;</span>
+</code></pre>
+<p>Please read the detailed setup process for Apple Pay <a href="http://docs.gestpay.it/oth/apple-pay/">in the docs</a>. </p>
+
+<p>Once you have received a <em>Payment Token Package</em>, you can call <a href="#callpagams2s"><code class="prettyprint">callPagamS2S</code></a> with the relevant data. </p>
+
+<p>Note that, if using Apple Pay, <em>no Credit Card or Token data are needed</em>.</p>
+
+<p>For a real example of Payment Token Package, contained in <code class="prettyprint">applePayPKPaymentToken</code>, <a href="http://docs.gestpay.it/assets/examples/paymentPackageToken_example_full.json">click here</a>.</p>
+
+<p>The most important field in this process is <code class="prettyprint">applePayPKPaymentToken</code>. Here is a description:</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">applePayPKPaymentToken</code></td>
+<td>string</td>
+<td>contains a UTF-8 serialization of a plain-text JSON dictionary.</td>
+</tr>
+</tbody></table>
+
+<p>Once you have submitted <code class="prettyprint">callPagamS2S</code>, Gestpay will behave exactly as always and your payment will be processed.</p>
+
           <h2 id="encrypt-example-alipay">Encrypt Example: Alipay</h2>
 
 <blockquote>
@@ -956,7 +1020,6 @@
       <span class="nt">&lt;FirstName&gt;</span>Alfred<span class="nt">&lt;/FirstName&gt;</span>
       <span class="nt">&lt;Lastname&gt;</span>Nobel<span class="nt">&lt;Lastname&gt;</span>
       <span class="nt">&lt;PrimaryEmail&gt;</span>alfred.nobel@dynamite.se<span class="nt">&lt;/PrimaryEmail&gt;</span>
-      <span class="nt">&lt;PrimaryPhone&gt;</span>00491522113356<span class="nt">&lt;/PrimaryPhone&gt;</span>
       <span class="nt">&lt;SocialSecurityNumber&gt;</span>18331021+129<span class="nt">&lt;/SocialSecurityNumber&gt;</span>
     <span class="nt">&lt;/CustomerDetail&gt;</span>
     <span class="nt">&lt;BillingAddress&gt;</span>
@@ -995,7 +1058,7 @@
 <tr>
 <td><code class="prettyprint">BillingAddress.StreetName</code></td>
 <td style="text-align: center">100</td>
-<td>Shipping street name. <strong>Accepts only alpha-numeric characters.</strong></td>
+<td>Shipping street name</td>
 </tr>
 <tr>
 <td><code class="prettyprint">BillingAddress.City</code></td>
@@ -1020,10 +1083,6 @@
 </tbody></table>
 
 <p>We strongly suggest you to <a href="http://docs.gestpay.it/oth/klarna.html#some-clarifications-on-mandatory-fields">read these notes on <code class="prettyprint">BillingAddress</code> and <code class="prettyprint">ShippingAddress</code></a>.</p>
-
-<aside class="active">
-<code>StreetName</code> and <code>StreetNumber</code>, either in <code>BillingAddress</code> or <code>ShippingAddress</code>, must contain only alphanumeric characters. 
-</aside>
 
 <p>If you send other fields, your customer will find them already filled: </p>
 
@@ -1050,11 +1109,6 @@
 <td>Customer primary email</td>
 </tr>
 <tr>
-<td><code class="prettyprint">CustomerDetail.PrimaryPhone</code></td>
-<td style="text-align: center">100</td>
-<td>Customer’s phone including prefix. See below on how to use it.</td>
-</tr>
-<tr>
 <td><code class="prettyprint">CustomerDetail.SocialSecurityNumber</code></td>
 <td style="text-align: center">20</td>
 <td>Customer&rsquo;s social or fiscal identifier (for Klarna Use)</td>
@@ -1062,18 +1116,9 @@
 <tr>
 <td><code class="prettyprint">BillingAddress.StreetNumber</code></td>
 <td style="text-align: center">5</td>
-<td>Shipping Street Number. <strong>Accepts only numbers.</strong></td>
+<td>Shipping Street Number</td>
 </tr>
 </tbody></table>
-
-<aside class="active" markdown="1">
-<code>PrimaryPhone</code> must follow these rules: 
-<ul>
-<li>it must contain only numbers;</li>
-<li>if the number does not contain a country code, it must be preceeded by <code>0</code> followed by the phone number; for example, <code>01522113356</code></li>
-<li>If the number contains a country code, it must be set to CountryCode + phone number, without the <code>0</code> prefix; for example <code>00491522113356</code>.</li>
-</ul>
-</aside>
 
 <p><code class="prettyprint">ProductDetails</code> can have one or more <code class="prettyprint">ProductDetail</code>. Here is a description of its fields:</p>
 
