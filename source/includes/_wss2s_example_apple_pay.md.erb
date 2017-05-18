@@ -1,0 +1,54 @@
+## WsS2S Example: Apple Pay
+
+> Apple Pay example: 
+
+```xml
+<callPagamS2S>
+  <!-- mandatory data -->
+  <shopLogin>9000002</shopLogin>
+  <uicCode>242</uicCode><!-- code for euro -->
+  <amount>24.21</amount>
+  <shopTransactionId>MYSHOP-0001</shopTransactionId>
+  <!-- insert here data from Apple Pay -->
+  <applePay> 
+    <applePayPKPaymentToken>
+    {
+      "paymentData": {
+        "data": "Q0tfx6QzXdx...",
+        "signature": "MIAGCSqGSIb3DQEHAq...",
+        "header": {
+          "publicKeyHash": "b9OHKov7pD...",
+          "ephemeralPublicKey": "MFkwE...",
+          "transactionId": "df9ea7239074..."
+        },
+        "version": "EC_v1"
+      },
+      "transactionIdentifier": "DF9EA72390...",
+      "paymentMethod": {
+        "network": "Visa",
+        "type": "debit",
+        "displayName": "Visa0492"
+      }
+    }
+    </applePayPKPaymentToken>
+  </applePay>
+  <!-- fill the remaining fields with usual data --> 
+  ...
+</callPagamS2S>
+```
+
+Please read the detailed setup process for Apple Pay [in the docs](<%= config[:doc_url] %>/oth/apple-pay/). 
+
+Once you have received a _Payment Token Package_, you can call [`callPagamS2S`](#callpagams2s) with the relevant data. 
+
+Note that, if using Apple Pay, _no Credit Card or Token data are needed_.
+
+For a real example of Payment Token Package, contained in `applePayPKPaymentToken`, [click here](<%= config[:doc_url] %>/assets/examples/paymentPackageToken_example_full.json).
+
+The most important field in this process is `applePayPKPaymentToken`. Here is a description:
+
+| Key |	Value |	Description |
+| --- | ----- | ----------- |
+| `applePayPKPaymentToken` | string |	contains a UTF-8 serialization of a plain-text JSON dictionary. |
+
+Once you have submitted `callPagamS2S`, Gestpay will behave exactly as always and your payment will be processed.
