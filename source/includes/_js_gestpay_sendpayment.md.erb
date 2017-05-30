@@ -92,7 +92,7 @@ GestPay.SendPayment ({
 });
 ``` 
 
-If during the first `SendPayment` call `Result.ErrorCode == 8006`, you should redirect the user to the `pagam3d.aspx` page. You can read about the process at this link: [Customizing the payment page](https://hype-app.github.io/gestpay-doc/pay/customizing-the-payment-page.html). 
+If during the first `SendPayment` call `Result.ErrorCode == 8006`, you should redirect the user to the `pagam3d.aspx` page. You can read about the process at this link: [Customizing the payment page](<%= config[:doc_url] %>/pay/creating-your-custom-payment-page.html). 
 
 
 When card holder is verified and authorized, you have to re-call `SendPayment()` with some new parameters: 
