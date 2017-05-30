@@ -968,7 +968,7 @@
     <span class="nt">&lt;paymentType&gt;</span>IDEAL<span class="nt">&lt;/paymentType&gt;</span>
   <span class="nt">&lt;/paymentTypes&gt;</span>
   <span class="nt">&lt;paymentTypeDetail&gt;</span> 
-    <span class="nt">&lt;MyBankBankCode&gt;</span>Code0000Y<span class="nt">&lt;/MyBankBankCode&gt;</span>
+    <span class="nt">&lt;IdealBankCode&gt;</span>Code0000Y<span class="nt">&lt;/IdealBankCode&gt;</span>
   <span class="nt">&lt;/paymentTypeDetail&gt;</span> 
 <span class="nt">&lt;/Enrcypt&gt;</span>
 </code></pre>
@@ -1997,7 +1997,7 @@ Please note:
     <span class="p">}</span>
 <span class="p">});</span>
 </code></pre>
-<p>If during the first <code class="prettyprint">SendPayment</code> call <code class="prettyprint">Result.ErrorCode == 8006</code>, you should redirect the user to the <code class="prettyprint">pagam3d.aspx</code> page. You can read about the process at this link: <a href="https://hype-app.github.io/gestpay-doc/pay/customizing-the-payment-page.html">Customizing the payment page</a>. </p>
+<p>If during the first <code class="prettyprint">SendPayment</code> call <code class="prettyprint">Result.ErrorCode == 8006</code>, you should redirect the user to the <code class="prettyprint">pagam3d.aspx</code> page. You can read about the process at this link: <a href="http://docs.gestpay.it/pay/creating-your-custom-payment-page.html">Customizing the payment page</a>. </p>
 
 <p>When card holder is verified and authorized, you have to re-call <code class="prettyprint">SendPayment()</code> with some new parameters: </p>
 
