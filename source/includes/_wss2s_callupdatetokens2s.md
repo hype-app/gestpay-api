@@ -12,7 +12,7 @@ Merchants belonging to a group are allowed to update also tokens created by othe
 ```xml
 <callUpdateTokenS2S>
   <shopLogin>90000001</shopLogin>
-  <tokenValue>1234WJFXABCD5678</tokenValue>
+  <token>1234WJFXABCD5678</token>
   <expiryMonth>12</expiryMonth>
   <expiryYear>21</expiryYear>
   <withAut>Y</withAut>
@@ -24,7 +24,7 @@ Mandatory parameters are in **bold**.
 | parameter name | description | type | length | 
 | -------------- | ----------- | -----|--------| 
 | **`shopLogin`** | the merchant's code | string | 30 |  
-| **`tokenValue`** | Token value to update | string | 25 
+| **`token`** | Token value to update | string | 25 
 | **`expiryMonth`** | Assigns card expiration month | string | 2
 | **`expiryYear`** | Assigns card expiration year | string | 2 
 | **`withAut`** | tries also to authorize the card. <br> `Y` on `N` | string | 1
