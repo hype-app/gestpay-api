@@ -23,6 +23,7 @@ includes:
   - wscryptdecrypt_encrypt_ideal_mybank
   - wscryptdecrypt_encrypt_klarna
   - wscryptdecrypt_encrypt_konbini
+  - wscryptdecrypt_encrypt_masterpass
   - wscryptdecrypt_encrypt_mercadopago
   - wscryptdecrypt_encrypt_multibanco
   - wscryptdecrypt_encrypt_paypal
