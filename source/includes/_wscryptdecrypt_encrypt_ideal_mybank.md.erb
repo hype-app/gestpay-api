@@ -43,9 +43,6 @@ More details can be found in at the [MyBank and IDeal](<%= config[:doc_url] %>/o
 | Name | max length | description |
 | ---- | :--------: | ----------- |
 | `paymentTypeDetail` |    | container of one of `MyBankBankCode` or `IdealBankCode` |
-| `MyBankBankCode`<sup><a href="#fn5" id="ref5">5</a></sup> |  25   | Tag to set the Bank to show on payment page (the bank List is retrieved from `WsS2S.CallMyBankListS2S`) |
-| `IdealBankCode`<sup><a href="#fn5" id="ref5">5</a></sup> |  25   | Tag to set the Bank to show on payment page (the bank List is retrieved from `WsS2S.CallIdealListS2S`) | 
-
-
-<sup id="fn5">5. **paymentTypeDetail**. In order to be able to activate the payment Type Detail the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The correct merchant configuration of Sofort and Ideal has to be configured in the specific interface of Back Office Merchant.(1) Each field can be up to a maximum of 300 characters in length<a href="#ref5" title="Jump back to footnote 5 in the text.">↩</a></sup>
+| `MyBankBankCode` |  25   | Tag to set the Bank to show on payment page (the bank List is retrieved from `WsS2S.CallMyBankListS2S`) |
+| `IdealBankCode` |  25   | Tag to set the Bank to show on payment page (the bank List is retrieved from `WsS2S.CallIdealListS2S`) | 
 
