@@ -339,7 +339,7 @@
 </tr>
 </tbody></table>
 
-<p><sup id="fn2">2. Required only when a Token is needed within the transaction response. <br> In order to be able to request, obtain and use a Token, merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></sup></p>
+<p><sup id="fn2">2. Required only when a Token is needed within the transaction response.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></sup></p>
 
 <p><a name="paymentTypes"></a></p>
 
@@ -389,13 +389,11 @@
 <td>container of one or more <code class="prettyprint">paymentType</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">paymentType</code><sup><a href="#fn4" id="ref4">4</a></sup></td>
+<td><code class="prettyprint">paymentType</code></td>
 <td style="text-align: center">25</td>
 <td>Set of tags to set the visibility of payment systems on payment page (see <a href="#payment-type-codes">Payment Type Codes table</a>)</td>
 </tr>
 </tbody></table>
-
-<p><sup id="fn4">4. <strong>Payment Systems Visibility</strong>. In order to be able to activate the Payment Systems Visibility the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The Payment System Visibility can be configured in the specific interface in the Back Office Merchant.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></sup></p>
 
           <h2 id="encrypt-result">Encrypt result</h2>
 
@@ -987,18 +985,16 @@
 <td>container of one of <code class="prettyprint">MyBankBankCode</code> or <code class="prettyprint">IdealBankCode</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">MyBankBankCode</code><sup><a href="#fn5" id="ref5">5</a></sup></td>
+<td><code class="prettyprint">MyBankBankCode</code></td>
 <td style="text-align: center">25</td>
 <td>Tag to set the Bank to show on payment page (the bank List is retrieved from <code class="prettyprint">WsS2S.CallMyBankListS2S</code>)</td>
 </tr>
 <tr>
-<td><code class="prettyprint">IdealBankCode</code><sup><a href="#fn5" id="ref5">5</a></sup></td>
+<td><code class="prettyprint">IdealBankCode</code></td>
 <td style="text-align: center">25</td>
 <td>Tag to set the Bank to show on payment page (the bank List is retrieved from <code class="prettyprint">WsS2S.CallIdealListS2S</code>)</td>
 </tr>
 </tbody></table>
-
-<p><sup id="fn5">5. <strong>paymentTypeDetail</strong>. In order to be able to activate the payment Type Detail the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The correct merchant configuration of Sofort and Ideal has to be configured in the specific interface of Back Office Merchant.(1) Each field can be up to a maximum of 300 characters in length<a href="#ref5" title="Jump back to footnote 5 in the text.">↩</a></sup></p>
 
           <h2 id="encrypt-example-klarna">Encrypt Example: Klarna</h2>
 
@@ -1319,7 +1315,7 @@ Please note:
   <span class="nt">&lt;/paymentTypes&gt;</span>
 <span class="nt">&lt;Encrypt&gt;</span>
 </code></pre>
-<p>To enable Paypal, follow the same steps of the paragraph <a href="#paymentTypes"><code class="prettyprint">PaymentTypes</code> example</a>. Remeber to enable the fields in the backoffice. </p>
+<p>A detailed description of <a href="http://docs.gestpay.it/oth/paypal.html">Gestpay integration with Paypal</a> is in the docs.</p>
 
 <h3 id="show-product-info-at-paypal-39-s-buying-page">Show product info at paypal&rsquo;s buying page</h3>
 
@@ -1437,7 +1433,7 @@ Please note:
   <span class="nt">&lt;/shippingDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-<p>For more informations, checkout the <a href="https://hype-app.github.io/gestpay-doc/gs/how-gestpay-works.html">Seller Protection: Fields &amp; Parameters</a> page.</p>
+<p>For more informations, checkout the <a href="http://docs.gestpay.it/oth/paypal.html#paypal-seller-protection">Paypal Seller Protection</a> section.</p>
 
 <p>If you want to activate the <strong>Paypal Seller Protection</strong> you must:</p>
 
@@ -1453,7 +1449,7 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">ppSellerProtection</code> <sup><a href="#fn3" id="ref3">3</a></sup></td>
+<td><code class="prettyprint">ppSellerProtection</code></td>
 <td style="text-align: center">1</td>
 <td>Parameter to set the use of a confirmed addresses</td>
 </tr>
@@ -1506,8 +1502,6 @@ Please note:
 <td>String containing an additional shipping address field</td>
 </tr>
 </tbody></table>
-
-<p><sup id="fn3">3. <strong>PayPal Seller Protection parameter</strong>. In order to be able to activate the Seller Protection Option the merchants need to appropriately set &ldquo;Fields and Parameters&rdquo; in the dedicated section of GestPay Merchant Back Office.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a></sup></p>
 
 <h3 id="paypal-recurring-payments"> Paypal recurring payments</h3>
 
@@ -2431,7 +2425,7 @@ Please note:
 
 <aside class="notice">You must use exactly one among <strong>Credit Card data</strong> and <strong>Token value</strong>.</aside>
 
-<p>The following features may be optionally assigned, upon appropriate configuration in <strong>Client configuration -&gt; Fields &amp; Parameters</strong> section:   </p>
+<p>The following features may be optionally assigned:   </p>
 
 <table><thead>
 <tr>
