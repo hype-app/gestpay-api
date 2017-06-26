@@ -63,8 +63,6 @@ These are non-mandatory fields, but are direct children of the `Encrypt` root.
 
 <sup id="fn1">1. Each field can be up to a maximum of 300 characters in length. See next section for further explanations.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup>
 
-To send one or more of these parameters, you have to go in  **Payment Page -> Fields & Parameters** and enable the ones you want to send. 
-
 <a name="customInfo"></a>
 
 ### Sending custom data to Gestpay: `<customInfo>`
@@ -81,9 +79,9 @@ To send one or more of these parameters, you have to go in  **Payment Page -> Fi
 
 The maximum length of the field is 1000 characters, and each individual parameter can be max 300 characters.
 
-To start sending custom parameters, you must configure Gestpay to receive them. This can be done in the backoffice, in **Payment Page -> Fields & Parameters -> Add Parameter**. Here you can configure some aspects of this parameter, for example if has to be returned by the `Decrypt` webservice. Don't forget to populate the "languages" section. 
+To start sending custom parameters, you must configure Gestpay to receive them. This can be done in the backoffice, in **Payment Page -> Fields & Parameters -> Add Parameter**. Here you can configure some aspects of this parameter, for example if has to be returned by the `Decrypt` webservice. Don't forget to populate the _languages_ section. 
 
-With this customization, you can *send* all the parameters you want, as long they fit the 1000 characters length. If you also want to **receive** the same parameters back when you `Decrypt` the response, enable `CustomInfo` parameter in the backoffice. 
+With this customization, you can *send* all the parameters you want, as long they fit the 1000 characters length. To read more about custom parameters, refer to the [documentation](<%= config[:doc_url]%>gs/how-gestpay-works.html#sending-custom-parameters-to-gestpay). 
 
 ### RequestToken
 
