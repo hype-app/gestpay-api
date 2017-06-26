@@ -17,7 +17,7 @@
 <Encrypt>
 ```
 
-To enable Paypal, follow the same steps of the paragraph [`PaymentTypes` example](#paymentTypes). Remeber to enable the fields in the backoffice. 
+To enable Paypal, follow the steps of the paragraph [`PaymentTypes` example](#paymentTypes). Here you'll find a detailed description of [Gestpay integration with Paypal](<%= config[:doc_url] %>/oth/paypal.html).
 
 ### Show product info at paypal's buying page 
 
