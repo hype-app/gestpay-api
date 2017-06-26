@@ -289,8 +289,6 @@
 
 <p><sup id="fn1">1. Each field can be up to a maximum of 300 characters in length. See next section for further explanations.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup></p>
 
-<p>To send one or more of these parameters, you have to go in  <strong>Payment Page -&gt; Fields &amp; Parameters</strong> and enable the ones you want to send. </p>
-
 <p><a name="customInfo"></a></p>
 
 <h3 id="sending-custom-data-to-gestpay-lt-custominfo-gt">Sending custom data to Gestpay: <code class="prettyprint">&lt;customInfo&gt;</code></h3>
@@ -308,9 +306,9 @@
 
 <p>The maximum length of the field is 1000 characters, and each individual parameter can be max 300 characters.</p>
 
-<p>To start sending custom parameters, you must configure Gestpay to receive them. This can be done in the backoffice, in <strong>Payment Page -&gt; Fields &amp; Parameters -&gt; Add Parameter</strong>. Here you can configure some aspects of this parameter, for example if has to be returned by the <code class="prettyprint">Decrypt</code> webservice. Don&rsquo;t forget to populate the &ldquo;languages&rdquo; section. </p>
+<p>To start sending custom parameters, you must configure Gestpay to receive them. This can be done in the backoffice, in <strong>Payment Page -&gt; Fields &amp; Parameters -&gt; Add Parameter</strong>. Here you can configure some aspects of this parameter, for example if has to be returned by the <code class="prettyprint">Decrypt</code> webservice. Don&rsquo;t forget to populate the <em>languages</em> section. </p>
 
-<p>With this customization, you can <em>send</em> all the parameters you want, as long they fit the 1000 characters length. If you also want to <strong>receive</strong> the same parameters back when you <code class="prettyprint">Decrypt</code> the response, enable <code class="prettyprint">CustomInfo</code> parameter in the backoffice. </p>
+<p>With this customization, you can <em>send</em> all the parameters you want, as long they fit the 1000 characters length. To read more about custom parameters, refer to the <a href="http://docs.gestpay.itgs/how-gestpay-works.html#sending-custom-parameters-to-gestpay">documentation</a>. </p>
 
 <h3 id="requesttoken">RequestToken</h3>
 
