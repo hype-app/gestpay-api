@@ -4110,7 +4110,7 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 </tr>
 </tbody></table>
 
-          <h2 id="callupdatetokens2s">callUpdateTokenS2S</h2>
+          <h2 id="callupdatetokens2s">CallUpdateTokenS2S</h2>
 
 <p>Merchants can use this method to update the expiry date of a token.</p>
 
@@ -4121,13 +4121,13 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <blockquote>
 <p>Request example: </p>
 </blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;callUpdateTokenS2S&gt;</span>
+<pre class="highlight xml"><code><span class="nt">&lt;CallUpdateTokenS2S&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
   <span class="nt">&lt;token&gt;</span>1234WJFXABCD5678<span class="nt">&lt;/token&gt;</span>
   <span class="nt">&lt;expiryMonth&gt;</span>12<span class="nt">&lt;/expiryMonth&gt;</span>
   <span class="nt">&lt;expiryYear&gt;</span>21<span class="nt">&lt;/expiryYear&gt;</span>
   <span class="nt">&lt;withAut&gt;</span>Y<span class="nt">&lt;/withAut&gt;</span>
-<span class="nt">&lt;/callUpdateTokenS2S&gt;</span>
+<span class="nt">&lt;/CallUpdateTokenS2S&gt;</span>
 </code></pre>
 <p>Mandatory parameters are in <strong>bold</strong>. </p>
 
@@ -4176,14 +4176,14 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <blockquote>
 <p>Response example: </p>
 </blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;callUpdateTokenS2SResult&gt;</span>
+<pre class="highlight xml"><code><span class="nt">&lt;CallUpdateTokenS2SResult&gt;</span>
   <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
     <span class="nt">&lt;TransactionType&gt;</span>UpdateToken<span class="nt">&lt;/TransactionType&gt;</span>
     <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
     <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
     <span class="nt">&lt;ErrorDescription</span> <span class="nt">/&gt;</span>
   <span class="nt">&lt;/GestPayS2S&gt;</span>
-<span class="nt">&lt;/callUpdateTokenS2SResult&gt;</span>
+<span class="nt">&lt;/CallUpdateTokenS2SResult&gt;</span>
 </code></pre>
 <table><thead>
 <tr>
