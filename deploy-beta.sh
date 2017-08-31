@@ -111,7 +111,7 @@ main() {
     # deploy_branch exists in $repo; make sure we have the latest version
 
     disable_expanded_output
-    git fetch --force $repo $deploy_branch:$deploy_branch
+    git fetch --force --update-head-ok $repo $deploy_branch:$deploy_branch
     enable_expanded_output
   fi
 
