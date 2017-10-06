@@ -14,8 +14,8 @@ Merchants can use this method to request the token generation for a Credit Card.
   <cardNumber>1234567812345678</cardNumber>
   <expiryMonth>12</expiryMonth>
   <expiryYear>21</expiryYear>
-  <cvv>931</cvv>
   <withAuth>Y</withAuth>
+  <cvv>931</cvv><!-- optional -->
 </callCheckCartaS2S>
 ```
 
@@ -28,7 +28,7 @@ Parameters in **bold** are mandatory.
 | **`cardNumber`** | credit card number | string | 20 | 
 | **`expiryMonth`** | card expiration month | string | 2
 | **`expiryYear`** | card expiration year | string | 2 
-| **`cvv`** | security code of the card | string | 4
+| `cvv` | security code of the card | string | 4
 | **`withAuth`** | tries to authorize the card. <br> `Y` on `N` | string | 1
  
 ### Response details
