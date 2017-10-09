@@ -91,9 +91,9 @@ If you send other fields, your customer will find them already filled:
 | `Quantity` |  3  | The number of products |
 | `Price` |  12  | Article’s price |
 | `UnitPrice` |  12  | Article’s Unit Price |
-| `Type` |  2  | The type of article: 1-product, 2-shipping, 3-handling |
+| `Type` |  2  | The type of article: visit the [klarna page in the docs](<%= config[:doc_url] %>/oth/klarna.html#product-type) to set the right value |
 | `Vat` |  2  | Value-Added Tax (the value of the tax) |
-| `Discount` |  2  | The amount offered by you as discount |
+| `Discount` |  2  | The amount offered by you as discount, in percentage. `10` means `10%` and it is subtracted to the price. |
 
 <aside class="active" markdown="1">
 
