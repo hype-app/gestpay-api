@@ -1,0 +1,135 @@
+
+## CallSettleS2S
+
+This is the financial confirmation operation which may follow a positive authorisation.
+
+It exists only for merchants with a [M.O.T.O.](<%= config[:doc_url] %>/gs/how-gestpay-works.html#moto--what-happens-after-a-transaction) configuration when a separation between the authorisation and the settlement phase is anticipated.
+
+Merchants can use this method to settle the transaction. **Since it's possible to settle only a part of the amount, the amount value has to be passed**. 
+
+### Request details
+
+> Request example: 
+
+```xml
+<callSettleS2S>
+  <shopLogin>9000001</shopLogin>
+  <uicCode>242</uicCode><!-- Euro -->
+  <amount>55.00</amount>
+  <shopTransID>MYSHOP-00142</shopTransID>
+  <bankTransID>159247522</bankTransID>
+  <FullFillment>
+    <FullFillmentlst>
+      <FullfillmentDetail>
+        <Status>success</Status>
+        <TrackingCompany>Shippers, Inc.</TrackingCompany>
+        <TrackingNumbers>GD-52563-2233-4422</TrackingNumbers>
+        <TrackingUrls>www.shippers.com/track?id=GD-52563-2233-4422</TrackingUrls>
+        <Message>items in stock</Message>
+        <Receipt>s.f. 351</Receipt>
+        <ProductDetails>
+          <ProductCode>223311</ProductCode>
+          <SKU>ART-244742-1231</SKU>
+          <Name>Unicorn</Name>
+          <Description>a horse with a horn</Description>
+          <Quantity>1</Quantity>
+          <Price>3500</Price>
+          <UnitPrice>3500</UnitPrice>
+          <Type>horse</Type>
+          <Vat>22</Vat>
+          <Discount>0</Discount>
+          <RequiresShipping>true</RequiresShipping>
+          <Condition>new</Condition>
+          <Seller>Flying Horses</Seller>
+          <Category>Horse</Category>
+          <SubCategory>Special Horse</SubCategory>
+          <Brand>Custom</Brand>
+          <DeliveryAt>19/05/2016</DeliveryAt>
+        </ProductDetails>
+      </FullfillmentDetail>
+    </FullFillmentlst>
+  </FullFillment>
+</callSettleS2S>
+```
+
+Parameters in **bold** are mandatory.  
+
+| parameter name | description | type | length | 
+| -------------- | ----------- | -----|--------| 
+| **`shopLogin`** | the merchant's code | string | 30 |  
+| **`amount`** | amount |   number | 9 | 
+| **`uicCode`** | [currency code](#currency-codes) | number | 3 
+| **`bankTransID`** | BankTransactionID assigned to the transaction | number | 18
+| **`shopTransID`** | shop transaction ID value | string | 50 
+| `FullFillment` | An object describing the final fulfillment status of an order.   
+
+<aside class="active">
+A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransID</code>. However, if the <code>shopTransID</code> is unique, the merchant can send just <code>shopLogin</code> + <code>shopTransID</code>. 
+</aside>
+
+`FullFillment` tag must be filled if you are using [ Gestpay Guaranteed Checkout](<%= config[:doc_url] %>/sec/gestpay-guaranteed-checkout.html), an anti fraud evaluating system. If you are not using it, you can skip this. 
+
+When you *settle* a payment,  Gestpay Guaranteed Checkout wants to be notified that an existing order has been fulfilled, both the success and error case. 
+
+`FillFillment` contains a `FullFillmentlst` that contains one or more `FullfillmentDetail`, whose fields are: 
+
+| parameter name | description |  
+| -------------- | ----------- | 
+| `Status` | <ul><li>`success`: the fulfillment was successful.</li><li>`cancelled`: the fulfillment was cancelled.</li><li>`error`: there was an error with the fulfillment request.</li><li>`failure`: the fulfillment request failed.</li></ul>
+| `TrackingCompany` | the name of the shipping company 
+| `TrackingNumbers` | A list of shipping numbers, provided by the shipping company.
+| `TrackingUrls` | The URLs to track the fulfillment.
+| `Message` | Additional textual description regarding the fulfillment status.
+| `Receipt` | Information about the Receipt
+| `ProductDetails` | container object that contains info about the fulfilled item. 
+
+Here is a description of the children of `ProductDetails`: 
+
+| parameter name | description |  
+| -------------- | ----------- | 
+| `ProductCode` | Article’s product Code
+| `SKU` | Article’s Stock Keeping Unit
+| `Name` | Article’s name 
+| `Description` | Article’s description
+| `Quantity` | The number of products 
+| `Price` | Article’s price
+| `UnitPrice` | Article’s Unit price
+| `Type` | The type of article: `digital` , `downloadable`,  `physical`,`composite`, `event`, `travel`
+| `Vat` | Value-Added Tax (the value of the tax)
+| `Discount` | 
+| `RequiresShipping` | boolean, States whether or not the fulfillment requires shipping. This field is important for merchants dealing with digital goods.
+| `Condition` | Description of the physical condition of the item, mostly relevant for used items.
+| `Seller` | Details about the seller of the item, relevant for marketplace orders.
+| `Category` | The category of the item. For event tickets: the category of the event.
+| `SubCategory` | The sub-category of the item. For event tickets: the sub-category of the event.
+| `Brand` | The brand name of the item.
+| `DeliveryAt` | The planned delivery date of the product or item.
+
+ 
+### Response details 
+
+> Response example: 
+
+```xml
+<callSettleS2SResponse xmlns="https://ecomms2s.sella.it/">
+  <callSettleS2SResult>
+    <GestPayS2S>
+      <TransactionType>Settle</TransactionType>
+      <TransactionResult>OK</TransactionResult>
+      <ShopTransactionID>MYSHOP-00142</ShopTransactionID>
+      <BankTransactionID>159247522</BankTransactionID>
+      <ErrorCode>0</ErrorCode>
+      <ErrorDescription>Transazione correttamente effettuata</ErrorDescription>
+    </GestPayS2S>
+  </callSettleS2SResult>
+</callSettleS2SResponse>
+```
+
+| parameter name | description |  
+| -------------- | ----------- | 
+| `TransactionType` | for `CallSettleS2S`, the value will be `Settle` | 
+| `TransactionResult` | `OK` or `KO` | 
+| `BankTransactionID` | Bank transaction ID assigned to the transaction 
+| `ShopTransactionID` | Shop transaction ID value assigned to the transaction
+| `ErrorCode` | transaction error code | 
+| `ErrorDescription` | transaction error description

@@ -1,0 +1,22 @@
+
+## Encrypt Example: MercadoPago
+
+> MercadoPago example: 
+
+```xml
+<Encrypt>
+  <shopLogin>90000001</shopLogin>
+  <uicCode>242</uicCode><!-- Euro -->
+  <amount>0.10</amount>
+  <shopTransactionId>MYSHOP_001</shopTransactionId>
+  <paymentTypes>
+    <paymentType>S2PMER</paymentType>
+  </paymentTypes>
+</Encrypt>
+``` 
+
+MercadoPago does not need mandatory parameters. 
+
+You must use `S2PMER` as `paymentType`.
+
+More informations about MercadoPago are [in the doc]( <%= config[:doc_url] %>/oth/mercadopago.html). 

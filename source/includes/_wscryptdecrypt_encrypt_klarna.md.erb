@@ -1,0 +1,108 @@
+## Encrypt Example: Klarna
+
+> Here is an example of how to enable Klarna with Gestpay.
+
+```xml
+<Encrypt>
+  <shopLogin>9000001</shopLogin>
+  <uicCode>242</uicCode>
+  <amount>100</amount>
+  <shopTransactionId>34az85ord19</shopTransactionId>
+  <paymentTypes>
+    <paymentType>S2PKLA</paymentType>
+  </paymentTypes>
+  <OrderDetails>
+    <CustomerDetail>
+      <FirstName>Alfred</FirstName>
+      <Lastname>Nobel<Lastname>
+      <PrimaryEmail>alfred.nobel@dynamite.se</PrimaryEmail>
+      <PrimaryPhone>00491522113356</PrimaryPhone>
+      <SocialSecurityNumber>410321-9202</SocialSecurityNumber>
+    </CustomerDetail>
+    <BillingAddress>
+      <StreetNumber>14<StreetNumber>
+      <StreetName>Sturegatan</StreetName><!--mandatory-->
+      <City>Stockholm</City><!--mandatory-->
+      <ZipCode>SE-102</ZipCode><!--mandatory-->
+      <CountryCode>SE</CountryCode><!--mandatory-->
+    </BillingAddress>
+    <ProductDetails>
+      <ProductDetail><!-- mandatory -->
+        <ProductCode>1</ProductCode>
+        <SKU>AK-7</SKU> 
+        <Name>TV2000</Name> 
+        <Description>Television</Description> 
+        <Quantity>1</Quantity> 
+        <Price>100</Price> 
+        <UnitPrice>100</UnitPrice> 
+        <Type>1</Type> 
+        <Vat>10</Vat> 
+        <Discount>0</Discount>
+      </ProductDetail> 
+    </ProductDetails>
+  </OrderDetails>
+</Encrypt>
+```
+
+Klarna requires these parameters as mandatory, children of `OrderDetails`: 
+
+| Name | max length | description |
+| ---- | :--------: | ----------- |
+| `BillingAddress.StreetName` | 100 | Shipping street name. **Accepts only alpha-numeric characters.** |
+| `BillingAddress.City` | 50 | Shipping city name |
+| `BillingAddress.ZipCode` | 50 | Shipping zip code |
+| `BillingAddress.CountryCode` | 2 | one of [AT &#124; DK &#124; FI &#124; DE &#124; NL &#124; NO &#124; SE] |
+| `ProductDetails.ProductDetail` |    | the list of ordered products |
+
+We strongly suggest you to [read these notes on `BillingAddress` and `ShippingAddress`](<%= config[:doc_url] %>/oth/klarna.html#some-clarifications-on-mandatory-fields).
+
+<aside class="active">
+<code>StreetName</code> and <code>StreetNumber</code>, either in <code>BillingAddress</code> or <code>ShippingAddress</code>, must contain only alphanumeric characters. 
+</aside>
+
+If you send other fields, your customer will find them already filled: 
+
+|  |  |  |
+| ---- | :--------: | ----------- |
+| `CustomerDetail.FirstName` |  65  | Customer First Name |
+| `CustomerDetail.Lastname` |  65  | the list of ordered products | 
+| `CustomerDetail.PrimaryEmail` | 100 | Customer primary email |
+| `CustomerDetail.PrimaryPhone` | 100 | Customer’s phone including prefix. See below on how to use it. |
+| `CustomerDetail.SocialSecurityNumber` | 20 | Customer's social or fiscal identifier (for Klarna Use) |
+| `BillingAddress.StreetNumber` | 5 | Shipping Street Number. **Accepts only numbers.** |
+
+<aside class="active" markdown="1">
+<code>PrimaryPhone</code> must follow these rules: 
+<ul>
+<li>it must contain only numbers;</li>
+<li>if the number does not contain a country code, it must be preceeded by <code>0</code> followed by the phone number; for example, <code>01522113356</code></li>
+<li>If the number contains a country code, it must be set to CountryCode + phone number, without the <code>0</code> prefix; for example <code>00491522113356</code>.</li>
+</ul>
+</aside>
+
+`ProductDetails` can have one or more `ProductDetail`. Here is a description of its fields:
+
+|  |  |  |
+| ---- | :--------: | ----------- | 
+| `ProductCode` |  12  | Article’s product Code |
+| `SKU` |  50  | Article’s Stock Keeping Unit |
+| `Name` |  100  | Article’s name |
+| `Description` |  255  | Article’s description |
+| `Quantity` |  3  | The number of products |
+| `Price` |  12  | Article’s price |
+| `UnitPrice` |  12  | Article’s Unit Price |
+| `Type` |  2  | The type of article: visit the [klarna page in the docs](<%= config[:doc_url] %>/oth/klarna.html#product-type) to set the right value |
+| `Vat` |  2  | Value-Added Tax (the value of the tax) |
+| `Discount` |  2  | The amount offered by you as discount, in percentage. `10` means `10%` and it is subtracted to the price. |
+
+<aside class="active" markdown="1">
+
+Please note: 
+<ul>
+<li>The total value for the <code>ProductDetails</code> needs to be the same as the total amount sent otherwise the transaction fails.</li>
+<li>The <code>Discount</code> is a percentage and must be considered in the Total Amount Value.</li>
+<li>For example if the <code>Quantity</code> is 1 the <code>Price</code> is 10 and the <code>Discount</code> is 10(%) the Total Amount of the transaction must be 9, otherwise the transaction is refused.</li>
+</ul>
+</aside>
+
+More details about Klarna are in [the documentation](<%= config[:doc_url] %>/oth/klarna.html). 
