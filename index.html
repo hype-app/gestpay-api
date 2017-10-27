@@ -283,7 +283,7 @@
 <tr>
 <td><a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a></td>
 <td style="text-align: center"></td>
-<td>a container ojbect of other data. It is used by <a href="#gestpay-guaranteed-checkout"> Gestpay Guaranteed Checkout</a> and by alternative payments.</td>
+<td>a container ojbect of other data. It is used by <a href="#gestpay-guaranteed-payment"> Gestpay Guaranteed Payment</a> and by alternative payments.</td>
 </tr>
 </tbody></table>
 
@@ -1021,7 +1021,7 @@
       <span class="nt">&lt;Lastname&gt;</span>Nobel<span class="nt">&lt;Lastname&gt;</span>
       <span class="nt">&lt;PrimaryEmail&gt;</span>alfred.nobel@dynamite.se<span class="nt">&lt;/PrimaryEmail&gt;</span>
       <span class="nt">&lt;PrimaryPhone&gt;</span>00491522113356<span class="nt">&lt;/PrimaryPhone&gt;</span>
-      <span class="nt">&lt;SocialSecurityNumber&gt;</span>18331021+129<span class="nt">&lt;/SocialSecurityNumber&gt;</span>
+      <span class="nt">&lt;SocialSecurityNumber&gt;</span>410321-9202<span class="nt">&lt;/SocialSecurityNumber&gt;</span>
     <span class="nt">&lt;/CustomerDetail&gt;</span>
     <span class="nt">&lt;BillingAddress&gt;</span>
       <span class="nt">&lt;StreetNumber&gt;</span>14<span class="nt">&lt;StreetNumber&gt;</span>
@@ -1186,7 +1186,7 @@
 <tr>
 <td><code class="prettyprint">Type</code></td>
 <td style="text-align: center">2</td>
-<td>The type of article: 1-product, 2-shipping, 3-handling</td>
+<td>The type of article: visit the <a href="http://docs.gestpay.it/oth/klarna.html#product-type">klarna page in the docs</a> to set the right value</td>
 </tr>
 <tr>
 <td><code class="prettyprint">Vat</code></td>
@@ -1196,7 +1196,7 @@
 <tr>
 <td><code class="prettyprint">Discount</code></td>
 <td style="text-align: center">2</td>
-<td>The amount offered by you as discount</td>
+<td>The amount offered by you as discount, in percentage. <code class="prettyprint">10</code> means <code class="prettyprint">10%</code> and it is subtracted to the price.</td>
 </tr>
 </tbody></table>
 
@@ -2517,7 +2517,7 @@ Please note:
 </tr>
 <tr>
 <td><a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a></td>
-<td>contains every other info needed to handle the payment. It is used by  Gestpay Guaranteed Checkout.</td>
+<td>contains every other info needed to handle the payment. It is used by  Gestpay Guaranteed Payment.</td>
 <td></td>
 <td></td>
 </tr>
@@ -2723,7 +2723,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">RiskResponseCode</code></td>
-<td>Risk Fraud Score of the transaction, given by <a href="http://docs.gestpay.it/sec/gestpay-guaranteed-checkout.html"> Gestpay Guaranteed Checkout</a>. Possible values are: <ul><li><code class="prettyprint">submitted</code>: transaction is under review</li><li><code class="prettyprint">approved</code>: transaction approved by  Gestpay Guaranteed Checkout</li><li><code class="prettyprint">declined</code>: transaction not approved by  Gestpay Guaranteed Checkout</li><li><code class="prettyprint">captured</code>: For <em>Select&amp;Submit</em> plan, <code class="prettyprint">captured</code> is returned for transactions that are not marked for review.</li><li><strong>any other value</strong> is an error returned by  Gestpay Guaranteed Checkout.</li></ul></td>
+<td>Risk Fraud Score of the transaction, given by <a href="http://docs.gestpay.it/sec/gestpay-guaranteed-payment.html"> Gestpay Guaranteed Payment</a>. Possible values are: <ul><li><code class="prettyprint">created</code>: transaction has been received by the Gestpay Guaranteed Payment</li><li><code class="prettyprint">submitted</code>: transaction is under review</li><li><code class="prettyprint">approved</code>: transaction approved by  Gestpay Guaranteed Payment</li><li><code class="prettyprint">declined</code>: transaction not approved by  Gestpay Guaranteed Payment</li><li><code class="prettyprint">captured</code>: For <em>Select&amp;Submit</em> plan, <code class="prettyprint">captured</code> is returned for transactions that are not marked for review.</li><li><strong>any other value</strong> is an error returned by  Gestpay Guaranteed Payment.</li></ul></td>
 </tr>
 <tr>
 <td><code class="prettyprint">RiskResponseDescription</code></td>
@@ -2837,9 +2837,9 @@ Please note:
 A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransID</code>. However, if the <code>shopTransID</code> is unique, the merchant can send just <code>shopLogin</code> + <code>shopTransID</code>. 
 </aside>
 
-<p><code class="prettyprint">FullFillment</code> tag must be filled if you are using <a href="http://docs.gestpay.it/sec/gestpay-guaranteed-checkout.html"> Gestpay Guaranteed Checkout</a>, an anti fraud evaluating system. If you are not using it, you can skip this. </p>
+<p><code class="prettyprint">FullFillment</code> tag must be filled if you are using <a href="http://docs.gestpay.it/sec/gestpay-guaranteed-payment.html"> Gestpay Guaranteed Payment</a>, an anti fraud evaluating system. If you are not using it, you can skip this. </p>
 
-<p>When you <em>settle</em> a payment,  Gestpay Guaranteed Checkout wants to be notified that an existing order has been fulfilled, both the success and error case. </p>
+<p>When you <em>settle</em> a payment, Gestpay Guaranteed Payment wants to be notified that an existing order has been fulfilled, both the success and error case. </p>
 
 <p><code class="prettyprint">FillFillment</code> contains a <code class="prettyprint">FullFillmentlst</code> that contains one or more <code class="prettyprint">FullfillmentDetail</code>, whose fields are: </p>
 
@@ -3055,7 +3055,7 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 </tr>
 <tr>
 <td><code class="prettyprint">CancelReason</code></td>
-<td>free text of cancel reason.For  Gestpay Guaranteed Checkout users, this field is mandatory.</td>
+<td>free text of cancel reason.For  Gestpay Guaranteed Payment users, this field is mandatory.</td>
 <td>string</td>
 <td>50</td>
 </tr>
@@ -3420,7 +3420,7 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 </tr>
 <tr>
 <td><code class="prettyprint">RiskResponseCode</code></td>
-<td>Risk Fraud Score of the transaction, given by <a href="http://docs.gestpay.it/sec/gestpay-guaranteed-checkout.html"> Gestpay Guaranteed Checkout</a>. Possible values are: <ul><li><code class="prettyprint">submitted</code>: transaction is under review</li><li><code class="prettyprint">approved</code>: transaction approved by  Gestpay Guaranteed Checkout</li><li><code class="prettyprint">declined</code>: transaction not approved by  Gestpay Guaranteed Checkout</li><li><code class="prettyprint">captured</code>: For <em>Select&amp;Submit</em> plan, <code class="prettyprint">caputred</code> is returned for transactions that are not marked for review.</li><li><strong>any other value</strong> is an error returned by  Gestpay Guaranteed Checkout.</li></ul></td>
+<td>Risk Fraud Score of the transaction, given by <a href="http://docs.gestpay.it/sec/gestpay-guaranteed-payment.html"> Gestpay Guaranteed Payment</a>. Possible values are: <ul><li><code class="prettyprint">created</code>: transaction has been received by the Gestpay Guaranteed Payment</li><li><code class="prettyprint">submitted</code>: transaction is under review</li><li><code class="prettyprint">approved</code>: transaction approved by  Gestpay Guaranteed Payment</li><li><code class="prettyprint">declined</code>: transaction not approved by  Gestpay Guaranteed Payment</li><li><code class="prettyprint">captured</code>: For <em>Select&amp;Submit</em> plan, <code class="prettyprint">caputred</code> is returned for transactions that are not marked for review.</li><li><strong>any other value</strong> is an error returned by  Gestpay Guaranteed Payment.</li></ul></td>
 </tr>
 <tr>
 <td><code class="prettyprint">RiskResponseDescription</code></td>
@@ -4398,9 +4398,9 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 
           <h2 id="callupdateorders2s">CallUpdateOrderS2S</h2>
 
-<aside class="notice">This service is intended to be used only by Gestpay Guaranteed Checkout users.</aside>
+<aside class="notice">This service is intended to be used only by Gestpay Guaranteed Payment users.</aside>
 
-<p>Merchants can use this method to update the order values for Risk Fraud management. For example, if the buyer changes the Shipping Address, this must be notified to Gestpay Guaranteed Checkout in order to review again the Order. Gestpay Guaranteed Checkout decides if the Order must be reviewed based on the changed values.</p>
+<p>Merchants can use this method to update the order values for Risk Fraud management. For example, if the buyer changes the Shipping Address, this must be notified to Gestpay Guaranteed Payment in order to review again the Order. Gestpay Guaranteed Payment decides if the Order must be reviewed based on the changed values.</p>
 
 <h3 id="request-parameters"> Request parameters</h3>
 
@@ -4826,7 +4826,7 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 </code></pre>
 <p><code class="prettyprint">OrderDetails</code> tag contains all the info that can be sent together with a transaction. The more data you sent, the better is for Gestpay to analyze your request. </p>
 
-<p>Many external systems, like the one presented in the next sections, use <code class="prettyprint">OrderDetails</code> fields to work. <a href="#gestpay-guaranteed-checkout">Gestpay Guaranteed Checkout</a> (an antifraud system) massively uses <code class="prettyprint">OrderDetails</code> to get the job done. </p>
+<p>Many external systems, like the one presented in the next sections, use <code class="prettyprint">OrderDetails</code> fields to work. <a href="#gestpay-guaranteed-payment">Gestpay Guaranteed Payment</a> (an antifraud system) massively uses <code class="prettyprint">OrderDetails</code> to get the job done. </p>
 
 <p>In this section we will analyze indipendently all the fields. </p>
 
@@ -4900,7 +4900,7 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <tr>
 <td><code class="prettyprint">SubmitForReview</code></td>
 <td>1</td>
-<td>Flag to activate review over Gestpay Guaranteed Checkout.  <br><ul><li><code class="prettyprint">0</code> no submit</li><li><code class="prettyprint">1</code> submit</li></ul>If your active plan is <strong>Select&amp;Submit</strong> you can decide which transaction must be submitted to Gestpay Guaranteed Checkout setting the flag to <code class="prettyprint">1</code>. With <strong>Shop Protection</strong> all transactions are submitted for review by default.</td>
+<td>Flag to activate review over Gestpay Guaranteed Payment.  <br><ul><li><code class="prettyprint">0</code> no submit</li><li><code class="prettyprint">1</code> submit</li></ul>If your active plan is <strong>Select&amp;Submit</strong> you can decide which transaction must be submitted to Gestpay Guaranteed Payment setting the flag to <code class="prettyprint">1</code>. With <strong>Shop Protection</strong> all transactions are submitted for review by default.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">OrderDateTime</code></td>
@@ -4925,7 +4925,7 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <tr>
 <td><code class="prettyprint">BeaconSessionID</code></td>
 <td>100</td>
-<td>Session ID of the Beacon for this transaction. This value must be collected when the user first connects to your website and be sent to  Gestpay Guaranteed Checkout to analyze it. With this field,  Gestpay Guaranteed Checkout knows what actions the user did on your website.</td>
+<td>Session ID of the Beacon for this transaction. This value must be collected when the user first connects to your website and be sent to  Gestpay Guaranteed Payment to analyze it. With this field,  Gestpay Guaranteed Payment knows what actions the user did on your website.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">VendorID</code></td>
