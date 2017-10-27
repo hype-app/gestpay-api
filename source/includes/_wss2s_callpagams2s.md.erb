@@ -87,7 +87,7 @@ The following features may be optionally assigned, upon appropriate configuratio
 | `itemType`     | Item Category: `digital`/`physical` (If `physical` the `ShippingDetails` have to be filled) | string | 250 | 
 | `recurrent` | true if it's a recurrent payment, false if not. | boolean | 5 | 
 | `shippingDetails` | contains the shipping address. Used for [paypal seller protection](<%= config[:doc_url] %>/oth/paypal.html).
-| [`OrderDetails`](#orderdetails) | contains every other info needed to handle the payment. It is used by  Gestpay Guaranteed Checkout. 
+| [`OrderDetails`](#orderdetails) | contains every other info needed to handle the payment. It is used by  Gestpay Guaranteed Payment. 
 
 - children of `ShippingDetails` :
 
@@ -172,7 +172,7 @@ The following features may be optionally assigned, upon appropriate configuratio
 | `TokenExpiryYear` | the token expiration year 
 | `PayPalFee` | the fee owed to paypal. 
 | `TDLevel` | Level of authentication for 3D-Secure transactions. `FULL` or `HALF`
-| `RiskResponseCode` | Risk Fraud Score of the transaction, given by [ Gestpay Guaranteed Checkout](<%= config[:doc_url] %>/sec/gestpay-guaranteed-checkout.html). Possible values are: <ul><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Gestpay Guaranteed Checkout</li><li>`declined`: transaction not approved by  Gestpay Guaranteed Checkout</li><li>`captured`: For *Select&Submit* plan, `captured` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Gestpay Guaranteed Checkout.</li></ul>
+| `RiskResponseCode` | Risk Fraud Score of the transaction, given by [ Gestpay Guaranteed Payment](<%= config[:doc_url] %>/sec/gestpay-guaranteed-payment.html). Possible values are: <ul><li>`created`: transaction has been received by the Gestpay Guaranteed Payment</li><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Gestpay Guaranteed Payment</li><li>`declined`: transaction not approved by  Gestpay Guaranteed Payment</li><li>`captured`: For *Select&Submit* plan, `captured` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Gestpay Guaranteed Payment.</li></ul>
 | `RiskResponseDescription` | Risk Description of the RiskResponseCode 
 
 <aside class="notice">other fields that are undocumented are unused. This applies also to fields described in the old version of the documentation.</aside>

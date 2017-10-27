@@ -90,7 +90,7 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 | `Buyer.BuyerName` | Returns the name of the buyer 
 | `Buyer.BuyerEmail` | Returns the email of the buyer 
 | `Events`| contains `event` elements. see the next table for more.  
-| `RiskResponseCode` | Risk Fraud Score of the transaction, given by [ Gestpay Guaranteed Checkout](<%= config[:doc_url] %>/sec/gestpay-guaranteed-checkout.html). Possible values are: <ul><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Gestpay Guaranteed Checkout</li><li>`declined`: transaction not approved by  Gestpay Guaranteed Checkout</li><li>`captured`: For *Select&Submit* plan, `caputred` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Gestpay Guaranteed Checkout.</li></ul>
+| `RiskResponseCode` | Risk Fraud Score of the transaction, given by [ Gestpay Guaranteed Payment](<%= config[:doc_url] %>/sec/gestpay-guaranteed-payment.html). Possible values are: <ul><li>`created`: transaction has been received by the Gestpay Guaranteed Payment</li><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Gestpay Guaranteed Payment</li><li>`declined`: transaction not approved by  Gestpay Guaranteed Payment</li><li>`captured`: For *Select&Submit* plan, `caputred` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Gestpay Guaranteed Payment.</li></ul>
 | `RiskResponseDescription` | Risk Description of the RiskResponseCode 
 
 As said, `<Events>` can contain one or more `<event>` tags. the `<event>` tag is composed of: 
