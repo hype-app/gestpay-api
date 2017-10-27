@@ -499,6 +499,8 @@
     <span class="nt">&lt;Amount&gt;</span>985.40<span class="nt">&lt;/Amount&gt;</span>
     <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
     <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
+    <span class="nt">&lt;RiskResponseCode&gt;</span>created<span class="nt">&lt;/RiskResponseCode&gt;</span>
+    <span class="nt">&lt;RiskResponseDescription/&gt;</span>
   <span class="nt">&lt;/GestPayCryptDecrypt&gt;</span>
 <span class="nt">&lt;/DecryptResult&gt;</span>
 </code></pre>
@@ -652,6 +654,16 @@
 <td><code class="prettyprint">VbVFlag</code></td>
 <td style="text-align: center">2</td>
 <td>Information about the 3D-Secure status. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">RiskResponseCode</code></td>
+<td style="text-align: center">10</td>
+<td>Risk Fraud Score of the transaction, given by <a href="http://docs.gestpay.it/sec/gestpay-guaranteed-payment.html">Gestpay Guaranteed Payment</a>. Possible values are: <ul><li><code class="prettyprint">created</code>: transaction has been received by the Gestpay Guaranteed Payment</li><li><code class="prettyprint">submitted</code>: transaction is under review</li><li><code class="prettyprint">approved</code>: transaction approved by  Gestpay Guaranteed Payment</li><li><code class="prettyprint">declined</code>: transaction not approved by  Gestpay Guaranteed Payment</li><li><code class="prettyprint">captured</code>: For <em>Select&amp;Submit</em> plan, <code class="prettyprint">captured</code> is returned for transactions that are not marked for review.</li><li><strong>any other value</strong> is an error returned by  Gestpay Guaranteed Payment.</li></ul></td>
+</tr>
+<tr>
+<td><code class="prettyprint">RiskResponseDescription</code></td>
+<td style="text-align: center">255</td>
+<td>Risk Description of the RiskResponseCode</td>
 </tr>
 </tbody></table>
 
