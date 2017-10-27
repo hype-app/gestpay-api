@@ -14,6 +14,8 @@
     <Amount>985.40</Amount>
     <ErrorCode>0</ErrorCode>
     <ErrorDescription>Transazione correttamente effettuata</ErrorDescription>
+    <RiskResponseCode>created</RiskResponseCode>
+    <RiskResponseDescription/>
   </GestPayCryptDecrypt>
 </DecryptResult>
 ```
@@ -51,7 +53,10 @@ The minimum information returned back as transaction result is marked in bold.
 | `VbV` | 2 | Verified By Visa Flag | 
 | `VbVRisp` |  | Encrypted string containing information for 3D- Secure transactions. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions | 
 | `VbVBuyer` | 2 | Information about the enrolment of the buyer's card to 3D-Secure protocol: `OK` means that the card is enrolled, `KO` means that the card is not enrolled | 
-| `VbVFlag` | 2 | Information about the 3D-Secure status. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions. | 
+| `VbVFlag` | 2 | Information about the 3D-Secure status. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions. |
+| `RiskResponseCode` | 10 | Risk Fraud Score of the transaction, given by [Gestpay Guaranteed Payment](<%= config[:doc_url] %>/sec/gestpay-guaranteed-payment.html). Possible values are: <ul><li>`created`: transaction has been received by the Gestpay Guaranteed Payment</li><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Gestpay Guaranteed Payment</li><li>`declined`: transaction not approved by  Gestpay Guaranteed Payment</li><li>`captured`: For *Select&Submit* plan, `captured` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Gestpay Guaranteed Payment.</li></ul> |
+| `RiskResponseDescription` | 255 | Risk Description of the RiskResponseCode |
+
 
 
 Other information is defined as optional and will be returned according to the merchant’s profile settings made in the GestPay Back Office environment.
