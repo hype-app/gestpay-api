@@ -63,8 +63,6 @@ These are non-mandatory fields, but are direct children of the `Encrypt` root.
 
 <sup id="fn1">1. Each field can be up to a maximum of 300 characters in length. See next section for further explanations.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup>
 
-To send one or more of these parameters, you have to go in  **Payment Page -> Fields & Parameters** and enable the ones you want to send. 
-
 <a name="customInfo"></a>
 
 ### Sending custom data to Gestpay: `<customInfo>`
@@ -81,9 +79,9 @@ To send one or more of these parameters, you have to go in  **Payment Page -> Fi
 
 The maximum length of the field is 1000 characters, and each individual parameter can be max 300 characters.
 
-To start sending custom parameters, you must configure Gestpay to receive them. This can be done in the backoffice, in **Payment Page -> Fields & Parameters -> Add Parameter**. Here you can configure some aspects of this parameter, for example if has to be returned by the `Decrypt` webservice. Don't forget to populate the "languages" section. 
+To start sending custom parameters, you must configure Gestpay to receive them. This can be done in the backoffice, in **Payment Page -> Fields & Parameters -> Add Parameter**. Here you can configure some aspects of this parameter, for example if has to be returned by the `Decrypt` webservice. Don't forget to populate the _languages_ section. 
 
-With this customization, you can *send* all the parameters you want, as long they fit the 1000 characters length. If you also want to **receive** the same parameters back when you `Decrypt` the response, enable `CustomInfo` parameter in the backoffice. 
+With this customization, you can *send* all the parameters you want, as long they fit the 1000 characters length. To read more about custom parameters, refer to the [documentation](<%= config[:doc_url]%>gs/how-gestpay-works.html#sending-custom-parameters-to-gestpay). 
 
 ### RequestToken
 
@@ -97,7 +95,7 @@ With this customization, you can *send* all the parameters you want, as long the
   <shopTransactionId>34az85ord19</shopTransactionId>
   <requestToken>MASKEDPAN</requestToken>
 </Encrypt>
-``` 
+```
 
 You can request a token that will represent the credit card for your website. You can use it later to handle recurring payments, or to avoid your customer to insert again his credit card data. This behaviour is compliant with PCI. Read more [here](https://hype-app.github.io/gestpay-doc/rec/handling-subscriptions.html).
 
@@ -105,7 +103,7 @@ You can request a token that will represent the credit card for your website. Yo
 | ---- | :--------: | ----------- |
 | `requestToken` <sup><a href="#fn2" id="ref2">2</a></sup> | 25 | `MASKEDPAN` for a Standard Token any other value for Custom Token. Using `:FORCED:` before the token, it' s possible to have the token even if the transaction is not authorized. |
 
-<sup id="fn2">2. Required only when a Token is needed within the transaction response. <br> In order to be able to request, obtain and use a Token, merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></sup>
+<sup id="fn2">2. Required only when a Token is needed within the transaction response.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></sup>
 
 <a name="paymentTypes"></a>
 
@@ -148,7 +146,5 @@ In order to do that, merchants must properly set the tag `paymentType` that can 
 | Name | max length | description |
 | ---- | :--------: | ----------- |
 | `paymentTypes` |    | container of one or more `paymentType` |
-| `paymentType`<sup><a href="#fn4" id="ref4">4</a></sup> |  25   | Set of tags to set the visibility of payment systems on payment page (see [Payment Type Codes table](#payment-type-codes)) | 
-
-<sup id="fn4">4. **Payment Systems Visibility**. In order to be able to activate the Payment Systems Visibility the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The Payment System Visibility can be configured in the specific interface in the Back Office Merchant.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></sup>
+| `paymentType`  |  25   | Set of tags to set the visibility of payment systems on payment page (see [Payment Type Codes table](#payment-type-codes)) | 
 
