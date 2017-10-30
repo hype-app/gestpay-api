@@ -11,7 +11,7 @@
   <paymentTypes>
     <paymentType>SEPADD</paymentType>
   </paymentTypes>
-  </Encrypt>
+</Encrypt>
 ```
 
 To get a pre-approval from SEPA you must specify the paymentType `SEPADD`. 
