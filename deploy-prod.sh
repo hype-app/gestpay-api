@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+git checkout master 
+
 yes | cp -f source/robots.txt.prod source/robots.txt
 yes | cp -f source/CNAME.prod source/CNAME
 
@@ -205,3 +207,5 @@ sanitize() {
 }
 
 [[ $1 = --source-only ]] || main "$@"
+
+git checkout develop
