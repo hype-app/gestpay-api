@@ -1,4 +1,4 @@
-## callUpdateTokenS2S 
+## CallUpdateTokenS2S 
 
 Merchants can use this method to update the expiry date of a token.
 
@@ -10,13 +10,13 @@ Merchants belonging to a group are allowed to update also tokens created by othe
 > Request example: 
 
 ```xml
-<callUpdateTokenS2S>
+<CallUpdateTokenS2S>
   <shopLogin>90000001</shopLogin>
   <token>1234WJFXABCD5678</token>
   <expiryMonth>12</expiryMonth>
   <expiryYear>21</expiryYear>
   <withAut>Y</withAut>
-</callUpdateTokenS2S>
+</CallUpdateTokenS2S>
 ```
 
 Mandatory parameters are in **bold**. 
@@ -34,14 +34,14 @@ Mandatory parameters are in **bold**.
 > Response example: 
 
 ```xml
-<callUpdateTokenS2SResult>
+<CallUpdateTokenS2SResult>
   <GestPayS2S xmlns="">
     <TransactionType>UpdateToken</TransactionType>
     <TransactionResult>OK</TransactionResult>
     <ErrorCode>0</ErrorCode>
     <ErrorDescription />
   </GestPayS2S>
-</callUpdateTokenS2SResult>
+</CallUpdateTokenS2SResult>
 ```
 
 | parameter name | description |  
