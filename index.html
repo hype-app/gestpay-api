@@ -289,8 +289,6 @@
 
 <p><sup id="fn1">1. Each field can be up to a maximum of 300 characters in length. See next section for further explanations.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup></p>
 
-<p>To send one or more of these parameters, you have to go in  <strong>Payment Page -&gt; Fields &amp; Parameters</strong> and enable the ones you want to send. </p>
-
 <p><a name="customInfo"></a></p>
 
 <h3 id="sending-custom-data-to-gestpay-lt-custominfo-gt">Sending custom data to Gestpay: <code class="prettyprint">&lt;customInfo&gt;</code></h3>
@@ -308,9 +306,9 @@
 
 <p>The maximum length of the field is 1000 characters, and each individual parameter can be max 300 characters.</p>
 
-<p>To start sending custom parameters, you must configure Gestpay to receive them. This can be done in the backoffice, in <strong>Payment Page -&gt; Fields &amp; Parameters -&gt; Add Parameter</strong>. Here you can configure some aspects of this parameter, for example if has to be returned by the <code class="prettyprint">Decrypt</code> webservice. Don&rsquo;t forget to populate the &ldquo;languages&rdquo; section. </p>
+<p>To start sending custom parameters, you must configure Gestpay to receive them. This can be done in the backoffice, in <strong>Payment Page -&gt; Fields &amp; Parameters -&gt; Add Parameter</strong>. Here you can configure some aspects of this parameter, for example if has to be returned by the <code class="prettyprint">Decrypt</code> webservice. Don&rsquo;t forget to populate the <em>languages</em> section. </p>
 
-<p>With this customization, you can <em>send</em> all the parameters you want, as long they fit the 1000 characters length. If you also want to <strong>receive</strong> the same parameters back when you <code class="prettyprint">Decrypt</code> the response, enable <code class="prettyprint">CustomInfo</code> parameter in the backoffice. </p>
+<p>With this customization, you can <em>send</em> all the parameters you want, as long they fit the 1000 characters length. To read more about custom parameters, refer to the <a href="http://docs.gestpay.itgs/how-gestpay-works.html#sending-custom-parameters-to-gestpay">documentation</a>. </p>
 
 <h3 id="requesttoken">RequestToken</h3>
 
@@ -341,7 +339,7 @@
 </tr>
 </tbody></table>
 
-<p><sup id="fn2">2. Required only when a Token is needed within the transaction response. <br> In order to be able to request, obtain and use a Token, merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></sup></p>
+<p><sup id="fn2">2. Required only when a Token is needed within the transaction response.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></sup></p>
 
 <p><a name="paymentTypes"></a></p>
 
@@ -391,13 +389,11 @@
 <td>container of one or more <code class="prettyprint">paymentType</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">paymentType</code><sup><a href="#fn4" id="ref4">4</a></sup></td>
+<td><code class="prettyprint">paymentType</code></td>
 <td style="text-align: center">25</td>
 <td>Set of tags to set the visibility of payment systems on payment page (see <a href="#payment-type-codes">Payment Type Codes table</a>)</td>
 </tr>
 </tbody></table>
-
-<p><sup id="fn4">4. <strong>Payment Systems Visibility</strong>. In order to be able to activate the Payment Systems Visibility the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The Payment System Visibility can be configured in the specific interface in the Back Office Merchant.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a></sup></p>
 
           <h2 id="encrypt-result">Encrypt result</h2>
 
@@ -499,6 +495,8 @@
     <span class="nt">&lt;Amount&gt;</span>985.40<span class="nt">&lt;/Amount&gt;</span>
     <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
     <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
+    <span class="nt">&lt;RiskResponseCode&gt;</span>created<span class="nt">&lt;/RiskResponseCode&gt;</span>
+    <span class="nt">&lt;RiskResponseDescription/&gt;</span>
   <span class="nt">&lt;/GestPayCryptDecrypt&gt;</span>
 <span class="nt">&lt;/DecryptResult&gt;</span>
 </code></pre>
@@ -652,6 +650,16 @@
 <td><code class="prettyprint">VbVFlag</code></td>
 <td style="text-align: center">2</td>
 <td>Information about the 3D-Secure status. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">RiskResponseCode</code></td>
+<td style="text-align: center">10</td>
+<td>Risk Fraud Score of the transaction, given by <a href="http://docs.gestpay.it/sec/gestpay-guaranteed-payment.html">Gestpay Guaranteed Payment</a>. Possible values are: <ul><li><code class="prettyprint">created</code>: transaction has been received by the Gestpay Guaranteed Payment</li><li><code class="prettyprint">submitted</code>: transaction is under review</li><li><code class="prettyprint">approved</code>: transaction approved by  Gestpay Guaranteed Payment</li><li><code class="prettyprint">declined</code>: transaction not approved by  Gestpay Guaranteed Payment</li><li><code class="prettyprint">captured</code>: For <em>Select&amp;Submit</em> plan, <code class="prettyprint">captured</code> is returned for transactions that are not marked for review.</li><li><strong>any other value</strong> is an error returned by  Gestpay Guaranteed Payment.</li></ul></td>
+</tr>
+<tr>
+<td><code class="prettyprint">RiskResponseDescription</code></td>
+<td style="text-align: center">255</td>
+<td>Risk Description of the RiskResponseCode</td>
 </tr>
 </tbody></table>
 
@@ -989,18 +997,16 @@
 <td>container of one of <code class="prettyprint">MyBankBankCode</code> or <code class="prettyprint">IdealBankCode</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">MyBankBankCode</code><sup><a href="#fn5" id="ref5">5</a></sup></td>
+<td><code class="prettyprint">MyBankBankCode</code></td>
 <td style="text-align: center">25</td>
 <td>Tag to set the Bank to show on payment page (the bank List is retrieved from <code class="prettyprint">WsS2S.CallMyBankListS2S</code>)</td>
 </tr>
 <tr>
-<td><code class="prettyprint">IdealBankCode</code><sup><a href="#fn5" id="ref5">5</a></sup></td>
+<td><code class="prettyprint">IdealBankCode</code></td>
 <td style="text-align: center">25</td>
 <td>Tag to set the Bank to show on payment page (the bank List is retrieved from <code class="prettyprint">WsS2S.CallIdealListS2S</code>)</td>
 </tr>
 </tbody></table>
-
-<p><sup id="fn5">5. <strong>paymentTypeDetail</strong>. In order to be able to activate the payment Type Detail the merchants need to appropriately set “Fields and Parameters” in the dedicated section of GestPay Merchant Back Office. The correct merchant configuration of Sofort and Ideal has to be configured in the specific interface of Back Office Merchant.(1) Each field can be up to a maximum of 300 characters in length<a href="#ref5" title="Jump back to footnote 5 in the text.">↩</a></sup></p>
 
           <h2 id="encrypt-example-klarna">Encrypt Example: Klarna</h2>
 
@@ -1321,7 +1327,7 @@ Please note:
   <span class="nt">&lt;/paymentTypes&gt;</span>
 <span class="nt">&lt;Encrypt&gt;</span>
 </code></pre>
-<p>To enable Paypal, follow the same steps of the paragraph <a href="#paymentTypes"><code class="prettyprint">PaymentTypes</code> example</a>. Remeber to enable the fields in the backoffice. </p>
+<p>A detailed description of <a href="http://docs.gestpay.it/oth/paypal.html">Gestpay integration with Paypal</a> is in the docs.</p>
 
 <h3 id="show-product-info-at-paypal-39-s-buying-page">Show product info at paypal&rsquo;s buying page</h3>
 
@@ -1439,7 +1445,7 @@ Please note:
   <span class="nt">&lt;/shippingDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-<p>For more informations, checkout the <a href="https://hype-app.github.io/gestpay-doc/gs/how-gestpay-works.html">Seller Protection: Fields &amp; Parameters</a> page.</p>
+<p>For more informations, checkout the <a href="http://docs.gestpay.it/oth/paypal.html#paypal-seller-protection">Paypal Seller Protection</a> section.</p>
 
 <p>If you want to activate the <strong>Paypal Seller Protection</strong> you must:</p>
 
@@ -1455,7 +1461,7 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">ppSellerProtection</code> <sup><a href="#fn3" id="ref3">3</a></sup></td>
+<td><code class="prettyprint">ppSellerProtection</code></td>
 <td style="text-align: center">1</td>
 <td>Parameter to set the use of a confirmed addresses</td>
 </tr>
@@ -1508,8 +1514,6 @@ Please note:
 <td>String containing an additional shipping address field</td>
 </tr>
 </tbody></table>
-
-<p><sup id="fn3">3. <strong>PayPal Seller Protection parameter</strong>. In order to be able to activate the Seller Protection Option the merchants need to appropriately set &ldquo;Fields and Parameters&rdquo; in the dedicated section of GestPay Merchant Back Office.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a></sup></p>
 
 <h3 id="paypal-recurring-payments"> Paypal recurring payments</h3>
 
@@ -1619,6 +1623,27 @@ Please note:
 
 <p>This mean that no others values are asked to the buyers; but if these field are not sent with the payment, a page will be displayed in order to ask the necessary fields like Phone and CountryCode of the buyer.</p>
 
+          <h2 id="encrypt-example-sepa">Encrypt Example: SEPA</h2>
+
+<blockquote>
+<p>SEPA Direct Debit example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>10<span class="nt">&lt;/amount&gt;</span><span class="c">&lt;!-- mandatory, but not used --&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>SEPADD<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>To get a pre-approval from SEPA you must specify the paymentType <code class="prettyprint">SEPADD</code>. </p>
+
+<p>The amound used in the Encrypt is mandatory, but it is discarded since the <code class="prettyprint">Encrypt</code> call is used only to get a pre-approval token. </p>
+
+<p>The effectively charged amount is passed to <a href="#callpagams2s"><code class="prettyprint">callPagamS2S</code></a> after the pre-approval token is received. </p>
+
           <h2 id="encrypt-example-sofort">Encrypt Example: Sofort</h2>
 
 <blockquote>
@@ -1642,6 +1667,7 @@ Please note:
       <span class="nt">&lt;CountryCode&gt;</span>DE<span class="nt">&lt;/CountryCode&gt;</span>
     <span class="nt">&lt;/BillingAddress&gt;</span>
   <span class="nt">&lt;/OrderDetails&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
 <p>Sofort does not need mandatory parameters, but if you send the following parameters, you will jump straight to the SOFORT payment page without authenticating. All these fields are children of <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a>.</p>
 
@@ -2433,7 +2459,7 @@ Please note:
 
 <aside class="notice">You must use exactly one among <strong>Credit Card data</strong> and <strong>Token value</strong>.</aside>
 
-<p>The following features may be optionally assigned, upon appropriate configuration in <strong>Client configuration -&gt; Fields &amp; Parameters</strong> section:   </p>
+<p>The following features may be optionally assigned:   </p>
 
 <table><thead>
 <tr>
@@ -4118,7 +4144,7 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 </tr>
 </tbody></table>
 
-          <h2 id="callupdatetokens2s">callUpdateTokenS2S</h2>
+          <h2 id="callupdatetokens2s">CallUpdateTokenS2S</h2>
 
 <p>Merchants can use this method to update the expiry date of a token.</p>
 
@@ -4129,13 +4155,13 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <blockquote>
 <p>Request example: </p>
 </blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;callUpdateTokenS2S&gt;</span>
+<pre class="highlight xml"><code><span class="nt">&lt;CallUpdateTokenS2S&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
   <span class="nt">&lt;token&gt;</span>1234WJFXABCD5678<span class="nt">&lt;/token&gt;</span>
   <span class="nt">&lt;expiryMonth&gt;</span>12<span class="nt">&lt;/expiryMonth&gt;</span>
   <span class="nt">&lt;expiryYear&gt;</span>21<span class="nt">&lt;/expiryYear&gt;</span>
   <span class="nt">&lt;withAut&gt;</span>Y<span class="nt">&lt;/withAut&gt;</span>
-<span class="nt">&lt;/callUpdateTokenS2S&gt;</span>
+<span class="nt">&lt;/CallUpdateTokenS2S&gt;</span>
 </code></pre>
 <p>Mandatory parameters are in <strong>bold</strong>. </p>
 
@@ -4184,14 +4210,14 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <blockquote>
 <p>Response example: </p>
 </blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;callUpdateTokenS2SResult&gt;</span>
+<pre class="highlight xml"><code><span class="nt">&lt;CallUpdateTokenS2SResult&gt;</span>
   <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
     <span class="nt">&lt;TransactionType&gt;</span>UpdateToken<span class="nt">&lt;/TransactionType&gt;</span>
     <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
     <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
     <span class="nt">&lt;ErrorDescription</span> <span class="nt">/&gt;</span>
   <span class="nt">&lt;/GestPayS2S&gt;</span>
-<span class="nt">&lt;/callUpdateTokenS2SResult&gt;</span>
+<span class="nt">&lt;/CallUpdateTokenS2SResult&gt;</span>
 </code></pre>
 <table><thead>
 <tr>
