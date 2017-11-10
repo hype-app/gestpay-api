@@ -5,7 +5,7 @@
 Consuming WSs2s methods allow merchants to send requests and retrieve responses in XML format.
 
 - Test environment url:<br>
-`https://testecomm.sella.it/gestpay/gestpayws/WSs2s.asmx?WSDL`
+`https://sandbox.gestpay.net/gestpay/gestpayws/WSs2s.asmx?WSDL`
 - Production environment url: <br>
 `https://ecomms2s.sella.it/gestpay/gestpayws/WSs2s.asmx?WSDL`
 
