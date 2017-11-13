@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-git checkout master 
+git checkout master
+git push
 
 yes | cp -f source/robots.txt.prod source/robots.txt
 yes | cp -f source/CNAME.prod source/CNAME

@@ -4,7 +4,7 @@ GestPay `WsCryptDecrypt` web service is exposed by GestPay at following URLs:
 
 | environment | URL | 
 | ----------- | --- | 
-| test | `https://testecomm.sella.it/gestpay/GestPayWS/WsCryptDecrypt.asmx?wsdl` |
+| test | `https://sandbox.gestpay.net/gestpay/GestPayWS/WsCryptDecrypt.asmx?wsdl` |
 | production | `https://ecommS2S.sella.it/gestpay/GestPayWS/WsCryptDecrypt.asmx?wsdl` |
 
 WSCryptDecrypt web service is available on production and test servers and does not require any installation on the merchant’s server.
