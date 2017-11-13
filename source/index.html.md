@@ -28,6 +28,7 @@ includes:
   - wscryptdecrypt_encrypt_multibanco
   - wscryptdecrypt_encrypt_paypal
   - wscryptdecrypt_encrypt_paysafecard
+  - wscryptdecrypt_encrypt_przelewy24
   - wscryptdecrypt_encrypt_qiwi
   - wscryptdecrypt_encrypt_sepa_direct_debit
   - wscryptdecrypt_encrypt_sofort
