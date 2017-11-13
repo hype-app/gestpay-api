@@ -1,0 +1,27 @@
+
+## Encrypt Example: Przelewy24
+
+> Przelewy24 example: 
+
+```xml
+<Encrypt>
+  <shopLogin>9000001</shopLogin>
+  <uicCode>242</uicCode>
+  <amount>100</amount>
+  <shopTransactionId>34az85ord19</shopTransactionId>
+  <paymentTypes>
+    <paymentType>PRZELEWY24</paymentType>
+  </paymentTypes>
+  <OrderDetails>
+    <CustomerDetail>
+      <PrimaryEmail>fryderyk.chopin@pianolessons.pl</PrimaryEmail>
+    </CustomerDetail>
+  </OrderDetails>
+</Encrypt>
+```
+
+Przelewy24 does not need mandatory parameters. 
+
+You must use `S2PPSC` as `paymentType`.
+
+More informations about Przelewy24 are [in the doc]( <%= config[:doc_url] %>/oth/przelewy24.html). 
