@@ -1577,32 +1577,6 @@ Please note:
 
 <p>More informations about Paysafecard are <a href="http://docs.gestpay.it/oth/paysafecard.html">in the doc</a>. </p>
 
-          <h2 id="encrypt-example-przelewy24">Encrypt Example: Przelewy24</h2>
-
-<blockquote>
-<p>Przelewy24 example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>100<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>PRZELEWY24<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-  <span class="nt">&lt;OrderDetails&gt;</span>
-    <span class="nt">&lt;CustomerDetail&gt;</span>
-      <span class="nt">&lt;PrimaryEmail&gt;</span>fryderyk.chopin@pianolessons.pl<span class="nt">&lt;/PrimaryEmail&gt;</span>
-    <span class="nt">&lt;/CustomerDetail&gt;</span>
-  <span class="nt">&lt;/OrderDetails&gt;</span>
-<span class="nt">&lt;/Encrypt&gt;</span>
-</code></pre>
-<p>Przelewy24 does not need mandatory parameters. </p>
-
-<p>You must use <code class="prettyprint">S2PPSC</code> as <code class="prettyprint">paymentType</code>.</p>
-
-<p>More informations about Przelewy24 are <a href="http://docs.gestpay.it/oth/przelewy24.html">in the doc</a>. </p>
-
           <h2 id="encrypt-example-qiwi">Encrypt Example: Qiwi</h2>
 
 <blockquote>
@@ -4794,7 +4768,7 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
     <span class="nt">&lt;StreetName&gt;</span>Holliwood Boulevard<span class="nt">&lt;/StreetName&gt;</span>
     <span class="nt">&lt;StreetName2</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;HouseNumber&gt;</span>1432<span class="nt">&lt;/HouseNumber&gt;</span>
-    <span class="nt">&lt;HouseExtension</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;HouseExtention</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;City&gt;</span>Los Angeles<span class="nt">&lt;/City&gt;</span>
     <span class="nt">&lt;ZipCode&gt;</span>90213<span class="nt">&lt;/ZipCode&gt;</span>
     <span class="nt">&lt;State&gt;</span>California<span class="nt">&lt;/State&gt;</span>
@@ -4812,7 +4786,7 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
     <span class="nt">&lt;StreetName&gt;</span>Holliwood Boulevard<span class="nt">&lt;/StreetName&gt;</span>
     <span class="nt">&lt;StreetName2</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;HouseNumber&gt;</span>1432<span class="nt">&lt;/HouseNumber&gt;</span>
-    <span class="nt">&lt;HouseExtension</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;HouseExtention</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;City&gt;</span>Los Angeles<span class="nt">&lt;/City&gt;</span>
     <span class="nt">&lt;ZipCode&gt;</span>90213<span class="nt">&lt;/ZipCode&gt;</span>
     <span class="nt">&lt;State&gt;</span>California<span class="nt">&lt;/State&gt;</span>
