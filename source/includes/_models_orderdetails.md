@@ -54,7 +54,7 @@
     <StreetName>Holliwood Boulevard</StreetName>
     <StreetName2 />
     <HouseNumber>1432</HouseNumber>
-    <HouseExtension />
+    <HouseExtention />
     <City>Los Angeles</City>
     <ZipCode>90213</ZipCode>
     <State>California</State>
@@ -72,7 +72,7 @@
     <StreetName>Holliwood Boulevard</StreetName>
     <StreetName2 />
     <HouseNumber>1432</HouseNumber>
-    <HouseExtension />
+    <HouseExtention />
     <City>Los Angeles</City>
     <ZipCode>90213</ZipCode>
     <State>California</State>
