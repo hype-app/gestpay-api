@@ -36,6 +36,7 @@ includes:
   - wscryptdecrypt_encrypt_timpersonal
   - wscryptdecrypt_encrypt_unionpay
   - wscryptdecrypt_encrypt_webmoney
+  - wscryptdecrypt_encrypt_wechat
   - wscryptdecrypt_encrypt_yandex
   - js_gestpay
   - js_gestpay_createpaymentpage
