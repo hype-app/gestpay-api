@@ -783,6 +783,27 @@
 
 <p>If you specify the <code class="prettyprint">PrimaryEmail</code> in the <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> tag, you will redirect your user to Alipay payment page where some fields are already filled. </p>
 
+          <h2 id="encrypt-example-amazon-pay">Encrypt Example: Amazon Pay</h2>
+
+<blockquote>
+<p>Amazon Pay example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>100<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord20<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>AMAZONPAY<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>Amazon Pay does not need any mandatory parameters. Use <code class="prettyprint">AMAZONPAY</code>  as Payment Type and the user will be redirected to Amazon Pay. </p>
+
+<aside class="notice">
+The shopTransactionId must be unique. 
+</aside>
+
           <h2 id="encrypt-example-bitcoin">Encrypt Example: Bitcoin</h2>
 
 <blockquote>
@@ -3426,6 +3447,99 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
   <span class="nt">&lt;/GestPayS2S&gt;</span>
 <span class="nt">&lt;/callReadTrxS2SResult&gt;</span>
 </code></pre>
+<blockquote>
+<p>Response example for Amazon Pay </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;callReadTrxS2SResult&gt;</span>
+  <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;TransactionType&gt;</span>QUERYTX<span class="nt">&lt;/TransactionType&gt;</span>
+      <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+      <span class="nt">&lt;TransactionState&gt;</span>MOV<span class="nt">&lt;/TransactionState&gt;</span>
+      <span class="nt">&lt;ShopTransactionID&gt;</span>af22<span class="nt">&lt;/ShopTransactionID&gt;</span>
+      <span class="nt">&lt;BankTransactionID&gt;</span>117<span class="nt">&lt;/BankTransactionID&gt;</span>
+      <span class="nt">&lt;AuthorizationCode&gt;</span>008152<span class="nt">&lt;/AuthorizationCode&gt;</span>
+      <span class="nt">&lt;Currency&gt;</span>242<span class="nt">&lt;/Currency&gt;</span>
+      <span class="nt">&lt;Country/&gt;</span>
+      <span class="nt">&lt;Company&gt;</span>AMAZONPAY<span class="nt">&lt;/Company&gt;</span>
+      <span class="nt">&lt;TDLevel/&gt;</span>
+      <span class="nt">&lt;Events&gt;</span>
+        <span class="nt">&lt;event&gt;</span>
+            <span class="nt">&lt;eventtype&gt;</span>AUT<span class="nt">&lt;/eventtype&gt;</span>
+            <span class="nt">&lt;eventamount&gt;</span>10.00<span class="nt">&lt;/eventamount&gt;</span>
+            <span class="nt">&lt;eventdate&gt;</span>13/11/17 11:32:45<span class="nt">&lt;/eventdate&gt;</span>
+        <span class="nt">&lt;/event&gt;</span>
+        <span class="nt">&lt;event&gt;</span>
+            <span class="nt">&lt;eventtype&gt;</span>MOV<span class="nt">&lt;/eventtype&gt;</span>
+            <span class="nt">&lt;eventamount&gt;</span>10.00<span class="nt">&lt;/eventamount&gt;</span>
+            <span class="nt">&lt;eventdate&gt;</span>13/11/17 11:32:45<span class="nt">&lt;/eventdate&gt;</span>
+        <span class="nt">&lt;/event&gt;</span>
+      <span class="nt">&lt;/Events&gt;</span>
+      <span class="nt">&lt;Buyer&gt;</span>
+        <span class="nt">&lt;BuyerName/&gt;</span>
+        <span class="nt">&lt;BuyerEmail/&gt;</span>
+      <span class="nt">&lt;/Buyer&gt;</span>
+      <span class="nt">&lt;RISK&gt;</span>
+        <span class="nt">&lt;RiskResponseCode/&gt;</span>
+        <span class="nt">&lt;RiskResponseDescription/&gt;</span>
+      <span class="nt">&lt;/RISK&gt;</span>
+      <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+      <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
+      <span class="nt">&lt;AlertCode/&gt;</span>
+      <span class="nt">&lt;AlertDescription/&gt;</span>
+
+      <span class="c">&lt;!-- Here you'll see buyer' 
+          shipping and billing address 
+          for Amazon Pay --&gt;</span>
+      <span class="nt">&lt;OrderReferenceDetails&gt;</span>
+        <span class="nt">&lt;OrderReferenceStatus&gt;</span>
+            <span class="nt">&lt;State&gt;</span>Draft<span class="nt">&lt;/State&gt;</span>
+        <span class="nt">&lt;/OrderReferenceStatus&gt;</span>
+        <span class="nt">&lt;OrderLanguage&gt;</span>it-IT<span class="nt">&lt;/OrderLanguage&gt;</span>
+        <span class="nt">&lt;Destination&gt;</span>
+            <span class="nt">&lt;DestinationType&gt;</span>Physical<span class="nt">&lt;/DestinationType&gt;</span>
+            <span class="nt">&lt;PhysicalDestination&gt;</span>
+              <span class="nt">&lt;StateOrRegion&gt;</span>BI<span class="nt">&lt;/StateOrRegion&gt;</span>
+              <span class="nt">&lt;Phone&gt;</span>33333333<span class="nt">&lt;/Phone&gt;</span>
+              <span class="nt">&lt;City&gt;</span>BIELLA<span class="nt">&lt;/City&gt;</span>
+              <span class="nt">&lt;CountryCode&gt;</span>IT<span class="nt">&lt;/CountryCode&gt;</span>
+              <span class="nt">&lt;PostalCode&gt;</span>13900<span class="nt">&lt;/PostalCode&gt;</span>
+              <span class="nt">&lt;Name&gt;</span>Marco Rossi<span class="nt">&lt;/Name&gt;</span>
+              <span class="nt">&lt;AddressLine1&gt;</span>via Gobe 15<span class="nt">&lt;/AddressLine1&gt;</span>
+            <span class="nt">&lt;/PhysicalDestination&gt;</span>
+        <span class="nt">&lt;/Destination&gt;</span>
+        <span class="nt">&lt;ExpirationTimestamp&gt;</span>2018-05-13T07:24:02.186Z<span class="nt">&lt;/ExpirationTimestamp&gt;</span>
+        <span class="nt">&lt;IdList/&gt;</span>
+        <span class="nt">&lt;SellerOrderAttributes&gt;</span>
+            <span class="nt">&lt;SellerOrderId&gt;</span>4354395804398dkfjlhsdfk<span class="nt">&lt;/SellerOrderId&gt;</span>
+        <span class="nt">&lt;/SellerOrderAttributes&gt;</span>
+        <span class="nt">&lt;OrderTotal&gt;</span>
+            <span class="nt">&lt;CurrencyCode&gt;</span>EUR<span class="nt">&lt;/CurrencyCode&gt;</span>
+            <span class="nt">&lt;Amount&gt;</span>10.00<span class="nt">&lt;/Amount&gt;</span>
+        <span class="nt">&lt;/OrderTotal&gt;</span>
+        <span class="nt">&lt;Buyer&gt;</span>
+            <span class="nt">&lt;Name&gt;</span>Ale<span class="nt">&lt;/Name&gt;</span>
+            <span class="nt">&lt;Email&gt;</span>marco.rossi@email.it<span class="nt">&lt;/Email&gt;</span>
+        <span class="nt">&lt;/Buyer&gt;</span>
+        <span class="nt">&lt;ReleaseEnvironment&gt;</span>Sandbox<span class="nt">&lt;/ReleaseEnvironment&gt;</span>
+        <span class="nt">&lt;AmazonOrderReferenceId&gt;</span>S02-0319513-4657042<span class="nt">&lt;/AmazonOrderReferenceId&gt;</span>
+        <span class="nt">&lt;CreationTimestamp&gt;</span>2017-11-14T07:24:02.186Z<span class="nt">&lt;/CreationTimestamp&gt;</span>
+        <span class="nt">&lt;BillingAddress&gt;</span>
+            <span class="nt">&lt;PhysicalAddress&gt;</span>
+              <span class="nt">&lt;City&gt;</span>Neunkirchen<span class="nt">&lt;/City&gt;</span>
+              <span class="nt">&lt;CountryCode&gt;</span>DE<span class="nt">&lt;/CountryCode&gt;</span>
+              <span class="nt">&lt;PostalCode&gt;</span>66538<span class="nt">&lt;/PostalCode&gt;</span>
+              <span class="nt">&lt;Name&gt;</span>Liam Barker<span class="nt">&lt;/Name&gt;</span>
+              <span class="nt">&lt;AddressLine1/&gt;</span>
+              <span class="nt">&lt;AddressLine2&gt;</span>Meininger Strasse 58<span class="nt">&lt;/AddressLine2&gt;</span>
+            <span class="nt">&lt;/PhysicalAddress&gt;</span>
+            <span class="nt">&lt;AddressType&gt;</span>Physical<span class="nt">&lt;/AddressType&gt;</span>
+        <span class="nt">&lt;/BillingAddress&gt;</span>
+        <span class="nt">&lt;RequestPaymentAuthorization&gt;</span>false<span class="nt">&lt;/RequestPaymentAuthorization&gt;</span>
+      <span class="nt">&lt;/OrderReferenceDetails&gt;</span>
+  <span class="nt">&lt;/GestPayS2S&gt;</span>
+  <span class="nt">&lt;/callReadTrxS2SResult&gt;</span>
+
+</code></pre>
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3503,6 +3617,10 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <tr>
 <td><code class="prettyprint">RiskResponseDescription</code></td>
 <td>Risk Description of the RiskResponseCode</td>
+</tr>
+<tr>
+<td><code class="prettyprint">OrderReferenceDetails</code></td>
+<td>Informations about Shipping and Billing addresses,  returned for some payment methods.</td>
 </tr>
 </tbody></table>
 
