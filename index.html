@@ -3646,6 +3646,62 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 </tr>
 </tbody></table>
 
+<h4 id="orderreferencedetails"> OrderReferenceDetails</h4>
+
+<p>here we&rsquo;ll describe the most important fields returned by third-party payments. Not all fields are relevant.  </p>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Destination.PhysicalDestination</code></td>
+<td>Represents the <strong>address</strong> selected by the buyer through the AddressBook widget.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BillingAddress</code></td>
+<td>Represents the billing address that is associated with the payment method selected by the buyer in the Wallet widget.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">OrderReferenceStatus</code></td>
+<td>Indicates the current status of the order reference. States can be: <code class="prettyprint">Draft</code>, <code class="prettyprint">Open</code>, <code class="prettyprint">Suspended</code>, <code class="prettyprint">Canceled</code>, <code class="prettyprint">Closed</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">OrderLanguage</code></td>
+<td>Represents the Language last used, on the Login or Consent screens, by the buyer.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ExpirationTimestamp</code></td>
+<td>The date and time, in UTC, when the order reference will expire and will no longer be valid for authorization requests. In ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">SellerOrderAttributes</code></td>
+<td>Provides more context about the order represented by this order reference.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">OrderTotal</code></td>
+<td>Represents the total amount for this Order Reference object.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Buyer</code></td>
+<td>Provides details about the buyer.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ReleaseEnvironment</code></td>
+<td>Indicates if the order is for a <em>Live</em> (Production) or <em>Sandbox</em> environment.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AmazonOrderReferenceId</code></td>
+<td>The order reference identifier retrieved from the Amazon Button widget.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CreationTimestamp</code></td>
+<td>The date and time, in UTC, when the order reference was created. In ISO 8601 format.</td>
+</tr>
+</tbody></table>
+
           <h2 id="callverifycards2s">CallVerifycardS2S</h2>
 
 <p>Merchants can use this method to check the Credit Card. </p>
