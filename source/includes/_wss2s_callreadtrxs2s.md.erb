@@ -197,3 +197,20 @@ As said, `<Events>` can contain one or more `<event>` tags. the `<event>` tag is
 | `eventamount` | Relative value of the event | 
 | `eventdate` | event date | 
 
+#### OrderReferenceDetails
+
+here we'll describe the most important fields returned by third-party payments. Not all fields are relevant.  
+
+| name | description 
+| ---- | -----------
+| `Destination.PhysicalDestination` | Represents the **address** selected by the buyer through the AddressBook widget. 
+| `BillingAddress` | Represents the billing address that is associated with the payment method selected by the buyer in the Wallet widget. 
+| `OrderReferenceStatus` | Indicates the current status of the order reference. States can be: `Draft`, `Open`, `Suspended`, `Canceled`, `Closed`. 
+| `OrderLanguage` | Represents the Language last used, on the Login or Consent screens, by the buyer. 
+| `ExpirationTimestamp` | The date and time, in UTC, when the order reference will expire and will no longer be valid for authorization requests. In ISO 8601 format. 
+| `SellerOrderAttributes` | Provides more context about the order represented by this order reference. 
+| `OrderTotal` | Represents the total amount for this Order Reference object.  
+| `Buyer` | Provides details about the buyer.  
+| `ReleaseEnvironment` | Indicates if the order is for a _Live_ (Production) or _Sandbox_ environment.
+| `AmazonOrderReferenceId` | The order reference identifier retrieved from the Amazon Button widget. 
+| `CreationTimestamp` | The date and time, in UTC, when the order reference was created. In ISO 8601 format.
