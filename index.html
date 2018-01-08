@@ -783,6 +783,27 @@
 
 <p>If you specify the <code class="prettyprint">PrimaryEmail</code> in the <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> tag, you will redirect your user to Alipay payment page where some fields are already filled. </p>
 
+          <h2 id="encrypt-example-amazon-pay">Encrypt Example: Amazon Pay</h2>
+
+<blockquote>
+<p>Amazon Pay example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>100<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord20<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>AMAZONPAY<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>Amazon Pay does not need any mandatory parameters. Use <code class="prettyprint">AMAZONPAY</code>  as Payment Type and the user will be redirected to Amazon Pay. </p>
+
+<aside class="notice">
+The shopTransactionId must be unique. 
+</aside>
+
           <h2 id="encrypt-example-bitcoin">Encrypt Example: Bitcoin</h2>
 
 <blockquote>
@@ -3426,6 +3447,99 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
   <span class="nt">&lt;/GestPayS2S&gt;</span>
 <span class="nt">&lt;/callReadTrxS2SResult&gt;</span>
 </code></pre>
+<blockquote>
+<p>Response example for Amazon Pay </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;callReadTrxS2SResult&gt;</span>
+  <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;TransactionType&gt;</span>QUERYTX<span class="nt">&lt;/TransactionType&gt;</span>
+      <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
+      <span class="nt">&lt;TransactionState&gt;</span>MOV<span class="nt">&lt;/TransactionState&gt;</span>
+      <span class="nt">&lt;ShopTransactionID&gt;</span>af22<span class="nt">&lt;/ShopTransactionID&gt;</span>
+      <span class="nt">&lt;BankTransactionID&gt;</span>117<span class="nt">&lt;/BankTransactionID&gt;</span>
+      <span class="nt">&lt;AuthorizationCode&gt;</span>008152<span class="nt">&lt;/AuthorizationCode&gt;</span>
+      <span class="nt">&lt;Currency&gt;</span>242<span class="nt">&lt;/Currency&gt;</span>
+      <span class="nt">&lt;Country/&gt;</span>
+      <span class="nt">&lt;Company&gt;</span>AMAZONPAY<span class="nt">&lt;/Company&gt;</span>
+      <span class="nt">&lt;TDLevel/&gt;</span>
+      <span class="nt">&lt;Events&gt;</span>
+        <span class="nt">&lt;event&gt;</span>
+            <span class="nt">&lt;eventtype&gt;</span>AUT<span class="nt">&lt;/eventtype&gt;</span>
+            <span class="nt">&lt;eventamount&gt;</span>10.00<span class="nt">&lt;/eventamount&gt;</span>
+            <span class="nt">&lt;eventdate&gt;</span>13/11/17 11:32:45<span class="nt">&lt;/eventdate&gt;</span>
+        <span class="nt">&lt;/event&gt;</span>
+        <span class="nt">&lt;event&gt;</span>
+            <span class="nt">&lt;eventtype&gt;</span>MOV<span class="nt">&lt;/eventtype&gt;</span>
+            <span class="nt">&lt;eventamount&gt;</span>10.00<span class="nt">&lt;/eventamount&gt;</span>
+            <span class="nt">&lt;eventdate&gt;</span>13/11/17 11:32:45<span class="nt">&lt;/eventdate&gt;</span>
+        <span class="nt">&lt;/event&gt;</span>
+      <span class="nt">&lt;/Events&gt;</span>
+      <span class="nt">&lt;Buyer&gt;</span>
+        <span class="nt">&lt;BuyerName/&gt;</span>
+        <span class="nt">&lt;BuyerEmail/&gt;</span>
+      <span class="nt">&lt;/Buyer&gt;</span>
+      <span class="nt">&lt;RISK&gt;</span>
+        <span class="nt">&lt;RiskResponseCode/&gt;</span>
+        <span class="nt">&lt;RiskResponseDescription/&gt;</span>
+      <span class="nt">&lt;/RISK&gt;</span>
+      <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
+      <span class="nt">&lt;ErrorDescription&gt;</span>Transazione correttamente effettuata<span class="nt">&lt;/ErrorDescription&gt;</span>
+      <span class="nt">&lt;AlertCode/&gt;</span>
+      <span class="nt">&lt;AlertDescription/&gt;</span>
+
+      <span class="c">&lt;!-- Here you'll see buyer' 
+          shipping and billing address 
+          for Amazon Pay --&gt;</span>
+      <span class="nt">&lt;OrderReferenceDetails&gt;</span>
+        <span class="nt">&lt;OrderReferenceStatus&gt;</span>
+            <span class="nt">&lt;State&gt;</span>Draft<span class="nt">&lt;/State&gt;</span>
+        <span class="nt">&lt;/OrderReferenceStatus&gt;</span>
+        <span class="nt">&lt;OrderLanguage&gt;</span>it-IT<span class="nt">&lt;/OrderLanguage&gt;</span>
+        <span class="nt">&lt;Destination&gt;</span>
+            <span class="nt">&lt;DestinationType&gt;</span>Physical<span class="nt">&lt;/DestinationType&gt;</span>
+            <span class="nt">&lt;PhysicalDestination&gt;</span>
+              <span class="nt">&lt;StateOrRegion&gt;</span>BI<span class="nt">&lt;/StateOrRegion&gt;</span>
+              <span class="nt">&lt;Phone&gt;</span>33333333<span class="nt">&lt;/Phone&gt;</span>
+              <span class="nt">&lt;City&gt;</span>BIELLA<span class="nt">&lt;/City&gt;</span>
+              <span class="nt">&lt;CountryCode&gt;</span>IT<span class="nt">&lt;/CountryCode&gt;</span>
+              <span class="nt">&lt;PostalCode&gt;</span>13900<span class="nt">&lt;/PostalCode&gt;</span>
+              <span class="nt">&lt;Name&gt;</span>Marco Rossi<span class="nt">&lt;/Name&gt;</span>
+              <span class="nt">&lt;AddressLine1&gt;</span>via Gobe 15<span class="nt">&lt;/AddressLine1&gt;</span>
+            <span class="nt">&lt;/PhysicalDestination&gt;</span>
+        <span class="nt">&lt;/Destination&gt;</span>
+        <span class="nt">&lt;ExpirationTimestamp&gt;</span>2018-05-13T07:24:02.186Z<span class="nt">&lt;/ExpirationTimestamp&gt;</span>
+        <span class="nt">&lt;IdList/&gt;</span>
+        <span class="nt">&lt;SellerOrderAttributes&gt;</span>
+            <span class="nt">&lt;SellerOrderId&gt;</span>4354395804398dkfjlhsdfk<span class="nt">&lt;/SellerOrderId&gt;</span>
+        <span class="nt">&lt;/SellerOrderAttributes&gt;</span>
+        <span class="nt">&lt;OrderTotal&gt;</span>
+            <span class="nt">&lt;CurrencyCode&gt;</span>EUR<span class="nt">&lt;/CurrencyCode&gt;</span>
+            <span class="nt">&lt;Amount&gt;</span>10.00<span class="nt">&lt;/Amount&gt;</span>
+        <span class="nt">&lt;/OrderTotal&gt;</span>
+        <span class="nt">&lt;Buyer&gt;</span>
+            <span class="nt">&lt;Name&gt;</span>Ale<span class="nt">&lt;/Name&gt;</span>
+            <span class="nt">&lt;Email&gt;</span>marco.rossi@email.it<span class="nt">&lt;/Email&gt;</span>
+        <span class="nt">&lt;/Buyer&gt;</span>
+        <span class="nt">&lt;ReleaseEnvironment&gt;</span>Sandbox<span class="nt">&lt;/ReleaseEnvironment&gt;</span>
+        <span class="nt">&lt;AmazonOrderReferenceId&gt;</span>S02-0319513-4657042<span class="nt">&lt;/AmazonOrderReferenceId&gt;</span>
+        <span class="nt">&lt;CreationTimestamp&gt;</span>2017-11-14T07:24:02.186Z<span class="nt">&lt;/CreationTimestamp&gt;</span>
+        <span class="nt">&lt;BillingAddress&gt;</span>
+            <span class="nt">&lt;PhysicalAddress&gt;</span>
+              <span class="nt">&lt;City&gt;</span>Neunkirchen<span class="nt">&lt;/City&gt;</span>
+              <span class="nt">&lt;CountryCode&gt;</span>DE<span class="nt">&lt;/CountryCode&gt;</span>
+              <span class="nt">&lt;PostalCode&gt;</span>66538<span class="nt">&lt;/PostalCode&gt;</span>
+              <span class="nt">&lt;Name&gt;</span>Liam Barker<span class="nt">&lt;/Name&gt;</span>
+              <span class="nt">&lt;AddressLine1/&gt;</span>
+              <span class="nt">&lt;AddressLine2&gt;</span>Meininger Strasse 58<span class="nt">&lt;/AddressLine2&gt;</span>
+            <span class="nt">&lt;/PhysicalAddress&gt;</span>
+            <span class="nt">&lt;AddressType&gt;</span>Physical<span class="nt">&lt;/AddressType&gt;</span>
+        <span class="nt">&lt;/BillingAddress&gt;</span>
+        <span class="nt">&lt;RequestPaymentAuthorization&gt;</span>false<span class="nt">&lt;/RequestPaymentAuthorization&gt;</span>
+      <span class="nt">&lt;/OrderReferenceDetails&gt;</span>
+  <span class="nt">&lt;/GestPayS2S&gt;</span>
+  <span class="nt">&lt;/callReadTrxS2SResult&gt;</span>
+
+</code></pre>
 <table><thead>
 <tr>
 <th>parameter name</th>
@@ -3504,6 +3618,10 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td><code class="prettyprint">RiskResponseDescription</code></td>
 <td>Risk Description of the RiskResponseCode</td>
 </tr>
+<tr>
+<td><code class="prettyprint">OrderReferenceDetails</code></td>
+<td>Informations about Shipping and Billing addresses,  returned for some payment methods.</td>
+</tr>
 </tbody></table>
 
 <p>As said, <code class="prettyprint">&lt;Events&gt;</code> can contain one or more <code class="prettyprint">&lt;event&gt;</code> tags. the <code class="prettyprint">&lt;event&gt;</code> tag is composed of: </p>
@@ -3525,6 +3643,62 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <tr>
 <td><code class="prettyprint">eventdate</code></td>
 <td>event date</td>
+</tr>
+</tbody></table>
+
+<h4 id="orderreferencedetails"> OrderReferenceDetails</h4>
+
+<p>here we&rsquo;ll describe the most important fields returned by third-party payments. Not all fields are relevant.  </p>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Destination.PhysicalDestination</code></td>
+<td>Represents the <strong>address</strong> selected by the buyer through the AddressBook widget.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">BillingAddress</code></td>
+<td>Represents the billing address that is associated with the payment method selected by the buyer in the Wallet widget.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">OrderReferenceStatus</code></td>
+<td>Indicates the current status of the order reference. States can be: <code class="prettyprint">Draft</code>, <code class="prettyprint">Open</code>, <code class="prettyprint">Suspended</code>, <code class="prettyprint">Canceled</code>, <code class="prettyprint">Closed</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">OrderLanguage</code></td>
+<td>Represents the Language last used, on the Login or Consent screens, by the buyer.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ExpirationTimestamp</code></td>
+<td>The date and time, in UTC, when the order reference will expire and will no longer be valid for authorization requests. In ISO 8601 format.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">SellerOrderAttributes</code></td>
+<td>Provides more context about the order represented by this order reference.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">OrderTotal</code></td>
+<td>Represents the total amount for this Order Reference object.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Buyer</code></td>
+<td>Provides details about the buyer.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ReleaseEnvironment</code></td>
+<td>Indicates if the order is for a <em>Live</em> (Production) or <em>Sandbox</em> environment.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AmazonOrderReferenceId</code></td>
+<td>The order reference identifier retrieved from the Amazon Button widget.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CreationTimestamp</code></td>
+<td>The date and time, in UTC, when the order reference was created. In ISO 8601 format.</td>
 </tr>
 </tbody></table>
 
@@ -5592,6 +5766,186 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <td>Operation not allowed</td>
 </tr>
 <tr>
+<td>439</td>
+<td>Card not recognized</td>
+</tr>
+<tr>
+<td>441</td>
+<td>Blocked credit card</td>
+</tr>
+<tr>
+<td>443</td>
+<td>Blocked credit card</td>
+</tr>
+<tr>
+<td>451</td>
+<td>Amount not available</td>
+</tr>
+<tr>
+<td>454</td>
+<td>Card expired</td>
+</tr>
+<tr>
+<td>455</td>
+<td>Operation not performed</td>
+</tr>
+<tr>
+<td>456</td>
+<td>Card not recognized</td>
+</tr>
+<tr>
+<td>457</td>
+<td>Authorization refused by credit card companies</td>
+</tr>
+<tr>
+<td>458</td>
+<td>Wrong merchant configuration in bank authorizative system</td>
+</tr>
+<tr>
+<td>461</td>
+<td>Amount not available</td>
+</tr>
+<tr>
+<td>462</td>
+<td>Blocked credit card</td>
+</tr>
+<tr>
+<td>468</td>
+<td>Bank authorizative system not available</td>
+</tr>
+<tr>
+<td>475</td>
+<td>Operation not allowed</td>
+</tr>
+<tr>
+<td>490</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>491</td>
+<td>Technical error in connection with Credit Card Company network</td>
+</tr>
+<tr>
+<td>492</td>
+<td>Technical error in connection with Credit Card Company network</td>
+</tr>
+<tr>
+<td>494</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>516</td>
+<td>Operation canceled by the buyer</td>
+</tr>
+<tr>
+<td>551</td>
+<td>Unauthorized bank transfer</td>
+</tr>
+<tr>
+<td>552</td>
+<td>MyBank payment not completed</td>
+</tr>
+<tr>
+<td>553</td>
+<td>MyBank payment abbandoned by buyer</td>
+</tr>
+<tr>
+<td>600</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>613</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>614</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>615</td>
+<td>Technical error</td>
+</tr>
+<tr>
+<td>810</td>
+<td>Bank authorizative system not available</td>
+</tr>
+<tr>
+<td>811</td>
+<td>Wrong merchant configuration in bank authorizative system</td>
+</tr>
+<tr>
+<td>901</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>902</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>903</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>904</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>905</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>906</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>907</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>908</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>910</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>911</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>913</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>914</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>915</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>916</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>917</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>918</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>919</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>920</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
 <td>950</td>
 <td>Not qualified credit card</td>
 </tr>
@@ -6016,6 +6370,14 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <td>Due to RED configuration, transaction is sent to credit card companies, even if 3d-Secure authentication is failed</td>
 </tr>
 <tr>
+<td>2500</td>
+<td>payment abbandoned by buyer</td>
+</tr>
+<tr>
+<td>2501</td>
+<td>payment not completed</td>
+</tr>
+<tr>
 <td>4001</td>
 <td>Unexpected parameter value</td>
 </tr>
@@ -6272,6 +6634,30 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <td>Not authorized transaction by Compass</td>
 </tr>
 <tr>
+<td>4732</td>
+<td>Transazione non autorizzata da Consel</td>
+</tr>
+<tr>
+<td>4733</td>
+<td>Apple Pay: unable to decrypt the PKPaymentToken  - please check the Payment Processing Certificate</td>
+</tr>
+<tr>
+<td>4734</td>
+<td>Apple Pay: PKPaymentToken expired</td>
+</tr>
+<tr>
+<td>4800</td>
+<td>Expired session</td>
+</tr>
+<tr>
+<td>4801</td>
+<td>Invalid ShopTransactionID value</td>
+</tr>
+<tr>
+<td>4802</td>
+<td>Currency or Amount don&rsquo;t match the original transaction</td>
+</tr>
+<tr>
 <td>7400</td>
 <td>Authorization denied</td>
 </tr>
@@ -6361,7 +6747,11 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 </tr>
 <tr>
 <td>7500</td>
-<td>Authorization denied 7600 Authorization denied</td>
+<td>Authorization denied</td>
+</tr>
+<tr>
+<td>7600</td>
+<td>Authorization denied</td>
 </tr>
 <tr>
 <td>8000</td>
@@ -6394,6 +6784,10 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <tr>
 <td>8007</td>
 <td>Feature disabled for VISA credit card</td>
+</tr>
+<tr>
+<td>8008</td>
+<td>Feature disabled</td>
 </tr>
 <tr>
 <td>8009</td>
