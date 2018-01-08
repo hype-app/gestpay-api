@@ -16,6 +16,7 @@ includes:
   - alternative_payments
   - wss2s_example_apple_pay
   - wscryptdecrypt_encrypt_alipay
+  - wscryptdecrypt_encrypt_amazon_pay
   - wscryptdecrypt_encrypt_bitcoin
   - wscryptdecrypt_encrypt_consel
   - wscryptdecrypt_encrypt_eps
