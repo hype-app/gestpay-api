@@ -43,6 +43,51 @@
 | 436  | Card not qualified                                                                                                 |
 | 437  | Operation not allowed                                                                                              |
 | 438  | Operation not allowed                                                                                              |
+| 439  | Card not recognized                                                                                                |
+| 441  | Blocked credit card                                                                                                | 
+| 443  | Blocked credit card                                                                                                |
+| 451  | Amount not available                                                                                               | 
+| 454  | Card expired                                                                                                       |
+| 455  | Operation not performed                                                                                            | 
+| 456  | Card not recognized                                                                                                |
+| 457  | Authorization refused by credit card companies                                                                     |
+| 458  | Wrong merchant configuration in bank authorizative system                                                          | 
+| 461  | Amount not available                                                                                               |
+| 462  | Blocked credit card                                                                                                |
+| 468  | Bank authorizative system not available                                                                            |
+| 475  | Operation not allowed                                                                                              |
+| 490  | Technical error                                                                                                    | 
+| 491  | Technical error in connection with Credit Card Company network                                                     | 
+| 492  | Technical error in connection with Credit Card Company network                                                     | 
+| 494  | Technical error                                                                                                    | 
+| 516  | Operation canceled by the buyer                                                                                    | 
+| 551  | Unauthorized bank transfer                                                                                         | 
+| 552  | MyBank payment not completed                                                                                       | 
+| 553  | MyBank payment abbandoned by buyer                                                                                 | 
+| 600  | Technical error                                                                                                    |
+| 613  | Technical error                                                                                                    |
+| 614  | Technical error                                                                                                    |
+| 615  | Technical error                                                                                                    |
+| 810  | Bank authorizative system not available                                                                            |
+| 811  | Wrong merchant configuration in bank authorizative system                                                          | 
+| 901  | Authorization denied                                                                                               | 
+| 902  | Authorization denied                                                                                               | 
+| 903  | Authorization denied                                                                                               | 
+| 904  | Authorization denied                                                                                               | 
+| 905  | Authorization denied                                                                                               | 
+| 906  | Authorization denied                                                                                               | 
+| 907  | Authorization denied                                                                                               | 
+| 908  | Authorization denied                                                                                               | 
+| 910  | Authorization denied                                                                                               | 
+| 911  | Authorization denied                                                                                               | 
+| 913  | Authorization denied                                                                                               | 
+| 914  | Authorization denied                                                                                               | 
+| 915  | Authorization denied                                                                                               | 
+| 916  | Authorization denied                                                                                               | 
+| 917  | Authorization denied                                                                                               | 
+| 918  | Authorization denied                                                                                               | 
+| 919  | Authorization denied                                                                                               | 
+| 920  | Authorization denied                                                                                               | 
 | 950  | Not qualified credit card                                                                                          |
 | 951  | Wrong merchant configuration in bank authorizative system                                                          |
 | 998  | Credit card with wrong check-digit                                                                                 |
@@ -149,6 +194,8 @@
 | 2019 | Transaction can not be settled                                                                                     |
 | 2020 | Transaction can not be renounced                                                                                   |
 | 2030 | Due to RED configuration, transaction is sent to credit card companies, even if 3d-Secure authentication is failed |
+| 2500 | payment abbandoned by buyer                                                                                        |
+| 2501 | payment not completed                                                                                              |
 | 4001 | Unexpected parameter value                                                                                         |
 | 4002 | Not numeric parameter value                                                                                        |
 | 4100 | Operation not allowed                                                                                              |
@@ -213,6 +260,12 @@
 | 4720 | Rate in Rete: communication with Consel failed                                                                     |
 | 4730 | C-pay: communication with Compass failed                                                                           |
 | 4731 | Not authorized transaction by Compass                                                                              |
+| 4732 | Transazione non autorizzata da Consel                                                                              |
+| 4733 | Apple Pay: unable to decrypt the PKPaymentToken  - please check the Payment Processing Certificate                 | 
+| 4734 | Apple Pay: PKPaymentToken expired                                                                                  | 
+| 4800 | Expired session                                                                                                    | 
+| 4801 | Invalid ShopTransactionID value                                                                                    | 
+| 4802 | Currency or Amount don't match the original transaction                                                            | 
 | 7400 | Authorization denied                                                                                               |
 | 7401 | Authorization refused by credit card companies                                                                     |
 | 7402 | Card not qualified                                                                                                 |
@@ -235,7 +288,8 @@
 | 7419 | Not permitted transaction                                                                                          |
 | 7420 | Not authorized transaction                                                                                         |
 | 7421 | Service interrupted at 01/01/2002                                                                                  |
-| 7500 | Authorization denied 7600 Authorization denied                                                                     |
+| 7500 | Authorization denied                                                                                               | 
+| 7600 | Authorization denied                                                                                               |
 | 8000 | File correctly processed                                                                                           |
 | 8001 | Header/bottom record not found                                                                                     |
 | 8002 | Merchant code not set                                                                                              |
@@ -244,6 +298,7 @@
 | 8005 | Merchant not enabled                                                                                               |
 | 8006 | Verify By Visa                                                                                                     |
 | 8007 | Feature disabled for VISA credit card                                                                              |
+| 8008 | Feature disabled                                                                                                   | 
 | 8009 | Payment interrupted                                                                                                |
 | 8010 | Wrong credit card number for this transaction                                                                      |
 | 8011 | Transaction correctly received                                                                                     |
