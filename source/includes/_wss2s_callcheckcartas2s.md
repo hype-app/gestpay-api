@@ -80,7 +80,7 @@ Alternatively, you can use  `tokenValue` to check if a token is still valid:
     <CheckDateDescription>DATE VALID</CheckDateDescription>
     <EnrolledCode>Y</EnrolledCode>
     <EnrolledDescription>ENROLLED</EnrolledDescription>
-    <Prepaid/>
+    <Prepaid>N</Prepaid>
   </GestPayS2S>
 </callCheckCartaS2SResult>
 ```
