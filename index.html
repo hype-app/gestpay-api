@@ -1350,100 +1350,6 @@ Please note:
 </code></pre>
 <p>A detailed description of <a href="http://docs.gestpay.it/oth/paypal.html">Gestpay integration with Paypal</a> is in the docs.</p>
 
-<h3 id="show-product-info-at-paypal-39-s-buying-page">Show product info at paypal&rsquo;s buying page</h3>
-
-<blockquote>
-<p>User will see a <code class="prettyprint">Television</code> in his paypal checkout. </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>100<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span> 
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>PAYPAL<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-  <span class="nt">&lt;OrderDetails&gt;</span>
-    <span class="nt">&lt;ProductDetails&gt;</span><span class="c">&lt;!-- if present, will be shown in paypal checkout --&gt;</span>
-      <span class="nt">&lt;ProductDetail&gt;</span><span class="c">&lt;!-- one or more --&gt;</span>
-        <span class="nt">&lt;ProductCode&gt;</span>1<span class="nt">&lt;/ProductCode&gt;</span>
-        <span class="nt">&lt;SKU&gt;</span>AK-7<span class="nt">&lt;/SKU&gt;</span> 
-        <span class="nt">&lt;Name&gt;</span>TV2000<span class="nt">&lt;/Name&gt;</span> 
-        <span class="nt">&lt;Description&gt;</span>Television<span class="nt">&lt;/Description&gt;</span> 
-        <span class="nt">&lt;Quantity&gt;</span>1<span class="nt">&lt;/Quantity&gt;</span> 
-        <span class="nt">&lt;Price&gt;</span>100<span class="nt">&lt;/Price&gt;</span> 
-        <span class="nt">&lt;UnitPrice&gt;</span>100<span class="nt">&lt;/UnitPrice&gt;</span> 
-        <span class="nt">&lt;Type&gt;</span>1<span class="nt">&lt;/Type&gt;</span> 
-        <span class="nt">&lt;Vat&gt;</span>10<span class="nt">&lt;/Vat&gt;</span> 
-        <span class="nt">&lt;Discount&gt;</span>0<span class="nt">&lt;/Discount&gt;</span>
-      <span class="nt">&lt;/ProductDetail&gt;</span> 
-    <span class="nt">&lt;/ProductDetails&gt;</span>
-  <span class="nt">&lt;/OrderDetails&gt;</span>
-<span class="nt">&lt;Encrypt&gt;</span>
-</code></pre>
-<p>If you populate these fields accordingly, you can show your user the list of products: </p>
-
-<table><thead>
-<tr>
-<th></th>
-<th style="text-align: center"></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">ProductCode</code></td>
-<td style="text-align: center">12</td>
-<td>Article’s product Code</td>
-</tr>
-<tr>
-<td><code class="prettyprint">SKU</code></td>
-<td style="text-align: center">50</td>
-<td>Article’s Stock Keeping Unit</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Name</code> <sup><a href="#fnPP" id="refPP">1</a></sup></td>
-<td style="text-align: center">100</td>
-<td>Article’s name</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Description</code> <sup><a href="#fnPP" id="refPP">1</a></sup></td>
-<td style="text-align: center">255</td>
-<td>Article’s description</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Quantity</code> <sup><a href="#fnPP" id="refPP">1</a></sup></td>
-<td style="text-align: center">3</td>
-<td>The number of products</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Price</code></td>
-<td style="text-align: center">12</td>
-<td>Article’s price</td>
-</tr>
-<tr>
-<td><code class="prettyprint">UnitPrice</code> <sup><a href="#fnPP" id="refPP">1</a></sup></td>
-<td style="text-align: center">12</td>
-<td>Article’s Unit Price</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Type</code></td>
-<td style="text-align: center">2</td>
-<td>The type of article: 1-product, 2-shipping, 3-handling</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Vat</code></td>
-<td style="text-align: center">2</td>
-<td>Value-Added Tax (the value of the tax)</td>
-</tr>
-<tr>
-<td><code class="prettyprint">Discount</code></td>
-<td style="text-align: center">2</td>
-<td>The amount offered by you as discount</td>
-</tr>
-</tbody></table>
-
-<p><sup id="fnPP">1. <strong>Line Items</strong>: in case the buyer selects PayPal as payment method in the payment page, fields <code class="prettyprint">Name</code>, <code class="prettyprint">Description</code>, <code class="prettyprint">Quantity</code> and <code class="prettyprint">UnitPrice</code> of every occurrency of the <code class="prettyprint">ProductDetail</code> tag will be used to show the transaction items details in PayPal payment page.</sup></p>
-
 <h3 id="paypal-seller-protection">Paypal Seller Protection</h3>
 
 <blockquote>
@@ -1746,36 +1652,6 @@ Please note:
 <td>Alpha-2 code. For example, use US for USA</td>
 </tr>
 </tbody></table>
-
-          <h2 id="encrypt-example-tenpay">Encrypt Example: TenPay</h2>
-
-<blockquote>
-<p>TenPay example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>103<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!--Hong Kong dollar--&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>SP_S2P_TenPay_001<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>S2PTEN<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-  <span class="nt">&lt;OrderDetails&gt;</span>
-    <span class="nt">&lt;CustomerDetail&gt;</span>
-      <span class="nt">&lt;FirstName&gt;</span>Charles Kuen<span class="nt">&lt;/FirstName&gt;</span>
-      <span class="nt">&lt;Lastname&gt;</span>Kao<span class="nt">&lt;/Lastname&gt;</span>
-      <span class="nt">&lt;PrimaryEmail&gt;</span>charleskuenkao@opticfiber.hk<span class="nt">&lt;/PrimaryEmail&gt;</span>
-    <span class="nt">&lt;/CustomerDetail&gt;</span>
-  <span class="nt">&lt;/OrderDetails&gt;</span>
-<span class="nt">&lt;/Encrypt&gt;</span>
-</code></pre>
-<p>TenPay does not need mandatory parameters. </p>
-
-<p>You must use <code class="prettyprint">S2PTEN</code> as <code class="prettyprint">paymentType</code>.</p>
-
-<p>However, if you send the <code class="prettyprint">PrimaryEmail</code>, <code class="prettyprint">FirstName</code> and <code class="prettyprint">Lastname</code> fields in the <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> tag, you will be redirected straight to TenPay payment page; otherwise, an intermediary page asking for this data is showed. </p>
-
-<p>More information about TenPay and how to test are <a href="http://docs.gestpay.it/oth/tenpay.html">in the doc</a>. </p>
 
           <h2 id="encrypt-example-timpersonal">Encrypt Example: TIMpersonal</h2>
 
@@ -3958,7 +3834,7 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
     <span class="nt">&lt;CheckDateDescription&gt;</span>DATE VALID<span class="nt">&lt;/CheckDateDescription&gt;</span>
     <span class="nt">&lt;EnrolledCode&gt;</span>Y<span class="nt">&lt;/EnrolledCode&gt;</span>
     <span class="nt">&lt;EnrolledDescription&gt;</span>ENROLLED<span class="nt">&lt;/EnrolledDescription&gt;</span>
-    <span class="nt">&lt;Prepaid/&gt;</span>
+    <span class="nt">&lt;Prepaid&gt;</span>N<span class="nt">&lt;/Prepaid&gt;</span>
   <span class="nt">&lt;/GestPayS2S&gt;</span>
 <span class="nt">&lt;/callCheckCartaS2SResult&gt;</span>
 </code></pre>
@@ -6978,10 +6854,6 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <tr>
 <td>SOFORT (Direct)</td>
 <td><code class="prettyprint">SOFORT</code></td>
-</tr>
-<tr>
-<td>TENPAY</td>
-<td><code class="prettyprint">S2PTEN</code></td>
 </tr>
 <tr>
 <td>TIM</td>
