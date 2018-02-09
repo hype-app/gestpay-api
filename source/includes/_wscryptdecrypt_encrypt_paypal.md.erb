@@ -19,58 +19,6 @@
 
 A detailed description of [Gestpay integration with Paypal](<%= config[:doc_url] %>/oth/paypal.html) is in the docs.
 
-<<<<<<< HEAD
-### Show product info at paypal's buying page 
-
-> User will see a `Television` in his paypal checkout. 
-
-```xml
-<Encrypt>
-  <shopLogin>9000001</shopLogin>
-  <uicCode>242</uicCode>
-  <amount>100</amount>
-  <shopTransactionId>34az85ord19</shopTransactionId> 
-  <paymentTypes>
-    <paymentType>PAYPAL</paymentType>
-  </paymentTypes>
-  <OrderDetails>
-    <ProductDetails><!-- if present, will be shown in paypal checkout -->
-      <ProductDetail><!-- one or more -->
-        <ProductCode>1</ProductCode>
-        <SKU>AK-7</SKU> 
-        <Name>TV2000</Name> 
-        <Description>Television</Description> 
-        <Quantity>1</Quantity> 
-        <Price>100</Price> 
-        <UnitPrice>100</UnitPrice> 
-        <Type>1</Type> 
-        <Vat>10</Vat> 
-        <Discount>0</Discount>
-      </ProductDetail> 
-    </ProductDetails>
-  </OrderDetails>
-<Encrypt>
-```
-
-If you populate these fields accordingly, you can show your user the list of products: 
-
-|  |  |  |
-| ---- | :--------: | ----------- | 
-| `ProductCode` |  12  | Article’s product Code |
-| `SKU` |  50  | Article’s Stock Keeping Unit |
-| `Name` <sup><a href="#fnPP" id="refPP">1</a></sup> |  100  | Article’s name |
-| `Description` <sup><a href="#fnPP" id="refPP">1</a></sup> |  255  | Article’s description |
-| `Quantity` <sup><a href="#fnPP" id="refPP">1</a></sup> |  3  | The number of products |
-| `Price` |  12  | Article’s price |
-| `UnitPrice` <sup><a href="#fnPP" id="refPP">1</a></sup> |  12  | Article’s Unit Price |
-| `Type` |  2  | The type of article: 1-product, 2-shipping, 3-handling |
-| `Vat` |  2  | Value-Added Tax (the value of the tax) |
-| `Discount` |  2  | The amount offered by you as discount |
-
-<sup id="fnPP">1. **Line Items**: in case the buyer selects PayPal as payment method in the payment page, fields `Name`, `Description`, `Quantity` and `UnitPrice` of every occurrency of the `ProductDetail` tag will be used to show the transaction items details in PayPal payment page.</sup>
-
-=======
->>>>>>> 34f2e37308c5ed49486623678dcdbbedd4e1370f
 ### Paypal Seller Protection 
 
 > Paypal Seller Protection example: 
