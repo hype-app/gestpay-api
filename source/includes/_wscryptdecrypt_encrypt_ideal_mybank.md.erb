@@ -1,0 +1,48 @@
+
+## Encrypt Example: IDeal and MyBank
+
+> MyBank example: 
+
+```xml
+<Encrypt>
+  <shopLogin>9000001</shopLogin>
+  <uicCode>242</uicCode>
+  <amount>985</amount>
+  <shopTransactionId>34az85ord19</shopTransactionId>
+  <paymentTypes>
+    <paymentType>MYBANK</paymentType>
+  </paymentTypes>
+  <paymentTypeDetail> 
+    <MyBankBankCode>Code0000X</MyBankBankCode>
+  </paymentTypeDetail> 
+</Enrcypt>
+```
+
+> IDeal example: 
+
+```xml
+<Encrypt>
+  <shopLogin>9000001</shopLogin>
+  <uicCode>242</uicCode>
+  <amount>10</amount>
+  <shopTransactionId>34az85ord19</shopTransactionId>
+  <paymentTypes>
+    <paymentType>IDEAL</paymentType>
+  </paymentTypes>
+  <paymentTypeDetail> 
+    <IdealBankCode>Code0000Y</IdealBankCode>
+  </paymentTypeDetail> 
+</Enrcypt>
+```
+
+If you choose let your users pay with MyBank or IDeal, you have to compile other two fileds.
+
+More details can be found in at the [MyBank and IDeal](<%= config[:doc_url] %>/oth/mybank_and_ideal.html) page.
+
+ 
+| Name | max length | description |
+| ---- | :--------: | ----------- |
+| `paymentTypeDetail` |    | container of one of `MyBankBankCode` or `IdealBankCode` |
+| `MyBankBankCode` |  25   | Tag to set the Bank to show on payment page (the bank List is retrieved from `WsS2S.CallMyBankListS2S`) |
+| `IdealBankCode` |  25   | Tag to set the Bank to show on payment page (the bank List is retrieved from `WsS2S.CallIdealListS2S`) | 
+

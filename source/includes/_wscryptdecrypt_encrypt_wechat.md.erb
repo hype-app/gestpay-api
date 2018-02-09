@@ -1,0 +1,27 @@
+
+## Encrypt Example: WeChat
+
+> WeChat example: 
+
+```xml
+<Encrypt>
+  <shopLogin>9000001</shopLogin>
+  <uicCode>242</uicCode>
+  <amount>100</amount>
+  <shopTransactionId>34az85ord19</shopTransactionId>
+  <paymentTypes>
+    <paymentType>WECHAT</paymentType>
+  </paymentTypes>
+  <OrderDetails>
+    <CustomerDetail>
+      <PrimaryEmail>bruce.lee@jetkunedo.com</PrimaryEmail>
+    </CustomerDetail>
+  </OrderDetails>
+</Encrypt>
+```
+
+WeChat does not need mandatory parameters.
+
+You must use `WECHAT` as `paymentType`.
+
+More informations about WeChat are [in the doc]( <%= config[:doc_url] %>/oth/wechat.html). 

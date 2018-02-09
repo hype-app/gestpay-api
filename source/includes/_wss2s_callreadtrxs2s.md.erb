@@ -1,0 +1,216 @@
+## CallReadTrxS2S 
+
+This method will return the transaction status. 
+
+This method can be called with a mandatory `shopLogin`, then it's possible to pass `shopTransactionId` or `bankTransactionId` or both. If only `shopLogin` and `shopTransactionId` are passed, it’s mandatory that the last one is unique.
+
+### Request details 
+
+> Example request: 
+
+```xml
+<callReadTrxS2S>
+  <shopLogin>9000001</shopLogin>
+  <shopTransactionId>MYSHOP-4838</shopTransactionId>
+  <bankTransactionId>334488931</bankTransactionId>
+</callReadTrxS2S>
+```
+Parameters in **bold** are mandatory.
+
+| parameter name | description | type | length | 
+| -------------- | ----------- | -----|--------| 
+| **`shopLogin`** | the merchant's code | string | 30 |  
+| **`bankTransactionId`** | ID of the transaction assigned by Gestpay | number | 18
+| **`shopTransactionId`** | shop transaction ID value | string | 50
+
+<aside class="active">
+A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransactionId</code>. However, if the <code>shopTransactionId</code> is unique, the merchant can just send <code>shopLogin</code> + <code>shopTransactionId</code>. 
+</aside>
+
+### Response details 
+
+> Response example 
+
+```xml
+<callReadTrxS2SResult>
+  <GestPayS2S xmlns="">
+    <TransactionType>QUERYTX</TransactionType>
+    <TransactionResult>OK</TransactionResult>
+    <TransactionState>CAN</TransactionState>
+    <ShopTransactionID>MYSHOP-4838</ShopTransactionID>
+    <BankTransactionID>334488931</BankTransactionID>
+    <AuthorizationCode>971773</AuthorizationCode>
+    <Currency>242</Currency>
+    <Country>ITALIA</Country>
+    <Company>MASTERCARD SECURECODE</Company>
+    <TDLevel>FULL</TDLevel>
+    <Events>
+      <event>
+        <eventtype>AUT</eventtype>
+        <eventamount>0.10</eventamount>
+        <eventdate>19/08/16 16:13:14</eventdate>
+      </event>
+      <event>
+        <eventtype>CAN</eventtype>
+        <eventamount>0.10</eventamount>
+        <eventdate>20/08/16 00:13:57</eventdate>
+      </event>
+    </Events>
+    <Buyer>
+      <BuyerName/>
+      <BuyerEmail/>
+    </Buyer>
+    <RISK>
+      <RiskResponseCode>approved<RiskResponseCode>
+      <RiskResponseDescription/>
+    </RISK>
+    <ErrorCode>0</ErrorCode>
+    <ErrorDescription>Transaction correctly processed</ErrorDescription>
+    <AlertCode/>
+    <AlertDescription/>
+  </GestPayS2S>
+</callReadTrxS2SResult>
+```
+
+> Response example for Amazon Pay 
+
+```xml
+<callReadTrxS2SResult>
+  <GestPayS2S xmlns="">
+      <TransactionType>QUERYTX</TransactionType>
+      <TransactionResult>OK</TransactionResult>
+      <TransactionState>MOV</TransactionState>
+      <ShopTransactionID>af22</ShopTransactionID>
+      <BankTransactionID>117</BankTransactionID>
+      <AuthorizationCode>008152</AuthorizationCode>
+      <Currency>242</Currency>
+      <Country/>
+      <Company>AMAZONPAY</Company>
+      <TDLevel/>
+      <Events>
+        <event>
+            <eventtype>AUT</eventtype>
+            <eventamount>10.00</eventamount>
+            <eventdate>13/11/17 11:32:45</eventdate>
+        </event>
+        <event>
+            <eventtype>MOV</eventtype>
+            <eventamount>10.00</eventamount>
+            <eventdate>13/11/17 11:32:45</eventdate>
+        </event>
+      </Events>
+      <Buyer>
+        <BuyerName/>
+        <BuyerEmail/>
+      </Buyer>
+      <RISK>
+        <RiskResponseCode/>
+        <RiskResponseDescription/>
+      </RISK>
+      <ErrorCode>0</ErrorCode>
+      <ErrorDescription>Transazione correttamente effettuata</ErrorDescription>
+      <AlertCode/>
+      <AlertDescription/>
+
+      <!-- Here you'll see buyer' 
+          shipping and billing address 
+          for Amazon Pay -->
+      <OrderReferenceDetails>
+        <OrderReferenceStatus>
+            <State>Draft</State>
+        </OrderReferenceStatus>
+        <OrderLanguage>it-IT</OrderLanguage>
+        <Destination>
+            <DestinationType>Physical</DestinationType>
+            <PhysicalDestination>
+              <StateOrRegion>BI</StateOrRegion>
+              <Phone>33333333</Phone>
+              <City>BIELLA</City>
+              <CountryCode>IT</CountryCode>
+              <PostalCode>13900</PostalCode>
+              <Name>Marco Rossi</Name>
+              <AddressLine1>via Gobe 15</AddressLine1>
+            </PhysicalDestination>
+        </Destination>
+        <ExpirationTimestamp>2018-05-13T07:24:02.186Z</ExpirationTimestamp>
+        <IdList/>
+        <SellerOrderAttributes>
+            <SellerOrderId>4354395804398dkfjlhsdfk</SellerOrderId>
+        </SellerOrderAttributes>
+        <OrderTotal>
+            <CurrencyCode>EUR</CurrencyCode>
+            <Amount>10.00</Amount>
+        </OrderTotal>
+        <Buyer>
+            <Name>Ale</Name>
+            <Email>marco.rossi@email.it</Email>
+        </Buyer>
+        <ReleaseEnvironment>Sandbox</ReleaseEnvironment>
+        <AmazonOrderReferenceId>S02-0319513-4657042</AmazonOrderReferenceId>
+        <CreationTimestamp>2017-11-14T07:24:02.186Z</CreationTimestamp>
+        <BillingAddress>
+            <PhysicalAddress>
+              <City>Neunkirchen</City>
+              <CountryCode>DE</CountryCode>
+              <PostalCode>66538</PostalCode>
+              <Name>Liam Barker</Name>
+              <AddressLine1/>
+              <AddressLine2>Meininger Strasse 58</AddressLine2>
+            </PhysicalAddress>
+            <AddressType>Physical</AddressType>
+        </BillingAddress>
+        <RequestPaymentAuthorization>false</RequestPaymentAuthorization>
+      </OrderReferenceDetails>
+  </GestPayS2S>
+  </callReadTrxS2SResult>
+
+```
+
+| parameter name | description |  
+| -------------- | ----------- | 
+| `TransactionType` | for ` CallReadTrxS2S`, the value will be `QUERYTX` | 
+| `TransactionResult` | `OK` or `KO` | 
+| `BankTransactionID` | Bank transaction ID assigned to the transaction 
+| `ShopTransactionID` | Shop transaction ID value assigned to the transaction
+| `ErrorCode` | transaction error code | 
+| `ErrorDescription` | transaction error description
+| `AuthorizationCode` | the authorisation code 
+| `Currency` | the [currency code](#currency-codes)
+| `Country` | the nationality of the card issuer
+| `Company` | the card company: Visa, Mastercard, etc. 
+| `TransactionState` | the status of the transaction: one of `AUT`, `MOV`, `CAN`, `STO`. Follow the link for a [detailed explanation of transaction statuses](<%= config[:doc_url] %>/adv/query-transaction-status.html).
+| `AlertCode` | the violation code of the risk management criteria. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description. 
+| `AlertDescription` | the description connected to the `AlertCode` value. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description.   
+| `Buyer.BuyerName` | Returns the name of the buyer 
+| `Buyer.BuyerEmail` | Returns the email of the buyer 
+| `Events`| contains `event` elements. see the next table for more.  
+| `RiskResponseCode` | Risk Fraud Score of the transaction, given by [ Gestpay Guaranteed Payment](<%= config[:doc_url] %>/sec/gestpay-guaranteed-payment.html). Possible values are: <ul><li>`created`: transaction has been received by the Gestpay Guaranteed Payment</li><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Gestpay Guaranteed Payment</li><li>`declined`: transaction not approved by  Gestpay Guaranteed Payment</li><li>`captured`: For *Select&Submit* plan, `caputred` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Gestpay Guaranteed Payment.</li></ul>
+| `RiskResponseDescription` | Risk Description of the RiskResponseCode 
+| `OrderReferenceDetails` | Informations about Shipping and Billing addresses,  returned for some payment methods. | 
+
+
+As said, `<Events>` can contain one or more `<event>` tags. the `<event>` tag is composed of: 
+
+| name | description 
+| ---- | -----------
+| `eventtype` | one of `AUT`, `MOV`, `PRE`, `CAN`, `REQ`, `STO`. There will be a node event for each existing event regarding the transaction. Follow the link for a [detailed explanation of transaction statuses](<%= config[:doc_url] %>/adv/query-transaction-status.html).
+| `eventamount` | Relative value of the event | 
+| `eventdate` | event date | 
+
+#### OrderReferenceDetails
+
+here we'll describe the most important fields returned by third-party payments. Not all fields are relevant.  
+
+| name | description 
+| ---- | -----------
+| `Destination.PhysicalDestination` | Represents the **address** selected by the buyer through the AddressBook widget. 
+| `BillingAddress` | Represents the billing address that is associated with the payment method selected by the buyer in the Wallet widget. 
+| `OrderReferenceStatus` | Indicates the current status of the order reference. States can be: `Draft`, `Open`, `Suspended`, `Canceled`, `Closed`. 
+| `OrderLanguage` | Represents the Language last used, on the Login or Consent screens, by the buyer. 
+| `ExpirationTimestamp` | The date and time, in UTC, when the order reference will expire and will no longer be valid for authorization requests. In ISO 8601 format. 
+| `SellerOrderAttributes` | Provides more context about the order represented by this order reference. 
+| `OrderTotal` | Represents the total amount for this Order Reference object.  
+| `Buyer` | Provides details about the buyer.  
+| `ReleaseEnvironment` | Indicates if the order is for a _Live_ (Production) or _Sandbox_ environment.
+| `AmazonOrderReferenceId` | The order reference identifier retrieved from the Amazon Button widget. 
+| `CreationTimestamp` | The date and time, in UTC, when the order reference was created. In ISO 8601 format.
