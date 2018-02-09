@@ -15,7 +15,7 @@
   <OrderDetails>
     <CustomerDetail>
       <FirstName>Albert</FirstName>
-      <Lastname>Einstein<Lastname>
+      <Lastname>Einstein</Lastname>
       <PrimaryEmail>albert.einstein@princeton.edu</PrimaryEmail>
     </CustomerDetail>
     <BillingAddress>
