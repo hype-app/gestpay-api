@@ -1,0 +1,4 @@
+deploy-beta.sh merge=ours
+CNAME merge=ours
+robots.txt merge=ours
+config.rb merge=ours
