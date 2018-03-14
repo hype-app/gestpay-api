@@ -11,10 +11,27 @@
   <paymentTypes>
     <paymentType>SEPADD</paymentType>
   </paymentTypes>
+  <OrderDetails>
+    <CustomerDetail>
+      <FirstName>Stephen</FirstName>
+      <Lastname>Hawk</Lastname>
+      <PrimaryEmail>stephen@hawk.com</PrimaryEmail>
+      <PrimaryPhone>+390123456789</PrimaryPhone>
+    </CustomerDetail>
+    <BillingAddress>
+      <StreetNumber>8</StreetNumber>
+      <StreetName>Piazza Martiri della Liberta</StreetName>
+      <City>Biella</City>
+      <ZipCode>13900</ZipCode>
+      <CountryCode>IT</CountryCode>
+    </BillingAddress>
+  </OrderDetails>
 </Encrypt>
 ```
 
 To get a pre-approval from SEPA you must specify the paymentType `SEPADD`. 
+
+This payment method requires some other mandatory data, like **customer details** and **billing address**.
 
 The amound used in the Encrypt is mandatory, but it is discarded since the `Encrypt` call is used only to get a pre-approval token. 
 
