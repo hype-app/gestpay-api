@@ -1589,9 +1589,26 @@ Please note:
   <span class="nt">&lt;paymentTypes&gt;</span>
     <span class="nt">&lt;paymentType&gt;</span>SEPADD<span class="nt">&lt;/paymentType&gt;</span>
   <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;CustomerDetail&gt;</span>
+      <span class="nt">&lt;FirstName&gt;</span>Stephen<span class="nt">&lt;/FirstName&gt;</span>
+      <span class="nt">&lt;Lastname&gt;</span>Hawk<span class="nt">&lt;/Lastname&gt;</span>
+      <span class="nt">&lt;PrimaryEmail&gt;</span>stephen@hawk.com<span class="nt">&lt;/PrimaryEmail&gt;</span>
+      <span class="nt">&lt;PrimaryPhone&gt;</span>+390123456789<span class="nt">&lt;/PrimaryPhone&gt;</span>
+    <span class="nt">&lt;/CustomerDetail&gt;</span>
+    <span class="nt">&lt;BillingAddress&gt;</span>
+      <span class="nt">&lt;StreetNumber&gt;</span>8<span class="nt">&lt;/StreetNumber&gt;</span>
+      <span class="nt">&lt;StreetName&gt;</span>Piazza Martiri della Liberta<span class="nt">&lt;/StreetName&gt;</span>
+      <span class="nt">&lt;City&gt;</span>Biella<span class="nt">&lt;/City&gt;</span>
+      <span class="nt">&lt;ZipCode&gt;</span>13900<span class="nt">&lt;/ZipCode&gt;</span>
+      <span class="nt">&lt;CountryCode&gt;</span>IT<span class="nt">&lt;/CountryCode&gt;</span>
+    <span class="nt">&lt;/BillingAddress&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
 <p>To get a pre-approval from SEPA you must specify the paymentType <code class="prettyprint">SEPADD</code>. </p>
+
+<p>This payment method requires some other mandatory data, like <strong>customer details</strong> and <strong>billing address</strong>.</p>
 
 <p>The amound used in the Encrypt is mandatory, but it is discarded since the <code class="prettyprint">Encrypt</code> call is used only to get a pre-approval token. </p>
 
