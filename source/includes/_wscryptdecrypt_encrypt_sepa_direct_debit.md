@@ -33,6 +33,6 @@ To get a pre-approval from SEPA you must specify the paymentType `SEPADD`.
 
 This payment method requires some other mandatory data, like **customer details** and **billing address**.
 
-The amound used in the Encrypt is mandatory, but it is discarded since the `Encrypt` call is used only to get a pre-approval token. 
+The amount used in the Encrypt is mandatory, but it is discarded since the `Encrypt` call is used only to get a pre-approval token. 
 
 The effectively charged amount is passed to [`callPagamS2S`](#callpagams2s) after the pre-approval token is received. 
