@@ -4967,6 +4967,48 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
       <span class="nt">&lt;Code&gt;</span>72-B03<span class="nt">&lt;/Code&gt;</span>
     <span class="nt">&lt;/ShippingLine&gt;</span>
   <span class="nt">&lt;/ShippingLines&gt;</span>
+  <span class="nt">&lt;AccommodationDetails&gt;</span>
+    <span class="c">&lt;!-- First accomodation --&gt;</span>
+    <span class="nt">&lt;AccommodationDetail&gt;</span>
+      <span class="nt">&lt;City&gt;</span>Eindhoven<span class="nt">&lt;/City&gt;</span>
+      <span class="nt">&lt;CountryCode&gt;</span>NL<span class="nt">&lt;/CountryCode&gt;</span>
+      <span class="nt">&lt;Title&gt;</span>Tulip Inn Eindhoven Airport<span class="nt">&lt;/Title&gt;</span>
+      <span class="nt">&lt;CheckInDate&gt;</span>2018-01-20T00:00+0000<span class="nt">&lt;/CheckInDate&gt;</span>
+      <span class="nt">&lt;CheckOutDate&gt;</span>2018-01-22T00:00+0000<span class="nt">&lt;/CheckOutDate&gt;</span>
+      <span class="nt">&lt;ProductId&gt;</span>NL2133<span class="nt">&lt;/ProductId&gt;</span>
+      <span class="nt">&lt;Rating&gt;</span>3<span class="nt">&lt;/Rating&gt;</span>
+      <span class="nt">&lt;NumberOfGuests&gt;</span>3<span class="nt">&lt;/NumberOfGuests&gt;</span>
+      <span class="nt">&lt;AccommodationType&gt;</span>Hotel<span class="nt">&lt;/AccommodationType&gt;</span>
+      <span class="nt">&lt;RoomType&gt;</span>Deluxe Triple<span class="nt">&lt;/RoomType&gt;</span>
+      <span class="nt">&lt;Price&gt;</span>370<span class="nt">&lt;/Price&gt;</span>
+      <span class="nt">&lt;Quantity&gt;</span>1<span class="nt">&lt;/Quantity&gt;</span>
+      <span class="nt">&lt;CancellationPolicy&gt;</span>Non-Refundable<span class="nt">&lt;/CancellationPolicy&gt;</span>
+    <span class="nt">&lt;/AccommodationDetail&gt;</span>
+    <span class="c">&lt;!-- Second accomodation --&gt;</span>
+    <span class="nt">&lt;AccommodationDetail&gt;</span>
+    ...
+    <span class="nt">&lt;/AccommodationDetail&gt;</span>
+  <span class="nt">&lt;/AccommodationDetails&gt;</span>
+  <span class="nt">&lt;PassengerDetails&gt;</span>
+    <span class="c">&lt;!-- First passenger --&gt;</span>
+    <span class="nt">&lt;PassengerDetail&gt;</span>
+      <span class="nt">&lt;FirstName&gt;</span>Antonio<span class="nt">&lt;/FirstName&gt;</span>
+      <span class="nt">&lt;LastName&gt;</span>Esposito<span class="nt">&lt;/LastName&gt;</span>
+      <span class="nt">&lt;DateOfBirth&gt;</span>1970-05-03<span class="nt">&lt;/DateOfBirth&gt;</span>
+      <span class="nt">&lt;NationalityCode&gt;</span>IT<span class="nt">&lt;/NationalityCode&gt;</span>
+      <span class="nt">&lt;InsuranceType&gt;</span>ERV<span class="nt">&lt;/InsuranceType&gt;</span>
+      <span class="nt">&lt;InsurancePrice&gt;</span>17<span class="nt">&lt;/InsurancePrice&gt;</span>
+      <span class="nt">&lt;DocumentNumber&gt;</span>AO1234567<span class="nt">&lt;/DocumentNumber&gt;</span>
+      <span class="nt">&lt;DocumentType&gt;</span>Identity Card<span class="nt">&lt;/DocumentType&gt;</span>
+      <span class="nt">&lt;DocumentIssueDate&gt;</span>Comune di Salerno<span class="nt">&lt;/DocumentIssueDate&gt;</span>
+      <span class="nt">&lt;DocumentExpirationDate&gt;</span>2020-10-02<span class="nt">&lt;/DocumentExpirationDate&gt;</span>
+      <span class="nt">&lt;PassengerType&gt;</span>adult<span class="nt">&lt;/PassengerType&gt;</span>
+    <span class="nt">&lt;/PassengerDetail&gt;</span>
+    <span class="c">&lt;!-- Second passenger --&gt;</span>
+    <span class="nt">&lt;PassengerDetail&gt;</span>
+    ...
+    <span class="nt">&lt;/PassengerDetail&gt;</span>
+  <span class="nt">&lt;/PassengerDetails&gt;</span>
 <span class="nt">&lt;/OrderDetails&gt;</span>
 </code></pre>
 <p><code class="prettyprint">OrderDetails</code> tag contains all the info that can be sent together with a transaction. The more data you sent, the better is for Gestpay to analyze your request. </p>
@@ -5489,6 +5531,140 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <td><code class="prettyprint">Code</code></td>
 <td>50</td>
 <td>Code of the shipping method.</td>
+</tr>
+</tbody></table>
+
+<h4 id="accomodationdetails-and-accomodationdetail-fields"><code class="prettyprint">AccomodationDetails</code> and <code class="prettyprint">AccomodationDetail</code> fields</h4>
+
+<p>These tags are useful for Hotel and Acomodation companies. You can put as many <code class="prettyprint">AccomodationDetail</code> you need inside one <code class="prettyprint">AccomodationDetails</code> group tag. </p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">City</code></td>
+<td>string</td>
+<td>Accomodation City</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CountryCode</code></td>
+<td>string</td>
+<td>Accomodation country</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Title</code></td>
+<td>string</td>
+<td>Accomodation name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CheckInDate</code></td>
+<td>string</td>
+<td>Date-Time of arrival in ISO standard</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CheckOutDate</code></td>
+<td>string</td>
+<td>Date-Time of departure in ISO standard</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ProductId</code></td>
+<td>string</td>
+<td>Booking.com unique identifier of the offer, skip if irrelevant</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Rating</code></td>
+<td>string</td>
+<td>Star rating of the accomodation</td>
+</tr>
+<tr>
+<td><code class="prettyprint">NumberOfGuests</code></td>
+<td>string</td>
+<td>Number of guests</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AccommodationType</code></td>
+<td>string</td>
+<td>Accomodation type: Hotel, Room, &hellip;</td>
+</tr>
+<tr>
+<td><code class="prettyprint">RoomType</code></td>
+<td>string</td>
+<td>Advertised room name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Price</code></td>
+<td>string</td>
+<td>price of one room of this kind for the period</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Quantity</code></td>
+<td>string</td>
+<td>how many rooms of this kind in the order</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CancellationPolicy</code></td>
+<td>string</td>
+<td>Write here your cancellation policy, e.g. <code class="prettyprint">Non-Refundable</code></td>
+</tr>
+</tbody></table>
+
+<h4 id="passengerdetails-and-passengerdetail-fields"><code class="prettyprint">PassengerDetails</code> and <code class="prettyprint">PassengerDetail</code> fields</h4>
+
+<p>These tags are useful for travel agencies - flights, ships, etc. You can put as many <code class="prettyprint">PassengerDetail</code> you need inside one <code class="prettyprint">PassengerDetails</code> group tag. </p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">FirstName</code></td>
+<td>Name of the passenger</td>
+</tr>
+<tr>
+<td><code class="prettyprint">LastName</code></td>
+<td>Last name of the passenger</td>
+</tr>
+<tr>
+<td><code class="prettyprint">DateOfBirth</code></td>
+<td>Date of birth, ISO format</td>
+</tr>
+<tr>
+<td><code class="prettyprint">NationalityCode</code></td>
+<td>Nationality code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">InsuranceType</code></td>
+<td>Insurance title if was chosen by the end customer</td>
+</tr>
+<tr>
+<td><code class="prettyprint">InsurancePrice</code></td>
+<td>Insurance price if was chosen by the end customer</td>
+</tr>
+<tr>
+<td><code class="prettyprint">DocumentNumber</code></td>
+<td>A valid identification document number</td>
+</tr>
+<tr>
+<td><code class="prettyprint">DocumentType</code></td>
+<td>The type of the identification document</td>
+</tr>
+<tr>
+<td><code class="prettyprint">DocumentIssueDate</code></td>
+<td>The identification document issue date</td>
+</tr>
+<tr>
+<td><code class="prettyprint">DocumentExpirationDate</code></td>
+<td>The identification document expiration date</td>
+</tr>
+<tr>
+<td><code class="prettyprint">PassengerType</code></td>
+<td><code class="prettyprint">adult</code> or <code class="prettyprint">child</code></td>
 </tr>
 </tbody></table>
 
