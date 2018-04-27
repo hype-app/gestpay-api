@@ -134,6 +134,48 @@
       <Code>72-B03</Code>
     </ShippingLine>
   </ShippingLines>
+  <AccommodationDetails>
+    <!-- First accomodation -->
+    <AccommodationDetail>
+      <City>Eindhoven</City>
+      <CountryCode>NL</CountryCode>
+      <Title>Tulip Inn Eindhoven Airport</Title>
+      <CheckInDate>2018-01-20T00:00+0000</CheckInDate>
+      <CheckOutDate>2018-01-22T00:00+0000</CheckOutDate>
+      <ProductId>NL2133</ProductId>
+      <Rating>3</Rating>
+      <NumberOfGuests>3</NumberOfGuests>
+      <AccommodationType>Hotel</AccommodationType>
+      <RoomType>Deluxe Triple</RoomType>
+      <Price>370</Price>
+      <Quantity>1</Quantity>
+      <CancellationPolicy>Non-Refundable</CancellationPolicy>
+    </AccommodationDetail>
+    <!-- Second accomodation -->
+    <AccommodationDetail>
+    ...
+    </AccommodationDetail>
+  </AccommodationDetails>
+  <PassengerDetails>
+    <!-- First passenger -->
+    <PassengerDetail>
+      <FirstName>Antonio</FirstName>
+      <LastName>Esposito</LastName>
+      <DateOfBirth>1970-05-03</DateOfBirth>
+      <NationalityCode>IT</NationalityCode>
+      <InsuranceType>ERV</InsuranceType>
+      <InsurancePrice>17</InsurancePrice>
+      <DocumentNumber>AO1234567</DocumentNumber>
+      <DocumentType>Identity Card</DocumentType>
+      <DocumentIssueDate>Comune di Salerno</DocumentIssueDate>
+      <DocumentExpirationDate>2020-10-02</DocumentExpirationDate>
+      <PassengerType>adult</PassengerType>
+    </PassengerDetail>
+    <!-- Second passenger -->
+    <PassengerDetail>
+    ...
+    </PassengerDetail>
+  </PassengerDetails>
 </OrderDetails>
 ``` 
 
@@ -276,3 +318,41 @@ With this fields you can define the price and the kind of shipping that you use 
 | `Price` | 12  | The price of the shipping method. |
 | `Title` | 100 | The title of the shipping method. |
 | `Code`  | 50  | Code of the shipping method.      |
+
+#### `AccomodationDetails` and `AccomodationDetail` fields
+
+These tags are useful for Hotel and Acomodation companies. You can put as many `AccomodationDetail` you need inside one `AccomodationDetails` group tag. 
+
+| Field | type | Description |
+| ----- | -------- | ----------- |
+| `City` |  string | Accomodation City | 
+| `CountryCode` | string | Accomodation country  | 
+| `Title` | string |  Accomodation name | 
+| `CheckInDate` | string | Date-Time of arrival in ISO standard | 
+| `CheckOutDate` | string | Date-Time of departure in ISO standard | 
+| `ProductId` | string | Booking.com unique identifier of the offer, skip if irrelevant | 
+| `Rating` | string | Star rating of the accomodation | 
+| `NumberOfGuests` | string | Number of guests |
+| `AccommodationType` | string  | Accomodation type: Hotel, Room, ... |
+| `RoomType` | string | Advertised room name |
+| `Price` | string  | price of one room of this kind for the period |
+| `Quantity` | string  | how many rooms of this kind in the order |
+| `CancellationPolicy` | string | Write here your cancellation policy, e.g. `Non-Refundable` |
+
+#### `PassengerDetails` and `PassengerDetail` fields 
+
+These tags are useful for travel agencies - flights, ships, etc. You can put as many `PassengerDetail` you need inside one `PassengerDetails` group tag. 
+
+| Field | Description |
+| ----- | ----------- |
+| `FirstName` | Name of the passenger | 
+| `LastName` | Last name of the passenger | 
+| `DateOfBirth` | Date of birth, ISO format | 
+| `NationalityCode` | Nationality code | 
+| `InsuranceType` | Insurance title if was chosen by the end customer |
+| `InsurancePrice` | Insurance price if was chosen by the end customer | 
+| `DocumentNumber` | A valid identification document number | 
+| `DocumentType` | The type of the identification document |
+| `DocumentIssueDate` | The identification document issue date  | 
+| `DocumentExpirationDate` | The identification document expiration date  | 
+| `PassengerType` | `adult` or `child` | 
