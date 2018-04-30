@@ -34,7 +34,7 @@ includes:
   - wscryptdecrypt_encrypt_sepa_direct_debit
   - wscryptdecrypt_encrypt_sofort
   ## - wscryptdecrypt_encrypt_tenpay
-  - wscryptdecrypt_encrypt_timpersonal
+  ## - wscryptdecrypt_encrypt_timpersonal
   - wscryptdecrypt_encrypt_unionpay
   - wscryptdecrypt_encrypt_webmoney
   - wscryptdecrypt_encrypt_wechat
