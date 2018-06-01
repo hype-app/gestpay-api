@@ -10,6 +10,7 @@ Merchants can use this method to disable a token linked to a Credit Card or to c
 <callDeleteTokenS2S>
   <shopLogin>90000001</shopLogin>
   <tokenValue>1234WJFXABCD5678</tokenValue>
+  <apikey>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....</apikey>
 </callDeleteTokenS2S>
 ```
 

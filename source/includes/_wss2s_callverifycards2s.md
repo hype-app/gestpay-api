@@ -14,6 +14,7 @@ Merchants can use this method to check the Credit Card.
   <expMonth>12</expMonth>
   <expYear>21</expYear>
   <CVV2>931</CVV2>
+  <apikey>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....</apikey>
 </callVerifycardS2S>
 ```
 Parameters in **bold** are mandatory. 

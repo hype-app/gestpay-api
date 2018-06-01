@@ -7,6 +7,7 @@
  <Decrypt>
   <shopLogin>9000001</shopLogin>
   <CryptedString>HT987YU....</CryptedString>
+  <apikey>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....</apikey>
  </Decrypt>
 ```
 
