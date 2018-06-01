@@ -1670,27 +1670,6 @@ Please note:
 </tr>
 </tbody></table>
 
-          <h2 id="encrypt-example-timpersonal">Encrypt Example: TIMpersonal</h2>
-
-<blockquote>
-<p>TIMpersonal example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>TIMpersonal_001<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>TIMPERSONAL<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-<span class="nt">&lt;/Encrypt&gt;</span>
-</code></pre>
-<p>TIMpersonal does not need mandatory parameters. </p>
-
-<p>You must use <code class="prettyprint">TIMPERSONAL</code> as <code class="prettyprint">paymentType</code>.</p>
-
-<p>More information about TIMpersonal are <a href="http://docs.gestpay.it/oth/tim-personal.html">in the doc</a>. </p>
-
           <h2 id="encrypt-example-unionpay">Encrypt Example: UnionPay</h2>
 
 <blockquote>
@@ -2336,7 +2315,7 @@ Please note:
     <span class="nt">&lt;/shippingDetails&gt;</span>
     <span class="nt">&lt;OrderDetails&gt;</span>
       ... 
-    <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;/callPagamS2S&gt;</span>
 </code></pre>
 <p>First we describe the mandatory attributes. </p>
@@ -7047,10 +7026,6 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <tr>
 <td>SOFORT (Direct)</td>
 <td><code class="prettyprint">SOFORT</code></td>
-</tr>
-<tr>
-<td>TIM</td>
-<td><code class="prettyprint">TIMPERSONAL</code></td>
 </tr>
 <tr>
 <td>TRUSTPAY</td>
