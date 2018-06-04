@@ -18,7 +18,6 @@ It's possible to check with or without verifying the Authorization, setting the 
   <expYear>21</expYear>
   <CVV2>931</CVV2>
   <withAuth>Y</withAuth>
-  <apikey>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....</apikey>
 </callCheckCartaS2S> 
 ```
 
@@ -30,7 +29,6 @@ It's possible to check with or without verifying the Authorization, setting the 
   <shopTransactionId>MY-SHOP1234</shopTransactionId>
   <tokenValue>ABCD12345678EFGD</tokenValue>
   <withAuth>Y</withAuth>
-  <apikey>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....</apikey>
 </callCheckCartaS2S> 
 ```
 

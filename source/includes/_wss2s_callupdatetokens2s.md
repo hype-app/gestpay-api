@@ -16,7 +16,6 @@ Merchants belonging to a group are allowed to update also tokens created by othe
   <expiryMonth>12</expiryMonth>
   <expiryYear>21</expiryYear>
   <withAut>Y</withAut>
-  <apikey>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....</apikey>
 </CallUpdateTokenS2S>
 ```
 

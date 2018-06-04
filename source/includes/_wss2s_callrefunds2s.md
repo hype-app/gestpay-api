@@ -20,7 +20,6 @@ Merchants can use this method to perform a partial or complete transaction amoun
       ...
     </ProductDetails>
   </OrderDetail>
-  <apikey>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....</apikey>
 </callRefundS2S>
 ```
 

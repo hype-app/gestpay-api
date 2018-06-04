@@ -16,7 +16,6 @@ Merchants can use this method to request the token generation for a Credit Card.
   <expiryYear>21</expiryYear>
   <withAuth>Y</withAuth>
   <cvv>931</cvv><!-- optional -->
-  <apikey>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....</apikey>
 </callCheckCartaS2S>
 ```
 

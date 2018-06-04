@@ -10,7 +10,6 @@ Merchants can use this method to have the list of the Banks available for their 
 <CallMyBankListS2S>
   <shopLogin>900000001</shopLogin>
   <langugeId>1</languageId>
-  <apikey>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....</apikey>
 </CallMyBankListS2S>
 ```
 

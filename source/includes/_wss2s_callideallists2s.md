@@ -9,7 +9,6 @@ Merchants can use this method to have the list of the Banks available for their 
 ```xml
 <CallIdealListS2S>
   <shopLogin>900000001</shopLogin>
-  <apikey>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....</apikey>
 </CallIdealListS2S>
 ```
 
