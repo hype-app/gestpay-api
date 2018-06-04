@@ -475,7 +475,7 @@
 <pre class="highlight xml"><code> <span class="nt">&lt;Decrypt&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
   <span class="nt">&lt;CryptedString&gt;</span>HT987YU....<span class="nt">&lt;/CryptedString&gt;</span>
-  <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
+  ...
  <span class="nt">&lt;/Decrypt&gt;</span>
 </code></pre>
 <p>GestPay communicates the payment transaction result to the merchant through an encrypted string (parameter b of the call to the url preconfigured by the merchant) with a set of transaction&rsquo;s informations.</p>
@@ -2343,7 +2343,6 @@ Please note:
   <span class="nt">&lt;OrderDetails&gt;</span>
     ... 
   <span class="nt">&lt;/OrderDetails&gt;</span>
-  <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
 <span class="nt">&lt;/callPagamS2S&gt;</span>
 </code></pre>
 <p>First we describe the mandatory attributes. </p>
@@ -2788,7 +2787,6 @@ Please note:
       <span class="nt">&lt;/FullfillmentDetail&gt;</span>
     <span class="nt">&lt;/FullFillmentlst&gt;</span>
   <span class="nt">&lt;/FullFillment&gt;</span>
-  <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
 <span class="nt">&lt;/callSettleS2S&gt;</span>
 </code></pre>
 <p>Parameters in <strong>bold</strong> are mandatory.  </p>
@@ -3035,7 +3033,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
   <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-4838<span class="nt">&lt;/shopTransactionId&gt;</span>
   <span class="nt">&lt;bankTransactionId&gt;</span>334488931<span class="nt">&lt;/bankTransactionId&gt;</span>
   <span class="nt">&lt;CancelReason&gt;</span>potential fraud<span class="nt">&lt;/CancelReason&gt;</span>
-  <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
 <span class="nt">&lt;/callDeleteS2S&gt;</span>
 </code></pre>
 <p>Mandatory parameters are in bold.</p>
@@ -3156,7 +3153,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
       ...
     <span class="nt">&lt;/ProductDetails&gt;</span>
   <span class="nt">&lt;/OrderDetail&gt;</span>
-  <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
 <span class="nt">&lt;/callRefundS2S&gt;</span>
 </code></pre>
 <p>Mandatory parameters are in <strong>bold</strong>.</p>
@@ -3294,7 +3290,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
   <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-4838<span class="nt">&lt;/shopTransactionId&gt;</span>
   <span class="nt">&lt;bankTransactionId&gt;</span>334488931<span class="nt">&lt;/bankTransactionId&gt;</span>
-  <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
 <span class="nt">&lt;/callReadTrxS2S&gt;</span>
 </code></pre>
 <p>Parameters in <strong>bold</strong> are mandatory.</p>
@@ -3652,7 +3647,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
   <span class="nt">&lt;expMonth&gt;</span>12<span class="nt">&lt;/expMonth&gt;</span>
   <span class="nt">&lt;expYear&gt;</span>21<span class="nt">&lt;/expYear&gt;</span>
   <span class="nt">&lt;CVV2&gt;</span>931<span class="nt">&lt;/CVV2&gt;</span>
-  <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
 <span class="nt">&lt;/callVerifycardS2S&gt;</span>
 </code></pre>
 <p>Parameters in <strong>bold</strong> are mandatory. </p>
@@ -3777,7 +3771,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
   <span class="nt">&lt;expYear&gt;</span>21<span class="nt">&lt;/expYear&gt;</span>
   <span class="nt">&lt;CVV2&gt;</span>931<span class="nt">&lt;/CVV2&gt;</span>
   <span class="nt">&lt;withAuth&gt;</span>Y<span class="nt">&lt;/withAuth&gt;</span>
-  <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
 <span class="nt">&lt;/callCheckCartaS2S&gt;</span> 
 </code></pre>
 <blockquote>
@@ -3788,7 +3781,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
   <span class="nt">&lt;shopTransactionId&gt;</span>MY-SHOP1234<span class="nt">&lt;/shopTransactionId&gt;</span>
   <span class="nt">&lt;tokenValue&gt;</span>ABCD12345678EFGD<span class="nt">&lt;/tokenValue&gt;</span>
   <span class="nt">&lt;withAuth&gt;</span>Y<span class="nt">&lt;/withAuth&gt;</span>
-  <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
 <span class="nt">&lt;/callCheckCartaS2S&gt;</span> 
 </code></pre>
 <p>Parameters in <strong>bold</strong> are mandatory. </p>
@@ -4039,7 +4031,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
   <span class="nt">&lt;expiryYear&gt;</span>21<span class="nt">&lt;/expiryYear&gt;</span>
   <span class="nt">&lt;withAuth&gt;</span>Y<span class="nt">&lt;/withAuth&gt;</span>
   <span class="nt">&lt;cvv&gt;</span>931<span class="nt">&lt;/cvv&gt;</span><span class="c">&lt;!-- optional --&gt;</span>
-  <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
 <span class="nt">&lt;/callCheckCartaS2S&gt;</span>
 </code></pre>
 <p>Parameters in <strong>bold</strong> are mandatory. </p>
@@ -4269,7 +4260,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <pre class="highlight xml"><code><span class="nt">&lt;callDeleteTokenS2S&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
   <span class="nt">&lt;tokenValue&gt;</span>1234WJFXABCD5678<span class="nt">&lt;/tokenValue&gt;</span>
-  <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
 <span class="nt">&lt;/callDeleteTokenS2S&gt;</span>
 </code></pre>
 <p>Mandatory parameters are in <strong>bold</strong>. </p>
@@ -4351,7 +4341,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
   <span class="nt">&lt;expiryMonth&gt;</span>12<span class="nt">&lt;/expiryMonth&gt;</span>
   <span class="nt">&lt;expiryYear&gt;</span>21<span class="nt">&lt;/expiryYear&gt;</span>
   <span class="nt">&lt;withAut&gt;</span>Y<span class="nt">&lt;/withAut&gt;</span>
-  <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
 <span class="nt">&lt;/CallUpdateTokenS2S&gt;</span>
 </code></pre>
 <p>Mandatory parameters are in <strong>bold</strong>. </p>
@@ -4451,7 +4440,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;CallIdealListS2S&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>900000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
 <span class="nt">&lt;/CallIdealListS2S&gt;</span>
 </code></pre>
 <p>Mandatory parameters are in <strong>bold</strong>.</p>
@@ -4545,7 +4533,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <pre class="highlight xml"><code><span class="nt">&lt;CallMyBankListS2S&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>900000001<span class="nt">&lt;/shopLogin&gt;</span>
   <span class="nt">&lt;langugeId&gt;</span>1<span class="nt">&lt;/languageId&gt;</span>
-  <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
 <span class="nt">&lt;/CallMyBankListS2S&gt;</span>
 </code></pre>
 <p>Mandatory parameters are in <strong>bold</strong>.</p>
@@ -4651,7 +4638,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
   <span class="nt">&lt;OrderDetails&gt;</span>
     ... <span class="c">&lt;!-- the OrderDetails object --&gt;</span>
   <span class="nt">&lt;OrderDetails&gt;</span>
-  <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
 <span class="nt">&lt;/CallUpdateOrderS2S&gt;</span>
 </code></pre>
 <p>Mandatory parameters are in <strong>bold</strong>. The attributes are: </p>
@@ -4754,7 +4740,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
     <span class="nt">&lt;uicCode&gt;</span>1<span class="nt">&lt;/uicCode&gt;</span>
     <span class="nt">&lt;isoCode&gt;</span>USD<span class="nt">&lt;/isoCode&gt;</span>
     <span class="nt">&lt;numericIsoCode&gt;</span>840<span class="nt">&lt;/numericIsoCode&gt;</span>
-    <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
 <span class="nt">&lt;/callExchangeRateS2S&gt;</span>
 </code></pre>
 <p>Parameters in <strong>bold</strong> are mandatory. </p>
