@@ -1329,9 +1329,29 @@ Please note:
   <span class="nt">&lt;paymentTypes&gt;</span>
     <span class="nt">&lt;paymentType&gt;</span>S2PMER<span class="nt">&lt;/paymentType&gt;</span>
   <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;BillingAddress&gt;</span>
+      <span class="c">&lt;!-- mandatory: --&gt;</span>
+      <span class="nt">&lt;CountryCode&gt;</span>BR<span class="nt">&lt;/CountryCode&gt;</span>
+    <span class="nt">&lt;/BillingAddress&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-<p>MercadoPago does not need mandatory parameters. </p>
+<p>MercadoPago requires the parameter <code class="prettyprint">BillingAddress.CountryCode</code>, children of <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a>: </p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">BillingAddress.CountryCode</code></td>
+<td style="text-align: center">2</td>
+<td>one of <code class="prettyprint">[ BR, MX, CO ]</code></td>
+</tr>
+</tbody></table>
 
 <p>You must use <code class="prettyprint">S2PMER</code> as <code class="prettyprint">paymentType</code>.</p>
 
