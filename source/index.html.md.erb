@@ -1,11 +1,11 @@
 ---
-title: API Reference
+title: Gestpay API Reference
 
 language_tabs:
   
 
 toc_footers:
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  
 
 includes:
   - wscryptdecrypt
@@ -108,3 +108,23 @@ Our services are:
 | [`js_GestPay.js`](#js_gestpay-js-api) | Mainly used to build a customized payment page. | 
 | [`WSs2s`](#wss2s-api) | Allows to control via a programmable interface many aspects of your transactions. |
 
+## Authorizing calls against Gestpay 
+
+```xml
+<Encrypt>
+  <shopLogin>GESPAY12345</shopLogin>
+   
+   <!-- Use the apikey as a field of your call -->
+   <apikey>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....</apikey>
+
+   ...
+</Encrypt>
+```
+
+Gestpay supports two ways of authenticating your calls; via **IP Address** or via **ApiKey**. You can use at least one, or both. 
+
+If you use the **IP Address** authentication mechanism, you only have to specify this setting in the Merchant Back Office. 
+
+If you use the **ApiKey**, you must add for every call the field `apiKey`. You can see an example on the side. **Keep the ApiKey secret**. 
+
+For more informations, checkout the docs for [Authentication](<%= config[:authentication_docs] %>). 

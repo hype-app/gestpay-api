@@ -11,7 +11,7 @@ WSCryptDecrypt web service is available on production and test servers and does 
 
 The merchant must implement – in the page(s) of the virtual store configured to handle payments – a call to the webservice which handles requests to use the GestPay encryption service.
 
-To request the encryption service it is necessary to call the Encrypt method.
+To request the encryption service you can call the [Encrypt](#encrypt) method.
 
 If the encryption operation is concluded correctly (`TransactionResult` tag value with OK), the encrypted data string returned by GestPay will be available by reading the value of the `CryptDecryptString` tag.
 

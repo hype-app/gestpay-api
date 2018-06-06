@@ -38,6 +38,7 @@ These are the **mandatory** fields.
 ```xml
 <Encrypt>
   <shopLogin>9000001</shopLogin>
+  <apikey>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....</apikey>
   <uicCode>242</uicCode>
   <amount>1245.6</amount>
   <shopTransactionId>34az85ord19</shopTransactionId>
@@ -55,6 +56,7 @@ These are non-mandatory fields, but are direct children of the `Encrypt` root.
 
 | Name | max length | description |
 | ---- | :--------: | ----------- |
+| `apikey` |       | If you have selected the _apiKey_ authentication method, add the `apikey` field to the call. [More details about the apiKey here](#authorizing-calls-against-gestpay). | 
 | `buyerName` | 50 | Buyer’s name and surname |
 | `buyerEmail` | 50 | Buyer’s e-mail address |
 | `languageId` | 2 | Code identifying language used in communication with buyer |

@@ -6,7 +6,7 @@ It's possible to check with or without verifying the Authorization, setting the 
 
 ### Request details 
 
-> Request example: 
+> Check a credit card: 
 
 ```xml
 <callCheckCartaS2S>
@@ -17,11 +17,19 @@ It's possible to check with or without verifying the Authorization, setting the 
   <expMonth>12</expMonth>
   <expYear>21</expYear>
   <CVV2>931</CVV2>
-  <!-- alternatively, you can check a token: 
-    <tokenValue>ABCD12345678EFGD</tokenValue>
-    -->
-    <withAuth>Y</withAuth>
-</callCheckCartaS2S>
+  <withAuth>Y</withAuth>
+</callCheckCartaS2S> 
+```
+
+> Check a token: 
+
+```xml
+<callCheckCartaS2S>
+  <shopLogin>GEST13578</shopLogin>
+  <shopTransactionId>MY-SHOP1234</shopTransactionId>
+  <tokenValue>ABCD12345678EFGD</tokenValue>
+  <withAuth>Y</withAuth>
+</callCheckCartaS2S> 
 ```
 
 Parameters in **bold** are mandatory. 
@@ -31,6 +39,7 @@ Parameters in **bold** are mandatory.
 | **`shopLogin`** | the merchant's code | string | 30 |
 | **`shopTransactionId`** | shop transaction ID value | string | 50  
 | **`withAuth`** | tries to authorize the card. <br> `Y` on `N` | string | 1  
+| `apikey` | If you have selected the _apiKey_ authentication method, add the `apikey` field to the call. [More details about the apiKey here](#authorizing-calls-against-gestpay). |  |  | 
 
 If you want to check a credit card by credit card number, month and year of expiration, use these fields: 
 
