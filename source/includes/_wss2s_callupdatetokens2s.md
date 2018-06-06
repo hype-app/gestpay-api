@@ -28,7 +28,6 @@ Mandatory parameters are in **bold**.
 | **`expiryMonth`** | Assigns card expiration month | string | 2
 | **`expiryYear`** | Assigns card expiration year | string | 2 
 | **`withAut`** | tries also to authorize the card. <br> `Y` on `N` | string | 1
-| `apikey` | If you have selected the _apiKey_ authentication method, add the `apikey` field to the call. [More details about the apiKey here](#authorizing-calls-against-gestpay). |  |  | 
 
 ### Response details 
 

@@ -30,7 +30,6 @@ Parameters in **bold** are mandatory.
 | **`expiryYear`** | card expiration year | string | 2 
 | `cvv` | security code of the card | string | 4
 | **`withAuth`** | tries to authorize the card. <br> `Y` on `N` | string | 1
-| `apikey` | If you have selected the _apiKey_ authentication method, add the `apikey` field to the call. [More details about the apiKey here](#authorizing-calls-against-gestpay). |  |  | 
  
 ### Response details
 

@@ -17,7 +17,6 @@ Mandatory parameters are in **bold**.
 | parameter name | description | type | length | 
 | -------------- | ----------- | -----|--------| 
 | **`shopLogin`** | the merchant's code | string | 30 | 
-| `apikey` | If you have selected the _apiKey_ authentication method, add the `apikey` field to the call. [More details about the apiKey here](#authorizing-calls-against-gestpay). |  |  | 
 
 
 

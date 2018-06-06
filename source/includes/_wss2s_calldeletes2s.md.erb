@@ -25,7 +25,6 @@ Mandatory parameters are in bold.
 | **`bankTransactionId`** | ID of the transaction assigned by Gestpay | number | 18
 | **`shopTransactionId`** | shop transaction ID value | string | 50 
 | `CancelReason` | free text of cancel reason.For  Gestpay Guaranteed Payment users, this field is mandatory. | string | 50 
-| `apikey` | If you have selected the _apiKey_ authentication method, add the `apikey` field to the call. [More details about the apiKey here](#authorizing-calls-against-gestpay). |  |  | 
 
 <aside class="active">
 A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransactionId</code>. However, if the <code>shopTransactionId</code> is unique, the merchant can send just <code>shopLogin</code> + <code>shopTransactionId</code>. 
