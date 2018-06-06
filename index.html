@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Gestpay API Reference</title>
  <link rel="icon" href="images/favicon.png">
     <style>
       .highlight table td { padding: 5px; }
@@ -105,9 +105,6 @@
         <ul class="search-results"></ul>
       <div id="toc">
       </div>
-        <ul class="toc-footer">
-            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
-        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
@@ -174,7 +171,7 @@
 
 <p>The merchant must implement – in the page(s) of the virtual store configured to handle payments – a call to the webservice which handles requests to use the GestPay encryption service.</p>
 
-<p>To request the encryption service it is necessary to call the Encrypt method.</p>
+<p>To request the encryption service you can call the <a href="#encrypt">Encrypt</a> method.</p>
 
 <p>If the encryption operation is concluded correctly (<code class="prettyprint">TransactionResult</code> tag value with OK), the encrypted data string returned by GestPay will be available by reading the value of the <code class="prettyprint">CryptDecryptString</code> tag.</p>
 
@@ -1302,9 +1299,29 @@ Please note:
   <span class="nt">&lt;paymentTypes&gt;</span>
     <span class="nt">&lt;paymentType&gt;</span>S2PMER<span class="nt">&lt;/paymentType&gt;</span>
   <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;OrderDetails&gt;</span>
+    <span class="nt">&lt;BillingAddress&gt;</span>
+      <span class="c">&lt;!-- mandatory: --&gt;</span>
+      <span class="nt">&lt;CountryCode&gt;</span>BR<span class="nt">&lt;/CountryCode&gt;</span>
+    <span class="nt">&lt;/BillingAddress&gt;</span>
+  <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-<p>MercadoPago does not need mandatory parameters. </p>
+<p>MercadoPago requires the parameter <code class="prettyprint">BillingAddress.CountryCode</code>, children of <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a>: </p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">BillingAddress.CountryCode</code></td>
+<td style="text-align: center">2</td>
+<td>one of <code class="prettyprint">[ BR, MX, CO ]</code></td>
+</tr>
+</tbody></table>
 
 <p>You must use <code class="prettyprint">S2PMER</code> as <code class="prettyprint">paymentType</code>.</p>
 
@@ -3697,7 +3714,7 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <h3 id="request-details"> Request details</h3>
 
 <blockquote>
-<p>Request example: </p>
+<p>Check a credit card: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;callCheckCartaS2S&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>GEST13578<span class="nt">&lt;/shopLogin&gt;</span>
@@ -3707,11 +3724,18 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
   <span class="nt">&lt;expMonth&gt;</span>12<span class="nt">&lt;/expMonth&gt;</span>
   <span class="nt">&lt;expYear&gt;</span>21<span class="nt">&lt;/expYear&gt;</span>
   <span class="nt">&lt;CVV2&gt;</span>931<span class="nt">&lt;/CVV2&gt;</span>
-  <span class="c">&lt;!-- alternatively, you can check a token: 
-    &lt;tokenValue&gt;ABCD12345678EFGD&lt;/tokenValue&gt;
-    --&gt;</span>
-    <span class="nt">&lt;withAuth&gt;</span>Y<span class="nt">&lt;/withAuth&gt;</span>
-<span class="nt">&lt;/callCheckCartaS2S&gt;</span>
+  <span class="nt">&lt;withAuth&gt;</span>Y<span class="nt">&lt;/withAuth&gt;</span>
+<span class="nt">&lt;/callCheckCartaS2S&gt;</span> 
+</code></pre>
+<blockquote>
+<p>Check a token: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;callCheckCartaS2S&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>GEST13578<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MY-SHOP1234<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;tokenValue&gt;</span>ABCD12345678EFGD<span class="nt">&lt;/tokenValue&gt;</span>
+  <span class="nt">&lt;withAuth&gt;</span>Y<span class="nt">&lt;/withAuth&gt;</span>
+<span class="nt">&lt;/callCheckCartaS2S&gt;</span> 
 </code></pre>
 <p>Parameters in <strong>bold</strong> are mandatory. </p>
 
@@ -4629,12 +4653,12 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <blockquote>
 <p>Request example:</p>
 </blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;eco:callExchangeRateS2S&gt;</span>
-    <span class="nt">&lt;eco:shopLogin&gt;</span>GESPAY65987<span class="nt">&lt;/eco:shopLogin&gt;</span>
-    <span class="nt">&lt;eco:uicCode&gt;</span>1<span class="nt">&lt;/eco:uicCode&gt;</span>
-    <span class="nt">&lt;eco:isoCode&gt;</span>USD<span class="nt">&lt;/eco:isoCode&gt;</span>
-    <span class="nt">&lt;eco:numericIsoCode&gt;</span>840<span class="nt">&lt;/eco:numericIsoCode&gt;</span>
-<span class="nt">&lt;/eco:callExchangeRateS2S&gt;</span>
+<pre class="highlight xml"><code><span class="nt">&lt;callExchangeRateS2S&gt;</span>
+    <span class="nt">&lt;shopLogin&gt;</span>GESPAY65987<span class="nt">&lt;/shopLogin&gt;</span>
+    <span class="nt">&lt;uicCode&gt;</span>1<span class="nt">&lt;/uicCode&gt;</span>
+    <span class="nt">&lt;isoCode&gt;</span>USD<span class="nt">&lt;/isoCode&gt;</span>
+    <span class="nt">&lt;numericIsoCode&gt;</span>840<span class="nt">&lt;/numericIsoCode&gt;</span>
+<span class="nt">&lt;/callExchangeRateS2S&gt;</span>
 </code></pre>
 <p>Parameters in <strong>bold</strong> are mandatory. </p>
 
