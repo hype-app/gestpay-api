@@ -27,7 +27,6 @@ Mandatory parameters are in **bold**. The attributes are:
 | **`shopTransactionId`** | shop transaction ID value | string | 50 |
 | **`bankTransactionId`** | the bank ID value | string | 50 |
 | **`OrderDetails`** | contains every other info needed to evaluate the payment. Refer to [OrderDetails](#orderdetails) for a detailed description of its fields. 
-| `apikey` | If you have selected the _apiKey_ authentication method, add the `apikey` field to the call. [More details about the apiKey here](#authorizing-calls-against-gestpay). |  |  | 
 
 <aside class="active">
 A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransactionId</code>. However, if the <code>shopTransactionId</code> is unique, the merchant can just send <code>shopLogin</code> + <code>shopTransactionId</code>. 

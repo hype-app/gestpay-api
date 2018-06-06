@@ -26,7 +26,6 @@ Parameters in **bold** are mandatory.
 | **`expMonth`** | card expiration month | string | 2
 | **`expYear`** | card expiration year | string | 2 
 | **`CVV2`** | security code of the card | string | 4
-| `apikey` | If you have selected the _apiKey_ authentication method, add the `apikey` field to the call. [More details about the apiKey here](#authorizing-calls-against-gestpay). |  |  | 
  
 ### Response details
 

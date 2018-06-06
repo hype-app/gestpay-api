@@ -19,7 +19,6 @@ Mandatory parameters are in **bold**.
 | -------------- | ----------- | -----|--------| 
 | **`shopLogin`** | the merchant's code | string | 30 | 
 | **`languageId`** | Assigns the response language of the Bank list. Values: <br><ul><li>`1` Italian</li><li>`2` English</li><li>`3` Spanish</li><li>`4` French</li><li>`5` German</li></ul> | number | 2 | 
-| `apikey` | If you have selected the _apiKey_ authentication method, add the `apikey` field to the call. [More details about the apiKey here](#authorizing-calls-against-gestpay). |  |  | 
 
 
 
