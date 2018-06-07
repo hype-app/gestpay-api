@@ -147,24 +147,6 @@
 </tr>
 </tbody></table>
 
-<h2 id="authorizing-calls-against-gestpay">Authorizing calls against Gestpay</h2>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>GESPAY12345<span class="nt">&lt;/shopLogin&gt;</span>
-
-   <span class="c">&lt;!-- Use the apikey as a field of your call --&gt;</span>
-   <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
-
-   ...
-<span class="nt">&lt;/Encrypt&gt;</span>
-</code></pre>
-<p>Gestpay supports two ways of authenticating your calls; via <strong>IP Address</strong> or via <strong>ApiKey</strong>. You can use at least one, or both. </p>
-
-<p>If you use the <strong>IP Address</strong> authentication mechanism, you only have to specify this setting in the Merchant Back Office. </p>
-
-<p>If you use the <strong>ApiKey</strong>, you must add for every call the field <code class="prettyprint">apiKey</code>. You can see an example on the side. <strong>Keep the ApiKey secret</strong>. </p>
-
-<p>For more informations, checkout the docs for <a href="http://docs.gestpay.it/gs/how-gestpay-works.html#authentication">Authentication</a>. </p>
-
           <h1 id="wscryptdecrypt-api">WSCryptDecrypt API</h1>
 
 <p>GestPay <code class="prettyprint">WsCryptDecrypt</code> web service is exposed by GestPay at following URLs: </p>
@@ -255,7 +237,6 @@
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
   <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
   <span class="nt">&lt;amount&gt;</span>1245.6<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
@@ -276,11 +257,6 @@
 <th>description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><code class="prettyprint">apikey</code></td>
-<td style="text-align: center"></td>
-<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
-</tr>
 <tr>
 <td><code class="prettyprint">buyerName</code></td>
 <td style="text-align: center">50</td>
@@ -475,7 +451,6 @@
 <pre class="highlight xml"><code> <span class="nt">&lt;Decrypt&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
   <span class="nt">&lt;CryptedString&gt;</span>HT987YU....<span class="nt">&lt;/CryptedString&gt;</span>
-  ...
  <span class="nt">&lt;/Decrypt&gt;</span>
 </code></pre>
 <p>GestPay communicates the payment transaction result to the merchant through an encrypted string (parameter b of the call to the url preconfigured by the merchant) with a set of transaction&rsquo;s informations.</p>
@@ -498,11 +473,6 @@
 <td><code class="prettyprint">CryptedString</code></td>
 <td style="text-align: center">&hellip;&hellip;</td>
 <td>Encrypted string get by parameter b of the call to the url preconfigured by the merchant</td>
-</tr>
-<tr>
-<td><code class="prettyprint">apikey</code></td>
-<td style="text-align: center"></td>
-<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
 </tr>
 </tbody></table>
 
@@ -826,6 +796,29 @@
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
 <p>Amazon Pay does not need any mandatory parameters. Use <code class="prettyprint">AMAZONPAY</code>  as Payment Type and the user will be redirected to Amazon Pay. </p>
+
+<aside class="notice">
+The shopTransactionId must be unique. 
+</aside>
+
+          <h2 id="callpagams2s-example-amazon-pay">callPagamS2S Example: Amazon Pay</h2>
+
+<blockquote>
+<p>Amazon Pay example via S2S: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;callPagamS2S&gt;</span>
+    <span class="nt">&lt;shopLogin&gt;</span>9000002<span class="nt">&lt;/shopLogin&gt;</span>
+    <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- euro --&gt;</span>
+    <span class="nt">&lt;amount&gt;</span>24.21<span class="nt">&lt;/amount&gt;</span>
+    <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-0001<span class="nt">&lt;/shopTransactionId&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>AMAZONPAY<span class="nt">&lt;/paymentType&gt;</span>
+    <span class="nt">&lt;transKey&gt;</span>123456789sdfasdgdgf...<span class="nt">&lt;/transkey&gt;</span>
+<span class="nt">&lt;/callPagamS2S&gt;</span>
+
+</code></pre>
+<p>If you implement AmazonPay in your shop by using Amazon widgets for address and cards, you can finalize the call by calling <a href="#callpagams2s"><code class="prettyprint">CallPagamS2S</code></a>. </p>
+
+<p>Use <code class="prettyprint">AMAZONPAY</code> for the <code class="prettyprint">paymentType</code> and send the <strong>Amazon Order Reference ID</strong> in the <code class="prettyprint">transKey</code> field. </p>
 
 <aside class="notice">
 The shopTransactionId must be unique. 
@@ -2330,39 +2323,39 @@ Please note:
 <p>request example: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;callPagamS2S&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>9000002<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- euro --&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>24.21<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-0001<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="c">&lt;!-- here we have choosen to pay with credit card data --&gt;</span>
-  <span class="nt">&lt;cardNumber&gt;</span>1234567812345678<span class="nt">&lt;/cardNumber&gt;</span>
-  <span class="nt">&lt;expiryMonth&gt;</span>06<span class="nt">&lt;/expiryMonth&gt;</span>
-  <span class="nt">&lt;expiryYear&gt;</span>21<span class="nt">&lt;/expiryYear&gt;</span>
-  <span class="c">&lt;!-- if we wanted to pay by token: 
-  &lt;tokenValue&gt;ABCD12345678EFGD&lt;/tokenValue&gt;
-  --&gt;</span>
-  <span class="nt">&lt;buyerName&gt;</span>John Fitzgerald Kennedy<span class="nt">&lt;/buyerName&gt;</span>
-  <span class="nt">&lt;buyerEmail&gt;</span>johnny.kennedy@usa.com<span class="nt">&lt;/buyerEmail&gt;</span>
-  <span class="nt">&lt;languageId&gt;</span>2<span class="nt">&lt;/languageId&gt;</span><span class="c">&lt;!-- english --&gt;</span>
-  <span class="nt">&lt;cvv&gt;</span>987<span class="nt">&lt;/cvv&gt;</span>
-  <span class="nt">&lt;PARes</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;transKey</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;customInfo&gt;&lt;/customInfo&gt;</span>
-  <span class="nt">&lt;requestToken&gt;</span>MASKEDPAN<span class="nt">&lt;/requestToken&gt;</span>
-  <span class="nt">&lt;itemType&gt;</span>physical<span class="nt">&lt;/itemType&gt;</span>
-  <span class="nt">&lt;recurrent&gt;</span>false<span class="nt">&lt;/recurrent&gt;</span>
-  <span class="nt">&lt;shippingDetails&gt;</span>
-      <span class="nt">&lt;shipToName&gt;</span>Jonny Kennedy<span class="nt">&lt;/shipToName&gt;</span>
-      <span class="nt">&lt;shipToStreet&gt;</span>83 Beals street<span class="nt">&lt;/shipToStreet&gt;</span>
-      <span class="nt">&lt;shipToCity&gt;</span>Brookline<span class="nt">&lt;/shipToCity&gt;</span>
-      <span class="nt">&lt;shipToState&gt;</span>MA<span class="nt">&lt;/shipToState&gt;</span>
-      <span class="nt">&lt;shipToCountryCode&gt;</span>US<span class="nt">&lt;/shipToCountryCode&gt;</span>
-      <span class="nt">&lt;shipToZip&gt;</span>02446<span class="nt">&lt;/shipToZip&gt;</span>
-      <span class="nt">&lt;shipToStreet2</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;/shippingDetails&gt;</span>
-  <span class="nt">&lt;OrderDetails&gt;</span>
-    ... 
-  <span class="nt">&lt;/OrderDetails&gt;</span>
+    <span class="nt">&lt;shopLogin&gt;</span>9000002<span class="nt">&lt;/shopLogin&gt;</span>
+    <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- euro --&gt;</span>
+    <span class="nt">&lt;amount&gt;</span>24.21<span class="nt">&lt;/amount&gt;</span>
+    <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-0001<span class="nt">&lt;/shopTransactionId&gt;</span>
+    <span class="c">&lt;!-- here we have choosen to pay with credit card data --&gt;</span>
+    <span class="nt">&lt;cardNumber&gt;</span>1234567812345678<span class="nt">&lt;/cardNumber&gt;</span>
+    <span class="nt">&lt;expiryMonth&gt;</span>06<span class="nt">&lt;/expiryMonth&gt;</span>
+    <span class="nt">&lt;expiryYear&gt;</span>21<span class="nt">&lt;/expiryYear&gt;</span>
+    <span class="c">&lt;!-- if we wanted to pay by token: 
+    &lt;tokenValue&gt;ABCD12345678EFGD&lt;/tokenValue&gt;
+    --&gt;</span>
+    <span class="nt">&lt;buyerName&gt;</span>John Fitzgerald Kennedy<span class="nt">&lt;/buyerName&gt;</span>
+    <span class="nt">&lt;buyerEmail&gt;</span>johnny.kennedy@usa.com<span class="nt">&lt;/buyerEmail&gt;</span>
+    <span class="nt">&lt;languageId&gt;</span>2<span class="nt">&lt;/languageId&gt;</span><span class="c">&lt;!-- english --&gt;</span>
+    <span class="nt">&lt;cvv&gt;</span>987<span class="nt">&lt;/cvv&gt;</span>
+    <span class="nt">&lt;PARes</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;transKey</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;customInfo&gt;&lt;/customInfo&gt;</span>
+    <span class="nt">&lt;requestToken&gt;</span>MASKEDPAN<span class="nt">&lt;/requestToken&gt;</span>
+    <span class="nt">&lt;itemType&gt;</span>physical<span class="nt">&lt;/itemType&gt;</span>
+    <span class="nt">&lt;recurrent&gt;</span>false<span class="nt">&lt;/recurrent&gt;</span>
+    <span class="nt">&lt;shippingDetails&gt;</span>
+        <span class="nt">&lt;shipToName&gt;</span>Jonny Kennedy<span class="nt">&lt;/shipToName&gt;</span>
+        <span class="nt">&lt;shipToStreet&gt;</span>83 Beals street<span class="nt">&lt;/shipToStreet&gt;</span>
+        <span class="nt">&lt;shipToCity&gt;</span>Brookline<span class="nt">&lt;/shipToCity&gt;</span>
+        <span class="nt">&lt;shipToState&gt;</span>MA<span class="nt">&lt;/shipToState&gt;</span>
+        <span class="nt">&lt;shipToCountryCode&gt;</span>US<span class="nt">&lt;/shipToCountryCode&gt;</span>
+        <span class="nt">&lt;shipToZip&gt;</span>02446<span class="nt">&lt;/shipToZip&gt;</span>
+        <span class="nt">&lt;shipToStreet2</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/shippingDetails&gt;</span>
+    <span class="nt">&lt;OrderDetails&gt;</span>
+      ... 
+    <span class="nt">&lt;/OrderDetails&gt;</span>
 <span class="nt">&lt;/callPagamS2S&gt;</span>
 </code></pre>
 <p>First we describe the mandatory attributes. </p>
@@ -2461,12 +2454,6 @@ Please note:
 <th>max length</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><code class="prettyprint">apikey</code></td>
-<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
-<td></td>
-<td></td>
-</tr>
 <tr>
 <td><code class="prettyprint">buyerEmail</code></td>
 <td>buyer’s e-mail address. Using <code class="prettyprint">:NOSEND:</code> before the email address, it&rsquo; s possible to pass the email information but avoid to send an email to the buyer.</td>
@@ -2855,12 +2842,6 @@ Please note:
 <td></td>
 <td></td>
 </tr>
-<tr>
-<td><code class="prettyprint">apikey</code></td>
-<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
 
 <aside class="active">
@@ -3089,12 +3070,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td>string</td>
 <td>50</td>
 </tr>
-<tr>
-<td><code class="prettyprint">apikey</code></td>
-<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
 
 <aside class="active">
@@ -3233,12 +3208,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td></td>
 <td></td>
 </tr>
-<tr>
-<td><code class="prettyprint">apikey</code></td>
-<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
 
 <aside class="active">
@@ -3339,12 +3308,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td>shop transaction ID value</td>
 <td>string</td>
 <td>50</td>
-</tr>
-<tr>
-<td><code class="prettyprint">apikey</code></td>
-<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
-<td></td>
-<td></td>
 </tr>
 </tbody></table>
 
@@ -3715,12 +3678,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td>string</td>
 <td>4</td>
 </tr>
-<tr>
-<td><code class="prettyprint">apikey</code></td>
-<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
 
 <h3 id="response-details">Response details</h3>
@@ -3830,12 +3787,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td>tries to authorize the card. <br> <code class="prettyprint">Y</code> on <code class="prettyprint">N</code></td>
 <td>string</td>
 <td>1</td>
-</tr>
-<tr>
-<td><code class="prettyprint">apikey</code></td>
-<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
-<td></td>
-<td></td>
 </tr>
 </tbody></table>
 
@@ -4104,12 +4055,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td>tries to authorize the card. <br> <code class="prettyprint">Y</code> on <code class="prettyprint">N</code></td>
 <td>string</td>
 <td>1</td>
-</tr>
-<tr>
-<td><code class="prettyprint">apikey</code></td>
-<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
-<td></td>
-<td></td>
 </tr>
 </tbody></table>
 
@@ -4403,12 +4348,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td>string</td>
 <td>1</td>
 </tr>
-<tr>
-<td><code class="prettyprint">apikey</code></td>
-<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
 
 <h3 id="response-details">Response details</h3>
@@ -4477,12 +4416,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td>the merchant&rsquo;s code</td>
 <td>string</td>
 <td>30</td>
-</tr>
-<tr>
-<td><code class="prettyprint">apikey</code></td>
-<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
-<td></td>
-<td></td>
 </tr>
 </tbody></table>
 
@@ -4576,12 +4509,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td>Assigns the response language of the Bank list. Values: <br><ul><li><code class="prettyprint">1</code> Italian</li><li><code class="prettyprint">2</code> English</li><li><code class="prettyprint">3</code> Spanish</li><li><code class="prettyprint">4</code> French</li><li><code class="prettyprint">5</code> German</li></ul></td>
 <td>number</td>
 <td>2</td>
-</tr>
-<tr>
-<td><code class="prettyprint">apikey</code></td>
-<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
-<td></td>
-<td></td>
 </tr>
 </tbody></table>
 
@@ -4694,12 +4621,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td></td>
 <td></td>
 </tr>
-<tr>
-<td><code class="prettyprint">apikey</code></td>
-<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
 
 <aside class="active">
@@ -4795,12 +4716,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td>the <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO code</a> - see the <code class="prettyprint">Num</code> column.</td>
 <td>string</td>
 <td>10</td>
-</tr>
-<tr>
-<td><code class="prettyprint">apikey</code></td>
-<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
-<td></td>
-<td></td>
 </tr>
 </tbody></table>
 
