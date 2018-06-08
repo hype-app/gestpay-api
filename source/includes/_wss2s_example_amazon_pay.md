@@ -1,5 +1,5 @@
 
-## callPagamS2S Example: Amazon Pay
+## WSS2S Example: Amazon Pay
 
 > Amazon Pay example via S2S: 
 
@@ -9,7 +9,9 @@
     <uicCode>242</uicCode><!-- euro -->
     <amount>24.21</amount>
     <shopTransactionId>MYSHOP-0001</shopTransactionId>
-    <paymentType>AMAZONPAY</paymentType>
+    <paymentTypes>
+        <paymentType>AMAZONPAY</paymentType>
+    <paymentTypes>
     <transKey>123456789sdfasdgdgf...</transkey>
 </callPagamS2S>
 
