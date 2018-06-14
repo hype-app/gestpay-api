@@ -47,17 +47,7 @@ html, body {
   width: 20px;
 }
 
-<<<<<<< HEAD
-
-@mixin embossed-bg {
-  background:
-    $nav-subitem-bg;
-}
-
-.tocify-wrapper {
-=======
 .toc-wrapper {
->>>>>>> 2245e95e485f9a2e583890a118aadc1bab964eac
   transition: left 0.3s ease-in-out;
   border-right: 1px solid #D4D4D9;
   overflow-y: auto;
@@ -85,12 +75,7 @@ html, body {
   .logo {
     display: block;
     max-width: 100%;
-<<<<<<< HEAD
-    padding: 28px 18px;
-    width: 175px;
-=======
     margin-bottom: $logo-margin;
->>>>>>> 2245e95e485f9a2e583890a118aadc1bab964eac
   }
 
   &>.search {
@@ -167,11 +152,7 @@ html, body {
   }
 
   // This is the currently selected ToC entry
-<<<<<<< HEAD
-  .tocify-focus {
-=======
   .toc-link.active {
->>>>>>> 2245e95e485f9a2e583890a118aadc1bab964eac
     background-color: $nav-active-bg;
     color: $nav-active-text;
   }
@@ -186,14 +167,7 @@ html, body {
     display: none;
     background-color: $nav-subitem-bg;
     font-weight: 500;
-<<<<<<< HEAD
-    .tocify-item>a {
-      padding-left: $nav-padding + $nav-indent;
-      font-size: 13px;
-    }
-=======
   }
->>>>>>> 2245e95e485f9a2e583890a118aadc1bab964eac
 
   .toc-h2 {
     padding-left: $nav-padding + $nav-indent;
@@ -375,23 +349,14 @@ html, body {
 
   h1 {
     @extend %header-font;
-<<<<<<< HEAD
-    font-size: 28px;
-=======
     font-size: 25px;
->>>>>>> 2245e95e485f9a2e583890a118aadc1bab964eac
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
-<<<<<<< HEAD
-    border-top: 1px solid #ddd;
-    background-color: #F8F8F8;
-=======
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     background-color: #fdfdfd;
->>>>>>> 2245e95e485f9a2e583890a118aadc1bab964eac
   }
 
   h1:first-child, div:first-child + h1 {
@@ -401,11 +366,7 @@ html, body {
 
   h2 {
     @extend %header-font;
-<<<<<<< HEAD
-    font-size: 28px;
-=======
     font-size: 19px;
->>>>>>> 2245e95e485f9a2e583890a118aadc1bab964eac
     margin-top: 4em;
     margin-bottom: 0;
     border-top: 1px solid #ccc;
