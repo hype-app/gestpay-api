@@ -1,3 +1,6 @@
+# Unique header generation
+require './lib/unique_head.rb'
+
 # Markdown
 set :markdown_engine, :redcarpet
 set :markdown,
@@ -7,7 +10,8 @@ set :markdown,
     prettify: true,
     tables: true,
     with_toc_data: true,
-    no_intra_emphasis: true
+    no_intra_emphasis: true,
+    renderer: UniqueHeadCounter
 
 # Assets
 set :css_dir, 'stylesheets'
@@ -17,6 +21,9 @@ set :fonts_dir, 'fonts'
 
 # Activate the syntax highlighter
 activate :syntax
+ready do
+  require './lib/multilang.rb'
+end
 
 activate :sprockets
 
@@ -46,12 +53,15 @@ end
 set :port, 4567
 
 #to use this, <%= config[:doc_url] %>
-set :doc_url, "http://docs.gestpay.it"  
+set :doc_url, "http://docs.gestpay.it"
 
 set :authentication_docs, config[:doc_url] + "/gs/how-gestpay-works.html#authentication"
 
 #<%= config[:riskified] %>
-set :riskified, "Gestpay Guaranteed Payment" 
+set :riskified, "Gestpay Guaranteed Payment"
 
 activate :livereload
 
+helpers do
+  require './lib/toc_data.rb'
+end
