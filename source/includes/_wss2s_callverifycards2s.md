@@ -1,8 +1,8 @@
-## CallVerifycardS2S
+### CallVerifycardS2S
 
 Merchants can use this method to check the Credit Card. 
 
-### Request details 
+#### Request details 
 
 > Request example: 
 
@@ -27,7 +27,7 @@ Parameters in **bold** are mandatory.
 | **`expYear`** | card expiration year | string | 2 
 | **`CVV2`** | security code of the card | string | 4
  
-### Response details
+#### Response details
 
 > Response example: 
 

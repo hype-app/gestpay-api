@@ -1,4 +1,4 @@
-# WsS2S API
+## WsS2S API
 
 *Server to Server* communication between merchants and GestPay is managed by consuming WSs2s [SOAP](http://www.w3.org/TR/soap/) web service.
 

@@ -1,10 +1,10 @@
-## callCheckCartaS2S
+### callCheckCartaS2S
 
 Merchants can use this method to check the Credit Card. 
 
 It's possible to check with or without verifying the Authorization, setting the flag `withAuth`.
 
-### Request details 
+#### Request details 
 
 > Check a credit card: 
 
@@ -57,7 +57,7 @@ Alternatively, you can use  `tokenValue` to check if a token is still valid:
 
 <aside class="notice">You must use <strong>exactly one</strong> among <strong>Credit Card data</strong> and <strong>Token value</strong>.</aside>
 
-### Response details
+#### Response details
 
 > Response example: 
 

@@ -1,10 +1,10 @@
-## CallUpdateOrderS2S
+### CallUpdateOrderS2S
 
 <aside class="notice">This service is intended to be used only by Gestpay Guaranteed Payment users.</aside>
 
 Merchants can use this method to update the order values for Risk Fraud management. For example, if the buyer changes the Shipping Address, this must be notified to Gestpay Guaranteed Payment in order to review again the Order. Gestpay Guaranteed Payment decides if the Order must be reviewed based on the changed values.
 
-### Request parameters
+#### Request parameters
 
 > request example: 
 
@@ -32,7 +32,7 @@ Mandatory parameters are in **bold**. The attributes are:
 A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransactionId</code>. However, if the <code>shopTransactionId</code> is unique, the merchant can just send <code>shopLogin</code> + <code>shopTransactionId</code>. 
 </aside>
 
-### Response fields 
+#### Response fields 
 
 > response example: 
 

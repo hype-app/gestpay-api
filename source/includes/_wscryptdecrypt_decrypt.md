@@ -1,5 +1,5 @@
 
-## Decrypt
+### Decrypt
 
 > A `Decrypt` request: 
 

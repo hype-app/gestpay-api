@@ -1,9 +1,9 @@
-## CallRequestTokenS2S
+### CallRequestTokenS2S
 
 Merchants can use this method to request the token generation for a Credit Card. This token can be generated as Standard Format or Custom Format. Tokens created by merchants belonging to a group will be available to all the merchants of the same group.
 
 
-### Request details 
+#### Request details 
 
 > Request example: 
 
@@ -31,7 +31,7 @@ Parameters in **bold** are mandatory.
 | `cvv` | security code of the card | string | 4
 | **`withAuth`** | tries to authorize the card. <br> `Y` on `N` | string | 1
  
-### Response details
+#### Response details
 
 > Response example: 
 

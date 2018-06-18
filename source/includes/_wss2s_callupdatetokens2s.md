@@ -1,11 +1,11 @@
-## CallUpdateTokenS2S 
+### CallUpdateTokenS2S 
 
 Merchants can use this method to update the expiry date of a token.
 
 Merchants belonging to a group are allowed to update also tokens created by other merchants of the same group. If a merchant belongs to a group, can update also token created by the other group's merchants.
 
 
-### Request details 
+#### Request details 
 
 > Request example: 
 
@@ -29,7 +29,7 @@ Mandatory parameters are in **bold**.
 | **`expiryYear`** | Assigns card expiration year | string | 2 
 | **`withAut`** | tries also to authorize the card. <br> `Y` on `N` | string | 1
 
-### Response details 
+#### Response details 
 
 > Response example: 
 

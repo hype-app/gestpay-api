@@ -1,10 +1,10 @@
-## CallReadTrxS2S 
+### CallReadTrxS2S 
 
 This method will return the transaction status. 
 
 This method can be called with a mandatory `shopLogin`, then it's possible to pass `shopTransactionId` or `bankTransactionId` or both. If only `shopLogin` and `shopTransactionId` are passed, it’s mandatory that the last one is unique.
 
-### Request details 
+#### Request details 
 
 > Example request: 
 
@@ -27,7 +27,7 @@ Parameters in **bold** are mandatory.
 A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransactionId</code>. However, if the <code>shopTransactionId</code> is unique, the merchant can just send <code>shopLogin</code> + <code>shopTransactionId</code>. 
 </aside>
 
-### Response details 
+#### Response details 
 
 > Response example 
 

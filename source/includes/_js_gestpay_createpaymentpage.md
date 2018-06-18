@@ -1,4 +1,4 @@
-## CreatePaymentPage
+### CreatePaymentPage
 
 > Syntax: 
 

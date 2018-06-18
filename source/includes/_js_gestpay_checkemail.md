@@ -1,4 +1,4 @@
-## checkEMAIL
+### checkEMAIL
 
 > syntax: 
 
