@@ -39,6 +39,7 @@ Parameters in **bold** are mandatory.
 | **`shopLogin`** | the merchant's code | string | 30 |
 | **`shopTransactionId`** | shop transaction ID value | string | 50  
 | **`withAuth`** | tries to authorize the card. <br> `Y` on `N` | string | 1  
+| `apikey` | If you have selected the _apiKey_ authentication method, add the `apikey` field to the call. [More details about the apiKey here](#authorizing-calls-against-gestpay). |  |  | 
 
 If you want to check a credit card by credit card number, month and year of expiration, use these fields: 
 
