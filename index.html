@@ -147,6 +147,24 @@
 </tr>
 </tbody></table>
 
+<h2 id="authorizing-calls-against-gestpay">Authorizing calls against Gestpay</h2>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>GESPAY12345<span class="nt">&lt;/shopLogin&gt;</span>
+
+   <span class="c">&lt;!-- Use the apikey as a field of your call --&gt;</span>
+   <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
+
+   ...
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>Gestpay supports two ways of authenticating your calls; via <strong>IP Address</strong> or via <strong>ApiKey</strong>. You can use at least one, or both. </p>
+
+<p>If you use the <strong>IP Address</strong> authentication mechanism, you only have to specify this setting in the Merchant Back Office. </p>
+
+<p>If you use the <strong>ApiKey</strong>, you must add for every call the field <code class="prettyprint">apiKey</code>. You can see an example on the side. <strong>Keep the ApiKey secret</strong>. </p>
+
+<p>For more informations, checkout the docs for <a href="http://docs.gestpay.it/gs/how-gestpay-works.html#authentication">Authentication</a>. </p>
+
           <h1 id="wscryptdecrypt-api">WSCryptDecrypt API</h1>
 
 <p>GestPay <code class="prettyprint">WsCryptDecrypt</code> web service is exposed by GestPay at following URLs: </p>
@@ -237,6 +255,7 @@
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;apikey&gt;</span>YZejApM8AfnBzmvmMsMIp0y1V91aakQY....<span class="nt">&lt;/apikey&gt;</span>
   <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
   <span class="nt">&lt;amount&gt;</span>1245.6<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
@@ -257,6 +276,11 @@
 <th>description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code class="prettyprint">apikey</code></td>
+<td style="text-align: center"></td>
+<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
+</tr>
 <tr>
 <td><code class="prettyprint">buyerName</code></td>
 <td style="text-align: center">50</td>
@@ -474,6 +498,11 @@
 <td><code class="prettyprint">CryptedString</code></td>
 <td style="text-align: center">&hellip;&hellip;</td>
 <td>Encrypted string get by parameter b of the call to the url preconfigured by the merchant</td>
+</tr>
+<tr>
+<td><code class="prettyprint">apikey</code></td>
+<td style="text-align: center"></td>
+<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
 </tr>
 </tbody></table>
 
@@ -2458,6 +2487,12 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
+<td><code class="prettyprint">apikey</code></td>
+<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td><code class="prettyprint">buyerEmail</code></td>
 <td>buyer’s e-mail address. Using <code class="prettyprint">:NOSEND:</code> before the email address, it&rsquo; s possible to pass the email information but avoid to send an email to the buyer.</td>
 <td>string</td>
@@ -2845,6 +2880,12 @@ Please note:
 <td></td>
 <td></td>
 </tr>
+<tr>
+<td><code class="prettyprint">apikey</code></td>
+<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <aside class="active">
@@ -3073,6 +3114,12 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td>string</td>
 <td>50</td>
 </tr>
+<tr>
+<td><code class="prettyprint">apikey</code></td>
+<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <aside class="active">
@@ -3211,6 +3258,12 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td></td>
 <td></td>
 </tr>
+<tr>
+<td><code class="prettyprint">apikey</code></td>
+<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <aside class="active">
@@ -3311,6 +3364,12 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td>shop transaction ID value</td>
 <td>string</td>
 <td>50</td>
+</tr>
+<tr>
+<td><code class="prettyprint">apikey</code></td>
+<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -3681,6 +3740,12 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td>string</td>
 <td>4</td>
 </tr>
+<tr>
+<td><code class="prettyprint">apikey</code></td>
+<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h3 id="response-details">Response details</h3>
@@ -3790,6 +3855,12 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td>tries to authorize the card. <br> <code class="prettyprint">Y</code> on <code class="prettyprint">N</code></td>
 <td>string</td>
 <td>1</td>
+</tr>
+<tr>
+<td><code class="prettyprint">apikey</code></td>
+<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -4058,6 +4129,12 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td>tries to authorize the card. <br> <code class="prettyprint">Y</code> on <code class="prettyprint">N</code></td>
 <td>string</td>
 <td>1</td>
+</tr>
+<tr>
+<td><code class="prettyprint">apikey</code></td>
+<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -4351,6 +4428,12 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td>string</td>
 <td>1</td>
 </tr>
+<tr>
+<td><code class="prettyprint">apikey</code></td>
+<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h3 id="response-details">Response details</h3>
@@ -4419,6 +4502,12 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td>the merchant&rsquo;s code</td>
 <td>string</td>
 <td>30</td>
+</tr>
+<tr>
+<td><code class="prettyprint">apikey</code></td>
+<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -4512,6 +4601,12 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td>Assigns the response language of the Bank list. Values: <br><ul><li><code class="prettyprint">1</code> Italian</li><li><code class="prettyprint">2</code> English</li><li><code class="prettyprint">3</code> Spanish</li><li><code class="prettyprint">4</code> French</li><li><code class="prettyprint">5</code> German</li></ul></td>
 <td>number</td>
 <td>2</td>
+</tr>
+<tr>
+<td><code class="prettyprint">apikey</code></td>
+<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -4624,6 +4719,12 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td></td>
 <td></td>
 </tr>
+<tr>
+<td><code class="prettyprint">apikey</code></td>
+<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <aside class="active">
@@ -4719,6 +4820,12 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td>the <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO code</a> - see the <code class="prettyprint">Num</code> column.</td>
 <td>string</td>
 <td>10</td>
+</tr>
+<tr>
+<td><code class="prettyprint">apikey</code></td>
+<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
 
