@@ -67,7 +67,7 @@ Body data:
 | ----- | ----------- | ------- | 
 | `shopLogin` | Your shop login | `GESPAY12345` |
 | `search.name` | the name of a saved search. | `today_transactions`
-| `search.searchID` | ??? | 
+| `search.searchID` | `00001` | 
 | `dateFrom` | Search start date | `01/01/2017` |
 | `dateTo` | Search end date  |  `31/12/2017` |
 | `authorizedAmount.from` | Search for transactions that have an authorized amount greater than `authorizedAmount.from`. | `100.01` | 
@@ -76,29 +76,29 @@ Body data:
 | `capturedAmount.to` | Search for transactions that have a captured amount lower than `capturedAmount.from`. | `100` |  | 
 | `lastNDays` | retrieve transactions for the last `N` days | `3` |
 | `currency` | an array containing the values to be checked against the transaction. They must be a valid [ISO code](#currency-codes). | `[EUR, USD]` |
-| `bankTransactionID` | select transactions with this `bankTransactionID` value. | `33` | 
-| `shopTransactionID`| select transactions with this `bankTransactionID` value. | `my_shop_id_42` | 
-| `authorizationCode` | ??? | `1123454`
-| ` paymentID` | select transactions with this `paymentID` | `abc123653` | 
-| `authorizationResult` | select transactions whose authorizationResult is contained in the array. | ??? | 
-| `tdLevel` | 3dSecure level | `"HALF"`
+| `bankTransactionID` | An ID assigned by the bank. | `33` | 
+| `shopTransactionID`| The `shopTransactionID` is the ID assigned by the shop. | `my_shop_id_42` | 
+| `authorizationCode` | The authorization code is a code released by the payment circuit. | `1123454`
+| ` paymentID` | Assigned by Gestpay, identifies the payment | `abc123653` | 
+| `authorizationResult` | select transactions whose authorizationResult is contained in the array. | `OK`, `KO`, `NULL` | 
+| `tdLevel` | 3dSecure level | `HALF`, `FULL`
 | `event.type` | One of the [event types](#event-types) | `MOV`
-| `event.from` | ???
-| `event.to` | ???
-| `event.lastNDays` | ???
-| `event.includeToday` | ???
-| `transactionState` | the state of the transaction. | `AUT`, `MOV`... ??? |
+| `event.from` | Search for events occurred after this date | `01/01/2018`
+| `event.to` | Search for events occurred before this date | `31/12/2018`
+| `event.lastNDays` | Search the last *N* days | `7`
+| `event.includeToday` | True or false | `true` 
+| `transactionState` | the last state of the transaction. See [event types](#event-types) for details | `MOV` |
 | `paymentMethod.paymentType` | the [paymentType](#payment-type-codes) for this transaction | e.g. `CREDITCARD`, `PAYPAL`... 
 | `paymentMethod.name` | The common name of the payment method | `VISA BVB`
-| `riskAlert` | use `Y` to select transactions associated with a high risk | ???
+| `riskAlert` | use `Y` to select transactions associated with a high risk | `Y` or `N`
 | `customFields.customName` | You can even search by a custom parameter and its value. Just put the `customName` set as the key and use the value as the search field. |  `{ "MY_CUSTOM_PARAM" : "customValue123" }`
-| `rangeResults` | ???
-
+| `rangeResults` | Specify which records you want to read. The first number is the starting point, the last number is the last element. | `11/20`
 
 
 #### Response 
 
-> Response for the success case: 
+> Success response:<br>
+> `200 OK`
 
 ```json
 {
@@ -169,9 +169,12 @@ Body data:
 }
 ```
 
-> Client error: 
+> Client error: <br>
+> `400 Bad Request`
 
 ```json
+
+
 {
   "error": {
     "code": "1105",
@@ -181,8 +184,9 @@ Body data:
 }
 ```
 
-> Unauthorized request: 
-
+> Unauthorized request: <br>
+> `403 Forbidden Access`
+> 
 ```json
 {
   "error": {
@@ -193,7 +197,8 @@ Body data:
 }
 ```
 
-> General error: 
+> General error: <br>
+> 500 System Error
 
 ```json
 {
@@ -241,8 +246,9 @@ In case of success the response is paginated. Use the `rangeResults` property to
 | `paymentMethod.name` | The circuit name 
 | `paymentMethod.logo` | a logo of the payment method, in several resolutions. 
 | `riskAlert` | if the transaction is suspicious, `riskAlert` is marked with `Y`. 
-| `disputeState.status` | ??? 
-| `disputeState.chargeback` | ??? 
+| `disputeState.status` | Showm for transactions that have been disputed. Possible values: `Open`, `Closed`
+| `disputeState.chargeback` | Shown for transactions that have resulted in a chargeback. Possible values: `True`, `False`, `Null`
 | `tdLevel` | Level of authentication for 3D-Secure transactions. `FULL` or `HALF`
-| `fraudAlert` | ??? 
-| `guaranteePaymentResult` | ??? 
+| `fraudAlert` | `True` or `False` if the transaction is suspicious.
+| `guaranteedPaymentResult` | If you're using Gestpay Guaranteed Payment, you'll receive the fraud risk associated with the transaction.
+
