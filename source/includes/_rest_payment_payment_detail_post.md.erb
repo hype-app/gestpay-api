@@ -17,7 +17,7 @@ POST /api/{version}/payment/detail/
 }
 ```
 
-Retrieves the details of a payment. 
+Retrieves the details of a payment.  
 
 #### Request 
 
@@ -89,47 +89,9 @@ Input Body:
    }
 }
 ```
-> Client Error <br>
-> `400 Bad Request`
 
-```json
-{
-   "error":{
-      "code":"1105",
-      "description":"Invalid parameter value"
-   },
-   "payload":{
 
-   }
-}
-```
-
-> Unauthorized request: <br>
-> `403 Forbidden Access` 
-
-```json
-{
-  "error": {
-    "code": "1166",
-    "description": "Invalid ApiKey"
-  },
-  "payload": {}
-}
-```
-
-> General error: <br>
-> 500 System Error
-
-```json
-{
-  "error": {
-    "code": "9999",
-    "description": "Technical error"
-  },
-  "payload": {}
-}
-```
-
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
 
 `error` details: 
 
@@ -164,8 +126,8 @@ Input Body:
 | `eventtype` | One of the [event types](#event-types) 
 | `eventamount` | the amount involved in this event 
 | `eventdate`   | The date of the event 
-| `environment` | ???
-| `operator` | ???
+| `environment` | The environment that has generated the event: `ONL` (Online), `BOF` (Back Office), `BAT` (Batch)
+| `operator` | The user code that has performed the operation
 
 `buyer`details: 
 

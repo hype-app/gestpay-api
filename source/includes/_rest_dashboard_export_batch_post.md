@@ -1,9 +1,9 @@
-### POST search/execute
+### POST export/batch
 
 > Complete URL:
 
 ```
-POST /api/{version}/dashboard/search/execute
+POST /api/{version}/dashboard/export/batch/{shopLogin}
 ```
 
 > Example search: 

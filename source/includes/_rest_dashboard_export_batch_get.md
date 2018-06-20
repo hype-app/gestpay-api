@@ -1,0 +1,93 @@
+### GET export/batch
+
+> To get all batches:
+
+```
+GET /api/{version}/dashboard/export/batch/{shopLogin}
+```
+
+> To get one specific batch: 
+
+```
+GET /api/{version}/dashboard/export/batch/{shopLogin}/{batchID}
+```
+
+This endpoint will return the list of batches saved in Gestpay. 
+
+Headers: 
+
+| Header          | Value                         | Description                                                        |
+| --------------- | ----------------------------- | ------------------------------------------------------------------ |
+| `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+
+URL params: 
+
+| Parameter | Description | 
+| --------- | ----------- | 
+| `shopLogin` | your Shop Login, e.g. `GESPAY12345` or `XX12345678`
+| `batchID` | **optional**. Use if you want to retrieve one specific batch. 
+
+
+#### Response 
+
+> Success response:<br>
+> `200 OK`
+
+```json
+{  
+  "error":{  
+    "code":"0",
+    "description":"request correctly processed"
+  },
+  "payload": {  
+    "batch":[  
+      {  
+      "name":"Batch No 1",
+      "batchID":"1111",
+      "searchID":"11211111",
+      "fileType":"xls",
+      "template":"My Template 1",
+      "email":"myname@mydomain.co.in",
+      "frequency":"Sunday",
+      "ftp":"",
+      "prefix":"Su_"
+      },
+      {  
+      "name":"Batch No 2",
+      "batchID":"3112",
+      "filterID":"11211111",
+      "fileType":"txt",
+      "template":"My Template 1",
+      "email":"",
+      "frequency":"1st",
+      "ftp":"ftp://ftp.mydomain.co.in",
+      "prefix":"Monthly1st_"
+      }
+    ]
+  }
+}
+```
+
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+
+`payload` details:
+
+| Field | Description |
+| ----- | ----------- |
+| `batch` | An array of batches, see next table. 
+
+`batch` details:
+
+| Field | Description |
+| ----- | ----------- |
+| `name` | The batch name 
+| `batchID` | An ID assigned by Gestpay 
+| `sarchID` | The Search ID 
+| `filterID` | The filter ID 
+| `fileType` | The file type extension
+| `template` | The template name to use
+| `email` | The email where the batch output will be sent
+| `frequency` | Determines the start day of the batch interval
+| `ftp` | The FTP address to upload the file 
+| `prefix` | This value is put before the filename generated automatically by gestpay. 
+
