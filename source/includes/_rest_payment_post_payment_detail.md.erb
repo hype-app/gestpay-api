@@ -89,6 +89,47 @@ Input Body:
    }
 }
 ```
+> Client Error <br>
+> `400 Bad Request`
+
+```json
+{
+   "error":{
+      "code":"1105",
+      "description":"Invalid parameter value"
+   },
+   "payload":{
+
+   }
+}
+```
+
+> Unauthorized request: <br>
+> `403 Forbidden Access` 
+
+```json
+{
+  "error": {
+    "code": "1166",
+    "description": "Invalid ApiKey"
+  },
+  "payload": {}
+}
+```
+
+> General error: <br>
+> 500 System Error
+
+```json
+{
+  "error": {
+    "code": "9999",
+    "description": "Technical error"
+  },
+  "payload": {}
+}
+```
+
 
 `error` details: 
 
@@ -131,11 +172,11 @@ Input Body:
 | Field | Description 
 | ----- | ----------- 
 | `name` | The buyer's name
-| `email` | The buyer's email 
+| `email` | The buyer's emai
 
 `riks` details: 
 
 | Field | Description 
 | ----- | ----------- 
-| `riskResponseCode` | 
-| `riskResponseDescription` | 
+| `RiskResponseCode` | Risk Fraud Score of the transaction, given by Gestpay Guaranteed Payment. [See here](#risk-response-codes) for a list of possible values. |
+| `RiskResponseDescription` | Risk Description for the RiskResponseCode value |

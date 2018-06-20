@@ -185,8 +185,7 @@ Body data:
 ```
 
 > Unauthorized request: <br>
-> `403 Forbidden Access`
-> 
+> `403 Forbidden Access` 
 
 ```json
 {
