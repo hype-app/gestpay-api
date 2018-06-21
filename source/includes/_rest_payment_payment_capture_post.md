@@ -17,7 +17,7 @@ POST /api/{version}/payment/capture/{paymentType}
    "shopTransactionID":"",
    "paymentID":"",
    "fullFillment":{
-      "fullFillmentlst":{
+      "fullFillmentlst":[{
          "status":"success",
          "trackingCompany":"",
          "trackingNumbers":"",
@@ -45,7 +45,7 @@ POST /api/{version}/payment/capture/{paymentType}
                "deliveryAt":""
             }
          ]
-      }
+      }]
    }
 }
 ```
