@@ -6,18 +6,12 @@
 GET /api/{version}/dashboard/export/batch/{shopLogin}
 ```
 
-> To get one specific batch: 
-
-```
-GET /api/{version}/dashboard/export/batch/{shopLogin}/{batchID}
-```
-
 This endpoint will return the list of batches saved in Gestpay. 
 
 Headers: 
 
-| Header          | Value                         | Description                                                        |
-| --------------- | ----------------------------- | ------------------------------------------------------------------ |
+| Header          | Value                         | Description  |
+| --------------- | ----------------------------- | ------------ |
 | `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
 
 URL params: 
@@ -25,7 +19,6 @@ URL params:
 | Parameter | Description | 
 | --------- | ----------- | 
 | `shopLogin` | your Shop Login, e.g. `GESPAY12345` or `XX12345678`
-| `batchID` | **optional**. Use if you want to retrieve one specific batch. 
 
 
 #### Response 

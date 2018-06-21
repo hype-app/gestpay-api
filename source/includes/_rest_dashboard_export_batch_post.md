@@ -1,254 +1,57 @@
 ### POST export/batch
 
-> Complete URL:
+> To create or update a batch:
 
 ```
-POST /api/{version}/dashboard/export/batch/{shopLogin}
+POST /api/{version}/dashboard/export/batch/{shopLogin}/
 ```
 
-> Example search: 
+> Example POST for a NEW batch 
 
 ```json
-{
-    "shopLogin":"",
-    "search":{
-        "name":"",
-        "searchID":""
-    }
-    "dateFrom":"",
-    "dateTo":"",
-    "authorizedAmount" : {
-        "from":"",
-        "to":""
-    },
-    "capturedAmount":{
-        "from":"",
-        "to":""
-    },
-    "lastNDays":"",
-    "currency" : [],
-    "bankTransactionID":"",
-    "shopTransactionID" :"",
-    "authorizationCode":"",
-    "paymentID":"",
-    "authorizationResult":[],
-    "tdLevel":"",
-    "event":[{
-        "type":"",
-        "from":"",
-        "to":""
-        "lastNDays":"",
-        "includeToday":""
-    }],
-    "transactionState":[],
-    "paymentMethod":[{
-        "paymentType":"",
-        "name":""
-    }],
-    "riskAlert":"",
-    "customFields":[{
-        "customName":"customvalue"
-    }],
-    "rangeResults":""
+{  
+  "shopLogin":"myShopLogin",
+  "name":"Batch No 1",
+  "batchID":"",
+  "searchID":"11122121",
+  "fileType":"xls",
+  "template":"My Template 1",
+  "email":"myname@mydomain.co.in",
+  "frequency":"Sunday",
+  "ftp":"",
+  "prefix":"Su_",
+  "password":"myPWD"
 }
 ```
 
-Queries Gestpay for transactions of the past, filtering by many fields. 
+Creates a new export batch or modify an existing one. 
 
 Headers: 
 
-| Header          | Value                         | Description                                                        |
-| --------------- | ----------------------------- | ------------------------------------------------------------------ |
+| Header | Value | Description |
+| ------ | ----- | ----------- |
 | `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
 
-Body data: 
+URL params: 
 
-| Field                       | Description  | Example  |
-| --------------------------- | ----------------------- | ------------------------------------------ | 
-| `shopLogin`                 | Your shop login  | `GESPAY12345`  |
-| `search.name`               | The name of a saved search. | `today_transactions` |
-| `search.searchID`           | The searchID of a saved search. | `00001` |
-| `dateFrom`                  | Search start date  | `01/01/2017` |
-| `dateTo`                    | Search end date  | `31/12/2017`                               |
-| `authorizedAmount.from`     | Search for transactions that have an authorized amount greater than `authorizedAmount.from`. | `100.01` |
-| `authorizedAmount.to`       | Search for transactions that have an authorized amount lower than `authorizedAmount.to`. | `300.00`  |
-| `capturedAmount.from`       | Search for transactions that have a captured amount greater than `capturedAmount.from`. |  `15.67`  |
-| `capturedAmount.to`         | Search for transactions that have a captured amount lower than `capturedAmount.from`. | `100`  |  
-| `lastNDays`                 | retrieve transactions for the last `N` days | `3`                                        |
-| `currency`                  | an array containing the values to be checked against the transaction. They must be a valid [ISO code](#currency-codes). |  `[EUR, USD]` |
-| `bankTransactionID`         | An ID assigned by the bank.  | `33`   | 
-| `shopTransactionID`         | The `shopTransactionID` is the ID assigned by the shop.| `my_shop_id_42`  | 
-| `authorizationCode`         | The authorization code is a code released by the payment circuit.  | `1123454` |
-| ` paymentID`                | Assigned by Gestpay, identifies the payment | `abc123653`                                | 
-| `authorizationResult`       | select transactions whose authorizationResult is contained in the array. | `OK`, `KO`, `NULL` |
-| `tdLevel`                   | 3dSecure level | `HALF`, `FULL` |
-| `event.type`                | One of the [event types](#event-types) | `MOV` |
-| `event.from`                | Search for events occurred after this date | `01/01/2018` |
-| `event.to`                  | Search for events occurred before this date | `31/12/2018` |
-| `event.lastNDays`           | Search the last *N* days | `7` |
-| `event.includeToday`        | True or false | `true` |
-| `transactionState`          | the last state of the transaction. See [event types](#event-types) for details  | `MOV` |
-| `paymentMethod.paymentType` | the [paymentType](#payment-type-codes) for this transaction | e.g. `CREDITCARD`, `PAYPAL`... |
-| `paymentMethod.name`        | The common name of the payment method  | `VISA BVB` |
-| `riskAlert`                 | use `Y` to select transactions associated with a high risk | `Y` or `N` |
-| `customFields.customName`   | You can even search by a custom parameter and its value. Just put the `customName` set as the key and use the value as the search field. | `{ "MY_CUSTOM_PARAM" : "customValue123" }` |
-| `rangeResults`              | Specify which records you want to read. The first number is the starting point, the last number is the last element.  | `11/20`  |
+| Parameter | Description | 
+| --------- | ----------- | 
+| `shopLogin` | your Shop Login, e.g. `GESPAY12345` or `XX12345678`
+| `batchID` | **optional**. To use for updating a batch. 
 
+Body details: 
 
-#### Response 
-
-> Success response:<br>
-> `200 OK`
-
-```json
-{
-  "error": {
-    "code": "0",
-    "description": "request correctly processed"
-  },
-  "payload": {
-    "nResults":"30",
-    "rangeResults":"1/5",
-    "payments":[{
-        "Date":"26/02/2018 12:22:29",
-        "transactionResult" :"KO",
-        "transactionState" :"AUT",
-        "bankTransactionID" : "2304",
-        "shopTransactionID":"Cryptest2602201811",
-        "authorizationCode":"",
-        "paymentID":"22131121123",
-        "amount":"0.10",
-        "currency" :"EUR",
-        "paymentMethod":{
-            "paymentType":"CREDITCARD",
-            "name":"VISA VBV"
-            "logo":{
-                "large":"https://{domain}/logos/VisaVbv_Large.png",
-                "mobile":"https://{domain}/logos/VisaVbv_mobile.png",
-                "vector":"https://{domain}/logos/VisaVbv.svg"
-            }
-         },
-        "riskAlert":"",
-        "disputeState":{
-            "status":"",
-            "chargeback":""
-        },
-        "tdLevel":"HALF",
-        "fraudAlert":"",
-        "guaranteePaymentResult":""
-    },{
-        "Date":"22/02/2018 10:20:09",
-        "transactionResult" :"OK",
-        "transactionState" :"AUT",
-        "bankTransactionID" : "2303",
-        "shopTransactionID":"Cryptest2202201811",
-        "authorizationCode":"1123454",
-        "amount":"0.10",
-        "currency" :"EUR",
-        "paymentMethod":{
-            "paymentType":"CREDITCARD",
-            "name":"VISA VBV"
-            "logo":{
-                "large":"https://{domain}/logos/VisaVbv_Large.png",
-                "mobile":"https://{domain}/logos/VisaVbv_mobile.png",
-                "vector":"https://{domain}/logos/VisaVbv.svg"
-            }
-         },
-        "riskAlert":"Y",
-        "disputeState":{
-            "status":"",
-            "chargeback":""
-        },
-        "tdLevel":"FULL",
-        "fraudAlert":"",
-        "guaranteePaymentResult":""
-    },
-    //...
-    ]
-  }
-}
-```
-
-> Client error: <br>
-> `400 Bad Request`
-
-```json
-
-
-{
-  "error": {
-    "code": "1105",
-    "description": "Invalid parameter value"
-  },
-  "payload": {}
-}
-```
-
-> Unauthorized request: <br>
-> `403 Forbidden Access` 
-
-```json
-{
-  "error": {
-    "code": "1166",
-    "description": "Invalid ApiKey"
-  },
-  "payload": {}
-}
-```
-
-> General error: <br>
-> 500 System Error
-
-```json
-{
-  "error": {
-    "code": "9999",
-    "description": "Technical error"
-  },
-  "payload": {}
-}
-```
-
-Gestpay returns an `error` property that eventually contains the error code and description, and a `payload` property that contains the actual output. 
-
-In case of success the response is paginated. Use the `rangeResults` property to retrieve more results. 
-
-`error` details: 
-
-| Field               | Description                                                                                                  | 
-| ------------------- | ------------------------------------------------------------------------------------------------------------ | 
-| `error.code`        | `0` means no error, otherwise check the [error codes](#errors) and `error.description` to debug the problem. |
-| `error.description` | If `error.code != 0` will contain a description of the error.                                                |
-
-`payload` details:
-
-| Field          | Description                                                    |
-| -------------- | -------------------------------------------------------------- |
-| `nResults`     | the number items returned by the search.                       |
-| `rangeResults` | the range of items returned (of all items)                     |
-| `payments`     | an array of payment objects, see the next section for details. |
-
-`payments` details: 
-
-| Field                       | Description
-| --------------------------- | --------------------------------------------------------------------------------------------------------- | 
-| `Date`                      | the transaction date                                                                                       |
-| `transactionResult`         | `OK` or `KO`                                                                                               |
-| `transactionState`          | the state of the transaction. TODO: enumerate all statuses?                                                |
-| `bankTransactionID`         | a transaction identifier assigned by the bank, guaranteed to be unique.                                    |
-| `shopTransactionID`         | a transaction identifier assigned by the merchant.                                                         |
-| `authorizationCode`         | the authorization code given by the circuit ???                                                            |
-| `paymentID`                 | the payment ID                                                                                             |
-| `amount`                    | the amount of the transaction                                                                              |
-| `currency`                  | the [ISO currency](#currency-codes) for the transaction                                                    |
-| `paymentMethod.paymentType` | The [payment type](#payment-type-codes).                                                                   |
-| `paymentMethod.name`        | The circuit name                                                                                           |
-| `paymentMethod.logo`        | a logo of the payment method, in several resolutions.                                                      |
-| `riskAlert`                 | if the transaction is suspicious, `riskAlert` is marked with `Y`.                                          |
-| `disputeState.status`       | Showm for transactions that have been disputed. Possible values: `Open`, `Closed`                          |
-| `disputeState.chargeback`   | Shown for transactions that have resulted in a chargeback. Possible values: `True`, `False`, `Null`        |
-| `tdLevel`                   | Level of authentication for 3D-Secure transactions. `FULL` or `HALF`                                       |
-| `fraudAlert`                | `True` or `False` if the transaction is suspicious.                                                        |
-| `guaranteedPaymentResult`   | If you're using Gestpay Guaranteed Payment, you'll receive the fraud risk associated with the transaction. |
-
+| Parameter | Description | 
+| --------- | ----------- | 
+| `shopLogin` | your Shop Login, e.g. `GESPAY12345` or `XX12345678`
+| `name` | The batch name 
+| `batchID` | An ID assigned by Gestpay 
+| `sarchID` | The Search ID 
+| `filterID` | The filter ID 
+| `fileType` | The file type extension
+| `template` | The template name to use
+| `email` | The email where the batch output will be sent
+| `frequency` | Determines the start day of the batch interval
+| `ftp` | The FTP address to upload the file 
+| `prefix` | This value is put before the filename generated automatically by gestpay. 
+| `password` | 
