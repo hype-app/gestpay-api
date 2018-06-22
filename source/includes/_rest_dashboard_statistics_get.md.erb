@@ -1,0 +1,180 @@
+### GET dashboard/statistics <span class="beta">BETA</span>
+
+
+> Sandbox URL:
+
+```
+GET https://sandbox.gestpay.net/api/v1/dashboard/statistics/{shopLogin}
+```
+
+<%#
+> Production URL: 
+
+```
+GET https://ecomms2s.sella.it/api/v1/dashboard/statistics/{shopLogin}
+```
+%>
+
+Returns a bunch of statistics for your shop.
+
+#### Request 
+
+Headers: 
+
+| Header          | Value                         | Description                                                        |
+| --------------- | ----------------------------- | ------------------------------------------------------------------ |
+| `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+
+URL parameters: 
+
+| Parameter | Description | 
+| --------- | ----------- | 
+| `shopLogin` | The shop identifier. | 
+
+#### Response 
+
+> Success response example:<br>
+> `200 OK`
+
+```json
+{
+   "error":{  
+      "code":"0",
+      "description":"request correctly processed"
+   },
+   "payload":{
+    "statistics":[
+      {
+        "currency":"EUR",
+        "from":"04/04/2018",
+        "to":"10/04/2018",
+        "elapsed":"5D",
+        "totalNumber":"489",
+        "totalAmount":"82.118,61",
+        "transactions":{
+          "authorized":{
+            "number":"455",
+            "amount":"80.716,41",
+            "suspended":{
+              "number":"442",
+              "amount":"80.543,84"
+            },
+            "deleted":{
+              "number":"0",
+              "amount":"0,00"
+            },
+            "captured":{
+              "number":"12",
+              "amount":"66,71"
+            },
+            "reversed":{
+              "number":"1",
+              "amount":"105,86"
+            }
+          },
+          "declined":{
+            "number":"34",
+            "amount":"1.402,20"
+          }
+        },
+        "paymentTypes":[
+          {
+            "paymentType":"CREDITCARD",
+            "company":"MASTERCARD SECURECODE",
+            "number":"2",
+            "amount":"42,34"
+          },
+          {
+            "paymentType":"CREDITCARD",
+            "company":"MASTERCARD",
+            "number":"1",
+            "amount":"1,00"
+          },
+          {
+            "paymentType":"CREDITCARD",
+            "company":"VISA",
+            "number":"20",
+            "amount":"134,11"
+          },
+          {
+            "paymentType":"FidelityCARD",
+            "company":"",
+            "number":"9",
+            "amount":"0,09"
+          },
+          {
+            "paymentType":"MYBANK",
+            "company":"",
+            "number":"4",
+            "amount":"12,64"
+          },
+          {
+            "paymentType":"S2PALI",
+            "company":"",
+            "number":"390",
+            "amount":"68.521,46"
+          },
+          {
+            "paymentType":"S2PIDE",
+            "company":"",
+            "number":"3",
+            "amount":"227,03"
+          },
+          {
+            "paymentType":"S2PKLA",
+            "company":"",
+            "number":"7",
+            "amount":"1.568.50"
+          },
+          {
+            "paymentType":"S2PMUL",
+            "company":"",
+            "number":"10",
+            "amount":"258,11"
+          },
+          {
+            "paymentType":"S2PSOF",
+            "company":"",
+            "number":"22",
+            "amount":"7.311,51"
+          },
+          {
+            "paymentType":"S2PUNI",
+            "company":"",
+            "number":"21",
+            "amount":"7.301,36"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+
+`payload.statistics` can contain zero or more items, each referring to a temporal frame. 
+
+For every statistic in `payload.statistics`: 
+
+| Field          | Description 
+| -------------- | -----------
+| `currency`     | [ISO currency code](#currency-codes)
+| `from` | the starting date for these statistics 
+| `to` | the end date
+| `elapsed` | the amount of days elapsed 
+| `totalNumber` | total number of transactions 
+| `totalAmount` | the total amount of money settled 
+| `transactions` | An object that contains the number, along with the amount, of transactions authorized, suspended, deleted, captured, reversed and declined. 
+| `paymentTypes` | a fine-grained statistic for every payment type. See the next table for details. 
+
+`paymentTypes` details: 
+
+For every payment type, Gestpay returns an object containing the number of transactions and the amount. 
+
+| Field          | Description 
+| -------------- | -----------
+| `paymentType` | The [payment type](#payment-type-codes).         
+| `company` | A company involved in this payment type. For example, if the payment type is `CREDITCARD`, the company is `VISA`, `MASTERCARD`, etc. 
+| `number` | the number of transactions for this payment type and company. 
+| `amount` | The amount collected for this payment type and company. 

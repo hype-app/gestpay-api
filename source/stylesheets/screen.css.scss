@@ -194,6 +194,16 @@ html, body {
     }
   }
 
+  .tocify-subheader {
+    .tocify-subheader {
+      .tocify-item>a {
+        // Styling here for a level 2 nesting. For example -> 
+        padding-left: $nav-padding + $nav-indent * 2;
+        font-size: 12px;
+      }
+    }
+  }
+
   .toc-footer {
     padding: 1em 0;
     margin-top: 1em;
@@ -641,4 +651,14 @@ html, body {
 }
 #doorbell-button {
   background-color: #282941;
+}
+
+span.beta {
+  border-radius: 3px; 
+  width: 35px;
+  background-color: lightslategray;
+  color: white;
+  font-size: 90%;
+  padding: 3px;
+
 }

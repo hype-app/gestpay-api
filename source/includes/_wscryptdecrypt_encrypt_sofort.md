@@ -1,5 +1,5 @@
 
-## Encrypt Example: Sofort 
+### Encrypt Example: Sofort 
 
 > SOFORT example: 
 

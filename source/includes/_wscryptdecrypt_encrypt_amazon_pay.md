@@ -1,5 +1,5 @@
 
-## Encrypt Example: Amazon Pay
+### Encrypt Example: Amazon Pay
 
 > Amazon Pay example: 
 

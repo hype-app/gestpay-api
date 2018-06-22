@@ -1,8 +1,8 @@
-## CallRefundS2S
+### CallRefundS2S
 
 Merchants can use this method to perform a partial or complete transaction amount refund.
 
-### Request details
+#### Request details
 
 > Request example: 
 
@@ -41,7 +41,7 @@ Mandatory parameters are in **bold**.
 A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransactionId</code>. However, if the <code>shopTransactionId</code> is unique, the merchant can send just <code>shopLogin</code> + <code>shopTransactionId</code>. 
 </aside>
 
-### Response details 
+#### Response details 
 
 > Response example: 
 

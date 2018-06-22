@@ -53,5 +53,5 @@ set :authentication_docs, config[:doc_url] + "/gs/how-gestpay-works.html#authent
 #<%= config[:riskified] %>
 set :riskified, "Gestpay Guaranteed Payment" 
 
-activate :livereload
+#activate :livereload
 

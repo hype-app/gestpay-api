@@ -1,8 +1,8 @@
-## callDeleteTokenS2S 
+### callDeleteTokenS2S 
 
 Merchants can use this method to disable a token linked to a Credit Card or to cancel a PayPal Billing Agreement. Merchants belonging to a group are allowed to delete also tokens created by other merchants of the same group.
 
-### Request details 
+#### Request details 
 
 > Request example: 
 
@@ -20,7 +20,7 @@ Mandatory parameters are in **bold**.
 | **`shopLogin`** | the merchant's code | string | 30 |  
 | **`tokenValue`** | Token value to delete | string | 25 
 
-### Response details 
+#### Response details 
 
 > Response example: 
 

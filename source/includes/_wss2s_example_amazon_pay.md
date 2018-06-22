@@ -1,5 +1,5 @@
 
-## WSS2S Example: Amazon Pay
+### WSS2S Example: Amazon Pay
 
 > Amazon Pay example via S2S: 
 

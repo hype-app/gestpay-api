@@ -1,4 +1,4 @@
-## checkCC
+### checkCC
 
 > syntax: 
 

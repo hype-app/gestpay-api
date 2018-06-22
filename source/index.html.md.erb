@@ -8,11 +8,39 @@ toc_footers:
   
 
 includes:
+  - soap_api
   - wscryptdecrypt
   - wscryptdecrypt_encrypt
   - wscryptdecrypt_encryptresult
   - wscryptdecrypt_decrypt
   - wscryptdecrypt_decryptresult
+  - wss2s
+  - wss2s_callpagams2s
+  - wss2s_callsettles2s
+  - wss2s_calldeletes2s
+  - wss2s_callrefunds2s
+  - wss2s_callreadtrxs2s
+  - wss2s_callverifycards2s
+  - wss2s_callcheckcartas2s
+  - wss2s_callrequesttokens2s
+  - wss2s_calldeletetokens2s
+  - wss2s_callupdatetokens2s
+  - wss2s_callideallists2s
+  - wss2s_callmybanklists2s
+  - wss2s_callupdateorders2s
+  - wss2s_callexchangerates2s
+  - js_gestpay
+  - js_gestpay_createpaymentpage
+  - js_gestpay_sendpayment
+  - js_gestpay_ping
+  - js_gestpay_getlastanswer
+  - js_gestpay_checkcc
+  - js_gestpay_checkcvv
+  - js_gestpay_checkexpmm
+  - js_gestpay_checkexpyy
+  - js_gestpay_checkexpdate
+  - js_gestpay_checkemail
+  - js_gestpay_resultobject
   - alternative_payments
   - wss2s_example_apple_pay
   - wscryptdecrypt_encrypt_alipay
@@ -40,33 +68,28 @@ includes:
   - wscryptdecrypt_encrypt_webmoney
   - wscryptdecrypt_encrypt_wechat
   - wscryptdecrypt_encrypt_yandex
-  - js_gestpay
-  - js_gestpay_createpaymentpage
-  - js_gestpay_sendpayment
-  - js_gestpay_ping
-  - js_gestpay_getlastanswer
-  - js_gestpay_checkcc
-  - js_gestpay_checkcvv
-  - js_gestpay_checkexpmm
-  - js_gestpay_checkexpyy
-  - js_gestpay_checkexpdate
-  - js_gestpay_checkemail
-  - js_gestpay_resultobject
-  - wss2s
-  - wss2s_callpagams2s
-  - wss2s_callsettles2s
-  - wss2s_calldeletes2s
-  - wss2s_callrefunds2s
-  - wss2s_callreadtrxs2s
-  - wss2s_callverifycards2s
-  - wss2s_callcheckcartas2s
-  - wss2s_callrequesttokens2s
-  - wss2s_calldeletetokens2s
-  - wss2s_callupdatetokens2s
-  - wss2s_callideallists2s
-  - wss2s_callmybanklists2s
-  - wss2s_callupdateorders2s
-  - wss2s_callexchangerates2s
+  - rest
+  - rest_dashboard
+  - rest_dashboard_search_execute_post
+  - rest_dashboard_export_file_post
+  - rest_dashboard_export_batch_post
+  - rest_dashboard_export_batch_get
+  - rest_dashboard_export_batch_delete
+  - rest_dashboard_statistics_get
+  - rest_dashboard_export_template_post
+  - rest_dashboard_export_template_get
+  - rest_dashboard_export_template_delete
+  - rest_payment
+  - rest_payment_payment_detail_post
+  - rest_payment_payment_capture_post
+  - rest_payment_payment_cancel_post
+  - rest_payment_payment_refund_post
+  - rest_shop
+  - rest_shop_moto_post
+  - rest_shop_moto_get
+  - rest_shop_version_get
+  - rest_shop_language_post
+  - rest_shop_language_get
   - riskified
   - models
   - models_orderdetails
@@ -77,6 +100,7 @@ includes:
   - paypal_state_codes
   - language_codes
   - alert_codes
+  - event_types
 
 search: true
 ---
@@ -84,7 +108,7 @@ search: true
 # Introduction
 
 
-```xml
+```
    _____           _                     
   / ____|         | |                    
  | |  __  ___  ___| |_ _ __   __ _ _   _ 

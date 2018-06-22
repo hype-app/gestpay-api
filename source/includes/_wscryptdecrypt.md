@@ -1,4 +1,4 @@
-# WSCryptDecrypt API
+## WSCryptDecrypt API
 
 GestPay `WsCryptDecrypt` web service is exposed by GestPay at following URLs: 
 
