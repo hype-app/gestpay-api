@@ -1,10 +1,18 @@
 ### DELETE export/batch <span class="beta">BETA</span>
 
-> Complete URL:
+
+> Sandbox URL:
 
 ```
-DELETE /api/{version}/dashboard/export/batch/{shopLogin}/{batchID}
+DELETE https://sandbox.gestpay.net/api/v1/dashboard/export/batch/{shopLogin}/{batchID}
 ```
+
+> Production URL: 
+
+```
+DELETE https://ecomms2s.sella.it/api/v1/dashboard/export/batch/{shopLogin}/{batchID}
+```
+
 
 Deletes a batch. 
 

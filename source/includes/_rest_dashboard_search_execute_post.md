@@ -6,6 +6,16 @@
 POST /api/{version}/dashboard/search/execute
 ```
 
+```
+POST https://sandbox.gestpay.net/api/v1/dashboard/search/execute
+```
+
+> Production URL: 
+
+```
+POST https://ecomms2s.sella.it/api/v1/dashboard/search/execute
+```
+
 > Example search: 
 
 ```json

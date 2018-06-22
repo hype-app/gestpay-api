@@ -1,10 +1,18 @@
 ### GET export/batch <span class="beta">BETA</span>
 
-> To get all batches:
+
+> Sandbox URL:
 
 ```
-GET /api/{version}/dashboard/export/batch/{shopLogin}
+GET https://sandbox.gestpay.net/api/v1/dashboard/export/batch/{shopLogin}/
 ```
+
+> Production URL: 
+
+```
+GET https://ecomms2s.sella.it/api/v1/dashboard/export/batch/{shopLogin}/
+```
+
 
 This endpoint will return the list of batches saved in Gestpay. 
 

@@ -1,10 +1,18 @@
 ### POST payment/capture <span class="beta">BETA</span>
 
-> Complete URL:
+
+> Sandbox URL:
 
 ```
-POST /api/{version}/payment/capture/{paymentType}
+POST https://sandbox.gestpay.net/api/v1/payment/capture/{paymentType}
 ```
+
+> Production URL: 
+
+```
+POST https://ecomms2s.sella.it/api/v1/payment/capture/{paymentType}
+```
+
 
 > Example request: 
 

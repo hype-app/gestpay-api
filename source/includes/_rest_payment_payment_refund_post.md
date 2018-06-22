@@ -1,10 +1,18 @@
 ### POST payment/refund <span class="beta">BETA</span>
 
-> Complete URL:
+
+> Sandbox URL:
 
 ```
-POST /api/{version}/payment/refund/{paymentID}
+POST https://sandbox.gestpay.net/api/v1/payment/refund/{paymentID}
 ```
+
+> Production URL: 
+
+```
+POST https://ecomms2s.sella.it/api/v1/payment/refund/{paymentID}
+```
+
 
 > Request Body: 
 

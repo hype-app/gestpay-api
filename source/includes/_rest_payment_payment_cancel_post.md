@@ -1,10 +1,18 @@
 ### POST payment/cancel <span class="beta">BETA</span>
 
-> Complete URL:
+
+> Sandbox URL:
 
 ```
-POST /api/{version}/payment/cancel/{paymentID}
+POST https://sandbox.gestpay.net/api/v1/payment/cancel/{paymentID}
 ```
+
+> Production URL: 
+
+```
+POST https://ecomms2s.sella.it/api/v1/payment/cancel/{paymentID}
+```
+
 
 > Example request: 
 

@@ -11,6 +11,8 @@ Gestpay provides two endpoints:
 | Sandbox | `https://sandbox.gestpay.net/api/{version}/{object}/{method}` | 
 | Production | `https://ecomms2s.sella.it/api/{version}/{object}/{method}` | 
 
+Methods are versioned, for example `v1`.
+
 Methods marked with <span class="beta">BETA</span> are available in sandbox only.
 
 ## Handling Responses & Errors

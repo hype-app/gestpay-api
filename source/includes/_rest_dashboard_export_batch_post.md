@@ -1,10 +1,18 @@
 ### POST export/batch <span class="beta">BETA</span>
 
-> To create or update a batch:
+
+> Sandbox URL:
 
 ```
-POST /api/{version}/dashboard/export/batch/{shopLogin}/
+POST https://sandbox.gestpay.net/api/v1/dashboard/export/batch/{shopLogin}/
 ```
+
+> Production URL: 
+
+```
+POST https://ecomms2s.sella.it/api/v1/dashboard/export/batch/{shopLogin}/
+```
+
 
 > Example POST for a NEW batch 
 
