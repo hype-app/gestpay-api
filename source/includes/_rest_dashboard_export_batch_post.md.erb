@@ -1,0 +1,66 @@
+### POST export/batch <span class="beta">BETA</span>
+
+
+> Sandbox URL:
+
+```
+POST https://sandbox.gestpay.net/api/v1/dashboard/export/batch/{shopLogin}/
+```
+
+<%#
+> Production URL: 
+
+```
+POST https://ecomms2s.sella.it/api/v1/dashboard/export/batch/{shopLogin}/
+```
+%>
+
+> Example POST for a NEW batch 
+
+```json
+{  
+  "shopLogin":"myShopLogin",
+  "name":"Batch No 1",
+  "batchID":"",
+  "searchID":"11122121",
+  "fileType":"xls",
+  "template":"My Template 1",
+  "email":"myname@mydomain.co.in",
+  "frequency":"Sunday",
+  "ftp":"",
+  "prefix":"Su_",
+  "password":"myPWD"
+}
+```
+
+Creates a new export batch or modify an existing one. 
+
+Headers: 
+
+| Header | Value | Description |
+| ------ | ----- | ----------- |
+| `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+
+URL params: 
+
+| Parameter | Description | 
+| --------- | ----------- | 
+| `shopLogin` | your Shop Login, e.g. `GESPAY12345` or `XX12345678`
+| `batchID` | **optional**. To use for updating a batch. 
+
+Body details: 
+
+| Parameter | Description | 
+| --------- | ----------- | 
+| `shopLogin` | your Shop Login, e.g. `GESPAY12345` or `XX12345678`
+| `name` | The batch name 
+| `batchID` | An ID assigned by Gestpay 
+| `sarchID` | The Search ID 
+| `filterID` | The filter ID 
+| `fileType` | The file type extension
+| `template` | The template name to use
+| `email` | The email where the batch output will be sent
+| `frequency` | Determines the start day of the batch interval
+| `ftp` | The FTP address to upload the file 
+| `prefix` | This value is put before the filename generated automatically by gestpay. 
+| `password` | 

@@ -1,4 +1,4 @@
-# js_GestPay.js API
+## js_GestPay.js API
 
 > To start using this feature, import the script:
 

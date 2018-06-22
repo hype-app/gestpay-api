@@ -1,0 +1,53 @@
+### DELETE export/batch <span class="beta">BETA</span>
+
+
+> Sandbox URL:
+
+```
+DELETE https://sandbox.gestpay.net/api/v1/dashboard/export/batch/{shopLogin}/{batchID}
+```
+<%#
+> Production URL: 
+
+```
+DELETE https://ecomms2s.sella.it/api/v1/dashboard/export/batch/{shopLogin}/{batchID}
+```
+%>
+
+
+Deletes a batch. 
+
+#### Request 
+
+Specify in the URL the `shopLogin` and the `batchID`. 
+
+Headers: 
+
+| Header          | Value                         | Description                                                        |
+| --------------- | ----------------------------- | ------------------------------------------------------------------ |
+| `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+
+
+
+#### Response 
+
+> Success response payload:<br>
+> `200 OK`
+
+```json
+{
+  "result":"OK",
+  "batch":{
+    "name":"Batch No 1",
+    "batchID":"1111"
+  }
+}
+```
+
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+
+| Field    | Detail  | 
+| -------- | ------- | 
+| `result` | the result (`OK`/`KO`) of the operation 
+| `batch.name` | The deleted batch name 
+| `batch.batchID` | The deleted batch ID 

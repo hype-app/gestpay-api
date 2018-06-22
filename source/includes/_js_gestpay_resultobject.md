@@ -1,6 +1,6 @@
 
 
-## the Result Object 
+### the Result Object 
 
 > Example: Merchant not 3D enabled or credit card not enrolled. 
 

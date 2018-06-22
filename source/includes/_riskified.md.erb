@@ -9,3 +9,14 @@
 <%= config[:riskified] %> can be used both in [`Encrypt`](#encrypt) and in S2S webservices (like [callPagamS2S](#callpagams2s) and others).  
 
 All <%= config[:riskified] %> data goes inside the tag [`<OrderDetails>`](#orderdetails). There you will find a detailed description of every field.
+
+## Risk response codes
+
+| Code | Description | 
+| ---- | ----------- | 
+| `created` | transaction has been received by <%= config[:riskified] %> 
+| `submitted` | transaction is under review 
+| `approved` | transaction approved by  <%= config[:riskified] %>
+| `declined` | transaction not approved by <%= config[:riskified] %>
+| `captured` | For *Select&Submit* plan, `captured` is returned for transactions that are not marked for review.
+| **any other value** | error returned by <%= config[:riskified] %>

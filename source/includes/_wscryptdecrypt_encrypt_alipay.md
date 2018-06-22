@@ -1,5 +1,5 @@
 
-## Encrypt Example: Alipay
+### Encrypt Example: Alipay
 
 > Alipay example: 
 

@@ -1,8 +1,8 @@
-## CallVerifycardS2S
+### CallVerifycardS2S
 
 Merchants can use this method to check the Credit Card. 
 
-### Request details 
+#### Request details 
 
 > Request example: 
 
@@ -28,7 +28,7 @@ Parameters in **bold** are mandatory.
 | **`CVV2`** | security code of the card | string | 4
 | `apikey` | If you have selected the _apiKey_ authentication method, add the `apikey` field to the call. [More details about the apiKey here](#authorizing-calls-against-gestpay). |  |  | 
  
-### Response details
+#### Response details
 
 > Response example: 
 

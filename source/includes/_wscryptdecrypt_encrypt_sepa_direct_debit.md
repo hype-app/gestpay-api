@@ -1,4 +1,4 @@
-## Encrypt Example: SEPA 
+### Encrypt Example: SEPA 
 
 > SEPA Direct Debit example: 
 

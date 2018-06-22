@@ -1,5 +1,5 @@
 
-## Encrypt result 
+### Encrypt result 
 
 > A succesful `Encrypt` call would be like this: 
 
