@@ -1,10 +1,7 @@
 ### POST search/execute <span class="beta">BETA</span>
 
-> Complete URL:
 
-```
-POST /api/{version}/dashboard/search/execute
-```
+> Sandbox URL:
 
 ```
 POST https://sandbox.gestpay.net/api/v1/dashboard/search/execute
