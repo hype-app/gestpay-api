@@ -1,4 +1,4 @@
-### POST export/batch
+### POST export/batch <span class="beta">BETA</span>
 
 > To create or update a batch:
 

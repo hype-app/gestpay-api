@@ -1,4 +1,4 @@
-### POST search/execute
+### POST search/execute <span class="beta">BETA</span>
 
 > Complete URL:
 

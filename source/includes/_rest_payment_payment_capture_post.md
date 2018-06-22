@@ -1,4 +1,4 @@
-### POST payment/capture
+### POST payment/capture <span class="beta">BETA</span>
 
 > Complete URL:
 

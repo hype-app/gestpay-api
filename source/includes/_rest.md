@@ -2,6 +2,17 @@
 
 Welcome to Gestpay REST APIs. With these APIs you'll be able to perform a big set of operations. 
 
+## URLs, endpoints and versions 
+
+Gestpay provides two endpoints: 
+
+|        |  URL  | 
+| ------ | ----- |
+| Sandbox | `https://sandbox.gestpay.net/api/{version}/{object}/{method}` | 
+| Production | `https://ecomms2s.sella.it/api/{version}/{object}/{method}` | 
+
+Methods marked with <span class="beta">BETA</span> are available in sandbox only.
+
 ## Handling Responses & Errors
 
 > Success response: <br>

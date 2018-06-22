@@ -1,4 +1,4 @@
-### DELETE export/batch
+### DELETE export/batch <span class="beta">BETA</span>
 
 > Complete URL:
 

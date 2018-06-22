@@ -1,4 +1,4 @@
-### GET export/batch
+### GET export/batch <span class="beta">BETA</span>
 
 > To get all batches:
 

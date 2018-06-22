@@ -1,4 +1,4 @@
-### POST payment/refund
+### POST payment/refund <span class="beta">BETA</span>
 
 > Complete URL:
 

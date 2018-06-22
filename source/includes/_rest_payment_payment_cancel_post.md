@@ -1,4 +1,4 @@
-### POST payment/cancel
+### POST payment/cancel <span class="beta">BETA</span>
 
 > Complete URL:
 
