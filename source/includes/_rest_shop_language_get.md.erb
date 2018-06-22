@@ -1,0 +1,60 @@
+### GET shop/language <span class="beta">BETA</span>
+
+
+> Sandbox URL:
+
+```
+GET https://sandbox.gestpay.net/api/v1/shop/language/{shopLogin}
+```
+
+<%#
+> Production URL: 
+
+```
+GET https://ecomms2s.sella.it/api/v1/shop/language/{shopLogin}
+```
+%>
+
+Retrieves the current language. 
+
+#### Request 
+
+Headers: 
+
+| Header          | Value                         | Description                                                        |
+| --------------- | ----------------------------- | ------------------------------------------------------------------ |
+| `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+
+URL parameter: 
+
+| Parameter | Description | 
+| --------- | ----------- | 
+| `shopLogin` | The shop identifier. | 
+
+#### Response 
+
+> Success response example:<br>
+> `200 OK`
+
+```json
+{
+   "error":{  
+      "code":"0",
+      "description":"request correctly processed"
+   },
+   "payload":{
+     "version": "Unlimited"
+  }
+}
+```
+
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+
+The response contains the Gestpay version for this shop. 
+
+Response `payload` details:
+
+
+| Field          | Description 
+| -------------- | -----------
+| `version` | One of  `Starter`, `Professional`, `Unlimited`.
