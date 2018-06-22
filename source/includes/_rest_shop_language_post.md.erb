@@ -1,21 +1,30 @@
-### GET shop/language <span class="beta">BETA</span>
+### POST shop/language <span class="beta">BETA</span>
 
 
 > Sandbox URL:
 
 ```
-GET https://sandbox.gestpay.net/api/v1/shop/language/{shopLogin}
+POST https://sandbox.gestpay.net/api/v1/shop/language/{shopLogin}
 ```
 
 <%#
 > Production URL: 
 
 ```
-GET https://ecomms2s.sella.it/api/v1/shop/language/{shopLogin}
+POST https://ecomms2s.sella.it/api/v1/shop/language/
 ```
 %>
 
-Retrieves the current language. 
+> Request body: 
+
+```json
+{
+  "shopLogin":"",
+  "language":"{Italian/English}"
+}
+```
+
+Sets the language used by Gestpay. 
 
 #### Request 
 
@@ -25,11 +34,12 @@ Headers:
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
 | `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
 
-URL parameter: 
+request body details: 
 
 | Parameter | Description | 
 | --------- | ----------- | 
 | `shopLogin` | The shop identifier. | 
+| `language` | The language to set. Currently accepted values are `Italian` and `English`. 
 
 #### Response 
 
@@ -43,6 +53,7 @@ URL parameter:
       "description":"request correctly processed"
    },
    "payload":{
+     "result": "OK"
      "language": "Italian"
   }
 }
@@ -57,4 +68,5 @@ Response `payload` details:
 
 | Field          | Description 
 | -------------- | -----------
-| `language` | One of  `Italian`, `English`
+| `result`      | The outcome of the operation: `OK` of `KO`
+| `language` | the language just set
