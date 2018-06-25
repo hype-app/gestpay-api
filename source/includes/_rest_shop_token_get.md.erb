@@ -1,0 +1,121 @@
+### GET shop/token <span class="beta">BETA</span>
+
+
+> Sandbox URL:
+
+```
+GET https://sandbox.gestpay.net/api/v1/shop/token/
+```
+
+<%#
+> Production URL: 
+
+```
+GET https://ecomms2s.sella.it/api/v1/shop/token/
+```
+%>
+
+> Request Body: 
+
+```json
+{  
+  "transactionType":"",
+  "transactionResult":"",
+  "authorizationResult":"",
+  "authorizationErrorCode":"",
+  "authorizationCodeDescription":"",
+  "country":"",
+  "countryCode":"",
+  "cvv":"",
+  "cvvDescription":"",
+  "issuerCountry":"",
+  "issuerCountryCode:":"",
+  "company":"",
+  "companyCode":"",
+  "commercial":"",
+  "productDescription":"",
+  "productType":"",
+  "checkDigit":"",
+  "checkDigitDescription":"",
+  "expiryDate":"",
+  "expiryDateDescription":"",
+  "3DS":"",
+  "3DSdDescription":"",
+  "prepaid":"",
+  "cardBIN":"",
+  "token":"",
+  "tokenExpiryMonth":"",
+  "tokenExpiryYear":""
+}
+```
+
+ Requests a Credit Card Token or update an existing Credit Card Token.
+ 
+
+#### Request 
+
+Headers: 
+
+| Header          | Value                         | Description                                                        |
+| --------------- | ----------------------------- | ------------------------------------------------------------------ |
+| `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+
+Request Body: 
+
+| Parameter | Description | 
+| --------- | ----------- | 
+| `TransactionType` | `REQUESTTOKEN`
+| `TransactionResult` | `OK` or `KO`
+| `TransactionErrorDescription` | transaction error description
+| `AuthorizationErrorCode` | authorisation error code if an error occurred
+| `AuthorizationResult` | Authorization result. It can be `OK` or `KO` or `NULL`
+| `AuthorizationCodeDescription` | code description 
+| `CardCountry` | nationality of the card 
+| `CardCountryCode` | nationality code of the card 
+| `CheckCVV` | result of the check CVV. It can be `OK` or `KO` or `NULL`
+| `CheckCVVDescription` | description of CVV check results
+| `IssuerCountry` | nationality of the card issuer 
+| `IssuerCountryCode` | nationality code of the card issuer
+| `CompanyDescription` | Description of the Card company 
+| `CompanyCode` | Code of the Company 
+| `Commercial` | Flag that indicates if the Card is commercial or not. `Y` or `N`
+| `ProductDescription` | Description of the product linked to the card 
+| `ProductType` | type of the product: `Credit` or `Debit`
+| `CheckDigit` | `OK` or `KO`, acording to the check digit of the card 
+| `CheckDigitDescription` | description of the check digit response
+| `CheckDate` | `OK` or `KO`, acording to the check date of the card 
+| `CheckDateDescription` | description of the check date response  
+| `EnrolledCode` | 3D Secure enabled: <ul><li>`Y` enabled </li><li>`N` not enabled</li><li>`U` could not verify</li><li>`E` error: could not contact the credit card company</li></ul>  
+| `EnrolledDescription` | enrolment description 
+| `Prepaid` | indicates if the card is prepaid of not (`Y`, `N`, or empty)
+| `Token` | the token value 
+| `TokenExpiryMonth` | the token expiry month 
+| `TokenExpiryYear` | the token expiry year 
+
+#### Response 
+
+> Success response example:<br>
+> `200 OK`
+
+```json
+{
+   "error":{  
+      "code":"0",
+      "description":"request correctly processed"
+   },
+   "payload":{    
+     "environment":"SANDBOX" 
+    }
+}
+```
+
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+
+The response contains the language set for Gestpay. 
+
+Response `payload` details:
+
+
+| Field          | Description 
+| -------------- | -----------
+| `environment` | `LIVE` or `SANDBOX` 
