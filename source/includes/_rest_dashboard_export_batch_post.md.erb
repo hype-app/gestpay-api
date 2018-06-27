@@ -18,16 +18,30 @@ POST https://ecomms2s.sella.it/api/v1/dashboard/export/batch/{shopLogin}/
 > Example POST for a NEW batch 
 
 ```json
-{  
+{
   "shopLogin":"myShopLogin",
   "name":"Batch No 1",
-  "batchID":"",
-  "searchID":"11122121",
+  "ID":"",
+  "search":{
+    "ID":"11122121"
+  },
   "fileType":"xls",
-  "template":"My Template 1",
-  "email":"myname@mydomain.co.in",
-  "frequency":"Sunday",
-  "ftp":"",
+  "template":{
+    "ID":"362"
+  },
+  "recipient":{
+    "email":{
+      "value":"myname@mydomain.co.in",
+      "enabled":"true"
+    },
+    "fpt":{
+      "value":"",
+      "enabled":""
+    }
+  },
+  "frequency":{
+    "ID":"1S"
+  },
   "prefix":"Su_",
   "password":"myPWD"
 }
@@ -45,22 +59,54 @@ URL params:
 
 | Parameter | Description | 
 | --------- | ----------- | 
-| `shopLogin` | your Shop Login, e.g. `GESPAY12345` or `XX12345678`
 | `batchID` | **optional**. To use for updating a batch. 
 
 Body details: 
 
-| Parameter | Description | 
-| --------- | ----------- | 
+| Field | Description |
+| ----- | ----------- |
 | `shopLogin` | your Shop Login, e.g. `GESPAY12345` or `XX12345678`
 | `name` | The batch name 
-| `batchID` | An ID assigned by Gestpay 
-| `sarchID` | The Search ID 
-| `filterID` | The filter ID 
-| `fileType` | The file type extension
-| `template` | The template name to use
-| `email` | The email where the batch output will be sent
-| `frequency` | Determines the start day of the batch interval
-| `ftp` | The FTP address to upload the file 
+| `ID` | If empty, creates a new batch. Otherwise it will update a previous one. 
+| `sarch.ID` | The Search ID that originates the batch. 
+| `template.ID` | The Template ID used by the export. 
+| `fileType` | The output file type: `txt` or `xls`. 
+| `recipient.email.value` | The email where the batch output will be sent
+| `recipient.email.enabled` | `True` if the email should be sent to this address.
+| `recipient.ftp.value` | The FTP address to upload the file 
+| `recipient.ftp.enabled` | `True` if the batch should be uploaded via ftp. 
+| `frequency.value` | Determines the start day of the batch interval.See the [related table](#frequency-codes). 
 | `prefix` | This value is put before the filename generated automatically by gestpay. 
-| `password` | 
+
+
+#### Response 
+
+> Success Response:<br>
+> `200 OK`
+
+```json
+{
+   "error":{  
+      "code":"0",
+      "description":"request correctly processed"
+   },
+   "payload":{
+    "result":"OK",
+    "batch":{
+      "name":"Batch No 1",
+      "batchID":"1111"
+    }
+}
+}
+```
+
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+
+Response `payload` details:
+
+
+| Field          | Description 
+| -------------- | -----------
+| `result` | `OK` ok `KO`
+| `batch.name` | The name of the batch 
+| `batch.id` | The batch ID 
