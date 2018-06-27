@@ -42,29 +42,63 @@ URL params:
     "code":"0",
     "description":"request correctly processed"
   },
-  "payload": {  
-    "batch":[  
-      {  
-      "name":"Batch No 1",
-      "batchID":"1111",
-      "searchID":"11211111",
-      "fileType":"xls",
-      "template":"My Template 1",
-      "email":"myname@mydomain.co.in",
-      "frequency":"Sunday",
-      "ftp":"",
-      "prefix":"Su_"
+  "payload": {
+    "batch":[
+      {
+        "name":"Batch No 1",
+        "ID":"1111",
+        "search":{
+          "ID":"127617",
+          "name":"MAESTRO"
+        },
+        "template":{
+          "ID":"1345",
+          "name":"My Template 1"
+        },
+        "fileType":"xls",
+        "recipient":{
+          "email":{
+            "value":"myname@mydomain.co.in",
+            "enabled":"true"
+          },
+          "ftp":{
+            "value":"ftp://ftp.mydomain.co.in",
+            "enabled":"false"
+          }
+        },
+        "frequency":{
+          "ID":"1S",
+          "name":"Sunday"
+        },
+        "prefix":"Su_"
       },
-      {  
-      "name":"Batch No 2",
-      "batchID":"3112",
-      "filterID":"11211111",
-      "fileType":"txt",
-      "template":"My Template 1",
-      "email":"",
-      "frequency":"1st",
-      "ftp":"ftp://ftp.mydomain.co.in",
-      "prefix":"Monthly1st_"
+      {
+        "name":"Batch No 2",
+        "ID":"3112",
+        "search":{
+          "ID":"127618",
+          "name":"MAESTRO SC"
+        },
+        "template":{
+          "ID":"1345",
+          "name":"My Template 1"
+        },
+        "fileType":"xls",
+        "recipient":{
+          "email":{
+            "value":"",
+            "enabled":""
+          },
+          "ftp":{
+            "value":"ftp://ftp.mydomain.co.in",
+            "enabled":"true"
+          }
+        },
+        "frequency":{
+          "ID":"2S",
+          "name":"Monday"
+        },
+        "prefix":"Monthly1st"
       }
     ]
   }
@@ -84,13 +118,17 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | Field | Description |
 | ----- | ----------- |
 | `name` | The batch name 
-| `batchID` | An ID assigned by Gestpay 
-| `sarchID` | The Search ID 
-| `filterID` | The filter ID 
-| `fileType` | The file type extension
-| `template` | The template name to use
-| `email` | The email where the batch output will be sent
-| `frequency` | Determines the start day of the batch interval
-| `ftp` | The FTP address to upload the file 
+| `ID` | An ID assigned by Gestpay 
+| `sarch.ID` | The Search ID that originates the batch. 
+| `sarch.name` | The Search Name that originates the batch. 
+| `template.ID` | The Template ID used by the export. 
+| `template.name` | The Template Name used by the export. 
+| `fileType` | The output file type. 
+| `recipient.email.value` | The email where the batch output will be sent
+| `recipient.email.enabled` | `True` if the email should be sent to this address.
+| `recipient.ftp.value` | The FTP address to upload the file 
+| `recipient.ftp.enabled` | `True` if the batch should be uploaded via ftp. 
+| `frequency.value` | Determines the start day of the batch interval. See the [related table](#frequency-codes). 
+| `frequency.name` | Displays a description based on the frequency `value`. See the [related table](#frequency-codes). 
 | `prefix` | This value is put before the filename generated automatically by gestpay. 
 
