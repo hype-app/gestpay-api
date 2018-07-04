@@ -23,13 +23,13 @@ Headers:
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `paymentToken` | `paymentToken: "{paymentToken}"` | The payment token returned by [payment/create](#) |
+| `paymentToken` | `paymentToken: "{paymentToken}"` | The payment token returned by [payment/create](##post-payment-create-beta) |
 
 URL parameter: 
 
 | Parameter | Description | 
 | --------- | ----------- | 
-| `shopLogin` | The shop identifier. | 
+| `paymentID` | The payment identifier. | 
 
 #### Response 
 
@@ -42,8 +42,19 @@ URL parameter:
       "code":"0",
       "description":"request correctly processed"
    },
-   "payload":{    
-     "environment":"SANDBOX" 
+   "payload":{  
+      "merchantLogo":"https://ecomms2s.sella.it/temp/MerchantLogo.SVG",
+      "sign":"MERCHANTSIGN",
+      "amount":"1.00",
+      "languageID":"ITA",
+      "currency":"EUR",
+      "visibleCustomFields":[  
+        {  
+            "myVisibleCustomField1":"myVisibleCustomField1",
+            "myVisibleCustomField2":"myVisibleCustomField2"
+        }
+      ],
+      "paymentID":"121213231"
     }
 }
 ```
@@ -55,4 +66,9 @@ Response `payload` details:
 
 | Field          | Description 
 | -------------- | -----------
-| `environment` | `LIVE` or `SANDBOX` 
+| `merchantLogo` | The merchant logo image URL
+| `sign` | 
+| `amount` | The transaction amount 
+| `languageID` | The buyer's language 
+| `currency` ` | the payment [currency ISO code](#currency-codes) 
+| `visibleCustomFields` | A list of custom fields that are set as visible to the user. These fields are set by the merchant. For further information see [sending custom parameters to Gestpay](<%= config[:doc_url]%>/gs/how-gestpay-works.html#sending-custom-parameters-to-gestpay). 
