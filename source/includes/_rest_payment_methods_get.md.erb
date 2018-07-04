@@ -34,7 +34,7 @@ URL parameter:
 | Parameter | Description | 
 | --------- | ----------- | 
 | `paymentID` | The payment identifier. | 
-| `languageID` | 
+| `languageID` | The chosen language for this payment. See the [language codes](#language-codes) table.
 
 #### Response 
 
@@ -47,7 +47,7 @@ URL parameter:
       "code":"0",
       "description":"request correctly processed"
    },
-   "payload":{  
+   "payload": {  
     "paymentMethod":[  
       {  
         "name":"PayPal",
@@ -107,9 +107,16 @@ Response `payload` details:
 
 | Field          | Description 
 | -------------- | -----------
-| `merchantLogo` | The merchant logo image URL
-| `sign` | 
-| `amount` | The transaction amount 
-| `languageID` | The buyer's language 
-| `currency` ` | the payment [currency ISO code](#currency-codes) 
-| `visibleCustomFields` | A list of custom fields that are set as visible to the user. These fields are set by the merchant. For further information see [sending custom parameters to Gestpay](<%= config[:doc_url]%>/gs/how-gestpay-works.html#sending-custom-parameters-to-gestpay). 
+| `paymentMethod` | an array of payment methods. See next table.
+| `paymentID` | The payment ID.
+
+
+Children of `paymentMethod`: 
+
+| Field          | Description 
+| -------------- | -----------
+| `name` | The payment method 
+| `logo` | Logos for the payment method: desktop, mobile, vectorial are available.
+| `paymentType` | The corresponding payment type for this payment method 
+| `paymentTypeDetail.href` | An url that points to more details for the current payment method. Empty if not applicable.
+| `userRedirect.href` | The URL to redirect the user to pay with this payment method. Empty if not applicable.
