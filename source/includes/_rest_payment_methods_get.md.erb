@@ -4,14 +4,14 @@
 > Sandbox URL:
 
 ```
-GET https://sandbox.gestpay.net/api/v1/payment/methods/{shopLogin}
+GET https://sandbox.gestpay.net/api/v1/payment/methods/{paymentID}/{languageID}
 ```
 
 <%#
 > Production URL: 
 
 ```
-GET https://ecomms2s.sella.it/api/v1/payment/methods/{shopLogin}
+GET https://ecomms2s.sella.it/api/v1/payment/methods/{paymentID}/{languageID}
 ```
 %>
 
@@ -27,13 +27,14 @@ Headers:
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+| `paymentToken` | `paymentToken: "{paymentToken}"` | The payment token returned by [payment/create](##post-payment-create-beta) |
 
 URL parameter: 
 
 | Parameter | Description | 
 | --------- | ----------- | 
-| `shopLogin` | The shop identifier. | 
+| `paymentID` | The payment identifier. | 
+| `languageID` | 
 
 #### Response 
 
@@ -46,9 +47,56 @@ URL parameter:
       "code":"0",
       "description":"request correctly processed"
    },
-   "payload":{    
-     "environment":"SANDBOX" 
-    }
+   "payload":{  
+    "paymentMethod":[  
+      {  
+        "name":"PayPal",
+        "logo":{  
+          "large":"https://{domain}/logos/PayPal_Large.png",
+          "mobile":"https://{domain}/logos/PayPal_mobile.png",
+          "vector":"https://{domain}/logos/PayPal.svg"
+        },
+        "paymentType":"PAYPAL",
+        "paymentTypeDetail":{  
+          "href":""
+        },
+        "userRedirect":{  
+          "href":"https://ecomm.sella.it/pagam/pagam.aspx?a=yourshoplogin&b=somePaymentToken&paymentType=PAYPAL"
+        }
+      },
+      {  
+        "name":"VisaVbv",
+        "logo":{  
+          "large":"https://{domain}/logos/VisaVbv_Large.png",
+          "mobile":"https://{domain}/logos/VisaVbv_mobile.png",
+          "vector":"https://{domain}/logos/VisaVbv.svg"
+        },
+        "paymentType":"CreditCard",
+        "paymentTypeDetail":{  
+          "href":""
+        },
+        "userRedirect":{  
+          "href":""
+        }
+      },
+      {  
+        "name":"MyBank",
+        "logo":{  
+          "large":"https://{domain}/logos/MyBank_Large.png",
+          "mobile":"https://{domain}/logos/MyBank_mobile.png",
+          "vector":"https://{domain}/logos/MyBank.svg"
+        },
+        "paymentType":"MyBank",
+        "paymentTypeDetail":{  
+          "href":"/payment/method/detail/MyBank/{shopLogin}"
+        },
+        "userRedirect":{  
+          "href":""
+        }
+      }
+    ],
+    "paymentID":"111214124"
+  }
 }
 ```
 
@@ -59,4 +107,9 @@ Response `payload` details:
 
 | Field          | Description 
 | -------------- | -----------
-| `environment` | `LIVE` or `SANDBOX` 
+| `merchantLogo` | The merchant logo image URL
+| `sign` | 
+| `amount` | The transaction amount 
+| `languageID` | The buyer's language 
+| `currency` ` | the payment [currency ISO code](#currency-codes) 
+| `visibleCustomFields` | A list of custom fields that are set as visible to the user. These fields are set by the merchant. For further information see [sending custom parameters to Gestpay](<%= config[:doc_url]%>/gs/how-gestpay-works.html#sending-custom-parameters-to-gestpay). 
