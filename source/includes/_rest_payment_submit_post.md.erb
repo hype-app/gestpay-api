@@ -1,0 +1,159 @@
+### POST payment/submit <span class="beta">BETA</span>
+
+
+> Sandbox URL:
+
+```
+POST https://sandbox.gestpay.net/api/v1/payment/submit
+```
+
+<%#
+> Production URL: 
+
+```
+POST https://ecomms2s.sella.it/api/v1/payment/submit
+```
+%>
+
+
+> Request Body: 
+
+```json
+{  
+  "shopLogin":"",
+  "paymentType":"",
+  "buyer":{  
+    "name":"",
+    "email":""
+  },
+  "paymentTypeDetails":{  
+    "creditcard":{  
+      "number":"",
+      "token":"",
+      "expMonth":"",
+      "expYear":"",
+      "CVV":"",
+      "requestToken":"",
+      "DCC":{  
+        "currency":"",
+        "amount":"",
+        "transKey":""
+      },
+      "amazonPay":{  
+        "amazonReferenceOrderId":"",
+        "requestToken":"",
+        "token":""
+      },
+      "applePay":{  
+        "PKPaymentToken":"",
+        "onlinePaymentCryptogram":"",
+        "eciIndicator":"",
+        "requestToken":"",
+        "token":""
+      },
+      "myBank":{  
+        "bankCode":""
+      },
+      "iDeal":{  
+        "bankCode":""
+      },
+      "payPal":{  
+        "billingAgreementDescription":"",
+        "sellerProtection":"",
+        "token":""
+      }
+    },
+    "responseURLs":{  
+      "buyerOK":"",
+      "buyerKO":"",
+      "serverNotificationURL":""
+    }
+  }
+}
+```
+Enables merchants to perform authorization requests for all the payment methods enabled for the merchant.
+
+In case of a payment method that requires a widget (e.g. AmazonPay) it will provide the URL and the dimensions of the iFrame. 
+
+In case the payment method requires a selected redirect it will provide the URL to redirect the customer.
+
+Note: Redirected url will require merchant return url and transkey.
+
+This method will handle payment triangulations (e.g. 3DSecure, PayPal, S2Pay, etc.) through transkey and method related tokens in the 2nd calls.
+
+In order to display transaction results to the user without requesting the server to retrieve it through paymentResult it should return it in the response payload.
+
+
+#### Request 
+
+Headers: 
+
+| Header          | Value                         | Description                                                        |
+| --------------- | ----------------------------- | ------------------------------------------------------------------ |
+| `paymentToken` | `"{PaymentToken}"` | The payment token, created via [payment/create](#post-payment-create-beta) | 
+
+
+Request Body: 
+
+| Field | Description 
+| -------------- | -----------
+| `shopLogin` | the merchant's code 
+| `paymentType` | the payment method chosen by the user 
+| `paymentTypeDetails` |  based on the chosen payment method, it will contain informations to complete the payment. See next sections. 
+| `responseURLs` | where to redirect the user after the payment. 
+
+##### `paymentTypeDetails`: Credit card 
+
+If the customer has chosen the credit card payment type, fill out these fields:
+
+| Field | Description | 
+| ----- | ----------- | 
+| `number` | The credit card number
+| `token` | The credit card token, created with [shop/token](#post-shop-token-beta)
+| `expMonth` | The expiry expMonth
+| `expYear` | The expiry year 
+| `CVV` | The CVV code 
+| `requestToken` | `MASKEDPAN` for a Standard Token; any other value for Custom Token
+| `DCC.currency` | The currency of the payment, [ISO code](#currency-codes). 
+| `DCC.amount` | The amount in the selected currency | 
+| `DCC.transKey` | transaction ID value for 3D-Secure transactions. See [3D-secure transactions](<%= config[:doc_url] %>/adv/3dsecure-transactions.html) for more details.
+
+##### `paymentTypeDetails`: Amazon Pay
+
+##### `paymentTypeDetails`: Apple Pay
+
+##### `paymentTypeDetails`: My Bank
+
+##### `paymentTypeDetails`: iDeal
+
+##### `paymentTypeDetails`: Paypal
+
+#### Response 
+
+> Success Response:<br>
+> `200 OK`
+
+```json
+{
+  "error":{  
+    "code":"0",
+    "description":"request correctly processed"
+  },
+  "payload":{
+    "transactionType":"update",
+    "transactionResult":"OK",
+    "paymentID":"1112312421"
+  }
+}
+```
+
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+
+Response `payload` details:
+
+
+| Field          | Description 
+| -------------- | -----------
+| `transactionType` | always `update` for this operation
+| `transactionResult` | `OK` ok `KO`
+| `paymentID`         | The payment ID 
