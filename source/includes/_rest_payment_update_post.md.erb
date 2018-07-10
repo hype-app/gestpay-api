@@ -150,7 +150,7 @@ POST https://ecomms2s.sella.it/api/v1/payment/update/{paymentID}
 }
 ```
 
-Deletes an authorized transaction. 
+Updates a payment with new information. 
 
 #### Request 
 
@@ -158,22 +158,20 @@ Headers:
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+| `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. | 
+
+| Parameter | Description | 
+| --------- | ----------- | 
+| `paymentID` | The identifier of the payment to update. | 
 
 Request Body: 
 
 | Field | Description 
 | -------------- | -----------
 | `shopLogin` | the merchant's code 
-| `bankTransactionID` | ID of the transaction assigned by Gestpay 
-| `shopTransactionID` | shop transaction ID value 
-| `paymentID`         | The payment ID 
-| `amount` | the amount to refund 
-| `currency` | [currency ISO code](#currency-codes) 
-| `refundReason` | a free-text reason for the refund. Used with fraud protection. 
-| `chargeBackFraud` | Flag for risk: <ul><li>`Y` - chargeback for fraud</li><li>`N` - chargeback not for a fraud</li></ul>
-| `orderDetail.productDetails` | in case you are using _Klarna_, fill this fields with info about the products that are refunded. A description of this field is in [OrderDetails](#orderdetails). 
-
+| `amount` | the updated amount
+| `shippingDetails` | if the payment method you're using spports [`shippingDetails`](#shippingdetails), you can pass updated fields. See [`shippingDetails`](#shippingdetails) for info.
+| `orderDetails` | if the payment method you're using spports [`orderDetails`](#orderdetails), you can pass updated fields. See [`orderDetails`](#orderdetails) for info.
 
 #### Response 
 
@@ -201,8 +199,6 @@ Response `payload` details:
 
 | Field          | Description 
 | -------------- | -----------
-| `transactionType` | always `refund` for this operation
+| `transactionType` | always `update` for this operation
 | `transactionResult` | `OK` ok `KO`
-| `bankTransactionID` | ID of the transaction assigned by Gestpay 
-| `shopTransactionID` | shop transaction ID value 
 | `paymentID`         | The payment ID 
