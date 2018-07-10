@@ -80,10 +80,12 @@ includes:
   - rest_dashboard_export_template_get
   - rest_dashboard_export_template_delete
   - rest_payment
-  - rest_payment_payment_detail_post
-  - rest_payment_payment_capture_post
-  - rest_payment_payment_cancel_post
-  - rest_payment_payment_refund_post
+  - rest_payment_cancel_post
+  - rest_payment_capture_post
+  - rest_payment_create_post
+  - rest_payment_detail_post
+  - rest_payment_refund_post
+  - rest_payment_update_post
   - rest_payment_data_for_buyer_get
   - rest_shop
   - rest_shop_moto_post
@@ -100,6 +102,7 @@ includes:
   - riskified
   - models
   - models_orderdetails
+  - models_shipping_details
   - errors
   - payment_type_codes
   - currency_codes
