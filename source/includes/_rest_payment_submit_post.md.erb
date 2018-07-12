@@ -109,7 +109,7 @@ If the customer has chosen the credit card payment type, fill out these fields:
 | Field | Description | 
 | ----- | ----------- | 
 | `number` | The credit card number
-| `token` | The credit card token, created with [shop/token](#post-shop-token-beta)
+| `token` | The credit card token
 | `expMonth` | The expiry expMonth
 | `expYear` | The expiry year 
 | `CVV` | The CVV code 
@@ -120,17 +120,61 @@ If the customer has chosen the credit card payment type, fill out these fields:
 
 ##### `paymentTypeDetails`: Amazon Pay
 
+To pay with Amazon Pay, fill out the fields below: 
+
+| Field | Description | 
+| ----- | ----------- | 
+| `amazonReferenceOrderId` | The order reference identifier retrieved from the Amazon Button widget. 
+| `requestToken` | `MASKEDPAN` for a Standard Token; any other value for Custom Token
+| `token` | A token representing the AmazonPay token. 
+
 ##### `paymentTypeDetails`: Apple Pay
+
+If your customers choose Apple Pay, these are the parameters to pass: 
+
+| Field | Description | 
+| ----- | ----------- | 
+| `PKPaymentToken` | An object that contains the user's payment credentials. 
+| `onlinePaymentCryptogram` |  a unique, one time use cryptogram used by Gestpay to decrypt the payment data
+| `eciIndicator` | optional data used for 3D secure transactions
+| `requestToken` | `MASKEDPAN` for a Standard Token; any other value for Custom Token
+| `token` | a token representing the AmazonPay token 
+
 
 ##### `paymentTypeDetails`: My Bank
 
+| Field | Description | 
+| ----- | ----------- | 
+| `bankCode` | A MyBank bank code 
+
 ##### `paymentTypeDetails`: iDeal
+
+| Field | Description | 
+| ----- | ----------- | 
+| `bankCode` | An iDeal bank code 
 
 ##### `paymentTypeDetails`: Paypal
 
+| Field | Description | 
+| ----- | ----------- | 
+| `billingAgreementDescription` | Description of the goods, terms and conditions of the billing agreement 
+| `sellerProtection` | Set to `1` to use Paypal Seller Protection 
+| `token` |  A token representing the Paypal token. 
+
+##### Response URLs 
+
+With the REST Api you can set the redirect url for the success or failure case, along with the Server to server notification URL. 
+
+| Field | Description | 
+| ----- | ----------- | 
+| `buyerOK` | The URL where the user will be redirected in case of success.
+| `buyerKO` | The URL where the user will be redirected in case of failure. 
+| `serverNotificationURL` | Gestpay will try to reach this URL to notify the merchant of the payment result.
+
+
 #### Response 
 
-> Success Response:<br>
+> Success response for a non 3D credit card:<br>
 > `200 OK`
 
 ```json
@@ -139,10 +183,134 @@ If the customer has chosen the credit card payment type, fill out these fields:
     "code":"0",
     "description":"request correctly processed"
   },
-  "payload":{
-    "transactionType":"update",
-    "transactionResult":"OK",
-    "paymentID":"1112312421"
+  "payload": {
+    "transactionType" : "submit",
+    "transactionResult" :"OK",
+    "bankTransactionID" : "11111111",
+    "shopTransactionID":"myshoptransactionID",
+    "authorizationCode":"1223321",
+    "paymentID":"000000001",
+    "currency":"EUR",
+    "country":"ITALY",
+    "company":"VISA",
+    "tdLevel":"NULL",
+    "buyer":{
+      "name":"buyerName Submitted",
+      "email":"buyer@SubmittedEmail.com"
+    },
+    "risk":{
+      "riskResponseCode":"",
+      "riskResponseDescription":""
+    }
+    "customInfo":{
+      "myCustomInfo1":"myCustomInfoValue1",
+      "myCustomInfo2":"myCustomInfoValue2"
+    },
+    "alertCode":"",
+    "alertDescription":"",
+    "cvvPresent":"",
+    "maskedPAN":"",
+    "paymentMethod":"",
+    "productType":"",
+    "token":"444444xxxxxx4448",
+    "tokenExpiryMonth":"01",
+    "tokenExpiryYear":"25",
+    "redirectURL":{
+      "href": "https://ecomm.sella.it/pagam/pagam3d.aspx?a={shopLogin}&b={paymentToken}"
+    }
+  }
+}
+```
+
+> Success response for a 3D credit card:<br>
+> `200 OK`
+
+```json
+{
+  "error":{  
+    "code":"0",
+    "description":"request correctly processed"
+  },
+  "payload": {
+    "transactionType":"submit",
+    "transactionResult":"",
+    "bankTransactionID":"",
+    "shopTransactionID":"myshoptransactionID",
+    "authorizationCode":"",
+    "paymentID":"00000000001",
+    "currency":"",
+    "country":"",
+    "company":"VISA VBV",
+    "tdLevel":"",
+    "buyer":{
+      "name":"",
+      "email":""
+    },
+    "risk":{
+      "riskResponseCode":"",
+      "riskResponseDescription":""
+    },
+    "customInfo":{
+
+    },
+    "alertCode":"",
+    "alertDescription":"",
+    "cvvPresent":"",
+    "maskedPAN":"",
+    "paymentMethod":"",
+    "productType":"",
+    "token":"",
+    "tokenExpiryMonth":"",
+    "tokenExpiryYear":"",
+    "redirectURL":{
+      "href":"https://ecomm.sella.it/pagam/pagam3d.aspx?a={shopLogin}&b={paymentToken}"
+    }
+  }
+}
+```
+
+> Success response for a redirect-based payment method (i.e. Paypal):<br>
+> `200 OK`
+
+```json
+{
+  "error":{  
+    "code":"0",
+    "description":"request correctly processed"
+  },
+  "payload": {
+    "transactionType":"submit",
+    "transactionResult":"",
+    "bankTransactionID":"",
+    "shopTransactionID":"myshoptransactionID",
+    "authorizationCode":"",
+    "currency":"",
+    "country":"",
+    "company":"",
+    "tdLevel":"",
+    "buyer":{
+      "name":"",
+      "email":""
+    },
+    "risk":{
+      "riskResponseCode":"",
+      "riskResponseDescription":""
+    },
+    "customInfo":{
+
+    },
+    "alertCode":"",
+    "alertDescription":"",
+    "cvvPresent":"",
+    "maskedPAN":"",
+    "paymentMethod":"PayPal",
+    "productType":"",
+    "token":"",
+    "tokenExpiryMonth":"",
+    "tokenExpiryYear":"",
+    "redirectURL":{
+      "href":"https://ecomm.sella.it/pagam/pagam3d.aspx?a={shopLogin}&b={paymentToken}&paymentType=S2PX"
+    }
   }
 }
 ```
@@ -154,6 +322,3 @@ Response `payload` details:
 
 | Field          | Description 
 | -------------- | -----------
-| `transactionType` | always `update` for this operation
-| `transactionResult` | `OK` ok `KO`
-| `paymentID`         | The payment ID 
