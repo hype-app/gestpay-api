@@ -930,7 +930,7 @@
 </tr>
 <tr>
 <td><code class="prettyprint">clientIP</code></td>
-<td>For PayPal Billing Agreements it is required only in &ldquo;one click&rdquo; mode transaction. <br> For AMEX transaction not in Euro, in this field the merchant could provide the client IP address to activate the Enhanced Authorization AAV.<br><strong>Mandatory if you use RiskiFied with S2S.</strong></td>
+<td>For PayPal Billing Agreements it is required only in &ldquo;one click&rdquo; mode transaction. <br> For AMEX transaction not in Euro, in this field the merchant could provide the client IP address to activate the Enhanced Authorization AAV.<br><strong>Mandatory if you use Gestpay Guaranteed Payment with S2S.</strong></td>
 <td>string</td>
 <td>45</td>
 </tr>
@@ -5545,7 +5545,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">password</code></td>
-<td></td>
+<td>If you want to setup a password for the zip file, fill this field with a password value</td>
 </tr>
 </tbody></table>
 
@@ -5651,8 +5651,8 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">batchID</code></td>
-<td><strong>optional</strong>. To use for updating a batch.</td>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>The shop login.</td>
 </tr>
 </tbody></table>
 
@@ -5939,7 +5939,7 @@ Please note:
 <td><code class="prettyprint">True</code> if the batch should be uploaded via ftp.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">frequency.value</code></td>
+<td><code class="prettyprint">frequency.ID</code></td>
 <td>Determines the start day of the batch interval. See the <a href="#frequency-codes">related table</a>.</td>
 </tr>
 <tr>
@@ -5978,6 +5978,24 @@ Please note:
 <td><code class="prettyprint">Authorization</code></td>
 <td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
 <td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
+</tr>
+</tbody></table>
+
+<p>URL params: </p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>your Shop Login, e.g. <code class="prettyprint">GESPAY12345</code> or <code class="prettyprint">XX12345678</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">batchID</code></td>
+<td>the batch you want to delete</td>
 </tr>
 </tbody></table>
 
@@ -6082,22 +6100,22 @@ Please note:
           </span><span class="s2">"authorized"</span><span class="p">:{</span><span class="w">
             </span><span class="s2">"number"</span><span class="p">:</span><span class="s2">"455"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"80.716,41"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"suspended"</span><span class="p">:{</span><span class="w">
-              </span><span class="s2">"number"</span><span class="p">:</span><span class="s2">"442"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"80.543,84"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"deleted"</span><span class="p">:{</span><span class="w">
-              </span><span class="s2">"number"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"0,00"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"captured"</span><span class="p">:{</span><span class="w">
-              </span><span class="s2">"number"</span><span class="p">:</span><span class="s2">"12"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"66,71"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"reversed"</span><span class="p">:{</span><span class="w">
-              </span><span class="s2">"number"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"105,86"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"suspended"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="s2">"442"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"80.543,84"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"deleted"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"0,00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"captured"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"66,71"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"reversed"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"105,86"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="s2">"declined"</span><span class="p">:{</span><span class="w">
             </span><span class="s2">"number"</span><span class="p">:</span><span class="s2">"34"</span><span class="p">,</span><span class="w">
@@ -6211,11 +6229,11 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">totalAmount</code></td>
-<td>the total amount of money settled</td>
+<td>the total amount of authorized, suspended, deleted, captured, reversed and declined transactions.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">transactions</code></td>
-<td>An object that contains the number, along with the amount, of transactions authorized, suspended, deleted, captured, reversed and declined.</td>
+<td>An object that contains the number, along with the amount, of transactions authorized, suspended, deleted, captured, reversed and declined. See the table below.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">paymentTypes</code></td>
@@ -6223,7 +6241,59 @@ Please note:
 </tr>
 </tbody></table>
 
-<p><code class="prettyprint">paymentTypes</code> details: </p>
+<h5 id="transactions-details"><code class="prettyprint">transactions</code> details</h5>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">auhtorized</code></td>
+<td>Statistics about <em>authorized</em> transactions.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">suspended</code></td>
+<td>Statistics about <em>suspended</em> transactions.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">deleted</code></td>
+<td>Statistics about <em>deleted</em> transactions.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">captured</code></td>
+<td>Statistics about <em>captured</em> transactions.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">reversed</code></td>
+<td>Statistics about <em>reversed</em> transactions.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">declined</code></td>
+<td>Statistics about <em>declined</em> transactions.</td>
+</tr>
+</tbody></table>
+
+<p>For each category we have: </p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">number</code></td>
+<td>The number of transactions for this category.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">amount</code></td>
+<td>The sum of all amounts for this category.</td>
+</tr>
+</tbody></table>
+
+<h5 id="paymenttypes-details"><code class="prettyprint">paymentTypes</code> details</h5>
 
 <p>For every payment type, Gestpay returns an object containing the number of transactions and the amount. </p>
 
@@ -6402,8 +6472,8 @@ Please note:
 <td>An array containing one or more templates.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">template.templateId</code></td>
-<td>Leave empty if you&rsquo;re creating a new template. Otherwise, use an existing <code class="prettyprint">templateId</code> to update one.</td>
+<td><code class="prettyprint">template.templateID</code></td>
+<td>The template ID of the template created or updated</td>
 </tr>
 <tr>
 <td><code class="prettyprint">template.description</code></td>
@@ -6652,7 +6722,8 @@ Please note:
   </span><span class="s2">"shopLogin"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"bankTransactionID"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"shopTransactionID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"paymentID"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+  </span><span class="s2">"paymentID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"terminalID"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Retrieves the details of a payment.  </p>
@@ -6703,6 +6774,11 @@ Please note:
 <td><code class="prettyprint">paymentID</code></td>
 <td>The payment ID</td>
 <td><code class="prettyprint">1638523579</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">terminalID</code></td>
+<td>The terminal ID</td>
+<td><code class="prettyprint">12340005</code></td>
 </tr>
 </tbody></table>
 
@@ -6828,7 +6904,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">tdLevel</code></td>
-<td><code class="prettyprint">FULL</code> if the transaction is 3D-Secure protected, <code class="prettyprint">HALF</code> otherwise.</td>
+<td>can be: empty, <code class="prettyprint">FULL</code> if the transaction is 3D-Secure protected, <code class="prettyprint">HALF</code>.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">alertCode</code></td>
@@ -6837,6 +6913,14 @@ Please note:
 <tr>
 <td><code class="prettyprint">AlertDescription</code></td>
 <td>Alert description in chosen language. See <a href="http://docs.gestpay.it/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">buyer</code></td>
+<td>Contains informations about the buyer name, if available. See table below.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">risk</code></td>
+<td>Contains informations about the risk score, assigned by Gestpay Guaranteed Payment. See below.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">events</code></td>
@@ -6909,6 +6993,252 @@ Please note:
 <td>Risk Description for the RiskResponseCode value</td>
 </tr>
 </tbody></table>
+
+          <h3 id="post-payment-refund-beta">POST payment/refund <span class="beta">BETA</span></h3>
+
+<blockquote>
+<p>Sandbox URL:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/payment/refund/{paymentID}
+</code></pre>
+<blockquote>
+<p>Request Body: </p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"shopLogin"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bankTransactionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shopTransactionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paymentID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"chargeBackFraud"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"refundReason"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"orderDetails"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"productDetails"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"productCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SKU"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"unitPrice"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vat"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"discount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"requiresShipping"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"condition"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"seller"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"subCategory"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"brand"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"deliveryAt"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Deletes an authorized transaction. </p>
+
+<h4 id="request">Request</h4>
+
+<p>Headers: </p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
+<td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
+</tr>
+</tbody></table>
+
+<p>Request Body: </p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>the merchant&rsquo;s code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bankTransactionID</code></td>
+<td>ID of the transaction assigned by Gestpay</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shopTransactionID</code></td>
+<td>shop transaction ID value</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentID</code></td>
+<td>The payment ID</td>
+</tr>
+<tr>
+<td><code class="prettyprint">amount</code></td>
+<td>the amount to refund</td>
+</tr>
+<tr>
+<td><code class="prettyprint">currency</code></td>
+<td><a href="#currency-codes">currency ISO code</a></td>
+</tr>
+<tr>
+<td><code class="prettyprint">refundReason</code></td>
+<td>a free-text reason for the refund. Used with fraud protection.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">chargeBackFraud</code></td>
+<td>Flag for risk: <ul><li><code class="prettyprint">Y</code> - chargeback for fraud</li><li><code class="prettyprint">N</code> - chargeback not for a fraud</li></ul></td>
+</tr>
+<tr>
+<td><code class="prettyprint">orderDetail.productDetails</code></td>
+<td>in case you are using <em>Klarna</em>, fill this fields with info about the products that are refunded. A description of this field is in <a href="#orderdetails">OrderDetails</a>.</td>
+</tr>
+</tbody></table>
+
+<h4 id="response">Response</h4>
+
+<blockquote>
+<p>Success Response:<br>
+<code class="prettyprint">200 OK</code></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"error"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"request correctly processed"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"payload"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"transactionType"</span><span class="p">:</span><span class="s2">"refund"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionResult"</span><span class="p">:</span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bankTransactionID"</span><span class="p">:</span><span class="s2">"{bankTransactionID}"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shopTransactionID"</span><span class="p">:</span><span class="s2">"{shopTransactionID}"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"paymentID"</span><span class="p">:</span><span class="s2">"{paymentID}"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>See the section <a href="#handling-responses-amp-errors">Handling responses &amp; errors</a> to learn how Gestpay reports errors.</p>
+
+<p>Response <code class="prettyprint">payload</code> details:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">transactionType</code></td>
+<td>always <code class="prettyprint">refund</code> for this operation</td>
+</tr>
+<tr>
+<td><code class="prettyprint">transactionResult</code></td>
+<td><code class="prettyprint">OK</code> ok <code class="prettyprint">KO</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">bankTransactionID</code></td>
+<td>ID of the transaction assigned by Gestpay</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shopTransactionID</code></td>
+<td>shop transaction ID value</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentID</code></td>
+<td>The payment ID</td>
+</tr>
+</tbody></table>
+
+          <h3 id="post-payment-cancel-beta">POST payment/cancel <span class="beta">BETA</span></h3>
+
+<blockquote>
+<p>Sandbox URL:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/payment/cancel/{paymentID}
+</code></pre>
+<blockquote>
+<p>Example request: </p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"transactionType"</span><span class="p">:</span><span class="s2">"cancel"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"transactionResult"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bankTransactionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shopTransactionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paymentID"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Deletes an authorized transaction. </p>
+
+<h4 id="request">Request</h4>
+
+<p>Headers: </p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
+<td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
+</tr>
+</tbody></table>
+
+<p>Request Body: </p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>Your shop login</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bankTransactionID</code></td>
+<td>The bank transaction ID</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shopTransactionID</code></td>
+<td>the shop transaction ID</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentID</code></td>
+<td>The payment ID</td>
+</tr>
+<tr>
+<td><code class="prettyprint">cancelReason</code></td>
+<td>free text of cancel reason.For  Gestpay Guaranteed Payment users, this field is mandatory.</td>
+</tr>
+</tbody></table>
+
+<h4 id="response">Response</h4>
+
+<blockquote>
+<p>Success Response:<br>
+<code class="prettyprint">200 OK</code></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"error"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"request correctly processed"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"payload"</span><span class="p">:{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>See the section <a href="#handling-responses-amp-errors">Handling responses &amp; errors</a> to learn how Gestpay reports errors.</p>
 
           <h3 id="post-payment-capture-beta">POST payment/capture <span class="beta">BETA</span></h3>
 
@@ -7183,252 +7513,6 @@ Please note:
 <tr>
 <td><code class="prettyprint">paymentID</code></td>
 <td>Assigned by Gestpay, identifies the payment.</td>
-</tr>
-</tbody></table>
-
-          <h3 id="post-payment-cancel-beta">POST payment/cancel <span class="beta">BETA</span></h3>
-
-<blockquote>
-<p>Sandbox URL:</p>
-</blockquote>
-<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/payment/cancel/{paymentID}
-</code></pre>
-<blockquote>
-<p>Example request: </p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"transactionType"</span><span class="p">:</span><span class="s2">"cancel"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"transactionResult"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"bankTransactionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"shopTransactionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"paymentID"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Deletes an authorized transaction. </p>
-
-<h4 id="request">Request</h4>
-
-<p>Headers: </p>
-
-<table><thead>
-<tr>
-<th>Header</th>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">Authorization</code></td>
-<td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
-<td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
-</tr>
-</tbody></table>
-
-<p>Request Body: </p>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">shopLogin</code></td>
-<td>Your shop login</td>
-</tr>
-<tr>
-<td><code class="prettyprint">bankTransactionID</code></td>
-<td>The bank transaction ID</td>
-</tr>
-<tr>
-<td><code class="prettyprint">shopTransactionID</code></td>
-<td>the shop transaction ID</td>
-</tr>
-<tr>
-<td><code class="prettyprint">paymentID</code></td>
-<td>The payment ID</td>
-</tr>
-<tr>
-<td><code class="prettyprint">cancelReason</code></td>
-<td>free text of cancel reason.For  Gestpay Guaranteed Payment users, this field is mandatory.</td>
-</tr>
-</tbody></table>
-
-<h4 id="response">Response</h4>
-
-<blockquote>
-<p>Success Response:<br>
-<code class="prettyprint">200 OK</code></p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"error"</span><span class="p">:{</span><span class="w">  
-      </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"request correctly processed"</span><span class="w">
-   </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"payload"</span><span class="p">:{}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>See the section <a href="#handling-responses-amp-errors">Handling responses &amp; errors</a> to learn how Gestpay reports errors.</p>
-
-          <h3 id="post-payment-refund-beta">POST payment/refund <span class="beta">BETA</span></h3>
-
-<blockquote>
-<p>Sandbox URL:</p>
-</blockquote>
-<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/payment/refund/{paymentID}
-</code></pre>
-<blockquote>
-<p>Request Body: </p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"shopLogin"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"bankTransactionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"shopTransactionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"paymentID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"currency"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"chargeBackFraud"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"refundReason"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"orderDetails"</span><span class="p">:{</span><span class="w">
-    </span><span class="s2">"productDetails"</span><span class="p">:[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"productCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"SKU"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"unitPrice"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"vat"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"discount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"requiresShipping"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"condition"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"seller"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"category"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"subCategory"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"brand"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"deliveryAt"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Deletes an authorized transaction. </p>
-
-<h4 id="request">Request</h4>
-
-<p>Headers: </p>
-
-<table><thead>
-<tr>
-<th>Header</th>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">Authorization</code></td>
-<td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
-<td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
-</tr>
-</tbody></table>
-
-<p>Request Body: </p>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">shopLogin</code></td>
-<td>the merchant&rsquo;s code</td>
-</tr>
-<tr>
-<td><code class="prettyprint">bankTransactionID</code></td>
-<td>ID of the transaction assigned by Gestpay</td>
-</tr>
-<tr>
-<td><code class="prettyprint">shopTransactionID</code></td>
-<td>shop transaction ID value</td>
-</tr>
-<tr>
-<td><code class="prettyprint">paymentID</code></td>
-<td>The payment ID</td>
-</tr>
-<tr>
-<td><code class="prettyprint">amount</code></td>
-<td>the amount to refund</td>
-</tr>
-<tr>
-<td><code class="prettyprint">currency</code></td>
-<td><a href="#currency-codes">currency ISO code</a></td>
-</tr>
-<tr>
-<td><code class="prettyprint">refundReason</code></td>
-<td>a free-text reason for the refund. Used with fraud protection.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">chargeBackFraud</code></td>
-<td>Flag for risk: <ul><li><code class="prettyprint">Y</code> - chargeback for fraud</li><li><code class="prettyprint">N</code> - chargeback not for a fraud</li></ul></td>
-</tr>
-<tr>
-<td><code class="prettyprint">orderDetail.productDetails</code></td>
-<td>in case you are using <em>Klarna</em>, fill this fields with info about the products that are refunded. A description of this field is in <a href="#orderdetails">OrderDetails</a>.</td>
-</tr>
-</tbody></table>
-
-<h4 id="response">Response</h4>
-
-<blockquote>
-<p>Success Response:<br>
-<code class="prettyprint">200 OK</code></p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"error"</span><span class="p">:{</span><span class="w">  
-      </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"request correctly processed"</span><span class="w">
-   </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"payload"</span><span class="p">:{</span><span class="w">
-    </span><span class="s2">"transactionType"</span><span class="p">:</span><span class="s2">"refund"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transactionResult"</span><span class="p">:</span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bankTransactionID"</span><span class="p">:</span><span class="s2">"{bankTransactionID}"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"shopTransactionID"</span><span class="p">:</span><span class="s2">"{shopTransactionID}"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"paymentID"</span><span class="p">:</span><span class="s2">"{paymentID}"</span><span class="w">
-   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>See the section <a href="#handling-responses-amp-errors">Handling responses &amp; errors</a> to learn how Gestpay reports errors.</p>
-
-<p>Response <code class="prettyprint">payload</code> details:</p>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">transactionType</code></td>
-<td>always <code class="prettyprint">refund</code> for this operation</td>
-</tr>
-<tr>
-<td><code class="prettyprint">transactionResult</code></td>
-<td><code class="prettyprint">OK</code> ok <code class="prettyprint">KO</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">bankTransactionID</code></td>
-<td>ID of the transaction assigned by Gestpay</td>
-</tr>
-<tr>
-<td><code class="prettyprint">shopTransactionID</code></td>
-<td>shop transaction ID value</td>
-</tr>
-<tr>
-<td><code class="prettyprint">paymentID</code></td>
-<td>The payment ID</td>
 </tr>
 </tbody></table>
 
@@ -7917,12 +8001,12 @@ Please note:
 </tr>
 </tbody></table>
 
-          <h3 id="post-shop-methods-beta">POST shop/methods <span class="beta">BETA</span></h3>
+          <h3 id="post-shop-paymentmethods-beta">POST shop/paymentMethods <span class="beta">BETA</span></h3>
 
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
-<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/shop/methods/
+<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/shop/paymentMethods/
 </code></pre>
 <blockquote>
 <p>Request body: </p>
@@ -8019,12 +8103,12 @@ Please note:
 </tr>
 </tbody></table>
 
-          <h3 id="get-shop-methods-beta">GET shop/methods <span class="beta">BETA</span></h3>
+          <h3 id="get-shop-paymentmethods-beta">GET shop/paymentMethods <span class="beta">BETA</span></h3>
 
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET https://sandbox.gestpay.net/api/v1/shop/methods/{shopLogin}
+<pre class="highlight plaintext"><code>GET https://sandbox.gestpay.net/api/v1/shop/paymentMethods/{shopLogin}
 </code></pre>
 <p>Retrieves a list of payment methods enabled indicating name, payment type, related logo (URL), related mobile logo (URL), if the method is visible/hidden in the payment page.</p>
 
@@ -9485,6 +9569,67 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <tr>
 <td><code class="prettyprint">PassengerType</code></td>
 <td><code class="prettyprint">adult</code> or <code class="prettyprint">child</code></td>
+</tr>
+</tbody></table>
+
+          <h2 id="shippingdetails">ShippingDetails</h2>
+
+<blockquote>
+<p><code class="prettyprint">shippingDetails</code> tag example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;shippingDetails&gt;</span>
+  <span class="nt">&lt;shipToName&gt;</span>Marco Bianchi<span class="nt">&lt;/shipToName&gt;</span>
+  <span class="nt">&lt;shipToStreet&gt;</span>Via Milano 1<span class="nt">&lt;/shipToStreet&gt;</span>
+  <span class="nt">&lt;shipToCity&gt;</span>Torino<span class="nt">&lt;/shipToCity&gt;</span>
+  <span class="nt">&lt;shipToState&gt;</span>TO<span class="nt">&lt;/shipToState&gt;</span>
+  <span class="nt">&lt;shipToCountryCode&gt;</span>IT<span class="nt">&lt;/shipToCountryCode&gt;</span>
+  <span class="nt">&lt;shipToZip&gt;</span>10100<span class="nt">&lt;/shipToZip&gt;</span>
+  <span class="nt">&lt;shipToStreet2/&gt;</span>
+<span class="nt">&lt;/shippingDetails&gt;</span>
+</code></pre>
+<p><code class="prettyprint">shippingDetails</code> used for example in Paypal seller protection, contains the shipping address. </p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shipToName</code></td>
+<td style="text-align: center">32</td>
+<td>String containing the shipping name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shipToStreet</code></td>
+<td style="text-align: center">100</td>
+<td>String containing the shipping address</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shipToCity</code></td>
+<td style="text-align: center">40</td>
+<td>String containing the shipping city</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shipToState</code></td>
+<td style="text-align: center">40</td>
+<td>String containing the shipping state (see <a href="#paypal-state-amp-province-codes">Paypal State Codes table</a>)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shipToCountryCode</code></td>
+<td style="text-align: center">2</td>
+<td>String containing the shipping country code (see <a href="#paypal-country-codes">Paypal Country Codes table</a>)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shipToZip</code></td>
+<td style="text-align: center">20</td>
+<td>String containing the shipping zip</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shipToStreet2</code></td>
+<td style="text-align: center">100</td>
+<td>String containing an additional shipping address field</td>
 </tr>
 </tbody></table>
 
