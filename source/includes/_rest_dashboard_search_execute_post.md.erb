@@ -90,7 +90,7 @@ Body data:
 | `authorizationCode`         | The authorization code is a code released by the payment circuit.  | `1123454` |
 | ` paymentID`                | Assigned by Gestpay, identifies the payment | `abc123653`                                | 
 | `authorizationResult`       | select transactions whose authorizationResult is contained in the array. | `OK`, `KO`, `NULL` |
-| `tdLevel`                   | 3dSecure level | `HALF`, `FULL` |
+| `tdLevel`                   | 3dSecure level | `HALF`, `FULL`, `NULL` |
 | `event.type`                | One of the [event types](#event-types) | `MOV` |
 | `event.from`                | Search for events occurred after this date | `01/01/2018` |
 | `event.to`                  | Search for events occurred before this date | `31/12/2018` |
