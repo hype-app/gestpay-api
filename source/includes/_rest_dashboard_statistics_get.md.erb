@@ -55,22 +55,22 @@ URL parameters:
           "authorized":{
             "number":"455",
             "amount":"80.716,41",
-            "suspended":{
-              "number":"442",
-              "amount":"80.543,84"
-            },
-            "deleted":{
-              "number":"0",
-              "amount":"0,00"
-            },
-            "captured":{
-              "number":"12",
-              "amount":"66,71"
-            },
-            "reversed":{
-              "number":"1",
-              "amount":"105,86"
-            }
+          },
+          "suspended":{
+            "number":"442",
+            "amount":"80.543,84"
+          },
+          "deleted":{
+            "number":"0",
+            "amount":"0,00"
+          },
+          "captured":{
+            "number":"12",
+            "amount":"66,71"
+          },
+          "reversed":{
+            "number":"1",
+            "amount":"105,86"
           },
           "declined":{
             "number":"34",
@@ -164,11 +164,29 @@ For every statistic in `payload.statistics`:
 | `to` | the end date
 | `elapsed` | the amount of days elapsed 
 | `totalNumber` | total number of transactions 
-| `totalAmount` | the total amount of money settled 
-| `transactions` | An object that contains the number, along with the amount, of transactions authorized, suspended, deleted, captured, reversed and declined. 
+| `totalAmount` | the total amount of authorized, suspended, deleted, captured, reversed and declined transactions.
+| `transactions` | An object that contains the number, along with the amount, of transactions authorized, suspended, deleted, captured, reversed and declined. See the table below. 
 | `paymentTypes` | a fine-grained statistic for every payment type. See the next table for details. 
 
-`paymentTypes` details: 
+##### `transactions` details
+
+| Field          | Description 
+| -------------- | -----------
+| `auhtorized` | Statistics about _authorized_ transactions.
+| `suspended` | Statistics about _suspended_ transactions. 
+| `deleted` | Statistics about _deleted_ transactions. 
+| `captured` | Statistics about _captured_ transactions. 
+| `reversed` | Statistics about _reversed_ transactions.
+| `declined` | Statistics about _declined_ transactions.
+
+For each category we have: 
+
+| Field          | Description 
+| -------------- | -----------
+| `number` | The number of transactions for this category.
+| `amount` | The sum of all amounts for this category.
+
+##### `paymentTypes` details
 
 For every payment type, Gestpay returns an object containing the number of transactions and the amount. 
 

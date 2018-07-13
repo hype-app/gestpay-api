@@ -22,7 +22,8 @@ POST https://ecomms2s.sella.it/api/v1/payment/detail/
   "shopLogin" : "",
   "bankTransactionID": "",
   "shopTransactionID" : "",
-  "paymentID":""
+  "paymentID":"",
+  "terminalID": ""
 }
 ```
 
@@ -44,6 +45,7 @@ Input Body:
 | `bankTransactionID` | The bank transaction ID | `1111`        |
 | `shopTransactionID` | the shop transaction ID | `MyShop_001`  |
 | `paymentID`         | The payment ID          | `1638523579`  |
+| `terminalID`         | The terminal ID        | `12340005`    |
 
 
 #### Response 
@@ -123,9 +125,11 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `currency`  | One of the [ISO currencies](#currency-codes). 
 | `country` | The country originating the transaction | 
 | `company` | The credit card / payment circuit | 
-| `tdLevel` | `FULL` if the transaction is 3D-Secure protected, `HALF` otherwise. |
+| `tdLevel` | can be: empty, `FULL` if the transaction is 3D-Secure protected, `HALF`. |
 | `alertCode` | Alert code. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description. 
 | `AlertDescription` | Alert description in chosen language. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description.  |
+| `buyer` | Contains informations about the buyer name, if available. See table below. 
+| `risk` | Contains informations about the risk score, assigned by Gestpay Guaranteed Payment. See below. 
 | `events` | See below
 
 `events` details: 
