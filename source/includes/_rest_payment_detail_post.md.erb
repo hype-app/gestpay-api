@@ -125,7 +125,7 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `currency`  | One of the [ISO currencies](#currency-codes). 
 | `country` | The country originating the transaction | 
 | `company` | The credit card / payment circuit | 
-| `tdLevel` | can be: empty, `FULL` if the transaction is 3D-Secure protected, `HALF`. |
+| `tdLevel` | can be: `NULL`, `FULL` if the transaction is fully 3D-Secure protected, `HALF`. |
 | `alertCode` | Alert code. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description. 
 | `AlertDescription` | Alert description in chosen language. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description.  |
 | `buyer` | Contains informations about the buyer name, if available. See table below. 
