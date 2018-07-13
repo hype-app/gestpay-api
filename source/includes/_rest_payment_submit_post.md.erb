@@ -331,4 +331,33 @@ Response `payload` details:
 | `currency` | The [currency ISO code](#currency-codes)
 | `country` | nationality of the card issuer | 
 | `company` | Card issuer company | 
-| `tdLevel` | 
+| `tdLevel` | The level of 3D-Secure authentication: `NULL`, `FULL` or `HALF`. 
+| `buyer` | Contains informations about the buyer. See the table below. 
+| `risk` | A risk code, assigned by [Gestpay Guaranteed Payment](#gestpay-guaranteed-payment). See the table below for more informations.  
+| `customInfo` | An object containing optional customised parameters, created by the merchant in the form of key-value. 
+| `alertCode` | Alert code. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description. 
+| `alertDescription` | A textual description of the `alertCode`. 
+| `cvvPresent` | Credit Card security code flag  
+| `maskedPAN` | Masked Pan string
+| `paymentMethod` | Indicates the used Payment Method
+| `productType` |  String containing Card Type
+| `token` | String containing the token value
+| `tokenExpiryMonth` | String containing the token expiry month
+| `TokenExpiryYear` | String containing the token expiry year
+| `redirectUrl.href` | a URL to redirect the user for 3D-Secure authentication, or to pay on alternative payment systems. 
+
+
+##### `buyer` details
+
+| Field          | Description 
+| -------------- | -----------
+| `name` | The buyer's name 
+| `email` | The buyer's email 
+
+##### `risk` details 
+
+| Field | Description
+| ----- | -----------
+| `riskResponseCode` | One of Gestpay Guaranteed Payment [response codes](#risk-response-codes).
+| `riskResponseDescription` | A textual description of the risk analisys. 
+
