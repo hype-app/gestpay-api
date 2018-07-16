@@ -1,17 +1,17 @@
-### POST check/expirydate <span class="beta">BETA</span>
+### POST check/cvv <span class="beta">BETA</span>
 
 
 > Sandbox URL:
 
 ```
-POST https://sandbox.gestpay.net/api/v1/check/expirydate/
+POST https://sandbox.gestpay.net/api/v1/check/cvv/
 ```
 
 <%#
 > Production URL: 
 
 ```
-POST https://ecomms2s.sella.it/api/v1/check/expirydate/
+POST https://ecomms2s.sella.it/api/v1/check/cvv/
 ```
 %>
 
@@ -19,15 +19,14 @@ POST https://ecomms2s.sella.it/api/v1/check/expirydate/
 
 ```json
 {
-  "shopLogin":"",
-  "creditcard":{
-    "expMonth":"",
-    "expYear":""
-  }
+    "shopLogin":"",
+    "creditcard":{
+        "cvv:""
+    }
 }
 ```
 
-Provides a formal validity check of the Exipry Date.
+Provides a formal validity check of the CVV.
 
 #### Request 
 
@@ -46,8 +45,7 @@ request body details:
 | Parameter | Description | 
 | --------- | ----------- | 
 | `shopLogin` | The shop identifier. | 
-| `creditcard.expMonth` | The credit card exiry month
-| `creditcard.expYear` | The credit card exiry year
+| `creditcard.cvv` | A string composed of digits.
 
 #### Response 
 
@@ -67,7 +65,6 @@ request body details:
 ```
 
 See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
-
 
 Response `payload` details:
 
