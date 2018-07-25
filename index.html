@@ -5591,7 +5591,7 @@ Please note:
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
-<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/dashboard/export/batch/{shopLogin}/
+<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/dashboard/export/batch/
 </code></pre>
 <blockquote>
 <p>Example POST for a NEW batch </p>
@@ -5639,20 +5639,6 @@ Please note:
 <td><code class="prettyprint">Authorization</code></td>
 <td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
 <td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
-</tr>
-</tbody></table>
-
-<p>URL params: </p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">shopLogin</code></td>
-<td>The shop login.</td>
 </tr>
 </tbody></table>
 
@@ -6326,7 +6312,7 @@ Please note:
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
-<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/dashboard/export/template/{shopLogin}
+<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/dashboard/export/template/
 </code></pre>
 <blockquote>
 <p>Example request body: </p>
@@ -6371,20 +6357,6 @@ Please note:
 <td><code class="prettyprint">Authorization</code></td>
 <td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
 <td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
-</tr>
-</tbody></table>
-
-<p>URL parameters: </p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">shopLogin</code></td>
-<td>The shop identifier.</td>
 </tr>
 </tbody></table>
 
@@ -6730,7 +6702,7 @@ Please note:
 
 <h4 id="request">Request</h4>
 
-<p>Headers: </p>
+<p>To authetnicate, use one of the following headers: </p>
 
 <table><thead>
 <tr>
@@ -6743,6 +6715,11 @@ Please note:
 <td><code class="prettyprint">Authorization</code></td>
 <td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
 <td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentToken</code></td>
+<td><code class="prettyprint">paymentToken: &quot;{paymentToken}&quot;</code></td>
+<td>A payment token received during the payment process</td>
 </tr>
 </tbody></table>
 
@@ -8319,7 +8296,7 @@ Please note:
 
 <h4 id="request">Request</h4>
 
-<p>Headers: </p>
+<p>Use one of the following headers to authenticate: </p>
 
 <table><thead>
 <tr>
@@ -8332,6 +8309,11 @@ Please note:
 <td><code class="prettyprint">Authorization</code></td>
 <td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
 <td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentToken</code></td>
+<td><code class="prettyprint">paymentToken: &quot;{paymentToken}&quot;</code></td>
+<td>A payment token received during the payment process</td>
 </tr>
 </tbody></table>
 
@@ -8527,79 +8509,6 @@ Please note:
 <tr>
 <td><code class="prettyprint">expiryDateDescription</code></td>
 <td>A textual description of the <code class="prettyprint">expiryDate</code> field</td>
-</tr>
-</tbody></table>
-
-          <h3 id="get-shop-token-beta">GET shop/token <span class="beta">BETA</span></h3>
-
-<blockquote>
-<p>Sandbox URL:</p>
-</blockquote>
-<pre class="highlight plaintext"><code>GET https://sandbox.gestpay.net/api/v1/shop/token/{shopLogin}
-</code></pre>
-<p>Retrieves the token list</p>
-
-<h4 id="request">Request</h4>
-
-<p>Headers: </p>
-
-<table><thead>
-<tr>
-<th>Header</th>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">Authorization</code></td>
-<td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
-<td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
-</tr>
-</tbody></table>
-
-<p>URL parameter: </p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">shopLogin</code></td>
-<td>The shop identifier.</td>
-</tr>
-</tbody></table>
-
-<h4 id="response">Response</h4>
-
-<blockquote>
-<p>Success response example:<br>
-<code class="prettyprint">200 OK</code></p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"error"</span><span class="p">:{</span><span class="w">  
-      </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"request correctly processed"</span><span class="w">
-   </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"payload"</span><span class="p">:{</span><span class="w">    
-      </span><span class="s2">"tokens"</span><span class="p">:[</span><span class="s2">"444445GFDRBH4448"</span><span class="p">,</span><span class="s2">"444425GFSRBH4448"</span><span class="p">]</span><span class="w"> 
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>See the section <a href="#handling-responses-amp-errors">Handling responses &amp; errors</a> to learn how Gestpay reports errors.</p>
-
-<p>Response <code class="prettyprint">payload</code> details:</p>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">tokens</code></td>
-<td>An array containing all the tokens created for this shop.</td>
 </tr>
 </tbody></table>
 
