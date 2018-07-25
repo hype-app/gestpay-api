@@ -36,11 +36,12 @@ Use one of the following headers to authenticate:
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
 | `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+| `paymentToken` | `paymentToken: "{paymentToken}"` | A payment token received during the payment process | 
 
 Request Body: 
 
 | Parameter | Description | 
-| --------- | ----------- |
+| --------- | ----------- | 
 | **`shopLogin`** | the merchant's code 
 | **`requestToken`** | `MASKEDPAN` for a Standard Token; any other value for Custom Token 
 | **`cardNumber`** | credit card number 
