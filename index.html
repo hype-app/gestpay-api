@@ -6696,6 +6696,330 @@ Please note:
 
 <p>With the Payment REST API you can automate every aspect of the payment process. </p>
 
+          <h3 id="post-payment-create-beta">POST payment/create <span class="beta">BETA</span></h3>
+
+<blockquote>
+<p>Sandbox URL:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/payment/create/
+</code></pre>
+<blockquote>
+<p>Example request: </p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="s2">"shopLogin"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"currency"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"shopTransactionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"buyerName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"buyerEmail"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"languageId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"customInfo"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"{myCustomInfo1}"</span><span class="p">:</span><span class="s2">"{myCustomInfoValue1}"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"{myCustomInfo2}"</span><span class="p">:</span><span class="s2">"{myCustomInfoValue2}"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"requestToken"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"clientIP"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"itemType"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"recurrent"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"paymentType"</span><span class="p">:[</span><span class="w">  
+
+   </span><span class="p">],</span><span class="w">
+   </span><span class="s2">"shippingDetails"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"shipToName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"shipToStreet"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"shipToState"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"shipToCountryCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"shipToZip"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"shipToStreet2"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"orderDetails"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"fraudPrevention"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"submitForReview"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"orderDateTime"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"orderNote"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"submissionReason"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"beaconSessionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"vendorID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"vendorName"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"customerDetail"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"profileID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"merchantCustomerID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"firstName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"middleName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"lastname"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"primaryEmail"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"secondaryEmail"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"homePhone"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"mobilePhone"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"dateOfBirth"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"gender"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"socialSecurityNumber"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"company"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"createdAtDate"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"verifiedEmail"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"accountType"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"social"</span><span class="p">:{</span><span class="w">  
+            </span><span class="s2">"network"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"publicUsername"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"communityScore"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"profilePicture"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"bio"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"accountUrl"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"following"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"followed"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"posts"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"authToken"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"socialData"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"shippingAddress"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"profileID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"firstName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"middleName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"lastname"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"streetName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"streetname2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"houseNumber"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"houseExtention"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"city"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"zipCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"countryCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"primaryPhone"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"secondaryPhone"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"company"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"stateCode"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"billingAddress"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"profileID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"firstName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"middleName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"lastname"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"streetName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"streetname2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"houseNumber"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"houseExtention"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"city"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"zipCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"countryCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"primaryPhone"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"secondaryPhone"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"company"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"stateCode"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"productDetails"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="s2">"productCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"SKU"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unitPrice"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"vat"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"discount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"requiresShipping"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"condition"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"seller"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"category"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"subCategory"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"brand"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"deliveryAt"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"discountCodes"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Code"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"shippingLines"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="s2">"Price"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Title"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Code"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Settle fully or partially an authorized transaction.</p>
+
+<h4 id="request">Request</h4>
+
+<p>Headers: </p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
+<td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
+</tr>
+</tbody></table>
+
+<p>Input Body: </p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>Your shop login</td>
+</tr>
+<tr>
+<td><code class="prettyprint">amount</code></td>
+<td>The amount to capture</td>
+</tr>
+<tr>
+<td><code class="prettyprint">currency</code></td>
+<td><a href="#currency-codes">ISO currency code</a></td>
+</tr>
+<tr>
+<td><code class="prettyprint">shopTransactionID</code></td>
+<td>the shop transaction ID</td>
+</tr>
+<tr>
+<td><code class="prettyprint">buyerName</code></td>
+<td>buyer’s name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">buyerEmail</code></td>
+<td>buyer’s e-mail address.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">customInfo</code></td>
+<td>An object containing optional customised parameters. Use the <code class="prettyprint">customInfo</code> parameter name as the key.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">languageId</code></td>
+<td>language to use for e-mails to the buyer</td>
+</tr>
+<tr>
+<td><code class="prettyprint">clientIP</code></td>
+<td>For PayPal Billing Agreements it is required only in &ldquo;one click&rdquo; mode transaction. <br> For AMEX transaction not in Euro, in this field the merchant could provide the client IP address to activate the Enhanced Authorization AAV.<br><strong>Mandatory if you use Gestpay Guaranteed Payment with S2S.</strong></td>
+</tr>
+<tr>
+<td><code class="prettyprint">itemType</code></td>
+<td>Item Category: <code class="prettyprint">digital</code>/<code class="prettyprint">physical</code> (If <code class="prettyprint">physical</code> the <code class="prettyprint">ShippingDetails</code> have to be filled)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">recurrent</code></td>
+<td><code class="prettyprint">True</code> if it&rsquo;s a recurrent payment, <code class="prettyprint">False</code> if not.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shippingDetails</code></td>
+<td>contains the shipping address. Used for <a href="http://docs.gestpay.it/oth/paypal.html">paypal seller protection</a>.</td>
+</tr>
+<tr>
+<td><a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a></td>
+<td>contains every other info needed to handle the payment. It is used by  Gestpay Guaranteed Payment.</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>children of <code class="prettyprint">ShippingDetails</code> :</li>
+</ul>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shipToName</code></td>
+<td>shipping name</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">shipToStreet</code></td>
+<td>shipping address</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">shipToState</code> </td>
+<td>shipping state (see <a href="#paypal-state-amp-province-codes">Paypal State Codes</a> table)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">shipToCountryCode</code></td>
+<td>shipping country code (see <a href="#paypal-country-codes">Paypal Country Codes</a> table)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">shipToZip</code></td>
+<td>the shipping Zip</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">shipToStreet2</code></td>
+<td>an additional field for the shipping  address</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h4 id="response">Response</h4>
+
+<blockquote>
+<p>Success Response:<br>
+<code class="prettyprint">200 OK</code></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"error"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"request correctly processed"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"payload"</span><span class="p">:{</span><span class="w">  
+    </span><span class="s2">"paymentToken"</span><span class="p">:</span><span class="s2">"Asjdlfad5543AA33a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"paymentID"</span><span class="p">:</span><span class="s2">"0000000001"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>See the section <a href="#handling-responses-amp-errors">Handling responses &amp; errors</a> to learn how Gestpay reports errors.</p>
+
+<p><code class="prettyprint">payload</code> details:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">paymentToken</code></td>
+<td>A token related to this transaction.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentID</code></td>
+<td>The ID of this transaction, assigned by Gestpay.</td>
+</tr>
+</tbody></table>
+
           <h3 id="post-payment-detail-beta">POST payment/detail <span class="beta">BETA</span></h3>
 
 <blockquote>
