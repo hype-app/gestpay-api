@@ -5050,12 +5050,12 @@ Please note:
 
 <p>With the dashboard REST APIs you&rsquo;ll be able to query Gestpay for dashboard services, like searching for transactions. </p>
 
-          <h3 id="post-dashboard-search-execute-beta">POST dashboard/search/execute <span class="beta">BETA</span></h3>
+          <h3 id="post-dashboard-search-beta">POST dashboard/search <span class="beta">BETA</span></h3>
 
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
-<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/dashboard/search/execute
+<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/dashboard/search
 </code></pre>
 <blockquote>
 <p>Example search: </p>
@@ -5081,6 +5081,7 @@ Please note:
     </span><span class="s2">"bankTransactionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"shopTransactionID"</span><span class="w"> </span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"authorizationCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactonErrorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"paymentID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"authorizationResult"</span><span class="p">:[],</span><span class="w">
     </span><span class="s2">"tdLevel"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -5201,6 +5202,11 @@ Please note:
 <td><code class="prettyprint">1123454</code></td>
 </tr>
 <tr>
+<td><code class="prettyprint">transactionErrorCode</code></td>
+<td>The transaction error code</td>
+<td><code class="prettyprint">74</code></td>
+</tr>
+<tr>
 <td><code class="prettyprint">paymentID</code></td>
 <td>Assigned by Gestpay, identifies the payment</td>
 <td><code class="prettyprint">abc123653</code></td>
@@ -5293,6 +5299,8 @@ Please note:
         </span><span class="s2">"bankTransactionID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2304"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"shopTransactionID"</span><span class="p">:</span><span class="s2">"Cryptest2602201811"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"authorizationCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transactionErrorCode"</span><span class="w"> </span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transactionErrorDescription"</span><span class="w"> </span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w"> 
         </span><span class="s2">"paymentID"</span><span class="p">:</span><span class="s2">"22131121123"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"0.10"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"currency"</span><span class="w"> </span><span class="p">:</span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
@@ -5419,7 +5427,15 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">authorizationCode</code></td>
-<td>the authorization code given by the circuit ???</td>
+<td>the authorization code given by the circuit</td>
+</tr>
+<tr>
+<td><code class="prettyprint">transactionErrorCode</code></td>
+<td>The transaction error code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">transactionErrorDescription</code></td>
+<td>The transaction error description in common language</td>
 </tr>
 <tr>
 <td><code class="prettyprint">paymentID</code></td>
@@ -6808,6 +6824,11 @@ Please note:
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"alertCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"alertDescription"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="s2">"cvvPresent"</span><span class="p">:</span><span class="s2">"{TRUE/FALSE}"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"dcc"</span><span class="p">:{</span><span class="w">
+          </span><span class="s2">"eligible"</span><span class="p">:</span><span class="s2">"{TRUE/FALSE}"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"currency"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -6893,7 +6914,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">buyer</code></td>
-<td>Contains informations about the buyer name, if available. See table below.</td>
+<td>Contains informations about the buyer name, if available. See the able below.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">risk</code></td>
@@ -6901,7 +6922,23 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">events</code></td>
-<td>See below</td>
+<td>Contains informations about this payment history. See below.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">cvvPresent</code></td>
+<td><code class="prettyprint">TRUE</code> if the payment has been executed by using a CVV security code.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">dcc</code></td>
+<td>Stands for Dynamic Currency Conversion. See the table below.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">transactionErrorCode</code></td>
+<td>The error code for the transaction. See <a href="#errors">error codes</a> page for details.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">transactionErrorDescription</code></td>
+<td>The error code description in common language.</td>
 </tr>
 </tbody></table>
 
@@ -6968,6 +7005,24 @@ Please note:
 <tr>
 <td><code class="prettyprint">RiskResponseDescription</code></td>
 <td>Risk Description for the RiskResponseCode value</td>
+</tr>
+</tbody></table>
+
+<p><code class="prettyprint">dcc</code> details: </p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">eligible</code></td>
+<td><code class="prettyprint">TRUE</code> if the payment is DCC eligible and is therefore converted at payment time; <code class="prettyprint">FALSE</code> otherwise.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">currency</code></td>
+<td>The exchange rate.</td>
 </tr>
 </tbody></table>
 
