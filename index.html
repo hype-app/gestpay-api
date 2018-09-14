@@ -5050,7 +5050,7 @@ Please note:
 
 <p>With the dashboard REST APIs you&rsquo;ll be able to query Gestpay for dashboard services, like searching for transactions. </p>
 
-          <h3 id="post-dashboard-search">POST dashboard/search</h3>
+          <h3 id="post-dashboard-search-execute">POST dashboard/search/execute</h3>
 
 <blockquote>
 <p>Sandbox URL:</p>
@@ -5214,12 +5214,12 @@ Please note:
 <tr>
 <td><code class="prettyprint">paymentID</code></td>
 <td>Assigned by Gestpay, identifies the payment</td>
-<td><code class="prettyprint">abc123653</code></td>
+<td><code class="prettyprint">12365344752</code></td>
 </tr>
 <tr>
 <td><code class="prettyprint">authorizationResult</code></td>
 <td>select transactions whose authorizationResult is contained in the array.</td>
-<td><code class="prettyprint">OK</code>, <code class="prettyprint">KO</code>, <code class="prettyprint">NULL</code></td>
+<td><code class="prettyprint">UNSUBMITTED</code>, <code class="prettyprint">WAITING</code>, <code class="prettyprint">PENDING</code>, <code class="prettyprint">APPROVED</code>, <code class="prettyprint">DECLINED</code></td>
 </tr>
 <tr>
 <td><code class="prettyprint">tdLevel</code></td>
@@ -5268,8 +5268,8 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">riskAlert</code></td>
-<td>use <code class="prettyprint">Y</code> to select transactions associated with a high risk</td>
-<td><code class="prettyprint">Y</code> or <code class="prettyprint">N</code></td>
+<td>use <code class="prettyprint">true</code> to select transactions associated with a high risk</td>
+<td><code class="prettyprint">true</code> or <code class="prettyprint">false</code></td>
 </tr>
 <tr>
 <td><code class="prettyprint">customFields.customName</code></td>
@@ -5550,7 +5550,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">fileType</code></td>
-<td>The file type extension, one of <code class="prettyprint">txt</code> or <code class="prettyprint">xls</code></td>
+<td>The file type extension, one of <code class="prettyprint">txt</code>, <code class="prettyprint">xls</code>, <code class="prettyprint">csv</code></td>
 </tr>
 <tr>
 <td><code class="prettyprint">template</code></td>
@@ -5693,7 +5693,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">fileType</code></td>
-<td>The output file type: <code class="prettyprint">txt</code> or <code class="prettyprint">xls</code>.</td>
+<td>The output file type: <code class="prettyprint">txt</code>, <code class="prettyprint">xls</code>, <code class="prettyprint">csv</code></td>
 </tr>
 <tr>
 <td><code class="prettyprint">recipient.email.value</code></td>
