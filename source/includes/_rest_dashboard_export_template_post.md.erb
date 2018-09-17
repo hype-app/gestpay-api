@@ -4,14 +4,14 @@
 > Sandbox URL:
 
 ```
-POST https://sandbox.gestpay.net/api/v1/dashboard/export/template/{shopLogin}
+POST https://sandbox.gestpay.net/api/v1/dashboard/export/template/
 ```
 
 <%#
 > Production URL: 
 
 ```
-POST https://ecomms2s.sella.it/api/v1/dashboard/export/template/{shopLogin}
+POST https://ecomms2s.sella.it/api/v1/dashboard/export/template/
 ```
 %>
 
@@ -51,12 +51,6 @@ Headers:
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
 | `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
-
-URL parameters: 
-
-| Parameter | Description | 
-| --------- | ----------- | 
-| `shopLogin` | The shop identifier. | 
 
 
 Body parameters: 
