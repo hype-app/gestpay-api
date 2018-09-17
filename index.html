@@ -5046,6 +5046,403 @@ Please note:
 
 <p>The <code class="prettyprint">payload</code> is eventually filled with the response, in case of success.</p>
 
+          <h2 id="check-api">Check API</h2>
+
+<p>With the Check REST APIs you&rsquo;ll be able to syntactically check credit card numbers, emails, dates and CVV. </p>
+
+          <h3 id="post-check-cvv-beta">POST check/cvv <span class="beta">BETA</span></h3>
+
+<blockquote>
+<p>Sandbox URL:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/check/cvv/
+</code></pre>
+<blockquote>
+<p>Request body: </p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"shopLogin"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"creditcard"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"cvv:""
+    }
+}
+</span></code></pre>
+<p>Provides a formal validity check of the CVV.</p>
+
+<h4 id="request">Request</h4>
+
+<p>Headers: </p>
+
+<p>To receive a valid response from Gestpay you must use one of these headers: </p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
+<td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentToken</code></td>
+<td><code class="prettyprint">paymentToken: &quot;{paymentToken}&quot;</code></td>
+<td>A payment token received during the payment process</td>
+</tr>
+</tbody></table>
+
+<p>request body details: </p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>The shop identifier.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">creditcard.cvv</code></td>
+<td>A string composed of digits.</td>
+</tr>
+</tbody></table>
+
+<h4 id="response">Response</h4>
+
+<blockquote>
+<p>Success response example:<br>
+<code class="prettyprint">200 OK</code></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:{</span><span class="w">  
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"request correctly processed"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>See the section <a href="#handling-responses-amp-errors">Handling responses &amp; errors</a> to learn how Gestpay reports errors.</p>
+
+<p>Response <code class="prettyprint">payload</code> details:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">result</code></td>
+<td><code class="prettyprint">OK</code> of <code class="prettyprint">KO</code></td>
+</tr>
+</tbody></table>
+
+          <h3 id="post-check-email-beta">POST check/email <span class="beta">BETA</span></h3>
+
+<blockquote>
+<p>Sandbox URL:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/check/email/
+</code></pre>
+<blockquote>
+<p>Request body: </p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"shopLogin"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Provides a formal validity check of the email address.</p>
+
+<h4 id="request">Request</h4>
+
+<p>Headers: </p>
+
+<p>To receive a valid response from Gestpay you must use one of these headers: </p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
+<td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentToken</code></td>
+<td><code class="prettyprint">paymentToken: &quot;{paymentToken}&quot;</code></td>
+<td>A payment token received during the payment process</td>
+</tr>
+</tbody></table>
+
+<p>request body details: </p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>The shop identifier.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">creditcard.email</code></td>
+<td>A string containing the email to validate.</td>
+</tr>
+</tbody></table>
+
+<h4 id="response">Response</h4>
+
+<blockquote>
+<p>Success response example:<br>
+<code class="prettyprint">200 OK</code></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:{</span><span class="w">  
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"request correctly processed"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>See the section <a href="#handling-responses-amp-errors">Handling responses &amp; errors</a> to learn how Gestpay reports errors.</p>
+
+<p>Response <code class="prettyprint">payload</code> details:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">result</code></td>
+<td><code class="prettyprint">OK</code> of <code class="prettyprint">KO</code></td>
+</tr>
+</tbody></table>
+
+          <h3 id="post-check-expirydate-beta">POST check/expirydate <span class="beta">BETA</span></h3>
+
+<blockquote>
+<p>Sandbox URL:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/check/expirydate/
+</code></pre>
+<blockquote>
+<p>Request body: </p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"shopLogin"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"creditcard"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"expMonth"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expYear"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Provides a formal validity check of the Exipry Date.</p>
+
+<h4 id="request">Request</h4>
+
+<p>Headers: </p>
+
+<p>To receive a valid response from Gestpay you must use one of these headers: </p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
+<td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentToken</code></td>
+<td><code class="prettyprint">paymentToken: &quot;{paymentToken}&quot;</code></td>
+<td>A payment token received during the payment process</td>
+</tr>
+</tbody></table>
+
+<p>request body details: </p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>The shop identifier.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">creditcard.expMonth</code></td>
+<td>The credit card exiry month</td>
+</tr>
+<tr>
+<td><code class="prettyprint">creditcard.expYear</code></td>
+<td>The credit card exiry year</td>
+</tr>
+</tbody></table>
+
+<h4 id="response">Response</h4>
+
+<blockquote>
+<p>Success response example:<br>
+<code class="prettyprint">200 OK</code></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:{</span><span class="w">  
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"request correctly processed"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>See the section <a href="#handling-responses-amp-errors">Handling responses &amp; errors</a> to learn how Gestpay reports errors.</p>
+
+<p>Response <code class="prettyprint">payload</code> details:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">result</code></td>
+<td><code class="prettyprint">OK</code> of <code class="prettyprint">KO</code></td>
+</tr>
+</tbody></table>
+
+          <h3 id="post-check-pan-beta">POST check/pan <span class="beta">BETA</span></h3>
+
+<blockquote>
+<p>Sandbox URL:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/check/pan/
+</code></pre>
+<blockquote>
+<p>Request body: </p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"shopLogin"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"creditcard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Provides a check of the digits of the PAN.</p>
+
+<h4 id="request">Request</h4>
+
+<p>Headers: </p>
+
+<p>To receive a valid response from Gestpay you must use one of these headers: </p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
+<td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentToken</code></td>
+<td><code class="prettyprint">paymentToken: &quot;{paymentToken}&quot;</code></td>
+<td>A payment token received during the payment process</td>
+</tr>
+</tbody></table>
+
+<p>request body details: </p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>The shop identifier.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">creditcard.number</code></td>
+<td>The credit card number to check.</td>
+</tr>
+</tbody></table>
+
+<h4 id="response">Response</h4>
+
+<blockquote>
+<p>Success response example:<br>
+<code class="prettyprint">200 OK</code></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:{</span><span class="w">  
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"request correctly processed"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"payload"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"checkDigit"</span><span class="p">:</span><span class="s2">"{OK/KO}"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"logo"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"large"</span><span class="p">:</span><span class="s2">"{url_logo_desktop_lage_PNG}"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"mobile"</span><span class="p">:</span><span class="s2">"{url_logo_mobile_lage_PNG}"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vector"</span><span class="p">:</span><span class="s2">"{url_logo_svg}"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>See the section <a href="#handling-responses-amp-errors">Handling responses &amp; errors</a> to learn how Gestpay reports errors.</p>
+
+<p>Response <code class="prettyprint">payload</code> details:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">checkDigit</code></td>
+<td><code class="prettyprint">OK</code> of <code class="prettyprint">KO</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">company</code></td>
+<td>the card issuer</td>
+</tr>
+<tr>
+<td><code class="prettyprint">logo</code></td>
+<td>contains URLs for images in different formats: <code class="prettyprint">large</code>, <code class="prettyprint">mobile</code>, <code class="prettyprint">vector</code>.</td>
+</tr>
+</tbody></table>
+
           <h2 id="dashboard-api">Dashboard API</h2>
 
 <p>With the dashboard REST APIs you&rsquo;ll be able to query Gestpay for dashboard services, like searching for transactions. </p>
@@ -5607,7 +6004,7 @@ Please note:
 </tr>
 </tbody></table>
 
-          <h3 id="post-dashboard-export-batch-beta">POST dashboard/export/batch <span class="beta">BETA</span></h3>
+          <h3 id="post-dashboard-export-batch">POST dashboard/export/batch</h3>
 
 <blockquote>
 <p>Sandbox URL:</p>
@@ -5765,12 +6162,17 @@ Please note:
 </tr>
 </tbody></table>
 
-          <h3 id="get-dasboard-export-batch-beta">GET dasboard/export/batch <span class="beta">BETA</span></h3>
+          <h3 id="get-dasboard-export-batch">GET dasboard/export/batch</h3>
 
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
 <pre class="highlight plaintext"><code>GET https://sandbox.gestpay.net/api/v1/dashboard/export/batch/{shopLogin}/
+</code></pre>
+<blockquote>
+<p>Production URL: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://ecomms2s.sella.it/api/v1/dashboard/export/batch/{shopLogin}/
 </code></pre>
 <p>This endpoint will return the list of batches saved in Gestpay. </p>
 
@@ -5959,12 +6361,17 @@ Please note:
 </tr>
 </tbody></table>
 
-          <h3 id="delete-dashboard-export-batch-beta">DELETE dashboard/export/batch <span class="beta">BETA</span></h3>
+          <h3 id="delete-dashboard-export-batch">DELETE dashboard/export/batch</h3>
 
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
 <pre class="highlight plaintext"><code>DELETE https://sandbox.gestpay.net/api/v1/dashboard/export/batch/{shopLogin}/{batchID}
+</code></pre>
+<blockquote>
+<p>Production URL: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>DELETE https://ecomms2s.sella.it/api/v1/dashboard/export/batch/{shopLogin}/{batchID}
 </code></pre>
 <p>Deletes a batch. </p>
 
@@ -6042,7 +6449,7 @@ Please note:
 </tr>
 </tbody></table>
 
-          <h3 id="get-dashboard-statistics-beta">GET dashboard/statistics <span class="beta">BETA</span></h3>
+          <h3 id="get-dashboard-statistics">GET dashboard/statistics</h3>
 
 <blockquote>
 <p>Sandbox URL:</p>
@@ -6697,6 +7104,231 @@ Please note:
 </tr>
 </tbody></table>
 
+          <h3 id="get-dasboard-search-saved-beta">GET dasboard/search/saved <span class="beta">BETA</span></h3>
+
+<blockquote>
+<p>Sandbox URL:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://sandbox.gestpay.net/api/v1/dashboard/search/saved/{shopLogin}/
+</code></pre>
+<p>Returns the list of saved searches in Gestpay. </p>
+
+<p>Headers: </p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
+<td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
+</tr>
+</tbody></table>
+
+<p>URL params: </p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>your Shop Login, e.g. <code class="prettyprint">GESPAY12345</code> or <code class="prettyprint">XX12345678</code></td>
+</tr>
+</tbody></table>
+
+<h4 id="response">Response</h4>
+
+<blockquote>
+<p>Success response:<br>
+<code class="prettyprint">200 OK</code></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"search"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"save"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"searchID"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"authorizedAmount"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"from"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"to"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"capturedAmount"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"from"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"to"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"currency"</span><span class="p">:[</span><span class="w">
+
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"bankTransactionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"shopTransactionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"authorizationCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"transactionErrorCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"transactionErrorDescription"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"paymentID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"authorizationResult"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tdLevel"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"from"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"to"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"lastNDays"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"includeToday"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"transactionState"</span><span class="p">:[</span><span class="w">
+
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"paymentType"</span><span class="p">:[</span><span class="w">
+
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"riskAlert"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"customFields"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"customName"</span><span class="p">:</span><span class="s2">"customvalue"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"invoiceID"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>See the section <a href="#handling-responses-amp-errors">Handling responses &amp; errors</a> to learn how Gestpay reports errors.</p>
+
+<p><code class="prettyprint">payload</code> details:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">search</code></td>
+<td>An array of search objects, see next table.</td>
+</tr>
+</tbody></table>
+
+<p><code class="prettyprint">search</code> details:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">save.name</code></td>
+<td>The search name.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">save.searchID</code></td>
+<td>The ID assigned by Gestpay for this search.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">authorizedAmount.from</code></td>
+<td>the <code class="prettyprint">from</code> amount range. If <code class="prettyprint">10</code>, only authorized amounts greater than 10 are returned.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">authorizedAmount.from</code></td>
+<td>The <code class="prettyprint">to</code> amount range. If <code class="prettyprint">20</code>, only authorized amounts lower than 20 are returned.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">currency</code></td>
+<td>An array of valid <a href="#currency-codes">currencies</a> to search for.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bankTransactionID</code></td>
+<td>the bank transaction ID.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shopTransactionID</code></td>
+<td>The shop transaction ID.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">transactionErrorCode</code></td>
+<td>A <a href="#errors">transaction error code</a>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">transactionErrorDescription</code></td>
+<td>A transaction error description, in common language.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentID</code></td>
+<td>The payment ID</td>
+</tr>
+<tr>
+<td><code class="prettyprint">authorizationResult</code></td>
+<td>The authorization result.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">tdLevel</code></td>
+<td>3D-Secure level</td>
+</tr>
+<tr>
+<td><code class="prettyprint">event</code></td>
+<td>An array of accepted events. See below.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">transactionState</code></td>
+<td>An array of transaction states. Follow the link for a <a href="http://docs.gestpay.it/adv/query-transaction-status.html">detailed explanation of transaction statuses</a>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentType</code></td>
+<td>an array of <a href="#payment-type-codes">payment types</a>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">riskAlert</code></td>
+<td><code class="prettyprint">true</code> to select transactions associated with a high risk</td>
+</tr>
+<tr>
+<td><code class="prettyprint">customFields.customName</code></td>
+<td>You can even search by a custom parameter and its value. Just put the <code class="prettyprint">customName</code> set as the key and use the value as the search field.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">invoiceID</code></td>
+<td>the invoice ID.</td>
+</tr>
+</tbody></table>
+
+<p><code class="prettyprint">search.event</code> details: </p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">type</code></td>
+<td>One of the events defined in <a href="#event-types">Event Types</a>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">from</code></td>
+<td>The from date for the specified event type.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">to</code></td>
+<td>The to date for the specified event type.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">lastNDays</code></td>
+<td>an integer defining if this event should be searched in the last N days. Alternative to <code class="prettyprint">from</code> and <code class="prettyprint">to</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">includeToday</code></td>
+<td>If <code class="prettyprint">true</code>, it includes today in the search.</td>
+</tr>
+</tbody></table>
+
           <h2 id="payment-api">Payment API</h2>
 
 <p>With the Payment REST API you can automate every aspect of the payment process. </p>
@@ -7030,7 +7662,7 @@ Please note:
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
-<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/payment/detail/
+<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/payment/detail/{paymentID}
 </code></pre>
 <blockquote>
 <p>Example request: </p>
@@ -7065,6 +7697,20 @@ Please note:
 <td><code class="prettyprint">paymentToken</code></td>
 <td><code class="prettyprint">paymentToken: &quot;{paymentToken}&quot;</code></td>
 <td>A payment token received during the payment process</td>
+</tr>
+</tbody></table>
+
+<p>URL parameter: </p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">paymentID</code></td>
+<td>The payment identifier.</td>
 </tr>
 </tbody></table>
 
@@ -7881,12 +8527,17 @@ Please note:
 
 <p>With this endpoint the merchant is able to modify many settings regarding his account. </p>
 
-          <h3 id="post-shop-moto-beta">POST shop/moto <span class="beta">BETA</span></h3>
+          <h3 id="post-shop-moto">POST shop/moto</h3>
 
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
 <pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/shop/moto
+</code></pre>
+<blockquote>
+<p>Production URL: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST https://ecomms2s.sella.it/api/v1/shop/moto
 </code></pre>
 <blockquote>
 <p>Request Body: </p>
@@ -8014,12 +8665,17 @@ Please note:
 </tr>
 </tbody></table>
 
-          <h3 id="get-shop-moto-beta">GET shop/moto <span class="beta">BETA</span></h3>
+          <h3 id="get-shop-moto">GET shop/moto</h3>
 
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
 <pre class="highlight plaintext"><code>GET https://sandbox.gestpay.net/api/v1/shop/moto/{shopLogin}
+</code></pre>
+<blockquote>
+<p>Production URL: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://ecomms2s.sella.it/api/v1/shop/moto/{shopLogin}
 </code></pre>
 <p>Returns the MOTO setting for the <code class="prettyprint">shopLogin</code>. </p>
 
@@ -8120,12 +8776,17 @@ Please note:
 </tr>
 </tbody></table>
 
-          <h3 id="get-shop-version-beta">GET shop/version <span class="beta">BETA</span></h3>
+          <h3 id="get-shop-version">GET shop/version</h3>
 
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
 <pre class="highlight plaintext"><code>GET https://sandbox.gestpay.net/api/v1/shop/version/{shopLogin}
+</code></pre>
+<blockquote>
+<p>Production URL: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://ecomms2s.sella.it/api/v1/shop/version/{shopLogin}
 </code></pre>
 <p>Retrieves the current merchant version: <code class="prettyprint">Starter</code>, <code class="prettyprint">Professional</code>, <code class="prettyprint">Unlimited</code>.</p>
 
@@ -8195,12 +8856,17 @@ Please note:
 </tr>
 </tbody></table>
 
-          <h3 id="post-shop-language-beta">POST shop/language <span class="beta">BETA</span></h3>
+          <h3 id="post-shop-language">POST shop/language</h3>
 
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
 <pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/shop/language/{shopLogin}
+</code></pre>
+<blockquote>
+<p>Production URL: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST https://ecomms2s.sella.it/api/v1/shop/language/
 </code></pre>
 <blockquote>
 <p>Request body: </p>
@@ -8287,12 +8953,17 @@ Please note:
 </tr>
 </tbody></table>
 
-          <h3 id="get-shop-language-beta">GET shop/language <span class="beta">BETA</span></h3>
+          <h3 id="get-shop-language">GET shop/language</h3>
 
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
 <pre class="highlight plaintext"><code>GET https://sandbox.gestpay.net/api/v1/shop/language/{shopLogin}
+</code></pre>
+<blockquote>
+<p>Production URL: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://ecomms2s.sella.it/api/v1/shop/language/{shopLogin}
 </code></pre>
 <p>Retrieves the current language. </p>
 
@@ -8362,12 +9033,17 @@ Please note:
 </tr>
 </tbody></table>
 
-          <h3 id="post-shop-paymentmethods-beta">POST shop/paymentMethods <span class="beta">BETA</span></h3>
+          <h3 id="post-shop-paymentmethods">POST shop/paymentMethods</h3>
 
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
 <pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/shop/paymentMethods/
+</code></pre>
+<blockquote>
+<p>Production URL: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST https://ecomms2s.sella.it/api/v1/shop/paymentMethods/
 </code></pre>
 <blockquote>
 <p>Request body: </p>
@@ -8464,12 +9140,17 @@ Please note:
 </tr>
 </tbody></table>
 
-          <h3 id="get-shop-paymentmethods-beta">GET shop/paymentMethods <span class="beta">BETA</span></h3>
+          <h3 id="get-shop-paymentmethods">GET shop/paymentMethods</h3>
 
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
 <pre class="highlight plaintext"><code>GET https://sandbox.gestpay.net/api/v1/shop/paymentMethods/{shopLogin}
+</code></pre>
+<blockquote>
+<p>Production URL: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://ecomms2s.sella.it/api/v1/shop/paymentMethods/{shopLogin}
 </code></pre>
 <p>Retrieves a list of payment methods enabled indicating name, payment type, related logo (URL), related mobile logo (URL), if the method is visible/hidden in the payment page.</p>
 
@@ -8586,12 +9267,17 @@ Please note:
 </tr>
 </tbody></table>
 
-          <h3 id="get-shop-environment-beta">GET shop/environment <span class="beta">BETA</span></h3>
+          <h3 id="get-shop-environment">GET shop/environment</h3>
 
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
 <pre class="highlight plaintext"><code>GET https://sandbox.gestpay.net/api/v1/shop/environment/{shopLogin}
+</code></pre>
+<blockquote>
+<p>Production URL: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://ecomms2s.sella.it/api/v1/shop/environment/{shopLogin}
 </code></pre>
 <p>Retrieves the current enviroment (SANDBOX / LIVE).</p>
 
@@ -8907,7 +9593,7 @@ Please note:
 
 <h4 id="request">Request</h4>
 
-<p>Headers: </p>
+<p>To authorize, use one of the followng headers: </p>
 
 <table><thead>
 <tr>
@@ -8920,6 +9606,11 @@ Please note:
 <td><code class="prettyprint">Authorization</code></td>
 <td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
 <td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentToken</code></td>
+<td><code class="prettyprint">paymentToken: &quot;{paymentToken}&quot;</code></td>
+<td>A payment token received during the payment process</td>
 </tr>
 </tbody></table>
 
