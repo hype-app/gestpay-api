@@ -1,48 +1,49 @@
-### POST shop/paymentMethods
+### POST check/email <span class="beta">BETA</span>
 
 
 > Sandbox URL:
 
 ```
-POST https://sandbox.gestpay.net/api/v1/shop/paymentMethods/
+POST https://sandbox.gestpay.net/api/v1/check/email/
 ```
 
-
+<%#
 > Production URL: 
 
 ```
-POST https://ecomms2s.sella.it/api/v1/shop/paymentMethods/
+POST https://ecomms2s.sella.it/api/v1/check/email/
 ```
-
+%>
 
 > Request body: 
 
 ```json
-{  
-  "shopLogin":"",
-  "paymentType":"{paymentType}",
-  "paymentPage":"{visible/hidden}"
+{
+    "shopLogin":"",
+    "email":""
 }
 ```
 
- Allows to show/hide the payment method on payment page.
-
+Provides a formal validity check of the email address.
 
 #### Request 
 
 Headers: 
 
+To receive a valid response from Gestpay you must use one of these headers: 
+
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
 | `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+| `paymentToken` | `paymentToken: "{paymentToken}"` | A payment token received during the payment process |
+
 
 request body details: 
 
 | Parameter | Description | 
 | --------- | ----------- | 
 | `shopLogin` | The shop identifier. | 
-| `paymentType` | One of the [payment types](#payment-type-codes) supported by Gestpay. 
-| `paymentPage` | set to `visible` to show the payment type on the payment page; `hidden` to hide.
+| `creditcard.email` | A string containing the email to validate.
 
 #### Response 
 
@@ -51,27 +52,21 @@ request body details:
 
 ```json
 {
-   "error":{  
-      "code":"0",
-      "description":"request correctly processed"
-   },
-   "payload":{  
-    "result":"OK",
-    "paymentType":"CREDITCARD",
-    "paymentPage":"visible"
+  "error":{  
+    "code":"0",
+    "description":"request correctly processed"
+  },
+  "payload": {
+    "result": "OK"
   }
 }
 ```
 
 See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
 
-The response contains the language set for Gestpay. 
-
 Response `payload` details:
 
 
 | Field          | Description 
 | -------------- | -----------
-| `result`       | The outcome of the operation: `OK` of `KO`
-| `paymentType`  | The payment type selected
-| `paymentPage`  | The value set for the payment page: `visible` or `hidden`
+| `result`   | `OK` of `KO`

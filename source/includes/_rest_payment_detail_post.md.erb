@@ -4,14 +4,14 @@
 > Sandbox URL:
 
 ```
-POST https://sandbox.gestpay.net/api/v1/payment/detail/
+POST https://sandbox.gestpay.net/api/v1/payment/detail/{paymentID}
 ```
 
 <%#
 > Production URL: 
 
 ```
-POST https://ecomms2s.sella.it/api/v1/payment/detail/
+POST https://ecomms2s.sella.it/api/v1/payment/detail/{paymentID}
 ```
 %>
 
@@ -37,6 +37,12 @@ To authetnicate, use one of the following headers:
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
 | `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
 | `paymentToken` | `paymentToken: "{paymentToken}"` | A payment token received during the payment process |
+
+URL parameter: 
+
+| Parameter | Description | 
+| --------- | ----------- | 
+| `paymentID` | The payment identifier. | 
 
 Input Body: 
 
