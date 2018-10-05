@@ -9940,6 +9940,299 @@ Please note:
 </tr>
 </tbody></table>
 
+          <h3 id="get-shop-paymentpage">GET shop/paymentPage</h3>
+
+<blockquote>
+<p>Sandbox URL:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://sandbox.gestpay.net/api/v1/shop/paymentPage/{shopLogin}
+</code></pre>
+<blockquote>
+<p>Production URL: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://ecomms2s.sella.it/api/v1/shop/paymentPage/{shopLogin}
+</code></pre>
+<p>Retrieves the current text or URL for the Logo, the default language, and the URL that will display the preview of the payment page. </p>
+
+<h4 id="request">Request</h4>
+
+<p>Headers: </p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
+<td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
+</tr>
+</tbody></table>
+
+<p>URL parameter: </p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>The shop identifier.</td>
+</tr>
+</tbody></table>
+
+<h4 id="response">Response</h4>
+
+<blockquote>
+<p>Success response example:<br>
+<code class="prettyprint">200 OK</code></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"request correctly processed"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"logo"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ITALIAN"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://yourdomain/img/yourlogo.png"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"altText"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},{</span><span class="w">
+      </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENGLISH"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://yourdomain/img/yourlogo.png"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"altText"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},{</span><span class="w">
+      </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SPANISH"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://yourdomain/img/yourlogo.png"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"altText"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},{</span><span class="w">
+      </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GERMAN"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://yourdomain/img/yourlogo.png"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"altText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YOUR TEXT"</span><span class="w">
+    </span><span class="p">},{</span><span class="w">
+      </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FRENCH"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"imageURL"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://yourdomain/img/yourlogo.png"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"altText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YOUR TEXT"</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="s2">"defaultLang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENGLISH"</span><span class="w"> 
+  </span><span class="p">}</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>See the section <a href="#handling-responses-amp-errors">Handling responses &amp; errors</a> to learn how Gestpay reports errors.</p>
+
+<p>The response contains the language set for Gestpay. </p>
+
+<p>Response <code class="prettyprint">payload</code> details:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">logo</code></td>
+<td>an array of logo objects, one per language.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">logo.language</code></td>
+<td>The language for this particular logo</td>
+</tr>
+<tr>
+<td><code class="prettyprint">logo.imageURL.href</code></td>
+<td>A URL for the logo</td>
+</tr>
+<tr>
+<td><code class="prettyprint">logo.altText</code></td>
+<td>The text to show for alternative readers, textual browsers, etc.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">defaultLang</code></td>
+<td>the default language for the payment page</td>
+</tr>
+</tbody></table>
+
+          <h3 id="post-shop-paymentpage">POST shop/paymentPage</h3>
+
+<blockquote>
+<p>Sandbox URL:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/shop/paymentPage/
+</code></pre>
+<blockquote>
+<p>Production URL: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST https://ecomms2s.sella.it/api/v1/shop/paymentPage/
+</code></pre>
+<blockquote>
+<p>Request body: </p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"logo"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"language"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"imageURL"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"altText"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"defaultLang"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Sets a new Logo URL or Text and a default language. </p>
+
+<h4 id="request">Request</h4>
+
+<p>Headers: </p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
+<td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
+</tr>
+</tbody></table>
+
+<p>request body details: </p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">logo</code></td>
+<td>an array of logo objects, one per language.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">logo.language</code></td>
+<td>The language for this particular logo</td>
+</tr>
+<tr>
+<td><code class="prettyprint">logo.imageURL.href</code></td>
+<td>A URL for the logo</td>
+</tr>
+<tr>
+<td><code class="prettyprint">logo.altText</code></td>
+<td>The text to show for alternative readers, textual browsers, etc.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">defaultLang</code></td>
+<td>the default language for the payment page</td>
+</tr>
+</tbody></table>
+
+<h4 id="response">Response</h4>
+
+<blockquote>
+<p>Success response example:<br>
+<code class="prettyprint">200 OK</code></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"request correctly processed"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"payload"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"logo"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"language"</span><span class="p">:</span><span class="s2">"ITALIAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"imageURL"</span><span class="p">:{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="s2">"http://yourdomain/img/yourlogo.png"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"altText"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"language"</span><span class="p">:</span><span class="s2">"ENGLISH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"imageURL"</span><span class="p">:{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="s2">"http://yourdomain/img/yourlogo.png"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"altText"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"language"</span><span class="p">:</span><span class="s2">"SPANISH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"imageURL"</span><span class="p">:{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="s2">"http://yourdomain/img/yourlogo.png"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"altText"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"language"</span><span class="p">:</span><span class="s2">"GERMAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"imageURL"</span><span class="p">:{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"altText"</span><span class="p">:</span><span class="s2">"your NEW TEXT"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"language"</span><span class="p">:</span><span class="s2">"FRENCH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"imageURL"</span><span class="p">:{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"altText"</span><span class="p">:</span><span class="s2">"YOUR New TEXT"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"defaultLang"</span><span class="p">:</span><span class="s2">"ENGLISH"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>See the section <a href="#handling-responses-amp-errors">Handling responses &amp; errors</a> to learn how Gestpay reports errors.</p>
+
+<p>The response contains the language set for Gestpay. </p>
+
+<p>Response <code class="prettyprint">payload</code> details:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">logo</code></td>
+<td>an array of logo objects, one per language.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">logo.language</code></td>
+<td>The language for this particular logo</td>
+</tr>
+<tr>
+<td><code class="prettyprint">logo.imageURL.href</code></td>
+<td>A URL for the logo</td>
+</tr>
+<tr>
+<td><code class="prettyprint">logo.altText</code></td>
+<td>The text to show for alternative readers, textual browsers, etc.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">defaultLang</code></td>
+<td>the default language for the payment page</td>
+</tr>
+</tbody></table>
+
           <h3 id="get-shop-environment">GET shop/environment</h3>
 
 <blockquote>
