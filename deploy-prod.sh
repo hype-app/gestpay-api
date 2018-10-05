@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -ex 
+
 git checkout master
 git push
 

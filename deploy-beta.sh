@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -ex
+
 git remote add beta git@github.com:hype-app/gestpay-api-beta.git
 
 yes | cp -f source/robots.txt.beta source/robots.txt
