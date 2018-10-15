@@ -1,4 +1,4 @@
-### POST shop/token <span class="beta">BETA</span>
+### POST shop/token
 
 
 > Sandbox URL:
