@@ -1,4 +1,4 @@
-### POST check/pan <span class="beta">BETA</span>
+### POST check/pan
 
 
 > Sandbox URL:
@@ -7,13 +7,12 @@
 POST https://sandbox.gestpay.net/api/v1/check/pan/
 ```
 
-<%#
+
 > Production URL: 
 
 ```
 POST https://ecomms2s.sella.it/api/v1/check/pan/
 ```
-%>
 
 > Request body: 
 

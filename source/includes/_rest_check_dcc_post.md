@@ -1,32 +1,32 @@
-### POST check/cvv <span class="beta">BETA</span>
+### POST check/DCC
 
 
 > Sandbox URL:
 
 ```
-POST https://sandbox.gestpay.net/api/v1/check/cvv/
+POST https://sandbox.gestpay.net/api/v1/check/DCC/
 ```
 
-<%#
+
 > Production URL: 
 
 ```
-POST https://ecomms2s.sella.it/api/v1/check/cvv/
+POST https://ecomms2s.sella.it/api/v1/check/DCC/
 ```
-%>
 
 > Request body: 
 
 ```json
 {
-    "shopLogin":"",
-    "creditcard":{
-        "cvv:""
-    }
+  "shopLogin" : "",
+  "creditcard":{
+      "number":""
+  },
+  "languageId":""
 }
 ```
 
-Provides a formal validity check of the CVV.
+Checks if the card is elegible for Dynamic Currency Conversion. 
 
 #### Request 
 
@@ -45,7 +45,8 @@ request body details:
 | Parameter | Description | 
 | --------- | ----------- | 
 | `shopLogin` | The shop identifier. | 
-| `creditcard.cvv` | A string composed of digits.
+| `creditcard.number` | The credit card number.
+| `languageId` | A [language ID](#language-codes).
 
 #### Response 
 
@@ -53,14 +54,16 @@ request body details:
 > `200 OK`
 
 ```json
-{
-  "error":{  
-    "code":"0",
-    "description":"request correctly processed"
+{  
+  "DCC":{  
+    "eligible":"TRUE",
+    "currency":"PLN",
+    "amount":"100",
+    "disclaimer":"https://{domain}/DCC/disclaimer.aspx?transkey=dsajklq31223",
+    "exchangeRate":"2%",
+    "source":""
   },
-  "payload": {
-    "result": "OK"
-  }
+  "paymentID":"111213213"
 }
 ```
 
@@ -71,4 +74,10 @@ Response `payload` details:
 
 | Field          | Description 
 | -------------- | -----------
-| `result`   | `OK` of `KO`
+| `eligible`   | `TRUE` or `FALSE`
+| `currency`  | The current currency of the card 
+| `amount`  | the amount of the transaction 
+| `disclaimer` | A URL that points to a disclaimer, explaining DCC. 
+| `exchangeRate` | a percentage indicating the commission on the money exchange
+| `paymentId` | the payment ID 
+| `source` | 

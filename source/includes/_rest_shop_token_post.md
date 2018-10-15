@@ -21,7 +21,13 @@ POST https://ecomms2s.sella.it/api/v1/shop/token/
 {  
   "shopLogin":"",
   "requestToken": "{MASKEDPAN/Customtoken}",
-  "creditCard": "{number}",
+  "creditCard": {
+    "number": "",
+    "token": "",
+    "expMonth": "", 
+    "expYear": "", 
+    "CVV": ""
+  },
   "withAuth": "{True/False}"
 }
 ```
@@ -44,8 +50,12 @@ Request Body:
 | --------- | ----------- | 
 | **`shopLogin`** | the merchant's code 
 | **`requestToken`** | `MASKEDPAN` for a Standard Token; any other value for Custom Token 
-| **`cardNumber`** | credit card number 
-| **`withAuth`** | tries to authorize the card. <br> `Y` on `N`
+| **`cardNumber.number`** | The credit card number 
+| **`cardNumber.token`** | A token representation of the card  
+| **`cardNumber.expMonth`** | The expiry month
+| **`cardNumber.expYear`** | The exipry year 
+| **`cardNumber.CVV`** | The CVV code  
+| **`withAuth`** | tries to authorize the card. <br> `True` or `False`
 
 #### Response 
 
@@ -59,7 +69,7 @@ Request Body:
     "description":"request correctly processed"
   },
   "payload": {
-    "transactionType":"REQUESTTOKEN",
+    "transactionType":"{REQUESTTOKEN/UPDATETOKEN}",
     "transactionResult":"OK",
     "authorizationResult":"OK",
     "authorizationErrorCode":"0",
@@ -82,6 +92,7 @@ Request Body:
     "3DS":"Y",
     "3DSdDescription":"ENROLLED",
     "prepaid":"N",
+    "cardBIN": "541238",
     "token":"541238AFAGHA1118",
     "tokenExpiryMonth":"01",
     "tokenExpiryYear":"21"
@@ -93,12 +104,10 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 
 Response `payload` details:
 
-
 | Field          | Description 
 | -------------- | -----------
-| `transactionType` | `REQUESTTOKEN`
+| `transactionType` | `REQUESTTOKEN` if creating, `UPDATETOKEN` on updating
 | `transactionResult` | `OK` or `KO`
-| `TransactionErrorDescription` | transaction error description
 | `authorizationErrorCode` | authorisation error code if an error occurred
 | `authorizationResult` | Authorization result. It can be `OK` or `KO` or `NULL`
 | `authorizationCodeDescription` | code description 
@@ -115,13 +124,12 @@ Response `payload` details:
 | `productType` | type of the product: `Credit` or `Debit`
 | `checkDigit` | `OK` or `KO`, acording to the check digit of the card 
 | `checkDigitDescription` | description of the check digit response
-| `CheckDate` | `OK` or `KO`, acording to the check date of the card 
-| `CheckDateDescription` | description of the check date response  
+| `expiryDate` | `OK` if it's valid; `KO` otherwise
+| `expiryDateDescription` | A textual description of the `expiryDate` field
 | `3DS` | 3D Secure enabled: <ul><li>`Y` enabled </li><li>`N` not enabled</li><li>`U` could not verify</li><li>`E` error: could not contact the credit card company</li></ul>  
 | `3DSdDescription` | enrolment description 
 | `prepaid` | indicates if the card is prepaid of not (`Y`, `N`, or empty)
+| `cardBIN` | 
 | `token` | the token value 
 | `tokenExpiryMonth` | the token expiry month 
 | `tokenExpiryYear` | the token expiry year 
-| `expiryDate` | `OK` if it's valid; `KO` otherwise
-| `expiryDateDescription` | A textual description of the `expiryDate` field

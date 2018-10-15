@@ -1,39 +1,25 @@
-### POST check/expirydate <span class="beta">BETA</span>
+### DELETE shop/token
 
 
 > Sandbox URL:
 
 ```
-POST https://sandbox.gestpay.net/api/v1/check/expirydate/
+DELETE https://sandbox.gestpay.net/api/v1/shop/token/{shopLogin}/{token}
 ```
 
-<%#
+
 > Production URL: 
 
 ```
-POST https://ecomms2s.sella.it/api/v1/check/expirydate/
-```
-%>
-
-> Request body: 
-
-```json
-{
-  "shopLogin":"",
-  "creditcard":{
-    "expMonth":"",
-    "expYear":""
-  }
-}
+DELETE https://ecomms2s.sella.it/api/v1/shop/token/{shopLogin}/{token}
 ```
 
-Provides a formal validity check of the Exipry Date.
+Deletes a Token for this shop.
+ 
 
 #### Request 
 
-Headers: 
-
-To receive a valid response from Gestpay you must use one of these headers: 
+To authorize, use one of the followng headers: 
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
@@ -41,13 +27,12 @@ To receive a valid response from Gestpay you must use one of these headers:
 | `paymentToken` | `paymentToken: "{paymentToken}"` | A payment token received during the payment process |
 
 
-request body details: 
+URL parameter: 
 
 | Parameter | Description | 
 | --------- | ----------- | 
 | `shopLogin` | The shop identifier. | 
-| `creditcard.expMonth` | The credit card exiry month
-| `creditcard.expYear` | The credit card exiry year
+| `token` | the token you want to delete. | 
 
 #### Response 
 
@@ -60,18 +45,19 @@ request body details:
     "code":"0",
     "description":"request correctly processed"
   },
-  "payload": {
-    "result": "OK"
+  "payload":{
+    "result":"OK",
+    "token":"444445DHGSJA1111" 
   }
 }
 ```
 
 See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
 
-
 Response `payload` details:
 
 
 | Field          | Description 
 | -------------- | -----------
-| `result`   | `OK` of `KO`
+| `result` | `OK` or `KO` 
+| `token` | The just deleted token 

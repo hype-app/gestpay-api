@@ -1,26 +1,38 @@
-### DELETE shop/token <span class="beta">BETA</span>
+### POST check/cvv
 
 
 > Sandbox URL:
 
 ```
-DELETE https://sandbox.gestpay.net/api/v1/shop/token/{shopLogin}/{token}
+POST https://sandbox.gestpay.net/api/v1/check/cvv/
 ```
+ 
 
-<%#
 > Production URL: 
 
 ```
-DELETE https://ecomms2s.sella.it/api/v1/shop/token/{shopLogin}/{token}
+POST https://ecomms2s.sella.it/api/v1/check/cvv/
 ```
-%>
 
-Deletes a Token for this shop.
- 
+
+> Request body: 
+
+```json
+{
+    "shopLogin":"",
+    "creditcard":{
+        "cvv:""
+    }
+}
+```
+
+Provides a formal validity check of the CVV.
 
 #### Request 
 
-To authorize, use one of the followng headers: 
+Headers: 
+
+To receive a valid response from Gestpay you must use one of these headers: 
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
@@ -28,12 +40,12 @@ To authorize, use one of the followng headers:
 | `paymentToken` | `paymentToken: "{paymentToken}"` | A payment token received during the payment process |
 
 
-URL parameter: 
+request body details: 
 
 | Parameter | Description | 
 | --------- | ----------- | 
 | `shopLogin` | The shop identifier. | 
-| `token` | the token you want to delete. | 
+| `creditcard.cvv` | A string composed of digits.
 
 #### Response 
 
@@ -46,9 +58,8 @@ URL parameter:
     "code":"0",
     "description":"request correctly processed"
   },
-  "payload":{
-    "result":"OK",
-    "token":"444445DHGSJA1111" 
+  "payload": {
+    "result": "OK"
   }
 }
 ```
@@ -60,5 +71,4 @@ Response `payload` details:
 
 | Field          | Description 
 | -------------- | -----------
-| `result` | `OK` or `KO` 
-| `token` | The just deleted token 
+| `result`   | `OK` of `KO`

@@ -43,7 +43,7 @@ URL parameter:
       "description":"request correctly processed"
    },
    "payload":{  
-    "methods":[  
+    "paymentMethod":[  
       {  
         "name":"VISA VBV",
         "logo":{  
@@ -88,9 +88,9 @@ Response `payload` details:
 
 | Field          | Description 
 | -------------- | -----------
-| `methods` | An array of payment methods 
-| `methods.name` | The name of the payment method 
-| `methods.logo` | Contains URLs for the payment method's logo in three formats: large, mobile, vector
-| `methods.paymentType` | The [payment method code](#payment-type-codes).
-| `methods.paymentPage` | returns `visibile` if the paymentType is shown on the payment page; `hidden` otherwise.
+| `paymentMethod` | An array of payment methods 
+| `paymentMethod.name` | The name of the payment method 
+| `paymentMethod.logo` | Contains URLs for the payment method's logo in three formats: large, mobile, vector
+| `paymentMethod.paymentType` | The [payment method code](#payment-type-codes).
+| `paymentMethod.paymentPage` | returns `visibile` if the paymentType is shown on the payment page; `hidden` otherwise.
 

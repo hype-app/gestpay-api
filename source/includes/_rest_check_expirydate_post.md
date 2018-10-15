@@ -1,26 +1,38 @@
-### GET shop/token <span class="beta">BETA</span>
+### POST check/expirydate
 
 
 > Sandbox URL:
 
 ```
-GET https://sandbox.gestpay.net/api/v1/shop/token/{shopLogin}
+POST https://sandbox.gestpay.net/api/v1/check/expirydate/
 ```
 
-<%#
+
 > Production URL: 
 
 ```
-GET https://ecomms2s.sella.it/api/v1/shop/token/{shopLogin}
+POST https://ecomms2s.sella.it/api/v1/check/expirydate/
 ```
-%>
 
- Retrieves the token list
- 
+> Request body: 
+
+```json
+{
+  "shopLogin":"",
+  "creditcard":{
+    "expMonth":"",
+    "expYear":""
+  }
+}
+```
+
+Provides a formal validity check of the Exipry Date.
 
 #### Request 
 
-To authorize, use one of the followng headers: 
+Headers: 
+
+To receive a valid response from Gestpay you must use one of these headers: 
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
@@ -28,11 +40,13 @@ To authorize, use one of the followng headers:
 | `paymentToken` | `paymentToken: "{paymentToken}"` | A payment token received during the payment process |
 
 
-URL parameter: 
+request body details: 
 
 | Parameter | Description | 
 | --------- | ----------- | 
 | `shopLogin` | The shop identifier. | 
+| `creditcard.expMonth` | The credit card exiry month
+| `creditcard.expYear` | The credit card exiry year
 
 #### Response 
 
@@ -41,21 +55,22 @@ URL parameter:
 
 ```json
 {
-   "error":{  
-      "code":"0",
-      "description":"request correctly processed"
-   },
-   "payload":{    
-      "tokens":["444445GFDRBH4448","444425GFSRBH4448"] 
-    }
+  "error":{  
+    "code":"0",
+    "description":"request correctly processed"
+  },
+  "payload": {
+    "result": "OK"
+  }
 }
 ```
 
 See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+
 
 Response `payload` details:
 
 
 | Field          | Description 
 | -------------- | -----------
-| `tokens` | An array containing all the tokens created for this shop.
+| `result`   | `OK` of `KO`

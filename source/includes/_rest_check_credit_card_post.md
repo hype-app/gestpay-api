@@ -1,4 +1,4 @@
-### POST check/creditCard <span class="beta">BETA</span>
+### POST check/creditCard
 
 
 > Sandbox URL:
@@ -7,13 +7,12 @@
 POST https://sandbox.gestpay.net/api/v1/check/creditCard/
 ```
 
-<%#
+
 > Production URL: 
 
 ```
 POST https://ecomms2s.sella.it/api/v1/check/creditCard/
 ```
-%>
 
 > Request body: 
 
@@ -98,11 +97,11 @@ Response `payload` details:
 
 | Field          | Description 
 | -------------- | -----------
-| `TransactionType` | `CreditCard`
-| `TransactionResult` | `OK` or `KO`
-| `AuthorizationResult` | authorization result. It can be `OK` or `KO` or `NULL`  
-| `AuthorizationErrorCode` | authorisation error code if an error occurred
-| `AuthorizationCodeDescription` | code description 
+| `transactionType` | `CreditCard`
+| `transactionResult` | `OK` or `KO`
+| `authorizationResult` | authorization result. It can be `OK` or `KO` or `NULL`  
+| `authorizationErrorCode` | authorisation error code if an error occurred
+| `authorizationCodeDescription` | code description 
 | `country` | nationality of the card 
 | `countryCode` | nationality code of the card
 | `cvv` | result of the check CVV. It can be `OK` or `KO` or `NULL`
