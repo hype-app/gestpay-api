@@ -7,13 +7,12 @@
 POST https://sandbox.gestpay.net/api/v1/shop/token/
 ```
 
-<%#
+
 > Production URL: 
 
 ```
 POST https://ecomms2s.sella.it/api/v1/shop/token/
 ```
-%>
 
 > Request Body: 
 
