@@ -1,4 +1,4 @@
-### POST dashboard/export/file <span class="beta">BETA</span>
+### POST dashboard/export/file
 
 
 > Sandbox URL:
@@ -6,13 +6,12 @@
 ```
 POST https://sandbox.gestpay.net/api/v1/dashboard/export/file
 ```
-<%#
+
 > Production URL: 
 
 ```
 POST https://ecomms2s.sella.it/api/v1/dashboard/export/file
 ```
-%>
 
 > Request Body: 
 

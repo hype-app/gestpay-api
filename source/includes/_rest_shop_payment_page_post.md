@@ -19,6 +19,7 @@ POST https://ecomms2s.sella.it/api/v1/shop/paymentPage/
 
 ```json
 {
+  "shoplogin":"",
   "logo":[
     {
       "language":"",
@@ -47,6 +48,7 @@ request body details:
 
 | Field          | Description 
 | -------------- | -----------
+| `shopLogin` | The shop login code. 
 | `logo`  | an array of logo objects, one per language. 
 | `logo.language` | The language for this particular logo
 | `logo.imageURL.href` | A URL for the logo 
@@ -117,6 +119,7 @@ Response `payload` details:
 
 | Field          | Description 
 | -------------- | -----------
+| `result` | `OK` for success, `KO` for error.
 | `logo`  | an array of logo objects, one per language. 
 | `logo.language` | The language for this particular logo
 | `logo.imageURL.href` | A URL for the logo 

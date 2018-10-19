@@ -24,7 +24,6 @@ To authorize, use one of the followng headers:
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
 | `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
-| `paymentToken` | `paymentToken: "{paymentToken}"` | A payment token received during the payment process |
 
 
 URL parameter: 

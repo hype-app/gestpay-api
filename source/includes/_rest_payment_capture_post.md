@@ -1,62 +1,60 @@
-### POST payment/capture <span class="beta">BETA</span>
+### POST payment/capture
 
 
 > Sandbox URL:
 
 ```
-POST https://sandbox.gestpay.net/api/v1/payment/capture/{paymentType}
+POST https://sandbox.gestpay.net/api/v1/payment/capture/
 ```
 
-<%#
+
 > Production URL: 
 
 ```
-POST https://ecomms2s.sella.it/api/v1/payment/capture/{paymentType}
+POST https://ecomms2s.sella.it/api/v1/payment/capture/
 ```
-%>
 
 
 > Example request: 
 
 ```json
 {
-   "shopLogin":"",
-   "amount":"",
-   "currency":"",
-   "bankTransactionID":"",
-   "shopTransactionID":"",
-   "paymentID":"",
-   "fullFillment":{
-      "fullFillmentlst":[{
-         "status":"success",
-         "trackingCompany":"",
-         "trackingNumbers":"",
-         "trackingUrls":"",
-         "message":"",
-         "receipt":"",
-         "productDetails":[
-            {
-               "productCode":"",
-               "SKU":"",
-               "name":"",
-               "description":"",
-               "quantity":"",
-               "price":"",
-               "unitPrice":"",
-               "type":"",
-               "vat":"",
-               "discount":"",
-               "requiresShipping":"",
-               "condition":"",
-               "seller":"",
-               "category":"",
-               "subCategory":"",
-               "brand":"",
-               "deliveryAt":""
-            }
-         ]
-      }]
-   }
+  "shopLogin":"",
+  "amount":"",
+  "currency":"",
+  "bankTransactionID":"",
+  "shopTransactionID":"",
+  "paymentID":"",
+  "fullFillment":{
+    "fullFillmentlst":[{
+      "status":"",
+      "trackingCompany":"",
+      "trackingNumbers":"",
+      "trackingUrls":"",
+      "message":"",
+      "receipt":"",
+      "productDetails":[{
+        "productCode":"",
+        "SKU":"",
+        "name":"",
+        "description":"",
+        "quantity":"",
+        "price":"",
+        "unitPrice":"",
+        "type":"",
+        "vat":"",
+        "discount":"",
+        "requiresShipping":"",
+        "condition":"",
+        "seller":"",
+        "category":"",
+        "subCategory":"",
+        "brand":"",
+        "deliveryAt":""
+        }
+      ]
+    }]
+  }
 }
 ```
 
@@ -146,8 +144,8 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 
 | Field | Description | 
 | ----- | ----------- | 
-| `TransactionType`   | Identifies the type of the transaction. For this method it will always be `capture`.
-| `TransactionResult` | `OK` for success, `KO` otherwise. 
+| `transactionType`   | Identifies the type of the transaction. For this method it will always be `capture`.
+| `transactionResult` | `OK` for success, `KO` otherwise. 
 | `bankTransactionID` | A transaction ID assigned by the bank.                                                           
 | `shopTransactionID` | An ID assigned by the shop.       
 | `paymentID`         | Assigned by Gestpay, identifies the payment.                                                                

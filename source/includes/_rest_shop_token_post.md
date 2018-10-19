@@ -47,14 +47,14 @@ Request Body:
 
 | Parameter | Description | 
 | --------- | ----------- | 
-| **`shopLogin`** | the merchant's code 
-| **`requestToken`** | `MASKEDPAN` for a Standard Token; any other value for Custom Token 
-| **`cardNumber.number`** | The credit card number 
-| **`cardNumber.token`** | A token representation of the card  
-| **`cardNumber.expMonth`** | The expiry month
-| **`cardNumber.expYear`** | The exipry year 
-| **`cardNumber.CVV`** | The CVV code  
-| **`withAuth`** | tries to authorize the card. <br> `True` or `False`
+| `shopLogin` | the merchant's code 
+| `requestToken` | `MASKEDPAN` for a Standard Token; any other value for Custom Token 
+| `cardNumber.number` | The credit card number 
+| `cardNumber.token` | A token representation of the card  
+| `cardNumber.expMonth` | The expiry month
+| `cardNumber.expYear` | The exipry year 
+| `cardNumber.CVV` | The CVV code  
+| `withAuth`| tries to authorize the card. <br> `True` or `False`
 
 #### Response 
 
@@ -128,7 +128,7 @@ Response `payload` details:
 | `3DS` | 3D Secure enabled: <ul><li>`Y` enabled </li><li>`N` not enabled</li><li>`U` could not verify</li><li>`E` error: could not contact the credit card company</li></ul>  
 | `3DSdDescription` | enrolment description 
 | `prepaid` | indicates if the card is prepaid of not (`Y`, `N`, or empty)
-| `cardBIN` | 
+| `cardBIN` | first 6 numbers of the credit card, that identify the credit card issuer bank.
 | `token` | the token value 
 | `tokenExpiryMonth` | the token expiry month 
 | `tokenExpiryYear` | the token expiry year 

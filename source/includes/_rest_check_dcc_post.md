@@ -80,4 +80,4 @@ Response `payload` details:
 | `disclaimer` | A URL that points to a disclaimer, explaining DCC. 
 | `exchangeRate` | a percentage indicating the commission on the money exchange
 | `paymentId` | the payment ID 
-| `source` | 
+| `source` | In this field you'll find the source from whom information is taken, like exchange rates, etc. 
