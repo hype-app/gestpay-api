@@ -1,4 +1,4 @@
-### GET dasboard/search/saved <span class="beta">BETA</span>
+### GET dasboard/search/saved
 
 
 > Sandbox URL:
@@ -7,14 +7,11 @@
 GET https://sandbox.gestpay.net/api/v1/dashboard/search/saved/{shopLogin}/
 ```
 
-<%#
 > Production URL: 
 
 ```
 GET https://ecomms2s.sella.it/api/v1/dashboard/search/saved/{shopLogin}/
 ```
-%>
-
 
 Returns the list of saved searches in Gestpay. 
 
@@ -63,21 +60,20 @@ URL params:
       "paymentID":"",
       "authorizationResult":"",
       "tdLevel":"",
-      "event":[
-        {
-          "type":"",
-          "from":"",
-          "to":"",
-          "lastNDays":"",
-          "includeToday":""
-        }
-      ],
+      "event": {
+        "type":"",
+        "from":"",
+        "to":"",
+        "lastNDays":"",
+        "includeToday":""
+      },
       "transactionState":[
 
       ],
-      "paymentType":[
-
-      ],
+      "paymentMethod":[{       
+        "paymentType":"",
+        "name":[]
+      }],
       "riskAlert":"",
       "customFields":[
         {
@@ -105,18 +101,21 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `save.name` | The search name.
 | `save.searchID` | The ID assigned by Gestpay for this search.
 | `authorizedAmount.from` | the `from` amount range. If `10`, only authorized amounts greater than 10 are returned.
-| `authorizedAmount.from` | The `to` amount range. If `20`, only authorized amounts lower than 20 are returned. 
+| `authorizedAmount.to` | The `to` amount range. If `20`, only authorized amounts lower than 20 are returned. 
+| `capturedAmount.from` | the `from` amount range. If `10`, only captured amounts greater than 10 are returned.
+| `capturedAmount.to` | The `to` amount range. If `20`, only captured amounts lower than 20 are returned. 
 | `currency` | An array of valid [currencies](#currency-codes) to search for. 
 | `bankTransactionID` | the bank transaction ID. 
 | `shopTransactionID` | The shop transaction ID. 
+| `authorizationCode` | The authorization code released by the payment circuits.
 | `transactionErrorCode` | A [transaction error code](#errors). 
 | `transactionErrorDescription` | A transaction error description, in common language. 
 | `paymentID` | The payment ID
 | `authorizationResult` | The authorization result.
 | `tdLevel` | 3D-Secure level 
-| `event` | An array of accepted events. See below. 
+| `event` | Accepted events. See below.
 | `transactionState` | An array of transaction states. Follow the link for a [detailed explanation of transaction statuses](http://docs.gestpay.it/adv/query-transaction-status.html).
-| `paymentType` | an array of [payment types](#payment-type-codes).
+| `paymentMethod` | an array containing [payment types](#payment-type-codes) and payment names.
 | `riskAlert` | `true` to select transactions associated with a high risk
 | `customFields.customName` |  You can even search by a custom parameter and its value. Just put the `customName` set as the key and use the value as the search field.
 | `invoiceID` | the invoice ID. 

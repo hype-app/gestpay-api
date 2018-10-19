@@ -53,7 +53,7 @@ POST https://ecomms2s.sella.it/api/v1/dashboard/search
     "transactionState":[],
     "paymentMethod":[{
         "paymentType":"",
-        "name":""
+        "name":[""]
     }],
     "riskAlert":"",
     "customFields":[{
@@ -91,7 +91,7 @@ Body data:
 | `authorizationCode`         | The authorization code is a code released by the payment circuit.  | `1123454` |
 | `transactionErrorCode`      | The transaction error code | `74` | 
 | ` paymentID`                | Assigned by Gestpay, identifies the payment | `12365344752` | 
-| `authorizationResult`       | select transactions whose authorizationResult is contained in the array. | `UNSUBMITTED`, `WAITING`, `PENDING`, `APPROVED `, `DECLINED` |
+| `authorizationResult`       | select transactions whose authorizationResult is contained in the array. | `UNSUBMITTED`, `WAITING`, `PENDING` (or `XX`), `APPROVED` (or `OK`), `DECLINED` (or `KO`) |
 | `tdLevel`                   | 3dSecure level | `HALF`, `FULL`, `NULL` |
 | `event.type`                | One of the [event types](#event-types) | `MOV` |
 | `event.from`                | Search for events occurred after this date | `01/01/2018` |
@@ -207,7 +207,7 @@ In case of success the response is paginated. Use the `rangeResults` property to
 | --------------------------- | --------------------------------------------------------------------------------------------------------- | 
 | `Date`                      | the transaction date                                                                                       |
 | `transactionResult`         | `OK` or `KO`                                                                                               |
-| `transactionState`          | the state of the transaction. TODO: enumerate all statuses?                                                |
+| `transactionState`          | the state of the transaction.                                            |
 | `bankTransactionID`         | a transaction identifier assigned by the bank, guaranteed to be unique.                                    |
 | `shopTransactionID`         | a transaction identifier assigned by the merchant.                                                         |
 | `authorizationCode`         | the authorization code given by the circuit                                                    |

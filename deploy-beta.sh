@@ -2,7 +2,9 @@
 
 set -ex
 
-git remote add beta git@github.com:hype-app/gestpay-api-beta.git
+if ! git ls-remote --exit-code beta ; then 
+  git remote add beta git@github.com:hype-app/gestpay-api-beta.git
+fi 
 
 yes | cp -f source/robots.txt.beta source/robots.txt
 yes | cp -f source/CNAME.beta source/CNAME

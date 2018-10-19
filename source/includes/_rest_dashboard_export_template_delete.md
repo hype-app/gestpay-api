@@ -1,4 +1,4 @@
-### DELETE dashboard/export/template <span class="beta">BETA</span>
+### DELETE dashboard/export/template
 
 
 > Sandbox URL:
@@ -7,13 +7,12 @@
 DELETE https://sandbox.gestpay.net/api/v1/dashboard/export/template/{shopLogin}/{templateID}
 ```
 
-<%#
+
 > Production URL: 
 
 ```
 DELETE https://ecomms2s.sella.it/api/v1/dashboard/export/template/{shopLogin}/{templateID}
 ```
-%>
 
 Deletes a template. 
 

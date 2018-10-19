@@ -1,4 +1,4 @@
-### DELETE dasboard/search/saved <span class="beta">BETA</span>
+### DELETE dasboard/search/saved
 
 
 > Sandbox URL:
@@ -7,13 +7,11 @@
 DELETE https://sandbox.gestpay.net/api/v1/dashboard/search/saved/{shopLogin}/{searchID}
 ```
 
-<%#
 > Production URL: 
 
 ```
 DELETE https://ecomms2s.sella.it/api/v1/dashboard/search/saved/{shopLogin}/{searchID}
 ```
-%>
 
 
 Returns the list of saved searches in Gestpay. 
@@ -42,7 +40,8 @@ URL params:
   "result":"OK",
   "search":{  
     "name":"mySavedSearch1",
-    "searchID":"12423785932"
+    "searchID":"12423785932",
+    "description":"My saved search"
   }
 }
 ```
@@ -62,3 +61,4 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | ----- | ----------- |
 | `name` | The search name.
 | `searchID` | The ID assigned by Gestpay for this search.
+| `description` | A textual description for the saved search.

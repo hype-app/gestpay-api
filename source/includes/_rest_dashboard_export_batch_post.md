@@ -7,13 +7,13 @@
 POST https://sandbox.gestpay.net/api/v1/dashboard/export/batch/
 ```
 
-<%#
+
 > Production URL: 
 
 ```
 POST https://ecomms2s.sella.it/api/v1/dashboard/export/batch/
 ```
-%>
+
 
 > Example POST for a NEW batch 
 
@@ -69,7 +69,7 @@ Body details:
 | `recipient.email.enabled` | `True` if the email should be sent to this address.
 | `recipient.ftp.value` | The FTP address to upload the file 
 | `recipient.ftp.enabled` | `True` if the batch should be uploaded via ftp. 
-| `frequency.value` | Determines the start day of the batch interval.See the [related table](#frequency-codes). 
+| `frequency.ID` | Determines the start day of the batch interval.See the [related table](#frequency-codes). 
 | `prefix` | This value is put before the filename generated automatically by gestpay. 
 
 

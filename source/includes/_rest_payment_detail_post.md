@@ -1,19 +1,19 @@
-### POST payment/detail <span class="beta">BETA</span>
+### POST payment/detail
 
 
 > Sandbox URL:
 
 ```
-POST https://sandbox.gestpay.net/api/v1/payment/detail/{paymentID}
+POST https://sandbox.gestpay.net/api/v1/payment/detail/
 ```
 
-<%#
+
 > Production URL: 
 
 ```
-POST https://ecomms2s.sella.it/api/v1/payment/detail/{paymentID}
+POST https://ecomms2s.sella.it/api/v1/payment/detail/
 ```
-%>
+
 
 > Example request: 
 
@@ -103,12 +103,13 @@ Input Body:
          "riskResponseDescription":""
       },
       "alertCode":"",
-      "alertDescription":""
+      "alertDescription":"",
       "cvvPresent":"{TRUE/FALSE}",
       "dcc":{
           "eligible":"{TRUE/FALSE}",
           "currency":""
-      }
+      },
+      "maskedPAN":""
    }
 }
 ```
@@ -145,6 +146,7 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `events` | Contains informations about this payment history. See below.
 | `cvvPresent` | `TRUE` if the payment has been executed by using a CVV security code. 
 | `dcc` | Stands for Dynamic Currency Conversion. See the table below. 
+| `maskedPAN` | Masked PAN string 
 | `transactionErrorCode` | The error code for the transaction. See [error codes](#errors) page for details.
 | `transactionErrorDescription` | The error code description in common language.  
 

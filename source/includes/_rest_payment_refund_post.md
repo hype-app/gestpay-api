@@ -1,19 +1,18 @@
-### POST payment/refund <span class="beta">BETA</span>
+### POST payment/refund
 
 
 > Sandbox URL:
 
 ```
-POST https://sandbox.gestpay.net/api/v1/payment/refund/{paymentID}
+POST https://sandbox.gestpay.net/api/v1/payment/refund/
 ```
 
-<%#
+
 > Production URL: 
 
 ```
-POST https://ecomms2s.sella.it/api/v1/payment/refund/{paymentID}
+POST https://ecomms2s.sella.it/api/v1/payment/refund/
 ```
-%>
 
 
 > Request Body: 
@@ -75,7 +74,7 @@ Request Body:
 | `amount` | the amount to refund 
 | `currency` | [currency ISO code](#currency-codes) 
 | `refundReason` | a free-text reason for the refund. Used with fraud protection. 
-| `chargeBackFraud` | Flag for risk: <ul><li>`Y` - chargeback for fraud</li><li>`N` - chargeback not for a fraud</li></ul>
+| `chargeBackFraud` | Flag for risk: <ul><li>`TRUE` - chargeback for fraud</li><li>`FALSE` - chargeback not for a fraud</li></ul>
 | `orderDetail.productDetails` | in case you are using _Klarna_, fill this fields with info about the products that are refunded. A description of this field is in [OrderDetails](#orderdetails). 
 
 

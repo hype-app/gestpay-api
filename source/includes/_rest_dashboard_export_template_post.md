@@ -1,21 +1,48 @@
-### GET dashboard/export/template <span class="beta">BETA</span>
+### POST dashboard/export/template
 
 
 > Sandbox URL:
 
 ```
-GET https://sandbox.gestpay.net/api/v1/dashboard/export/template/{shopLogin}
+POST https://sandbox.gestpay.net/api/v1/dashboard/export/template/
 ```
 
-<%#
+
 > Production URL: 
 
 ```
-GET https://ecomms2s.sella.it/api/v1/dashboard/export/template/{shopLogin}
+POST https://ecomms2s.sella.it/api/v1/dashboard/export/template/
 ```
-%>
 
-Returns a list of all templates created for your `shopLogin`.
+
+> Example request body: 
+
+```json
+{
+  "template":[
+    {
+      "shopLogin":"myshoplogin",
+      "templateId":"",
+      "description":"New template 1",
+      "default":"True",
+      "columns":[
+        "date",
+        "shopTransactionID",
+        "bankTransactionID",
+        "transactionResult",
+        "authorizedAmount",
+        "capturedAmount",
+        "paymentID",
+        "currency", 
+        ...
+      ]
+    }
+  ]
+}
+
+```
+
+Creates or modifies one or more templates. If the `templateId` is present, the template is updated. 
 
 #### Request 
 
@@ -25,11 +52,18 @@ Headers:
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
 | `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
 
-URL parameters: 
 
-| Parameter | Description | 
+Body parameters: 
+
+For every `template` item: 
+
+| Field | Description | 
 | --------- | ----------- | 
 | `shopLogin` | The shop identifier. | 
+| `template.templateId` | Leave empty if you're creating a new template. Otherwise, use an existing `templateId` to update one. 
+| `template.description` | A description of the template in common language 
+| `template.default` | `True` or `False`
+| `template.columns` | an array of strings, representing the name of the properties that compose a transaction. 
 
 #### Response 
 
@@ -43,37 +77,21 @@ URL parameters:
       "description":"request correctly processed"
    },
    "payload":{
+    "result":"OK",
     "template":[
       {
         "templateId":"121212212",
         "description":"New template 1",
-        "creationDate":"12/04/2018 11:23",
         "default":"True",
         "columns":[
           "date",
           "shopTransactionID",
           "bankTransactionID",
           "transactionResult",
+          "authorizedAmount",
           "capturedAmount",
           "paymentID",
-          "currency",
-          ...
-        ]
-      },
-      {
-        "templateId":"121214442",
-        "description":"Exporting Mov",
-        "creationDate":"12/04/2018 11:23",
-        "default":"False",
-        "columns":[
-          "date",
-          "shopTransactionID",
-          "bankTransactionID",
-          "transactionResult",
-          "capturedAmount",
-          "paymentID",
-          "currency",
-          ...
+          "currency"
         ]
       }
     ]
@@ -89,7 +107,7 @@ Response `payload` details:
 | -------------- | -----------
 | `result`     | `OK` or `KO`
 | `template` | An array containing one or more templates.
-| `template.templateId` | The template ID. 
+| `template.templateID` | The template ID of the template created or updated
 | `template.description` | A description of the template in common language 
 | `template.default` | `True` or `False`
 | `template.columns` | an array of strings, representing the name of the properties that compose a transaction. 
