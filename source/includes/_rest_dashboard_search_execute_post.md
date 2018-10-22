@@ -43,13 +43,13 @@ POST https://ecomms2s.sella.it/api/v1/dashboard/search
     "paymentID":"",
     "authorizationResult":[],
     "tdLevel":"",
-    "event":[{
+    "event":{
         "type":"",
         "from":"",
         "to":""
         "lastNDays":"",
         "includeToday":""
-    }],
+    },
     "transactionState":[],
     "paymentMethod":[{
         "paymentType":"",
@@ -92,7 +92,7 @@ Body data:
 | `transactionErrorCode`      | The transaction error code | `74` | 
 | ` paymentID`                | Assigned by Gestpay, identifies the payment | `12365344752` | 
 | `authorizationResult`       | select transactions whose authorizationResult is contained in the array. | `UNSUBMITTED`, `WAITING`, `PENDING` (or `XX`), `APPROVED` (or `OK`), `DECLINED` (or `KO`) |
-| `tdLevel`                   | 3dSecure level | `HALF`, `FULL`, `NULL` |
+| `tdLevel`                   | 3dSecure level | `HALF`, `FULL` |
 | `event.type`                | One of the [event types](#event-types) | `MOV` |
 | `event.from`                | Search for events occurred after this date | `01/01/2018` |
 | `event.to`                  | Search for events occurred before this date | `31/12/2018` |
@@ -121,56 +121,56 @@ Body data:
     "nResults":"30",
     "rangeResults":"1/5",
     "payments":[{
-        "Date":"26/02/2018 12:22:29",
-        "transactionResult" :"KO",
-        "transactionState" :"AUT",
-        "bankTransactionID" : "2304",
-        "shopTransactionID":"Cryptest2602201811",
-        "authorizationCode":"",
-        "transactionErrorCode" :"",
-        "transactionErrorDescription" :"", 
-        "paymentID":"22131121123",
-        "amount":"0.10",
-        "currency" :"EUR",
-        "paymentMethod":{
-            "paymentType":"CREDITCARD",
-            "name":"VISA VBV"
-            "logo":{
-                "large":"https://{domain}/logos/VisaVbv_Large.png",
-                "mobile":"https://{domain}/logos/VisaVbv_mobile.png",
-                "vector":"https://{domain}/logos/VisaVbv.svg"
-            }
-         },
-        "riskAlert":"",
-        "disputeState":{
-            "status":"",
-            "chargeback":""
-        },
-        "tdLevel":"HALF",
-        "fraudAlert":"",
-        "guaranteePaymentResult":""
+      "Date":"26/02/2018 12:22:29",
+      "transactionResult" :"KO",
+      "transactionState" :"AUT",
+      "bankTransactionID" : "2304",
+      "shopTransactionID":"Cryptest2602201811",
+      "authorizationCode":"",
+      "transactionErrorCode" :"",
+      "transactionErrorDescription" :"", 
+      "paymentID":"22131121123",
+      "amount":"0.10",
+      "currency" :"EUR",
+      "paymentMethod":{
+        "paymentType":"CREDITCARD",
+        "name":"VISA VBV",
+        "logo":{
+          "large":"https://{domain}/logos/VisaVbv_Large.png",
+          "mobile":"https://{domain}/logos/VisaVbv_mobile.png",
+          "vector":"https://{domain}/logos/VisaVbv.svg"
+        }
+      },
+      "riskAlert":"",
+      "disputeState":{
+        "status":"",
+        "chargeback":""
+      },
+      "tdLevel":"HALF",
+      "fraudAlert":"",
+      "guaranteePaymentResult":""
     },{
-        "Date":"22/02/2018 10:20:09",
-        "transactionResult" :"OK",
-        "transactionState" :"AUT",
-        "bankTransactionID" : "2303",
-        "shopTransactionID":"Cryptest2202201811",
-        "authorizationCode":"1123454",
-        "amount":"0.10",
-        "currency" :"EUR",
-        "paymentMethod":{
-            "paymentType":"CREDITCARD",
-            "name":"VISA VBV"
-            "logo":{
-                "large":"https://{domain}/logos/VisaVbv_Large.png",
-                "mobile":"https://{domain}/logos/VisaVbv_mobile.png",
-                "vector":"https://{domain}/logos/VisaVbv.svg"
-            }
-         },
+      "Date":"22/02/2018 10:20:09",
+      "transactionResult" :"OK",
+      "transactionState" :"AUT",
+      "bankTransactionID" : "2303",
+      "shopTransactionID":"Cryptest2202201811",
+      "authorizationCode":"1123454",
+      "amount":"0.10",
+      "currency" :"EUR",
+      "paymentMethod":{
+        "paymentType":"CREDITCARD",
+        "name":"VISA VBV",
+        "logo":{
+          "large":"https://{domain}/logos/VisaVbv_Large.png",
+          "mobile":"https://{domain}/logos/VisaVbv_mobile.png",
+          "vector":"https://{domain}/logos/VisaVbv.svg"
+          }
+        },
         "riskAlert":"Y",
         "disputeState":{
-            "status":"",
-            "chargeback":""
+          "status":"",
+          "chargeback":""
         },
         "tdLevel":"FULL",
         "fraudAlert":"",

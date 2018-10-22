@@ -76,6 +76,8 @@ Body parameters:
 | Field | Description | 
 | --------- | ----------- | 
 | `shopLogin` | The shop identifier. | 
+| `capturedAmount.from` | the `from` amount range. If `10`, only captured amounts greater than 10 are returned.
+| `capturedAmount.to` | The `to` amount range. If `20`, only captured amounts lower than 20 are returned. 
 | `authorizedAmount.from` | the `from` amount range. If `10`, only authorized amounts greater than 10 are returned.
 | `authorizedAmount.to` | The `to` amount range. If `20`, only authorized amounts lower than 20 are returned. 
 | `currency` | An array of valid [currencies](#currency-codes) to search for. 

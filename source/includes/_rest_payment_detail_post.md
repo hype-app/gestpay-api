@@ -62,58 +62,54 @@ Input Body:
 
 ```json
 {
-   "error":{  
-      "code":"0",
-      "description":"request correctly processed"
-   },
-   "payload":{  
-      "transactionType":"detail",
-      "transactionResult":"OK",
-      "transactionState":"MOV",
-      "bankTransactionID":"11111",
-      "shopTransactionID":"myShopTransactionID",
-      "authorizationCode":"0010202",
-      "paymentID":"00000000001",
-      "currency":"EUR",
-      "country":"ITALIA",
-      "company":"MASTERCARD SECURECODE",
-      "tdLevel":"FULL",
-      "events":[  
-         {  
-            "eventtype":"AUT",
-            "eventamount":"0.10",
-            "eventdate":"19/08/16 16:13:14",
-            "environment":"ONL",
-            "operator":""
-         },
-         {  
-            "eventtype":"MOV",
-            "eventamount":"0.10",
-            "eventdate":"20/08/16 00:13:57",
-            "environment":"BOF",
-            "operator":"Sellanet"
-         }
-      ],
-      "buyer":{  
-         "name":"",
-         "email":""
-      },
-      "risk":{  
-         "riskResponseCode":"approved",
-         "riskResponseDescription":""
-      },
-      "alertCode":"",
-      "alertDescription":"",
-      "cvvPresent":"{TRUE/FALSE}",
-      "dcc":{
-          "eligible":"{TRUE/FALSE}",
-          "currency":""
-      },
-      "maskedPAN":""
-   }
+  "error":{  
+    "code":"0",
+    "description":"request correctly processed"
+  },
+  "payload":{  
+    "transactionType":"detail",
+    "transactionResult":"OK",
+    "transactionState":"MOV",
+    "bankTransactionID":"11111",
+    "shopTransactionID":"myShopTransactionID",
+    "authorizationCode":"0010202",
+    "paymentID":"00000000001",
+    "currency":"EUR",
+    "country":"ITALIA",
+    "company":"MASTERCARD SECURECODE",
+    "tdLevel":"FULL",
+    "events":[{  
+      "eventtype":"AUT",
+      "eventamount":"0.10",
+      "eventdate":"19/08/16 16:13:14",
+      "environment":"ONL",
+      "operator":""
+    }, {  
+      "eventtype":"MOV",
+      "eventamount":"0.10",
+      "eventdate":"20/08/16 00:13:57",
+      "environment":"BOF",
+      "operator":"Sellanet"
+    }],
+    "buyer":{  
+        "name":"",
+        "email":""
+    },
+    "risk":{  
+        "riskResponseCode":"approved",
+        "riskResponseDescription":""
+    },
+    "alertCode":"",
+    "alertDescription":"",
+    "cvvPresent":"{TRUE/FALSE}",
+    "dcc":{
+        "eligible":"{TRUE/FALSE}",
+        "currency":""
+    },
+    "maskedPAN":""
+  }
 }
 ```
-
 
 See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
 
@@ -128,7 +124,7 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 
 | Field               | Description                                                                                       |
 | ------------------- | ------------------------------------------------------------------------------------------------- |
-| `TransactionType`   | `detail`                                                                                          |
+| `transactionType`   | `detail`                                                                                          |
 | `TransactionResult` | `OK` ok `KO`                                                                                      |
 | `transactionState`  | The last state of the transaction, as one of the states contained in [event types](#event-types).|
 | `bankTransactionID` | A transaction ID assigned by the bank.                                                            |
