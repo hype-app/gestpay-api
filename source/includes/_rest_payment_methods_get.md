@@ -1,4 +1,4 @@
-### GET payment/methods <span class="beta">BETA</span>
+### GET payment/methods
 
 
 > Sandbox URL:
@@ -7,13 +7,13 @@
 GET https://sandbox.gestpay.net/api/v1/payment/methods/{paymentID}/{languageID}
 ```
 
-<%#
+
 > Production URL: 
 
 ```
 GET https://ecomms2s.sella.it/api/v1/payment/methods/{paymentID}/{languageID}
 ```
-%>
+
 
 Retrieves the list of the enabled and visible payment methods. For each method provides: 
 - Method name

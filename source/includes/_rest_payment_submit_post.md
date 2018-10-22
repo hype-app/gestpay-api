@@ -1,4 +1,4 @@
-### POST payment/submit <span class="beta">BETA</span>
+### POST payment/submit
 
 
 > Sandbox URL:
@@ -7,13 +7,12 @@
 POST https://sandbox.gestpay.net/api/v1/payment/submit
 ```
 
-<%#
+
 > Production URL: 
 
 ```
 POST https://ecomms2s.sella.it/api/v1/payment/submit
 ```
-%>
 
 
 > Request Body: 
@@ -34,11 +33,7 @@ POST https://ecomms2s.sella.it/api/v1/payment/submit
       "expYear":"",
       "CVV":"",
       "requestToken":"",
-      "DCC":{  
-        "currency":"",
-        "amount":"",
-        "transKey":""
-      },
+      "DCC": "",
       "amazonPay":{  
         "amazonReferenceOrderId":"",
         "requestToken":"",
@@ -90,7 +85,7 @@ Headers:
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `paymentToken` | `"{PaymentToken}"` | The payment token, created via [payment/create](#post-payment-create-beta) | 
+| `paymentToken` | `"{PaymentToken}"` | The payment token, created via [payment/create](#post-payment-create) | 
 
 
 Request Body: 
@@ -99,6 +94,8 @@ Request Body:
 | -------------- | -----------
 | `shopLogin` | the merchant's code 
 | `paymentType` | the payment method chosen by the user 
+| `buyer.name` | The buyer's name 
+| `buyer.email` | The buyer's email
 | `paymentTypeDetails` |  based on the chosen payment method, it will contain informations to complete the payment. See next sections. 
 | `responseURLs` | where to redirect the user after the payment. 
 
@@ -114,9 +111,8 @@ If the customer has chosen the credit card payment type, fill out these fields:
 | `expYear` | The expiry year 
 | `CVV` | The CVV code 
 | `requestToken` | `MASKEDPAN` for a Standard Token; any other value for Custom Token
-| `DCC.currency` | The currency of the payment, [ISO code](#currency-codes). 
-| `DCC.amount` | The amount in the selected currency | 
-| `DCC.transKey` | transaction ID value for 3D-Secure transactions. See [3D-secure transactions](<%= config[:doc_url] %>/adv/3dsecure-transactions.html) for more details.
+| `DCC` | if the payment uses currency conversion. `True` or `False`
+
 
 ##### `paymentTypeDetails`: Amazon Pay
 
@@ -186,6 +182,8 @@ With the REST Api you can set the redirect url for the success or failure case, 
   "payload": {
     "transactionType" : "submit",
     "transactionResult" :"OK",
+    "transactionErrorCode" :"",   
+    "transactionErrorDescription" :"",
     "bankTransactionID" : "11111111",
     "shopTransactionID":"myshoptransactionID",
     "authorizationCode":"1223321",
@@ -234,6 +232,8 @@ With the REST Api you can set the redirect url for the success or failure case, 
   "payload": {
     "transactionType":"submit",
     "transactionResult":"",
+    "transactionErrorCode" :"",   
+    "transactionErrorDescription" :"",
     "bankTransactionID":"",
     "shopTransactionID":"myshoptransactionID",
     "authorizationCode":"",
@@ -281,6 +281,8 @@ With the REST Api you can set the redirect url for the success or failure case, 
   "payload": {
     "transactionType":"submit",
     "transactionResult":"",
+    "transactionErrorCode" :"",   
+    "transactionErrorDescription" :"",
     "bankTransactionID":"",
     "shopTransactionID":"myshoptransactionID",
     "authorizationCode":"",
@@ -324,6 +326,8 @@ Response `payload` details:
 | -------------- | -----------
 | `transactionType` | Always `submit` for this method.
 | `transactionResult` | `OK` or `KO`
+| `transactionErrorCode` | The [error code](#error-code), in case of errors 
+| `transactionErrorDescription` | A description in common language of the occurred error. 
 | `bankTransactionID` | code assigned by Gestpay this transaction.
 | `shopTransactionID` | shop transaction ID value
 | `authorizationCode` | authorisation code |

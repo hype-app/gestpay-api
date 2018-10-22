@@ -1,4 +1,4 @@
-### GET payment/methods/detail <span class="beta">BETA</span>
+### GET payment/methods/detail
 
 
 > Sandbox URL:
@@ -7,13 +7,13 @@
 GET https://sandbox.gestpay.net/api/v1/payment/methods/detail/{paymentID}/{paymentType}
 ```
 
-<%#
+
 > Production URL: 
 
 ```
 GET https://ecomms2s.sella.it/api/v1/payment/methods/detail/{paymentID}/{paymentType}
 ```
-%>
+
 
 Some payment methods need additional iformation to complete the payment process. For example, they might require to   redirect the user to a specific page. With this method you can find the additional informations required.  
  

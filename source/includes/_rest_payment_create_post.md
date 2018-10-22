@@ -114,7 +114,7 @@ POST https://ecomms2s.sella.it/api/v1/payment/create/
       "lastname":"",
       "streetName":"",
       "streetname2":"",
-      "houseNumber":"1",
+      "houseNumber":"",
       "houseExtention":"",
       "city":"",
       "zipCode":"",

@@ -1,19 +1,18 @@
-### POST payment/update <span class="beta">BETA</span>
+### POST payment/update
 
 
 > Sandbox URL:
 
 ```
-POST https://sandbox.gestpay.net/api/v1/payment/update/{paymentID}
+POST https://sandbox.gestpay.net/api/v1/payment/update/
 ```
 
-<%#
+
 > Production URL: 
 
 ```
-POST https://ecomms2s.sella.it/api/v1/payment/update/{paymentID}
+POST https://ecomms2s.sella.it/api/v1/payment/update/
 ```
-%>
 
 
 > Request Body: 
@@ -56,7 +55,7 @@ POST https://ecomms2s.sella.it/api/v1/payment/update/{paymentID}
       "socialSecurityNumber":"",
       "company":"",
       "createdAtDate":"",
-      "verifiedEmail":"false",
+      "verifiedEmail":"",
       "accountType":"",
       "social":{
         "network":"",
@@ -81,7 +80,7 @@ POST https://ecomms2s.sella.it/api/v1/payment/update/{paymentID}
       "lastname":"",
       "streetName":"",
       "streetname2":"",
-      "houseNumber":"1",
+      "houseNumber":"",
       "houseExtention":"",
       "city":"",
       "zipCode":"",
@@ -100,7 +99,7 @@ POST https://ecomms2s.sella.it/api/v1/payment/update/{paymentID}
       "lastname":"",
       "streetName":"",
       "streetname2":"",
-      "houseNumber":"1",
+      "houseNumber":"",
       "houseExtention":"",
       "city":"",
       "zipCode":"",
@@ -160,9 +159,6 @@ Headers:
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
 | `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. | 
 
-| Parameter | Description | 
-| --------- | ----------- | 
-| `paymentID` | The identifier of the payment to update. | 
 
 Request Body: 
 

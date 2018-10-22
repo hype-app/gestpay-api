@@ -1,30 +1,17 @@
-### POST payment/detail
+### GET payment/detail
 
 
 > Sandbox URL:
 
 ```
-POST https://sandbox.gestpay.net/api/v1/payment/detail/
+GET https://sandbox.gestpay.net/api/v1/payment/detail/{paymentID}
 ```
 
 
 > Production URL: 
 
 ```
-POST https://ecomms2s.sella.it/api/v1/payment/detail/
-```
-
-
-> Example request: 
-
-```json
-{
-  "shopLogin" : "",
-  "bankTransactionID": "",
-  "shopTransactionID" : "",
-  "paymentID":"",
-  "terminalID": ""
-}
+GET https://ecomms2s.sella.it/api/v1/payment/detail/{paymentID}
 ```
 
 Retrieves the details of a payment.  
@@ -44,16 +31,6 @@ URL parameter:
 | --------- | ----------- | 
 | `paymentID` | The payment identifier. | 
 
-Input Body: 
-
-| Field               | Description             | Example       |
-| ------------------- | ----------------------- | ------------- |
-| `shopLogin`         | Your shop login         | `GESPAY12345` |
-| `bankTransactionID` | The bank transaction ID | `1111`        |
-| `shopTransactionID` | the shop transaction ID | `MyShop_001`  |
-| `paymentID`         | The payment ID          | `1638523579`  |
-| `terminalID`         | The terminal ID        | `12340005`    |
-
 
 #### Response 
 
@@ -62,63 +39,87 @@ Input Body:
 
 ```json
 {
-  "error":{  
-    "code":"0",
-    "description":"request correctly processed"
-  },
-  "payload":{  
+   "error":{  
+      "code":"0",
+      "description":"request correctly processed"
+   },
+   "payload":{
     "transactionType":"detail",
-    "transactionResult":"OK",
-    "transactionState":"MOV",
-    "bankTransactionID":"11111",
-    "shopTransactionID":"myShopTransactionID",
-    "authorizationCode":"0010202",
-    "paymentID":"00000000001",
-    "currency":"EUR",
-    "country":"ITALIA",
-    "company":"MASTERCARD SECURECODE",
-    "tdLevel":"FULL",
-    "events":[{  
-      "eventtype":"AUT",
-      "eventamount":"0.10",
-      "eventdate":"19/08/16 16:13:14",
-      "environment":"ONL",
-      "operator":""
-    }, {  
-      "eventtype":"MOV",
-      "eventamount":"0.10",
-      "eventdate":"20/08/16 00:13:57",
-      "environment":"BOF",
-      "operator":"Sellanet"
-    }],
-    "buyer":{  
-        "name":"",
-        "email":""
+    "transactionResult":"",
+    "transactionState":"",
+    "transactionErrorCode":"",
+    "transactionErrorDescription":"",
+    "bankTransactionID":"",
+    "shopTransactionID":"",
+    "authorizationCode":"",
+    "paymentID":"",
+    "currency":"",
+    "country":"",
+    "company":"",
+    "tdLevel":"",
+    "events":[
+      {
+        "event":{
+          "eventtype":"",
+          "eventamount":"",
+          "eventdate":""
+        }
+      }
+    ],
+    "buyer":{
+      "name":"",
+      "email":""
     },
-    "risk":{  
-        "riskResponseCode":"approved",
-        "riskResponseDescription":""
+    "risk":{
+      "riskResponseCode":"",
+      "riskResponseDescription":""
+    },
+    "customInfo":{
+      "{myCustomInfo1}":"{myCustomInfoValue1}",
+      "{myCustomInfo2}":"{myCustomInfoValue2}"
     },
     "alertCode":"",
     "alertDescription":"",
     "cvvPresent":"{TRUE/FALSE}",
     "dcc":{
-        "eligible":"{TRUE/FALSE}",
-        "currency":""
+      "eligible":"{TRUE/FALSE}",
+      "currency":""
     },
-    "maskedPAN":""
+    "maskedPAN":"",
+    "paymentMethod":"",
+    "productType":"",
+    "token":"",
+    "tokenExpiryMonth":"",
+    "tokenExpiryYear":"",
+    "vbv":{
+      "flag":"",
+      "buyer":""
+    },
+    "payPalFee":"",
+    "fraudPrevention":{
+      "check":"{TRUE/FALSE}",
+      "state":"",
+      "description":"",
+      "order":""
+    },
+    "automaticOperation":{
+      "type":"",
+      "date":"",
+      "amount":""
+    },
+    "shield":{
+
+    },
+    "fraudAlert":{
+
+    }
   }
 }
 ```
 
+
 See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
 
-`error` details: 
-
-| Field               | Description                                                                                                  | 
-| ------------------- | ------------------------------------------------------------------------------------------------------------ | 
-| `error.code`        | `0` means no error, otherwise check the [error codes](#errors) and `error.description` to debug the problem. |
-| `error.description` | If `error.code != 0` will contain a description of the error.                                                |
 
 `payload` details:
 

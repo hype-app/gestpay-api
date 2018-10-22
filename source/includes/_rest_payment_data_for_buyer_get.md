@@ -1,4 +1,4 @@
-### GET payment/dataForBuyer <span class="beta">BETA</span>
+### GET payment/dataForBuyer
 
 
 > Sandbox URL:
@@ -7,13 +7,13 @@
 GET https://sandbox.gestpay.net/api/v1/payment/dataForBuyer/{paymentID}
 ```
 
-<%#
+
 > Production URL: 
 
 ```
 GET https://ecomms2s.sella.it/api/v1/payment/dataForBuyer/{paymentID}
 ```
-%>
+
 
 Retrieves the current payment data: amount, currency, Merchant Logo URL, Merchant Sign, addional fields sets by the merchant.
 
