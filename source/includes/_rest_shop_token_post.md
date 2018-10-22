@@ -49,11 +49,11 @@ Request Body:
 | --------- | ----------- | 
 | `shopLogin` | the merchant's code 
 | `requestToken` | `MASKEDPAN` for a Standard Token; any other value for Custom Token 
-| `cardNumber.number` | The credit card number 
-| `cardNumber.token` | A token representation of the card  
-| `cardNumber.expMonth` | The expiry month
-| `cardNumber.expYear` | The exipry year 
-| `cardNumber.CVV` | The CVV code  
+| `creditCard.number` | The credit card number 
+| `creditCard.token` | A token representation of the card  
+| `creditCard.expMonth` | The expiry month
+| `creditCard.expYear` | The exipry year 
+| `creditCard.CVV` | The CVV code  
 | `withAuth`| tries to authorize the card. <br> `True` or `False`
 
 #### Response 
