@@ -53,7 +53,7 @@ POST https://ecomms2s.sella.it/api/v1/payment/refund/
 }
 ```
 
-Deletes an authorized transaction. 
+Deletes, fully or partially, a settled transaction. 
 
 #### Request 
 

@@ -21,6 +21,7 @@ POST https://ecomms2s.sella.it/api/v1/payment/update/
 {
   "shopLogin":"",
   "amount":"",
+  "paymentID":"",
   "shippingDetails":{
     "shipToName":"",
     "shipToStreet":"",
@@ -166,6 +167,7 @@ Request Body:
 | -------------- | -----------
 | `shopLogin` | the merchant's code 
 | `amount` | the updated amount
+| `paymentID` | The payment ID to update 
 | `shippingDetails` | if the payment method you're using spports [`shippingDetails`](#shippingdetails), you can pass updated fields. See [`shippingDetails`](#shippingdetails) for info.
 | `orderDetails` | if the payment method you're using spports [`orderDetails`](#orderdetails), you can pass updated fields. See [`orderDetails`](#orderdetails) for info.
 

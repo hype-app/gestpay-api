@@ -15,7 +15,7 @@ GET https://ecomms2s.sella.it/api/v1/payment/capture/{paymentID}
 ```
 
 
-Retrieves the result of a capture operation.
+Captures the operation for the whole amount.
 
 #### Request 
 
