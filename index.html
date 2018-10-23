@@ -8113,7 +8113,7 @@ Please note:
 </blockquote>
 <pre class="highlight plaintext"><code>GET https://ecomms2s.sella.it/api/v1/payment/cancel/{paymentID}
 </code></pre>
-<p>Retrieves the transaction cancelled status.</p>
+<p>Deletes the whole transaction.</p>
 
 <h4 id="request">Request</h4>
 
@@ -8257,6 +8257,104 @@ Please note:
 | <code class="prettyprint">shopTransactionID</code> | the shop transaction ID 
 | <code class="prettyprint">paymentID</code>         | The payment ID 
 | <code class="prettyprint">cancelReason</code>      | A description of the cancel reason </p>
+
+<h4 id="response">Response</h4>
+
+<blockquote>
+<p>Success Response:<br>
+<code class="prettyprint">200 OK</code></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:{</span><span class="w">  
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"request correctly processed"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"payload"</span><span class="p">:{</span><span class="w"> 
+    </span><span class="s2">"transactionType"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"transactionResult"</span><span class="w"> </span><span class="p">:</span><span class="s2">"OK"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"bankTransactionID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{bankTransactionID}"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"shopTransactionID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{shopTransactionID}"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"paymentID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{paymentID}"</span><span class="w"> 
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>See the section <a href="#handling-responses-amp-errors">Handling responses &amp; errors</a> to learn how Gestpay reports errors.</p>
+
+<p>Response payload details: </p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">transactionType</code></td>
+<td>It will always be <code class="prettyprint">cancel</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">transactionResult</code></td>
+<td><code class="prettyprint">OK</code> or <code class="prettyprint">KO</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">bankTransactionID</code></td>
+<td>The bank transaction ID</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shopTransactionID</code></td>
+<td>the shop transaction ID</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentID</code></td>
+<td>The payment ID</td>
+</tr>
+</tbody></table>
+
+          <h3 id="get-payment-capture">GET payment/capture</h3>
+
+<blockquote>
+<p>Sandbox URL:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://sandbox.gestpay.net/api/v1/payment/capture/{paymentID}
+</code></pre>
+<blockquote>
+<p>Production URL: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://ecomms2s.sella.it/api/v1/payment/capture/{paymentID}
+</code></pre>
+<p>Captures the operation for the whole amount.</p>
+
+<h4 id="request">Request</h4>
+
+<p>Headers: </p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
+<td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
+</tr>
+</tbody></table>
+
+<p>URL parameter: </p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">paymentID</code></td>
+<td>The payment identifier.</td>
+</tr>
+</tbody></table>
 
 <h4 id="response">Response</h4>
 
@@ -8641,7 +8739,8 @@ Please note:
       </span><span class="s2">"submissionReason"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"beaconSessionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"vendorID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"vendorName"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="s2">"vendorName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="s2">""</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"customerDetail"</span><span class="p">:{</span><span class="w">  
       </span><span class="s2">"profileID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -9997,6 +10096,104 @@ Please note:
 </tr>
 </tbody></table>
 
+          <h3 id="get-payment-refund">GET payment/refund</h3>
+
+<blockquote>
+<p>Sandbox URL:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://sandbox.gestpay.net/api/v1/payment/refund/{paymentID}
+</code></pre>
+<blockquote>
+<p>Production URL: </p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://ecomms2s.sella.it/api/v1/payment/refund/{paymentID}
+</code></pre>
+<p>Fully deletes a settled transaction. </p>
+
+<h4 id="request">Request</h4>
+
+<p>Headers: </p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Authorization</code></td>
+<td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
+<td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
+</tr>
+</tbody></table>
+
+<p>URL parameter: </p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">paymentID</code></td>
+<td>The payment identifier.</td>
+</tr>
+</tbody></table>
+
+<h4 id="response">Response</h4>
+
+<blockquote>
+<p>Success Response:<br>
+<code class="prettyprint">200 OK</code></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"error"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"request correctly processed"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"payload"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"transactionType"</span><span class="p">:</span><span class="s2">"refund"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionResult"</span><span class="p">:</span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bankTransactionID"</span><span class="p">:</span><span class="s2">"{bankTransactionID}"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shopTransactionID"</span><span class="p">:</span><span class="s2">"{shopTransactionID}"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"paymentID"</span><span class="p">:</span><span class="s2">"{paymentID}"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>See the section <a href="#handling-responses-amp-errors">Handling responses &amp; errors</a> to learn how Gestpay reports errors.</p>
+
+<p>Response <code class="prettyprint">payload</code> details:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">transactionType</code></td>
+<td>always <code class="prettyprint">refund</code> for this operation</td>
+</tr>
+<tr>
+<td><code class="prettyprint">transactionResult</code></td>
+<td><code class="prettyprint">OK</code> ok <code class="prettyprint">KO</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">bankTransactionID</code></td>
+<td>ID of the transaction assigned by Gestpay</td>
+</tr>
+<tr>
+<td><code class="prettyprint">shopTransactionID</code></td>
+<td>shop transaction ID value</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentID</code></td>
+<td>The payment ID</td>
+</tr>
+</tbody></table>
+
           <h3 id="post-payment-refund">POST payment/refund</h3>
 
 <blockquote>
@@ -10046,7 +10243,7 @@ Please note:
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Deletes an authorized transaction. </p>
+<p>Deletes, fully or partially, a settled transaction. </p>
 
 <h4 id="request">Request</h4>
 
@@ -10773,6 +10970,7 @@ Please note:
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"shopLogin"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paymentID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"shippingDetails"</span><span class="p">:{</span><span class="w">
     </span><span class="s2">"shipToName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"shipToStreet"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -10935,6 +11133,10 @@ Please note:
 <tr>
 <td><code class="prettyprint">amount</code></td>
 <td>the updated amount</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentID</code></td>
+<td>The payment ID to update</td>
 </tr>
 <tr>
 <td><code class="prettyprint">shippingDetails</code></td>
