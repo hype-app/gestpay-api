@@ -27,7 +27,7 @@
     <DateOfBirth>29/09/1932</DateOfBirth>
     <SocialSecurityNumber>BRLSLV36P29F205W</SocialSecurityNumber>
     <Company />
-    <CreatedAtDate>31/12/2017</CreatedAtDate>
+    <CreatedAtDate>2017-05-16 15:28</CreatedAtDate>
     <VerifiedEmail>true</VerifiedEmail>
     <AccountType>premium</AccountType>
   </CustomerDetail>
@@ -227,7 +227,7 @@ In this section we will analyze indipendently all the fields.
 | `Gender`               | 1   | Customer Gender (`0`=Male `1`=Female)
 | `SocialSecurityNumber` | 20  | Customer's social or fiscal identifier (KlarnaUse)
 | `Company`              | 255 | Customer Company
-| `CreatedAtDate`        | 10  | Date of Customer creation on merchant site
+| `CreatedAtDate`        | 10  | Date of Customer creation on merchant site. Example: `2017-05-16 15:28` (year-month-day hour-minute)
 | `VerifiedEmail`        | 5   | Email is verified? `true`/`false`
 | `AccountType`          | 20  | `free`/`premium` etc
 
