@@ -15,7 +15,7 @@ GET https://ecomms2s.sella.it/api/v1/payment/cancel/{paymentID}
 ```
 
 
-Retrieves the transaction cancelled status.
+Deletes the whole transaction.
 
 #### Request 
 
