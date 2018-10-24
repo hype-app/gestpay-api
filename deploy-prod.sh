@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -ex 
+set -e
 
 git checkout master
 git push
