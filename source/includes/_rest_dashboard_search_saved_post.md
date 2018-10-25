@@ -35,7 +35,7 @@ POST https://ecomms2s.sella.it/api/v1/dashboard/search/saved/
   "authorizationCode":"",
   "transactionErrorCode":"",
   "paymentID":"",
-  "authorizationResult":"",
+  "authorizationResult":[],
   "tdLevel":"",
   "event": {  
     "type":"",
@@ -86,7 +86,7 @@ Body parameters:
 | `authorizationCode` | The authorization code.
 | `transactionErrorCode` | A [transaction error code](#errors). 
 | `paymentID` | The payment ID
-| `authorizationResult` | The authorization result.
+| `authorizationResult` | The authorization result: can be one of `OK`, `KO`, `XX`, `APPROVED`, `DECLINED`, `PENDING`
 | `tdLevel` | 3D-Secure level 
 | `event` | An accepted event. See below. 
 | `transactionState` | An array of transaction states. Follow the link for a [detailed explanation of transaction statuses](http://docs.gestpay.it/adv/query-transaction-status.html).
