@@ -19,30 +19,25 @@ POST https://ecomms2s.sella.it/api/v1/dashboard/export/template/
 
 ```json
 {
-  "template":[
-    {
-      "shopLogin":"myshoplogin",
-      "templateId":"",
-      "description":"New template 1",
-      "default":"True",
-      "columns":[
-        "date",
-        "shopTransactionID",
-        "bankTransactionID",
-        "transactionResult",
-        "authorizedAmount",
-        "capturedAmount",
-        "paymentID",
-        "currency", 
-        ...
-      ]
-    }
+  "shopLogin":"myshoplogin",
+  "templateId":"",
+  "description":"New template 1",
+  "default":"True",
+  "columns":[
+    "date",
+    "shopTransactionID",
+    "bankTransactionID",
+    "transactionResult",
+    "authorizedAmount",
+    "capturedAmount",
+    "paymentID",
+    "currency", 
+    ...
   ]
 }
-
 ```
 
-Creates or modifies one or more templates. If the `templateId` is present, the template is updated. 
+Creates or modifies a template. If the `templateId` is present, the template is updated. 
 
 #### Request 
 
@@ -54,8 +49,6 @@ Headers:
 
 
 Body parameters: 
-
-For every `template` item: 
 
 | Field | Description | 
 | --------- | ----------- | 
