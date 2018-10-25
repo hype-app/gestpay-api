@@ -23,7 +23,7 @@ POST https://ecomms2s.sella.it/api/v1/dashboard/search
     "search":{
         "name":"",
         "searchID":""
-    }
+    },
     "dateFrom":"",
     "dateTo":"",
     "authorizedAmount" : {
@@ -35,6 +35,7 @@ POST https://ecomms2s.sella.it/api/v1/dashboard/search
         "to":""
     },
     "lastNDays":"",
+    "invoiceID": "",
     "currency" : [],
     "bankTransactionID":"",
     "shopTransactionID" :"",
@@ -46,7 +47,7 @@ POST https://ecomms2s.sella.it/api/v1/dashboard/search
     "event":{
         "type":"",
         "from":"",
-        "to":""
+        "to":"",
         "lastNDays":"",
         "includeToday":""
     },
@@ -85,6 +86,7 @@ Body data:
 | `capturedAmount.from`       | Search for transactions that have a captured amount greater than `capturedAmount.from`. |  `15.67`  |
 | `capturedAmount.to`         | Search for transactions that have a captured amount lower than `capturedAmount.to`. | `100`  |  
 | `lastNDays`                 | retrieve transactions for the last `N` days | `3`                                        |
+| `invoiceID`                 | an invoice ID to search | `00000353` | 
 | `currency`                  | an array containing the values to be checked against the transaction. They must be a valid [ISO code](#currency-codes). |  `[EUR, USD]` |
 | `bankTransactionID`         | An ID assigned by the bank.  | `33`   | 
 | `shopTransactionID`         | The `shopTransactionID` is the ID assigned by the shop.| `my_shop_id_42`  | 
