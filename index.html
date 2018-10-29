@@ -3922,6 +3922,9 @@ The three parameters <code>UICCode</code>, <code>ISOCode</code> and <code>Numeri
   <span class="nt">&lt;paymentTypes&gt;</span>
     <span class="nt">&lt;paymentType&gt;</span>AMAZONPAY<span class="nt">&lt;/paymentType&gt;</span>
   <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="c">&lt;!-- OPTIONAL: to retrieve a token for recurrent 
+  payments, fill out this tag --&gt;</span>
+  <span class="nt">&lt;amazonPayBillingAgreementDescription</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
 <p>Amazon Pay does not need any mandatory parameters. Use <code class="prettyprint">AMAZONPAY</code>  as Payment Type and the user will be redirected to Amazon Pay. </p>
@@ -3929,6 +3932,32 @@ The three parameters <code>UICCode</code>, <code>ISOCode</code> and <code>Numeri
 <aside class="notice">
 The shopTransactionId must be unique. 
 </aside>
+
+<h4 id="recurring-payments-with-amazon-pay">Recurring payments with Amazon Pay</h4>
+
+<p>If you want to perform recurring payments, by filling this field you obtain a token that you can use with <a href="#callpagams2s"><code class="prettyprint">callPagamS2S</code></a>. </p>
+
+<p>Accepted values for <code class="prettyprint">amazonPayBillingAgreementDescription</code>:</p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Empty or missing</td>
+<td>no token is returned.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paynowandrecurring</code></td>
+<td>a payment is performed instantly and a token is generated for subsequent payments.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">onlyrecurring</code></td>
+<td>only a token is returned.</td>
+</tr>
+</tbody></table>
 
           <h3 id="wss2s-example-amazon-pay">WSS2S Example: Amazon Pay</h3>
 
