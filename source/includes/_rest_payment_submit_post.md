@@ -26,7 +26,7 @@ POST https://ecomms2s.sella.it/api/v1/payment/submit
     "email":""
   },
   "paymentTypeDetails":{  
-    "creditcard":{  
+    "creditcard":{
       "number":"",
       "token":"",
       "expMonth":"",
@@ -34,35 +34,35 @@ POST https://ecomms2s.sella.it/api/v1/payment/submit
       "CVV":"",
       "requestToken":"",
       "DCC": "",
-      "amazonPay":{  
-        "amazonReferenceOrderId":"",
-        "requestToken":"",
-        "token":""
-      },
-      "applePay":{  
-        "PKPaymentToken":"",
-        "onlinePaymentCryptogram":"",
-        "eciIndicator":"",
-        "requestToken":"",
-        "token":""
-      },
-      "myBank":{  
-        "bankCode":""
-      },
-      "iDeal":{  
-        "bankCode":""
-      },
-      "payPal":{  
-        "billingAgreementDescription":"",
-        "sellerProtection":"",
-        "token":""
-      }
     },
-    "responseURLs":{  
-      "buyerOK":"",
-      "buyerKO":"",
-      "serverNotificationURL":""
+    "amazonPay":{  
+      "amazonReferenceOrderId":"",
+      "requestToken":"",
+      "token":""
+    },
+    "applePay":{  
+      "PKPaymentToken":"",
+      "onlinePaymentCryptogram":"",
+      "eciIndicator":"",
+      "requestToken":"",
+      "token":""
+    },
+    "myBank":{  
+      "bankCode":""
+    },
+    "iDeal":{  
+      "bankCode":""
+    },
+    "payPal":{  
+      "billingAgreementDescription":"",
+      "sellerProtection":"",
+      "token":""
     }
+  },
+  "responseURLs":{  
+    "buyerOK":"",
+    "buyerKO":"",
+    "serverNotificationURL":""
   }
 }
 ```
@@ -213,7 +213,7 @@ With the REST Api you can set the redirect url for the success or failure case, 
     "token":"444444xxxxxx4448",
     "tokenExpiryMonth":"01",
     "tokenExpiryYear":"25",
-    "redirectURL":{
+    "userRedirect":{
       "href": "https://ecomm.sella.it/pagam/pagam3d.aspx?a={shopLogin}&b={paymentToken}"
     }
   }
@@ -262,7 +262,7 @@ With the REST Api you can set the redirect url for the success or failure case, 
     "token":"",
     "tokenExpiryMonth":"",
     "tokenExpiryYear":"",
-    "redirectURL":{
+    "userRedirect":{
       "href":"https://ecomm.sella.it/pagam/pagam3d.aspx?a={shopLogin}&b={paymentToken}"
     }
   }
@@ -310,7 +310,7 @@ With the REST Api you can set the redirect url for the success or failure case, 
     "token":"",
     "tokenExpiryMonth":"",
     "tokenExpiryYear":"",
-    "redirectURL":{
+    "userRedirect":{
       "href":"https://ecomm.sella.it/pagam/pagam3d.aspx?a={shopLogin}&b={paymentToken}&paymentType=S2PX"
     }
   }
@@ -335,7 +335,7 @@ Response `payload` details:
 | `currency` | The [currency ISO code](#currency-codes)
 | `country` | nationality of the card issuer | 
 | `company` | Card issuer company | 
-| `tdLevel` | The level of 3D-Secure authentication: `NULL`, `FULL` or `HALF`. 
+| `tdLevel` | The level of 3D-Secure authentication: `FULL` or `HALF`. 
 | `buyer` | Contains informations about the buyer. See the table below. 
 | `risk` | A risk code, assigned by [Gestpay Guaranteed Payment](#gestpay-guaranteed-payment). See the table below for more informations.  
 | `customInfo` | An object containing optional customised parameters, created by the merchant in the form of key-value. 
@@ -348,7 +348,7 @@ Response `payload` details:
 | `token` | String containing the token value
 | `tokenExpiryMonth` | String containing the token expiry month
 | `TokenExpiryYear` | String containing the token expiry year
-| `redirectUrl.href` | a URL to redirect the user for 3D-Secure authentication, or to pay on alternative payment systems. 
+| `userRedirect.href` | a URL to redirect the user for 3D-Secure authentication, or to pay on alternative payment systems. 
 
 
 ##### `buyer` details
