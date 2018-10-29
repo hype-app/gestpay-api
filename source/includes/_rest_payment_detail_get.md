@@ -132,7 +132,7 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `AlertDescription` | Alert description in chosen language. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description.  |
 | `buyer` | Contains informations about the buyer name, if available. See the able below. 
 | `risk` | Contains informations about the risk score, assigned by Gestpay Guaranteed Payment. See below. 
-| `customInfo`      | An object containing optional customised parameters. Use the `customInfo` parameter name as the key. 
+| `customInfo` | An object containing optional customised parameters. set your parameters as key-value pairs. 
 | `events` | Contains informations about this payment history. See below.
 | `cvvPresent` | `TRUE` if the payment has been executed by using a CVV security code. 
 | `dcc` | Stands for Dynamic Currency Conversion. See the table below. 
@@ -144,9 +144,10 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `TokenExpiryYear` | String containing the token expiry year
 | `vbv` | Informations about the 3DSecure status. 
 | `payPalFee` | The fee owed to paypal. 
-| `fraudPrevention` | informations about fraud prevention. See below. 
+| `fraudPrevention` | informations about fraud prevention. Responses by Gestpay Guaranteed Payment will show here. 
 | `transactionErrorCode` | The error code for the transaction. See [error codes](#errors) page for details.
 | `transactionErrorDescription` | The error code description in common language.  
+| `automaticOperation` | it refers to an automatic operation that has been programmed. 
 
 `events` details: 
 
@@ -183,8 +184,8 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 
 |Field | Description
 | ---- | ----------- 
-| `check` |  
-| `state` | 
-| `description` | 
-| `order` | 
+| `check` | The kind of check applied. 
+| `state` | The status of the transaction.  
+| `description` | The status description 
+| `order` | the order reference 
 

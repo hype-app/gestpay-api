@@ -92,21 +92,46 @@ Input Body:
       "operator":"Sellanet"
     }],
     "buyer":{  
-        "name":"",
-        "email":""
+      "name":"",
+      "email":""
     },
     "risk":{  
-        "riskResponseCode":"approved",
-        "riskResponseDescription":""
+      "riskResponseCode":"approved",
+      "riskResponseDescription":""
+    },
+    "customInfo":{
+      "{myCustomInfo1}":"{myCustomInfoValue1}",
+      "{myCustomInfo2}":"{myCustomInfoValue2}"
     },
     "alertCode":"",
     "alertDescription":"",
     "cvvPresent":"{TRUE/FALSE}",
     "dcc":{
-        "eligible":"{TRUE/FALSE}",
-        "currency":""
+      "eligible":"{TRUE/FALSE}",
+      "currency":""
     },
-    "maskedPAN":""
+    "maskedPAN":"",
+    "paymentMethod":"",
+    "productType":"",
+    "token":"",
+    "tokenExpiryMonth":"",
+    "tokenExpiryYear":"",
+    "vbv":{
+      "flag":"",
+      "buyer":""
+    },
+    "payPalFee":"",
+    "fraudPrevention":{
+      "check":"{TRUE/FALSE}",
+      "state":"",
+      "description":"",
+      "order":""
+    },
+    "automaticOperation":{
+      "type":"",
+      "date":"",
+      "amount":""
+    }
   }
 }
 ```
@@ -125,7 +150,7 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | Field               | Description                                                                                       |
 | ------------------- | ------------------------------------------------------------------------------------------------- |
 | `transactionType`   | `detail`                                                                                          |
-| `TransactionResult` | `OK` ok `KO`                                                                                      |
+| `TransactionResult` | `UNSUBMITTED`, `WAITING`, `PENDING` (or `XX`), `APPROVED` (or `OK`), `DECLINED` (or `KO`)     |
 | `transactionState`  | The last state of the transaction, as one of the states contained in [event types](#event-types).|
 | `bankTransactionID` | A transaction ID assigned by the bank.                                                            |
 | `shopTransactionID` | An ID assigned by the shop.                                                                       |
@@ -134,17 +159,26 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `currency`  | One of the [ISO currencies](#currency-codes). 
 | `country` | The country originating the transaction | 
 | `company` | The credit card / payment circuit | 
-| `tdLevel` | can be: `NULL`, `FULL` if the transaction is fully 3D-Secure protected, `HALF`. |
+| `tdLevel` | `FULL` if the transaction is fully 3D-Secure protected, `HALF`. |
 | `alertCode` | Alert code. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description. 
 | `AlertDescription` | Alert description in chosen language. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description.  |
 | `buyer` | Contains informations about the buyer name, if available. See the able below. 
 | `risk` | Contains informations about the risk score, assigned by Gestpay Guaranteed Payment. See below. 
+| `customInfo` | An object containing optional customised parameters. set your parameters as key-value pairs. 
 | `events` | Contains informations about this payment history. See below.
 | `cvvPresent` | `TRUE` if the payment has been executed by using a CVV security code. 
 | `dcc` | Stands for Dynamic Currency Conversion. See the table below. 
 | `maskedPAN` | Masked PAN string 
+| `paymentMethod` | the payment method used to perform the payment 
 | `transactionErrorCode` | The error code for the transaction. See [error codes](#errors) page for details.
 | `transactionErrorDescription` | The error code description in common language.  
+| `token` | String containing the token value
+| `tokenExpiryMonth` | String containing the token expiry month
+| `TokenExpiryYear` | String containing the token expiry year
+| `vbv` | Informations about the 3DSecure status. 
+| `payPalFee` | The fee owed to paypal. 
+| `fraudPrevention` | informations about fraud prevention. Responses by Gestpay Guaranteed Payment will show here. 
+| `automaticOperation` | it refers to an automatic operation that has been programmed. 
 
 `events` details: 
 
@@ -176,3 +210,12 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | ----- | ----------- 
 | `eligible` | `TRUE` if the payment is DCC eligible and is therefore converted at payment time; `FALSE` otherwise.  |
 | `currency` | The exchange rate. |
+
+`fraudPrevention` details: 
+
+|Field | Description
+| ---- | ----------- 
+| `check` | The kind of check applied. 
+| `state` | The status of the transaction.  
+| `description` | The status description 
+| `order` | the order reference 

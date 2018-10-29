@@ -108,7 +108,7 @@ Response `payload` details:
 | `transactionType` | `REQUESTTOKEN` if creating, `UPDATETOKEN` on updating
 | `transactionResult` | `OK` or `KO`
 | `authorizationErrorCode` | authorisation error code if an error occurred
-| `authorizationResult` | Authorization result. It can be `OK` or `KO` or `NULL`
+| `authorizationResult` | Authorization result. It can be `OK` or `KO`
 | `authorizationCodeDescription` | code description 
 | `country` | nationality of the card 
 | `countryCode` | nationality code of the card 
