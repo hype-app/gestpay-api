@@ -44,7 +44,7 @@ URL parameter:
     "description":"request correctly processed"
   },
   "payload":{ 
-    "transactionType" : "cancel", 
+    "transactionType" : "capture", 
     "transactionResult" :"OK", 
     "bankTransactionID" : "{bankTransactionID}", 
     "shopTransactionID": "{shopTransactionID}", 
