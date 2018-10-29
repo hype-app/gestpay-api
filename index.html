@@ -5069,9 +5069,9 @@ Please note:
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"shopLogin"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"creditcard"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"cvv:""
-    }
-}
+        </span><span class="s2">"cvv"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Provides a formal validity check of the CVV.</p>
 
@@ -8368,7 +8368,7 @@ Please note:
     </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"request correctly processed"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"payload"</span><span class="p">:{</span><span class="w"> 
-    </span><span class="s2">"transactionType"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"transactionType"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"capture"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"transactionResult"</span><span class="w"> </span><span class="p">:</span><span class="s2">"OK"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"bankTransactionID"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{bankTransactionID}"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"shopTransactionID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{shopTransactionID}"</span><span class="p">,</span><span class="w"> 
@@ -8757,7 +8757,7 @@ Please note:
       </span><span class="s2">"socialSecurityNumber"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"company"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"createdAtDate"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"verifiedEmail"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"verifiedEmail"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"accountType"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"social"</span><span class="p">:{</span><span class="w">  
         </span><span class="s2">"network"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -9336,7 +9336,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">customInfo</code></td>
-<td>An object containing optional customised parameters. Use the <code class="prettyprint">customInfo</code> parameter name as the key.</td>
+<td>An object containing optional customised parameters. set your parameters as key-value pairs.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">events</code></td>
@@ -9384,7 +9384,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">fraudPrevention</code></td>
-<td>informations about fraud prevention. See below.</td>
+<td>informations about fraud prevention. Responses by Gestpay Guaranteed Payment will show here.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">transactionErrorCode</code></td>
@@ -9393,6 +9393,10 @@ Please note:
 <tr>
 <td><code class="prettyprint">transactionErrorDescription</code></td>
 <td>The error code description in common language.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">automaticOperation</code></td>
+<td>it refers to an automatic operation that has been programmed.</td>
 </tr>
 </tbody></table>
 
@@ -9490,19 +9494,19 @@ Please note:
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">check</code></td>
-<td></td>
+<td>The kind of check applied.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">state</code></td>
-<td></td>
+<td>The status of the transaction.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">description</code></td>
-<td></td>
+<td>The status description</td>
 </tr>
 <tr>
 <td><code class="prettyprint">order</code></td>
-<td></td>
+<td>the order reference</td>
 </tr>
 </tbody></table>
 
@@ -9641,21 +9645,46 @@ Please note:
       </span><span class="s2">"operator"</span><span class="p">:</span><span class="s2">"Sellanet"</span><span class="w">
     </span><span class="p">}],</span><span class="w">
     </span><span class="s2">"buyer"</span><span class="p">:{</span><span class="w">  
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">""</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"risk"</span><span class="p">:{</span><span class="w">  
-        </span><span class="s2">"riskResponseCode"</span><span class="p">:</span><span class="s2">"approved"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"riskResponseDescription"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="s2">"riskResponseCode"</span><span class="p">:</span><span class="s2">"approved"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"riskResponseDescription"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"customInfo"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"{myCustomInfo1}"</span><span class="p">:</span><span class="s2">"{myCustomInfoValue1}"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"{myCustomInfo2}"</span><span class="p">:</span><span class="s2">"{myCustomInfoValue2}"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"alertCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"alertDescription"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"cvvPresent"</span><span class="p">:</span><span class="s2">"{TRUE/FALSE}"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"dcc"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"eligible"</span><span class="p">:</span><span class="s2">"{TRUE/FALSE}"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"currency"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="s2">"eligible"</span><span class="p">:</span><span class="s2">"{TRUE/FALSE}"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"currency"</span><span class="p">:</span><span class="s2">""</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"maskedPAN"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+    </span><span class="s2">"maskedPAN"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"paymentMethod"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"productType"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tokenExpiryMonth"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tokenExpiryYear"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"vbv"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"flag"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"buyer"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"payPalFee"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fraudPrevention"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"check"</span><span class="p">:</span><span class="s2">"{TRUE/FALSE}"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"order"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"automaticOperation"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -9693,7 +9722,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">TransactionResult</code></td>
-<td><code class="prettyprint">OK</code> ok <code class="prettyprint">KO</code></td>
+<td><code class="prettyprint">UNSUBMITTED</code>, <code class="prettyprint">WAITING</code>, <code class="prettyprint">PENDING</code> (or <code class="prettyprint">XX</code>), <code class="prettyprint">APPROVED</code> (or <code class="prettyprint">OK</code>), <code class="prettyprint">DECLINED</code> (or <code class="prettyprint">KO</code>)</td>
 </tr>
 <tr>
 <td><code class="prettyprint">transactionState</code></td>
@@ -9729,7 +9758,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">tdLevel</code></td>
-<td>can be: <code class="prettyprint">NULL</code>, <code class="prettyprint">FULL</code> if the transaction is fully 3D-Secure protected, <code class="prettyprint">HALF</code>.</td>
+<td><code class="prettyprint">FULL</code> if the transaction is fully 3D-Secure protected, <code class="prettyprint">HALF</code>.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">alertCode</code></td>
@@ -9748,6 +9777,10 @@ Please note:
 <td>Contains informations about the risk score, assigned by Gestpay Guaranteed Payment. See below.</td>
 </tr>
 <tr>
+<td><code class="prettyprint">customInfo</code></td>
+<td>An object containing optional customised parameters. set your parameters as key-value pairs.</td>
+</tr>
+<tr>
 <td><code class="prettyprint">events</code></td>
 <td>Contains informations about this payment history. See below.</td>
 </tr>
@@ -9764,12 +9797,44 @@ Please note:
 <td>Masked PAN string</td>
 </tr>
 <tr>
+<td><code class="prettyprint">paymentMethod</code></td>
+<td>the payment method used to perform the payment</td>
+</tr>
+<tr>
 <td><code class="prettyprint">transactionErrorCode</code></td>
 <td>The error code for the transaction. See <a href="#errors">error codes</a> page for details.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">transactionErrorDescription</code></td>
 <td>The error code description in common language.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">token</code></td>
+<td>String containing the token value</td>
+</tr>
+<tr>
+<td><code class="prettyprint">tokenExpiryMonth</code></td>
+<td>String containing the token expiry month</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TokenExpiryYear</code></td>
+<td>String containing the token expiry year</td>
+</tr>
+<tr>
+<td><code class="prettyprint">vbv</code></td>
+<td>Informations about the 3DSecure status.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">payPalFee</code></td>
+<td>The fee owed to paypal.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">fraudPrevention</code></td>
+<td>informations about fraud prevention. Responses by Gestpay Guaranteed Payment will show here.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">automaticOperation</code></td>
+<td>it refers to an automatic operation that has been programmed.</td>
 </tr>
 </tbody></table>
 
@@ -9854,6 +9919,32 @@ Please note:
 <tr>
 <td><code class="prettyprint">currency</code></td>
 <td>The exchange rate.</td>
+</tr>
+</tbody></table>
+
+<p><code class="prettyprint">fraudPrevention</code> details: </p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">check</code></td>
+<td>The kind of check applied.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">state</code></td>
+<td>The status of the transaction.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">description</code></td>
+<td>The status description</td>
+</tr>
+<tr>
+<td><code class="prettyprint">order</code></td>
+<td>the order reference</td>
 </tr>
 </tbody></table>
 
@@ -10438,7 +10529,7 @@ Please note:
     </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">""</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"paymentTypeDetails"</span><span class="p">:{</span><span class="w">  
-    </span><span class="s2">"creditcard"</span><span class="p">:{</span><span class="w">  
+    </span><span class="s2">"creditcard"</span><span class="p">:{</span><span class="w">
       </span><span class="s2">"number"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"token"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"expMonth"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -10446,35 +10537,35 @@ Please note:
       </span><span class="s2">"CVV"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"requestToken"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"DCC"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"amazonPay"</span><span class="p">:{</span><span class="w">  
-        </span><span class="s2">"amazonReferenceOrderId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"requestToken"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"token"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"applePay"</span><span class="p">:{</span><span class="w">  
-        </span><span class="s2">"PKPaymentToken"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"onlinePaymentCryptogram"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"eciIndicator"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"requestToken"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"token"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"myBank"</span><span class="p">:{</span><span class="w">  
-        </span><span class="s2">"bankCode"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"iDeal"</span><span class="p">:{</span><span class="w">  
-        </span><span class="s2">"bankCode"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"payPal"</span><span class="p">:{</span><span class="w">  
-        </span><span class="s2">"billingAgreementDescription"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"sellerProtection"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"token"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-      </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"responseURLs"</span><span class="p">:{</span><span class="w">  
-      </span><span class="s2">"buyerOK"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"buyerKO"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"serverNotificationURL"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+    </span><span class="s2">"amazonPay"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"amazonReferenceOrderId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"requestToken"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"token"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"applePay"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"PKPaymentToken"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"onlinePaymentCryptogram"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"eciIndicator"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"requestToken"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"token"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"myBank"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"bankCode"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"iDeal"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"bankCode"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"payPal"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"billingAgreementDescription"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sellerProtection"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"token"</span><span class="p">:</span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"responseURLs"</span><span class="p">:{</span><span class="w">  
+    </span><span class="s2">"buyerOK"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"buyerKO"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"serverNotificationURL"</span><span class="p">:</span><span class="s2">""</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -10757,7 +10848,7 @@ Please note:
     </span><span class="s2">"token"</span><span class="p">:</span><span class="s2">"444444xxxxxx4448"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"tokenExpiryMonth"</span><span class="p">:</span><span class="s2">"01"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"tokenExpiryYear"</span><span class="p">:</span><span class="s2">"25"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"redirectURL"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"userRedirect"</span><span class="p">:{</span><span class="w">
       </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://ecomm.sella.it/pagam/pagam3d.aspx?a={shopLogin}&amp;b={paymentToken}"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -10805,7 +10896,7 @@ Please note:
     </span><span class="s2">"token"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"tokenExpiryMonth"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"tokenExpiryYear"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"redirectURL"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"userRedirect"</span><span class="p">:{</span><span class="w">
       </span><span class="s2">"href"</span><span class="p">:</span><span class="s2">"https://ecomm.sella.it/pagam/pagam3d.aspx?a={shopLogin}&amp;b={paymentToken}"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -10852,7 +10943,7 @@ Please note:
     </span><span class="s2">"token"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"tokenExpiryMonth"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"tokenExpiryYear"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"redirectURL"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"userRedirect"</span><span class="p">:{</span><span class="w">
       </span><span class="s2">"href"</span><span class="p">:</span><span class="s2">"https://ecomm.sella.it/pagam/pagam3d.aspx?a={shopLogin}&amp;b={paymentToken}&amp;paymentType=S2PX"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -10914,7 +11005,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">tdLevel</code></td>
-<td>The level of 3D-Secure authentication: <code class="prettyprint">NULL</code>, <code class="prettyprint">FULL</code> or <code class="prettyprint">HALF</code>.</td>
+<td>The level of 3D-Secure authentication: <code class="prettyprint">FULL</code> or <code class="prettyprint">HALF</code>.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">buyer</code></td>
@@ -10965,7 +11056,7 @@ Please note:
 <td>String containing the token expiry year</td>
 </tr>
 <tr>
-<td><code class="prettyprint">redirectUrl.href</code></td>
+<td><code class="prettyprint">userRedirect.href</code></td>
 <td>a URL to redirect the user for 3D-Secure authentication, or to pay on alternative payment systems.</td>
 </tr>
 </tbody></table>
@@ -11011,12 +11102,12 @@ Please note:
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
-<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/payment/update/
+<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/payment/update
 </code></pre>
 <blockquote>
 <p>Production URL: </p>
 </blockquote>
-<pre class="highlight plaintext"><code>POST https://ecomms2s.sella.it/api/v1/payment/update/
+<pre class="highlight plaintext"><code>POST https://ecomms2s.sella.it/api/v1/payment/update
 </code></pre>
 <blockquote>
 <p>Request Body: </p>
@@ -11630,6 +11721,7 @@ Please note:
 <p>Request Body: </p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"shopLogin"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"paymentType"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"capture"</span><span class="p">:</span><span class="s2">"{separated/unified}"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"automaticBehaviour"</span><span class="p">:{</span><span class="w">
@@ -11668,6 +11760,10 @@ Please note:
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code class="prettyprint">shopLogin</code></td>
+<td>The shop login code.</td>
+</tr>
 <tr>
 <td><code class="prettyprint">paymentType</code></td>
 <td>One of the enabled payment types for your shop. A list of all payment types is <a href="#payment-type-codes">available here</a>.</td>
@@ -12527,7 +12623,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">authorizationResult</code></td>
-<td>Authorization result. It can be <code class="prettyprint">OK</code> or <code class="prettyprint">KO</code> or <code class="prettyprint">NULL</code></td>
+<td>Authorization result. It can be <code class="prettyprint">OK</code> or <code class="prettyprint">KO</code></td>
 </tr>
 <tr>
 <td><code class="prettyprint">authorizationCodeDescription</code></td>
