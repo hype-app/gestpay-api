@@ -21,7 +21,7 @@ POST https://ecomms2s.sella.it/api/v1/check/cvv/
 {
     "shopLogin":"",
     "creditcard":{
-        "cvv:""
+        "cvv":""
     }
 }
 ```
