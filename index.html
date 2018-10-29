@@ -5817,7 +5817,7 @@ Please note:
     </span><span class="s2">"search"</span><span class="p">:{</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"searchID"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"dateFrom"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"dateTo"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"authorizedAmount"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -5829,6 +5829,7 @@ Please note:
         </span><span class="s2">"to"</span><span class="p">:</span><span class="s2">""</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"lastNDays"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"invoiceID"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"currency"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="s2">"bankTransactionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"shopTransactionID"</span><span class="w"> </span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -5840,7 +5841,7 @@ Please note:
     </span><span class="s2">"event"</span><span class="p">:{</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"from"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"to"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+        </span><span class="s2">"to"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"lastNDays"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"includeToday"</span><span class="p">:</span><span class="s2">""</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -5932,6 +5933,11 @@ Please note:
 <td><code class="prettyprint">lastNDays</code></td>
 <td>retrieve transactions for the last <code class="prettyprint">N</code> days</td>
 <td><code class="prettyprint">3</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">invoiceID</code></td>
+<td>an invoice ID to search</td>
+<td><code class="prettyprint">00000353</code></td>
 </tr>
 <tr>
 <td><code class="prettyprint">currency</code></td>
@@ -6390,7 +6396,7 @@ Please note:
       </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"myname@mydomain.co.in"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"enabled"</span><span class="p">:</span><span class="s2">"true"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"fpt"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"ftp"</span><span class="p">:{</span><span class="w">
       </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"enabled"</span><span class="p">:</span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -7111,29 +7117,24 @@ Please note:
 <p>Example request body: </p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"template"</span><span class="p">:[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"shopLogin"</span><span class="p">:</span><span class="s2">"myshoplogin"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"templateId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"New template 1"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"default"</span><span class="p">:</span><span class="s2">"True"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"columns"</span><span class="p">:[</span><span class="w">
-        </span><span class="s2">"date"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shopTransactionID"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"bankTransactionID"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"transactionResult"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"authorizedAmount"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"capturedAmount"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"paymentID"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"currency"</span><span class="p">,</span><span class="w"> 
-        </span><span class="err">...</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="s2">"shopLogin"</span><span class="p">:</span><span class="s2">"myshoplogin"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"templateId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"New template 1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"default"</span><span class="p">:</span><span class="s2">"True"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"columns"</span><span class="p">:[</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shopTransactionID"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bankTransactionID"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transactionResult"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"authorizedAmount"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"capturedAmount"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"paymentID"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">,</span><span class="w"> 
+    </span><span class="err">...</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
-<p>Creates or modifies one or more templates. If the <code class="prettyprint">templateId</code> is present, the template is updated. </p>
+<p>Creates or modifies a template. If the <code class="prettyprint">templateId</code> is present, the template is updated. </p>
 
 <h4 id="request">Request</h4>
 
@@ -7154,8 +7155,6 @@ Please note:
 </tbody></table>
 
 <p>Body parameters: </p>
-
-<p>For every <code class="prettyprint">template</code> item: </p>
 
 <table><thead>
 <tr>
@@ -7753,7 +7752,7 @@ Please note:
   </span><span class="s2">"authorizationCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"transactionErrorCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"paymentID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"authorizationResult"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"authorizationResult"</span><span class="p">:[],</span><span class="w">
   </span><span class="s2">"tdLevel"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"event"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  
     </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -7851,7 +7850,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">authorizationResult</code></td>
-<td>The authorization result.</td>
+<td>The authorization result: can be one of <code class="prettyprint">OK</code>, <code class="prettyprint">KO</code>, <code class="prettyprint">XX</code>, <code class="prettyprint">APPROVED</code>, <code class="prettyprint">DECLINED</code>, <code class="prettyprint">PENDING</code></td>
 </tr>
 <tr>
 <td><code class="prettyprint">tdLevel</code></td>
@@ -9167,11 +9166,11 @@ Please note:
 <code class="prettyprint">200 OK</code></p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"error"</span><span class="p">:{</span><span class="w">  
-      </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"request correctly processed"</span><span class="w">
-   </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"payload"</span><span class="p">:{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:{</span><span class="w">  
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"request correctly processed"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"payload"</span><span class="p">:{</span><span class="w">
     </span><span class="s2">"transactionType"</span><span class="p">:</span><span class="s2">"detail"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"transactionResult"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"transactionState"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -9185,15 +9184,13 @@ Please note:
     </span><span class="s2">"country"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"company"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"tdLevel"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"events"</span><span class="p">:[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"event"</span><span class="p">:{</span><span class="w">
-          </span><span class="s2">"eventtype"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"eventamount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"eventdate"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"events"</span><span class="p">:[{</span><span class="w">
+      </span><span class="s2">"event"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"eventtype"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"eventamount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"eventdate"</span><span class="p">:</span><span class="s2">""</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
     </span><span class="s2">"buyer"</span><span class="p">:{</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">""</span><span class="w">
@@ -9234,12 +9231,6 @@ Please note:
       </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"date"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"shield"</span><span class="p">:{</span><span class="w">
-
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"fraudAlert"</span><span class="p">:{</span><span class="w">
-
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -9260,7 +9251,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">TransactionResult</code></td>
-<td><code class="prettyprint">OK</code> ok <code class="prettyprint">KO</code></td>
+<td><code class="prettyprint">UNSUBMITTED</code>, <code class="prettyprint">WAITING</code>, <code class="prettyprint">PENDING</code> (or <code class="prettyprint">XX</code>), <code class="prettyprint">APPROVED</code> (or <code class="prettyprint">OK</code>), <code class="prettyprint">DECLINED</code> (or <code class="prettyprint">KO</code>)</td>
 </tr>
 <tr>
 <td><code class="prettyprint">transactionState</code></td>
@@ -9296,7 +9287,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">tdLevel</code></td>
-<td>can be: <code class="prettyprint">NULL</code>, <code class="prettyprint">FULL</code> if the transaction is fully 3D-Secure protected, <code class="prettyprint">HALF</code>.</td>
+<td><code class="prettyprint">FULL</code> if the transaction is fully 3D-Secure protected, <code class="prettyprint">HALF</code>.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">alertCode</code></td>
@@ -9315,6 +9306,10 @@ Please note:
 <td>Contains informations about the risk score, assigned by Gestpay Guaranteed Payment. See below.</td>
 </tr>
 <tr>
+<td><code class="prettyprint">customInfo</code></td>
+<td>An object containing optional customised parameters. Use the <code class="prettyprint">customInfo</code> parameter name as the key.</td>
+</tr>
+<tr>
 <td><code class="prettyprint">events</code></td>
 <td>Contains informations about this payment history. See below.</td>
 </tr>
@@ -9329,6 +9324,38 @@ Please note:
 <tr>
 <td><code class="prettyprint">maskedPAN</code></td>
 <td>Masked PAN string</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paymentMethod</code></td>
+<td>the payment method used to perform the payment</td>
+</tr>
+<tr>
+<td><code class="prettyprint">productType</code></td>
+<td>String containing card type</td>
+</tr>
+<tr>
+<td><code class="prettyprint">token</code></td>
+<td>String containing the token value</td>
+</tr>
+<tr>
+<td><code class="prettyprint">tokenExpiryMonth</code></td>
+<td>String containing the token expiry month</td>
+</tr>
+<tr>
+<td><code class="prettyprint">TokenExpiryYear</code></td>
+<td>String containing the token expiry year</td>
+</tr>
+<tr>
+<td><code class="prettyprint">vbv</code></td>
+<td>Informations about the 3DSecure status.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">payPalFee</code></td>
+<td>The fee owed to paypal.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">fraudPrevention</code></td>
+<td>informations about fraud prevention. See below.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">transactionErrorCode</code></td>
@@ -9424,17 +9451,43 @@ Please note:
 </tr>
 </tbody></table>
 
+<p><code class="prettyprint">fraudPrevention</code> details: </p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">check</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">state</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">description</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">order</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
           <h3 id="post-payment-detail">POST payment/detail</h3>
 
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
-<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/payment/detail/
+<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/payment/detail
 </code></pre>
 <blockquote>
 <p>Production URL: </p>
 </blockquote>
-<pre class="highlight plaintext"><code>POST https://ecomms2s.sella.it/api/v1/payment/detail/
+<pre class="highlight plaintext"><code>POST https://ecomms2s.sella.it/api/v1/payment/detail
 </code></pre>
 <blockquote>
 <p>Example request: </p>
