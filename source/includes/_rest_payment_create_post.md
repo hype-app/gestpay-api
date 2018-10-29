@@ -71,7 +71,7 @@ POST https://ecomms2s.sella.it/api/v1/payment/create/
       "socialSecurityNumber":"",
       "company":"",
       "createdAtDate":"",
-      "verifiedEmail":"false",
+      "verifiedEmail":"",
       "accountType":"",
       "social":{  
         "network":"",
