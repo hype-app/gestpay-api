@@ -39,7 +39,6 @@ Request Body:
 
 | Field               | Description             
 | ------------------- | ----------------------- 
-
 | `shopLogin`         | Your shop login         
 | `bankTransactionID` | The bank transaction ID 
 | `shopTransactionID` | the shop transaction ID 
