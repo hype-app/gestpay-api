@@ -19,7 +19,7 @@ POST https://ecomms2s.sella.it/api/v1/dashboard/export/file
 {
   "shopLogin":"",
   "searchID":"",
-  "fileType":"(txt/xls)",
+  "fileType":"",
   "template":"",
   "email":"",
   "prefix":"",
