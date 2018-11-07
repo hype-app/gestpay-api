@@ -85,17 +85,17 @@ Request Body:
 
 ```json
 {
-   "error":{  
-      "code":"0",
-      "description":"request correctly processed"
-   },
-   "payload":{
+  "error":{  
+    "code":"0",
+    "description":"request correctly processed"
+  },
+  "payload":{
     "transactionType":"refund",
     "transactionResult":"OK",
     "bankTransactionID":"{bankTransactionID}",
     "shopTransactionID":"{shopTransactionID}",
     "paymentID":"{paymentID}"
-   }
+  }
 }
 ```
 
