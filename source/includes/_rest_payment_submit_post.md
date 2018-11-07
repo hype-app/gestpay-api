@@ -33,7 +33,7 @@ POST https://ecomms2s.sella.it/api/v1/payment/submit
       "expYear":"",
       "CVV":"",
       "requestToken":"",
-      "DCC": "",
+      "DCC": ""
     },
     "amazonPay":{  
       "amazonReferenceOrderId":"",
