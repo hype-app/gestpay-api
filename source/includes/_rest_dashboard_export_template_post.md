@@ -24,14 +24,10 @@ POST https://ecomms2s.sella.it/api/v1/dashboard/export/template/
   "description":"New template 1",
   "default":"True",
   "columns":[
-    "date",
-    "shopTransactionID",
-    "bankTransactionID",
-    "transactionResult",
-    "authorizedAmount",
-    "capturedAmount",
-    "paymentID",
-    "currency", 
+    "Email compratore",
+    "ID Banca",
+    "Stato",
+    "Cardnumber",
     ...
   ]
 }

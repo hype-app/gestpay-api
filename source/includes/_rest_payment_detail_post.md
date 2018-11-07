@@ -169,7 +169,8 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `cvvPresent` | `TRUE` if the payment has been executed by using a CVV security code. 
 | `dcc` | Stands for Dynamic Currency Conversion. See the table below. 
 | `maskedPAN` | Masked PAN string 
-| `paymentMethod` | the payment method used to perform the payment 
+| `paymentMethod` | the payment method used to perform the payment. 
+| `productType` | string containing Card Type.
 | `transactionErrorCode` | The error code for the transaction. See [error codes](#errors) page for details.
 | `transactionErrorDescription` | The error code description in common language.  
 | `token` | String containing the token value
