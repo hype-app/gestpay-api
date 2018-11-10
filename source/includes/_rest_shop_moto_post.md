@@ -42,9 +42,11 @@ Headers:
 
 Request Body: 
 
+(Fields in **bold** are mandatory)
+
 | Parameter | Description | 
 | --------- | ----------- | 
-| `shopLogin` | The shop login code.
+| **`shopLogin`** | The shop login code.
 | `paymentType` | One of the enabled payment types for your shop. A list of all payment types is [available here](#payment-type-codes). 
 | `capture` | `separated` if you want to only authorize a transaction and later capture; `unified` if you want to authorize and capture at the same time. 
 | `automaticBehaviour.type` | If the `capture` is set to `separated`, this field defines what happens after _X_ days:   `capture` the amount or `delete` the transaction.

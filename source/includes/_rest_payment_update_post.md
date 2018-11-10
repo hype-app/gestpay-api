@@ -163,9 +163,11 @@ Headers:
 
 Request Body: 
 
+(Fields in **bold** are mandatory)
+
 | Field | Description 
 | -------------- | -----------
-| `shopLogin` | the merchant's code 
+| **`shopLogin`** | the merchant's code 
 | `amount` | the updated amount
 | `paymentID` | The payment ID to update 
 | `shippingDetails` | if the payment method you're using spports [`shippingDetails`](#shippingdetails), you can pass updated fields. See [`shippingDetails`](#shippingdetails) for info.

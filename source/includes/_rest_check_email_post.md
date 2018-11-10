@@ -39,9 +39,11 @@ To receive a valid response from Gestpay you must use one of these headers:
 
 request body details: 
 
+(Fields in **bold** are mandatory)
+
 | Parameter | Description | 
 | --------- | ----------- | 
-| `shopLogin` | The shop identifier. | 
+| **`shopLogin`** | The shop identifier. | 
 | `creditcard.email` | A string containing the email to validate.
 
 #### Response 

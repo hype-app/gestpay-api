@@ -28,10 +28,12 @@ To authorize, use one of the followng headers:
 
 URL parameter: 
 
+(Fields in **bold** are mandatory)
+
 | Parameter | Description | 
 | --------- | ----------- | 
-| `shopLogin` | The shop identifier. | 
-| `token` | the token you want to delete. | 
+| **`shopLogin`** | The shop identifier. | 
+| **`token`** | the token you want to delete. | 
 
 #### Response 
 

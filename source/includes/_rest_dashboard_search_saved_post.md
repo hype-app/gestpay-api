@@ -44,6 +44,25 @@ POST https://ecomms2s.sella.it/api/v1/dashboard/search/saved/
     "lastNDays":"",
     "includeToday":""
   },
+	"creditDate": {
+		"from": "",
+		"to": "",
+		"lastNDays": "",
+		"includeToday": ""
+	},
+	"debitDate": {
+		"from": "",
+		"to": "",
+		"lastNDays": "",
+		"includeToday": ""
+	},
+	"chargeback": {
+		"type": "",
+		"from": "",
+		"to": "",
+		"lastNDays": "",
+		"includeToday": ""
+	},
   "transactionState":[],
   "paymentMethod":[{  
     "paymentType":"",
@@ -73,9 +92,12 @@ Headers:
 
 Body parameters: 
 
+(Fields in **bold** are mandatory)
+
 | Field | Description | 
 | --------- | ----------- | 
-| `shopLogin` | The shop identifier. | 
+| **`shopLogin`** | The shop identifier. | 
+| **`save.name`** | A user friendly name of the custom search.
 | `capturedAmount.from` | the `from` amount range. If `10`, only captured amounts greater than 10 are returned.
 | `capturedAmount.to` | The `to` amount range. If `20`, only captured amounts lower than 20 are returned. 
 | `authorizedAmount.from` | the `from` amount range. If `10`, only authorized amounts greater than 10 are returned.
@@ -89,12 +111,16 @@ Body parameters:
 | `authorizationResult` | The authorization result: can be one of `OK`, `KO`, `XX`, `APPROVED`, `DECLINED`, `PENDING`
 | `tdLevel` | 3D-Secure level 
 | `event` | An accepted event. See below. 
+| `creditDate`                | Allows to search by credit date. Works very similarly to `event` seen before. | 
+| `debitDate`                 | Allows to search by debit date. | Works very similarly to `event` seen before.  |
+| `chargeBack`                | Allows to search by disputes. Works very similarly to `event` seen before.  |
+| `chargeBack.type`           | You can search by a chargeback type, a value in the `ALL`, `OPEN`, `CLOSE`, `CLOSE WITH CHARGE` set.  | 
 | `transactionState` | An array of transaction states. Follow the link for a [detailed explanation of transaction statuses](http://docs.gestpay.it/adv/query-transaction-status.html).
 | `paymentMethod` | an array of [payment types](#payment-type-codes) and payment names.
 | `riskAlert` | `true` to select transactions associated with a high risk
 | `customFields.customName` |  You can even search by a custom parameter and its value. Just put the `customName` set as the key and use the value as the search field.
 | `invoiceID` | the invoice ID. 
-| `save.name` | A user friendly name of the custom search.
+
 
 `event` details: 
 

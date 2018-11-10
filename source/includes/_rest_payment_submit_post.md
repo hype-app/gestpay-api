@@ -33,7 +33,7 @@ POST https://ecomms2s.sella.it/api/v1/payment/submit
       "expYear":"",
       "CVV":"",
       "requestToken":"",
-      "DCC": "",
+      "DCC": ""
     },
     "amazonPay":{  
       "amazonReferenceOrderId":"",
@@ -68,6 +68,8 @@ POST https://ecomms2s.sella.it/api/v1/payment/submit
 ```
 Enables merchants to perform authorization requests for all the payment methods enabled for the merchant.
 
+Before calling this method, you MUST have already called [POST payment/create](#post-payment-create). 
+
 In case of a payment method that requires a widget (e.g. AmazonPay) it will provide the URL and the dimensions of the iFrame. 
 
 In case the payment method requires a selected redirect it will provide the URL to redirect the customer.
@@ -90,14 +92,18 @@ Headers:
 
 Request Body: 
 
+(Fields in **bold** are mandatory)
+
 | Field | Description 
 | -------------- | -----------
-| `shopLogin` | the merchant's code 
+| **`shopLogin`** | the merchant's code 
 | `paymentType` | the payment method chosen by the user 
 | `buyer.name` | The buyer's name 
 | `buyer.email` | The buyer's email
 | `paymentTypeDetails` |  based on the chosen payment method, it will contain informations to complete the payment. See next sections. 
 | `responseURLs` | where to redirect the user after the payment. 
+
+You should fill out at least one payment method. 
 
 ##### `paymentTypeDetails`: Credit card 
 

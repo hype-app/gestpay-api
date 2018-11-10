@@ -38,9 +38,11 @@ Headers:
 
 request body details: 
 
+(Fields in **bold** are mandatory)
+
 | Parameter | Description | 
 | --------- | ----------- | 
-| `shopLogin` | The shop identifier. | 
+| **`shopLogin`** | The shop identifier. | 
 | `paymentType` | One of the [payment types](#payment-type-codes) supported by Gestpay. 
 | `paymentPage` | set to `visible` to show the payment type on the payment page; `hidden` to hide.
 

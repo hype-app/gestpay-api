@@ -26,10 +26,12 @@ Headers:
 
 URL parameters: 
 
+(Fields in **bold** are mandatory)
+
 | Parameter | Description | 
 | --------- | ----------- | 
-| `shopLogin` | The shop identifier. | 
-| `templateID` | The template you want to delete. | 
+| **`shopLogin`** | The shop identifier. | 
+| **`templateID`** | The template you want to delete. | 
 
 #### Response 
 

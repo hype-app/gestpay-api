@@ -30,9 +30,11 @@ Headers:
 
 URL parameter: 
 
+(Fields in **bold** are mandatory)
+
 | Parameter | Description | 
 | --------- | ----------- | 
-| `shopLogin` | The shop identifier. | 
+| **`shopLogin`** | The shop identifier. | 
 
 #### Response 
 

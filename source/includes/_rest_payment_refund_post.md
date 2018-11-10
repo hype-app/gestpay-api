@@ -65,14 +65,16 @@ Headers:
 
 Request Body: 
 
+(Fields in **bold** are mandatory)
+
 | Field | Description 
 | -------------- | -----------
-| `shopLogin` | the merchant's code 
+| **`shopLogin`** | the merchant's code 
 | `bankTransactionID` | ID of the transaction assigned by Gestpay 
-| `shopTransactionID` | shop transaction ID value 
+| **`shopTransactionID`** | shop transaction ID value 
 | `paymentID`         | The payment ID 
-| `amount` | the amount to refund 
-| `currency` | [currency ISO code](#currency-codes) 
+| **`amount`** | the amount to refund 
+| **`currency`** | [currency ISO code](#currency-codes) 
 | `refundReason` | a free-text reason for the refund. Used with fraud protection. 
 | `chargeBackFraud` | Flag for risk: <ul><li>`TRUE` - chargeback for fraud</li><li>`FALSE` - chargeback not for a fraud</li></ul>
 | `orderDetail.productDetails` | in case you are using _Klarna_, fill this fields with info about the products that are refunded. A description of this field is in [OrderDetails](#orderdetails). 
@@ -85,17 +87,17 @@ Request Body:
 
 ```json
 {
-   "error":{  
-      "code":"0",
-      "description":"request correctly processed"
-   },
-   "payload":{
+  "error":{  
+    "code":"0",
+    "description":"request correctly processed"
+  },
+  "payload":{
     "transactionType":"refund",
     "transactionResult":"OK",
     "bankTransactionID":"{bankTransactionID}",
     "shopTransactionID":"{shopTransactionID}",
     "paymentID":"{paymentID}"
-   }
+  }
 }
 ```
 
