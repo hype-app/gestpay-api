@@ -92,9 +92,12 @@ Headers:
 
 Body parameters: 
 
+(Fields in **bold** are mandatory)
+
 | Field | Description | 
 | --------- | ----------- | 
-| `shopLogin` | The shop identifier. | 
+| **`shopLogin`** | The shop identifier. | 
+| **`save.name`** | A user friendly name of the custom search.
 | `capturedAmount.from` | the `from` amount range. If `10`, only captured amounts greater than 10 are returned.
 | `capturedAmount.to` | The `to` amount range. If `20`, only captured amounts lower than 20 are returned. 
 | `authorizedAmount.from` | the `from` amount range. If `10`, only authorized amounts greater than 10 are returned.
@@ -117,7 +120,7 @@ Body parameters:
 | `riskAlert` | `true` to select transactions associated with a high risk
 | `customFields.customName` |  You can even search by a custom parameter and its value. Just put the `customName` set as the key and use the value as the search field.
 | `invoiceID` | the invoice ID. 
-| `save.name` | A user friendly name of the custom search.
+
 
 `event` details: 
 

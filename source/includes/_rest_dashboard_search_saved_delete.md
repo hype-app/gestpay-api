@@ -24,10 +24,12 @@ Headers:
 
 URL params: 
 
+(Fields in **bold** are mandatory)
+
 | Parameter | Description | 
 | --------- | ----------- | 
-| `shopLogin` | your Shop Login, e.g. `GESPAY12345` or `XX12345678`
-| `searchID` | an existing searchID
+| **`shopLogin`** | your Shop Login, e.g. `GESPAY12345` or `XX12345678`
+| **`searchID`** | an existing searchID
 
 
 #### Response 

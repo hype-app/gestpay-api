@@ -94,9 +94,11 @@ Headers:
 
 Body data:
 
+(Fields in **bold** are mandatory)
+
 | Field                       | Description | Example |
 | --------------------------- | ------------| ------- |
-| `shopLogin`                 | Your shop login | `GESPAY12345` |
+| **`shopLogin`**                 | Your shop login | `GESPAY12345` |
 | `search.name`               | The name of a saved search. | `today_transactions`  |
 | `search.searchID`           | The searchID of a saved search. | `00001` |
 | `dateFrom`                  | Search start date  `01/01/2017` |

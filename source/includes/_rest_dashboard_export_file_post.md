@@ -40,11 +40,13 @@ Headers:
 
 Request Body: 
 
+(Fields in **bold** are mandatory)
+
 | Parameter | Description | 
 | --------- | ----------- | 
-| `shopLogin` | your Shop Login, e.g. `GESPAY12345` or `XX12345678`
-| `sarchID` | The Search ID 
-| `fileType` | The file type extension, one of `txt`, `xls`, `csv`
+| **`shopLogin`** | your Shop Login, e.g. `GESPAY12345` or `XX12345678`
+| **`sarchID`** | The Search ID 
+| **`fileType`** | The file type extension, one of `txt`, `xls`, `csv`
 | `template` | The template to use, referenced by name
 | `email` | The email where the file output will be sent
 | `prefix` | This value is put before the filename generated automatically by gestpay. 
