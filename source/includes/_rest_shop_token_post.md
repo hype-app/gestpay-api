@@ -45,16 +45,18 @@ Use one of the following headers to authenticate:
 
 Request Body: 
 
+(Fields in **bold** are mandatory)
+
 | Parameter | Description | 
 | --------- | ----------- | 
-| `shopLogin` | the merchant's code 
-| `requestToken` | `MASKEDPAN` for a Standard Token; any other value for Custom Token 
-| `creditCard.number` | The credit card number 
-| `creditCard.token` | A token representation of the card  
-| `creditCard.expMonth` | The expiry month
-| `creditCard.expYear` | The exipry year 
+| **`shopLogin`** | the merchant's code 
+| **`requestToken`** | `MASKEDPAN` for a Standard Token; any other value for Custom Token 
+| **`creditCard.number`** | The credit card number 
+| `creditCard.token` | A token representation of the card. Set a value to modify an existing token. 
+| **`creditCard.expMonth`** | The expiry month
+| **`creditCard.expYear`** | The exipry year 
 | `creditCard.CVV` | The CVV code  
-| `withAuth`| tries to authorize the card. <br> `True` or `False`
+| `withAuth`| tries to authorize the card. <br> `True` or `False` (default) 
 
 #### Response 
 
