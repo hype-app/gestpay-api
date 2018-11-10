@@ -92,14 +92,18 @@ Headers:
 
 Request Body: 
 
+(Fields in **bold** are mandatory)
+
 | Field | Description 
 | -------------- | -----------
-| `shopLogin` | the merchant's code 
+| **`shopLogin`** | the merchant's code 
 | `paymentType` | the payment method chosen by the user 
 | `buyer.name` | The buyer's name 
 | `buyer.email` | The buyer's email
 | `paymentTypeDetails` |  based on the chosen payment method, it will contain informations to complete the payment. See next sections. 
 | `responseURLs` | where to redirect the user after the payment. 
+
+You should fill out at least one payment method. 
 
 ##### `paymentTypeDetails`: Credit card 
 

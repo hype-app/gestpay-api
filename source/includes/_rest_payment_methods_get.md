@@ -33,9 +33,11 @@ Headers:
 
 URL parameter: 
 
+(Fields in **bold** are mandatory)
+
 | Parameter | Description | 
 | --------- | ----------- | 
-| `paymentID` | The payment identifier. | 
+| **`paymentID`** | The payment identifier. | 
 | `languageID` | The chosen language for this payment. See the [language codes](#language-codes) table.
 
 #### Response 

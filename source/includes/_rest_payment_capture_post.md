@@ -70,13 +70,15 @@ Headers:
 
 Input Body: 
 
+(Fields in **bold** are mandatory)
+
 | Field               | Description             
 | ------------------- | ----------------------- 
-| `shopLogin`         | Your shop login         
-| `amount`            | The amount to capture
-| `currency`          | [ISO currency code](#currency-codes)
+| **`shopLogin`**         | Your shop login         
+| **`amount`**            | The amount to capture
+| **`currency`**          | [ISO currency code](#currency-codes)
 | `bankTransactionID` | The bank transaction ID 
-| `shopTransactionID` | the shop transaction ID 
+| **`shopTransactionID`** | the shop transaction ID 
 | `paymentID`         | The payment ID 
 | `FullFillment`      | describes the items related to this capture. 
 

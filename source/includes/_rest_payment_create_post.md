@@ -171,12 +171,14 @@ Headers:
 
 Input Body: 
 
+(Fields in **bold** are mandatory)
+
 | Field               | Description             
 | ------------------- | ----------------------- 
-| `shopLogin`         | Your shop login         
-| `amount`            | The amount to capture
-| `currency`          | [ISO currency code](#currency-codes)
-| `shopTransactionID` | the shop transaction ID 
+| **`shopLogin`**         | Your shop login         
+| **`amount`**            | The amount to capture
+| **`currency`**          | [ISO currency code](#currency-codes)
+| **`shopTransactionID`** | the shop transaction ID 
 | `buyerName`       | buyer’s name 
 | `buyerEmail`      |  buyer’s e-mail address. 
 | `customInfo`      | An object containing optional customised parameters. Use the `customInfo` parameter name as the key. 

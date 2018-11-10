@@ -46,11 +46,13 @@ URL parameter:
 
 Input Body: 
 
+(Fields in **bold** are mandatory)
+
 | Field               | Description             | Example       |
 | ------------------- | ----------------------- | ------------- |
-| `shopLogin`         | Your shop login         | `GESPAY12345` |
+| **`shopLogin`**         | Your shop login         | `GESPAY12345` |
+| **`shopTransactionID`** | the shop transaction ID | `MyShop_001`  |
 | `bankTransactionID` | The bank transaction ID | `1111`        |
-| `shopTransactionID` | the shop transaction ID | `MyShop_001`  |
 | `paymentID`         | The payment ID          | `1638523579`  |
 | `terminalID`         | The terminal ID        | `12340005`    |
 

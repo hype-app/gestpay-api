@@ -29,10 +29,12 @@ Headers:
 
 URL parameter: 
 
+(Fields in **bold** are mandatory)
+
 | Parameter | Description | 
 | --------- | ----------- | 
-| `paymentID` | The payment identifier | 
-| `paymentType` | The payment type | 
+| **`paymentID`** | The payment identifier | 
+| **`paymentType`** | The payment type | 
 
 #### Response 
 
