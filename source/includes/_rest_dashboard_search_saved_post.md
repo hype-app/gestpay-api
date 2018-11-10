@@ -108,10 +108,10 @@ Body parameters:
 | `authorizationResult` | The authorization result: can be one of `OK`, `KO`, `XX`, `APPROVED`, `DECLINED`, `PENDING`
 | `tdLevel` | 3D-Secure level 
 | `event` | An accepted event. See below. 
-| `creditDate`                | Allows to search by credit date. Works very similarly to `event` seen before. |  |
-| `debitDate`                 | Allows to search by debit date. | Works very similarly to `event` seen before.  | |
-| `chargeBack`                | Allows to search by disputes. Works very similarly to `event` seen before.  |  |
-| `chargeBack.type`           | You can search by a chargeback type, a value in the `ALL`, `OPEN`, `CLOSE`, `CLOSE WITH CHARGE` set.  | `ALL` |
+| `creditDate`                | Allows to search by credit date. Works very similarly to `event` seen before. | 
+| `debitDate`                 | Allows to search by debit date. | Works very similarly to `event` seen before.  |
+| `chargeBack`                | Allows to search by disputes. Works very similarly to `event` seen before.  |
+| `chargeBack.type`           | You can search by a chargeback type, a value in the `ALL`, `OPEN`, `CLOSE`, `CLOSE WITH CHARGE` set.  | 
 | `transactionState` | An array of transaction states. Follow the link for a [detailed explanation of transaction statuses](http://docs.gestpay.it/adv/query-transaction-status.html).
 | `paymentMethod` | an array of [payment types](#payment-type-codes) and payment names.
 | `riskAlert` | `true` to select transactions associated with a high risk
