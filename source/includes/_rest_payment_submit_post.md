@@ -68,6 +68,8 @@ POST https://ecomms2s.sella.it/api/v1/payment/submit
 ```
 Enables merchants to perform authorization requests for all the payment methods enabled for the merchant.
 
+Before calling this method, you MUST have already called [POST payment/create](#post-payment-create). 
+
 In case of a payment method that requires a widget (e.g. AmazonPay) it will provide the URL and the dimensions of the iFrame. 
 
 In case the payment method requires a selected redirect it will provide the URL to redirect the customer.

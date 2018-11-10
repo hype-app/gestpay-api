@@ -17,6 +17,8 @@ GET https://ecomms2s.sella.it/api/v1/payment/dataForBuyer/{paymentID}
 
 Retrieves the current payment data: amount, currency, Merchant Logo URL, Merchant Sign, addional fields sets by the merchant.
 
+Before calling this method, you MUST have already called [POST payment/create](#post-payment-create). 
+
 #### Request 
 
 Headers: 

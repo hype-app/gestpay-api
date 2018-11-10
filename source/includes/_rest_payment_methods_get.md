@@ -21,6 +21,8 @@ Retrieves the list of the enabled and visible payment methods. For each method p
 - PaymentType 
 - PaymentTypeDetail required (`TRUE` / `FALSE`)
 
+Before calling this method, you MUST have already called [POST payment/create](#post-payment-create). 
+
 #### Request 
 
 Headers: 
