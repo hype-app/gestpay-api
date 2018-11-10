@@ -37,11 +37,13 @@ Headers:
 
 Request Body: 
 
+(Fields in **bold** are mandatory)
+
 | Field               | Description             
 | ------------------- | ----------------------- 
-| `shopLogin`         | Your shop login         
+| **`shopLogin`**         | Your shop login         
 | `bankTransactionID` | The bank transaction ID 
-| `shopTransactionID` | the shop transaction ID 
+| **`shopTransactionID`** | the shop transaction ID 
 | `paymentID`         | The payment ID 
 | `cancelReason`      | A description of the cancel reason 
 

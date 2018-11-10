@@ -46,11 +46,13 @@ To receive a valid response from Gestpay you must use one of these headers:
 
 request body details: 
 
+(Fields in **bold** are mandatory)
+
 | Parameter | Description | 
 | --------- | ----------- | 
-| `shopLogin` | The shop identifier. | 
-| `shopTransactionID` | The shop transaction ID.
-| `withAuth` | `TRUE` or `FALSE`. Tries to authorize the card. 
+| **`shopLogin`** | The shop identifier. | 
+| **`shopTransactionID`** | The shop transaction ID.
+| `withAuth` | `TRUE` or `FALSE` (default). Tries to authorize the card. 
 | `creditcard.number` | The number of the credit card.
 | `creditcard.token` | If you have a token, gestpay can check it for validity. 
 | `expMonth` | The expiry month.

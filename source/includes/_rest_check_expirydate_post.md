@@ -42,9 +42,11 @@ To receive a valid response from Gestpay you must use one of these headers:
 
 request body details: 
 
+(Fields in **bold** are mandatory)
+
 | Parameter | Description | 
 | --------- | ----------- | 
-| `shopLogin` | The shop identifier. | 
+| **`shopLogin`** | The shop identifier. | 
 | `creditcard.expMonth` | The credit card exiry month
 | `creditcard.expYear` | The credit card exiry year
 

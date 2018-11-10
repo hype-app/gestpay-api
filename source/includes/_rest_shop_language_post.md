@@ -36,9 +36,11 @@ Headers:
 
 request body details: 
 
+(Fields in **bold** are mandatory)
+
 | Parameter | Description | 
 | --------- | ----------- | 
-| `shopLogin` | The shop identifier. | 
+| **`shopLogin`** | The shop identifier. | 
 | `language` | The language to set. Currently accepted values are `Italian` and `English`. 
 
 #### Response 

@@ -24,14 +24,10 @@ POST https://ecomms2s.sella.it/api/v1/dashboard/export/template/
   "description":"New template 1",
   "default":"True",
   "columns":[
-    "date",
-    "shopTransactionID",
-    "bankTransactionID",
-    "transactionResult",
-    "authorizedAmount",
-    "capturedAmount",
-    "paymentID",
-    "currency", 
+    "Email compratore",
+    "ID Banca",
+    "Stato",
+    "Cardnumber",
     ...
   ]
 }
@@ -50,13 +46,15 @@ Headers:
 
 Body parameters: 
 
+(Fields in **bold** are mandatory)
+
 | Field | Description | 
 | --------- | ----------- | 
-| `shopLogin` | The shop identifier. | 
-| `template.templateId` | Leave empty if you're creating a new template. Otherwise, use an existing `templateId` to update one. 
-| `template.description` | A description of the template in common language 
+| **`shopLogin`** | The shop identifier. | 
+| **`template.templateId`** | Leave empty if you're creating a new template. Otherwise, you must use an existing `templateId` to update one. 
+| **`template.description`** | A description of the template in common language 
 | `template.default` | `True` or `False`
-| `template.columns` | an array of strings, representing the name of the properties that compose a transaction. 
+| **`template.columns`** | an array of strings, representing the name of the properties that compose a transaction. 
 
 #### Response 
 

@@ -46,9 +46,11 @@ Headers:
 
 request body details: 
 
+(Fields in **bold** are mandatory)
+
 | Field          | Description 
 | -------------- | -----------
-| `shopLogin` | The shop login code. 
+| **`shopLogin`** | The shop login code. 
 | `logo`  | an array of logo objects, one per language. 
 | `logo.language` | The language for this particular logo
 | `logo.imageURL.href` | A URL for the logo 

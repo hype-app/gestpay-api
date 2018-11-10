@@ -23,9 +23,11 @@ Headers:
 
 URL params: 
 
+(Fields in **bold** are mandatory)
+
 | Parameter | Description | 
 | --------- | ----------- | 
-| `shopLogin` | your Shop Login, e.g. `GESPAY12345` or `XX12345678`
+| **`shopLogin`** | your Shop Login, e.g. `GESPAY12345` or `XX12345678`
 
 
 #### Response 
@@ -67,9 +69,26 @@ URL params:
         "lastNDays":"",
         "includeToday":""
       },
-      "transactionState":[
-
-      ],
+	    "creditDate": {
+		    "from": "",
+		    "to": "",
+		    "lastNDays": "",
+		    "includeToday": ""
+	    },
+	    "debitDate": {
+		    "from": "",
+		    "to": "",
+		    "lastNDays": "",
+		    "includeToday": ""
+	    },
+	    "chargeback": {
+		    "type": "",
+		    "from": "",
+		    "to": "",
+		    "lastNDays": "",
+		    "includeToday": ""
+	    },
+      "transactionState":[],
       "paymentMethod":[{       
         "paymentType":"",
         "name":[]
@@ -114,6 +133,10 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `authorizationResult` | The authorization result.
 | `tdLevel` | 3D-Secure level 
 | `event` | Accepted events. See below.
+| `creditDate`                | Allows to search by credit date. Works very similarly to `event` seen before. | 
+| `debitDate`                 | Allows to search by debit date. | Works very similarly to `event` seen before.  |
+| `chargeBack`                | Allows to search by disputes. Works very similarly to `event` seen before.  | 
+| `chargeBack.type`           | You can search by a chargeback type, a value in the `ALL`, `OPEN`, `CLOSE`, `CLOSE WITH CHARGE` set.  | 
 | `transactionState` | An array of transaction states. Follow the link for a [detailed explanation of transaction statuses](http://docs.gestpay.it/adv/query-transaction-status.html).
 | `paymentMethod` | an array containing [payment types](#payment-type-codes) and payment names.
 | `riskAlert` | `true` to select transactions associated with a high risk

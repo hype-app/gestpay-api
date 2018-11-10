@@ -21,6 +21,8 @@ Retrieves the list of the enabled and visible payment methods. For each method p
 - PaymentType 
 - PaymentTypeDetail required (`TRUE` / `FALSE`)
 
+Before calling this method, you MUST have already called [POST payment/create](#post-payment-create). 
+
 #### Request 
 
 Headers: 
@@ -31,9 +33,11 @@ Headers:
 
 URL parameter: 
 
+(Fields in **bold** are mandatory)
+
 | Parameter | Description | 
 | --------- | ----------- | 
-| `paymentID` | The payment identifier. | 
+| **`paymentID`** | The payment identifier. | 
 | `languageID` | The chosen language for this payment. See the [language codes](#language-codes) table.
 
 #### Response 

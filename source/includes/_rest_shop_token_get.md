@@ -28,9 +28,11 @@ To authorize, use one of the followng headers:
 
 URL parameter: 
 
+(Fields in **bold** are mandatory)
+
 | Parameter | Description | 
 | --------- | ----------- | 
-| `shopLogin` | The shop identifier. | 
+| **`shopLogin`** | The shop identifier. | 
 
 #### Response 
 
