@@ -158,7 +158,7 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `shopTransactionID` | An ID assigned by the shop.                                                                       |
 | `authorizationCode` | A code released by the payment circuit.                                                           |
 | `paymentID`        | Assigned by Gestpay, identifies the payment |
-| `currency`  | One of the [ISO currencies](#currency-codes). 
+| `currency`  | The original ISO currency code of the transaction. See [ISO currencies](#currency-codes) for a list. 
 | `country` | The country originating the transaction | 
 | `company` | The credit card / payment circuit | 
 | `tdLevel` | `FULL` if the transaction is fully 3D-Secure protected, `HALF`. |
