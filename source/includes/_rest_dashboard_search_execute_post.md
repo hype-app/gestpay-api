@@ -123,7 +123,7 @@ Body data:
 | `event.lastNDays`           | Search the last _N_ days   | `7`  |
 | `event.includeToday`        | True or false | `True`  |
 | `creditDate`                | Allows to search by credit date. Works very similarly to `event` seen before. |  |
-| `debitDate`                 | Allows to search by debit date. | Works very similarly to `event` seen before.  | |
+| `debitDate`                 | Allows to search by debit date. Works very similarly to `event` seen before.  | |
 | `chargeBack`                | Allows to search by disputes. Works very similarly to `event` seen before.  |  |
 | `chargeBack.type`           | You can search by a chargeback type, a value in the `ALL`, `OPEN`, `CLOSE`, `CLOSE WITH CHARGE` set.  | `ALL` |
 | `transactionState`          | the last state of the transaction. See [event types](#event-types) for details | `MOV` |

@@ -78,9 +78,11 @@ Input Body:
 | **`amount`**            | The amount to capture
 | **`currency`**          | [ISO currency code](#currency-codes)
 | `bankTransactionID` | The bank transaction ID 
-| **`shopTransactionID`** | the shop transaction ID 
+| `shopTransactionID` | the shop transaction ID 
 | `paymentID`         | The payment ID 
 | `FullFillment`      | describes the items related to this capture. 
+
+Note: you **must** provide at least one of `shopTransactionID`, `bankTransactionID`, `paymentID`.
 
 `FillFillment` contains a `FullFillmentlst` whose fields are: 
 
