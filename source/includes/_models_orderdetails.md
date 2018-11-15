@@ -178,6 +178,7 @@
   </PassengerDetails>
 </OrderDetails>
 ``` 
+> JSON version of the same data structure <span id="order-details-json"></span>
 
 ```json
 {
@@ -348,6 +349,8 @@
 Many external systems, like the one presented in the next sections, use `OrderDetails` fields to work. [Gestpay Guaranteed Payment](#gestpay-guaranteed-payment) (an antifraud system) massively uses `OrderDetails` to get the job done. 
 
 In this section we will analyze indipendently all the fields. 
+
+After the XML example there's the corresponding JSON version. [Click to directly jump to the JSON example.](#order-details-json)
 
 | Field | Max Size | Type | Description |
 | ----- | -------- | ---- | ----------- |
