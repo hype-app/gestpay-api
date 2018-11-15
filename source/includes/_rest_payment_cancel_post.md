@@ -43,10 +43,11 @@ Request Body:
 | ------------------- | ----------------------- 
 | **`shopLogin`**         | Your shop login         
 | `bankTransactionID` | The bank transaction ID 
-| **`shopTransactionID`** | the shop transaction ID 
+| `shopTransactionID` | the shop transaction ID 
 | `paymentID`         | The payment ID 
 | `cancelReason`      | A description of the cancel reason 
 
+Note: you **must** provide at least one of `shopTransactionID`, `bankTransactionID`, `paymentID`.
 
 #### Response 
 

@@ -31,7 +31,7 @@ Retrieves the details of a payment.
 
 #### Request 
 
-To authetnicate, use one of the following headers: 
+To authenticate, use one of the following headers: 
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
@@ -51,11 +51,12 @@ Input Body:
 | Field               | Description             | Example       |
 | ------------------- | ----------------------- | ------------- |
 | **`shopLogin`**         | Your shop login         | `GESPAY12345` |
-| **`shopTransactionID`** | the shop transaction ID | `MyShop_001`  |
+| `shopTransactionID` | the shop transaction ID | `MyShop_001`  |
 | `bankTransactionID` | The bank transaction ID | `1111`        |
 | `paymentID`         | The payment ID          | `1638523579`  |
 | `terminalID`         | The terminal ID        | `12340005`    |
 
+Note: you **must** provide at least one of `shopTransactionID`, `bankTransactionID`, `paymentID`.
 
 #### Response 
 

@@ -18,7 +18,7 @@ Retrieves the details of a payment.
 
 #### Request 
 
-To authetnicate, use one of the following headers: 
+To authenticate, use one of the following headers: 
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
