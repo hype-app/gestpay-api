@@ -70,15 +70,16 @@ Request Body:
 | Field | Description 
 | -------------- | -----------
 | **`shopLogin`** | the merchant's code 
-| `bankTransactionID` | ID of the transaction assigned by Gestpay 
-| **`shopTransactionID`** | shop transaction ID value 
-| `paymentID`         | The payment ID 
 | **`amount`** | the amount to refund 
 | **`currency`** | [currency ISO code](#currency-codes) 
+| `bankTransactionID` | ID of the transaction assigned by Gestpay 
+| `shopTransactionID` | shop transaction ID value 
+| `paymentID`         | The payment ID 
 | `refundReason` | a free-text reason for the refund. Used with fraud protection. 
 | `chargeBackFraud` | Flag for risk: <ul><li>`TRUE` - chargeback for fraud</li><li>`FALSE` - chargeback not for a fraud</li></ul>
 | `orderDetail.productDetails` | in case you are using _Klarna_, fill this fields with info about the products that are refunded. A description of this field is in [OrderDetails](#orderdetails). 
 
+Note: you **must** provide at least one of `shopTransactionID`, `bankTransactionID`, `paymentID`.
 
 #### Response 
 

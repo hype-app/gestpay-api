@@ -28,7 +28,7 @@ URL parameter:
 
 | Parameter | Description | 
 | --------- | ----------- | 
-| `shopLogin` | The shop identifier. | 
+| **`shopLogin`** | The shop identifier. | 
 
 #### Response 
 
