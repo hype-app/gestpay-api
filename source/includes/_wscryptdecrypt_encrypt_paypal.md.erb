@@ -53,17 +53,7 @@ If you want to activate the **Paypal Seller Protection** you must:
 | ---- | :--------: | ----------- |
 | `ppSellerProtection` | 1 | Parameter to set the use of a confirmed addresses |
 
-- send all the shipment data in the `shipmentDetails` tag: 
-
-| Name | max length | description |
-| ---- | :--------: | ----------- |
-| `shipToName` | 32 | String containing the shipping name |
-| `shipToStreet` | 100 | String containing the shipping address |
-| `shipToCity` | 40 | String containing the shipping city |
-| `shipToState` | 40 | String containing the shipping state (see [Paypal State Codes table](#paypal-state-amp-province-codes)) |
-| `shipToCountryCode` | 2 | String containing the shipping country code (see [Paypal Country Codes table](#paypal-country-codes)) |
-| `shipToZip` | 20 | String containing the shipping zip |
-| `shipToStreet2` | 100 | String containing an additional shipping address field | 
+- send all the shipment data in the [`shippingDetails`](#shippingdetails) tag. 
 
 
 #### Paypal recurring payments 
