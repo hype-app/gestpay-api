@@ -178,12 +178,179 @@
   </PassengerDetails>
 </OrderDetails>
 ``` 
+> JSON version of the same data structure <span id="order-details-json"></span>
+
+```json
+{
+  "OrderDetails": {
+    "FraudPrevention": {
+      "SubmitForReview": "1",
+      "OrderDateTime": "2017-12-26",
+      "OrderNote": "Please send me the blue version",
+      "Source": "website",
+      "SubmissionReason": "rule_decision",
+      "BeaconSessionID": "ff1db05b-81db-4ca0-a728-4797bfe796ff",
+      "VendorID": "9000002",
+      "VendorName": "www.yourdomain.it"
+    },
+    "CustomerDetail": {
+      "FirstName": "Michael",
+      "MiddleName": "J.",
+      "Lastname": "Fox",
+      "PrimaryEmail": "martymcfly@backtothefuture.com",
+      "PrimaryPhone": "+390298987643",
+      "SecondaryPhone": "+393351029384",
+      "DateOfBirth": "29/09/1932",
+      "SocialSecurityNumber": "BRLSLV36P29F205W",
+      "CreatedAtDate": "2017-05-16 15:28",
+      "VerifiedEmail": "true",
+      "AccountType": "premium"
+    },
+    "CustomerSocial": {
+      "Network": "Facebook",
+      "PublicUserName": "Marty McFly",
+      "CommunityScore": "100",
+      "ProfilePicture": "https://martymcfly.com/image.jpg",
+      "Email": "martymcfly@backtothefuture.com",
+      "Bio": "Martin Seamus \"Marty\" McFly is a fictional character in the Back to the Future trilogy. He is portrayed by actor Michael J. Fox.",
+      "AccountUrl": "https://www.facebook.com/pages/Marty-McFly/103151259725141",
+      "Following": "0",
+      "Followed": "1157",
+      "Id": "103151259725141",
+      "AuthToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+    },
+    "ShippingAddress": {
+      "FirstName": "Michael",
+      "MiddleName": "J.",
+      "Lastname": "Fox",
+      "Company": "Universal Studios",
+      "StreetName": "Holliwood Boulevard",
+      "HouseNumber": "1432",
+      "City": "Los Angeles",
+      "ZipCode": "90213",
+      "State": "California",
+      "CountryCode": "US",
+      "Email": "martymcfly@backtothefuture.com",
+      "PrimaryPhone": "+0199332285321"
+    },
+    "BillingAddress": {
+      "FirstName": "Michael",
+      "MiddleName": "J.",
+      "Lastname": "Fox",
+      "Company": "Universal Studios",
+      "StreetName": "Holliwood Boulevard",
+      "HouseNumber": "1432",
+      "City": "Los Angeles",
+      "ZipCode": "90213",
+      "State": "California",
+      "CountryCode": "US",
+      "Email": "martymcfly@backtothefuture.com",
+      "PrimaryPhone": "+0199332285321"
+    },
+    "ProductDetails": {
+      "ProductDetail": [
+        {
+          "ProductCode": "135798642",
+          "SKU": "AB-333222-WFG-4",
+          "Name": "Porche Carrera scale model",
+          "Description": "Porche Carrera scale model",
+          "Quantity": "1",
+          "Price": "50.5",
+          "UnitPrice": "50.5",
+          "Type": "1",
+          "Vat": "22%",
+          "Category": "Scale Models",
+          "Subcategory": "cars",
+          "Brand": "LittleCars",
+          "RequiresShipping": "true",
+          "DeliveryAt": "2017-12-29",
+          "Condition": "new"
+        },
+        {
+          "ProductCode": "135798642",
+          "SKU": "AB-333222-WFG-5",
+          "Name": "Ferrari scale model",
+          "Description": "Ferrari scale model",
+          "Quantity": "1",
+          "Price": "50.5",
+          "UnitPrice": "50.5",
+          "Type": "1",
+          "Vat": "22%",
+          "Category": "Scale Models",
+          "Subcategory": "cars",
+          "Brand": "LittleCars",
+          "RequiresShipping": "true",
+          "DeliveryAt": "2017-12-29",
+          "Condition": "new"
+        }
+      ]
+    },
+    "DiscountCodes": {
+      "DiscountCode": {
+        "Amount": "10",
+        "Code": "53232"
+      }
+    },
+    "ShippingLines": {
+      "ShippingLine": {
+        "Price": "20",
+        "Title": "FedEx",
+        "Code": "72-B03"
+      }
+    },
+    "AccommodationDetails": {
+      "AccommodationDetail": [
+        {
+          "City": "Eindhoven",
+          "CountryCode": "NL",
+          "Title": "Tulip Inn Eindhoven Airport",
+          "CheckInDate": "2018-01-20T00:00+0000",
+          "CheckOutDate": "2018-01-22T00:00+0000",
+          "ProductId": "NL2133",
+          "Rating": "3",
+          "NumberOfGuests": "3",
+          "AccommodationType": "Hotel",
+          "RoomType": "Deluxe Triple",
+          "Price": "370",
+          "Quantity": "1",
+          "CancellationPolicy": "Non-Refundable"
+        },
+        "
+    ...
+    "
+      ]
+    },
+    "PassengerDetails": {
+      "PassengerDetail": [
+        {
+          "FirstName": "Antonio",
+          "LastName": "Esposito",
+          "DateOfBirth": "1970-05-03",
+          "NationalityCode": "IT",
+          "InsuranceType": "ERV",
+          "InsurancePrice": "17",
+          "DocumentNumber": "AO1234567",
+          "DocumentType": "Identity Card",
+          "DocumentIssueDate": "Comune di Salerno",
+          "DocumentExpirationDate": "2020-10-02",
+          "PassengerType": "adult"
+        },
+        "
+    ...
+    "
+      ]
+    }
+  }
+}
+```
 
 `OrderDetails` tag contains all the info that can be sent together with a transaction. The more data you sent, the better is for Gestpay to analyze your request. 
 
 Many external systems, like the one presented in the next sections, use `OrderDetails` fields to work. [Gestpay Guaranteed Payment](#gestpay-guaranteed-payment) (an antifraud system) massively uses `OrderDetails` to get the job done. 
 
 In this section we will analyze indipendently all the fields. 
+
+After the XML example there's the corresponding JSON version. [Click to directly jump to the JSON example.](#order-details-json)
 
 | Field | Max Size | Type | Description |
 | ----- | -------- | ---- | ----------- |
