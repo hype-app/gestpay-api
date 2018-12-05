@@ -57,6 +57,11 @@ POST https://ecomms2s.sella.it/api/v1/payment/submit
       "billingAgreementDescription":"",
       "sellerProtection":"",
       "token":""
+    },
+    "googlePay": {
+      "tokenizationData": {
+        "token": {}
+      }
     }
   },
   "responseURLs":{  
@@ -142,7 +147,6 @@ If your customers choose Apple Pay, these are the parameters to pass:
 | `requestToken` | `MASKEDPAN` for a Standard Token; any other value for Custom Token
 | `token` | a token representing the AmazonPay token 
 
-
 ##### `paymentTypeDetails`: My Bank
 
 | Field | Description | 
@@ -162,6 +166,14 @@ If your customers choose Apple Pay, these are the parameters to pass:
 | `billingAgreementDescription` | Description of the goods, terms and conditions of the billing agreement 
 | `sellerProtection` | Set to `1` to use Paypal Seller Protection 
 | `token` |  A token representing the Paypal token. 
+
+##### `paymentTypeDetails`: Google Pay 
+
+If your customers choose Google Pay: 
+
+| Field | Description | 
+| ----- | ----------- | 
+| `googlePay.tokenizationData.token`| Pass the payment token returned by Google Pay request process to finalize the payment | 
 
 ##### Response URLs 
 
