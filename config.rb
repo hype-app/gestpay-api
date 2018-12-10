@@ -55,3 +55,4 @@ set :riskified, "Gestpay Guaranteed Payment"
 
 #activate :livereload
 
+set :doorbell_enabled, false

@@ -88,6 +88,7 @@ under the License.
       </div>
     </div>
 
+    <% if config[:doorbell_enabled] %>
     <!-- Doorbell.io -->
     <script type="text/javascript">
         window.doorbellOptions = {
@@ -100,6 +101,7 @@ under the License.
             if (d.readyState == 'complete') { l(); }
         }(window, document, 'script'));
     </script><!-- End Doorbell.io -->
+    <% end %>
     <% if current_page.data.search %>
       <%= javascript_include_tag  "all" %>
     <% else %>
