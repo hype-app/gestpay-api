@@ -52,7 +52,7 @@ Request Body:
 | **`shopLogin`** | the merchant's code 
 | **`requestToken`** | `MASKEDPAN` for a Standard Token; any other value for Custom Token 
 | **`creditCard.number`** | The credit card number 
-| `creditCard.token` | A token representation of the card. Set a value to modify an existing token. 
+| `creditCard.token` | A token representation of the card. Set a value to modify an existing token. **Mandatory** to update an existing token. 
 | **`creditCard.expMonth`** | The expiry month
 | **`creditCard.expYear`** | The exipry year 
 | `creditCard.CVV` | The CVV code  

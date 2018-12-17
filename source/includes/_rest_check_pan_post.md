@@ -46,7 +46,7 @@ request body details:
 | Parameter | Description | 
 | --------- | ----------- | 
 | **`shopLogin`** | The shop identifier. | 
-| `creditcard.number` | The credit card number to check.
+| **`creditcard.number`** | The credit card number to check.
 
 #### Response 
 
