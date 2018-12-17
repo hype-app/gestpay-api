@@ -38,7 +38,7 @@ URL parameter:
 | Parameter | Description | 
 | --------- | ----------- | 
 | **`paymentID`** | The payment identifier. | 
-| `languageID` | The chosen language for this payment. See the [language codes](#language-codes) table.
+| **`languageID`** | The chosen language for this payment. See the [language codes](#language-codes) table.
 
 #### Response 
 

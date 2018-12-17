@@ -66,7 +66,7 @@ Body details:
 | **`ID`** | If empty, creates a new batch. Otherwise it will update a previous one. Mandatory on update.
 | **`sarch.ID`** | The Search ID that originates the batch. 
 | `template.ID` | The Template ID used by the export. 
-| `fileType` | The output file type: `txt`, `xls`, `csv`
+| **`fileType`** | The output file type: `txt`, `xls`, `csv`
 | `recipient.email.value` | The email where the batch output will be sent
 | `recipient.email.enabled` | `True` if the email should be sent to this address.
 | `recipient.ftp.value` | The FTP address to upload the file 
