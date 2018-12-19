@@ -188,7 +188,7 @@ Input Body:
 | `clientIP`        | For PayPal Billing Agreements it is required only in "one click" mode transaction. <br> For AMEX transaction not in Euro, in this field the merchant could provide the client IP address to activate the Enhanced Authorization AAV.<br>**Mandatory if you use Gestpay Guaranteed Payment with S2S.** 
 | `itemType`     | Item Category: `digital`/`physical` (If `physical` the `ShippingDetails` have to be filled)  
 | `recurrent` | `True` if it's a recurrent payment, `False` if not.
-| `shippingDetails` | contains the shipping address. Used for [paypal seller protection](<%= config[:doc_url] %>/oth/paypal.html).
+| `shippingDetails` | contains the shipping address. Used for [paypal seller protection](<%= config[:doc_url] %>/soap/alternative-payments/paypal/#paypal-seller-protection).
 | [`OrderDetails`](#orderdetails) | contains every other info needed to handle the payment. It is used by  Gestpay Guaranteed Payment. 
 
 - children of `ShippingDetails` :
