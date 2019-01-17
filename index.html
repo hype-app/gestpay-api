@@ -3909,6 +3909,45 @@ The three parameters <code>UICCode</code>, <code>ISOCode</code> and <code>Numeri
 
 <p>If you specify the <code class="prettyprint">PrimaryEmail</code> in the <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a> tag, you will redirect your user to Alipay payment page where some fields are already filled. </p>
 
+<h4 id="january-2019-breaking-changes">January 2019 breaking changes</h4>
+
+<p>If you are using <em>Alipay via Ecommerce</em> you need to update your integration because from 21/01/2019 more mandatory fields will be required from Aliplay.</p>
+
+<p>New mandatory fields are <code class="prettyprint">ProductDetail</code>: you need to add one field for each item in the cart with the product name and the quantity. All these fields must me wrapped inside a <code class="prettyprint">ProductDetails</code> tag.</p>
+
+<blockquote>
+<p>Alipay January 2019 example</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;ecom:Encrypt&gt;</span>
+  <span class="nt">&lt;ecom:shopLogin&gt;</span>tests2p<span class="nt">&lt;/ecom:shopLogin&gt;</span>
+  <span class="nt">&lt;ecom:uicCode&gt;</span>144<span class="nt">&lt;/ecom:uicCode&gt;</span>
+  <span class="nt">&lt;ecom:amount&gt;</span>1<span class="nt">&lt;/ecom:amount&gt;</span>
+  <span class="nt">&lt;ecom:shopTransactionId&gt;</span>alipay_test<span class="nt">&lt;/ecom:shopTransactionId&gt;</span>
+  <span class="nt">&lt;ecom:paymentTypes&gt;</span>
+    <span class="nt">&lt;ecom:paymentType&gt;</span>S2PALI<span class="nt">&lt;/ecom:paymentType&gt;</span>
+  <span class="nt">&lt;/ecom:paymentTypes&gt;</span>
+  <span class="nt">&lt;ecom:OrderDetails&gt;</span>
+    <span class="nt">&lt;ecom:CustomerDetail&gt;</span>
+      <span class="nt">&lt;ecom:PrimaryEmail&gt;&lt;/ecom:PrimaryEmail&gt;</span>
+    <span class="nt">&lt;/ecom:CustomerDetail&gt;</span>
+    <span class="nt">&lt;ecom:ProductDetails&gt;</span>
+      <span class="nt">&lt;ecom:ProductDetail&gt;</span>
+        <span class="nt">&lt;ecom:Name&gt;</span>product1<span class="nt">&lt;/ecom:Name&gt;</span>
+        <span class="nt">&lt;ecom:Quantity&gt;</span>1<span class="nt">&lt;/ecom:Quantity&gt;</span>
+      <span class="nt">&lt;/ecom:ProductDetail&gt;</span>
+      <span class="nt">&lt;ecom:ProductDetail&gt;</span>
+        <span class="nt">&lt;ecom:Name&gt;</span>product2<span class="nt">&lt;/ecom:Name&gt;</span>
+        <span class="nt">&lt;ecom:Quantity&gt;</span>5<span class="nt">&lt;/ecom:Quantity&gt;</span>
+      <span class="nt">&lt;/ecom:ProductDetail&gt;</span>
+      ...
+      ...
+    <span class="nt">&lt;/ecom:ProductDetails&gt;</span>
+  <span class="nt">&lt;/ecom:OrderDetails&gt;</span>
+<span class="nt">&lt;/ecom:Encrypt&gt;</span>
+</code></pre>
+<p>Other product information like the product code and its price are optional.
+Keep in mind that the total must be exactly the sum of all items price.</p>
+
           <h3 id="encrypt-example-amazon-pay">Encrypt Example: Amazon Pay</h3>
 
 <blockquote>
