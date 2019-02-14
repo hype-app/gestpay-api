@@ -24,7 +24,7 @@
   <cardholderName>NameSurname</cardholderName>
   <cardholderEmail>name@mail.com</cardholderEmail>
   <SecondaryEmail />
-  <cardhldHomePhone_cc>39</cardhldHomePhone_cc>
+  <cardholderHomePhone_cc>39</cardholderHomePhone_cc>
   <cardholderHomePhone_num>3331234566</cardholderHomePhone_num>
   <cardholderMobilePhone_cc>39</cardholderMobilePhone_cc>
   <cardholderMobilePhone_num>3331234577</cardholderMobilePhone_num>
@@ -74,35 +74,37 @@
 
 | Name | max length | description |
 | ---- | :--------: | ----------- |
-| `transTypeReq` | 1 | Type of transaction required to GestPay: complete payment process or only authentication (in case of third paty Acquirer). `P` for Payment (default) and `A` for authentication only.  |
+| `transTypeReq` | 1 | Type of transaction required to GestPay: complete payment process or only authentication (in case of third party Acquirer). `P` for Payment (default) and `A` for authentication only.  |
 | `MerchantCardholderID` | 64 | Additional information about the account optionally provided by the 3DS Requestor. |
-| `billAddrCity` | 50 | The city of the Cardholder billing address associated with the card used for this purchase. |
-| `billAddrCountry` | 32 | The country of the Cardholder billing address associated with the card used for this purchase. [See Paypal Country Codes table](#paypal-country-codes) |
-| `billAddrLine1` | 50 | First line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase. |
-| `billAddrLine2` | 50 | Second line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase. |
-| `billAddrLine3` | 50 | Third line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase. |
-| `billAddrPostCode` | 16 | ZIP or other postal code of the Cardholder billing address associated with the card used for this purchase. |
-| `billAddrState` | 32 | The state or province of the Cardholder billing address associated with the card used for this purchase. Should be the state, province or regional code (country subdivision code, [see Paypal State Codes table](#paypal-country-codes))  |
-| `cardholderName` | 45 | Name of the Cardholder. |
-| `cardholderEmail` | 254 | The email address associated with the account that is either entered by the Cardholder, or is on file with the 3DS Requestor. The value should meet requirements of Section 3.4 of IETF RFC 5322 |
-| `cardholderHomePhone_ countryCode`| 3 | The countryCode of the home phone number provided by the Cardholder. Refer to ITU-E.164 |
-| `cardholderHomePhone_ number` | 15 | The home phone number provided by the Cardholder (without the countryCode). |
-| `cardholderMobilePhone_ countryCode` | 3 | The countryCode of the home mobile number provided by the Cardholder. Refer to ITU-E.164. |
-| `cardholderMobilePhone_ number` | 15 | The mobile phone number provided by the Cardholder (without the countryCode). |
-| `cardholderHomePhone_ countryCode` | 32 | String containing the shipping name |
-| `cardholderWorkPhone` | 15 | The work phone number provided by the Cardholder (without the countryCode). |
-| `shipAddrCity` | 50 | City portion of the shipping address requested by the Cardholder. |
-| `shipAddrCountry` | 2 | Country of the shipping address requested by the Cardholder. [See Paypal Country Codes table](#paypal-country-codes) |
-| `shipAddrLine1` | 50 | First line of the street address or equivalent local portion of the shipping address requested by the Cardholder. |
-| `shipAddrLine2` | 50 | Second line of the street address or equivalent local portion of the shipping address requested by the Cardholder. |
-| `shipAddrLine3` | 50 | Thrid line of the street address or equivalent local portion of the shipping address requested by the Cardholder. |
-| `shipAddrPostCode` | 16 | The ZIP or other postal code of the shipping address requested by the Cardholder. |
-| `shipAddrState` | 32 | The state or province of the shipping address associated with the card being used for this purchase. Should be the state, province or regional code (country subdivision code, [see Paypal State Codes table](#paypal-country-codes))  |
-| `addrMatch` | 32 | Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. `Y` for yes and `N` for no |
+| **`billAddrCity`** | 50 | The city of the Cardholder billing address associated with the card used for this purchase. |
+| **`billAddrCountry`** | 32 | The country of the Cardholder billing address associated with the card used for this purchase. [See Paypal Country Codes table](#paypal-country-codes) |
+| **`billAddrLine1`** | 50 | First line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase. |
+| **`billAddrLine2`** | 50 | Second line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase. |
+| **`billAddrLine3`** | 50 | Third line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase. |
+| **`billAddrPostCode`** | 16 | ZIP or other postal code of the Cardholder billing address associated with the card used for this purchase. |
+| **`billAddrState`** | 32 | The state or province of the Cardholder billing address associated with the card used for this purchase. Should be the state, province or regional code (country subdivision code, [see Paypal State Codes table](#paypal-country-codes))  |
+| **`cardholderName`** | 45 | Name of the Cardholder. |
+| **`cardholderEmail`** | 254 | The email address associated with the account that is either entered by the Cardholder, or is on file with the 3DS Requestor. The value should meet requirements of Section 3.4 of IETF RFC 5322 |
+| **`cardholderHomePhone_cc`** | 3 | The countryCode of the home phone number provided by the Cardholder. Refer to ITU-E.164 |
+| **`cardholderHomePhone_num`** | 15 | The home phone number provided by the Cardholder (without the countryCode). |
+| **`cardholderMobilePhone_cc`** | 3 | The countryCode of the home mobile number provided by the Cardholder. Refer to ITU-E.164. |
+| **`cardholderMobilePhone_num`** | 15 | The mobile phone number provided by the Cardholder (without the countryCode). |
+| **`cardholderWorkPhone_cc`** | 32 | String containing the shipping name |
+| **`cardholderWorkPhone_num`** | 15 | The work phone number provided by the Cardholder (without the countryCode). |
+| **`shipAddrCity`** | 50 | City portion of the shipping address requested by the Cardholder. |
+| **`shipAddrCountry`** | 2 | Country of the shipping address requested by the Cardholder. [See Paypal Country Codes table](#paypal-country-codes) |
+| **`shipAddrLine1`** | 50 | First line of the street address or equivalent local portion of the shipping address requested by the Cardholder. |
+| **`shipAddrLine2`** | 50 | Second line of the street address or equivalent local portion of the shipping address requested by the Cardholder. |
+| **`shipAddrLine3`** | 50 | Thrid line of the street address or equivalent local portion of the shipping address requested by the Cardholder. |
+| **`shipAddrPostCode`** | 16 | The ZIP or other postal code of the shipping address requested by the Cardholder. |
+| **`shipAddrState`** | 32 | The state or province of the shipping address associated with the card being used for this purchase. Should be the state, province or regional code (country subdivision code, [see Paypal State Codes table](#paypal-country-codes))  |
+| **`addrMatch`** | 32 | Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. `Y` for yes and `N` for no |
 | `acctInfo` | object | Additional information about the Cardholder’s account provided by the 3DS Requestor. |
 | `merchantRiskIndicator` | object | Merchant’s assessment of the level of fraud risk for the specific authentication for both the cardholder and the authentication being conducted. |
 
 #### `acctInfo`'s fields. 
+
+All these fields are optional but strongly recommended to include. 
 
 | Name | max length | description |
 | ---- | :--------: | ----------- |
@@ -126,13 +128,15 @@
 
 #### `merchantRiskIndicator`'s fields. 
 
+All these fields are optional but strongly recommended to include. 
+
 | Name | max length | description |
 | ---- | :--------: | ----------- |
 | `deliveryEmailAddress` | 254 | For Electronic delivery, the email address to which the merchandise was delivered. |
 | `deliveryTimeframe` | 2 | Indicates the merchandise delivery timeframe. <ul><li>01 Electronic Delivery</li><li>02 Same day shipping</li><li>03 Overnight shipping</li><li>04 Two-day or more shipping</li></ul> |
 | `giftCardAmount` | 15 | For prepaid or gift card purchase, the purchase amount total of prepaid or gift card(s) in major units (for example, USD 123.45 is 123). Example: gift card amount is USD 123.45: Values accepted: <ul><li>123</li><li>0123</li><li>00123</li></ul> |
 | `giftCardCount` | 2 | For prepaid or gift card purchase, total count of individual prepaid or gift cards/codes purchased. |
-| `giftCardCurr` | 3 | For prepaid or gift card purchase, ISO 4217 three-digit currency code of the gift card, other than those listed in Table A.5 (trascoding IUCcode - ISO 4217 code). |
+| `giftCardCurr` | 3 | For prepaid or gift card purchase, uicCode currency code. |
 | `preOrderDate` | 8 | For a pre-ordered purchase, the expected date that the merchandise will be available. Date format = YYYYMMDD |
 | `preOrderPurchaseInd` | 2 | Indicates whether Cardholder is placing an order for merchandise with a future availability or release date. <ul><li>01 Merchandise available</li><li>02 Future availability</li></ul> |
 | `reorderItemsInd` | 2 | Indicates whether the cardholder is reordering previously purchased merchandise. <ul><li>01 First time ordered</li><li>02 Reordered</li></ul> |
