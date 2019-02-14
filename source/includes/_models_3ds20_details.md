@@ -12,7 +12,61 @@
 
 ```xml
 <3ds20Container>
-
+  <transTypeReq />
+  <MerchantCardholderID />
+  <billAddrCity>Biella</billAddrCity>
+  <billAddrCountry>IT</billAddrCountry>
+  <billAddrLine1>via Roma, 1</billAddrLine1>
+  <billAddrLine2>loc. S.Domenico</billAddrLine2>
+  <billAddrLine3 />
+  <billAddrPostCode>13900</billAddrPostCode>
+  <billAddrState>BI</billAddrState>
+  <cardholderName>NameSurname</cardholderName>
+  <cardholderEmail>name@mail.com</cardholderEmail>
+  <SecondaryEmail />
+  <cardhldHomePhone_cc>39</cardhldHomePhone_cc>
+  <cardholderHomePhone_num>3331234566</cardholderHomePhone_num>
+  <cardholderMobilePhone_cc>39</cardholderMobilePhone_cc>
+  <cardholderMobilePhone_num>3331234577</cardholderMobilePhone_num>
+  <cardholderWorkPhone_cc>39</cardholderWorkPhone_cc>
+  <cardholderWorkPhone_num>3331234588</cardholderWorkPhone_num>
+  <shipAddrCity>Biella</shipAddrCity>
+  <shipAddrCountry>IT</shipAddrCountry>
+  <shipAddrLine1>via Nuova, 99</shipAddrLine1>
+  <shipAddrLine2 />
+  <shipAddrLine3 />
+  <shipAddrPostCode>13900</shipAddrPostCode>
+  <shipAddrState>BI</shipAddrState>
+  <addrMatch>N</addrMatch>
+  <acctInfo>
+    <chAccAgeInd>05</chAccAgeInd>
+    <chAccChange />
+    <chAccChangeInd>02</chAccChangeInd>
+    <chAccDate>20170131</chAccDate>
+    <chAccPwChange />
+    <chAccPwChangeInd>03</chAccPwChangeInd>
+    <nbPurchaseAccount>4</nbPurchaseAccount>
+    <provisionAttemptsDay>0</provisionAttemptsDay>
+    <txnActivityDay>0</txnActivityDay>
+    <txnActivityYear>005</txnActivityYear>
+    <paymentAccAge />
+    <paymentAccInd>05</paymentAccInd>
+    <shipAddressUsage />
+    <shipAddressUsageInd>03</shipAddressUsageInd>
+    <shipNameIndicator>01</shipNameIndicator>
+    <suspiciousAccActivity>01</suspiciousAccActivity>
+  </acctInfo>
+  <merchantRiskIndicator>
+    <deliveryEmailAddress />
+    <deliveryTimeframe>04</deliveryTimeframe>
+    <giftCardAmount />
+    <giftCardCount />
+    <giftCardCurr />
+    <preOrderDate />
+    <preOrderPurchaseInd>01</preOrderPurchaseInd>
+    <reorderItemsInd>01</reorderItemsInd>
+    <shipIndicator>03</shipIndicator>
+  </merchantRiskIndicator>
 </3ds20Container>
 ``` 
 
