@@ -45,6 +45,8 @@
 | `shipAddrPostCode` | 16 | The ZIP or other postal code of the shipping address requested by the Cardholder. |
 | `shipAddrState` | 32 | The state or province of the shipping address associated with the card being used for this purchase. Should be the state, province or regional code (country subdivision code, [see Paypal State Codes table](#paypal-country-codes))  |
 | `addrMatch` | 32 | Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. `Y` for yes and `N` for no |
+| `acctInfo` | object | Additional information about the Cardholder’s account provided by the 3DS Requestor. |
+| `merchantRiskIndicator` | object | Merchant’s assessment of the level of fraud risk for the specific authentication for both the cardholder and the authentication being conducted. |
 
 #### `acctInfo`'s fields. 
 
@@ -67,4 +69,19 @@
 | `shipAddressUsageInd` | 2 | Indicates when the shipping address used for this transaction was first used with the 3DS Requestor. <ul><li>01 This transaction</li><li>02 Less than 30 days</li><li>03 30−60 days</li><li>04 More than 60 days</li></ul> |
 | `shipNameIndicator` | 2 | Indicates if the Cardholder Name on the account is identical to the shipping Name used for this transaction. <ul><li>01 Account Name identical to shipping Name</li><li>02 Account Name different than shipping Name</li></ul> |
 | `suspiciousAccActivity` | 2 | Indicates whether the 3DS Requestor has experienced suspicious activity (including previous fraud) on the cardholder account. <ul><li>01 No suspicious activity has been observed</li><li>02 Suspicious activity has been observed</li></ul> |
+
+#### `merchantRiskIndicator`'s fields. 
+
+| Name | max length | description |
+| ---- | :--------: | ----------- |
+| `deliveryEmailAddress` | 254 | For Electronic delivery, the email address to which the merchandise was delivered. |
+| `deliveryTimeframe` | 2 | Indicates the merchandise delivery timeframe. <ul><li>01 Electronic Delivery</li><li>02 Same day shipping</li><li>03 Overnight shipping</li><li>04 Two-day or more shipping</li></ul> |
+| `giftCardAmount` | 15 | For prepaid or gift card purchase, the purchase amount total of prepaid or gift card(s) in major units (for example, USD 123.45 is 123). Example: gift card amount is USD 123.45: Values accepted: <ul><li>123</li><li>0123</li><li>00123</li></ul> |
+| `giftCardCount` | 2 | For prepaid or gift card purchase, total count of individual prepaid or gift cards/codes purchased. |
+| `giftCardCurr` | 3 | For prepaid or gift card purchase, ISO 4217 three-digit currency code of the gift card, other than those listed in Table A.5 (trascoding IUCcode - ISO 4217 code). |
+| `preOrderDate` | 8 | For a pre-ordered purchase, the expected date that the merchandise will be available. Date format = YYYYMMDD |
+| `preOrderPurchaseInd` | 2 | Indicates whether Cardholder is placing an order for merchandise with a future availability or release date. <ul><li>01 Merchandise available</li><li>02 Future availability</li></ul> |
+| `reorderItemsInd` | 2 | Indicates whether the cardholder is reordering previously purchased merchandise. <ul><li>01 First time ordered</li><li>02 Reordered</li></ul> |
+| `shipIndicator` | 2 | Indicates shipping method chosen for the transaction. Merchants must choose the Shipping Indicator code that most accurately describes the cardholder’s specific transaction, not their general business. If one or more items are included in the sale, use the Shipping Indicator code for the physical goods, or if all digital goods, use the Shipping Indicator code that describes the most expensive item. <ul><li>01 Ship to cardholder’s billing address</li><li>02 Ship to another verified address on file with merchant</li><li>03 Ship to address that is different than the cardholder’s billing address</li><li>04 “Ship to Store” / Pick-up at local store (Store address shall be populated in shipping address fields)</li><li>05 Digital goods (includes online services, electronic gift cards and redemption codes)</li><li>06 Travel and Event tickets, not shipped</li><li>07 Other (for example, Gaming, digital services not shipped, emedia subscriptions, etc.)</li></ul> |
+
 
