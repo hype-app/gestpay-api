@@ -45,3 +45,26 @@
 | `shipAddrPostCode` | 16 | The ZIP or other postal code of the shipping address requested by the Cardholder. |
 | `shipAddrState` | 32 | The state or province of the shipping address associated with the card being used for this purchase. Should be the state, province or regional code (country subdivision code, [see Paypal State Codes table](#paypal-country-codes))  |
 | `addrMatch` | 32 | Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. `Y` for yes and `N` for no |
+
+#### `acctInfo`'s fields. 
+
+| Name | max length | description |
+| ---- | :--------: | ----------- |
+| `chAccAgeInd` | 2 | Length of time that the cardholder has had the account with the 3DS Requestor. <ul><li>01 No account (guest check-out)</li><li>02 Created during this transaction</li><li>03 Less than 30 days</li><li>04 30−60 days</li><li>05 More than 60 days</li></ul>
+ |
+| `chAccChange` | 8 | Date that the cardholder’s account with the 3DS Requestor was last changed, including Billing or Shipping address, new payment account, or new user(s) added. Date format = YYYYMMDD |
+| `chAccChangeInd` | 2 | Length of time since the cardholder’s account information with the 3DS Requestor was last changed, including Billing or Shipping address, new payment account, or new user(s) added. <ul><li>01 Changed during this transaction</li><li>02 Less than 30 days</li><li>03 30−60 days</li><li>04 More than 60 days</li></ul> |
+| `chAccDate` | 8 | Date that the cardholder opened the account with the 3DS Requestor. Date format = YYYYMMDD |
+| `chAccPwChange` | 8 | Date that cardholder’s account with the 3DS Requestor had a password change or account reset. Date format = YYYYMMDD |
+| `chAccPwChangeInd` | 2 | Indicates the length of time since the cardholder’s account with the 3DS Requestor had a password change or account reset. <ul></li><li>01 No change</li><li>02 Changed during this transaction</li><li>03 Less than 30 days</li><li>04 30−60 days</li><li>05 More than 60 days</li></ul> |
+| `nbPurchaseAccount` | 4 | Number of purchases with this cardholder account during the previous six months. |
+| `provisionAttemptsDay` | 3 | Number of Add Card attempts in the last 24 hours. Example values: <ul><li>2</li><li>02</li><li>002</li></ul> |
+| `txnActivityDay` | 3 | Number of transactions (successful and abandoned) for this cardholder account with the 3DS Requestor across all payment accounts in the previous 24 hours. Example values: <ul><li>2</li><li>02</li><li>002</li></ul> |
+| `txnActivityYear` | 3 | Number of transactions (successful and abandoned) for this cardholder account with the 3DS Requestor across all payment accounts in the previous year. Example values: <ul><li>2</li><li>02</li><li>002</li></ul> |
+| `paymentAccAge` | 8 | Date that the payment account was enrolled in the cardholder’s account with the 3DS Requestor. Date format = YYYYMMDD |
+| `paymentAccInd` | 2 | Indicates the length of time that the payment account was enrolled in the cardholder’s account with the 3DS Requestor. <ul></li><li>01 No account (guest check-out)</li><li>02 During this transaction</li><li>03 Less than 30 days</li><li>04 30−60 days</li><li>05 More than 60 days</ul> |
+| `shipAddressUsage` | 8 | Date when the shipping address used for this transaction was first used with the 3DS Requestor. Date format = YYYYMMDD |
+| `shipAddressUsageInd` | 2 | Indicates when the shipping address used for this transaction was first used with the 3DS Requestor. <ul><li>01 This transaction</li><li>02 Less than 30 days</li><li>03 30−60 days</li><li>04 More than 60 days</li></ul> |
+| `shipNameIndicator` | 2 | Indicates if the Cardholder Name on the account is identical to the shipping Name used for this transaction. <ul><li>01 Account Name identical to shipping Name</li><li>02 Account Name different than shipping Name</li></ul> |
+| `suspiciousAccActivity` | 2 | Indicates whether the 3DS Requestor has experienced suspicious activity (including previous fraud) on the cardholder account. <ul><li>01 No suspicious activity has been observed</li><li>02 Suspicious activity has been observed</li></ul> |
+
