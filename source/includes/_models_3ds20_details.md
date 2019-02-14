@@ -4,11 +4,10 @@
   Questo documento è utilizzato (e quindi linkato) in:
   #callpagams2s (creazione pagamento S2S)
   #encrypt (creazione pagamento con encrypt)
+  #post-payment-create (creazione pagamento con REST)
 --->
 
-> `3ds20Container` tag example: 
-
-
+> `3ds20Container` xml example: 
 
 ```xml
 <3ds20Container>
@@ -70,7 +69,75 @@
 </3ds20Container>
 ``` 
 
+> `3ds20Container` JSON example: <span id="3ds-details-json"></span>
+
+
+```json
+{ 
+  "3ds20Container":{
+    "transTypeReq":"P",
+    "MerchantCardholderID":"",
+    "billAddrCity":"Biella",
+    "billAddrCountry":"IT",
+    "billAddrLine1":"via Roma, 1",
+    "billAddrLine2":"loc. S.Domenico",
+    "billAddrLine3":"",
+    "billAddrPostCode":"13900",
+    "billAddrState":"BI",
+    "cardholderName":"NameSurname",
+    "cardholderEmail":"name@mail.com",
+    "SecondaryEmail":"",
+    "cardholderHomePhone_cc":"39",
+    "cardholderHomePhone_num":"3331234566",
+    "cardholderMobilePhone_cc":"39",
+    "cardholderMobilePhone_num":"3331234577",
+    "cardholderWorkPhone_cc":"39",
+    "cardholderWorkPhone_num":"3331234588",
+    "shipAddrCity":"Biella",
+    "shipAddrCountry":"IT",
+    "shipAddrLine1":"via Nuova, 99",
+    "shipAddrLine2":"",
+    "shipAddrLine3":"",
+    "shipAddrPostCode":"13900",
+    "shipAddrState":"BI",
+    "addrMatch":"N",
+    "acctInfo":{  
+        "chAccAgeInd":"05",
+        "chAccChange":"",
+        "chAccChangeInd":"02",
+        "chAccDate":"20170131",
+        "chAccPwChange":"",
+        "chAccPwChangeInd":"03",
+        "nbPurchaseAccount":"4",
+        "provisionAttemptsDay":"0",
+        "txnActivityDay":"0",
+        "txnActivityYear":"005",
+        "paymentAccAge":"",
+        "paymentAccInd":"05",
+        "shipAddressUsage":"",
+        "shipAddressUsageInd":"03",
+        "shipNameIndicator":"01",
+        "suspiciousAccActivity":"01"
+    },
+    "merchantRiskIndicator":{  
+        "deliveryEmailAddress":"",
+        "deliveryTimeframe":"04",
+        "giftCardAmount":"",
+        "giftCardCount":"",
+        "giftCardCurr":"",
+        "preOrderDate":"",
+        "preOrderPurchaseInd":"01",
+        "reorderItemsInd":"01",
+        "shipIndicator":"03"
+    }
+  }
+}
+``` 
+
+
 `3ds20Container`'s fields are used from 3ds server to establish if the transaction could be a fraud and require or not the SCA. 
+
+The JSON example can be found [here](#3ds-details-json)
 
 | Name | max length | description |
 | ---- | :--------: | ----------- |
