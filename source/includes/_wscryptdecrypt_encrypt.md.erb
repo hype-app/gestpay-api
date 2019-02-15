@@ -9,6 +9,9 @@
   <uicCode>242</uicCode>
   <amount>985.21</amount>
   <shopTransactionId>34az85ord19</shopTransactionId>
+  <3ds20Container>
+    ...
+  </3ds20Container>
 </Encrypt>
 ```
 
@@ -31,6 +34,7 @@ These are the **mandatory** fields.
 | **`uicCode`** | 3 | Code identifying currency in which transaction amount is denominated - see [Currency Codes table](#currency-codes) - (Mandatory) | 
 | **`amount`** | 9 | Transaction amount. Do not insert thousands separator. Decimals, max. 2 numbers, are optional and separator is the point (Mandatory) |
 | **`shopTransactionId`** | 50 | Identifier attributed to merchant’s transaction (Mandatory) |
+| **[`3ds20Container`](#3ds-2-0-fields)** | - | 3ds 2.0 required fields (Mandatory object) |  
 
 
 > Here is an example where we use `customInfo` and other non-mandatory fields. 
@@ -42,6 +46,9 @@ These are the **mandatory** fields.
   <uicCode>242</uicCode>
   <amount>1245.6</amount>
   <shopTransactionId>34az85ord19</shopTransactionId>
+  <3ds20Container>
+    ...
+  </3ds20Container>
   <buyerName>Mario Bianchi</buyerName>
   <buyerEmail>mario.bianchi@isp.it</buyerEmail>
   <customInfo>BV_CODCLIENTE=12*P1*BV_SESSIONID=398</customInfo>

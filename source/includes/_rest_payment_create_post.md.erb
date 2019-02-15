@@ -22,6 +22,9 @@ POST https://ecomms2s.sella.it/api/v1/payment/create/
   "amount":"",
   "currency":"",
   "shopTransactionID":"",
+  "3ds20Container": {
+    
+  },
   "buyerName":"",
   "buyerEmail":"",
   "languageId":"",
@@ -179,6 +182,7 @@ Input Body:
 | **`amount`**            | The amount to capture
 | **`currency`**          | [ISO currency code](#currency-codes)
 | **`shopTransactionID`** | the shop transaction ID 
+| **[`3ds20Container`](#3ds-2-0-fields)** | 3ds 2.0 required fields
 | `buyerName`       | buyer’s name 
 | `buyerEmail`      |  buyer’s e-mail address. 
 | `customInfo`      | An object containing optional customised parameters. Use the `customInfo` parameter name as the key. 

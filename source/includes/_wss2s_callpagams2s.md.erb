@@ -14,6 +14,9 @@ Merchants can use this method to perform the transaction, passing all the parame
   <uicCode>242</uicCode><!-- euro -->
   <amount>24.21</amount>
   <shopTransactionId>MYSHOP-0001</shopTransactionId>
+  <3ds20Container>
+    ...
+  </3ds20Container>
   <!-- here we have choosen to pay with credit card data -->
   <cardNumber>1234567812345678</cardNumber>
   <expiryMonth>06</expiryMonth>
@@ -54,6 +57,7 @@ First we describe the mandatory attributes.
 | **`uicCode`** | currency code | number | 3 |
 | **`amount`** | the amount of the transaction | numeric | 9 |
 | **`shopTransactionId`** | shop transaction ID value | string | 50 |
+| **[`3ds20Container`](#3ds-2-0-fields)** | 3ds 2.0 required fields | object |  |
 
 Depending on the payment method, you can choose to send **Credit Card** data: 
 
