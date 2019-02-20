@@ -1236,7 +1236,7 @@
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">full3D</code></td>
-<td><code class="prettyprint">Y</code> if the authentication has been processed with 3ds 2.0</td>
+<td><code class="prettyprint">Y</code> if the authentication is successfully authenticated by 3ds</td>
 </tr>
 <tr>
 <td><code class="prettyprint">autenthicationStatus</code></td>
@@ -14212,12 +14212,12 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <tr>
 <td><strong><code class="prettyprint">acquirerBIN</code></strong></td>
 <td style="text-align: center">11</td>
-<td>This field are required only if <code class="prettyprint">transTypeReq</code> value is <code class="prettyprint">Y</code>. Acquiring institution identification code as assigned by the DS receiving the AReq  message</td>
+<td>This field are required only if <code class="prettyprint">transTypeReq</code> value is <code class="prettyprint">A</code>. Acquiring institution identification code as assigned by the DS receiving the AReq  message</td>
 </tr>
 <tr>
 <td><strong><code class="prettyprint">acquirerMerchantID</code></strong></td>
 <td style="text-align: center">35</td>
-<td>This field are required only if <code class="prettyprint">transTypeReq</code> value is <code class="prettyprint">Y</code>. Acquirer-assigned Merchant identifier. This may be the same value that is used in authorisation requests sent on behalf of the 3DS Requestor and is represented in ISO 8583 formatting requirements.</td>
+<td>This field are required only if <code class="prettyprint">transTypeReq</code> value is <code class="prettyprint">A</code>. Acquirer-assigned Merchant identifier. This may be the same value that is used in authorisation requests sent on behalf of the 3DS Requestor and is represented in ISO 8583 formatting requirements.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">MerchantCardholderID</code></td>
