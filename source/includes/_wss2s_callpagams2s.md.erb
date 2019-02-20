@@ -165,6 +165,15 @@ The following features may be optionally assigned:
   <PayPalFee></PayPalFee>
   <RiskResponseCode>approved</RiskResponseCode>
   <RiskResponseDescription>the transaction is approved</RiskResponseDescription>
+
+  <3DS>
+    <AuthenticationResult>
+      ...
+    </AuthenticationResult>
+    <InAppChallenge>
+      ...
+    </InAppChallenge>
+  </3DS>
 </GestPayS2S>
 ```
 
@@ -198,8 +207,11 @@ The following features may be optionally assigned:
 | `PayPalFee` | the fee owed to paypal. 
 | `TDLevel` | Level of authentication for 3D-Secure transactions. `FULL` or `HALF`
 | `RiskResponseCode` | Risk Fraud Score of the transaction, given by [ Gestpay Guaranteed Payment](<%= config[:doc_url] %>/sec/gestpay-guaranteed-payment.html). Possible values are: <ul><li>`created`: transaction has been received by the Gestpay Guaranteed Payment</li><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Gestpay Guaranteed Payment</li><li>`declined`: transaction not approved by  Gestpay Guaranteed Payment</li><li>`captured`: For *Select&Submit* plan, `captured` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Gestpay Guaranteed Payment.</li></ul>
+| `3DS` | Object with information about 3ds authentication (described below)
 
-The following fields are present only in the app integration type 
+The 3DS object  contains two object:
+
+- `AuthenticationResult` (this object is used for authentication-only method too)
 
 | Name           | Description | 
 | -------------- | ----------- |
@@ -208,6 +220,19 @@ The following fields are present only in the app integration type
 | `XID` | Transaction unique id, valorized only if the full3D and authenticationStatus fields value is yes. 
 | `CAVV` | Cardholder Authentication Verification Value, valorized only if the full3D and authenticationStatus fields value is yes. 
 | `ECI` | Electronic Commerce Indicator, valorized only if the full3D and authenticationStatus fields value is yes. 
-| `CAValgoritm` |Cardholder Authentication Verification Algoritm, valorized only if the full3D and authenticationStatus fields value is yes. 
+| `CAVValgoritm` |Cardholder Authentication Verification Algoritm, valorized only if the full3D and authenticationStatus fields value is yes. 
+
+- `InAppChallenge` (Tihs fields are valorized and usefull only in app integration)
+
+| Name           | Description | 
+| -------------- | ----------- |
+| `threeDSServerTransID` | Universally unique transaction identifier assigned by the 3DS Server to identify a single transaction.
+| `acsSignedContent` | Contains the JWS object (represented as a string) created by the ACS for the ARes message.
+| `acsTransID` | Universally Unique transaction identifier assigned by the ACS to identify a single transaction.
+| `acsURL` | Fully qualified URL of the ACS to be used for the challenge.<ul><li>App: SDK will send the Challenge Request to this URL</li><li>Browser: 3DS Requestor will post the CReq to this URL via the challenge window</li></ul>For App-based, this data element is contained within the ACS Signed Content JWS Object. For Browser-based, this data element is present as its own object.
+| `cardholderInfo` | Text provided by the ACS/Issuer to Cardholder during a Frictionless or Decoupled transaction. The Issuer can provide information to Cardholder. For example, “Additional authentication is needed for this transaction, please contact (Issuer Name) at xxx-xxx-xxxx.”
+| `messageExtension` | Data necessary to support requirements not otherwise defined in the 3- D Secure message are carried in a Message Extension.
+| `sdkTransID` | Universally unique transaction identifier assigned by the 3DS SDK to identify a single transaction
+
 
 <aside class="notice">other fields that are undocumented are unused. This applies also to fields described in the old version of the documentation.</aside>
