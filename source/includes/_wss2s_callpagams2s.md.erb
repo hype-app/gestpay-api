@@ -46,6 +46,11 @@ Merchants can use this method to perform the transaction, passing all the parame
   <OrderDetails>
     ... 
   </OrderDetails>
+  <!-- if authentication only -->
+  <acquirerBIN></acquirerBIN>
+  <acquirerMerchantID></acquirerMerchantID>
+  <deviceChannel></deviceChannel>
+  <deviceInfo></deviceInfo>
 </callPagamS2S>
 ```
 
@@ -75,6 +80,20 @@ Or a **token**:
 
 <aside class="notice">You must use exactly one among <strong>Credit Card data</strong> and <strong>Token value</strong>.</aside>
 
+The following field must be included if you use Gestpay only for Authentication.
+
+| Name | Description | Data Type | max length |
+| ---- | ----------- | --------- | ---------- |
+| **`acquirerBIN`** | Acquiring institution identification code as assigned by the DS receiving the AReq  message | string | 50 |
+| **`acquirerMerchantID `** | Acquirer-assigned Merchant identifier. This may be the same value that is used in authorisation requests sent on behalf of the 3DS Requestor and is represented in ISO 8583 formatting requirements. | string | 35 | 
+
+The following field must be included if you are integration Gestpay in app.
+
+| Name | Description | Data Type | max length |
+| ---- | ----------- | --------- | ---------- |
+| **`deviceChannel `** | Indicates the type of channel interface being used to initiate the transaction. <ul><li>01 App-based (APP)</li><li>02 Browser (BRW)</li><li>03 3DS Requestor Initiated (3RI)</li></ul> | string | 2 | 
+| **`deviceInfo `** | Device information gathered by the 3DS SDK from a Consumer Device. Encrypted data, to be sent to the DS. | jwe | - | 
+
 The following features may be optionally assigned:   
 
 | Name | Description | Data Type | max length |
@@ -92,6 +111,7 @@ The following features may be optionally assigned:
 | `itemType`     | Item Category: `digital`/`physical` (If `physical` the `ShippingDetails` have to be filled) | string | 250 | 
 | `recurrent` | true if it's a recurrent payment, false if not. | boolean | 5 | 
 | `shippingDetails` | contains the shipping address. Used for [paypal seller protection](<%= config[:doc_url] %>/oth/paypal.html).
+| `transitionsType` | transaction type. Value can be: <ul><li>ecommerce</li><li>moto</li></ul>. | string | - |
 | [`OrderDetails`](#orderdetails) | contains every other info needed to handle the payment. It is used by  Gestpay Guaranteed Payment. 
 
 - children of `ShippingDetails` :
@@ -178,6 +198,16 @@ The following features may be optionally assigned:
 | `PayPalFee` | the fee owed to paypal. 
 | `TDLevel` | Level of authentication for 3D-Secure transactions. `FULL` or `HALF`
 | `RiskResponseCode` | Risk Fraud Score of the transaction, given by [ Gestpay Guaranteed Payment](<%= config[:doc_url] %>/sec/gestpay-guaranteed-payment.html). Possible values are: <ul><li>`created`: transaction has been received by the Gestpay Guaranteed Payment</li><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Gestpay Guaranteed Payment</li><li>`declined`: transaction not approved by  Gestpay Guaranteed Payment</li><li>`captured`: For *Select&Submit* plan, `captured` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Gestpay Guaranteed Payment.</li></ul>
-| `RiskResponseDescription` | Risk Description of the RiskResponseCode 
+
+The following fields are present only in the app integration type 
+
+| Name           | Description | 
+| -------------- | ----------- |
+| `full3D ` | `Y` if the authentication has been processed with 3ds 2.0
+| `autenthicationStatus ` | Only if the full3D value is yes, empty otherwise. `Y` if authentication has been successful
+| `XID` | Transaction unique id, valorized only if the full3D and authenticationStatus fields value is yes. 
+| `CAVV` | Cardholder Authentication Verification Value, valorized only if the full3D and authenticationStatus fields value is yes. 
+| `ECI` | Electronic Commerce Indicator, valorized only if the full3D and authenticationStatus fields value is yes. 
+| `CAValgoritm` |Cardholder Authentication Verification Algoritm, valorized only if the full3D and authenticationStatus fields value is yes. 
 
 <aside class="notice">other fields that are undocumented are unused. This applies also to fields described in the old version of the documentation.</aside>
