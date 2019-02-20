@@ -78,12 +78,11 @@ Or a **token**:
 
 <aside class="notice">You must use exactly one among <strong>Credit Card data</strong> and <strong>Token value</strong>.</aside>
 
-The following field must be included if you are integration Gestpay in app.
+The following field must be included if you are integration Gestpay in app integration.
 
-| Name | Description | Data Type | max length |
-| ---- | ----------- | --------- | ---------- |
-| **`deviceChannel `** | Indicates the type of channel interface being used to initiate the transaction. <ul><li>01 App-based (APP)</li><li>02 Browser (BRW)</li><li>03 3DS Requestor Initiated (3RI)</li></ul> | string | 2 | 
-| **`deviceInfo `** | Device information gathered by the 3DS SDK from a Consumer Device. Encrypted data, to be sent to the DS. | jwe | - | 
+| Name | Description | Data Type | 
+| ---- | ----------- | --------- | 
+| **`SDKDetails`** | Contains SDK data to be sent to ACS.  | string
 
 The following features may be optionally assigned:   
 
