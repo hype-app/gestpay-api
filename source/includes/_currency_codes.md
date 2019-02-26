@@ -43,3 +43,4 @@ Currency codes are handled by GestPay using the currency attribute.
 1  |  USD | 840 |   United States dollar
 145  |  VND | 704  |  Vietnamese đồng
 82  |  ZAR | 710  |  South African rand
+216 |	ARS	| 32 |	Peso Argentina
