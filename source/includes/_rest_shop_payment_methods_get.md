@@ -4,14 +4,14 @@
 > Sandbox URL:
 
 ```
-GET https://sandbox.gestpay.net/api/v1/shop/paymentMethods/{shopLogin}
+GET https://sandbox.gestpay.net/api/v1/shop/methods/{shopLogin}
 ```
 
 
 > Production URL: 
 
 ```
-GET https://ecomms2s.sella.it/api/v1/shop/paymentMethods/{shopLogin}
+GET https://sandbox.gestpay.net/api/v1/shop/methods/{shopLogin}
 ```
 
 
