@@ -5,6 +5,7 @@ Currency codes are handled by GestPay using the currency attribute.
 | UIC code | ISO code | ISO number | Description |
 | -------: | :------: | ---------: | ----------- |  
 187 | AED | 784  |  United Arab Emirates dirham
+216 |	ARS	| 32 |	Peso Argentina
 109 | AUD | 36  |  Australian dollar
 262  |  BGN | 975 |   Bulgarian lev
 234  |  BRL | 986 |   Brazilian real
@@ -43,4 +44,3 @@ Currency codes are handled by GestPay using the currency attribute.
 1  |  USD | 840 |   United States dollar
 145  |  VND | 704  |  Vietnamese đồng
 82  |  ZAR | 710  |  South African rand
-216 |	ARS	| 32 |	Peso Argentina
