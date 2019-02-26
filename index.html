@@ -3560,7 +3560,7 @@ The three parameters <code>UICCode</code>, <code>ISOCode</code> and <code>Numeri
     <span class="na">EXPYY</span> <span class="p">:</span> <span class="s1">'12'</span><span class="p">,</span> 
     <span class="na">CVV2</span> <span class="p">:</span> <span class="s1">'123'</span><span class="p">,</span> <span class="c1">//optional</span>
     <span class="na">Name</span> <span class="p">:</span> <span class="s1">'Some Dude'</span><span class="p">,</span> <span class="c1">//optional </span>
-    <span class="na">EMail</span><span class="p">:</span> <span class="s1">'some@dude.net'</span> <span class="c1">//optional  </span>
+    <span class="na">Email</span><span class="p">:</span> <span class="s1">'some@dude.net'</span> <span class="c1">//optional  </span>
   <span class="p">},</span>
   <span class="nx">callBackObj</span><span class="p">);</span>
 </code></pre>
@@ -11892,12 +11892,12 @@ Please note:
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET https://sandbox.gestpay.net/api/v1/shop/paymentMethods/{shopLogin}
+<pre class="highlight plaintext"><code>GET https://sandbox.gestpay.net/api/v1/shop/methods/{shopLogin}
 </code></pre>
 <blockquote>
 <p>Production URL: </p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET https://ecomms2s.sella.it/api/v1/shop/paymentMethods/{shopLogin}
+<pre class="highlight plaintext"><code>GET https://ecomms2s.sella.it/api/v1/shop/methods/{shopLogin}
 </code></pre>
 <p>Retrieves a list of payment methods enabled indicating name, payment type, related logo (URL), related mobile logo (URL), if the method is visible/hidden in the payment page.</p>
 
@@ -12021,12 +12021,12 @@ Please note:
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
-<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/shop/paymentMethods/
+<pre class="highlight plaintext"><code>POST https://sandbox.gestpay.net/api/v1/shop/methods/
 </code></pre>
 <blockquote>
 <p>Production URL: </p>
 </blockquote>
-<pre class="highlight plaintext"><code>POST https://ecomms2s.sella.it/api/v1/shop/paymentMethods/
+<pre class="highlight plaintext"><code>POST https://ecomms2s.sella.it/api/v1/shop/methods/
 </code></pre>
 <blockquote>
 <p>Request body: </p>
@@ -12130,12 +12130,12 @@ Please note:
 <blockquote>
 <p>Sandbox URL:</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET https://sandbox.gestpay.net/api/v1/shop/paymentPage/{shopLogin}
+<pre class="highlight plaintext"><code>GET https://sandbox.gestpay.net/api/v1/shop/methods/
 </code></pre>
 <blockquote>
 <p>Production URL: </p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET https://ecomms2s.sella.it/api/v1/shop/paymentPage/{shopLogin}
+<pre class="highlight plaintext"><code>GET https://ecomms2s.sella.it/api/v1/shop/methods/
 </code></pre>
 <p>Retrieves the current text or URL for the Logo, the default language, and the URL that will display the preview of the payment page. </p>
 
@@ -15916,6 +15916,12 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <td style="text-align: center">AED</td>
 <td style="text-align: right">784</td>
 <td>United Arab Emirates dirham</td>
+</tr>
+<tr>
+<td style="text-align: right">216</td>
+<td style="text-align: center">ARS</td>
+<td style="text-align: right">32</td>
+<td>Peso Argentina</td>
 </tr>
 <tr>
 <td style="text-align: right">109</td>
