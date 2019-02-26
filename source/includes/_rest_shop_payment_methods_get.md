@@ -11,7 +11,7 @@ GET https://sandbox.gestpay.net/api/v1/shop/methods/{shopLogin}
 > Production URL: 
 
 ```
-GET GET https://ecomms2s.sella.it/api/v1/shop/methods/{shopLogin}
+GET https://ecomms2s.sella.it/api/v1/shop/methods/{shopLogin}
 ```
 
 
