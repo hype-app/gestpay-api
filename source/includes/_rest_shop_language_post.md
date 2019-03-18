@@ -4,14 +4,14 @@
 > Sandbox URL:
 
 ```
-POST https://sandbox.gestpay.net/api/v1/shop/language/{shopLogin}
+POST https://sandbox.gestpay.net/api/v1/shop/language
 ```
 
 
 > Production URL: 
 
 ```
-POST https://ecomms2s.sella.it/api/v1/shop/language/
+POST https://ecomms2s.sella.it/api/v1/shop/language
 ```
 
 
