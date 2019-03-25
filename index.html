@@ -5626,9 +5626,7 @@ Please note:
 
 <h4 id="request">Request</h4>
 
-<p>Headers: </p>
-
-<p>To receive a valid response from Gestpay you must use one of these headers: </p>
+<p>Header: </p>
 
 <table><thead>
 <tr>
@@ -5637,11 +5635,6 @@ Please note:
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><code class="prettyprint">Authorization</code></td>
-<td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
-<td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
-</tr>
 <tr>
 <td><code class="prettyprint">paymentToken</code></td>
 <td><code class="prettyprint">&quot;{paymentToken}&quot;</code></td>
@@ -8547,6 +8540,11 @@ Please note:
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code class="prettyprint">Content-Type</code></td>
+<td><code class="prettyprint">application/json</code></td>
+<td></td>
+</tr>
 <tr>
 <td><code class="prettyprint">Authorization</code></td>
 <td><code class="prettyprint">apikey &quot;{merchant Api Key}&quot;</code></td>
@@ -13757,9 +13755,9 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <td>Article’s Unit Price</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Type</code></td>
+<td><code class="prettyprint">Type</code>*</td>
 <td>2</td>
-<td>The type of article: 1-product, 2-shipping, 3-handling</td>
+<td>The type of article: <ul><li><code class="prettyprint">1</code>: product</li><li><code class="prettyprint">2</code>: shipping</li><li><code class="prettyprint">3</code>: handling</li></ul>If the riskified integration is active, the product type should contain one of the following values:<ul><li><code class="prettyprint">physical</code>: This is a tangible/physical product.</li><li><code class="prettyprint">digital</code>: This is a digital product (e.g. gift card).</li><li><code class="prettyprint">travel</code>: This is a travel industry product (e.g. flight ticket)</li><li><code class="prettyprint">event</code>: This is an event industry product (e.g. concert ticket)</li></ul></td>
 </tr>
 <tr>
 <td><code class="prettyprint">Vat</code></td>
@@ -13807,6 +13805,8 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <td><code class="prettyprint">public_username</code> Details about the seller of the item, relevant for marketplace orders.</td>
 </tr>
 </tbody></table>
+
+<p>*<code class="prettyprint">Type</code> has a different meaning based on the type of active integration (for example klarna /riskified)</p>
 
 <h4 id="discountcodes-and-discountcode-fields"><code class="prettyprint">DiscountCodes</code> and <code class="prettyprint">DiscountCode</code> fields</h4>
 
@@ -14742,14 +14742,6 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <td>Technical error</td>
 </tr>
 <tr>
-<td>516</td>
-<td>Operation canceled by the buyer</td>
-</tr>
-<tr>
-<td>551</td>
-<td>Unauthorized bank transfer</td>
-</tr>
-<tr>
 <td>552</td>
 <td>MyBank payment not completed</td>
 </tr>
@@ -15110,6 +15102,26 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <td>Token not found</td>
 </tr>
 <tr>
+<td>1169</td>
+<td>Not accepted call: invalid Merchant APIKEY</td>
+</tr>
+<tr>
+<td>1170</td>
+<td>invalid paymentToken</td>
+</tr>
+<tr>
+<td>1171</td>
+<td>missing authentication header</td>
+</tr>
+<tr>
+<td>1172</td>
+<td>Invalid call: check/DCC call missing</td>
+</tr>
+<tr>
+<td>1173</td>
+<td>Input data is not in the correct format, Please check your input</td>
+</tr>
+<tr>
 <td>1200</td>
 <td>No match between ABI code and BankPass Banks</td>
 </tr>
@@ -15182,8 +15194,264 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <td>Shipping Address Invalid City State Postal Code</td>
 </tr>
 <tr>
-<td>1987</td>
-<td>Technical error</td>
+<td>1307</td>
+<td>Event type is missing</td>
+</tr>
+<tr>
+<td>1400</td>
+<td>Element not found</td>
+</tr>
+<tr>
+<td>1401</td>
+<td>No data found</td>
+</tr>
+<tr>
+<td>1402</td>
+<td>Ambiguous search name</td>
+</tr>
+<tr>
+<td>1403</td>
+<td>Wrong paymentType</td>
+</tr>
+<tr>
+<td>1404</td>
+<td>Authentication method not allowed</td>
+</tr>
+<tr>
+<td>1405</td>
+<td>SearchID not found</td>
+</tr>
+<tr>
+<td>1406</td>
+<td>Column not found</td>
+</tr>
+<tr>
+<td>1407</td>
+<td>Not accepted call: invalid Master APIKEY</td>
+</tr>
+<tr>
+<td>1408</td>
+<td>Missing or wrong UserID</td>
+</tr>
+<tr>
+<td>1409</td>
+<td>Wrong searchID: it must be a numeric value</td>
+</tr>
+<tr>
+<td>1410</td>
+<td>Wrong date format: it must be DD/MM/YYYY</td>
+</tr>
+<tr>
+<td>1411</td>
+<td>Wrong lastNDays value: it must be a numeric value</td>
+</tr>
+<tr>
+<td>1412</td>
+<td>Wrong transaction error code value</td>
+</tr>
+<tr>
+<td>1413</td>
+<td>Wrong paymentID</td>
+</tr>
+<tr>
+<td>1414</td>
+<td>Wrong authorization result value</td>
+</tr>
+<tr>
+<td>1415</td>
+<td>Wrong tdLevel value</td>
+</tr>
+<tr>
+<td>1416</td>
+<td>Wrong eventType value</td>
+</tr>
+<tr>
+<td>1417</td>
+<td>Wrong includeToday value: true/false</td>
+</tr>
+<tr>
+<td>1418</td>
+<td>Wrong transaction state value</td>
+</tr>
+<tr>
+<td>1419</td>
+<td>Wrong chargeback.type value</td>
+</tr>
+<tr>
+<td>1420</td>
+<td>Event type is missing</td>
+</tr>
+<tr>
+<td>1421</td>
+<td>Chargeback type is missing</td>
+</tr>
+<tr>
+<td>1422</td>
+<td>Wrong paymentMethod.name</td>
+</tr>
+<tr>
+<td>1423</td>
+<td>Wrong riskAlert value: true/false</td>
+</tr>
+<tr>
+<td>1424</td>
+<td>Wrong value in customFields/Info parameter</td>
+</tr>
+<tr>
+<td>1425</td>
+<td>Wrong rangeResult value: it must be a numeric value with n/n format</td>
+</tr>
+<tr>
+<td>1426</td>
+<td>Batch name is missing</td>
+</tr>
+<tr>
+<td>1427</td>
+<td>Existing batch with the same name</td>
+</tr>
+<tr>
+<td>1428</td>
+<td>Missing or wrong batchID</td>
+</tr>
+<tr>
+<td>1429</td>
+<td>Missing or wrong searchID</td>
+</tr>
+<tr>
+<td>1430</td>
+<td>Missing or wrong fyleType</td>
+</tr>
+<tr>
+<td>1431</td>
+<td>Wrong templateID</td>
+</tr>
+<tr>
+<td>1432</td>
+<td>Invalid email address</td>
+</tr>
+<tr>
+<td>1433</td>
+<td>Wrong &lsquo;email.enabled&rsquo; value: true/false</td>
+</tr>
+<tr>
+<td>1434</td>
+<td>Email value is missing</td>
+</tr>
+<tr>
+<td>1435</td>
+<td>Wrong ftp value</td>
+</tr>
+<tr>
+<td>1436</td>
+<td>Ftp value is missing</td>
+</tr>
+<tr>
+<td>1437</td>
+<td>Email or ftp: at least one of the two valued must be filled</td>
+</tr>
+<tr>
+<td>1438</td>
+<td>Wrong or missing frequencyID</td>
+</tr>
+<tr>
+<td>1439</td>
+<td>Wrong template</td>
+</tr>
+<tr>
+<td>1440</td>
+<td>Wrong default value: true/false</td>
+</tr>
+<tr>
+<td>1441</td>
+<td>Missing CURRENCY parameter</td>
+</tr>
+<tr>
+<td>1442</td>
+<td>Wrong channelType: EMAIL/QRCODE</td>
+</tr>
+<tr>
+<td>1443</td>
+<td>Existing filter with the same name</td>
+</tr>
+<tr>
+<td>1444</td>
+<td>Missing filter name (save.name)</td>
+</tr>
+<tr>
+<td>1445</td>
+<td>The amount cannot be updated</td>
+</tr>
+<tr>
+<td>1446</td>
+<td>Wrong or missing &#39;withAuth&rsquo;: true/false</td>
+</tr>
+<tr>
+<td>1447</td>
+<td>Wrong language: ITALIAN/ENGLISH</td>
+</tr>
+<tr>
+<td>1448</td>
+<td>Wrong &#39;capture&rsquo; value: SEPARATED/UNIFIED</td>
+</tr>
+<tr>
+<td>1449</td>
+<td>Wrong &#39;automaticBehaviour.type&rsquo; value: CAPTURE/DELETE</td>
+</tr>
+<tr>
+<td>1450</td>
+<td>AuthomaticBehaviour days: not numeric parameter value</td>
+</tr>
+<tr>
+<td>1451</td>
+<td>Creditcard: number of days higher than the max allowed</td>
+</tr>
+<tr>
+<td>1452</td>
+<td>PAYPAL: &#39;automaticBehaviour.days&rsquo; can be max 25</td>
+</tr>
+<tr>
+<td>1453</td>
+<td>KLARNA: &#39;automaticBehaviour.days&rsquo; can be max 14</td>
+</tr>
+<tr>
+<td>1454</td>
+<td>AMAZONPAY: &#39;automaticBehaviour.days&rsquo; can be max 25</td>
+</tr>
+<tr>
+<td>1455</td>
+<td>InvoiceID not found</td>
+</tr>
+<tr>
+<td>1456</td>
+<td>Amount with wrong deciman separator</td>
+</tr>
+<tr>
+<td>1457</td>
+<td>Expired paymentToken</td>
+</tr>
+<tr>
+<td>1458</td>
+<td>Wrong paymentPage value: VISIBLE/HIDDEN</td>
+</tr>
+<tr>
+<td>1459</td>
+<td>Wrong language: ITALIANO/ENGLISH/ESPANOL/FRANCAIS/GERMAN</td>
+</tr>
+<tr>
+<td>1460</td>
+<td>Wrong DCC value: true/false</td>
+</tr>
+<tr>
+<td>1461</td>
+<td>Creditcard data missing</td>
+</tr>
+<tr>
+<td>1462</td>
+<td>Ideal bankCode missing</td>
+</tr>
+<tr>
+<td>1463</td>
+<td>MyBank bankCode missing</td>
 </tr>
 <tr>
 <td>1999</td>
@@ -15284,6 +15552,62 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <tr>
 <td>2501</td>
 <td>payment not completed</td>
+</tr>
+<tr>
+<td>2502</td>
+<td>Smart2Pay: data wrong or missing</td>
+</tr>
+<tr>
+<td>2521</td>
+<td>SEPADD Error - AC01 - Account Identifier incorrect (i.e. invalid IBAN of the Debtor)</td>
+</tr>
+<tr>
+<td>2522</td>
+<td>SEPADD Error - AC04 - Account closed.</td>
+</tr>
+<tr>
+<td>2523</td>
+<td>SEPADD Error - AC06 - Account blocked.</td>
+</tr>
+<tr>
+<td>2524</td>
+<td>SEPADD Error - AC13 - Debtor account is a consumer account.</td>
+</tr>
+<tr>
+<td>2525</td>
+<td>SEPADD Error - AG01 - Direct Debit forbidden on this account for regulatory reasons.</td>
+</tr>
+<tr>
+<td>2526</td>
+<td>SEPADD Error - AG02 - Operation code/transaction code/sequence type incorrect., invalid file format.</td>
+</tr>
+<tr>
+<td>2527</td>
+<td>SEPADD Error - AM04 - Insufficient funds.</td>
+</tr>
+<tr>
+<td>2528</td>
+<td>SEPADD Error - AM05 - Duplicate collection.</td>
+</tr>
+<tr>
+<td>2529</td>
+<td>SEPADD Error - BE05 - Identifier of the Creditor Incorrect.</td>
+</tr>
+<tr>
+<td>2530</td>
+<td>SEPADD Error - CNOR - Creditor Bank is not registered under this BIC in the CSM.</td>
+</tr>
+<tr>
+<td>2531</td>
+<td>SEPADD Error - DNOR - Debtor Bank is not registered under this BIC in the CSM.</td>
+</tr>
+<tr>
+<td>2532</td>
+<td>SEPADD Error - FF01 - File Format incomplete or invalid.</td>
+</tr>
+<tr>
+<td>2533</td>
+<td>SEPADD Error - MD01 - No mandate.</td>
 </tr>
 <tr>
 <td>4001</td>
