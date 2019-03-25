@@ -30,13 +30,10 @@ Checks if the card is elegible for Dynamic Currency Conversion.
 
 #### Request 
 
-Headers: 
-
-To receive a valid response from Gestpay you must use one of these headers: 
+Header: 
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
 | `paymentToken` | `"{paymentToken}"` | A payment token received during the payment process |
 
 

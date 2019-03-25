@@ -59,9 +59,7 @@
 | 490  | Technical error                                                                                                    | 
 | 491  | Technical error in connection with Credit Card Company network                                                     | 
 | 492  | Technical error in connection with Credit Card Company network                                                     | 
-| 494  | Technical error                                                                                                    | 
-| 516  | Operation canceled by the buyer                                                                                    | 
-| 551  | Unauthorized bank transfer                                                                                         | 
+| 494  | Technical error                                                                                                    |  
 | 552  | MyBank payment not completed                                                                                       | 
 | 553  | MyBank payment abbandoned by buyer                                                                                 | 
 | 600  | Technical error                                                                                                    |
@@ -152,6 +150,11 @@
 | 1163 | CustomToken used for another card                                                                                  |
 | 1164 | Expired Token                                                                                                      |
 | 1165 | Token not found                                                                                                    |
+| 1169 | Not accepted call: invalid Merchant APIKEY                                                                         |
+| 1170 | invalid paymentToken                                                                                               |
+| 1171 | missing authentication header                                                                                      |
+| 1172 | Invalid call: check/DCC call missing                                                                               |
+| 1173 | Input data is not in the correct format, Please check your input                                                   |
 | 1200 | No match between ABI code and BankPass Banks                                                                       |
 | 1201 | BankPass Transaction abandoned by buyer                                                                            |
 | 1202 | BankPass - Buyer login failed                                                                                      |
@@ -170,7 +173,71 @@
 | 1304 | Shipping Address Postal Code Empty                                                                                 |
 | 1305 | Shipping Address Country Empty                                                                                     |
 | 1306 | Shipping Address Invalid City State Postal Code                                                                    |
-| 1987 | Technical error                                                                                                    |
+| 1307 | Event type is missing                                                                                              |
+| 1400 | Element not found                                                                                                  |
+| 1401 | No data found                                                                                                      |
+| 1402 | Ambiguous search name                                                                                              |
+| 1403 | Wrong paymentType                                                                                                  |
+| 1404 | Authentication method not allowed                                                                                  |
+| 1405 | SearchID not found                                                                                                 |
+| 1406 | Column not found                                                                                                   |
+| 1407 | Not accepted call: invalid Master APIKEY                                                                           |
+| 1408 | Missing or wrong UserID                                                                                            |
+| 1409 | Wrong searchID: it must be a numeric value                                                                         |
+| 1410 | Wrong date format: it must be DD/MM/YYYY                                                                           |
+| 1411 | Wrong lastNDays value: it must be a numeric value                                                                  |
+| 1412 | Wrong transaction error code value                                                                                 |
+| 1413 | Wrong paymentID                                                                                                    |
+| 1414 | Wrong authorization result value                                                                                   |
+| 1415 | Wrong tdLevel value                                                                                                |
+| 1416 | Wrong eventType value                                                                                              |
+| 1417 | Wrong includeToday value: true/false                                                                               |
+| 1418 | Wrong transaction state value                                                                                      |
+| 1419 | Wrong chargeback.type value                                                                                        |
+| 1420 | Event type is missing                                                                                              |
+| 1421 | Chargeback type is missing                                                                                         |
+| 1422 | Wrong paymentMethod.name                                                                                           |
+| 1423 | Wrong riskAlert value: true/false                                                                                  |
+| 1424 | Wrong value in customFields/Info parameter                                                                         |
+| 1425 | Wrong rangeResult value: it must be a numeric value with n/n format                                                |
+| 1426 | Batch name is missing                                                                                              |
+| 1427 | Existing batch with the same name                                                                                  |
+| 1428 | Missing or wrong batchID                                                                                           |
+| 1429 | Missing or wrong searchID                                                                                          |
+| 1430 | Missing or wrong fyleType                                                                                          |
+| 1431 | Wrong templateID                                                                                                   |
+| 1432 | Invalid email address                                                                                              |
+| 1433 | Wrong 'email.enabled' value: true/false                                                                            |
+| 1434 | Email value is missing                                                                                             |
+| 1435 | Wrong ftp value                                                                                                    |
+| 1436 | Ftp value is missing                                                                                               |
+| 1437 | Email or ftp: at least one of the two valued must be filled                                                        |
+| 1438 | Wrong or missing frequencyID                                                                                       |
+| 1439 | Wrong template                                                                                                     |
+| 1440 | Wrong default value: true/false                                                                                    |
+| 1441 | Missing CURRENCY parameter                                                                                         |
+| 1442 | Wrong channelType: EMAIL/QRCODE                                                                                    |
+| 1443 | Existing filter with the same name                                                                                 |
+| 1444 | Missing filter name (save.name)                                                                                    |
+| 1445 | The amount cannot be updated                                                                                       |
+| 1446 | Wrong or missing 'withAuth': true/false                                                                            |
+| 1447 | Wrong language: ITALIAN/ENGLISH                                                                                    |
+| 1448 | Wrong 'capture' value: SEPARATED/UNIFIED                                                                           |
+| 1449 | Wrong 'automaticBehaviour.type' value: CAPTURE/DELETE                                                              |
+| 1450 | AuthomaticBehaviour days: not numeric parameter value                                                              |
+| 1451 | Creditcard: number of days higher than the max allowed                                                             |
+| 1452 | PAYPAL: 'automaticBehaviour.days' can be max 25                                                                    |
+| 1453 | KLARNA: 'automaticBehaviour.days' can be max 14                                                                    |
+| 1454 | AMAZONPAY: 'automaticBehaviour.days' can be max 25                                                                 |
+| 1455 | InvoiceID not found                                                                                                |
+| 1456 | Amount with wrong deciman separator                                                                                |
+| 1457 | Expired paymentToken                                                                                               |
+| 1458 | Wrong paymentPage value: VISIBLE/HIDDEN                                                                            |
+| 1459 | Wrong language: ITALIANO/ENGLISH/ESPANOL/FRANCAIS/GERMAN                                                           |
+| 1460 | Wrong DCC value: true/false                                                                                        |
+| 1461 | Creditcard data missing                                                                                            |
+| 1462 | Ideal bankCode missing                                                                                             |
+| 1463 | MyBank bankCode missing                                                                                            |
 | 1999 | Technical error in connection with Credit Card Company network                                                     |
 | 2000 | Transaction exceeds maximum operations number in time period                                                       |
 | 2001 | Transaction exceeds maximum number of operations performed by the same buyer in time period                        |
@@ -196,6 +263,20 @@
 | 2030 | Due to RED configuration, transaction is sent to credit card companies, even if 3d-Secure authentication is failed |
 | 2500 | payment abbandoned by buyer                                                                                        |
 | 2501 | payment not completed                                                                                              |
+| 2502 | Smart2Pay: data wrong or missing                                                                                   |
+| 2521 | SEPADD Error - AC01 - Account Identifier incorrect (i.e. invalid IBAN of the Debtor)                               |
+| 2522 | SEPADD Error - AC04 - Account closed.                                                                              |
+| 2523 | SEPADD Error - AC06 - Account blocked.                                                                             |
+| 2524 | SEPADD Error - AC13 - Debtor account is a consumer account.                                                        |
+| 2525 | SEPADD Error - AG01 - Direct Debit forbidden on this account for regulatory reasons.                               |
+| 2526 | SEPADD Error - AG02 - Operation code/transaction code/sequence type incorrect., invalid file format.               |
+| 2527 | SEPADD Error - AM04 - Insufficient funds.                                                                          |
+| 2528 | SEPADD Error - AM05 - Duplicate collection.                                                                        |
+| 2529 | SEPADD Error - BE05 - Identifier of the Creditor Incorrect.                                                        |
+| 2530 | SEPADD Error - CNOR - Creditor Bank is not registered under this BIC in the CSM.                                   |
+| 2531 | SEPADD Error - DNOR - Debtor Bank is not registered under this BIC in the CSM.                                     |
+| 2532 | SEPADD Error - FF01 - File Format incomplete or invalid.                                                           |
+| 2533 | SEPADD Error - MD01 - No mandate.                                                                                  |
 | 4001 | Unexpected parameter value                                                                                         |
 | 4002 | Not numeric parameter value                                                                                        |
 | 4100 | Operation not allowed                                                                                              |
