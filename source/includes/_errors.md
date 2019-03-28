@@ -277,6 +277,39 @@
 | 2531 | SEPADD Error - DNOR - Debtor Bank is not registered under this BIC in the CSM.                                     |
 | 2532 | SEPADD Error - FF01 - File Format incomplete or invalid.                                                           |
 | 2533 | SEPADD Error - MD01 - No mandate.                                                                                  |
+| 2534 | SEPADD Error - MD02 - Mandate data missing or incorrect.                                                           |
+| 2535 | SEPADD Error - MD06 - Disputed authorized transaction.                                                             |
+| 2536 | SEPADD Error - MD07 - Debtor Deceased.                                                                             |
+| 2537 | SEPADD Error - MS02 - Refusal by the Debtor.                                                                       |
+| 2538 | SEPADD Error - MS03 - Reason not specified.                                                                        |
+| 2539 | SEPADD Error - RC01 - Bank Identifier (BIC) Incorrect.                                                             |
+| 2540 | SEPADD Error - RR01 - Regulatory Reason.                                                                           |
+| 2544 | SEPADD Error - SL01 - Specific Service offered by the Debtor Bank.                                                 |
+| 2546 | SEPADD Mandate Error - Preapproval cancelled by consumer                                                           |
+| 2547 | SEPADD Mandate Error - Session timeout                                                                             |
+| 2548 | SEPADD Mandate Error - Invalid creditor                                                                            |
+| 2549 | SEPADD Mandate Error - Duplicate mandate reference                                                                 |
+| 2550 | SEPADD Mandate Error - No documents to sign                                                                        |
+| 2551 | SEPADD Mandate Error - Forbidden IBAN                                                                              |
+| 2552 | SEPADD Mandate Error - Invalid account owner                                                                       |
+| 2553 | SEPADD Mandate Error - Mandate signature failed                                                                    |
+| 2554 | SEPADD Mandate Error - Invalid user approval (OTP) code                                                            |
+| 2555 | SEPADD Mandate Error - Inconsistent client data during signature.                                                  |
+| 2556 | SEPADD Mandate Error - Card operation refused by operator                                                          |
+| 2557 | SEPADD Mandate Error - Card operation bank refusal                                                                 |
+| 2558 | SEPADD Mandate Error - Card operation access failure                                                               |
+| 2559 | SEPADD Mandate Error - Card operation invalid transaction reference                                                |
+| 2560 | SEPADD Mandate Error - Card lost                                                                                   |
+| 2561 | SEPADD Mandate Error - Card stolen                                                                                 |
+| 2562 | SEPADD Mandate Error - Card suspect                                                                                |
+| 2563 | SEPADD Mandate Error - Duplicate order                                                                             |
+| 2564 | SEPADD Mandate Error - Resource not found                                                                          |
+| 2565 | SEPADD Mandate Error - Incomplete request data                                                                     |
+| 2566 | SEPADD Mandate Error - Invalid BIC                                                                                 |
+| 2567 | SEPADD Mandate Error - Invalid IBAN                                                                                |
+| 2568 | SEPADD Mandate Error - Multiple requests to provider with the same mandate                                         |
+| 2569 | SEPADD Mandate Error - Subscriber reached the monthly mandates limit with the same IBAN                            |
+| 2570 | SEPADD Mandate Error - Subscriber reached the limit of mandates created with the same phone number                 |
 | 4001 | Unexpected parameter value                                                                                         |
 | 4002 | Not numeric parameter value                                                                                        |
 | 4100 | Operation not allowed                                                                                              |
@@ -346,7 +379,10 @@
 | 4734 | Apple Pay: PKPaymentToken expired                                                                                  | 
 | 4800 | Expired session                                                                                                    | 
 | 4801 | Invalid ShopTransactionID value                                                                                    | 
-| 4802 | Currency or Amount don't match the original transaction                                                            | 
+| 4802 | Currency or Amount don't match the original transaction                                                            |
+| 5001 | AmazonPay error: Payment Method not allowed. Let the buyer choose a different payment method.                      |
+| 5002 | AmazonPay error: Payment Plan not set. Let the buyer choose a payment plan.                                        |
+| 5003 | AmazonPay error: Shipping address not set. Let the buyer set a shipping address.                                   | 
 | 7400 | Authorization denied                                                                                               |
 | 7401 | Authorization refused by credit card companies                                                                     |
 | 7402 | Card not qualified                                                                                                 |
