@@ -91,7 +91,7 @@
       <Price>50.5</Price>
       <UnitPrice>50.5</UnitPrice>
       <Type>1</Type><!-- 1: product -->
-      <Vat>22%</Vat>
+      <Vat>22</Vat>
       <Discount />
       <Category>Scale Models</Category>
       <Subcategory>cars</Subcategory>
@@ -110,7 +110,7 @@
       <Price>50.5</Price>
       <UnitPrice>50.5</UnitPrice>
       <Type>1</Type><!-- 1: product -->
-      <Vat>22%</Vat>
+      <Vat>22</Vat>
       <Discount />
       <Category>Scale Models</Category>
       <Subcategory>cars</Subcategory>
@@ -258,7 +258,7 @@
           "Price": "50.5",
           "UnitPrice": "50.5",
           "Type": "1",
-          "Vat": "22%",
+          "Vat": "22",
           "Category": "Scale Models",
           "Subcategory": "cars",
           "Brand": "LittleCars",
@@ -275,7 +275,7 @@
           "Price": "50.5",
           "UnitPrice": "50.5",
           "Type": "1",
-          "Vat": "22%",
+          "Vat": "22",
           "Category": "Scale Models",
           "Subcategory": "cars",
           "Brand": "LittleCars",
