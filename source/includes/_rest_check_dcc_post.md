@@ -34,7 +34,7 @@ Header:
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `paymentToken` | `"{paymentToken}"` | A payment token received during the payment process |
+| `paymentToken` | `{paymentToken}` | A payment token received during the payment process |
 
 
 request body details: 

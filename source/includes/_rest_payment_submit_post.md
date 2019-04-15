@@ -87,7 +87,7 @@ Headers:
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `paymentToken` | `"{PaymentToken}"` | The payment token, created via [payment/create](#post-payment-create) | 
+| `paymentToken` | `{PaymentToken}` | The payment token, created via [payment/create](#post-payment-create) | 
 
 
 Request Body: 
