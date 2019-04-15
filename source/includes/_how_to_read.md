@@ -4,7 +4,7 @@ The notation `{...}` means that are required the value of certain type. For exam
 
 | Header          | Value                         |
 | --------------- | ----------------------------- |
-| `Authorization` | `apikey "{merchant Api Key}"` |
+| `Authorization` | `apikey {merchant Api Key}` |
 
 means the header should look like 
 

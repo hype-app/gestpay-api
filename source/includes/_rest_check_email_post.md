@@ -33,8 +33,8 @@ To receive a valid response from Gestpay you must use one of these headers:
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `Authorization` | `apikey "{merchant Api Key}"` | The merchant API key can be found in Gestpay Merchant Back-Office. |
-| `paymentToken` | `"{paymentToken}"` | A payment token received during the payment process |
+| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+| `paymentToken` | `{paymentToken}` | A payment token received during the payment process |
 
 
 request body details: 
