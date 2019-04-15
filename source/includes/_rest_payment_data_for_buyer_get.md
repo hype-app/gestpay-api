@@ -25,7 +25,7 @@ Headers:
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `paymentToken` | `"{paymentToken}"` | The payment token returned by [payment/create](##post-payment-create-beta) |
+| `paymentToken` | `{paymentToken}` | The payment token returned by [payment/create](##post-payment-create-beta) |
 
 URL parameter: 
 
