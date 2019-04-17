@@ -4895,6 +4895,27 @@ Please note:
 
 <p>This mean that no others values are asked to the buyers; but if these field are not sent with the payment, a page will be displayed in order to ask the necessary fields like Phone and CountryCode of the buyer.</p>
 
+          <h3 id="encrypt-example-satispay">Encrypt Example: Satispay</h3>
+
+<blockquote>
+<p>Satispay example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>SATISPAY<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<p>Satispay does not need mandatory parameters. </p>
+
+<p>You must use <code class="prettyprint">SATISPAY</code> as <code class="prettyprint">paymentType</code>.</p>
+
+<p>More informations about Satispay are <a href="http://docs.gestpay.it/oth/satispay.html">in the doc</a>. </p>
+
           <h3 id="encrypt-example-sepa">Encrypt Example: SEPA</h3>
 
 <blockquote>
@@ -16358,6 +16379,10 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <tr>
 <td>QIWI</td>
 <td><code class="prettyprint">S2PQIW</code></td>
+</tr>
+<tr>
+<td>SATISPAY</td>
+<td><code class="prettyprint">SATISPAY</code></td>
 </tr>
 <tr>
 <td>SOFORT</td>
