@@ -3,8 +3,6 @@
 <!--- 
   Questo documento è utilizzato (e quindi linkato) in:
   #callpagams2s (creazione pagamento S2S)
-  #encrypt (creazione pagamento con encrypt)
-  #post-payment-create (creazione pagamento con REST)
 --->
 
 > `3ds20Container` xml example: 
