@@ -191,20 +191,12 @@ The following features may be optionally assigned:
 | `PayPalFee` | the fee owed to paypal. 
 | `TDLevel` | Level of authentication for 3D-Secure transactions. `FULL` or `HALF`
 | `RiskResponseCode` | Risk Fraud Score of the transaction, given by [ Gestpay Guaranteed Payment](<%= config[:doc_url] %>/sec/gestpay-guaranteed-payment.html). Possible values are: <ul><li>`created`: transaction has been received by the Gestpay Guaranteed Payment</li><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Gestpay Guaranteed Payment</li><li>`declined`: transaction not approved by  Gestpay Guaranteed Payment</li><li>`captured`: For *Select&Submit* plan, `captured` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Gestpay Guaranteed Payment.</li></ul>
-| `3DS` | Object with information about 3ds authentication (described below)
+| `threeDS` | Object with information about 3ds authentication (described below)
 
-The 3DS object  contains two object:
+The threeDS object contains two object:
 
-- `AuthenticationResult` (this object is used for authentication-only method too)
+- `AuthenticationResult` of type [3ds Authentication result](#3ds-2-0-authentication-beta) (this object is used for authentication-only method too)
 
-| Name           | Description | 
-| -------------- | ----------- |
-| `full3D ` | `Y` if the transaction is successfully authenticated by 3ds
-| `autenthicationStatus ` | Only if the full3D value is yes, empty otherwise. `Y` if authentication has been successful
-| `XID` | Transaction unique id, valorized only if the full3D and authenticationStatus fields value is yes. 
-| `CAVV` | Cardholder Authentication Verification Value, valorized only if the full3D and authenticationStatus fields value is yes. 
-| `ECI` | Electronic Commerce Indicator, valorized only if the full3D and authenticationStatus fields value is yes. 
-| `CAVValgorithm` |Cardholder Authentication Verification Algoritm, valorized only if the full3D and authenticationStatus fields value is yes. 
 
 - `InAppChallenge` (Tihs fields are valorized and usefull only in app integration)
 
