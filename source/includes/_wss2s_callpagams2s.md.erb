@@ -101,7 +101,7 @@ The following features may be optionally assigned:
 | `itemType`     | Item Category: `digital`/`physical` (If `physical` the `ShippingDetails` have to be filled) | string | 250 | 
 | `recurrent` | true if it's a recurrent payment, false if not. | boolean | 5 | 
 | `shippingDetails` | contains the shipping address. Used for [paypal seller protection](<%= config[:doc_url] %>/oth/paypal.html).
-| `transactionType` | transaction type. Value can be: <ul><li>ecommerce</li><li>moto</li></ul> | string | - |
+| `typeOfTransaction` | transaction type. Value can be: <ul><li>ecommerce</li><li>moto</li></ul> | string | - |
 | [`OrderDetails`](#orderdetails) | contains every other info needed to handle the payment. It is used by  Gestpay Guaranteed Payment. 
 
 - children of `ShippingDetails` :

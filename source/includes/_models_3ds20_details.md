@@ -169,7 +169,7 @@ The JSON example can be found [here](#3ds-details-json)
 | **`shipAddrLine3`** | 50 | Thrid line of the street address or equivalent local portion of the shipping address requested by the Cardholder. |
 | **`shipAddrPostCode`** | 16 | The ZIP or other postal code of the shipping address requested by the Cardholder. |
 | **`shipAddrState`** | 32 | The state or province of the shipping address associated with the card being used for this purchase. Should be the state, province or regional code (country subdivision code, [see Paypal State Codes table](#paypal-country-codes))  |
-| **`addrMatch`** | 32 | Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. `Y` for yes and `N` for no |
+| **`addrMatch`** | 1 | Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. `Y` for yes and `N` for no |
 | `acctInfo` | object | Additional information about the Cardholder’s account provided by the 3DS Requestor. |
 | `merchantRiskIndicator` | object | Merchant’s assessment of the level of fraud risk for the specific authentication for both the cardholder and the authentication being conducted. |
 
