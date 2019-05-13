@@ -1,4 +1,4 @@
-## 3ds 2.0 fields
+## 3ds 2.0 fields <span class='beta'>BETA</span>
 
 <!--- 
   Questo documento è utilizzato (e quindi linkato) in:
@@ -170,8 +170,11 @@ The JSON example can be found [here](#3ds-details-json)
 | **`shipAddrPostCode`** | 16 | The ZIP or other postal code of the shipping address requested by the Cardholder. |
 | **`shipAddrState`** | 32 | The state or province of the shipping address associated with the card being used for this purchase. Should be the state, province or regional code (country subdivision code, [see Paypal State Codes table](#paypal-country-codes))  |
 | **`addrMatch`** | 1 | Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. `Y` for yes and `N` for no |
+| `SDKDetails` | string | Contains SDK data to be sent to ACS. 
 | `acctInfo` | object | Additional information about the Cardholder’s account provided by the 3DS Requestor. |
 | `merchantRiskIndicator` | object | Merchant’s assessment of the level of fraud risk for the specific authentication for both the cardholder and the authentication being conducted. |
+
+<aside class="notice">SDKDetails must be included if you are integration Gestpay in app integration.</aside>
 
 #### `acctInfo`'s fields. 
 
