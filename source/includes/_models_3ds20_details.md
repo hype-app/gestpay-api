@@ -5,10 +5,10 @@
   #callpagams2s (creazione pagamento S2S)
 --->
 
-> `3ds20Container` xml example: 
+> `threeDsContainer` xml example: 
 
 ```xml
-<3ds20Container>
+<threeDsContainer>
   <transTypeReq />
   <acquirerBIN />
   <acquirerMerchantID />
@@ -66,15 +66,15 @@
     <reorderItemsInd>01</reorderItemsInd>
     <shipIndicator>03</shipIndicator>
   </merchantRiskIndicator>
-</3ds20Container>
+</threeDsContainer>
 ``` 
 
-> `3ds20Container` JSON example: <span id="3ds-details-json"></span>
+> `threeDsContainer` JSON example: <span id="3ds-details-json"></span>
 
 
 ```json
 { 
-  "3ds20Container":{
+  "threeDsContainer":{
     "transTypeReq":"P",
     "acquirerBIN": "",
     "acquirerMerchantID": "",
@@ -137,7 +137,7 @@
 ``` 
 
 
-`3ds20Container`'s fields are used from 3ds server to establish if the transaction could be a fraud and require or not the SCA. 
+`threeDsContainer`'s fields are used from 3ds server to establish if the transaction could be a fraud and require or not the SCA. 
 
 The JSON example can be found [here](#3ds-details-json)
 
