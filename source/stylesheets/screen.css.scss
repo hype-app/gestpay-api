@@ -639,6 +639,17 @@ html, body {
   }
 }
 
+.inside-icon {
+  display: inline-block;
+  background: url("/images/inside_icon.svg");
+  height: 12px;
+  width: 16px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 10px;
+}
+
 .highlight .c, .highlight .cm, .highlight .c1, .highlight .cs {
   color: #909090;
 }
