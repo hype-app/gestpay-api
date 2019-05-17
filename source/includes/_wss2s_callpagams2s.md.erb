@@ -68,7 +68,13 @@ Depending on the payment method, you can choose to send **Credit Card** data:
 | **`cardNumber`** | card account number | string | 50 |
 | **`expiryMonth`** | card expiration month | string | 2 | 
 | **`expiryYear`** | card expiration year | string | 2 |
-| `threeDsAuthResult` <span class='beta'>BETA</span> | rappresent 3ds authentication status | object |  |
+| `threeDsAuthResult` <span class='beta'>BETA</span> | 3DS prior authentication done with another acquirer | object |  |
+| <div class="inside-icon"></div> `authenticationLevel` | Transaction is successfully athenticated by 3DS:<ul><li>1: 3DS 1.0</li><li>2: 3DS 2.0</li><li>C: in case of prior 3DS 2.0 authentication done with challenge flow</li></ul> | string | 1 
+| <div style="white-space: nowrap;"><div class="inside-icon"></div> `authenticationStatus`</div> | Status of previous authentication | string | 1
+| <div class="inside-icon"></div> `XID` | Transaction unique id assigned by Directory Server | string | 36  
+| <div class="inside-icon"></div> `AV` | Cardholder Authentication Verification Value, proof of authentication done | string | 28 
+| <div class="inside-icon"></div> `ECI` | Electronic Commerce Indicator | string | 2 
+| <div class="inside-icon"></div> `AVAlgorithm` | Cardholder Authentication Verification Algoritm, valorized only with 3DS 1.0 | string | 2 
 | [`threeDsContainer`](#3ds-2-0-fields) <span class='beta'>BETA</span> | 3ds 2.0 required fields | object |  |
 
 Or a **token**: 
@@ -78,18 +84,6 @@ Or a **token**:
 | **`tokenValue`**   | String containing the `token` value returned by Gestpay. <br/> In case of `PayPalBillingAgreement` this token value is the token returned by PayPal during the Billing Agreements. | string | 25 | 
 
 <aside class="notice">You must use exactly one among <strong>Credit Card data</strong> and <strong>Token value</strong>.</aside>
-<aside class="notice"><strong>threeDsAuthResult</strong> is required <strong>only</strong> if authentication has been done by another Acquirer.</aside>
-
-`threeDsAuthResult` object is consists of:
-
-| Name | max length | description |
-| ---- | :--------: | ----------- |
-| `authenticationLevel ` | 1 | Transaction is successfully athenticated by 3DS:<ul><li>1: 3DS 1.0</li><li>2: 3DS 2.0</li><li>C: in case of prior 3DS 2.0 authentication done with challenge flow</li></ul>
-| `authenticationStatus ` | 1 | Status of previous authentication
-| `XID` | 36 |Transaction unique id assigned by Directory Server 
-| `AV` | 28 | Cardholder Authentication Verification Value, proof of authentication done
-| `ECI` | 2 | Electronic Commerce Indicator
-| `AVAlgorithm` | 2 | Cardholder Authentication Verification Algoritm, valorized only with 3DS 1.0
 
 The following features may be optionally assigned:   
 
