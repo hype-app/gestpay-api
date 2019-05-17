@@ -69,13 +69,14 @@ Depending on the payment method, you can choose to send **Credit Card** data:
 | **`expiryMonth`** | card expiration month | string | 2 | 
 | **`expiryYear`** | card expiration year | string | 2 |
 | `threeDsAuthResult` <span class='beta'>BETA</span> | 3DS prior authentication done with another acquirer | object |  |
-| <div class="inside-icon"></div> `authenticationLevel` | Transaction is successfully athenticated by 3DS:<ul><li>1: 3DS 1.0</li><li>2: 3DS 2.0</li><li>C: in case of prior 3DS 2.0 authentication done with challenge flow</li></ul> | string | 1 
+| <div class="inside-icon"></div> `authenticationLevel` | Transaction is successfully athenticated by 3DS:<ul><li>1H: 3DS 1.0 half</li><li>1F: 3DS 1.0 full</li><li>2F: 3DS 2.0 frictionless</li><li>2C: 3Ds 2.0 challenge</li></ul> | string | 2 
 | <div style="white-space: nowrap;"><div class="inside-icon"></div> `authenticationStatus`</div> | Status of previous authentication | string | 1
 | <div class="inside-icon"></div> `XID` | Transaction unique id assigned by Directory Server | string | 36  
 | <div class="inside-icon"></div> `AV` | Cardholder Authentication Verification Value, proof of authentication done | string | 28 
 | <div class="inside-icon"></div> `ECI` | Electronic Commerce Indicator | string | 2 
 | <div class="inside-icon"></div> `AVAlgorithm` | Cardholder Authentication Verification Algoritm, valorized only with 3DS 1.0 | string | 2 
 | [`threeDsContainer`](#3ds-2-0-fields) <span class='beta'>BETA</span> | 3ds 2.0 required fields | object |  |
+
 
 Or a **token**: 
 
@@ -102,25 +103,8 @@ The following features may be optionally assigned:
 | `itemType`     | Item Category: `digital`/`physical` (If `physical` the `ShippingDetails` have to be filled) | string | 250 | 
 | `recurrent` | true if it's a recurrent payment, false if not. | boolean | 5 | 
 | `shippingDetails` | contains the shipping address. Used for [paypal seller protection](<%= config[:doc_url] %>/oth/paypal.html).
-| `typeOfTransaction` | transaction type. Value can be: <ul><li>ecommerce</li><li>moto</li></ul> | string | - |
 | `typeOfTransaction` <span class='beta'>BETA</span> | transaction type | object | - |
 | [`OrderDetails`](#orderdetails) | contains every other info needed to handle the payment. It is used by  Gestpay Guaranteed Payment. 
-
-- object `typeOfTransaction` <span class='beta'>BETA</span>: 
-
-| Name | Description | Format/length | 
-| ---- | ----------- | --------- | 
-| `Type` | Possible values:<ul><li>01: Recurring</li><li>02: Instalment</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li></ul> If not evaluated, the gestpay rule is applied. | 2 |
-| `instalmPaymNum` | - | 2 |
-| `priorTransAuthInfo` | - | object |
-| <div class="inside-icon"></div> `priorTransAuthData` | - | string |
-| <div class="inside-icon"></div> `priorTransAuthMethod` | - | 2 |
-| <div style="white-space: nowrap;"><div class="inside-icon"></div> `priorTransAuthTimestamp`</div> | - | 12 |
-| <div class="inside-icon"></div> `priorTransAcsID` | - | 36 |
-| <div class="inside-icon"></div> `priorBankID` | - | 18 |
-| `recurringExpiry` | - | 8 |
-| `recurringFrequency` | - | 4 |
-
 
 - children of `ShippingDetails`:
 
@@ -132,6 +116,21 @@ The following features may be optionally assigned:
 | `shipToCountryCode` | shipping country code (see [Paypal Country Codes](#paypal-country-codes) table) | string | 2 | 
 | `shipToZip` | the shipping Zip | string | 20 | 
 | `shipToStreet2` | an additional field for the shipping  address | string | 200 | 
+
+- children of `typeOfTransaction` <span class='beta'>BETA</span>: 
+
+| Name | Description | Format/length | 
+| ---- | ----------- | --------- | 
+| `Type` | Possible values:<ul><li>01: Recurring</li><li>02: Instalment</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li></ul> If not evaluated, the Gestpay rule is applied. | 2 |
+| `instalmPaymNum` | Required in case of instalment payment authentication. Indicate the maximum of authorisations permitted | 2 |
+| `priorTransAuthInfo` |  | object |
+| <div class="inside-icon"></div> `priorTransAuthData` | Prior Transaction Authentication Data | string |
+| <div class="inside-icon"></div> `priorTransAuthMethod` | Prior Transaction Authentication Method | 2 |
+| <div style="white-space: nowrap;"><div class="inside-icon"></div> `priorTransAuthTimestamp`</div> | Prior Transaction Authentication Timestamp | 12 |
+| <div class="inside-icon"></div> `priorTransAcsID` | Prior Transaction Authentication Reference (ACD Transaction ID) | 36 |
+| <div class="inside-icon"></div> `priorBankID` | Prior Transaction Bank ID (if it was managed by Gestpay) | 18 |
+| `recurringExpiry` | Required for Recurring Payments. Date after which no further authorisations shall be performed | 8 |
+| `recurringFrequency` | Required for Recurring Payments. Indicates the minimum number of days between authorisations | 4 |
 
 #### Response fields 
 
@@ -223,19 +222,17 @@ The threeDS object contains two object:
 
 | Name | max length | description |
 | ---- | :--------: | ----------- |
-| `authenticationLevel ` | 1 | -
-| `authenticationStatus ` | 1 | Only if the full3D value is yes, empty otherwise. `Y` if authentication has been successful
-| `XID` | 36 |Transaction unique id, valorized only if the full3D and authenticationStatus fields value is yes. 
-| `AV` | 28 | Cardholder Authentication Verification Value, valorized only if the full3D and authenticationStatus fields value is yes. 
-| `ECI` | 2 | Electronic Commerce Indicator, valorized only if the full3D and authenticationStatus fields value is yes. 
-| `AVAlgorithm` | 2 | Cardholder Authentication Verification Algoritm, valorized only if the full3D and authenticationStatus fields value is yes. 
-| `transAuthInfo` | object | -
-| <div class="inside-icon"></div> `transAuthData` | - | -
-| <div class="inside-icon"></div> `transAuthMethod` | - | -
-| <div style="white-space: nowrap;"><div class="inside-icon"></div> `transAuthTimestamp`</div> | - | -
-| <div class="inside-icon"></div> `transAuthAuthAcsID` | - | -
-
-
+| <div class="inside-icon"></div> `authenticationLevel` | 2  | Transaction is successfully athenticated by 3DS:<ul><li>1H: 3DS 1.0 half</li><li>1F: 3DS 1.0 full</li><li>2F: 3DS 2.0 frictionless</li><li>2C: 3Ds 2.0 challenge</li></ul>
+| <div style="white-space: nowrap;"><div class="inside-icon"></div> `authenticationStatus`</div>  | 1 | Status of previous authentication
+| <div class="inside-icon"></div> `XID`  | 36 | Transaction unique id assigned by Directory Server
+| <div class="inside-icon"></div> `AV`  | 28 | Cardholder Authentication Verification Value, proof of authentication done
+| <div class="inside-icon"></div> `ECI` | 2 | Electronic Commerce Indicator 
+| <div class="inside-icon"></div> `AVAlgorithm`  | 2 | Cardholder Authentication Verification Algoritm, valorized only with 3DS 1.0
+| `transAuthInfo` | object | 
+| <div class="inside-icon"></div> `transAuthData` | 2048 | Transaction Authentication Data
+| <div class="inside-icon"></div> `transAuthMethod` | 2 | Transaction Authentication Method
+| <div style="white-space: nowrap;"><div class="inside-icon"></div> `transAuthTimestamp`</div> | 12 | Transaction Authentication Timestamp
+| <div class="inside-icon"></div> `transAuthAuthAcsID` | 36 | ACS Transaction ID
 
 - `InAppChallenge` (Tihs fields are valorized and usefull only in app integration)
 
