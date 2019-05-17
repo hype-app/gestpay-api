@@ -68,7 +68,7 @@ Depending on the payment method, you can choose to send **Credit Card** data:
 | **`cardNumber`** | card account number | string | 50 |
 | **`expiryMonth`** | card expiration month | string | 2 | 
 | **`expiryYear`** | card expiration year | string | 2 |
-| **`threeDsAuthResult`** <span class='beta'>BETA</span> | rappresent 3ds authentication status | object |  |
+| `threeDsAuthResult` <span class='beta'>BETA</span> | rappresent 3ds authentication status | object |  |
 | [`threeDsContainer`](#3ds-2-0-fields) <span class='beta'>BETA</span> | 3ds 2.0 required fields | object |  |
 
 Or a **token**: 
@@ -84,12 +84,12 @@ Or a **token**:
 
 | Name | max length | description |
 | ---- | :--------: | ----------- |
-| `authenticationLevel ` | 1 | -
-| `authenticationStatus ` | 1 | Only if the full3D value is yes, empty otherwise. `Y` if authentication has been successful
-| `XID` | 36 |Transaction unique id, valorized only if the full3D and authenticationStatus fields value is yes. 
-| `AV` | 28 | Cardholder Authentication Verification Value, valorized only if the full3D and authenticationStatus fields value is yes. 
-| `ECI` | 2 | Electronic Commerce Indicator, valorized only if the full3D and authenticationStatus fields value is yes. 
-| `AVAlgorithm` | 2 | Cardholder Authentication Verification Algoritm, valorized only if the full3D and authenticationStatus fields value is yes. 
+| `authenticationLevel ` | 1 | Transaction is successfully athenticated by 3DS:<ul><li>1: 3DS 1.0</li><li>2: 3DS 2.0</li><li>C: in case of prior 3DS 2.0 authentication done with challenge flow</li></ul>
+| `authenticationStatus ` | 1 | Status of previous authentication
+| `XID` | 36 |Transaction unique id assigned by Directory Server 
+| `AV` | 28 | Cardholder Authentication Verification Value, proof of authentication done
+| `ECI` | 2 | Electronic Commerce Indicator
+| `AVAlgorithm` | 2 | Cardholder Authentication Verification Algoritm, valorized only with 3DS 1.0
 
 The following features may be optionally assigned:   
 
