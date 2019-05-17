@@ -238,6 +238,7 @@
 | 1461 | Creditcard data missing                                                                                            |
 | 1462 | Ideal bankCode missing                                                                                             |
 | 1463 | MyBank bankCode missing                                                                                            |
+| 1464 | Wrong 'level' value                                                                                                |
 | 1999 | Technical error in connection with Credit Card Company network                                                     |
 | 2000 | Transaction exceeds maximum operations number in time period                                                       |
 | 2001 | Transaction exceeds maximum number of operations performed by the same buyer in time period                        |
