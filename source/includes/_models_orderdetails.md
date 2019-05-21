@@ -454,7 +454,7 @@ If you have access to socal data of your customers, you can send them along with
 | `Quantity` | 3   | The number of products
 | `Price` | 12  | Article’s price
 | `UnitPrice` | 12  | Article’s Unit Price
-| `Type`* | 2   | The type of article: <ul><li>`1`: product</li><li>`2`: shipping</li><li>`3`: handling</li></ul>If the riskified integration is active, the product type should contain one of the following values:<ul><li>`physical`: This is a tangible/physical product.</li><li>`digital`: This is a digital product (e.g. gift card).</li><li>`travel`: This is a travel industry product (e.g. flight ticket)</li><li>`event`: This is an event industry product (e.g. concert ticket)</li></ul>
+| `Type`* | 2   | The type of article: <ul><li>`1`: product</li><li>`2`: shipping</li><li>`3`: handling</li></ul>If the riskified integration is active, the product type should contain one of the following values:<ul><li>`physical`: This is a tangible/physical product.</li><li>`digital`: This is a digital product (e.g. gift card).</li><li>`travel`: This is a travel industry product (e.g. flight ticket)</li><li>`event`: This is an event industry product (e.g. concert ticket)</li></ul>If instead the active integration is klarna, the value are:<ul><li>`4`: discount</li><li>`5`: phisical article</li><li>`6`: shipping fee</li><li>`7`: sales tax</li><li>`8`: digital article</li><li>`9`: gift card</li><li>`10`: store credit</li><li>`11`: surcharge</li></ul>You can find more information about Klarna type codes [here](https://docs.gestpay.it/soap/alternative-payments/klarna/#product-type)
 | `Vat` | 2   | Value-Added Tax (the value of the tax)
 | `Discount` | 2   | The amount offered by you as discount 
 | `Category` |     | Product Category
