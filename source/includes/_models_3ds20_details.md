@@ -143,10 +143,14 @@ The JSON example can be found [here](#3ds-details-json)
 
 | Name | max length | description |
 | ---- | :--------: | ----------- |
-| `transTypeReq` | 1 | Type of transaction required to GestPay: complete payment process or only authentication (in case of third party Acquirer). `P` for Payment (default) and `A` for authentication only.  |
+| `transTypeReq` | 1 | Type of transaction required to GestPay: complete payment process or only authentication (in case of third party Acquirer). <ul><li>`P` for Payment (default)</li><li>`A` for authentication only</li></ul>  |
 | `acquirerBIN` | 11 |This field are required only if `transTypeReq` value is `A`. Acquiring institution identification code as assigned by the DS receiving the AReq  message |
 | `acquirerMerchantID ` | 35 | This field are required only if `transTypeReq` value is `A`. Acquirer-assigned Merchant identifier. This may be the same value that is used in authorisation requests sent on behalf of the 3DS Requestor and is represented in ISO 8583 formatting requirements. | 
 | `MerchantCardholderID` | 64 | Additional information about the account optionally provided by the 3DS Requestor. |
+| `merchantTransAuthInfo` | object | Contains option information about the merchant authenticated the cardholder before or during the transaction. |
+| <div class="inside-icon"></div> `merchantTransAuthData` | string | Transaction authenticated data |
+| <div class="inside-icon"></div> `merchantTransAuthMethod` | 2 | Transaction authenticated method <ul><li>01: No merchant authentication occurred (i.e. cardholder “logged in” as guest)</li> <li>02: Login to the cardholder account at the merchant system using merchant’s own credentials</li> <li>03: Login to the cardholder account at the merchant system using federated ID</li> <li>04: Login to the cardholder account at the merchant system using issuer credentials</li> <li>05: Login to the cardholder account at the merchant system using third-party authentication</li> <li>06: Login to the cardholder account at the merchant system using FIDO Authenticator</li> <li>07: Login to the cardholder account at the merchant system using FIDO Authenticator (FIDO assurance data signed)</li> <li>08: SRC Assurance Data</li> </ul> |
+|  <div style="white-space: nowrap;"><div class="inside-icon"></div> `merchantTransAuthTimestamp`</div> | 2 | Transaction authenticated timestamp |
 | `billingAddress` | object | Cardholder billing address associated with the card used for this purchase. |
 | <div class="inside-icon"></div> `city` | 50 | The city of the Cardholder billing address associated with the card used for this purchase. |
 | <div class="inside-icon"></div> `country` | 32 | The country of the Cardholder billing address associated with the card used for this purchase. [See Paypal Country Codes table](#paypal-country-codes) |
