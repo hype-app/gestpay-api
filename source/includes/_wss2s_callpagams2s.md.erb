@@ -14,9 +14,6 @@ Merchants can use this method to perform the transaction, passing all the parame
   <uicCode>242</uicCode><!-- euro -->
   <amount>24.21</amount>
   <shopTransactionId>MYSHOP-0001</shopTransactionId>
-  <threeDsContainer>
-    ...
-  </threeDsContainer>
   <!-- here we have choosen to pay with credit card data -->
   <cardNumber>1234567812345678</cardNumber>
   <expiryMonth>06</expiryMonth>
@@ -35,14 +32,17 @@ Merchants can use this method to perform the transaction, passing all the parame
   <itemType>physical</itemType>
   <recurrent>false</recurrent>
   <shippingDetails>
-      <shipToName>Jonny Kennedy</shipToName>
-      <shipToStreet>83 Beals street</shipToStreet>
-      <shipToCity>Brookline</shipToCity>
-      <shipToState>MA</shipToState>
-      <shipToCountryCode>US</shipToCountryCode>
-      <shipToZip>02446</shipToZip>
-      <shipToStreet2 />
+    <shipToName>Jonny Kennedy</shipToName>
+    <shipToStreet>83 Beals street</shipToStreet>
+    <shipToCity>Brookline</shipToCity>
+    <shipToState>MA</shipToState>
+    <shipToCountryCode>US</shipToCountryCode>
+    <shipToZip>02446</shipToZip>
+    <shipToStreet2 />
   </shippingDetails>
+  <transDetails>
+    ...
+  </transDetails>
   <OrderDetails>
     ... 
   </OrderDetails>
@@ -68,15 +68,6 @@ Depending on the payment method, you can choose to send **Credit Card** data:
 | **`cardNumber`** | card account number | string | 50 |
 | **`expiryMonth`** | card expiration month | string | 2 | 
 | **`expiryYear`** | card expiration year | string | 2 |
-| `threeDsAuthResult` <span class='beta'>BETA</span> | 3DS prior authentication done with another acquirer | object |  |
-| <div class="inside-icon"></div> `authenticationLevel` | Transaction is successfully athenticated by 3DS:<ul><li>1H: 3DS 1.0 half</li><li>1F: 3DS 1.0 full</li><li>2F: 3DS 2.0 frictionless</li><li>2C: 3Ds 2.0 challenge</li></ul> | string | 2 
-| <div style="white-space: nowrap;"><div class="inside-icon"></div> `authenticationStatus`</div> | Status of previous authentication | string | 1
-| <div class="inside-icon"></div> `XID` | Transaction unique id assigned by Directory Server | string | 36  
-| <div class="inside-icon"></div> `AV` | Cardholder Authentication Verification Value, proof of authentication done | string | 28 
-| <div class="inside-icon"></div> `ECI` | Electronic Commerce Indicator | string | 2 
-| <div class="inside-icon"></div> `AVAlgorithm` | Cardholder Authentication Verification Algoritm, valorized only with 3DS 1.0 | string | 2 
-| [`threeDsContainer`](#3ds-2-0-fields) <span class='beta'>BETA</span> | 3ds 2.0 required fields | object |  |
-
 
 Or a **token**: 
 
@@ -103,7 +94,7 @@ The following features may be optionally assigned:
 | `itemType`     | Item Category: `digital`/`physical` (If `physical` the `ShippingDetails` have to be filled) | string | 250 | 
 | `recurrent` | true if it's a recurrent payment, false if not. | boolean | 5 | 
 | `shippingDetails` | contains the shipping address. Used for [paypal seller protection](<%= config[:doc_url] %>/oth/paypal.html).
-| `typeOfTransaction` <span class='beta'>BETA</span> | transaction type | object | - |
+| `transDetails` <span class='beta'>BETA</span> |  | object | - |
 | [`OrderDetails`](#orderdetails) | contains every other info needed to handle the payment. It is used by  Gestpay Guaranteed Payment. 
 
 - children of `ShippingDetails`:
@@ -117,14 +108,23 @@ The following features may be optionally assigned:
 | `shipToZip` | the shipping Zip | string | 20 | 
 | `shipToStreet2` | an additional field for the shipping  address | string | 200 | 
 
-- children of `typeOfTransaction` <span class='beta'>BETA</span>: 
+- children of `transDetails` <span class='beta'>BETA</span>: 
 
 | Name | Description | Format/length | 
 | ---- | ----------- | --------- | 
-| `Type` | Possible values:<ul><li>01F: Recurring first</li><li>01N: Recurring next</li><li>02F: Instalment first</li><li>02N: Instalment next</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li></ul> If not evaluated, the Gestpay rule is applied. | 3 |
-| `instalmPaymNum` | Required in case of instalment payment authentication. Indicate the maximum of authorisations permitted | 2 |
-| `recurringExpiry` | Required for Recurring Payments. Date after which no further authorisations shall be performed | 8 |
-| `recurringFrequency` | Required for Recurring Payments. Indicates the minimum number of days between authorisations | 4 |
+| `type` | Possible values:<ul><li>01F: Recurring first</li><li>01N: Recurring next</li><li>02F: Instalment first</li><li>02N: Instalment next</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li></ul> If not evaluated, the Gestpay rule is applied. | 3 |
+`threeDsAuthResult` <span class='beta'>BETA</span> | 3DS prior authentication done with another acquirer | object |  |
+| <div class="inside-icon"></div> `authenticationLevel` | Transaction is successfully athenticated by 3DS:<ul><li>1H: 3DS 1.0 half</li><li>1F: 3DS 1.0 full</li><li>2F: 3DS 2.0 frictionless</li><li>2C: 3Ds 2.0 challenge</li></ul> | string | 2 
+| <div style="white-space: nowrap;"><div class="inside-icon"></div> `authenticationStatus`</div> | Status of previous authentication | string | 1
+| <div class="inside-icon"></div> `XID` | Transaction unique id assigned by Directory Server | string | 36  
+| <div class="inside-icon"></div> `AV` | Cardholder Authentication Verification Value, proof of authentication done | string | 28 
+| <div class="inside-icon"></div> `ECI` | Electronic Commerce Indicator | string | 2 
+| <div class="inside-icon"></div> `AVAlgorithm` | Cardholder Authentication Verification Algoritm, valorized only with 3DS 1.0 | string | 2 
+| [`threeDsContainer`](#3ds-2-0-fields) <span class='beta'>BETA</span> | 3ds 2.0 required fields | object |  |
+| `recurringTransaction` |  | object| |
+| <div class="inside-icon"></div> `installNo` | Required in case of instalment payment authentication. Indicate the maximum of authorisations permitted | 2 |
+| <div class="inside-icon"></div> `expiry` | Required for Recurring Payments. Date after which no further authorisations shall be performed | 8 |
+| <div class="inside-icon"></div> `frequency` | Required for Recurring Payments. Indicates the minimum number of days between authorisations | 4 |
 | `previousTransDetails` |  | object |
 | <div class="inside-icon"></div> `authData` | Prior Transaction Authentication Data | string |
 | <div class="inside-icon"></div> `authMethod` | Prior Transaction Authentication Method | 2 |

@@ -648,6 +648,9 @@ html, body {
   background-size: contain;
   background-repeat: no-repeat;
   margin: 0 10px;
+  &.second {
+    margin-left: 30px;
+  }
 }
 
 .highlight .c, .highlight .cm, .highlight .c1, .highlight .cs {
