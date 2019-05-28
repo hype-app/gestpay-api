@@ -229,9 +229,6 @@
   <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
   <span class="nt">&lt;amount&gt;</span>985.21<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;3ds20Container&gt;</span>
-    ...
-  <span class="nt">&lt;/3ds20Container&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
 <blockquote>
@@ -273,11 +270,6 @@
 <td style="text-align: center">50</td>
 <td>Identifier attributed to merchant’s transaction (Mandatory)</td>
 </tr>
-<tr>
-<td><strong><a href="#3ds-2-0-fields"><code class="prettyprint">3ds20Container</code></a></strong></td>
-<td style="text-align: center">-</td>
-<td>3ds 2.0 required fields (Mandatory object)</td>
-</tr>
 </tbody></table>
 
 <blockquote>
@@ -289,9 +281,6 @@
   <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
   <span class="nt">&lt;amount&gt;</span>1245.6<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;3ds20Container&gt;</span>
-    ...
-  <span class="nt">&lt;/3ds20Container&gt;</span>
   <span class="nt">&lt;buyerName&gt;</span>Mario Bianchi<span class="nt">&lt;/buyerName&gt;</span>
   <span class="nt">&lt;buyerEmail&gt;</span>mario.bianchi@isp.it<span class="nt">&lt;/buyerEmail&gt;</span>
   <span class="nt">&lt;customInfo&gt;</span>BV_CODCLIENTE=12*P1*BV_SESSIONID=398<span class="nt">&lt;/customInfo&gt;</span>
@@ -778,9 +767,6 @@
   <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- euro --&gt;</span>
   <span class="nt">&lt;amount&gt;</span>24.21<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-0001<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;3ds20Container&gt;</span>
-    ...
-  <span class="nt">&lt;/3ds20Container&gt;</span>
   <span class="c">&lt;!-- here we have choosen to pay with credit card data --&gt;</span>
   <span class="nt">&lt;cardNumber&gt;</span>1234567812345678<span class="nt">&lt;/cardNumber&gt;</span>
   <span class="nt">&lt;expiryMonth&gt;</span>06<span class="nt">&lt;/expiryMonth&gt;</span>
@@ -799,20 +785,20 @@
   <span class="nt">&lt;itemType&gt;</span>physical<span class="nt">&lt;/itemType&gt;</span>
   <span class="nt">&lt;recurrent&gt;</span>false<span class="nt">&lt;/recurrent&gt;</span>
   <span class="nt">&lt;shippingDetails&gt;</span>
-      <span class="nt">&lt;shipToName&gt;</span>Jonny Kennedy<span class="nt">&lt;/shipToName&gt;</span>
-      <span class="nt">&lt;shipToStreet&gt;</span>83 Beals street<span class="nt">&lt;/shipToStreet&gt;</span>
-      <span class="nt">&lt;shipToCity&gt;</span>Brookline<span class="nt">&lt;/shipToCity&gt;</span>
-      <span class="nt">&lt;shipToState&gt;</span>MA<span class="nt">&lt;/shipToState&gt;</span>
-      <span class="nt">&lt;shipToCountryCode&gt;</span>US<span class="nt">&lt;/shipToCountryCode&gt;</span>
-      <span class="nt">&lt;shipToZip&gt;</span>02446<span class="nt">&lt;/shipToZip&gt;</span>
-      <span class="nt">&lt;shipToStreet2</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;shipToName&gt;</span>Jonny Kennedy<span class="nt">&lt;/shipToName&gt;</span>
+    <span class="nt">&lt;shipToStreet&gt;</span>83 Beals street<span class="nt">&lt;/shipToStreet&gt;</span>
+    <span class="nt">&lt;shipToCity&gt;</span>Brookline<span class="nt">&lt;/shipToCity&gt;</span>
+    <span class="nt">&lt;shipToState&gt;</span>MA<span class="nt">&lt;/shipToState&gt;</span>
+    <span class="nt">&lt;shipToCountryCode&gt;</span>US<span class="nt">&lt;/shipToCountryCode&gt;</span>
+    <span class="nt">&lt;shipToZip&gt;</span>02446<span class="nt">&lt;/shipToZip&gt;</span>
+    <span class="nt">&lt;shipToStreet2</span> <span class="nt">/&gt;</span>
   <span class="nt">&lt;/shippingDetails&gt;</span>
   <span class="nt">&lt;OrderDetails&gt;</span>
-    ... 
+  ... 
   <span class="nt">&lt;/OrderDetails&gt;</span>
-  <span class="c">&lt;!-- If in app transaction --&gt;</span>
-  <span class="nt">&lt;deviceChannel&gt;&lt;/deviceChannel&gt;</span>
-  <span class="nt">&lt;deviceInfo&gt;&lt;/deviceInfo&gt;</span>
+  <span class="nt">&lt;transDetails&gt;</span>
+    ...
+  <span class="nt">&lt;/transDetails&gt;</span>
 <span class="nt">&lt;/callPagamS2S&gt;</span>
 </code></pre>
 <p>First we describe the mandatory attributes. </p>
@@ -848,12 +834,6 @@
 <td>shop transaction ID value</td>
 <td>string</td>
 <td>50</td>
-</tr>
-<tr>
-<td><strong><a href="#3ds-2-0-fields"><code class="prettyprint">3ds20Container</code></a></strong></td>
-<td>3ds 2.0 required fields</td>
-<td>object</td>
-<td></td>
 </tr>
 </tbody></table>
 
@@ -906,22 +886,6 @@
 </tbody></table>
 
 <aside class="notice">You must use exactly one among <strong>Credit Card data</strong> and <strong>Token value</strong>.</aside>
-
-<p>The following field must be included if you are integration Gestpay in app integration.</p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Data Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong><code class="prettyprint">SDKDetails</code></strong></td>
-<td>Contains SDK data to be sent to ACS.</td>
-<td>string</td>
-</tr>
-</tbody></table>
 
 <p>The following features may be optionally assigned:   </p>
 
@@ -1012,21 +976,21 @@
 <td></td>
 </tr>
 <tr>
-<td><code class="prettyprint">transactionType</code></td>
-<td>transaction type. Value can be: <ul><li>ecommerce</li><li>moto</li></ul></td>
-<td>string</td>
-<td>-</td>
-</tr>
-<tr>
 <td><a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a></td>
 <td>contains every other info needed to handle the payment. It is used by  Gestpay Guaranteed Payment.</td>
 <td></td>
 <td></td>
 </tr>
+<tr>
+<td><code class="prettyprint">transDetails</code> <span class='beta'>BETA</span></td>
+<td>Contians informations for 3DS 2.0 authentication</td>
+<td>object</td>
+<td>-</td>
+</tr>
 </tbody></table>
 
 <ul>
-<li>children of <code class="prettyprint">ShippingDetails</code> :</li>
+<li>children of <code class="prettyprint">ShippingDetails</code>:</li>
 </ul>
 
 <table><thead>
@@ -1072,6 +1036,114 @@
 <td>an additional field for the shipping  address</td>
 <td>string</td>
 <td>200</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li>children of <code class="prettyprint">transDetails</code> <span class='beta'>BETA</span>: </li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Format/length</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">type</code></td>
+<td>Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>01N: Recurring next</li><li>02F: Instalment first</li><li>02N: Instalment next</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li></ul> If not evaluated, the Gestpay rule is applied.</td>
+<td>3</td>
+</tr>
+<tr>
+<td><code class="prettyprint">threeDsAuthResult</code></td>
+<td>Result of the 3DS authentication done with another provider (Axerve will manage the authorization request, considering the 3DS phase already completed)</td>
+<td>object</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">authenticationLevel</code></td>
+<td>Transaction is successfully authenticated by 3DS:<ul><li>1H: 3DS 1.0 half</li><li>1F: 3DS 1.0 full</li><li>2F: 3DS 2.0 frictionless</li><li>2C: 3Ds 2.0 challenge</li></ul></td>
+<td>string</td>
+</tr>
+<tr>
+<td><div style="white-space: nowrap;"><div class="inside-icon"></div> <code class="prettyprint">authenticationStatus</code></div></td>
+<td>Status of the authentication</td>
+<td>string</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">XID</code></td>
+<td>Transaction unique id assigned by Directory Server</td>
+<td>string</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">AV</code></td>
+<td>Cardholder Authentication Verification Value, proof of authentication done</td>
+<td>string</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">ECI</code></td>
+<td>Electronic Commerce Indicator</td>
+<td>string</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">AVAlgorithm</code></td>
+<td>Cardholder Authentication Verification Algoritm, valorized only with 3DS 1.0</td>
+<td>string</td>
+</tr>
+<tr>
+<td><a href="#3ds-2-0-fields"><code class="prettyprint">threeDsContainer</code></a></td>
+<td>Container of additional data defined in 3DS2 protocol, that better define the transaction. The data here included will be used for assessing the risk level of the transaction with the purpose of ensuring security without affecting the buyer&rsquo;s experience</td>
+<td>object</td>
+</tr>
+<tr>
+<td><code class="prettyprint">recurringTransaction</code></td>
+<td>Contains informations necessary in case of recurring payment</td>
+<td>object</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">installNo</code></td>
+<td>Required in case of installment payments. It indicates the maximum number of allowed transactions</td>
+<td>2</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">expiry</code></td>
+<td>Required for Recurring Payments. Date after which no further transaction shall be performed</td>
+<td>8</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">frequency</code></td>
+<td>Required for Recurring Payments. It indicates the minimum number of days between two transactions of the same plan</td>
+<td>4</td>
+</tr>
+<tr>
+<td><code class="prettyprint">previousTransDetails</code></td>
+<td>Contains the details of a previous authenticated transaction for the same cardholder on the same merchant. If present, it can help to increase the chances of a frictionless authentication</td>
+<td>object</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">authData</code></td>
+<td>Prior Transaction Authentication Data</td>
+<td>string</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">authMethod</code></td>
+<td>Prior Transaction Authentication Method</td>
+<td>2</td>
+</tr>
+<tr>
+<td><div style="white-space: nowrap;"><div class="inside-icon"></div> <code class="prettyprint">authTimestamp</code></div></td>
+<td>Prior Transaction Authentication Timestamp</td>
+<td>12</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">acsID</code></td>
+<td>Prior Transaction Authentication Reference (ACD Transaction ID)</td>
+<td>36</td>
+</tr>
+<tr>
+<td><div style="white-space: nowrap;"><div class="inside-icon"></div> <code class="prettyprint">bankTransactionID</code></div></td>
+<td>Prior Transaction Bank ID (if it was managed by Gestpay)</td>
+<td>18</td>
 </tr>
 </tbody></table>
 
@@ -1237,46 +1309,78 @@
 <td>Risk Fraud Score of the transaction, given by <a href="http://docs.gestpay.it/sec/gestpay-guaranteed-payment.html"> Gestpay Guaranteed Payment</a>. Possible values are: <ul><li><code class="prettyprint">created</code>: transaction has been received by the Gestpay Guaranteed Payment</li><li><code class="prettyprint">submitted</code>: transaction is under review</li><li><code class="prettyprint">approved</code>: transaction approved by  Gestpay Guaranteed Payment</li><li><code class="prettyprint">declined</code>: transaction not approved by  Gestpay Guaranteed Payment</li><li><code class="prettyprint">captured</code>: For <em>Select&amp;Submit</em> plan, <code class="prettyprint">captured</code> is returned for transactions that are not marked for review.</li><li><strong>any other value</strong> is an error returned by  Gestpay Guaranteed Payment.</li></ul></td>
 </tr>
 <tr>
-<td><code class="prettyprint">3DS</code></td>
+<td><code class="prettyprint">threeDS</code></td>
 <td>Object with information about 3ds authentication (described below)</td>
 </tr>
 </tbody></table>
 
-<p>The 3DS object  contains two object:</p>
+<p>The threeDS object contains two object:</p>
 
 <ul>
-<li><code class="prettyprint">AuthenticationResult</code> (this object is used for authentication-only method too)</li>
+<li><code class="prettyprint">AuthenticationResult</code> with those children</li>
 </ul>
 
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Description</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">full3D</code></td>
-<td><code class="prettyprint">Y</code> if the transaction is successfully authenticated by 3ds</td>
+<td><code class="prettyprint">authenticationLevel</code></td>
+<td style="text-align: center">2</td>
+<td>Transaction is successfully athenticated by 3DS:<ul><li>1H: 3DS 1.0 half</li><li>1F: 3DS 1.0 full</li><li>2F: 3DS 2.0 frictionless</li><li>2C: 3DS 2.0 challenge</li></ul></td>
 </tr>
 <tr>
-<td><code class="prettyprint">autenthicationStatus</code></td>
-<td>Only if the full3D value is yes, empty otherwise. <code class="prettyprint">Y</code> if authentication has been successful</td>
+<td><code class="prettyprint">authenticationStatus</code></td>
+<td style="text-align: center">1</td>
+<td>Status of authentication</td>
 </tr>
 <tr>
 <td><code class="prettyprint">XID</code></td>
-<td>Transaction unique id, valorized only if the full3D and authenticationStatus fields value is yes.</td>
+<td style="text-align: center">36</td>
+<td>Transaction unique id assigned by Directory Server</td>
 </tr>
 <tr>
-<td><code class="prettyprint">CAVV</code></td>
-<td>Cardholder Authentication Verification Value, valorized only if the full3D and authenticationStatus fields value is yes.</td>
+<td><code class="prettyprint">AV</code></td>
+<td style="text-align: center">28</td>
+<td>Cardholder Authentication Verification Value, proof of authentication done</td>
 </tr>
 <tr>
 <td><code class="prettyprint">ECI</code></td>
-<td>Electronic Commerce Indicator, valorized only if the full3D and authenticationStatus fields value is yes.</td>
+<td style="text-align: center">2</td>
+<td>Electronic Commerce Indicator</td>
 </tr>
 <tr>
-<td><code class="prettyprint">CAVValgorithm</code></td>
-<td>Cardholder Authentication Verification Algoritm, valorized only if the full3D and authenticationStatus fields value is yes.</td>
+<td><code class="prettyprint">AVAlgorithm</code></td>
+<td style="text-align: center">2</td>
+<td>Cardholder Authentication Verification Algoritm, valorized only with 3DS 1.0</td>
+</tr>
+<tr>
+<td><code class="prettyprint">transDetails</code></td>
+<td style="text-align: center">object</td>
+<td></td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">authData</code></td>
+<td style="text-align: center">string</td>
+<td>Transaction Authentication Data</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">authMethod</code></td>
+<td style="text-align: center">2</td>
+<td>Transaction Authentication Method</td>
+</tr>
+<tr>
+<td><div style="white-space: nowrap;"><div class="inside-icon"></div> <code class="prettyprint">authTimestamp</code></div></td>
+<td style="text-align: center">12</td>
+<td>Transaction Authentication Timestamp</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">acsID</code></td>
+<td style="text-align: center">36</td>
+<td>ACS Transaction ID</td>
 </tr>
 </tbody></table>
 
@@ -1304,7 +1408,7 @@
 </tr>
 <tr>
 <td><code class="prettyprint">acsURL</code></td>
-<td>Fully qualified URL of the ACS to be used for the challenge.<ul><li>App: SDK will send the Challenge Request to this URL</li><li>Browser: 3DS Requestor will post the CReq to this URL via the challenge window</li></ul>For App-based, this data element is contained within the ACS Signed Content JWS Object. For Browser-based, this data element is present as its own object.</td>
+<td>Fully qualified URL of the ACS to be used for the challenge.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">cardholderInfo</code></td>
@@ -8429,9 +8533,6 @@ Please note:
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"shopTransactionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"3ds20Container"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-
-  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"buyerName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"buyerEmail"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"languageId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -8618,10 +8719,6 @@ Please note:
 <tr>
 <td><strong><code class="prettyprint">shopTransactionID</code></strong></td>
 <td>the shop transaction ID</td>
-</tr>
-<tr>
-<td><strong><a href="#3ds-2-0-fields"><code class="prettyprint">3ds20Container</code></a></strong></td>
-<td>3ds 2.0 required fields</td>
 </tr>
 <tr>
 <td><code class="prettyprint">buyerName</code></td>
@@ -13467,8 +13564,8 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 </tr>
 <tr>
 <td><code class="prettyprint">Source</code></td>
-<td>10</td>
-<td><code class="prettyprint">website</code>, <code class="prettyprint">mobile</code></td>
+<td>string</td>
+<td><ul><li><code class="prettyprint">desktop_web</code>: Order was placed on the website, using a desktop device</li><li><code class="prettyprint">mobile_web</code>: Order was placed on the mobile website, using a mobile device</li><li><code class="prettyprint">mobile_app</code>: Order was placed on the mobile app, using a mobile device</li><li><code class="prettyprint">web</code>: Order was placed on the website, with no available info about the type of device used</li><li><code class="prettyprint">chat</code>: Order was placed using a chat service</li><li><code class="prettyprint">third_party</code>: Order was placed on a third party domain</li><li><code class="prettyprint">phone</code>: Order was placed over the phone by a call center support or sales agent</li><li><code class="prettyprint">in_store</code>: Order was placed on an in store online device</li><li><code class="prettyprint">unknown</code>: Order&rsquo;s origin is unknown</li></ul></td>
 </tr>
 <tr>
 <td><code class="prettyprint">SubmissionReason</code></td>
@@ -14097,146 +14194,93 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 </tr>
 </tbody></table>
 
-          <h2 id="3ds-2-0-fields">3ds 2.0 fields</h2>
+          <h2 id="3ds-2-0-fields-beta">3ds 2.0 fields <span class='beta'>BETA</span></h2>
 
 <!--- 
   Questo documento è utilizzato (e quindi linkato) in:
   #callpagams2s (creazione pagamento S2S)
-  #encrypt (creazione pagamento con encrypt)
-  #post-payment-create (creazione pagamento con REST)
 --->
 
-<blockquote>
-<p><code class="prettyprint">3ds20Container</code> xml example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;3ds20Container&gt;</span>
-  <span class="nt">&lt;transTypeReq</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;acquirerBIN</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;acquirerMerchantID</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;MerchantCardholderID</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;billAddrCity&gt;</span>Biella<span class="nt">&lt;/billAddrCity&gt;</span>
-  <span class="nt">&lt;billAddrCountry&gt;</span>IT<span class="nt">&lt;/billAddrCountry&gt;</span>
-  <span class="nt">&lt;billAddrLine1&gt;</span>via Roma, 1<span class="nt">&lt;/billAddrLine1&gt;</span>
-  <span class="nt">&lt;billAddrLine2&gt;</span>loc. S.Domenico<span class="nt">&lt;/billAddrLine2&gt;</span>
-  <span class="nt">&lt;billAddrLine3</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;billAddrPostCode&gt;</span>13900<span class="nt">&lt;/billAddrPostCode&gt;</span>
-  <span class="nt">&lt;billAddrState&gt;</span>BI<span class="nt">&lt;/billAddrState&gt;</span>
-  <span class="nt">&lt;cardholderName&gt;</span>NameSurname<span class="nt">&lt;/cardholderName&gt;</span>
-  <span class="nt">&lt;cardholderEmail&gt;</span>name@mail.com<span class="nt">&lt;/cardholderEmail&gt;</span>
-  <span class="nt">&lt;SecondaryEmail</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;cardholderHomePhone_cc&gt;</span>39<span class="nt">&lt;/cardholderHomePhone_cc&gt;</span>
-  <span class="nt">&lt;cardholderHomePhone_num&gt;</span>3331234566<span class="nt">&lt;/cardholderHomePhone_num&gt;</span>
-  <span class="nt">&lt;cardholderMobilePhone_cc&gt;</span>39<span class="nt">&lt;/cardholderMobilePhone_cc&gt;</span>
-  <span class="nt">&lt;cardholderMobilePhone_num&gt;</span>3331234577<span class="nt">&lt;/cardholderMobilePhone_num&gt;</span>
-  <span class="nt">&lt;cardholderWorkPhone_cc&gt;</span>39<span class="nt">&lt;/cardholderWorkPhone_cc&gt;</span>
-  <span class="nt">&lt;cardholderWorkPhone_num&gt;</span>3331234588<span class="nt">&lt;/cardholderWorkPhone_num&gt;</span>
-  <span class="nt">&lt;shipAddrCity&gt;</span>Biella<span class="nt">&lt;/shipAddrCity&gt;</span>
-  <span class="nt">&lt;shipAddrCountry&gt;</span>IT<span class="nt">&lt;/shipAddrCountry&gt;</span>
-  <span class="nt">&lt;shipAddrLine1&gt;</span>via Nuova, 99<span class="nt">&lt;/shipAddrLine1&gt;</span>
-  <span class="nt">&lt;shipAddrLine2</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;shipAddrLine3</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;shipAddrPostCode&gt;</span>13900<span class="nt">&lt;/shipAddrPostCode&gt;</span>
-  <span class="nt">&lt;shipAddrState&gt;</span>BI<span class="nt">&lt;/shipAddrState&gt;</span>
-  <span class="nt">&lt;addrMatch&gt;</span>N<span class="nt">&lt;/addrMatch&gt;</span>
-  <span class="nt">&lt;acctInfo&gt;</span>
-    <span class="nt">&lt;chAccAgeInd&gt;</span>05<span class="nt">&lt;/chAccAgeInd&gt;</span>
-    <span class="nt">&lt;chAccChange</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;chAccChangeInd&gt;</span>02<span class="nt">&lt;/chAccChangeInd&gt;</span>
-    <span class="nt">&lt;chAccDate&gt;</span>20170131<span class="nt">&lt;/chAccDate&gt;</span>
-    <span class="nt">&lt;chAccPwChange</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;chAccPwChangeInd&gt;</span>03<span class="nt">&lt;/chAccPwChangeInd&gt;</span>
-    <span class="nt">&lt;nbPurchaseAccount&gt;</span>4<span class="nt">&lt;/nbPurchaseAccount&gt;</span>
-    <span class="nt">&lt;provisionAttemptsDay&gt;</span>0<span class="nt">&lt;/provisionAttemptsDay&gt;</span>
-    <span class="nt">&lt;txnActivityDay&gt;</span>0<span class="nt">&lt;/txnActivityDay&gt;</span>
-    <span class="nt">&lt;txnActivityYear&gt;</span>005<span class="nt">&lt;/txnActivityYear&gt;</span>
-    <span class="nt">&lt;paymentAccAge</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;paymentAccInd&gt;</span>05<span class="nt">&lt;/paymentAccInd&gt;</span>
-    <span class="nt">&lt;shipAddressUsage</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;shipAddressUsageInd&gt;</span>03<span class="nt">&lt;/shipAddressUsageInd&gt;</span>
-    <span class="nt">&lt;shipNameIndicator&gt;</span>01<span class="nt">&lt;/shipNameIndicator&gt;</span>
-    <span class="nt">&lt;suspiciousAccActivity&gt;</span>01<span class="nt">&lt;/suspiciousAccActivity&gt;</span>
-  <span class="nt">&lt;/acctInfo&gt;</span>
-  <span class="nt">&lt;merchantRiskIndicator&gt;</span>
-    <span class="nt">&lt;deliveryEmailAddress</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;deliveryTimeframe&gt;</span>04<span class="nt">&lt;/deliveryTimeframe&gt;</span>
-    <span class="nt">&lt;giftCardAmount</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;giftCardCount</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;giftCardCurr</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;preOrderDate</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;preOrderPurchaseInd&gt;</span>01<span class="nt">&lt;/preOrderPurchaseInd&gt;</span>
-    <span class="nt">&lt;reorderItemsInd&gt;</span>01<span class="nt">&lt;/reorderItemsInd&gt;</span>
-    <span class="nt">&lt;shipIndicator&gt;</span>03<span class="nt">&lt;/shipIndicator&gt;</span>
-  <span class="nt">&lt;/merchantRiskIndicator&gt;</span>
-<span class="nt">&lt;/3ds20Container&gt;</span>
-</code></pre>
-<blockquote>
-<p><code class="prettyprint">3ds20Container</code> JSON example: <span id="3ds-details-json"></span></p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w"> 
-  </span><span class="s2">"3ds20Container"</span><span class="p">:{</span><span class="w">
-    </span><span class="s2">"transTypeReq"</span><span class="p">:</span><span class="s2">"P"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"acquirerBIN"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"acquirerMerchantID"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"MerchantCardholderID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"billAddrCity"</span><span class="p">:</span><span class="s2">"Biella"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"billAddrCountry"</span><span class="p">:</span><span class="s2">"IT"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"billAddrLine1"</span><span class="p">:</span><span class="s2">"via Roma, 1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"billAddrLine2"</span><span class="p">:</span><span class="s2">"loc. S.Domenico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"billAddrLine3"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"billAddrPostCode"</span><span class="p">:</span><span class="s2">"13900"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"billAddrState"</span><span class="p">:</span><span class="s2">"BI"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cardholderName"</span><span class="p">:</span><span class="s2">"NameSurname"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cardholderEmail"</span><span class="p">:</span><span class="s2">"name@mail.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SecondaryEmail"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cardholderHomePhone_cc"</span><span class="p">:</span><span class="s2">"39"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cardholderHomePhone_num"</span><span class="p">:</span><span class="s2">"3331234566"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cardholderMobilePhone_cc"</span><span class="p">:</span><span class="s2">"39"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cardholderMobilePhone_num"</span><span class="p">:</span><span class="s2">"3331234577"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cardholderWorkPhone_cc"</span><span class="p">:</span><span class="s2">"39"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cardholderWorkPhone_num"</span><span class="p">:</span><span class="s2">"3331234588"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"shipAddrCity"</span><span class="p">:</span><span class="s2">"Biella"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"shipAddrCountry"</span><span class="p">:</span><span class="s2">"IT"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"shipAddrLine1"</span><span class="p">:</span><span class="s2">"via Nuova, 99"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"shipAddrLine2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"shipAddrLine3"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"shipAddrPostCode"</span><span class="p">:</span><span class="s2">"13900"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"shipAddrState"</span><span class="p">:</span><span class="s2">"BI"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"addrMatch"</span><span class="p">:</span><span class="s2">"N"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"acctInfo"</span><span class="p">:{</span><span class="w">  
-        </span><span class="s2">"chAccAgeInd"</span><span class="p">:</span><span class="s2">"05"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"chAccChange"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"chAccChangeInd"</span><span class="p">:</span><span class="s2">"02"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"chAccDate"</span><span class="p">:</span><span class="s2">"20170131"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"chAccPwChange"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"chAccPwChangeInd"</span><span class="p">:</span><span class="s2">"03"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"nbPurchaseAccount"</span><span class="p">:</span><span class="s2">"4"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"provisionAttemptsDay"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"txnActivityDay"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"txnActivityYear"</span><span class="p">:</span><span class="s2">"005"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"paymentAccAge"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"paymentAccInd"</span><span class="p">:</span><span class="s2">"05"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shipAddressUsage"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shipAddressUsageInd"</span><span class="p">:</span><span class="s2">"03"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shipNameIndicator"</span><span class="p">:</span><span class="s2">"01"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"suspiciousAccActivity"</span><span class="p">:</span><span class="s2">"01"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"merchantRiskIndicator"</span><span class="p">:{</span><span class="w">  
-        </span><span class="s2">"deliveryEmailAddress"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"deliveryTimeframe"</span><span class="p">:</span><span class="s2">"04"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"giftCardAmount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"giftCardCount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"giftCardCurr"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"preOrderDate"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"preOrderPurchaseInd"</span><span class="p">:</span><span class="s2">"01"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"reorderItemsInd"</span><span class="p">:</span><span class="s2">"01"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shipIndicator"</span><span class="p">:</span><span class="s2">"03"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><code class="prettyprint">3ds20Container</code>&rsquo;s fields are used from 3ds server to establish if the transaction could be a fraud and require or not the SCA. </p>
+<div id="3ds-2-0-fields"></div>
 
-<p>The JSON example can be found <a href="#3ds-details-json">here</a></p>
+<blockquote>
+<p><code class="prettyprint">threeDsContainer</code> xml example: </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;threeDsContainer&gt;</span>
+        <span class="nt">&lt;transTypeReq&gt;&lt;/transTypeReq&gt;</span>
+        <span class="nt">&lt;acquirerBIN&gt;&lt;/acquirerBIN&gt;</span>
+        <span class="nt">&lt;acquirerMerchantID&gt;&lt;/acquirerMerchantID&gt;</span>
+        <span class="nt">&lt;exemption&gt;&lt;/exemption&gt;</span>
+        <span class="nt">&lt;buyerDetails&gt;</span>
+            <span class="nt">&lt;profileDetails&gt;</span>
+                <span class="nt">&lt;cardholderID&gt;&lt;/cardholderID&gt;</span>
+                <span class="nt">&lt;authData&gt;&lt;/authData&gt;</span>
+                <span class="nt">&lt;authMethod&gt;&lt;/authMethod&gt;</span>
+                <span class="nt">&lt;authTimeStamp&gt;&lt;/authTimeStamp&gt;</span>             
+            <span class="nt">&lt;/profileDetails&gt;</span>           
+            <span class="nt">&lt;billingAddress&gt;</span>
+                <span class="nt">&lt;city&gt;&lt;/city&gt;</span>
+                <span class="nt">&lt;country&gt;&lt;/country&gt;</span>
+                <span class="nt">&lt;line1&gt;&lt;/line1&gt;</span>
+                <span class="nt">&lt;line2&gt;&lt;/line2&gt;</span>
+                <span class="nt">&lt;line3&gt;&lt;/line3&gt;</span>
+                <span class="nt">&lt;postCode&gt;&lt;/postCode&gt;</span>
+                <span class="nt">&lt;state&gt;&lt;/state&gt;</span>
+            <span class="nt">&lt;/billingAddress&gt;</span>
+            <span class="nt">&lt;shippingAddress&gt;</span>
+                <span class="nt">&lt;city&gt;&lt;/city&gt;</span>
+                <span class="nt">&lt;country&gt;&lt;/country&gt;</span>
+                <span class="nt">&lt;line1&gt;&lt;/line1&gt;</span>
+                <span class="nt">&lt;line2&gt;&lt;/line2&gt;</span>
+                <span class="nt">&lt;line3&gt;&lt;/line3&gt;</span>
+                <span class="nt">&lt;postCode&gt;&lt;/postCode&gt;</span>
+                <span class="nt">&lt;state&gt;&lt;/state&gt;</span>
+            <span class="nt">&lt;/shippingAddress&gt;</span>
+            <span class="nt">&lt;addrMatch&gt;&lt;/addrMatch&gt;</span>
+            <span class="nt">&lt;cardHolder&gt;</span>
+                <span class="nt">&lt;name&gt;&lt;/name&gt;</span>
+                <span class="nt">&lt;email&gt;&lt;/email&gt;</span>
+                <span class="nt">&lt;homePhone_cc&gt;&lt;/homePhone_cc&gt;</span>
+                <span class="nt">&lt;homePhone_num&gt;&lt;/homePhone_num&gt;</span>
+                <span class="nt">&lt;mobilePhone_cc&gt;&lt;/mobilePhone_cc&gt;</span>
+                <span class="nt">&lt;mobilePhone_num&gt;&lt;/mobilePhone_num&gt;</span>
+                <span class="nt">&lt;workPhone_cc&gt;&lt;/workPhone_cc&gt;</span>
+                <span class="nt">&lt;workPhone_num&gt;&lt;/workPhone_num&gt;</span>
+            <span class="nt">&lt;/cardHolder&gt;</span>
+            <span class="nt">&lt;accInfo&gt;</span>
+                <span class="nt">&lt;chAccAgeInd&gt;&lt;/chAccAgeInd&gt;</span>
+                <span class="nt">&lt;chAccChange&gt;&lt;/chAccChange&gt;</span>
+                <span class="nt">&lt;chAccChangeInd&gt;&lt;/chAccChangeInd&gt;</span>
+                <span class="nt">&lt;chAccDate&gt;&lt;/chAccDate&gt;</span>
+                <span class="nt">&lt;chAccPwChange&gt;&lt;/chAccPwChange&gt;</span>
+                <span class="nt">&lt;chAccPwChangeInd&gt;&lt;/chAccPwChangeInd&gt;</span>
+                <span class="nt">&lt;nbPurchaseAccount&gt;&lt;/nbPurchaseAccount&gt;</span>
+                <span class="nt">&lt;provisionAttemptsDay&gt;&lt;/provisionAttemptsDay&gt;</span>
+                <span class="nt">&lt;txnActivityDay&gt;&lt;/txnActivityDay&gt;</span>
+                <span class="nt">&lt;txnActivityYear&gt;&lt;/txnActivityYear&gt;</span>
+                <span class="nt">&lt;paymentAccAge&gt;&lt;/paymentAccAge&gt;</span>
+                <span class="nt">&lt;paymentAccInd&gt;&lt;/paymentAccInd&gt;</span>
+                <span class="nt">&lt;shipAddressUsage&gt;&lt;/shipAddressUsage&gt;</span>
+                <span class="nt">&lt;shipAddressUsageInd&gt;&lt;/shipAddressUsageInd&gt;</span>
+                <span class="nt">&lt;shipNameIndicator&gt;&lt;/shipNameIndicator&gt;</span>
+                <span class="nt">&lt;suspiciousAccActivity&gt;&lt;/suspiciousAccActivity&gt;</span>
+            <span class="nt">&lt;/accInfo&gt;</span>
+        <span class="nt">&lt;/buyerDetails&gt;</span>
+        <span class="nt">&lt;merchantRiskIndicator&gt;</span>
+            <span class="nt">&lt;deliveryEmailAddress&gt;&lt;/deliveryEmailAddress&gt;</span>
+            <span class="nt">&lt;deliveryTimeframe&gt;&lt;/deliveryTimeframe&gt;</span>
+            <span class="nt">&lt;giftCardAmount&gt;&lt;/giftCardAmount&gt;</span>
+            <span class="nt">&lt;giftCardCount&gt;&lt;/giftCardCount&gt;</span>
+            <span class="nt">&lt;giftCardCurr&gt;&lt;/giftCardCurr&gt;</span>
+            <span class="nt">&lt;preOrderDate&gt;&lt;/preOrderDate&gt;</span>
+            <span class="nt">&lt;preOrderPurchaseInd&gt;&lt;/preOrderPurchaseInd&gt;</span>
+            <span class="nt">&lt;reorderItemsInd&gt;&lt;/reorderItemsInd&gt;</span>
+            <span class="nt">&lt;shipIndicator&gt;&lt;/shipIndicator&gt;</span>
+        <span class="nt">&lt;/merchantRiskIndicator&gt;</span>
+    <span class="nt">&lt;SDKDetails&gt;&lt;/SDKDetails&gt;</span>
+    <span class="nt">&lt;/threeDsContainer&gt;</span>
+</code></pre>
+<p><code class="prettyprint">threeDsContainer</code>&rsquo;s fields are used from 3ds server to establish if the transaction could be a fraud and require or not the SCA. </p>
 
 <table><thead>
 <tr>
@@ -14248,163 +14292,190 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <tr>
 <td><code class="prettyprint">transTypeReq</code></td>
 <td style="text-align: center">1</td>
-<td>Type of transaction required to GestPay: complete payment process or only authentication (in case of third party Acquirer). <code class="prettyprint">P</code> for Payment (default) and <code class="prettyprint">A</code> for authentication only.</td>
+<td>Type of transaction required to GestPay: complete payment process or only authentication (in case of third party Acquirer). <ul><li><code class="prettyprint">P</code> for Payment (default)</li><li><code class="prettyprint">A</code> for authentication only</li></ul></td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">acquirerBIN</code></strong></td>
+<td><code class="prettyprint">acquirerBIN</code></td>
 <td style="text-align: center">11</td>
 <td>This field are required only if <code class="prettyprint">transTypeReq</code> value is <code class="prettyprint">A</code>. Acquiring institution identification code as assigned by the DS receiving the AReq  message</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">acquirerMerchantID</code></strong></td>
+<td><code class="prettyprint">acquirerMerchantID</code></td>
 <td style="text-align: center">35</td>
 <td>This field are required only if <code class="prettyprint">transTypeReq</code> value is <code class="prettyprint">A</code>. Acquirer-assigned Merchant identifier. This may be the same value that is used in authorisation requests sent on behalf of the 3DS Requestor and is represented in ISO 8583 formatting requirements.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">MerchantCardholderID</code></td>
+<td><code class="prettyprint">exemption</code></td>
+<td style="text-align: center">string</td>
+<td>Possible values: <ul><li>SKIP: to ask exclude the possibility of exemption</li><li>FORCE: exemption requested by the merchant</li></ul>If not evaluated, the gestpay rule is applied</td>
+</tr>
+<tr>
+<td><code class="prettyprint">buyerDetails</code></td>
+<td style="text-align: center">object</td>
+<td></td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">profileDetails</code></td>
+<td style="text-align: center">object</td>
+<td>Contains option information about the merchant authenticated the cardholder before or during the transaction.</td>
+</tr>
+<tr>
+<td><div class="inside-icon second"></div> <code class="prettyprint">cardholderID</code></td>
 <td style="text-align: center">64</td>
 <td>Additional information about the account optionally provided by the 3DS Requestor.</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">billAddrCity</code></strong></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">authData</code></td>
+<td style="text-align: center">string</td>
+<td>Transaction authenticated data</td>
+</tr>
+<tr>
+<td><div class="inside-icon second"></div> <code class="prettyprint">authMethod</code></td>
+<td style="text-align: center">2</td>
+<td>Transaction authenticated method <ul><li>01: No merchant authentication occurred (i.e. cardholder “logged in” as guest)</li> <li>02: Login to the cardholder account at the merchant system using merchant’s own credentials</li> <li>03: Login to the cardholder account at the merchant system using federated ID</li> <li>04: Login to the cardholder account at the merchant system using issuer credentials</li> <li>05: Login to the cardholder account at the merchant system using third-party authentication</li> <li>06: Login to the cardholder account at the merchant system using FIDO Authenticator</li> <li>07: Login to the cardholder account at the merchant system using FIDO Authenticator (FIDO assurance data signed)</li> <li>08: SRC Assurance Data</li> </ul></td>
+</tr>
+<tr>
+<td><div style="white-space: nowrap;"><div class="inside-icon second"></div> <code class="prettyprint">authTimestamp</code></div></td>
+<td style="text-align: center">2</td>
+<td>Transaction authenticated timestamp</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">billingAddress</code></td>
+<td style="text-align: center">object</td>
+<td>Cardholder billing address associated with the card used for this purchase.</td>
+</tr>
+<tr>
+<td><div class="inside-icon second"></div> <code class="prettyprint">city</code></td>
 <td style="text-align: center">50</td>
 <td>The city of the Cardholder billing address associated with the card used for this purchase.</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">billAddrCountry</code></strong></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">country</code></td>
 <td style="text-align: center">32</td>
 <td>The country of the Cardholder billing address associated with the card used for this purchase. <a href="#paypal-country-codes">See Paypal Country Codes table</a></td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">billAddrLine1</code></strong></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">line1</code></td>
 <td style="text-align: center">50</td>
 <td>First line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase.</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">billAddrLine2</code></strong></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">line2</code></td>
 <td style="text-align: center">50</td>
 <td>Second line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase.</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">billAddrLine3</code></strong></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">line3</code></td>
 <td style="text-align: center">50</td>
 <td>Third line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase.</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">billAddrPostCode</code></strong></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">postCode</code></td>
 <td style="text-align: center">16</td>
 <td>ZIP or other postal code of the Cardholder billing address associated with the card used for this purchase.</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">billAddrState</code></strong></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">state</code></td>
 <td style="text-align: center">32</td>
 <td>The state or province of the Cardholder billing address associated with the card used for this purchase. Should be the state, province or regional code (country subdivision code, <a href="#paypal-country-codes">see Paypal State Codes table</a>)</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">cardholderName</code></strong></td>
-<td style="text-align: center">45</td>
-<td>Name of the Cardholder.</td>
+<td><div class="inside-icon"></div> <code class="prettyprint">shippingAddress</code></td>
+<td style="text-align: center">object</td>
+<td>Shipping address</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">cardholderEmail</code></strong></td>
-<td style="text-align: center">254</td>
-<td>The email address associated with the account that is either entered by the Cardholder, or is on file with the 3DS Requestor. The value should meet requirements of Section 3.4 of IETF RFC 5322</td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">cardholderHomePhone_cc</code></strong></td>
-<td style="text-align: center">3</td>
-<td>The countryCode of the home phone number provided by the Cardholder. Refer to ITU-E.164</td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">cardholderHomePhone_num</code></strong></td>
-<td style="text-align: center">15</td>
-<td>The home phone number provided by the Cardholder (without the countryCode).</td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">cardholderMobilePhone_cc</code></strong></td>
-<td style="text-align: center">3</td>
-<td>The countryCode of the home mobile number provided by the Cardholder. Refer to ITU-E.164.</td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">cardholderMobilePhone_num</code></strong></td>
-<td style="text-align: center">15</td>
-<td>The mobile phone number provided by the Cardholder (without the countryCode).</td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">cardholderWorkPhone_cc</code></strong></td>
-<td style="text-align: center">32</td>
-<td>String containing the shipping name</td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">cardholderWorkPhone_num</code></strong></td>
-<td style="text-align: center">15</td>
-<td>The work phone number provided by the Cardholder (without the countryCode).</td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">shipAddrCity</code></strong></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">city</code></td>
 <td style="text-align: center">50</td>
 <td>City portion of the shipping address requested by the Cardholder.</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">shipAddrCountry</code></strong></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">country</code></td>
 <td style="text-align: center">2</td>
 <td>Country of the shipping address requested by the Cardholder. <a href="#paypal-country-codes">See Paypal Country Codes table</a></td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">shipAddrLine1</code></strong></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">line1</code></td>
 <td style="text-align: center">50</td>
 <td>First line of the street address or equivalent local portion of the shipping address requested by the Cardholder.</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">shipAddrLine2</code></strong></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">line2</code></td>
 <td style="text-align: center">50</td>
 <td>Second line of the street address or equivalent local portion of the shipping address requested by the Cardholder.</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">shipAddrLine3</code></strong></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">line3</code></td>
 <td style="text-align: center">50</td>
 <td>Thrid line of the street address or equivalent local portion of the shipping address requested by the Cardholder.</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">shipAddrPostCode</code></strong></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">postCode</code></td>
 <td style="text-align: center">16</td>
 <td>The ZIP or other postal code of the shipping address requested by the Cardholder.</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">shipAddrState</code></strong></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">state</code></td>
 <td style="text-align: center">32</td>
 <td>The state or province of the shipping address associated with the card being used for this purchase. Should be the state, province or regional code (country subdivision code, <a href="#paypal-country-codes">see Paypal State Codes table</a>)</td>
 </tr>
 <tr>
-<td><strong><code class="prettyprint">addrMatch</code></strong></td>
-<td style="text-align: center">32</td>
+<td><div class="inside-icon"></div> <code class="prettyprint">addrMatch</code></td>
+<td style="text-align: center">1</td>
 <td>Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. <code class="prettyprint">Y</code> for yes and <code class="prettyprint">N</code> for no</td>
 </tr>
 <tr>
-<td><code class="prettyprint">acctInfo</code></td>
+<td><div class="inside-icon"></div> <code class="prettyprint">cardholder</code></td>
+<td style="text-align: center">object</td>
+<td>Cardholder information.</td>
+</tr>
+<tr>
+<td><div class="inside-icon second"></div> <code class="prettyprint">name</code></td>
+<td style="text-align: center">45</td>
+<td>Name of the Cardholder.</td>
+</tr>
+<tr>
+<td><div class="inside-icon second"></div> <code class="prettyprint">Email</code></td>
+<td style="text-align: center">254</td>
+<td>The email address associated with the account that is either entered by the Cardholder, or is on file with the 3DS Requestor. The value should meet requirements of Section 3.4 of IETF RFC 5322</td>
+</tr>
+<tr>
+<td><div class="inside-icon second"></div> <code class="prettyprint">homePhone_cc</code></td>
+<td style="text-align: center">3</td>
+<td>The countryCode of the home phone number provided by the Cardholder. Refer to ITU-E.164</td>
+</tr>
+<tr>
+<td><div class="inside-icon second"></div> <code class="prettyprint">homePhone_num</code></td>
+<td style="text-align: center">15</td>
+<td>The home phone number provided by the Cardholder (without the countryCode).</td>
+</tr>
+<tr>
+<td><div class="inside-icon second"></div> <code class="prettyprint">mobilePhone_cc</code></td>
+<td style="text-align: center">3</td>
+<td>The countryCode of the home mobile number provided by the Cardholder. Refer to ITU-E.164.</td>
+</tr>
+<tr>
+<td><div class="inside-icon second"></div> <code class="prettyprint">mobilePhone_num</code></td>
+<td style="text-align: center">15</td>
+<td>The mobile phone number provided by the Cardholder (without the countryCode).</td>
+</tr>
+<tr>
+<td><div class="inside-icon second"></div> <code class="prettyprint">workPhone_cc</code></td>
+<td style="text-align: center">32</td>
+<td>String containing the shipping name</td>
+</tr>
+<tr>
+<td><div class="inside-icon second"></div> <code class="prettyprint">workPhone_num</code></td>
+<td style="text-align: center">15</td>
+<td>The work phone number provided by the Cardholder (without the countryCode).</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">acctInfo</code></td>
 <td style="text-align: center">object</td>
 <td>Additional information about the Cardholder’s account provided by the 3DS Requestor.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">merchantRiskIndicator</code></td>
-<td style="text-align: center">object</td>
-<td>Merchant’s assessment of the level of fraud risk for the specific authentication for both the cardholder and the authentication being conducted.</td>
-</tr>
-</tbody></table>
-
-<h4 id="acctinfo-39-s-fields"><code class="prettyprint">acctInfo</code>&rsquo;s fields.</h4>
-
-<p>All these fields are optional but strongly recommended to include. </p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th style="text-align: center">max length</th>
-<th>description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">chAccAgeInd</code></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">chAccAgeInd</code></td>
 <td style="text-align: center">2</td>
 <td>Length of time that the cardholder has had the account with the 3DS Requestor. <ul><li>01 No account (guest check-out)</li><li>02 Created during this transaction</li><li>03 Less than 30 days</li><li>04 30−60 days</li><li>05 More than 60 days</li></ul></td>
 </tr>
@@ -14414,139 +14485,138 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <td></td>
 </tr>
 <tr>
-<td><code class="prettyprint">chAccChange</code></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">chAccChange</code></td>
 <td style="text-align: center">8</td>
 <td>Date that the cardholder’s account with the 3DS Requestor was last changed, including Billing or Shipping address, new payment account, or new user(s) added. Date format = YYYYMMDD</td>
 </tr>
 <tr>
-<td><code class="prettyprint">chAccChangeInd</code></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">chAccChangeInd</code></td>
 <td style="text-align: center">2</td>
 <td>Length of time since the cardholder’s account information with the 3DS Requestor was last changed, including Billing or Shipping address, new payment account, or new user(s) added. <ul><li>01 Changed during this transaction</li><li>02 Less than 30 days</li><li>03 30−60 days</li><li>04 More than 60 days</li></ul></td>
 </tr>
 <tr>
-<td><code class="prettyprint">chAccDate</code></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">chAccDate</code></td>
 <td style="text-align: center">8</td>
 <td>Date that the cardholder opened the account with the 3DS Requestor. Date format = YYYYMMDD</td>
 </tr>
 <tr>
-<td><code class="prettyprint">chAccPwChange</code></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">chAccPwChange</code></td>
 <td style="text-align: center">8</td>
 <td>Date that cardholder’s account with the 3DS Requestor had a password change or account reset. Date format = YYYYMMDD</td>
 </tr>
 <tr>
-<td><code class="prettyprint">chAccPwChangeInd</code></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">chAccPwChangeInd</code></td>
 <td style="text-align: center">2</td>
 <td>Indicates the length of time since the cardholder’s account with the 3DS Requestor had a password change or account reset. <ul></li><li>01 No change</li><li>02 Changed during this transaction</li><li>03 Less than 30 days</li><li>04 30−60 days</li><li>05 More than 60 days</li></ul></td>
 </tr>
 <tr>
-<td><code class="prettyprint">nbPurchaseAccount</code></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">nbPurchaseAccount</code></td>
 <td style="text-align: center">4</td>
 <td>Number of purchases with this cardholder account during the previous six months.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">provisionAttemptsDay</code></td>
+<td><div style="white-space: nowrap;"><div class="inside-icon second"></div> <code class="prettyprint">provisionAttemptsDay</code></div></td>
 <td style="text-align: center">3</td>
 <td>Number of Add Card attempts in the last 24 hours. Example values: <ul><li>2</li><li>02</li><li>002</li></ul></td>
 </tr>
 <tr>
-<td><code class="prettyprint">txnActivityDay</code></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">txnActivityDay</code></td>
 <td style="text-align: center">3</td>
 <td>Number of transactions (successful and abandoned) for this cardholder account with the 3DS Requestor across all payment accounts in the previous 24 hours. Example values: <ul><li>2</li><li>02</li><li>002</li></ul></td>
 </tr>
 <tr>
-<td><code class="prettyprint">txnActivityYear</code></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">txnActivityYear</code></td>
 <td style="text-align: center">3</td>
 <td>Number of transactions (successful and abandoned) for this cardholder account with the 3DS Requestor across all payment accounts in the previous year. Example values: <ul><li>2</li><li>02</li><li>002</li></ul></td>
 </tr>
 <tr>
-<td><code class="prettyprint">paymentAccAge</code></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">paymentAccAge</code></td>
 <td style="text-align: center">8</td>
 <td>Date that the payment account was enrolled in the cardholder’s account with the 3DS Requestor. Date format = YYYYMMDD</td>
 </tr>
 <tr>
-<td><code class="prettyprint">paymentAccInd</code></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">paymentAccInd</code></td>
 <td style="text-align: center">2</td>
 <td>Indicates the length of time that the payment account was enrolled in the cardholder’s account with the 3DS Requestor. <ul></li><li>01 No account (guest check-out)</li><li>02 During this transaction</li><li>03 Less than 30 days</li><li>04 30−60 days</li><li>05 More than 60 days</ul></td>
 </tr>
 <tr>
-<td><code class="prettyprint">shipAddressUsage</code></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">shipAddressUsage</code></td>
 <td style="text-align: center">8</td>
 <td>Date when the shipping address used for this transaction was first used with the 3DS Requestor. Date format = YYYYMMDD</td>
 </tr>
 <tr>
-<td><code class="prettyprint">shipAddressUsageInd</code></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">shipAddressUsageInd</code></td>
 <td style="text-align: center">2</td>
 <td>Indicates when the shipping address used for this transaction was first used with the 3DS Requestor. <ul><li>01 This transaction</li><li>02 Less than 30 days</li><li>03 30−60 days</li><li>04 More than 60 days</li></ul></td>
 </tr>
 <tr>
-<td><code class="prettyprint">shipNameIndicator</code></td>
+<td><div class="inside-icon second"></div> <code class="prettyprint">shipNameIndicator</code></td>
 <td style="text-align: center">2</td>
 <td>Indicates if the Cardholder Name on the account is identical to the shipping Name used for this transaction. <ul><li>01 Account Name identical to shipping Name</li><li>02 Account Name different than shipping Name</li></ul></td>
 </tr>
 <tr>
-<td><code class="prettyprint">suspiciousAccActivity</code></td>
+<td><div style="white-space: nowrap;"><div class="inside-icon second"></div> <code class="prettyprint">suspiciousAccActivity</code></div></td>
 <td style="text-align: center">2</td>
 <td>Indicates whether the 3DS Requestor has experienced suspicious activity (including previous fraud) on the cardholder account. <ul><li>01 No suspicious activity has been observed</li><li>02 Suspicious activity has been observed</li></ul></td>
 </tr>
-</tbody></table>
-
-<h4 id="merchantriskindicator-39-s-fields"><code class="prettyprint">merchantRiskIndicator</code>&rsquo;s fields.</h4>
-
-<p>All these fields are optional but strongly recommended to include. </p>
-
-<table><thead>
 <tr>
-<th>Name</th>
-<th style="text-align: center">max length</th>
-<th>description</th>
+<td><code class="prettyprint">merchantRiskIndicator</code></td>
+<td style="text-align: center">object</td>
+<td>Merchant’s assessment of the level of fraud risk for the specific authentication for both the cardholder and the authentication being conducted.</td>
 </tr>
-</thead><tbody>
 <tr>
-<td><code class="prettyprint">deliveryEmailAddress</code></td>
+<td><div class="inside-icon"></div> <code class="prettyprint">deliveryEmailAddress</code></td>
 <td style="text-align: center">254</td>
 <td>For Electronic delivery, the email address to which the merchandise was delivered.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">deliveryTimeframe</code></td>
+<td><div class="inside-icon"></div> <code class="prettyprint">deliveryTimeframe</code></td>
 <td style="text-align: center">2</td>
 <td>Indicates the merchandise delivery timeframe. <ul><li>01 Electronic Delivery</li><li>02 Same day shipping</li><li>03 Overnight shipping</li><li>04 Two-day or more shipping</li></ul></td>
 </tr>
 <tr>
-<td><code class="prettyprint">giftCardAmount</code></td>
+<td><div class="inside-icon"></div> <code class="prettyprint">giftCardAmount</code></td>
 <td style="text-align: center">15</td>
 <td>For prepaid or gift card purchase, the purchase amount total of prepaid or gift card(s) in major units (for example, USD 123.45 is 123). Example: gift card amount is USD 123.45: Values accepted: <ul><li>123</li><li>0123</li><li>00123</li></ul></td>
 </tr>
 <tr>
-<td><code class="prettyprint">giftCardCount</code></td>
+<td><div class="inside-icon"></div> <code class="prettyprint">giftCardCount</code></td>
 <td style="text-align: center">2</td>
 <td>For prepaid or gift card purchase, total count of individual prepaid or gift cards/codes purchased.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">giftCardCurr</code></td>
+<td><div class="inside-icon"></div> <code class="prettyprint">giftCardCurr</code></td>
 <td style="text-align: center">3</td>
 <td>For prepaid or gift card purchase, uicCode currency code.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">preOrderDate</code></td>
+<td><div class="inside-icon"></div> <code class="prettyprint">preOrderDate</code></td>
 <td style="text-align: center">8</td>
 <td>For a pre-ordered purchase, the expected date that the merchandise will be available. Date format = YYYYMMDD</td>
 </tr>
 <tr>
-<td><code class="prettyprint">preOrderPurchaseInd</code></td>
+<td><div class="inside-icon"></div> <code class="prettyprint">preOrderPurchaseInd</code></td>
 <td style="text-align: center">2</td>
 <td>Indicates whether Cardholder is placing an order for merchandise with a future availability or release date. <ul><li>01 Merchandise available</li><li>02 Future availability</li></ul></td>
 </tr>
 <tr>
-<td><code class="prettyprint">reorderItemsInd</code></td>
+<td><div class="inside-icon"></div> <code class="prettyprint">reorderItemsInd</code></td>
 <td style="text-align: center">2</td>
 <td>Indicates whether the cardholder is reordering previously purchased merchandise. <ul><li>01 First time ordered</li><li>02 Reordered</li></ul></td>
 </tr>
 <tr>
-<td><code class="prettyprint">shipIndicator</code></td>
+<td><div class="inside-icon"></div> <code class="prettyprint">shipIndicator</code></td>
 <td style="text-align: center">2</td>
 <td>Indicates shipping method chosen for the transaction. Merchants must choose the Shipping Indicator code that most accurately describes the cardholder’s specific transaction, not their general business. If one or more items are included in the sale, use the Shipping Indicator code for the physical goods, or if all digital goods, use the Shipping Indicator code that describes the most expensive item. <ul><li>01 Ship to cardholder’s billing address</li><li>02 Ship to another verified address on file with merchant</li><li>03 Ship to address that is different than the cardholder’s billing address</li><li>04 “Ship to Store” / Pick-up at local store (Store address shall be populated in shipping address fields)</li><li>05 Digital goods (includes online services, electronic gift cards and redemption codes)</li><li>06 Travel and Event tickets, not shipped</li><li>07 Other (for example, Gaming, digital services not shipped, emedia subscriptions, etc.)</li></ul></td>
 </tr>
+<tr>
+<td><code class="prettyprint">SDKDetails</code></td>
+<td style="text-align: center">string</td>
+<td>Contains SDK data to be sent to ACS as base64-encoded string. Include: DeviceData, SDKAppID, SDKReferenceNumber, SDKEphemeralPublicKey, MessageVersion</td>
+</tr>
 </tbody></table>
+
+<aside class="notice">SDKDetails must be included if you are integration Gestpay in app integration.</aside>
 
           <h1 id="errors">Errors</h1>
 
