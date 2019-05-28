@@ -5,6 +5,8 @@
   #callpagams2s (creazione pagamento S2S)
 --->
 
+<div id="3ds-2-0-fields"></div>
+
 > `threeDsContainer` xml example: 
 
 ```xml
@@ -70,8 +72,6 @@
 ``` 
 
 `threeDsContainer`'s fields are used from 3ds server to establish if the transaction could be a fraud and require or not the SCA. 
-
-The JSON example can be found [here](#3ds-details-json)
 
 | Name | max length | description |
 | ---- | :--------: | ----------- |
