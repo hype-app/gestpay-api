@@ -11,64 +11,78 @@
 
 ```xml
 <threeDsContainer>
-  <transTypeReq />
-  <acquirerBIN />
-  <acquirerMerchantID />
-  <MerchantCardholderID />
-  <billAddrCity>Biella</billAddrCity>
-  <billAddrCountry>IT</billAddrCountry>
-  <billAddrLine1>via Roma, 1</billAddrLine1>
-  <billAddrLine2>loc. S.Domenico</billAddrLine2>
-  <billAddrLine3 />
-  <billAddrPostCode>13900</billAddrPostCode>
-  <billAddrState>BI</billAddrState>
-  <cardholderName>NameSurname</cardholderName>
-  <cardholderEmail>name@mail.com</cardholderEmail>
-  <SecondaryEmail />
-  <cardholderHomePhone_cc>39</cardholderHomePhone_cc>
-  <cardholderHomePhone_num>3331234566</cardholderHomePhone_num>
-  <cardholderMobilePhone_cc>39</cardholderMobilePhone_cc>
-  <cardholderMobilePhone_num>3331234577</cardholderMobilePhone_num>
-  <cardholderWorkPhone_cc>39</cardholderWorkPhone_cc>
-  <cardholderWorkPhone_num>3331234588</cardholderWorkPhone_num>
-  <shipAddrCity>Biella</shipAddrCity>
-  <shipAddrCountry>IT</shipAddrCountry>
-  <shipAddrLine1>via Nuova, 99</shipAddrLine1>
-  <shipAddrLine2 />
-  <shipAddrLine3 />
-  <shipAddrPostCode>13900</shipAddrPostCode>
-  <shipAddrState>BI</shipAddrState>
-  <addrMatch>N</addrMatch>
-  <acctInfo>
-    <chAccAgeInd>05</chAccAgeInd>
-    <chAccChange />
-    <chAccChangeInd>02</chAccChangeInd>
-    <chAccDate>20170131</chAccDate>
-    <chAccPwChange />
-    <chAccPwChangeInd>03</chAccPwChangeInd>
-    <nbPurchaseAccount>4</nbPurchaseAccount>
-    <provisionAttemptsDay>0</provisionAttemptsDay>
-    <txnActivityDay>0</txnActivityDay>
-    <txnActivityYear>005</txnActivityYear>
-    <paymentAccAge />
-    <paymentAccInd>05</paymentAccInd>
-    <shipAddressUsage />
-    <shipAddressUsageInd>03</shipAddressUsageInd>
-    <shipNameIndicator>01</shipNameIndicator>
-    <suspiciousAccActivity>01</suspiciousAccActivity>
-  </acctInfo>
-  <merchantRiskIndicator>
-    <deliveryEmailAddress />
-    <deliveryTimeframe>04</deliveryTimeframe>
-    <giftCardAmount />
-    <giftCardCount />
-    <giftCardCurr />
-    <preOrderDate />
-    <preOrderPurchaseInd>01</preOrderPurchaseInd>
-    <reorderItemsInd>01</reorderItemsInd>
-    <shipIndicator>03</shipIndicator>
-  </merchantRiskIndicator>
-</threeDsContainer>
+		<transTypeReq></transTypeReq>
+		<acquirerBIN></acquirerBIN>
+		<acquirerMerchantID></acquirerMerchantID>
+		<exemption></exemption>
+		<buyerDetails>
+			<profileDetails>
+				<cardholderID></cardholderID>
+				<authData></authData>
+				<authMethod></authMethod>
+				<authTimeStamp></authTimeStamp>				
+			</profileDetails>			
+			<billingAddress>
+				<city></city>
+				<country></country>
+				<line1></line1>
+				<line2></line2>
+				<line3></line3>
+				<postCode></postCode>
+				<state></state>
+			</billingAddress>
+			<shippingAddress>
+				<city></city>
+				<country></country>
+				<line1></line1>
+				<line2></line2>
+				<line3></line3>
+				<postCode></postCode>
+				<state></state>
+			</shippingAddress>
+            <addrMatch></addrMatch>
+			<cardHolder>
+				<name></name>
+				<email></email>
+				<homePhone_cc></homePhone_cc>
+				<homePhone_num></homePhone_num>
+				<mobilePhone_cc></mobilePhone_cc>
+				<mobilePhone_num></mobilePhone_num>
+				<workPhone_cc></workPhone_cc>
+				<workPhone_num></workPhone_num>
+			</cardHolder>
+			<accInfo>
+				<chAccAgeInd></chAccAgeInd>
+				<chAccChange></chAccChange>
+				<chAccChangeInd></chAccChangeInd>
+				<chAccDate></chAccDate>
+				<chAccPwChange></chAccPwChange>
+				<chAccPwChangeInd></chAccPwChangeInd>
+				<nbPurchaseAccount></nbPurchaseAccount>
+				<provisionAttemptsDay></provisionAttemptsDay>
+				<txnActivityDay></txnActivityDay>
+				<txnActivityYear></txnActivityYear>
+				<paymentAccAge></paymentAccAge>
+				<paymentAccInd></paymentAccInd>
+				<shipAddressUsage></shipAddressUsage>
+				<shipAddressUsageInd></shipAddressUsageInd>
+				<shipNameIndicator></shipNameIndicator>
+				<suspiciousAccActivity></suspiciousAccActivity>
+			</accInfo>
+		</buyerDetails>
+		<merchantRiskIndicator>
+			<deliveryEmailAddress></deliveryEmailAddress>
+			<deliveryTimeframe></deliveryTimeframe>
+			<giftCardAmount></giftCardAmount>
+			<giftCardCount></giftCardCount>
+			<giftCardCurr></giftCardCurr>
+			<preOrderDate></preOrderDate>
+			<preOrderPurchaseInd></preOrderPurchaseInd>
+			<reorderItemsInd></reorderItemsInd>
+			<shipIndicator></shipIndicator>
+		</merchantRiskIndicator>
+    <SDKDetails></SDKDetails>
+	</threeDsContainer>
 ``` 
 
 `threeDsContainer`'s fields are used from 3ds server to establish if the transaction could be a fraud and require or not the SCA. 
