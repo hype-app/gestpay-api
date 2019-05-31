@@ -13,7 +13,7 @@ Gestpay provides two endpoints:
 
 Methods are versioned, for example `v1`.
 
-Methods marked with <span class="beta">BETA</span> are available in sandbox only.
+Methods marked with <span class="beta">sandbox</span> are available in sandbox only.
 
 ## Handling Responses & Errors
 
