@@ -63,7 +63,8 @@ URL parameter:
       "event":{
         "eventtype":"",
         "eventamount":"",
-        "eventdate":""
+        "eventdate":"",
+        "eventARN":""
       }
     }],
     "buyer":{
@@ -158,6 +159,7 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `eventtype` | One of the [event types](#event-types) 
 | `eventamount` | the amount involved in this event 
 | `eventdate`   | The date of the event 
+| `eventARN`   | The acquirer reference number
 | `environment` | The environment that has generated the event: `ONL` (Online), `BOF` (Back Office), `BAT` (Batch)
 | `operator` | The user code that has performed the operation
 
