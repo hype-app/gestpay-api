@@ -79,12 +79,14 @@ Note: you **must** provide at least one of `shopTransactionID`, `bankTransaction
       "eventtype":"AUT",
       "eventamount":"0.10",
       "eventdate":"19/08/16 16:13:14",
+      "eventARN":"",
       "environment":"ONL",
       "operator":""
     }, {  
       "eventtype":"MOV",
       "eventamount":"0.10",
       "eventdate":"20/08/16 00:13:57",
+      "eventARN":"",
       "environment":"BOF",
       "operator":"Sellanet"
     }],
@@ -185,6 +187,7 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `eventtype` | One of the [event types](#event-types) 
 | `eventamount` | the amount involved in this event 
 | `eventdate`   | The date of the event 
+| `eventARN`   | The acquirer reference number
 | `environment` | The environment that has generated the event: `ONL` (Online), `BOF` (Back Office), `BAT` (Batch)
 | `operator` | The user code that has performed the operation
 
