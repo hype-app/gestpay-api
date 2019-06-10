@@ -1052,7 +1052,7 @@
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">type</code></td>
-<td>Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>01N: Recurring next</li><li>02F: Instalment first</li><li>02N: Instalment next</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li></ul> If not evaluated, the Gestpay rule is applied.</td>
+<td>Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>01N: Recurring next</li><li>02F: Instalment first</li><li>02N: Instalment next</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li><li>NPA: only authentication</li></ul> If not evaluated, the Gestpay rule is applied.</td>
 <td>3</td>
 </tr>
 <tr>
@@ -14318,7 +14318,7 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <tr>
 <td><code class="prettyprint">exemption</code></td>
 <td style="text-align: center">string</td>
-<td>Challenge management exemption. Possible values: <ul><li>SKIP: to ask exclude the possibility of exemption</li><li>FORCE: exemption requested by the merchant</li></ul>If not evaluated, the gestpay rule is applied</td>
+<td>Challenge management exemption. Possible values: <ul><li>SKIP: to ask exclude the possibility of exemption and require challange mandatory</li><li>FORCE: exemption requested by the merchant</li></ul>If not evaluated, the gestpay rule is applied</td>
 </tr>
 <tr>
 <td><code class="prettyprint">buyerDetails</code></td>
