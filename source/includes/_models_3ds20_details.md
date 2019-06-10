@@ -92,7 +92,7 @@
 | `transTypeReq` | 1 | Type of transaction required to GestPay: complete payment process or only authentication (in case of third party Acquirer). <ul><li>`P` for Payment (default)</li><li>`A` for authentication only</li></ul>  |
 | `acquirerBIN` | 11 |This field are required if `transTypeReq` value is `A`. Acquiring institution identification code as assigned by the DS receiving the AReq  message |
 | `acquirerMerchantID ` | 35 | This field are required if `transTypeReq` value is `A`. Acquirer-assigned Merchant identifier. This may be the same value that is used in authorisation requests sent on behalf of the 3DS Requestor and is represented in ISO 8583 formatting requirements. | 
-| `exemption` | string | Challenge management exemption. Possible values: <ul><li>SKIP: to ask exclude the possibility of exemption</li><li>FORCE: exemption requested by the merchant</li></ul>If not evaluated, the gestpay rule is applied |
+| `exemption` | string | Challenge management exemption. Possible values: <ul><li>SKIP: to ask exclude the possibility of exemption and require challange mandatory</li><li>FORCE: exemption requested by the merchant</li></ul>If not evaluated, the gestpay rule is applied |
 | `buyerDetails` | object |  |
 | <div class="inside-icon"></div> `profileDetails` | object | Contains option information about the merchant authenticated the cardholder before or during the transaction. |
 | <div class="inside-icon second"></div> `cardholderID` | 64 | Additional information about the account optionally provided by the 3DS Requestor. |
