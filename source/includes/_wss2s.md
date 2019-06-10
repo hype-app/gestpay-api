@@ -9,7 +9,7 @@ Consuming WSs2s methods allow merchants to send requests and retrieve responses 
 - Production environment url: <br>
 `https://ecomms2s.sella.it/gestpay/gestpayws/WSs2s.asmx?WSDL`
 
-<aside class="notice">To use *Server to Server* features, you must be authorized by Banca Sella or Easy Nolo.</aside>
+<aside class="notice">To use *Server to Server* features, you must be authorized by Banca Sella or Axerve.</aside>
 
 
 

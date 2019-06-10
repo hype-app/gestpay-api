@@ -85,27 +85,27 @@ html, body {
   }
 
   &>.search {
-    position: relative;
+    padding: 0 15px;
 
     input {
-      background: $nav-bg;
-      border-width: 0 0 1px 0;
-      border-color: $search-box-border-color;
-      padding: 6px 0 6px 20px;
-      box-sizing: border-box;
-      margin: $nav-v-padding $nav-padding;
-      width: $nav-width - 30;
       outline: none;
-      color: $nav-text;
-      border-radius: 0; /* ios has a default border radius */
-    }
-
-    &:before {
-      position: absolute;
-      top: 17px;
-      left: $nav-padding;
-      color: $nav-text;
-      @extend %icon-search;
+      z-index: 3;
+      cursor: text;
+      font-style: italic;
+      width: 100%;
+      margin: 8px 0 16px 0;
+      background: #FFFFFF;
+      padding: 8px;
+      border: 1px solid #DDDDDD;
+      box-sizing: border-box;
+      border-radius: 8px;
+      background: url(/images/zoom-2.svg) no-repeat scroll 7px 7px, #FFFFFF;
+      padding-left:30px;
+      &::placehoder {
+        font-size: 14px;
+        line-height: 127.14%;
+        background: #777777;
+      }
     }
   }
 
@@ -346,7 +346,8 @@ html, body {
   }
 
   &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
-    margin-right: $examples-width;
+    margin-right: calc(#{$examples-width} + 30px);
+    margin-left: 30px;
     padding: 0 $main-padding;
     box-sizing: border-box;
     display: block;
@@ -372,7 +373,7 @@ html, body {
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
     border-top: 1px solid #ddd;
-    background-color: #F8F8F8;
+    background-color: #FFFFFF;
   }
 
   h1:first-child, div:first-child + h1 {
@@ -496,6 +497,7 @@ html, body {
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
     line-height: 1.6;
+    border-radius: 4px;
 
     &.warning {
       background-color: $aside-warning-bg;
