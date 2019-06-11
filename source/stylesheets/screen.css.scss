@@ -66,6 +66,13 @@ html, body {
   background-color: $nav-bg;
   font-size: 13px;
   font-weight: bold;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #BFD1DB; 
+    border-radius: 4px;
+  }
 
   // language selector for mobile devices
   .lang-selector {
@@ -293,9 +300,8 @@ html, body {
     border-bottom: 5px solid $lang-select-active-bg;
   }
   a{
-    color: #2E91B1;
+    color: #00B7FF;
   }
-
 }
 
 .lang-selector {
@@ -652,15 +658,19 @@ html, body {
   }
 }
 
-.highlight .c, .highlight .cm, .highlight .c1, .highlight .cs {
+.highlight .c, .highlight .cm, .highlight .cs {
   color: #F0FAFF;
+}
+
+.highlight .c1 {
+  color: #AfAfAf;
 }
 
 .highlight, .highlight .w {
   background-color: $code-bg;
 }
 .nt {
- color: #00466E !important;
+ color: #00B7FF !important;
 }
 #doorbell-button {
   background-color: #282941;
