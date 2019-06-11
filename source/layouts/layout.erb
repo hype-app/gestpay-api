@@ -37,24 +37,24 @@ under the License.
       </span>
     </a>
     <div class="tocify-wrapper">
-      <%= image_tag "axerve-api-logo.svg" %>
-      <% if language_tabs.any? %>
-        <div class="lang-selector">
-          <% language_tabs.each do |lang| %>
-            <% if lang.is_a? Hash %>
-              <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
-            <% else %>
-              <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
+        <%= image_tag "axerve-api-logo.svg" %>
+        <% if language_tabs.any? %>
+          <div class="lang-selector">
+            <% language_tabs.each do |lang| %>
+              <% if lang.is_a? Hash %>
+                <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
+              <% else %>
+                <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-      <% end %>
-      <% if current_page.data.search %>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Find anything">
-        </div>
-        <ul class="search-results"></ul>
-      <% end %>
+          </div>
+        <% end %>
+        <% if current_page.data.search %>
+          <div class="search">
+            <input type="text" class="search" id="input-search" placeholder="Find anything">
+          </div>
+          <ul class="search-results"></ul>
+        <% end %>
       <div id="toc">
       </div>
       <% if current_page.data.toc_footers %>
