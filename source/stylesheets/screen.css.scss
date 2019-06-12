@@ -36,6 +36,26 @@ html, body {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+// BANNER
+////////////////////////////////////////////////////////////////////////////////
+
+.c-banner {
+  height: $banner-height;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #00466E;
+  color: white;
+  font-size: 14px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  border-bottom: 1px solid white;
+}
+
+////////////////////////////////////////////////////////////////////////////////
 // TABLE OF CONTENTS
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -59,7 +79,7 @@ html, body {
   overflow-x: hidden;
   position: fixed;
   z-index: 30;
-  top: 0;
+  top: $banner-height;
   left: 0;
   bottom: 0;
   width: $nav-width;
@@ -290,7 +310,7 @@ html, body {
     background-color: $examples-bg;
     position: absolute;
     right: 0;
-    top: 0;
+    top: $banner-height;
     bottom: 0;
   }
 
@@ -344,6 +364,7 @@ html, body {
   // to place content above the dark box
   position: relative;
   z-index: 30;
+  top: $banner-height;
 
   &:after {
     content: '';
