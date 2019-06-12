@@ -25,7 +25,7 @@ Headers:
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `paymentToken` | `{paymentToken}` | The payment token. |
+| [`paymentToken`](#payment-token) | `{paymentToken}` | The payment token. |
 
 URL parameter: 
 
