@@ -83,3 +83,11 @@ The error `code` is one of the [error code list](#errors).
 The error `description` contains the error explanation in common language. 
 
 The `payload` is eventually filled with the response, in case of success.
+
+## Payment token
+
+`paymentToken` is generated during the creation of a new payment with [payment/create](#post-payment-create) and it's unique for every transaction. It can be insert in the headers for authenticate call for that payment.
+
+The token is valid util the payment is not authorized (before the [payment/submit](/#post-payment-submit)).
+
+<aside class="notice">You can use the payment token for the 24h next to the authorization for payment/detail calls, up to 10 times (5 in sandbox).</aside>
