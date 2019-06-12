@@ -5319,6 +5319,14 @@ Please note:
 
 <p>The <code class="prettyprint">payload</code> is eventually filled with the response, in case of success.</p>
 
+<h2 id="payment-token">Payment token</h2>
+
+<p><code class="prettyprint">paymentToken</code> is generated during the creation of a new payment with <a href="#post-payment-create">payment/create</a> and it&rsquo;s unique for every transaction. It can be insert in the headers for authenticate call for that payment.</p>
+
+<p>The token is valid util the payment is not authorized (before the <a href="/#post-payment-submit">payment/submit</a>).</p>
+
+<aside class="notice">You can use the payment token for the 24h next to the authorization for payment/detail calls, up to 10 times (5 in sandbox).</aside>
+
           <h2 id="check-api">Check API</h2>
 
 <p>With the Check REST APIs you&rsquo;ll be able to syntactically check credit card numbers, emails, dates and CVV. </p>
@@ -5366,7 +5374,7 @@ Please note:
 <td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">paymentToken</code></td>
+<td><a href="#payment-token"><code class="prettyprint">paymentToken</code></a></td>
 <td><code class="prettyprint">{paymentToken}</code></td>
 <td>A payment token received during the payment process</td>
 </tr>
@@ -5465,7 +5473,7 @@ Please note:
 <td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">paymentToken</code></td>
+<td><a href="#payment-token"><code class="prettyprint">paymentToken</code></a></td>
 <td><code class="prettyprint">{paymentToken}</code></td>
 <td>A payment token received during the payment process</td>
 </tr>
@@ -5567,7 +5575,7 @@ Please note:
 <td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">paymentToken</code></td>
+<td><a href="#payment-token"><code class="prettyprint">paymentToken</code></a></td>
 <td><code class="prettyprint">{paymentToken}</code></td>
 <td>A payment token received during the payment process</td>
 </tr>
@@ -5672,7 +5680,7 @@ Please note:
 <td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">paymentToken</code></td>
+<td><a href="#payment-token"><code class="prettyprint">paymentToken</code></a></td>
 <td><code class="prettyprint">{paymentToken}</code></td>
 <td>A payment token received during the payment process</td>
 </tr>
@@ -5781,7 +5789,7 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">paymentToken</code></td>
+<td><a href="#payment-token"><code class="prettyprint">paymentToken</code></a></td>
 <td><code class="prettyprint">{paymentToken}</code></td>
 <td>A payment token received during the payment process</td>
 </tr>
@@ -8847,7 +8855,7 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">paymentToken</code></td>
+<td><a href="#payment-token"><code class="prettyprint">paymentToken</code></a></td>
 <td>A token related to this transaction.</td>
 </tr>
 <tr>
@@ -8888,7 +8896,7 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">paymentToken</code></td>
+<td><a href="#payment-token"><code class="prettyprint">paymentToken</code></a></td>
 <td><code class="prettyprint">{paymentToken}</code></td>
 <td>The payment token returned by <a href="##post-payment-create-beta">payment/create</a></td>
 </tr>
@@ -9005,7 +9013,7 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">paymentToken</code></td>
+<td><a href="#payment-token"><code class="prettyprint">paymentToken</code></a></td>
 <td><code class="prettyprint">{paymentToken}</code></td>
 <td>The payment token returned by <a href="##post-payment-create-beta">payment/create</a></td>
 </tr>
@@ -9172,7 +9180,7 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">paymentToken</code></td>
+<td><a href="#payment-token"><code class="prettyprint">paymentToken</code></a></td>
 <td><code class="prettyprint">{paymentToken}</code></td>
 <td>The payment token.</td>
 </tr>
@@ -9603,7 +9611,7 @@ Please note:
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">paymentToken</code></td>
+<td><a href="#payment-token"><code class="prettyprint">paymentToken</code></a></td>
 <td><code class="prettyprint">{PaymentToken}</code></td>
 <td>The payment token, created via <a href="#post-payment-create">payment/create</a></td>
 </tr>
@@ -10142,7 +10150,7 @@ Please note:
 <td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">paymentToken</code></td>
+<td><a href="#payment-token"><code class="prettyprint">paymentToken</code></a></td>
 <td><code class="prettyprint">{paymentToken}</code></td>
 <td>A payment token received during the payment process</td>
 </tr>
@@ -10533,7 +10541,7 @@ Please note:
 <td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">paymentToken</code></td>
+<td><a href="#payment-token"><code class="prettyprint">paymentToken</code></a></td>
 <td><code class="prettyprint">{paymentToken}</code></td>
 <td>A payment token received during the payment process</td>
 </tr>
@@ -12625,7 +12633,7 @@ Please note:
 <td>The merchant API key can be found in Gestpay Merchant Back-Office.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">paymentToken</code></td>
+<td><a href="#payment-token"><code class="prettyprint">paymentToken</code></a></td>
 <td><code class="prettyprint">{paymentToken}</code></td>
 <td>A payment token received during the payment process</td>
 </tr>
