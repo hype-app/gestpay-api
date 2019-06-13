@@ -10,7 +10,7 @@ Merchants can use this method to request the token generation for a Credit Card.
 ```xml
 <CallRequestTokenS2S>
   <shopLogin>GEST13578</shopLogin>
-  <requestToken>MASKEDPAN</shopTransactionId>
+  <requestToken>MASKEDPAN</requestToken>
   <cardNumber>1234567812345678</cardNumber>
   <expiryMonth>12</expiryMonth>
   <expiryYear>21</expiryYear>
