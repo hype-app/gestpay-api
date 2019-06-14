@@ -609,6 +609,22 @@ html, body {
   }
 }
 
+.t-img-logo {
+  position: relative;
+  top: 240px;
+  left: calc(50% + 50px);
+  width: 27%;
+  z-index: 999;
+  @media (max-width: $phone-width) {
+    position: relative;
+    top: 200px;
+    left: 34%;
+    width: 34%;
+    z-index: 999;
+  }
+
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // RESPONSIVE DESIGN
 ////////////////////////////////////////////////////////////////////////////////
