@@ -73,7 +73,6 @@ These are non-mandatory fields, but are direct children of the `Encrypt` root.
 | Name | Description | Format/length | 
 | ---- | ----------- | --------- | 
 | `type` | Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>02F: Instalment first</li><li>EC: Ecommerce</li><li>NPA: only authentication</li></ul> If not evaluated, the Gestpay rule is applied. | 3 |
-| <div class="inside-icon"></div> `AVAlgorithm` | Cardholder Authentication Verification Algoritm, valorized only with 3DS 1.0 | 2 
 | [`threeDsContainer`](#3ds-2-0-fields) | Container of additional data defined in 3DS2 protocol, that better define the transaction. The data here included will be used for assessing the risk level of the transaction with the purpose of ensuring security without affecting the buyer's experience | object |  |
 | `recurringTransaction` | Contains informations necessary in case of recurring payment | object| |
 | <div class="inside-icon"></div> `installNo` | Required in case of installment payments. It indicates the maximum number of allowed transactions | 3 |
