@@ -72,7 +72,7 @@ The threeDS object contains the following object:
 |  `AVAlgorithm`  | 2 | Cardholder Authentication Verification Algoritm, valorized only with 3DS 1.0
 | `transDetails` | object | 
 | <div class="inside-icon"></div> `authData` | string | Transaction Authentication Data
-| <div class="inside-icon"></div> `authMethod` | 2 | Transaction Authentication Method
+| <div class="inside-icon"></div> `authMethod` | 2 | Transaction Authentication Method Possible values: <ul><li>01: Frictionless authentication occurred by ACS </li><li>02: Cardholder challenge occurred by ACS </li><li>03: AVS verified </li><li>04: Other issuer methods</li></ul>
 | <div style="white-space: nowrap;"><div class="inside-icon"></div> `authTimestamp`</div> | 12 | Transaction Authentication Timestamp
 | <div class="inside-icon"></div> `acsID` | 36 | ACS Transaction ID
 
