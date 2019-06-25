@@ -24,3 +24,4 @@
 | `CryptDecryptString` | ..... | Encrypted string get by parameter set in the xml request | 
 | `ErrorCode` | 9 | Error code | 
 | `ErrorDescription` | 255 | Error description | 
+
