@@ -328,11 +328,89 @@
 <td style="text-align: center"></td>
 <td>a container ojbect of other data. It is used by <a href="#gestpay-guaranteed-payment"> Gestpay Guaranteed Payment</a> and by alternative payments.</td>
 </tr>
+<tr>
+<td><code class="prettyprint">transDetails</code> <span class='beta'>sandbox</span></td>
+<td style="text-align: center">object</td>
+<td>Contians informations for 3DS 2.0 authentication</td>
+</tr>
 </tbody></table>
 
 <p><sup id="fn1">1. Each field can be up to a maximum of 300 characters in length. See next section for further explanations.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup></p>
 
 <p><a name="customInfo"></a></p>
+
+<ul>
+<li>children of <code class="prettyprint">transDetails</code> <span class='beta'>sandbox</span>: </li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Format/length</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">type</code></td>
+<td>Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>02F: Instalment first</li><li>EC: Ecommerce</li><li>NPA: only authentication</li></ul> If not evaluated, the Gestpay rule is applied.</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="#3ds-2-0-fields"><code class="prettyprint">threeDsContainer</code></a></td>
+<td>Container of additional data defined in 3DS2 protocol, that better define the transaction. The data here included will be used for assessing the risk level of the transaction with the purpose of ensuring security without affecting the buyer&rsquo;s experience</td>
+<td>object</td>
+</tr>
+<tr>
+<td><code class="prettyprint">recurringTransaction</code></td>
+<td>Contains informations necessary in case of recurring payment</td>
+<td>object</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">installNo</code></td>
+<td>Required in case of installment payments. It indicates the maximum number of allowed transactions</td>
+<td>3</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">expiry</code></td>
+<td>Required for Recurring Payments. Date after which no further transaction shall be performed</td>
+<td>8</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">frequency</code></td>
+<td>Required for Recurring Payments. It indicates the minimum number of days between two transactions of the same plan</td>
+<td>4</td>
+</tr>
+<tr>
+<td><code class="prettyprint">previousTransDetails</code></td>
+<td>Contains the details of a previous authenticated transaction for the same cardholder on the same merchant. If present, it can help to increase the chances of a frictionless authentication</td>
+<td>object</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">authData</code></td>
+<td>Prior Transaction Authentication Data</td>
+<td>string</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">authMethod</code></td>
+<td>Prior Transaction Authentication Method. Possible values: <ul><li>01: Frictionless authentication occurred by ACS </li><li>02: Cardholder challenge occurred by ACS </li><li>03: AVS verified </li><li>04: Other issuer methods</li></ul></td>
+<td>2</td>
+</tr>
+<tr>
+<td><div style="white-space: nowrap;"><div class="inside-icon"></div> <code class="prettyprint">authTimestamp</code></div></td>
+<td>Prior Transaction Authentication Timestamp</td>
+<td>12</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">acsID</code></td>
+<td>Prior Transaction Authentication Reference (ACD Transaction ID)</td>
+<td>36</td>
+</tr>
+<tr>
+<td><div style="white-space: nowrap;"><div class="inside-icon"></div> <code class="prettyprint">bankTransactionID</code></div></td>
+<td>Prior Transaction Bank ID (if it was managed by Gestpay)</td>
+<td>18</td>
+</tr>
+</tbody></table>
 
 <h4 id="sending-custom-data-to-gestpay-lt-custominfo-gt">Sending custom data to Gestpay: <code class="prettyprint">&lt;customInfo&gt;</code></h4>
 
@@ -710,6 +788,81 @@
 <td style="text-align: center">255</td>
 <td>Risk Description of the RiskResponseCode</td>
 </tr>
+<tr>
+<td><code class="prettyprint">threeDS</code></td>
+<td style="text-align: center">Object</td>
+<td>Object with information about 3ds authentication (described below)</td>
+</tr>
+</tbody></table>
+
+<p>The threeDS object contains the following object:</p>
+
+<ul>
+<li><code class="prettyprint">AuthenticationResult</code> with those children</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">authenticationLevel</code></td>
+<td style="text-align: center">2</td>
+<td>Transaction is successfully athenticated by 3DS:<ul><li>1H: 3DS 1.0 half</li><li>1F: 3DS 1.0 full</li><li>2F: 3DS 2.0 frictionless</li><li>2C: 3DS 2.0 challenge</li><li>2E: 3DS 2.0 exemption</li></ul></td>
+</tr>
+<tr>
+<td><code class="prettyprint">authenticationStatus</code></td>
+<td style="text-align: center">1</td>
+<td>Status of authentication</td>
+</tr>
+<tr>
+<td><code class="prettyprint">XID</code></td>
+<td style="text-align: center">36</td>
+<td>Transaction unique id assigned by Directory Server</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AV</code></td>
+<td style="text-align: center">28</td>
+<td>Cardholder Authentication Verification Value, proof of authentication done</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ECI</code></td>
+<td style="text-align: center">2</td>
+<td>Electronic Commerce Indicator</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AVAlgorithm</code></td>
+<td style="text-align: center">2</td>
+<td>Cardholder Authentication Verification Algoritm, valorized only with 3DS 1.0</td>
+</tr>
+<tr>
+<td><code class="prettyprint">transDetails</code></td>
+<td style="text-align: center">object</td>
+<td></td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">authData</code></td>
+<td style="text-align: center">string</td>
+<td>Transaction Authentication Data</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">authMethod</code></td>
+<td style="text-align: center">2</td>
+<td>Transaction Authentication Method Possible values: <ul><li>01: Frictionless authentication occurred by ACS </li><li>02: Cardholder challenge occurred by ACS </li><li>03: AVS verified </li><li>04: Other issuer methods</li></ul></td>
+</tr>
+<tr>
+<td><div style="white-space: nowrap;"><div class="inside-icon"></div> <code class="prettyprint">authTimestamp</code></div></td>
+<td style="text-align: center">12</td>
+<td>Transaction Authentication Timestamp</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">acsID</code></td>
+<td style="text-align: center">36</td>
+<td>ACS Transaction ID</td>
+</tr>
 </tbody></table>
 
 <p>Other information is defined as optional and will be returned according to the merchant’s profile settings made in the GestPay Back Office environment.</p>
@@ -1062,7 +1215,7 @@
 </tr>
 <tr>
 <td><div class="inside-icon"></div> <code class="prettyprint">authenticationLevel</code></td>
-<td>Transaction is successfully authenticated by 3DS:<ul><li>1H: 3DS 1.0 half</li><li>1F: 3DS 1.0 full</li><li>2F: 3DS 2.0 frictionless</li><li>2C: 3Ds 2.0 challenge</li></ul></td>
+<td>Transaction is successfully authenticated by 3DS:<ul><li>1H: 3DS 1.0 half</li><li>1F: 3DS 1.0 full</li><li>2F: 3DS 2.0 frictionless</li><li>2C: 3Ds 2.0 challenge</li><li>2E: 3DS 2.0 exemption</li><li>OL: One Leg - Authentication not required</li></ul></td>
 <td>2</td>
 </tr>
 <tr>
@@ -1330,7 +1483,7 @@
 <tr>
 <td><code class="prettyprint">authenticationLevel</code></td>
 <td style="text-align: center">2</td>
-<td>Transaction is successfully athenticated by 3DS:<ul><li>1H: 3DS 1.0 half</li><li>1F: 3DS 1.0 full</li><li>2F: 3DS 2.0 frictionless</li><li>2C: 3DS 2.0 challenge</li></ul></td>
+<td>Transaction is successfully athenticated by 3DS:<ul><li>1H: 3DS 1.0 half</li><li>1F: 3DS 1.0 full</li><li>2F: 3DS 2.0 frictionless</li><li>2C: 3DS 2.0 challenge</li><li>2E: 3DS 2.0 exemption</li></ul></td>
 </tr>
 <tr>
 <td><code class="prettyprint">authenticationStatus</code></td>
@@ -1370,7 +1523,7 @@
 <tr>
 <td><div class="inside-icon"></div> <code class="prettyprint">authMethod</code></td>
 <td style="text-align: center">2</td>
-<td>Transaction Authentication Method</td>
+<td>Transaction Authentication Method Possible values: <ul><li>01: Frictionless authentication occurred by ACS </li><li>02: Cardholder challenge occurred by ACS </li><li>03: AVS verified </li><li>04: Other issuer methods</li></ul></td>
 </tr>
 <tr>
 <td><div style="white-space: nowrap;"><div class="inside-icon"></div> <code class="prettyprint">authTimestamp</code></div></td>
@@ -14311,7 +14464,7 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <tr>
 <td><code class="prettyprint">transTypeReq</code></td>
 <td style="text-align: center">1</td>
-<td>Type of transaction required to GestPay: complete payment process or only authentication (in case of third party Acquirer). <ul><li><code class="prettyprint">P</code> for Payment (default)</li><li><code class="prettyprint">A</code> for authentication only</li></ul></td>
+<td>Type of transaction required to GestPay: complete payment process or only authentication (in case of third party Acquirer). <ul><li><code class="prettyprint">P</code> for Payment (default)</li><li><code class="prettyprint">A</code> for authentication only</li></ul> This field doesn&rsquo;t exist in Ecrypt request call</td>
 </tr>
 <tr>
 <td><code class="prettyprint">acquirerBIN</code></td>
@@ -14631,7 +14784,7 @@ Gestpay Guaranteed Payment is reserved to users that have signed an agreement wi
 <tr>
 <td><code class="prettyprint">SDKDetails</code></td>
 <td style="text-align: center">string</td>
-<td>Contains SDK data to be sent to ACS as base64-encoded string. <br>Include: <ul><li>DeviceData</li><li>SDKAppID</li><li>SDKReferenceNumber</li><li>SDKEphemeralPublicKey</li><li>MessageVersion</li></ul></td>
+<td>Contains SDK data to be sent to ACS as base64-encoded string. <br>Include: <ul><li>DeviceData</li><li>SDKAppID</li><li>SDKReferenceNumber</li><li>SDKEphemeralPublicKey</li><li>MessageVersion</li></ul>This field doesn&rsquo;t exist in Encrypt call request.</td>
 </tr>
 </tbody></table>
 
