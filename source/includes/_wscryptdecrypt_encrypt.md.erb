@@ -82,8 +82,9 @@ These are non-mandatory fields, but are direct children of the `Encrypt` root.
 | <div class="inside-icon"></div> `authData` | Prior Transaction Authentication Data | string |
 | <div class="inside-icon"></div> `authMethod` | Prior Transaction Authentication Method. Possible values: <ul><li>01: Frictionless authentication occurred by ACS </li><li>02: Cardholder challenge occurred by ACS </li><li>03: AVS verified </li><li>04: Other issuer methods</li></ul> | 2 |
 | <div style="white-space: nowrap;"><div class="inside-icon"></div> `authTimestamp`</div> | Prior Transaction Authentication Timestamp | 12 |
-| <div class="inside-icon"></div> `acsID` | Prior Transaction Authentication Reference (ACD Transaction ID) | 36 |
+| <div class="inside-icon"></div> `acsID` | Prior Transaction Authentication Reference (ACS Transaction ID) | 36 |
 | <div style="white-space: nowrap;"><div class="inside-icon"></div> `bankTransactionID`</div> | Prior Transaction Bank ID (if it was managed by Gestpay) | 18 |
+| <div class="inside-icon"></div> `XID` | Prior Transaction unique ID assigned by Directory Server | 36 |
 
 
 #### Sending custom data to Gestpay: `<customInfo>`
