@@ -187,7 +187,7 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `payPalFee` | The fee owed to paypal. 
 | `fraudPrevention` | informations about fraud prevention. Responses by Gestpay Guaranteed Payment will show here. 
 | `automaticOperation` | it refers to an automatic operation that has been programmed. 
-| `threeDS` | Object with information about 3ds authentication (described below)
+| `threeDS` <span class='beta'>sandbox</span> | Object with information about 3ds authentication (described below)
 
 `events` details: 
 
@@ -231,7 +231,7 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `order` | the order reference 
 
 
-The threeDS object contains two object:
+The threeDS <span class='beta'>sandbox</span> object contains two object:
 
 - `AuthenticationResult` with those children
 
