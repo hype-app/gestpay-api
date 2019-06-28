@@ -56,9 +56,9 @@ The minimum information returned back as transaction result is marked in bold.
 | `VbVFlag` | 2 | Information about the 3D-Secure status. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions. |
 | `RiskResponseCode` | 10 | Risk Fraud Score of the transaction, given by [Gestpay Guaranteed Payment](<%= config[:doc_url] %>/sec/gestpay-guaranteed-payment.html). Possible values are: <ul><li>`created`: transaction has been received by the Gestpay Guaranteed Payment</li><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Gestpay Guaranteed Payment</li><li>`declined`: transaction not approved by  Gestpay Guaranteed Payment</li><li>`captured`: For *Select&Submit* plan, `captured` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Gestpay Guaranteed Payment.</li></ul> |
 | `RiskResponseDescription` | 255 | Risk Description of the RiskResponseCode |
-| `threeDS` | Object | Object with information about 3ds authentication (described below)
+| `threeDS` <span class='beta'>sandbox</span> | Object | Object with information about 3ds authentication (described below)
 
-The threeDS object contains the following object:
+The threeDS <span class='beta'>sandbox</span> object contains the following object:
 
 - `AuthenticationResult` with those children
 
