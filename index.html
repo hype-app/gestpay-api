@@ -10676,6 +10676,10 @@ Please note:
 <td><code class="prettyprint">automaticOperation</code></td>
 <td>it refers to an automatic operation that has been programmed.</td>
 </tr>
+<tr>
+<td><code class="prettyprint">threeDS</code> <span class='beta'>sandbox</span></td>
+<td>Object with information about 3ds authentication (described below)</td>
+</tr>
 </tbody></table>
 
 <p><code class="prettyprint">events</code> details: </p>
@@ -10789,6 +10793,116 @@ Please note:
 <tr>
 <td><code class="prettyprint">order</code></td>
 <td>the order reference</td>
+</tr>
+</tbody></table>
+
+<p>The threeDS <span class='beta'>sandbox</span> object contains two object:</p>
+
+<ul>
+<li><code class="prettyprint">AuthenticationResult</code> with those children</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center">max length</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">authenticationLevel</code></td>
+<td style="text-align: center">2</td>
+<td>Transaction is successfully athenticated by 3DS:<ul><li>1H: 3DS 1.0 half</li><li>1F: 3DS 1.0 full</li><li>2F: 3DS 2.0 frictionless</li><li>2C: 3DS 2.0 challenge</li><li>2E: 3DS 2.0 exemption</li><li>OL: One Leg - Authentication not required</li></ul></td>
+</tr>
+<tr>
+<td><code class="prettyprint">authenticationStatus</code></td>
+<td style="text-align: center">1</td>
+<td>Status of authentication</td>
+</tr>
+<tr>
+<td><code class="prettyprint">XID</code></td>
+<td style="text-align: center">36</td>
+<td>Transaction unique id assigned by Directory Server</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AV</code></td>
+<td style="text-align: center">28</td>
+<td>Cardholder Authentication Verification Value, proof of authentication done</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ECI</code></td>
+<td style="text-align: center">2</td>
+<td>Electronic Commerce Indicator</td>
+</tr>
+<tr>
+<td><code class="prettyprint">AVAlgorithm</code></td>
+<td style="text-align: center">2</td>
+<td>Cardholder Authentication Verification Algoritm, valorized only with 3DS 1.0</td>
+</tr>
+<tr>
+<td><code class="prettyprint">transDetails</code></td>
+<td style="text-align: center">object</td>
+<td></td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">authData</code></td>
+<td style="text-align: center">string</td>
+<td>Transaction Authentication Data</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">authMethod</code></td>
+<td style="text-align: center">2</td>
+<td>Transaction Authentication Method Possible values: <ul><li>01: Frictionless authentication occurred by ACS </li><li>02: Cardholder challenge occurred by ACS </li><li>03: AVS verified </li><li>04: Other issuer methods</li></ul></td>
+</tr>
+<tr>
+<td><div style="white-space: nowrap;"><div class="inside-icon"></div> <code class="prettyprint">authTimestamp</code></div></td>
+<td style="text-align: center">12</td>
+<td>Transaction Authentication Timestamp</td>
+</tr>
+<tr>
+<td><div class="inside-icon"></div> <code class="prettyprint">acsID</code></td>
+<td style="text-align: center">36</td>
+<td>ACS Transaction ID</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><code class="prettyprint">InAppChallenge</code> (Tihs fields are valorized and usefull only in app integration)</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">threeDSServerTransID</code></td>
+<td>Universally unique transaction identifier assigned by the 3DS Server to identify a single transaction.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">acsSignedContent</code></td>
+<td>Contains the JWS object (represented as a string) created by the ACS for the ARes message.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">acsTransID</code></td>
+<td>Universally Unique transaction identifier assigned by the ACS to identify a single transaction.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">acsURL</code></td>
+<td>Fully qualified URL of the ACS to be used for the challenge.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">cardholderInfo</code></td>
+<td>Text provided by the ACS/Issuer to Cardholder during a Frictionless or Decoupled transaction. The Issuer can provide information to Cardholder. For example, “Additional authentication is needed for this transaction, please contact (Issuer Name) at xxx-xxx-xxxx.”</td>
+</tr>
+<tr>
+<td><code class="prettyprint">messageExtension</code></td>
+<td>Data necessary to support requirements not otherwise defined in the 3- D Secure message are carried in a Message Extension.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">sdkTransID</code></td>
+<td>Universally unique transaction identifier assigned by the 3DS SDK to identify a single transaction</td>
 </tr>
 </tbody></table>
 
