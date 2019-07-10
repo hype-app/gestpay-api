@@ -206,6 +206,7 @@ The threeDS <span class='beta'>sandbox</span> object contains two object:
 |  `AV`  | 28 | Cardholder Authentication Verification Value, proof of authentication done
 |  `ECI` | 2 | Electronic Commerce Indicator 
 |  `AVAlgorithm`  | 2 | Cardholder Authentication Verification Algoritm, valorized only with 3DS 1.0
+| `threeDsVersion ` | 8 | EMVco protocol version identifier 
 | `transDetails` | object | 
 | <div class="inside-icon"></div> `authData` | string | Transaction Authentication Data
 | <div class="inside-icon"></div> `authMethod` | 2 | Transaction Authentication Method Possible values: <ul><li>01: Frictionless authentication occurred by ACS </li><li>02: Cardholder challenge occurred by ACS </li><li>03: AVS verified </li><li>04: Other issuer methods</li></ul>
