@@ -109,7 +109,7 @@ The following features may be optionally assigned:
 
 | Name | Description | Format/length | 
 | ---- | ----------- | --------- | 
-| `type` | Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>01N: Recurring next</li><li>02F: Instalment first</li><li>02N: Instalment next</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li><li>NPA: only authentication</li></ul> If not evaluated, the Gestpay rule is applied. | 3 |
+| `type` | Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>01N: Recurring next</li><li>02F: Instalment first</li><li>02N: Instalment next</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Gestpay rule is applied. | 3 |
 | `threeDsAuthResult` | Result of the 3DS authentication done with another provider (Axerve will manage the authorization request, considering the 3DS phase already completed) | object |  |
 | <div class="inside-icon"></div> `authenticationLevel` | Transaction is successfully authenticated by 3DS:<ul><li>1H: 3DS 1.0 half</li><li>1F: 3DS 1.0 full</li><li>2F: 3DS 2.0 frictionless</li><li>2C: 3DS 2.0 challenge</li><li>2E: 3DS 2.0 exemption</li><li>OL: One Leg - Authentication not required</li></ul> |  2 
 | <div style="white-space: nowrap;"><div class="inside-icon"></div> `authenticationStatus`</div> | Status of the authentication | 1
@@ -172,14 +172,14 @@ The following features may be optionally assigned:
   <RiskResponseCode>approved</RiskResponseCode>
   <RiskResponseDescription>the transaction is approved</RiskResponseDescription>
 
-  <3DS>
+  <threeDS>
     <AuthenticationResult>
       ...
     </AuthenticationResult>
     <InAppChallenge>
       ...
     </InAppChallenge>
-  </3DS>
+  </threeDS>
 </GestPayS2S>
 ```
 
@@ -227,6 +227,7 @@ The threeDS <span class='beta'>sandbox</span> object contains two object:
 |  `AV`  | 28 | Cardholder Authentication Verification Value, proof of authentication done
 |  `ECI` | 2 | Electronic Commerce Indicator 
 |  `AVAlgorithm`  | 2 | Cardholder Authentication Verification Algoritm, valorized only with 3DS 1.0
+| `threeDsVersion ` | 8 | EMVco protocol version identifier 
 | `transDetails` | object | 
 | <div class="inside-icon"></div> `authData` | string | Transaction Authentication Data
 | <div class="inside-icon"></div> `authMethod` | 2 | Transaction Authentication Method Possible values: <ul><li>01: Frictionless authentication occurred by ACS </li><li>02: Cardholder challenge occurred by ACS </li><li>03: AVS verified </li><li>04: Other issuer methods</li></ul>
