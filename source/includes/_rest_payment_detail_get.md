@@ -202,6 +202,7 @@ The threeDS <span class='beta'>sandbox</span> object contains two object:
 | ---- | :--------: | ----------- |
 |  `authenticationLevel` | 2  | Transaction is successfully athenticated by 3DS:<ul><li>1H: 3DS 1.0 half</li><li>1F: 3DS 1.0 full</li><li>2F: 3DS 2.0 frictionless</li><li>2C: 3DS 2.0 challenge</li><li>2E: 3DS 2.0 exemption</li><li>OL: One Leg - Authentication not required</li></ul>
 |  `authenticationStatus`  | 1 | Status of authentication
+|  `authStatusReason`  | 2 | Provides information on why the Transaction Status field has the specified value
 |  `XID`  | 36 | Transaction unique id assigned by Directory Server
 |  `AV`  | 28 | Cardholder Authentication Verification Value, proof of authentication done
 |  `ECI` | 2 | Electronic Commerce Indicator 
