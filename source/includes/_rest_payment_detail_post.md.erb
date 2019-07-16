@@ -231,7 +231,7 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `order` | the order reference 
 
 
-The threeDS <span class='beta'>sandbox</span> object contains two object:
+The threeDS <span class='beta'>sandbox</span> object contains three object:
 
 - `AuthenticationResult` with those children
 
@@ -245,11 +245,15 @@ The threeDS <span class='beta'>sandbox</span> object contains two object:
 |  `ECI` | 2 | Electronic Commerce Indicator 
 |  `AVAlgorithm`  | 2 | Cardholder Authentication Verification Algoritm, valorized only with 3DS 1.0
 | `threeDsVersion ` | 8 | EMVco protocol version identifier 
-| `transDetails` | object | 
-| <div class="inside-icon"></div> `authData` | string | Transaction Authentication Data
-| <div class="inside-icon"></div> `authMethod` | 2 | Transaction Authentication Method Possible values: <ul><li>01: Frictionless authentication occurred by ACS </li><li>02: Cardholder challenge occurred by ACS </li><li>03: AVS verified </li><li>04: Other issuer methods</li></ul>
-| <div style="white-space: nowrap;"><div class="inside-icon"></div> `authTimestamp`</div> | 12 | Transaction Authentication Timestamp
-| <div class="inside-icon"></div> `acsID` | 36 | ACS Transaction ID
+
+- `transDetails` with those children
+
+| Name | max length | description |
+| ---- | :--------: | ----------- |
+| `authData` | string | Transaction Authentication Data
+| `authMethod` | 2 | Transaction Authentication Method Possible values: <ul><li>01: Frictionless authentication occurred by ACS </li><li>02: Cardholder challenge occurred by ACS </li><li>03: AVS verified </li><li>04: Other issuer methods</li></ul>
+| `authTimestamp` | 12 | Transaction Authentication Timestamp
+| `acsID` | 36 | ACS Transaction ID
 
 - `InAppChallenge` (Tihs fields are valorized and usefull only in app integration)
 

@@ -1,6 +1,6 @@
 {
   "name": "gestpay-api",
-  "version": "1.0.68",
+  "version": "1.0.69",
   "description": "gestpay api",
   "main": "index.js",
   "scripts": {
