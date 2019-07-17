@@ -51,7 +51,7 @@ set :doc_url, "http://docs.gestpay.it"
 set :authentication_docs, config[:doc_url] + "/gs/how-gestpay-works.html#authentication"
 
 #<%= config[:riskified] %>
-set :riskified, "Gestpay Guaranteed Payment" 
+set :riskified, "Axerve Guaranteed Payment" 
 
 #activate :livereload
 

@@ -11,7 +11,7 @@
  </Decrypt>
 ```
 
-GestPay communicates the payment transaction result to the merchant through an encrypted string (parameter b of the call to the url preconfigured by the merchant) with a set of transaction's informations.
+Axerve E-commerce Solutions communicates the payment transaction result to the merchant through an encrypted string (parameter b of the call to the url preconfigured by the merchant) with a set of transaction's informations.
 
 To Decrypt the data it is necessary to use Decrypt method passing the following parameters, the tags' names are case sensitive:
 

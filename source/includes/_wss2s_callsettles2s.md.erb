@@ -68,9 +68,9 @@ Parameters in **bold** are mandatory.
 A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransID</code>. However, if the <code>shopTransID</code> is unique, the merchant can send just <code>shopLogin</code> + <code>shopTransID</code>. 
 </aside>
 
-`FullFillment` tag must be filled if you are using [ Gestpay Guaranteed Payment](<%= config[:doc_url] %>/sec/gestpay-guaranteed-payment.html), an anti fraud evaluating system. If you are not using it, you can skip this. 
+`FullFillment` tag must be filled if you are using [ Axerve Guaranteed Payment](<%= config[:doc_url] %>/sec/gestpay-guaranteed-payment.html), an anti fraud evaluating system. If you are not using it, you can skip this. 
 
-When you *settle* a payment, Gestpay Guaranteed Payment wants to be notified that an existing order has been fulfilled, both the success and error case. 
+When you *settle* a payment, Axerve Guaranteed Payment wants to be notified that an existing order has been fulfilled, both the success and error case. 
 
 `FillFillment` contains a `FullFillmentlst` that contains one or more `FullfillmentDetail`, whose fields are: 
 
