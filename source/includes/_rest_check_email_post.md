@@ -29,11 +29,11 @@ Provides a formal validity check of the email address.
 
 Headers: 
 
-To receive a valid response from Gestpay you must use one of these headers: 
+To receive a valid response from Axerve E-commerce Solutions you must use one of these headers: 
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Axerve Merchant Back-Office. |
 | [`paymentToken`](#payment-token) | `{paymentToken}` | A payment token received during the payment process |
 
 
@@ -63,7 +63,7 @@ request body details:
 }
 ```
 
-See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Axerve E-commerce Solutions reports errors.
 
 Response `payload` details:
 
