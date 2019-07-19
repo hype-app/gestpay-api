@@ -61,7 +61,7 @@ Headers:
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Axerve Merchant Back-Office. |
 
 Request Body: 
 
@@ -72,7 +72,7 @@ Request Body:
 | **`shopLogin`** | the merchant's code 
 | **`amount`** | the amount to refund 
 | **`currency`** | [currency ISO code](#currency-codes) 
-| `bankTransactionID` | ID of the transaction assigned by Gestpay 
+| `bankTransactionID` | ID of the transaction assigned by Axerve E-commerce Solutions 
 | `shopTransactionID` | shop transaction ID value 
 | `paymentID`         | The payment ID 
 | `refundReason` | a free-text reason for the refund. Used with fraud protection. 
@@ -102,7 +102,7 @@ Note: you **must** provide at least one of `shopTransactionID`, `bankTransaction
 }
 ```
 
-See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Axerve E-commerce Solutions reports errors.
 
 Response `payload` details:
 
@@ -111,6 +111,6 @@ Response `payload` details:
 | -------------- | -----------
 | `transactionType` | always `refund` for this operation
 | `transactionResult` | `OK` ok `KO`
-| `bankTransactionID` | ID of the transaction assigned by Gestpay 
+| `bankTransactionID` | ID of the transaction assigned by Axerve E-commerce Solutions 
 | `shopTransactionID` | shop transaction ID value 
 | `paymentID`         | The payment ID 

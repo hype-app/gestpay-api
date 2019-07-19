@@ -22,7 +22,7 @@ Headers:
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Axerve Merchant Back-Office. |
 
 URL parameter: 
 
@@ -47,7 +47,7 @@ URL parameter:
 }
 ```
 
-See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Axerve E-commerce Solutions reports errors.
 
 Response `payload` details:
 

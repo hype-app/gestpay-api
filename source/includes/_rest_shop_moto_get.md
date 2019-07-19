@@ -18,7 +18,7 @@ GET https://ecomms2s.sella.it/api/v1/shop/moto/{shopLogin}
 
 Returns the MOTO setting for the `shopLogin`. 
 
-Read more about [MOTO settings in Gestpay](<%=config[:doc_url]%>/gs/how-gestpay-works.html#moto--what-happens-after-a-transaction). 
+Read more about [MOTO settings in Axerve E-commerce Solutions](<%=config[:doc_url]%>/gs/how-gestpay-works.html#moto--what-happens-after-a-transaction). 
 
 #### Request 
 
@@ -26,7 +26,7 @@ Headers:
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Axerve Merchant Back-Office. |
 
 URL parameter: 
 
@@ -70,7 +70,7 @@ URL parameter:
 }
 ```
 
-See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Axerve E-commerce Solutions reports errors.
 
 The response can contain zero or more items in the `moto` array. 
 

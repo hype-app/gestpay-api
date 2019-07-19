@@ -22,7 +22,7 @@ To authenticate, use one of the following headers:
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Axerve Merchant Back-Office. |
 | [`paymentToken`](#payment-token) | `{paymentToken}` | A payment token received during the payment process |
 
 URL parameter: 
@@ -113,7 +113,7 @@ URL parameter:
 ```
 
 
-See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Axerve E-commerce Solutions reports errors.
 
 
 `payload` details:
@@ -126,7 +126,7 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `bankTransactionID` | A transaction ID assigned by the bank.                                                            |
 | `shopTransactionID` | An ID assigned by the shop.                                                                       |
 | `authorizationCode` | A code released by the payment circuit.                                                           |
-| `paymentID`        | Assigned by Gestpay, identifies the payment |
+| `paymentID`        | Assigned by Axerve E-commerce Solutions, identifies the payment |
 | `currency`  | One of the [ISO currencies](#currency-codes). 
 | `country` | The country originating the transaction | 
 | `company` | The credit card / payment circuit | 
@@ -134,7 +134,7 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `alertCode` | Alert code. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description. 
 | `AlertDescription` | Alert description in chosen language. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description.  |
 | `buyer` | Contains informations about the buyer name, if available. See the able below. 
-| `risk` | Contains informations about the risk score, assigned by Gestpay Guaranteed Payment. See below. 
+| `risk` | Contains informations about the risk score, assigned by Axerve Guaranteed Payment. See below. 
 | `customInfo` | An object containing optional customised parameters. set your parameters as key-value pairs. 
 | `events` | Contains informations about this payment history. See below.
 | `cvvPresent` | `TRUE` if the payment has been executed by using a CVV security code. 
@@ -147,7 +147,7 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `TokenExpiryYear` | String containing the token expiry year
 | `vbv` | Informations about the 3DSecure status. 
 | `payPalFee` | The fee owed to paypal. 
-| `fraudPrevention` | informations about fraud prevention. Responses by Gestpay Guaranteed Payment will show here. 
+| `fraudPrevention` | informations about fraud prevention. Responses by Axerve Guaranteed Payment will show here. 
 | `transactionErrorCode` | The error code for the transaction. See [error codes](#errors) page for details.
 | `transactionErrorDescription` | The error code description in common language.  
 | `automaticOperation` | it refers to an automatic operation that has been programmed. 
@@ -175,7 +175,7 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 
 | Field | Description 
 | ----- | ----------- 
-| `RiskResponseCode` | Risk Fraud Score of the transaction, given by Gestpay Guaranteed Payment. [See here](#risk-response-codes) for a list of possible values. |
+| `RiskResponseCode` | Risk Fraud Score of the transaction, given by Axerve Guaranteed Payment. [See here](#risk-response-codes) for a list of possible values. |
 | `RiskResponseDescription` | Risk Description for the RiskResponseCode value |
 
 `dcc` details: 
