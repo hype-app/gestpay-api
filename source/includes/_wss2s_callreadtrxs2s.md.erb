@@ -20,7 +20,7 @@ Parameters in **bold** are mandatory.
 | parameter name | description | type | length | 
 | -------------- | ----------- | -----|--------| 
 | **`shopLogin`** | the merchant's code | string | 30 |  
-| **`bankTransactionId`** | ID of the transaction assigned by Gestpay | number | 18
+| **`bankTransactionId`** | ID of the transaction assigned by Axerve E-commerce Solutions | number | 18
 | **`shopTransactionId`** | shop transaction ID value | string | 50
 | `apikey` | If you have selected the _apiKey_ authentication method, add the `apikey` field to the call. [More details about the apiKey here](#authorizing-calls-against-gestpay). |  |  | 
 
@@ -185,7 +185,7 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 | `Buyer.BuyerName` | Returns the name of the buyer 
 | `Buyer.BuyerEmail` | Returns the email of the buyer 
 | `Events`| contains `event` elements. see the next table for more.  
-| `RiskResponseCode` | Risk Fraud Score of the transaction, given by [ Gestpay Guaranteed Payment](<%= config[:doc_url] %>/sec/gestpay-guaranteed-payment.html). Possible values are: <ul><li>`created`: transaction has been received by the Gestpay Guaranteed Payment</li><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Gestpay Guaranteed Payment</li><li>`declined`: transaction not approved by  Gestpay Guaranteed Payment</li><li>`captured`: For *Select&Submit* plan, `caputred` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Gestpay Guaranteed Payment.</li></ul>
+| `RiskResponseCode` | Risk Fraud Score of the transaction, given by [ Axerve Guaranteed Payment](<%= config[:doc_url] %>/sec/gestpay-guaranteed-payment.html). Possible values are: <ul><li>`created`: transaction has been received by the Axerve Guaranteed Payment</li><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Axerve Guaranteed Payment</li><li>`declined`: transaction not approved by  Axerve Guaranteed Payment</li><li>`captured`: For *Select&Submit* plan, `caputred` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Axerve Guaranteed Payment.</li></ul>
 | `RiskResponseDescription` | Risk Description of the RiskResponseCode 
 | `OrderReferenceDetails` | Informations about Shipping and Billing addresses,  returned for some payment methods. | 
 

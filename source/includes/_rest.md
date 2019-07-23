@@ -1,10 +1,10 @@
 # REST APIs
 
-Welcome to Gestpay REST APIs. With these APIs you'll be able to perform a big set of operations. 
+Welcome to Axerve E-commerce Solutions REST APIs. With these APIs you'll be able to perform a big set of operations. 
 
 ## URLs, endpoints and versions 
 
-Gestpay provides two endpoints: 
+Axerve E-commerce Solutions provides two endpoints: 
 
 |        |  URL  | 
 | ------ | ----- |
@@ -72,11 +72,11 @@ Methods marked with <span class="beta">sandbox</span> are available in sandbox o
 }
 ```
 
-Gestpay uses HTTP status codes to indicate the result of an operations. 
+Axerve E-commerce Solutions uses HTTP status codes to indicate the result of an operations. 
 
-Gestpay uses an HTTP status code that indicates the success (`2xx`) or failure (`4xx`, `5xx`) of the request.
+Axerve E-commerce Solutions uses an HTTP status code that indicates the success (`2xx`) or failure (`4xx`, `5xx`) of the request.
 
-Along with the status code, Gestpay sends a json in the body of the response, to better explain the response. 
+Along with the status code, Axerve E-commerce Solutions sends a json in the body of the response, to better explain the response. 
 
 The error `code` is one of the [error code list](#errors).
 

@@ -1,6 +1,6 @@
 ### Decrypt result 
 
-> GestPay authenticates the calling server and checks the encrypted data string. If the checks are passed, it returns an unencrypted data string containing the transaction result: 
+> Axerve E-commerce Solutions authenticates the calling server and checks the encrypted data string. If the checks are passed, it returns an unencrypted data string containing the transaction result: 
 
 ```xml
  <DecryptResult>
@@ -29,7 +29,7 @@ The minimum information returned back as transaction result is marked in bold.
 | `TransactionType` | 7 | Decode the transaction type request (`DECRYPT`, `ENCRYPT`) |
 | **`TransactionResult`** | **2** | **Transaction result (`OK`/`KO`)** | 
 | **`ShopTransactionID`** | **50** | **Identifier attributed to merchant’s transaction** | 
-| **`BankTransactionID`** | **9** | **Identifier attributed to the transaction by GestPay** |
+| **`BankTransactionID`** | **9** | **Identifier attributed to the transaction by Axerve E-commerce Solutions** |
 | **`AuthorizationCode`** | **6** | **Transaction authorisation code** | 
 | **`Currency`** | **3** | **Code identifying currency in which transaction amount is denominated (see [Currency Codes](#currency-codes) table)** |
 | **`Amount`** | **9** | **Transaction amount. Decimals (max. 2 numbers) are optional and separator is the point (see examples)** | 
@@ -54,10 +54,10 @@ The minimum information returned back as transaction result is marked in bold.
 | `VbVRisp` |  | Encrypted string containing information for 3D- Secure transactions. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions | 
 | `VbVBuyer` | 2 | Information about the enrolment of the buyer's card to 3D-Secure protocol: `OK` means that the card is enrolled, `KO` means that the card is not enrolled | 
 | `VbVFlag` | 2 | Information about the 3D-Secure status. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions. |
-| `RiskResponseCode` | 10 | Risk Fraud Score of the transaction, given by [Gestpay Guaranteed Payment](<%= config[:doc_url] %>/sec/gestpay-guaranteed-payment.html). Possible values are: <ul><li>`created`: transaction has been received by the Gestpay Guaranteed Payment</li><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Gestpay Guaranteed Payment</li><li>`declined`: transaction not approved by  Gestpay Guaranteed Payment</li><li>`captured`: For *Select&Submit* plan, `captured` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Gestpay Guaranteed Payment.</li></ul> |
+| `RiskResponseCode` | 10 | Risk Fraud Score of the transaction, given by [Axerve Guaranteed Payment](<%= config[:doc_url] %>/sec/gestpay-guaranteed-payment.html). Possible values are: <ul><li>`created`: transaction has been received by the Axerve Guaranteed Payment</li><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Axerve Guaranteed Payment</li><li>`declined`: transaction not approved by  Axerve Guaranteed Payment</li><li>`captured`: For *Select&Submit* plan, `captured` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Axerve Guaranteed Payment.</li></ul> |
 | `RiskResponseDescription` | 255 | Risk Description of the RiskResponseCode |
 
-Other information is defined as optional and will be returned according to the merchant’s profile settings made in the GestPay Back Office environment.
+Other information is defined as optional and will be returned according to the merchant’s profile settings made in the Axerve Back Office environment.
 
 A transaction result can be interpreted by verifying the `TransactionResult` field value. The possible values are:
 
@@ -65,4 +65,4 @@ A transaction result can be interpreted by verifying the `TransactionResult` fie
 | ----------------- | ----------- | 
 | `OK` | Positive transaction result | 
 | `KO` | Negative transaction result | 
-| `XX` | Suspended transaction result. This is not a final result: Gestpay will send `XX` when the outcome is asynchronous. Right now these systems are `MyBank`, `Sofort`, `IDeal`, `Bank Transfer`. In the future, this code might be returned with other payment systems (bitcoins, for example). <br/> A new communication will be provided to the merchant when the transaction will assume the final `OK`/`KO` status. <br/> **If you receive a `XX` code, don't send your goods but wait to receive the actual payment.** The customer with `XX` transaction is redirect to URL for positive response.   | 
+| `XX` | Suspended transaction result. This is not a final result: Axerve E-commerce Solutions will send `XX` when the outcome is asynchronous. Right now these systems are `MyBank`, `Sofort`, `IDeal`, `Bank Transfer`. In the future, this code might be returned with other payment systems (bitcoins, for example). <br/> A new communication will be provided to the merchant when the transaction will assume the final `OK`/`KO` status. <br/> **If you receive a `XX` code, don't send your goods but wait to receive the actual payment.** The customer with `XX` transaction is redirect to URL for positive response.   | 

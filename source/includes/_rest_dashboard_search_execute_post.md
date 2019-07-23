@@ -84,13 +84,13 @@ POST https://ecomms2s.sella.it/api/v1/dashboard/search
 }
 ```
 
-Queries Gestpay for transactions of the past, filtering by many fields.
+Queries Axerve E-commerce Solutions for transactions of the past, filtering by many fields.
 
 Headers:
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Axerve Merchant Back-Office. |
 
 Body data:
 
@@ -114,7 +114,7 @@ Body data:
 | `shopTransactionID`         | The `shopTransactionID` is the ID assigned by the shop. | `my_shop_id_42` |
 | `authorizationCode`         | The authorization code is a code released by the payment circuit. | `1123454` |
 | `transactionErrorCode`      | The transaction error code | `74`  |
-| `paymentID`                 | Assigned by Gestpay, identifies the payment | `12365344752`  |
+| `paymentID`                 | Assigned by Axerve E-commerce Solutions, identifies the payment | `12365344752`  |
 | `authorizationResult`       | select transactions whose authorizationResult is contained in the array.| `UNSUBMITTED`, `WAITING`, `PENDING` (or `XX`), `APPROVED` (or `OK`), `DECLINED` (or `KO`) |
 | `tdLevel` | 3dSecure level  | `HALF`, `FULL` |
 | `event.type`                | One of the [event types](#event-types) | `MOV` |
@@ -211,7 +211,7 @@ Body data:
 }
 ```
 
-See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Axerve E-commerce Solutions reports errors.
 
 In case of success the response is paginated. Use the `rangeResults` property to retrieve more results.
 
@@ -253,4 +253,4 @@ In case of success the response is paginated. Use the `rangeResults` property to
 | `disputeState.chargeback`     | Shown for transactions that have resulted in a chargeback. Possible values: `True`, `False`, `Null`        |
 | `tdLevel`                     | Level of authentication for 3D-Secure transactions. `FULL` or `HALF`                                       |
 | `fraudAlert`                  | `True` or `False` if the transaction is suspicious.                                                        |
-| `guaranteedPaymentResult`     | If you're using Gestpay Guaranteed Payment, you'll receive the fraud risk associated with the transaction. |
+| `guaranteedPaymentResult`     | If you're using Axerve Guaranteed Payment, you'll receive the fraud risk associated with the transaction. |

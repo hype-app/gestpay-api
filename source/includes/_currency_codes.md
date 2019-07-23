@@ -1,6 +1,6 @@
 # Currency Codes
 
-Currency codes are handled by GestPay using the currency attribute.
+Currency codes are handled by Axerve E-commerce Solutions using the currency attribute.
 
 | UIC code | ISO code | ISO number | Description |
 | -------: | :------: | ---------: | ----------- |  

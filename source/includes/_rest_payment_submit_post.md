@@ -137,7 +137,7 @@ If your customers choose Apple Pay, these are the parameters to pass:
 | Field | Description | 
 | ----- | ----------- | 
 | `PKPaymentToken` | An object that contains the user's payment credentials. 
-| `onlinePaymentCryptogram` |  a unique, one time use cryptogram used by Gestpay to decrypt the payment data
+| `onlinePaymentCryptogram` |  a unique, one time use cryptogram used by Axerve E-commerce Solutions to decrypt the payment data
 | `eciIndicator` | optional data used for 3D secure transactions
 | `requestToken` | `MASKEDPAN` for a Standard Token; any other value for Custom Token
 | `token` | a token representing the AmazonPay token 
@@ -171,7 +171,7 @@ With the REST Api you can set the redirect url for the success or failure case, 
 | ----- | ----------- | 
 | `buyerOK` | The URL where the user will be redirected in case of success.
 | `buyerKO` | The URL where the user will be redirected in case of failure. 
-| `serverNotificationURL` | Gestpay will try to reach this URL to notify the merchant of the payment result.
+| `serverNotificationURL` | Axerve E-commerce Solutions will try to reach this URL to notify the merchant of the payment result.
 
 
 #### Response 
@@ -323,7 +323,7 @@ With the REST Api you can set the redirect url for the success or failure case, 
 }
 ```
 
-See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Axerve E-commerce Solutions reports errors.
 
 Response `payload` details:
 
@@ -334,7 +334,7 @@ Response `payload` details:
 | `transactionResult` | `OK` or `KO`
 | `transactionErrorCode` | The [error code](#error-code), in case of errors 
 | `transactionErrorDescription` | A description in common language of the occurred error. 
-| `bankTransactionID` | code assigned by Gestpay this transaction.
+| `bankTransactionID` | code assigned by Axerve E-commerce Solutions this transaction.
 | `shopTransactionID` | shop transaction ID value
 | `authorizationCode` | authorisation code |
 | `paymentID` | The payment ID 
@@ -343,7 +343,7 @@ Response `payload` details:
 | `company` | Card issuer company | 
 | `tdLevel` | The level of 3D-Secure authentication: `FULL` or `HALF`. 
 | `buyer` | Contains informations about the buyer. See the table below. 
-| `risk` | A risk code, assigned by [Gestpay Guaranteed Payment](#gestpay-guaranteed-payment). See the table below for more informations.  
+| `risk` | A risk code, assigned by [Axerve Guaranteed Payment](#gestpay-guaranteed-payment). See the table below for more informations.  
 | `customInfo` | An object containing optional customised parameters, created by the merchant in the form of key-value. 
 | `alertCode` | Alert code. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description. 
 | `alertDescription` | A textual description of the `alertCode`. 
@@ -368,6 +368,6 @@ Response `payload` details:
 
 | Field | Description
 | ----- | -----------
-| `riskResponseCode` | One of Gestpay Guaranteed Payment [response codes](#risk-response-codes).
+| `riskResponseCode` | One of Axerve Guaranteed Payment [response codes](#risk-response-codes).
 | `riskResponseDescription` | A textual description of the risk analisys. 
 

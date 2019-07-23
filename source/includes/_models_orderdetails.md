@@ -344,9 +344,9 @@
 }
 ```
 
-`OrderDetails` tag contains all the info that can be sent together with a transaction. The more data you sent, the better is for Gestpay to analyze your request. 
+`OrderDetails` tag contains all the info that can be sent together with a transaction. The more data you sent, the better is for Axerve E-commerce Solutions to analyze your request. 
 
-Many external systems, like the one presented in the next sections, use `OrderDetails` fields to work. [Gestpay Guaranteed Payment](#gestpay-guaranteed-payment) (an antifraud system) massively uses `OrderDetails` to get the job done. 
+Many external systems, like the one presented in the next sections, use `OrderDetails` fields to work. [Axerve Guaranteed Payment](#gestpay-guaranteed-payment) (an antifraud system) massively uses `OrderDetails` to get the job done. 
 
 In this section we will analyze indipendently all the fields. 
 
@@ -368,13 +368,13 @@ After the XML example there's the corresponding JSON version. [Click to directly
 
 | Field | Max Size | Description |
 | ----- | -------- | ----------- |
-| `SubmitForReview` | 1 |  Flag to activate review over Gestpay Guaranteed Payment.  <br><ul><li>`0` no submit</li><li>`1` submit</li></ul>If your active plan is **Select&Submit** you can decide which transaction must be submitted to Gestpay Guaranteed Payment setting the flag to `1`. With **Shop Protection** all transactions are submitted for review by default.
+| `SubmitForReview` | 1 |  Flag to activate review over Axerve Guaranteed Payment.  <br><ul><li>`0` no submit</li><li>`1` submit</li></ul>If your active plan is **Select&Submit** you can decide which transaction must be submitted to Axerve Guaranteed Payment setting the flag to `1`. With **Shop Protection** all transactions are submitted for review by default.
 | `OrderDateTime` | 10 | Order date time. Format: YYYY-MM-DD
 | `OrderNote` | 50 | Buyer's order note 
 | `Source` | string | <ul><li>`desktop_web`: Order was placed on the website, using a desktop device</li><li>`mobile_web`: Order was placed on the mobile website, using a mobile device</li><li>`mobile_app`: Order was placed on the mobile app, using a mobile device</li><li>`web`: Order was placed on the website, with no available info about the type of device used</li><li>`chat`: Order was placed using a chat service</li><li>`third_party`: Order was placed on a third party domain</li><li>`phone`: Order was placed over the phone by a call center support or sales agent</li><li>`in_store`: Order was placed on an in store online device</li><li>`unknown`: Order's origin is unknown</li></ul>
 | `SubmissionReason` | 20 | the underlying reason for submitting the order to review. It must be one of the following values: <ul><li>`failed_verification`: order failed (phone, email) verification.</li><li>`rule_decision`: Order was flagged by an automatic rule. </li><li>`third_party`: Order was flagged by a third-party service.</li><li>`manual_decision`: Order was flagged after manual review.</li><li>`policy_decision`: order was flagged by a non-fraud related rule.</li></ul> This field must be sent either if the shop adheres to *Shop Protection* or *Selct & Submit* plan; if the plan is *Shop Protection*, the default is `rule_decision`.
-| `BeaconSessionID` | 100 | Session ID of the Beacon for this transaction. This value must be collected when the user first connects to your website and be sent to  Gestpay Guaranteed Payment to analyze it. With this field,  Gestpay Guaranteed Payment knows what actions the user did on your website. 
-| `VendorID` | 10 | A unique ID representing the selling vendor; commonly the Gestpay `shopLogin`. **Mandatory in case of different domain use**.
+| `BeaconSessionID` | 100 | Session ID of the Beacon for this transaction. This value must be collected when the user first connects to your website and be sent to  Axerve Guaranteed Payment to analyze it. With this field,  Axerve Guaranteed Payment knows what actions the user did on your website. 
+| `VendorID` | 10 | A unique ID representing the selling vendor; commonly the Axerve E-commerce Solutions `shopLogin`. **Mandatory in case of different domain use**.
 | `VendorName` | 100 | In case of multiple selling domains, this is the name of the selling vendor. **Mandatory in case of different domain use**.
 
 #### Children of `CustomerDetail`

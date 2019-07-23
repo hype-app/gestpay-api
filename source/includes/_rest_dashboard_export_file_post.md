@@ -36,7 +36,7 @@ Headers:
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Axerve Merchant Back-Office. |
 
 Request Body: 
 
@@ -49,7 +49,7 @@ Request Body:
 | **`fileType`** | The file type extension, one of `txt`, `xls`, `csv`
 | `template` | The template to use, referenced by name
 | `email` | The email where the file output will be sent
-| `prefix` | This value is put before the filename generated automatically by gestpay. 
+| `prefix` | This value is put before the filename generated automatically by Axerve E-commerce Solutions. 
 | `password` | If you want to setup a password for the zip file, fill this field with a password value
 
 #### Response 
@@ -70,7 +70,7 @@ Request Body:
 }
 ```
 
-See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Axerve E-commerce Solutions reports errors.
 
 Response `payload` details:
 

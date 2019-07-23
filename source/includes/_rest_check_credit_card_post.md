@@ -37,11 +37,11 @@ Provides a formal validity check of the credit card.
 
 Headers: 
 
-To receive a valid response from Gestpay you must use one of these headers: 
+To receive a valid response from Axerve E-commerce Solutions you must use one of these headers: 
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Axerve Merchant Back-Office. |
 
 
 request body details: 
@@ -54,7 +54,7 @@ request body details:
 | **`shopTransactionID`** | The shop transaction ID.
 | `withAuth` | `TRUE` or `FALSE` (default). Tries to authorize the card. 
 | `creditcard.number` | The number of the credit card.
-| `creditcard.token` | If you have a token, gestpay can check it for validity. 
+| `creditcard.token` | If you have a token, Axerve E-commerce Solutions can check it for validity. 
 | `expMonth` | The expiry month.
 | `expYear` | The expiry year. 
 | `CVV` | The CVV. 
@@ -92,7 +92,7 @@ request body details:
 }
 ```
 
-See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Axerve E-commerce Solutions reports errors.
 
 Response `payload` details:
 

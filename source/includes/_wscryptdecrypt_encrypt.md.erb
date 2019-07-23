@@ -12,7 +12,7 @@
 </Encrypt>
 ```
 
-> Characters and strings that must not be used within the parameters encoded by GestPay and in customised information are: 
+> Characters and strings that must not be used within the parameters encoded by Axerve E-commerce Solutions and in customised information are: 
 
 ```
 &  (space)  §     (     )     * 
@@ -21,7 +21,7 @@
 /*    %     //    ~
 ```
 
-`Encrypt` is the main entrypoint for Gestpay. You must call `Encrypt` either if you want to use the standard payment page, or the custom iframe solution. 
+`Encrypt` is the main entrypoint for Axerve E-commerce Solutions. You must call `Encrypt` either if you want to use the standard payment page, or the custom iframe solution. 
 
 These are the **mandatory** fields.
 
@@ -64,7 +64,7 @@ These are non-mandatory fields, but are direct children of the `Encrypt` root.
 | `buyerEmail` | 50 | Buyer’s e-mail address |
 | `languageId` | 2 | Code identifying language used in communication with buyer |
 | `customInfo`<sup><a href="#fn1" id="ref1">1</a></sup> | 1000 | String containing specific information as configured in the merchant’s profile. See the next section for further explanations. |
-| [`OrderDetails`](#orderdetails) |  | a container ojbect of other data. It is used by [ Gestpay Guaranteed Payment](#gestpay-guaranteed-payment) and by alternative payments. 
+| [`OrderDetails`](#orderdetails) |  | a container ojbect of other data. It is used by [ Axerve Guaranteed Payment](#gestpay-guaranteed-payment) and by alternative payments. 
 | `transDetails` <span class='beta'>sandbox</span> | object | Contians informations for 3DS 2.0 authentication | - |
 
 <sup id="fn1">1. Each field can be up to a maximum of 300 characters in length. See next section for further explanations.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup>
@@ -75,17 +75,17 @@ These are non-mandatory fields, but are direct children of the `Encrypt` root.
 
 | Name | Description | Format/length | 
 | ---- | ----------- | --------- | 
-| `type` | Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>02F: Instalment first</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Gestpay rule is applied. | 3 |
+| `type` | Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>02F: Instalment first</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied. | 3 |
 | [`threeDsContainer`](#3ds-2-0-fields) | Container of additional data defined in 3DS2 protocol, that better define the transaction. The data here included will be used for assessing the risk level of the transaction with the purpose of ensuring security without affecting the buyer's experience | object |  |
 | `recurringTransaction` | Contains informations necessary in case of recurring payment | object| |
 | <div class="inside-icon"></div> `installNo` | Required in case of installment payments. It indicates the maximum number of allowed transactions | 3 |
 | <div class="inside-icon"></div> `expiry` | Required for Recurring Payments. Date after which no further transaction shall be performed | 8 |
 | <div class="inside-icon"></div> `frequency` | Required for Recurring Payments. It indicates the minimum number of days between two transactions of the same plan | 4 |
 | `previousTransDetails` | Contains the details of a previous authenticated transaction for the same cardholder on the same merchant. If present, it can help to increase the chances of a frictionless authentication | object |
-| <div style="white-space: nowrap;"><div class="inside-icon"></div> `bankTransactionID`</div> | Prior Transaction Bank ID (if it was managed by Gestpay) | 18 |
+| <div style="white-space: nowrap;"><div class="inside-icon"></div> `bankTransactionID`</div> | Prior Transaction Bank ID (if it was managed by Axerve E-commerce Solutions) | 18 |
 
 
-#### Sending custom data to Gestpay: `<customInfo>`
+#### Sending custom data to Axerve E-commerce Solutions: `<customInfo>`
 
 > The information included in `customInfo` will follow this form:
 
@@ -95,11 +95,11 @@ These are non-mandatory fields, but are direct children of the `Encrypt` root.
 
 >Formally, it is a string containing couples of **`"key"="value"`** separated by the special string **`*P1*`**. <br>
 
-`<customInfo>` is a special Gestpay field; it is used to send custom merchant-defined parameters that Gestpay will not touch. You can store everything, as long as the data respects the syntax described on the right.
+`<customInfo>` is a special Axerve E-commerce Solutions field; it is used to send custom merchant-defined parameters that Axerve E-commerce Solutions will not touch. You can store everything, as long as the data respects the syntax described on the right.
 
 The maximum length of the field is 1000 characters, and each individual parameter can be max 300 characters.
 
-To start sending custom parameters, you must configure Gestpay to receive them. This can be done in the backoffice, in **Payment Page -> Fields & Parameters -> Add Parameter**. Here you can configure some aspects of this parameter, for example if has to be returned by the `Decrypt` webservice. Don't forget to populate the _languages_ section. 
+To start sending custom parameters, you must configure Axerve E-commerce Solutions to receive them. This can be done in the backoffice, in **Payment Page -> Fields & Parameters -> Add Parameter**. Here you can configure some aspects of this parameter, for example if has to be returned by the `Decrypt` webservice. Don't forget to populate the _languages_ section. 
 
 With this customization, you can *send* all the parameters you want, as long they fit the 1000 characters length. To read more about custom parameters, refer to the [documentation](<%= config[:doc_url]%>/gs/how-gestpay-works.html#sending-custom-parameters-to-gestpay). 
 
@@ -144,7 +144,7 @@ You can request a token that will represent the credit card for your website. Yo
 <Encrypt>
 ```
 
-> If you only specify one payment type, Gestpay won't show the payment page but will redirect directly to the third party payment page: 
+> If you only specify one payment type, Axerve E-commerce Solutions won't show the payment page but will redirect directly to the third party payment page: 
 
 ```xml
 <Encrypt>
@@ -158,7 +158,7 @@ You can request a token that will represent the credit card for your website. Yo
 <Encrypt>
 ```
 
-GestPay provides a way for merchants to dinamically define which payment methods must be displayed for each transaction.
+Axerve E-commerce Solutions provides a way for merchants to dinamically define which payment methods must be displayed for each transaction.
 
 
 In order to do that, merchants must properly set the tag `paymentType` that can be repeated as many times as needed, inside the tag `paymentTypes` (with a final “s”).
