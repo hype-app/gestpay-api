@@ -3,7 +3,7 @@
 
 #### Enabling Paypal 
 
-> If you only specify `PAYPAL` payment type, Gestpay won't show the payment page but will redirect directly to Paypal's payment page: 
+> If you only specify `PAYPAL` payment type, Axerve E-commerce Solutions won't show the payment page but will redirect directly to Paypal's payment page: 
 
 ```xml
 <Encrypt>
@@ -17,7 +17,7 @@
 <Encrypt>
 ```
 
-A detailed description of [Gestpay integration with Paypal](<%= config[:doc_url] %>/oth/paypal.html) is in the docs.
+A detailed description of [Axerve E-commerce Solutions integration with Paypal](<%= config[:doc_url] %>/oth/paypal.html) is in the docs.
 
 #### Paypal Seller Protection 
 
@@ -83,7 +83,7 @@ To use PayPal Reference Transaction it's necessary to fill the tag `PayPalBillin
 
 The Encryption service, if field `payPalBillingAgreementDescription` is present and not empty, assumes that the payment method is PayPal (so `paymentType` field in this case is **not mandatory**: if present it must be valued `PAYPAL`).
 
-If this tag is passed to Encryption, GestPay bypasses the Pagam page in every case (even if other payment methods are enabled for the Merchant).
+If this tag is passed to Encryption, Axerve E-commerce Solutions bypasses the Pagam page in every case (even if other payment methods are enabled for the Merchant).
 
 This tag has to be filled with description of the goods, terms and conditions of the billing agreement.
 

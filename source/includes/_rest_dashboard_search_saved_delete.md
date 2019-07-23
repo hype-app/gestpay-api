@@ -14,13 +14,13 @@ DELETE https://ecomms2s.sella.it/api/v1/dashboard/search/saved/{shopLogin}/{sear
 ```
 
 
-Returns the list of saved searches in Gestpay. 
+Returns the list of saved searches in Axerve E-commerce Solutions. 
 
 Headers: 
 
 | Header          | Value                         | Description  |
 | --------------- | ----------------------------- | ------------ |
-| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Axerve Merchant Back-Office. |
 
 URL params: 
 
@@ -48,7 +48,7 @@ URL params:
 }
 ```
 
-See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Axerve E-commerce Solutions reports errors.
 
 `payload` details:
 
@@ -62,5 +62,5 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | Field | Description |
 | ----- | ----------- |
 | `name` | The search name.
-| `searchID` | The ID assigned by Gestpay for this search.
+| `searchID` | The ID assigned by Axerve E-commerce Solutions for this search.
 | `description` | A textual description for the saved search.

@@ -25,6 +25,12 @@ under the License.
     <style>
       <%= Rouge::Themes::Base16::Monokai.render(:scope => '.highlight') %>
     </style>
+    <style>
+      .highlight .err {
+        background-color: transparent;
+        color: #AfAfAf;
+      }
+    </style>
     <%= stylesheet_link_tag :screen, media: :screen %>
     <%= stylesheet_link_tag :print, media: :print %>
   </head>
@@ -36,25 +42,28 @@ under the License.
         <%= image_tag('navbar.png') %>
       </span>
     </a>
+    <div class="c-banner">
+      <div>Gestpay diventa Axerve E-commerce Solutions</div>
+    </div>
     <div class="tocify-wrapper">
-      <%= image_tag "logo.png" %>
-      <% if language_tabs.any? %>
-        <div class="lang-selector">
-          <% language_tabs.each do |lang| %>
-            <% if lang.is_a? Hash %>
-              <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
-            <% else %>
-              <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
+        <%= image_tag "axerve-api-logo.svg" %>
+        <% if language_tabs.any? %>
+          <div class="lang-selector">
+            <% language_tabs.each do |lang| %>
+              <% if lang.is_a? Hash %>
+                <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
+              <% else %>
+                <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-      <% end %>
-      <% if current_page.data.search %>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
-      <% end %>
+          </div>
+        <% end %>
+        <% if current_page.data.search %>
+          <div class="search">
+            <input type="text" class="search" id="input-search" placeholder="Find anything">
+          </div>
+          <ul class="search-results"></ul>
+        <% end %>
       <div id="toc">
       </div>
       <% if current_page.data.toc_footers %>
@@ -66,6 +75,7 @@ under the License.
       <% end %>
     </div>
     <div class="page-wrapper">
+      <img class="t-img-logo" src="/images/logo-axerve-bianco.svg">     
       <div class="dark-box"></div>
       <div class="content">
         <%= yield %>

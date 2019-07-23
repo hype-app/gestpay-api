@@ -66,7 +66,7 @@ Headers:
 
 | Header          | Value                         | Description                                                        |
 | --------------- | ----------------------------- | ------------------------------------------------------------------ |
-| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Axerve Merchant Back-Office. |
 
 Input Body: 
 
@@ -140,7 +140,7 @@ Here is a description of the children of `productDetails`:
 ```
 
 
-See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Axerve E-commerce Solutions reports errors.
 
 
 
@@ -152,4 +152,4 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `transactionResult` | `OK` for success, `KO` otherwise. 
 | `bankTransactionID` | A transaction ID assigned by the bank.                                                           
 | `shopTransactionID` | An ID assigned by the shop.       
-| `paymentID`         | Assigned by Gestpay, identifies the payment.                                                                
+| `paymentID`         | Assigned by Axerve E-commerce Solutions, identifies the payment.                                                                

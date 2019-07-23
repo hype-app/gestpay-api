@@ -23,10 +23,12 @@
 %icon-exclamation-sign {
   @extend %icon;
   content: "\e600";
+  color: #920E1F;
 }
 %icon-info-sign {
   @extend %icon;
   content: "\e602";
+  color: #00466E;
 }
 %icon-ok-sign {
   @extend %icon;

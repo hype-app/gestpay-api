@@ -53,7 +53,7 @@ Headers:
 
 | Header | Value | Description |
 | ------ | ----- | ----------- |
-| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Axerve Merchant Back-Office. |
 
 Body details: 
 
@@ -72,7 +72,7 @@ Body details:
 | `recipient.ftp.value` | The FTP address to upload the file 
 | `recipient.ftp.enabled` | `True` if the batch should be uploaded via ftp. 
 | **`frequency.ID`** | Determines the start day of the batch interval.See the [related table](#frequency-codes). 
-| `prefix` | This value is put before the filename generated automatically by gestpay. 
+| `prefix` | This value is put before the filename generated automatically by Axerve E-commerce Solutions. 
 
 At least one of `recipient.email.enabled` and `recipient.ftp.enabled` must be `True`.
 
@@ -97,7 +97,7 @@ At least one of `recipient.email.enabled` and `recipient.ftp.enabled` must be `T
 }
 ```
 
-See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Axerve E-commerce Solutions reports errors.
 
 Response `payload` details:
 

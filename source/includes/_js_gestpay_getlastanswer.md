@@ -10,8 +10,8 @@ GestPay.getLastAnswer(callBackObj);
 
 ```javascript
 GestPay.getLastAnswer(function (Result) {
-  // asks Gestpay to re-send the last Result object. 
+  // asks Axerve E-commerce Solutions to re-send the last Result object. 
   });
 ```
 
-`getLastAnswer` asks Gestpay to send back the last received Result object.   
+`getLastAnswer` asks Axerve E-commerce Solutions to send back the last received Result object.   

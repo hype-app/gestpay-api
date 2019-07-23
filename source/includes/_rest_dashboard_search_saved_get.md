@@ -13,13 +13,13 @@ GET https://sandbox.gestpay.net/api/v1/dashboard/search/saved/{shopLogin}/
 GET https://ecomms2s.sella.it/api/v1/dashboard/search/saved/{shopLogin}/
 ```
 
-Returns the list of saved searches in Gestpay. 
+Returns the list of saved searches in Axerve E-commerce Solutions. 
 
 Headers: 
 
 | Header          | Value                         | Description  |
 | --------------- | ----------------------------- | ------------ |
-| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Gestpay Merchant Back-Office. |
+| `Authorization` | `apikey {merchant Api Key}` | The merchant API key can be found in Axerve Merchant Back-Office. |
 
 URL params: 
 
@@ -105,7 +105,7 @@ URL params:
 }
 ```
 
-See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Gestpay reports errors.
+See the section [Handling responses & errors](#handling-responses-amp-errors) to learn how Axerve E-commerce Solutions reports errors.
 
 `payload` details:
 
@@ -118,7 +118,7 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | Field | Description |
 | ----- | ----------- |
 | `save.name` | The search name.
-| `save.searchID` | The ID assigned by Gestpay for this search.
+| `save.searchID` | The ID assigned by Axerve E-commerce Solutions for this search.
 | `authorizedAmount.from` | the `from` amount range. If `10`, only authorized amounts greater than 10 are returned.
 | `authorizedAmount.to` | The `to` amount range. If `20`, only authorized amounts lower than 20 are returned. 
 | `capturedAmount.from` | the `from` amount range. If `10`, only captured amounts greater than 10 are returned.

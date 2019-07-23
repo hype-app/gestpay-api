@@ -89,10 +89,10 @@
 
 | Name | max length | description |
 | ---- | :--------: | ----------- |
-| `transTypeReq` | 1 | Type of transaction required to GestPay: complete payment process or only authentication (in case of third party Acquirer). <ul><li>`P` for Payment (default)</li><li>`A` for authentication only</li></ul> This field doesn't exist in Ecrypt request call |
+| `transTypeReq` | 1 | Type of transaction required to Axerve E-commerce Solutions: complete payment process or only authentication (in case of third party Acquirer). <ul><li>`P` for Payment (default)</li><li>`A` for authentication only</li></ul> This field doesn't exist in Ecrypt request call |
 | `acquirerBIN` | 11 |This field are required if `transTypeReq` value is `A`. Acquiring institution identification code as assigned by the DS receiving the AReq  message |
 | `acquirerMerchantID ` | 35 | This field are required if `transTypeReq` value is `A`. Acquirer-assigned Merchant identifier. This may be the same value that is used in authorisation requests sent on behalf of the 3DS Requestor and is represented in ISO 8583 formatting requirements. | 
-| `exemption` | string | Challenge management exemption. Possible values: <ul><li>SKIP: to ask exclude the possibility of exemption and require challange mandatory</li><li>FORCE: exemption requested by the merchant</li></ul>If not evaluated, the gestpay rule is applied |
+| `exemption` | string | Challenge management exemption. Possible values: <ul><li>SKIP: to ask exclude the possibility of exemption and require challange mandatory</li><li>FORCE: exemption requested by the merchant</li></ul>If not evaluated, the Axerve E-commerce Solutions rule is applied |
 | `buyerDetails` | object |  |
 | <div class="inside-icon"></div> `profileDetails` | object | Contains option information about the merchant authenticated the cardholder before or during the transaction. |
 | <div class="inside-icon second"></div> `cardholderID` | 64 | Additional information about the account optionally provided by the 3DS Requestor. |
@@ -155,6 +155,6 @@
 | <div class="inside-icon"></div> `shipIndicator` | 2 | Indicates shipping method chosen for the transaction. Merchants must choose the Shipping Indicator code that most accurately describes the cardholder’s specific transaction, not their general business. If one or more items are included in the sale, use the Shipping Indicator code for the physical goods, or if all digital goods, use the Shipping Indicator code that describes the most expensive item. <ul><li>01 Ship to cardholder’s billing address</li><li>02 Ship to another verified address on file with merchant</li><li>03 Ship to address that is different than the cardholder’s billing address</li><li>04 “Ship to Store” / Pick-up at local store (Store address shall be populated in shipping address fields)</li><li>05 Digital goods (includes online services, electronic gift cards and redemption codes)</li><li>06 Travel and Event tickets, not shipped</li><li>07 Other (for example, Gaming, digital services not shipped, emedia subscriptions, etc.)</li></ul> |
 | `SDKDetails` | string | Contains SDK data to be sent to ACS as base64-encoded string. <br>Include: <ul><li>DeviceData</li><li>SDKAppID</li><li>SDKReferenceNumber</li><li>SDKEphemeralPublicKey</li><li>MessageVersion</li></ul>This field doesn't exist in Encrypt call request. |
 
-<aside class="notice">SDKDetails must be included if you are integration Gestpay in app integration.</aside>
+<aside class="notice">SDKDetails must be included if you are integration Axerve E-commerce Solutions in app integration.</aside>
 
 

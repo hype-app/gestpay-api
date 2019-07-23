@@ -1,6 +1,6 @@
 # Language Codes 
 
-The language code is handled by GestPay using the Language attribute. 
+The language code is handled by Axerve E-commerce Solutions using the Language attribute. 
 
 | Code | Description | 
 | :--: | ----------- |

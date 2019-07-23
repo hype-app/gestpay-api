@@ -1,6 +1,6 @@
 # Errors
 
-<aside class="notice">The error codes returned by GestPay are constantly updated.</aside>
+<aside class="notice">The error codes returned by Axerve E-commerce Solutions are constantly updated.</aside>
 
 | Code | Description                                                                                                        |
 |------|--------------------------------------------------------------------------------------------------------------------|
@@ -142,7 +142,7 @@
 | 1149 | Missing or wrong CVV2                                                                                              |
 | 1150 | IPIN must be set                                                                                                   |
 | 1151 | Parameters error                                                                                                   |
-| 1153 | GestPay failed to verify if the card is enrolled to VBV service                                                    |
+| 1153 | Axerve E-commerce Solutions failed to verify if the card is enrolled to VBV service                                                    |
 | 1154 | Not accepterd call: missing parameter TransKey                                                                     |
 | 1160 | Wrong CustomToken length                                                                                           |
 | 1161 | Wrong CustomToken digits number                                                                                    |

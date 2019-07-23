@@ -54,7 +54,7 @@ Alternatively, you can use  `tokenValue` to check if a token is still valid:
 
 | parameter name | description | type | length | 
 | -------------- | ----------- | -----|--------|
-| `tokenValue`   | String containing the `token` value returned by Gestpay. <br/> In case of `PayPalBillingAgreement` this token value is the token returned by PayPal during the Billing Agreements. | string | 25 | 
+| `tokenValue`   | String containing the `token` value returned by Axerve E-commerce Solutions. <br/> In case of `PayPalBillingAgreement` this token value is the token returned by PayPal during the Billing Agreements. | string | 25 | 
 
 <aside class="notice">You must use <strong>exactly one</strong> among <strong>Credit Card data</strong> and <strong>Token value</strong>.</aside>
 

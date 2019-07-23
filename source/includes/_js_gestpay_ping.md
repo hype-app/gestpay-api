@@ -20,6 +20,6 @@ GestPay.ping(function (Result) {
 });
 ```
 
-The `Ping` function checks that there is an active connection with Gestpay. 
+The `Ping` function checks that there is an active connection with Axerve E-commerce Solutions. 
 
 Useful for troubleshooting connection errors. 

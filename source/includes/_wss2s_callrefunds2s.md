@@ -28,7 +28,7 @@ Mandatory parameters are in **bold**.
 | parameter name | description | type | length | 
 | -------------- | ----------- | -----|--------| 
 | **`shopLogin`** | the merchant's code | string | 30 |  
-| **`bankTransactionId`** | ID of the transaction assigned by Gestpay | number | 18
+| **`bankTransactionId`** | ID of the transaction assigned by Axerve E-commerce Solutions | number | 18
 | **`shopTransactionId`** | shop transaction ID value | string | 50
 | **`amount`** | the amount to refund | number | 9 
 | **`uicCode`** | [currency code](#currency-codes) | numeric | 3 
