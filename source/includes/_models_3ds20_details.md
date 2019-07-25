@@ -101,7 +101,7 @@
 |  <div style="white-space: nowrap;"><div class="inside-icon second"></div> `authTimestamp`</div> | 2 | Transaction authenticated timestamp |
 | <div class="inside-icon"></div> `billingAddress` | object | Cardholder billing address associated with the card used for this purchase. |
 | <div class="inside-icon second"></div> `city` | 50 | The city of the Cardholder billing address associated with the card used for this purchase. |
-| <div class="inside-icon second"></div> `country` | 32 | The country of the Cardholder billing address associated with the card used for this purchase. [See Paypal Country Codes table](#paypal-country-codes) |
+| <div class="inside-icon second"></div> `country` | 2 | The country of the Cardholder billing address associated with the card used for this purchase. [See Paypal Country Codes table](#paypal-country-codes) |
 | <div class="inside-icon second"></div> `line1` | 50 | First line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase. |
 | <div class="inside-icon second"></div> `line2` | 50 | Second line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase. |
 | <div class="inside-icon second"></div> `line3` | 50 | Third line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase. |
@@ -123,7 +123,7 @@
 | <div class="inside-icon second"></div> `homePhone_num` | 15 | The home phone number provided by the Cardholder (without the countryCode). |
 | <div class="inside-icon second"></div> `mobilePhone_cc` | 3 | The countryCode of the home mobile number provided by the Cardholder. Refer to ITU-E.164. |
 | <div class="inside-icon second"></div> `mobilePhone_num` | 15 | The mobile phone number provided by the Cardholder (without the countryCode). |
-| <div class="inside-icon second"></div> `workPhone_cc` | 32 | String containing the shipping name |
+| <div class="inside-icon second"></div> `workPhone_cc` | 3 | String containing the shipping name |
 | <div class="inside-icon second"></div> `workPhone_num` | 15 | The work phone number provided by the Cardholder (without the countryCode). |
 | <div class="inside-icon"></div> `acctInfo` | object | Additional information about the Cardholder’s account provided by the 3DS Requestor. |
 | <div class="inside-icon second"></div> `chAccAgeInd` | 2 | Length of time that the cardholder has had the account with the 3DS Requestor. <ul><li>01 No account (guest check-out)</li><li>02 Created during this transaction</li><li>03 Less than 30 days</li><li>04 30−60 days</li><li>05 More than 60 days</li></ul>
