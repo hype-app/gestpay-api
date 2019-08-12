@@ -48,7 +48,7 @@ set :port, 4567
 #to use this, <%= config[:doc_url] %>
 set :doc_url, "http://docs.gestpay.it"  
 
-set :authentication_docs, config[:doc_url] + "/gs/how-gestpay-works.html#authentication"
+set :authentication_docs, config[:doc_url] + "/soap/getting-started/how-axerve-ecommerce-solutions-works/#authentication"
 
 #<%= config[:riskified] %>
 set :riskified, "Axerve Guaranteed Payment" 
