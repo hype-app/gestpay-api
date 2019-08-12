@@ -84,7 +84,7 @@ The following features may be optionally assigned:
 | `customInfo`      | A string containing optional customised parameters. See [customInfo](#customInfo) section for more details. | string | 1000 | 
 | `cvv`             | security code of the card. Refer to [this page](<%= config[:doc_url] %>/adv/cvv-field-handling.html) to enable and use it. | string | 4 | 
 | `languageId`      | language to use for e-mails to the buyer | number | 2 |
-| `PARes`        | encrypted string returned by Issuer (for 3D-Secure   transactions only. See [3D-secure transactions](<%= config[:doc_url] %>/adv/3dsecure-transactions.html) for more details.) | string | 4096 | 
+| `PARes`        | encrypted string returned by Issuer (for 3D-Secure   transactions only. See [3D-secure transactions](<%= config[:doc_url] %>/soap/security/3d-secure-transactions/) for more details.) | string | 4096 | 
 | `transKey`        | transaction ID value for 3D-Secure transactions. See [3D-secure transactions](<%= config[:doc_url] %>/soap/security/3d-secure-transactions/) for more details. | number | 18 | 
 | `requestToken`    | `MASKEDPAN` for a Standard Token any other value for Custom  Token | string | 25 | 
 | `clientIP`        | For PayPal Billing Agreements it is required only in "one click" mode transaction. <br> For AMEX transaction not in Euro, in this field the merchant could provide the client IP address to activate the Enhanced Authorization AAV.<br>**Mandatory if you use <%= config[:riskified] %> with S2S.** | string | 45 |
