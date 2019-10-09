@@ -90,15 +90,15 @@
 | Name | max length | description |
 | ---- | :--------: | ----------- |
 | `transTypeReq` | 1 | Type of transaction required to Axerve E-commerce Solutions: complete payment process or only authentication (in case of third party Acquirer). <ul><li>`P` for Payment (default)</li><li>`A` for authentication only</li></ul> This field doesn't exist in Ecrypt request call |
-| `acquirerBIN` | 11 |This field are required if `transTypeReq` value is `A`. Acquiring institution identification code as assigned by the DS receiving the AReq  message |
-| `acquirerMerchantID ` | 35 | This field are required if `transTypeReq` value is `A`. Acquirer-assigned Merchant identifier. This may be the same value that is used in authorisation requests sent on behalf of the 3DS Requestor and is represented in ISO 8583 formatting requirements. | 
+| `acquirerBIN` | 11 |This field are required if `transTypeReq` value is `A`. Acquiring institution identification code as assigned by the DS receiving the AReq  message.<br><b>Reserved field for future developments.</b> |
+| `acquirerMerchantID ` | 35 | This field are required if `transTypeReq` value is `A`. Acquirer-assigned Merchant identifier. This may be the same value that is used in authorisation requests sent on behalf of the 3DS Requestor and is represented in ISO 8583 formatting requirements.<br><b>Reserved field for future developments.</b> | 
 | `exemption` | string | Challenge management exemption. Possible values: <ul><li>SKIP: to ask exclude the possibility of exemption and require challange mandatory</li><li>FORCE: exemption requested by the merchant</li></ul>If not evaluated, the Axerve E-commerce Solutions rule is applied |
 | `buyerDetails` | object |  |
 | <div class="inside-icon"></div> `profileDetails` | object | Contains option information about the merchant authenticated the cardholder before or during the transaction. |
 | <div class="inside-icon second"></div> `cardholderID` | 64 | Additional information about the account optionally provided by the 3DS Requestor. |
 | <div class="inside-icon second"></div> `authData` | string | Transaction authenticated data |
 | <div class="inside-icon second"></div> `authMethod` | 2 | Transaction authenticated method <ul><li>01: No merchant authentication occurred (i.e. cardholder “logged in” as guest)</li> <li>02: Login to the cardholder account at the merchant system using merchant’s own credentials</li> <li>03: Login to the cardholder account at the merchant system using federated ID</li> <li>04: Login to the cardholder account at the merchant system using issuer credentials</li> <li>05: Login to the cardholder account at the merchant system using third-party authentication</li> <li>06: Login to the cardholder account at the merchant system using FIDO Authenticator</li> <li>07: Login to the cardholder account at the merchant system using FIDO Authenticator (FIDO assurance data signed)</li> <li>08: SRC Assurance Data</li> </ul> |
-|  <div style="white-space: nowrap;"><div class="inside-icon second"></div> `authTimestamp`</div> | 2 | Transaction authenticated timestamp |
+|  <div style="white-space: nowrap;"><div class="inside-icon second"></div> `authTimestamp`</div> | 12 | Transaction authenticated timestamp.<br>Format: YYYYMMDDHHMM |
 | <div class="inside-icon"></div> `billingAddress` | object | Cardholder billing address associated with the card used for this purchase. |
 | <div class="inside-icon second"></div> `city` | 50 | The city of the Cardholder billing address associated with the card used for this purchase. |
 | <div class="inside-icon second"></div> `country` | 2 | The country of the Cardholder billing address associated with the card used for this purchase. [See Paypal Country Codes table](#paypal-country-codes) |
@@ -106,7 +106,7 @@
 | <div class="inside-icon second"></div> `line2` | 50 | Second line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase. |
 | <div class="inside-icon second"></div> `line3` | 50 | Third line of the street address or equivalent local portion of the Cardholder billing address associated with the card used for this purchase. |
 | <div class="inside-icon second"></div> `postCode` | 16 | ZIP or other postal code of the Cardholder billing address associated with the card used for this purchase. |
-| <div class="inside-icon second"></div> `state` | 32 | The state or province of the Cardholder billing address associated with the card used for this purchase. Should be the state, province or regional code (country subdivision code, [see Paypal State Codes table](#paypal-country-codes))  |
+| <div class="inside-icon second"></div> `state` | 32 | The state or province of the Cardholder billing address associated with the card used for this purchase. Should be the state, province or regional code (country subdivision code, [see Paypal State and province codes table](#paypal-state-amp-province-codes))  |
 | <div class="inside-icon"></div> `shippingAddress` | object | Shipping address |
 | <div class="inside-icon second"></div> `city` | 50 | City portion of the shipping address requested by the Cardholder. |
 | <div class="inside-icon second"></div> `country` | 2 | Country of the shipping address requested by the Cardholder. [See Paypal Country Codes table](#paypal-country-codes) |
@@ -114,16 +114,16 @@
 | <div class="inside-icon second"></div> `line2` | 50 | Second line of the street address or equivalent local portion of the shipping address requested by the Cardholder. |
 | <div class="inside-icon second"></div> `line3` | 50 | Thrid line of the street address or equivalent local portion of the shipping address requested by the Cardholder. |
 | <div class="inside-icon second"></div> `postCode` | 16 | The ZIP or other postal code of the shipping address requested by the Cardholder. |
-| <div class="inside-icon second"></div> `state` | 32 | The state or province of the shipping address associated with the card being used for this purchase. Should be the state, province or regional code (country subdivision code, [see Paypal State Codes table](#paypal-country-codes))  |
+| <div class="inside-icon second"></div> `state` | 32 | The state or province of the shipping address associated with the card being used for this purchase. Should be the state, province or regional code (country subdivision code, [see Paypal State and province codes table](#paypal-state-amp-province-codes))  |
 | <div class="inside-icon"></div> `addrMatch` | 1 | Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same. `Y` for yes and `N` for no |
 | <div class="inside-icon"></div> `cardholder` | object | Cardholder information. |
 | <div class="inside-icon second"></div> `name` | 45 | Name of the Cardholder. |
 | <div class="inside-icon second"></div> `Email` | 254 | The email address associated with the account that is either entered by the Cardholder, or is on file with the 3DS Requestor. The value should meet requirements of Section 3.4 of IETF RFC 5322 |
 | <div class="inside-icon second"></div> `homePhone_cc` | 3 | The countryCode of the home phone number provided by the Cardholder. Refer to ITU-E.164 |
 | <div class="inside-icon second"></div> `homePhone_num` | 15 | The home phone number provided by the Cardholder (without the countryCode). |
-| <div class="inside-icon second"></div> `mobilePhone_cc` | 3 | The countryCode of the home mobile number provided by the Cardholder. Refer to ITU-E.164. |
+| <div class="inside-icon second"></div> `mobilePhone_cc` | 3 | The countryCode of the mobile phone number provided by the Cardholder. Refer to ITU-E.164. |
 | <div class="inside-icon second"></div> `mobilePhone_num` | 15 | The mobile phone number provided by the Cardholder (without the countryCode). |
-| <div class="inside-icon second"></div> `workPhone_cc` | 3 | String containing the shipping name |
+| <div class="inside-icon second"></div> `workPhone_cc` | 3 | The countryCode of the work phone number provided by the Cardholder. Refer to ITU-E.164 |
 | <div class="inside-icon second"></div> `workPhone_num` | 15 | The work phone number provided by the Cardholder (without the countryCode). |
 | <div class="inside-icon"></div> `acctInfo` | object | Additional information about the Cardholder’s account provided by the 3DS Requestor. |
 | <div class="inside-icon second"></div> `chAccAgeInd` | 2 | Length of time that the cardholder has had the account with the 3DS Requestor. <ul><li>01 No account (guest check-out)</li><li>02 Created during this transaction</li><li>03 Less than 30 days</li><li>04 30−60 days</li><li>05 More than 60 days</li></ul>
