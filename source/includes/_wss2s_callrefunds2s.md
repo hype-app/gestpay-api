@@ -13,6 +13,7 @@ Merchants can use this method to perform a partial or complete transaction amoun
   <amount>55.00</amount>
   <shopTransactionId>MYSHOP-00142</shopTransactionId>
   <bankTransactionId>159247522</bankTransactionId>
+  <settlementID></settlementID>
   <RefundReason>item our of stock</RefundReason>
   <chargeBackFraud>N</chargeBackFraud>
   <OrderDetail>

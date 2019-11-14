@@ -25,6 +25,7 @@ POST https://ecomms2s.sella.it/api/v1/payment/capture/
   "bankTransactionID":"",
   "shopTransactionID":"",
   "paymentID":"",
+  "settlementID":"",
   "fullFillment":{
     "fullFillmentlst":[{
       "status":"",
