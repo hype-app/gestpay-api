@@ -81,6 +81,7 @@ Input Body:
 | `bankTransactionID` | The bank transaction ID 
 | `shopTransactionID` | the shop transaction ID 
 | `paymentID`         | The payment ID 
+| `settlementID`      | Optional identifier of the settlement
 | `FullFillment`      | describes the items related to this capture. 
 
 Note: you **must** provide at least one of `shopTransactionID`, `bankTransactionID`, `paymentID`.
