@@ -18,6 +18,7 @@ Merchants can use this method to settle the transaction. **Since it's possible t
   <amount>55.00</amount>
   <shopTransID>MYSHOP-00142</shopTransID>
   <bankTransID>159247522</bankTransID>
+  <settlementID></settlementID>
   <FullFillment>
     <FullFillmentlst>
       <FullfillmentDetail>
@@ -61,6 +62,7 @@ Parameters in **bold** are mandatory.
 | **`uicCode`** | [currency code](#currency-codes) | number | 3 
 | **`bankTransID`** | BankTransactionID assigned to the transaction | number | 18
 | **`shopTransID`** | shop transaction ID value | string | 50 
+| `settlementID` | Optional identifier of the settlement | string | 50   
 | `FullFillment` | An object describing the final fulfillment status of an order.   
 | `apikey` | If you have selected the _apiKey_ authentication method, add the `apikey` field to the call. [More details about the apiKey here](#authorizing-calls-against-gestpay). |  |  | 
 

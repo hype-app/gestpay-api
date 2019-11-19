@@ -50,11 +50,15 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
         <eventtype>AUT</eventtype>
         <eventamount>0.10</eventamount>
         <eventdate>19/08/16 16:13:14</eventdate>
+        <eventARN></eventARN>
+        <eventID></eventID>
       </event>
       <event>
         <eventtype>CAN</eventtype>
         <eventamount>0.10</eventamount>
         <eventdate>20/08/16 00:13:57</eventdate>
+        <eventARN></eventARN>
+        <eventID></eventID>
       </event>
     </Events>
     <Buyer>
@@ -93,11 +97,15 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
             <eventtype>AUT</eventtype>
             <eventamount>10.00</eventamount>
             <eventdate>13/11/17 11:32:45</eventdate>
+            <eventARN></eventARN>
+            <eventID></eventID>
         </event>
         <event>
             <eventtype>MOV</eventtype>
             <eventamount>10.00</eventamount>
             <eventdate>13/11/17 11:32:45</eventdate>
+            <eventARN></eventARN>
+            <eventID></eventID>
         </event>
       </Events>
       <Buyer>
@@ -197,6 +205,7 @@ As said, `<Events>` can contain one or more `<event>` tags. the `<event>` tag is
 | `eventtype` | one of `AUT`, `MOV`, `PRE`, `CAN`, `REQ`, `STO`. There will be a node event for each existing event regarding the transaction. Follow the link for a [detailed explanation of transaction statuses](<%= config[:doc_url] %>/adv/query-transaction-status.html).
 | `eventamount` | Relative value of the event | 
 | `eventdate` | event date | 
+| `eventID`   | Unique identifier of the event
 
 #### OrderReferenceDetails
 
