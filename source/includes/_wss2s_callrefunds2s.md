@@ -13,6 +13,7 @@ Merchants can use this method to perform a partial or complete transaction amoun
   <amount>55.00</amount>
   <shopTransactionId>MYSHOP-00142</shopTransactionId>
   <bankTransactionId>159247522</bankTransactionId>
+  <settlementID></settlementID>
   <RefundReason>item our of stock</RefundReason>
   <chargeBackFraud>N</chargeBackFraud>
   <OrderDetail>
@@ -32,6 +33,7 @@ Mandatory parameters are in **bold**.
 | **`shopTransactionId`** | shop transaction ID value | string | 50
 | **`amount`** | the amount to refund | number | 9 
 | **`uicCode`** | [currency code](#currency-codes) | numeric | 3 
+| `settlementID` | Optional identifier of the settlement | string | 50
 | `RefundReason` | a free-text reason for the refund. Used with fraud protection. | string | 50 
 | `chargeBackFraud` | Flag for risk: <ul><li>`Y` - chargeback for fraud</li><li>`N` - chargeback not for a fraud</li></ul>
 | `orderDetail.ProductDetails` | in case you are using _Klarna_, fill this fields with info about the products that are refunded. A description of this field is in [OrderDetails](#orderdetails). 

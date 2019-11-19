@@ -22,7 +22,8 @@ POST https://ecomms2s.sella.it/api/v1/payment/refund/
   "shopLogin":"",
   "bankTransactionID":"",
   "shopTransactionID":"",
-  "paymentID":"",
+  "paymentID":"",,
+  "settlementID":"",
   "amount":"",
   "currency":"",
   "chargeBackFraud":"",
@@ -75,6 +76,7 @@ Request Body:
 | `bankTransactionID` | ID of the transaction assigned by Axerve E-commerce Solutions 
 | `shopTransactionID` | shop transaction ID value 
 | `paymentID`         | The payment ID 
+| `settlementID` | Optional identifier of the settlement
 | `refundReason` | a free-text reason for the refund. Used with fraud protection. 
 | `chargeBackFraud` | Flag for risk: <ul><li>`TRUE` - chargeback for fraud</li><li>`FALSE` - chargeback not for a fraud</li></ul>
 | `orderDetail.productDetails` | in case you are using _Klarna_, fill this fields with info about the products that are refunded. A description of this field is in [OrderDetails](#orderdetails). 
