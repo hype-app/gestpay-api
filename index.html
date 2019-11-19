@@ -1536,6 +1536,7 @@
   <span class="nt">&lt;amount&gt;</span>55.00<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransID&gt;</span>MYSHOP-00142<span class="nt">&lt;/shopTransID&gt;</span>
   <span class="nt">&lt;bankTransID&gt;</span>159247522<span class="nt">&lt;/bankTransID&gt;</span>
+  <span class="nt">&lt;settlementID&gt;&lt;/settlementID&gt;</span>
   <span class="nt">&lt;FullFillment&gt;</span>
     <span class="nt">&lt;FullFillmentlst&gt;</span>
       <span class="nt">&lt;FullfillmentDetail&gt;</span>
@@ -1606,6 +1607,12 @@
 <tr>
 <td><strong><code class="prettyprint">shopTransID</code></strong></td>
 <td>shop transaction ID value</td>
+<td>string</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code class="prettyprint">settlementID</code></td>
+<td>Optional identifier of the settlement</td>
 <td>string</td>
 <td>50</td>
 </tr>
@@ -1926,6 +1933,7 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
   <span class="nt">&lt;amount&gt;</span>55.00<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP-00142<span class="nt">&lt;/shopTransactionId&gt;</span>
   <span class="nt">&lt;bankTransactionId&gt;</span>159247522<span class="nt">&lt;/bankTransactionId&gt;</span>
+  <span class="nt">&lt;settlementID&gt;&lt;/settlementID&gt;</span>
   <span class="nt">&lt;RefundReason&gt;</span>item our of stock<span class="nt">&lt;/RefundReason&gt;</span>
   <span class="nt">&lt;chargeBackFraud&gt;</span>N<span class="nt">&lt;/chargeBackFraud&gt;</span>
   <span class="nt">&lt;OrderDetail&gt;</span>
@@ -1974,6 +1982,12 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <td><a href="#currency-codes">currency code</a></td>
 <td>numeric</td>
 <td>3</td>
+</tr>
+<tr>
+<td><code class="prettyprint">settlementID</code></td>
+<td>Optional identifier of the settlement</td>
+<td>string</td>
+<td>50</td>
 </tr>
 <tr>
 <td><code class="prettyprint">RefundReason</code></td>
@@ -2134,11 +2148,15 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
         <span class="nt">&lt;eventtype&gt;</span>AUT<span class="nt">&lt;/eventtype&gt;</span>
         <span class="nt">&lt;eventamount&gt;</span>0.10<span class="nt">&lt;/eventamount&gt;</span>
         <span class="nt">&lt;eventdate&gt;</span>19/08/16 16:13:14<span class="nt">&lt;/eventdate&gt;</span>
+        <span class="nt">&lt;eventARN&gt;&lt;/eventARN&gt;</span>
+        <span class="nt">&lt;eventID&gt;&lt;/eventID&gt;</span>
       <span class="nt">&lt;/event&gt;</span>
       <span class="nt">&lt;event&gt;</span>
         <span class="nt">&lt;eventtype&gt;</span>CAN<span class="nt">&lt;/eventtype&gt;</span>
         <span class="nt">&lt;eventamount&gt;</span>0.10<span class="nt">&lt;/eventamount&gt;</span>
         <span class="nt">&lt;eventdate&gt;</span>20/08/16 00:13:57<span class="nt">&lt;/eventdate&gt;</span>
+        <span class="nt">&lt;eventARN&gt;&lt;/eventARN&gt;</span>
+        <span class="nt">&lt;eventID&gt;&lt;/eventID&gt;</span>
       <span class="nt">&lt;/event&gt;</span>
     <span class="nt">&lt;/Events&gt;</span>
     <span class="nt">&lt;Buyer&gt;</span>
@@ -2176,11 +2194,15 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
             <span class="nt">&lt;eventtype&gt;</span>AUT<span class="nt">&lt;/eventtype&gt;</span>
             <span class="nt">&lt;eventamount&gt;</span>10.00<span class="nt">&lt;/eventamount&gt;</span>
             <span class="nt">&lt;eventdate&gt;</span>13/11/17 11:32:45<span class="nt">&lt;/eventdate&gt;</span>
+            <span class="nt">&lt;eventARN&gt;&lt;/eventARN&gt;</span>
+            <span class="nt">&lt;eventID&gt;&lt;/eventID&gt;</span>
         <span class="nt">&lt;/event&gt;</span>
         <span class="nt">&lt;event&gt;</span>
             <span class="nt">&lt;eventtype&gt;</span>MOV<span class="nt">&lt;/eventtype&gt;</span>
             <span class="nt">&lt;eventamount&gt;</span>10.00<span class="nt">&lt;/eventamount&gt;</span>
             <span class="nt">&lt;eventdate&gt;</span>13/11/17 11:32:45<span class="nt">&lt;/eventdate&gt;</span>
+            <span class="nt">&lt;eventARN&gt;&lt;/eventARN&gt;</span>
+            <span class="nt">&lt;eventID&gt;&lt;/eventID&gt;</span>
         <span class="nt">&lt;/event&gt;</span>
       <span class="nt">&lt;/Events&gt;</span>
       <span class="nt">&lt;Buyer&gt;</span>
@@ -2352,6 +2374,10 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 <tr>
 <td><code class="prettyprint">eventdate</code></td>
 <td>event date</td>
+</tr>
+<tr>
+<td><code class="prettyprint">eventID</code></td>
+<td>Unique identifier of the event</td>
 </tr>
 </tbody></table>
 
@@ -10437,7 +10463,8 @@ Please note:
         </span><span class="s2">"eventtype"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"eventamount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"eventdate"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"eventARN"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+        </span><span class="s2">"eventARN"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"eventID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}],</span><span class="w">
     </span><span class="s2">"buyer"</span><span class="p">:{</span><span class="w">
@@ -10647,6 +10674,10 @@ Please note:
 <tr>
 <td><code class="prettyprint">eventARN</code></td>
 <td>The acquirer reference number</td>
+</tr>
+<tr>
+<td><code class="prettyprint">eventID</code></td>
+<td>Unique identifier of the event</td>
 </tr>
 <tr>
 <td><code class="prettyprint">environment</code></td>
@@ -10981,12 +11012,14 @@ Please note:
       </span><span class="s2">"eventtype"</span><span class="p">:</span><span class="s2">"AUT"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"eventamount"</span><span class="p">:</span><span class="s2">"0.10"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"eventdate"</span><span class="p">:</span><span class="s2">"19/08/16 16:13:14"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"eventARN"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="s2">"eventARN"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"eventID"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">  
       </span><span class="s2">"eventtype"</span><span class="p">:</span><span class="s2">"MOV"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"eventamount"</span><span class="p">:</span><span class="s2">"0.10"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"eventdate"</span><span class="p">:</span><span class="s2">"20/08/16 00:13:57"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"eventARN"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="s2">"eventARN"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"eventID"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}],</span><span class="w">
     </span><span class="s2">"buyer"</span><span class="p">:{</span><span class="w">  
       </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -11221,6 +11254,10 @@ Please note:
 <tr>
 <td><code class="prettyprint">eventARN</code></td>
 <td>The acquirer reference number</td>
+</tr>
+<tr>
+<td><code class="prettyprint">eventID</code></td>
+<td>Unique identifier of the event</td>
 </tr>
 <tr>
 <td><code class="prettyprint">environment</code></td>
@@ -11462,6 +11499,7 @@ Please note:
   </span><span class="s2">"bankTransactionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"shopTransactionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"paymentID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"settlementID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"fullFillment"</span><span class="p">:{</span><span class="w">
     </span><span class="s2">"fullFillmentlst"</span><span class="p">:[{</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -11547,6 +11585,10 @@ Please note:
 <tr>
 <td><code class="prettyprint">paymentID</code></td>
 <td>The payment ID</td>
+</tr>
+<tr>
+<td><code class="prettyprint">settlementID</code></td>
+<td>Optional identifier of the settlement</td>
 </tr>
 <tr>
 <td><code class="prettyprint">FullFillment</code></td>
@@ -11872,7 +11914,8 @@ Please note:
   </span><span class="s2">"shopLogin"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"bankTransactionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"shopTransactionID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"paymentID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"paymentID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,,</span><span class="w">
+  </span><span class="s2">"settlementID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"chargeBackFraud"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -11955,6 +11998,10 @@ Please note:
 <tr>
 <td><code class="prettyprint">paymentID</code></td>
 <td>The payment ID</td>
+</tr>
+<tr>
+<td><code class="prettyprint">settlementID</code></td>
+<td>Optional identifier of the settlement</td>
 </tr>
 <tr>
 <td><code class="prettyprint">refundReason</code></td>
