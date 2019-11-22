@@ -75,4 +75,4 @@ Response `payload` details:
 | `amount` | The transaction amount 
 | `languageID` | The buyer's language 
 | `currency` ` | the payment [currency ISO code](#currency-codes) 
-| `visibleCustomFields` | A list of custom fields that are set as visible to the user. These fields are set by the merchant. For further information see [sending custom parameters to Axerve E-commerce Solutions](<%= config[:doc_url]%>/gs/how-gestpay-works.html#sending-custom-parameters-to-gestpay). 
+| `visibleCustomFields` | A list of custom fields that are set as visible to the user. These fields are set by the merchant. For further information see [sending custom parameters to Axerve E-commerce Solutions](https://docs.gestpay.it/rest/getting-started/setup-merchant-profile/#sending-custom-parameters-to-axerve-e-commerce-solutions). 
