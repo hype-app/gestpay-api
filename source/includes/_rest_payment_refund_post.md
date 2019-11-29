@@ -22,7 +22,7 @@ POST https://ecomms2s.sella.it/api/v1/payment/refund/
   "shopLogin":"",
   "bankTransactionID":"",
   "shopTransactionID":"",
-  "paymentID":"",,
+  "paymentID":"",
   "settlementID":"",
   "amount":"",
   "currency":"",
