@@ -6884,6 +6884,10 @@ Please note:
   </span><span class="s2">"frequency"</span><span class="p">:{</span><span class="w">
     </span><span class="s2">"ID"</span><span class="p">:</span><span class="s2">"1S"</span><span class="w">
   </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="s2">"ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+    </span><span class="p">{</span><span class="s2">"ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="s2">"prefix"</span><span class="p">:</span><span class="s2">"Su_"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"password"</span><span class="p">:</span><span class="s2">"myPWD"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -6963,6 +6967,10 @@ Please note:
 <tr>
 <td><code class="prettyprint">prefix</code></td>
 <td>This value is put before the filename generated automatically by Axerve E-commerce Solutions.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">level</code></td>
+<td>Event level<ul><li><b>A</b>: TRANSACTION</li><li><b>E</b>: ALL EVENTS</li><li><b>AUT</b>: AUT</li><li><b>CAN</b>: CAN</li><li><b>MOV</b>: MOV</li><li><b>PRE</b>: PRE</li><li><b>STO</b>: STO</li></ul></td>
 </tr>
 </tbody></table>
 
@@ -7097,7 +7105,11 @@ Please note:
           </span><span class="s2">"ID"</span><span class="p">:</span><span class="s2">"1S"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Sunday"</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"prefix"</span><span class="p">:</span><span class="s2">"Su_"</span><span class="w">
+        </span><span class="s2">"prefix"</span><span class="p">:</span><span class="s2">"Su_"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="s2">"ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w"> </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION"</span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="s2">"ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E"</span><span class="p">,</span><span class="w"> </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL EVENTS"</span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Batch No 2"</span><span class="p">,</span><span class="w">
@@ -7125,7 +7137,11 @@ Please note:
           </span><span class="s2">"ID"</span><span class="p">:</span><span class="s2">"2S"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Monday"</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"prefix"</span><span class="p">:</span><span class="s2">"Monthly1st"</span><span class="w">
+        </span><span class="s2">"prefix"</span><span class="p">:</span><span class="s2">"Monthly1st"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="s2">"ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w"> </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION"</span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="s2">"ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E"</span><span class="p">,</span><span class="w"> </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL EVENTS"</span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -7210,6 +7226,10 @@ Please note:
 <tr>
 <td><code class="prettyprint">prefix</code></td>
 <td>This value is put before the filename generated automatically by Axerve E-commerce Solutions.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">level</code></td>
+<td>Event level<ul><li><b>A</b>: TRANSACTION</li><li><b>E</b>: ALL EVENTS</li><li><b>AUT</b>: AUT</li><li><b>CAN</b>: CAN</li><li><b>MOV</b>: MOV</li><li><b>PRE</b>: PRE</li><li><b>STO</b>: STO</li></ul></td>
 </tr>
 </tbody></table>
 
