@@ -42,6 +42,10 @@ POST https://ecomms2s.sella.it/api/v1/dashboard/export/batch/
   "frequency":{
     "ID":"1S"
   },
+  "level": [
+    {"ID": ""}
+    {"ID": ""}
+  ],
   "prefix":"Su_",
   "password":"myPWD"
 }
@@ -73,6 +77,12 @@ Body details:
 | `recipient.ftp.enabled` | `True` if the batch should be uploaded via ftp. 
 | **`frequency.ID`** | Determines the start day of the batch interval.See the [related table](#frequency-codes). 
 | `prefix` | This value is put before the filename generated automatically by Axerve E-commerce Solutions. 
+| `level` | Event level<ul><li><b>A</b>: TRANSACTION</li><li><b>E</b>: ALL EVENTS</li><li><b>AUT</b>: AUT</li><li><b>CAN</b>: CAN</li><li><b>MOV</b>: MOV</li><li><b>PRE</b>: PRE</li><li><b>STO</b>: STO</li></ul>
+
+
+
+
+
 
 At least one of `recipient.email.enabled` and `recipient.ftp.enabled` must be `True`.
 
