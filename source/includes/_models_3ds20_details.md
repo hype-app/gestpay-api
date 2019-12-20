@@ -89,7 +89,7 @@
 
 | Name | max length | description |
 | ---- | :--------: | ----------- |
-| `transTypeReq` | 1 | Type of transaction required to Axerve E-commerce Solutions: complete payment process or only authentication (in case of third party Acquirer). <ul><li>`P` for Payment (default)</li><li>`A` for authentication only</li></ul> This field doesn't exist in Ecrypt request call |
+| `transTypeReq` | 1 | Type of transaction required to Axerve E-commerce Solutions: complete payment process or only authentication (in case of third party Acquirer). <ul><li>`P` for Payment (default)</li><li>`A` for authentication only</li></ul> |
 | `acquirerBIN` | 11 |This field are required if `transTypeReq` value is `A`. Acquiring institution identification code as assigned by the DS receiving the AReq  message.<br><b>Reserved field for future developments.</b> |
 | `acquirerMerchantID ` | 35 | This field are required if `transTypeReq` value is `A`. Acquirer-assigned Merchant identifier. This may be the same value that is used in authorisation requests sent on behalf of the 3DS Requestor and is represented in ISO 8583 formatting requirements.<br><b>Reserved field for future developments.</b> | 
 | `exemption` | string | Challenge management exemption. Possible values: <ul><li>SKIP: to ask exclude the possibility of exemption and require challange mandatory</li><li>FORCE: exemption requested by the merchant</li></ul>If not evaluated, the Axerve E-commerce Solutions rule is applied |
@@ -147,7 +147,7 @@
 | <div class="inside-icon"></div> `deliveryEmailAddress` | 254 | For Electronic delivery, the email address to which the merchandise was delivered. |
 | <div class="inside-icon"></div> `deliveryTimeframe` | 2 | Indicates the merchandise delivery timeframe. <ul><li>01 Electronic Delivery</li><li>02 Same day shipping</li><li>03 Overnight shipping</li><li>04 Two-day or more shipping</li></ul> |
 | <div class="inside-icon"></div> `giftCardAmount` | 15 | For prepaid or gift card purchase, the purchase amount total of prepaid or gift card(s) in major units (for example, USD 123.45 is 123). Example: gift card amount is USD 123.45: Values accepted: <ul><li>123</li><li>0123</li><li>00123</li></ul> |
-| <div class="inside-icon"></div> `giftCardCount` | 2 | For prepaid or gift card purchase, total count of individual prepaid or gift cards/codes purchased. |
+| <div class="inside-icon"></div> `giftCardCount` | 2 | For prepaid or gift card purchase, total count of individual prepaid or gift cards/codes purchased. Field is defined as being exactly 2 characters long |
 | <div class="inside-icon"></div> `giftCardCurr` | 3 | For prepaid or gift card purchase, uicCode currency code. |
 | <div class="inside-icon"></div> `preOrderDate` | 8 | For a pre-ordered purchase, the expected date that the merchandise will be available. Date format = YYYYMMDD |
 | <div class="inside-icon"></div> `preOrderPurchaseInd` | 2 | Indicates whether Cardholder is placing an order for merchandise with a future availability or release date. <ul><li>01 Merchandise available</li><li>02 Future availability</li></ul> |
