@@ -172,14 +172,14 @@ The following features may be optionally assigned:
   <RiskResponseCode>approved</RiskResponseCode>
   <RiskResponseDescription>the transaction is approved</RiskResponseDescription>
 
-  <threeDS>
-    <AuthenticationResult>
+  <ThreeDS>
+    <authenticationResult>
       ...
-    </AuthenticationResult>
+    </authenticationResult>
     <InAppChallenge>
       ...
     </InAppChallenge>
-  </threeDS>
+  </ThreeDS>
 </GestPayS2S>
 ```
 
@@ -213,9 +213,9 @@ The following features may be optionally assigned:
 | `PayPalFee` | the fee owed to paypal. 
 | `TDLevel` | Level of authentication for 3D-Secure transactions. `FULL` or `HALF`
 | `RiskResponseCode` | Risk Fraud Score of the transaction, given by [ Axerve Guaranteed Payment](<%= config[:doc_url] %>/sec/gestpay-guaranteed-payment.html). Possible values are: <ul><li>`created`: transaction has been received by the Axerve Guaranteed Payment</li><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Axerve Guaranteed Payment</li><li>`declined`: transaction not approved by  Axerve Guaranteed Payment</li><li>`captured`: For *Select&Submit* plan, `captured` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Axerve Guaranteed Payment.</li></ul>
-| `threeDS` <span class='beta'>sandbox</span> | Object with information about 3ds authentication (described below)
+| `ThreeDS` <span class='beta'>sandbox</span> | Object with information about 3ds authentication (described below)
 
-The threeDS <span class='beta'>sandbox</span> object contains three object:
+The ThreeDS <span class='beta'>sandbox</span> object contains three object:
 
 - `authenticationResult` with those children
 
