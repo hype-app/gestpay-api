@@ -16,7 +16,7 @@ Merchants can use this method to request the token generation for a Credit Card.
   <expiryYear>21</expiryYear>
   <withAuth>Y</withAuth>
   <cvv>931</cvv><!-- optional -->
-</callCheckCartaS2S>
+</CallRequestTokenS2S>
 ```
 
 Parameters in **bold** are mandatory. 
@@ -67,7 +67,7 @@ Parameters in **bold** are mandatory.
     <CardBIN/>
     <Token>44MRWNA710AC4448</Token>
     <TokenExpiryMonth>12</TokenExpiryMonth>
-    <TokenExpiryYear>16</TokenExpiryYear>
+    <TokenExpiryYear>21</TokenExpiryYear>
   </GestPayS2S>
 </CallRequestTokenS2SResult>
 ```
