@@ -9042,6 +9042,10 @@ Please note:
 <td><code class="prettyprint">True</code> if it&rsquo;s a recurrent payment, <code class="prettyprint">False</code> if not.</td>
 </tr>
 <tr>
+<td><code class="prettyprint">responseURLs</code></td>
+<td>where to redirect the user after the payment.</td>
+</tr>
+<tr>
 <td><code class="prettyprint">shippingDetails</code></td>
 <td>contains the shipping address. Used for <a href="http://docs.gestpay.it/soap/alternative-payments/paypal/#paypal-seller-protection">paypal seller protection</a>.</td>
 </tr>
@@ -9220,6 +9224,30 @@ Please note:
 <td><div class="inside-icon"></div> <code class="prettyprint">XID</code></td>
 <td>Prior Transaction unique ID assigned by Directory Server</td>
 <td>36</td>
+</tr>
+</tbody></table>
+
+<h5 id="response-urls">Response URLs</h5>
+
+<p>With the REST Api you can set the redirect url for the success or failure case, along with the Server to server notification URL. </p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">buyerOK</code></td>
+<td>The URL where the user will be redirected in case of success.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">buyerKO</code></td>
+<td>The URL where the user will be redirected in case of failure.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">serverNotificationURL</code></td>
+<td>Axerve E-commerce Solutions will try to reach this URL to notify the merchant of the payment result.</td>
 </tr>
 </tbody></table>
 
