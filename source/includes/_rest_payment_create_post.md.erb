@@ -211,6 +211,7 @@ Input Body:
 | `clientIP`        | For PayPal Billing Agreements it is required only in "one click" mode transaction. <br> For AMEX transaction not in Euro, in this field the merchant could provide the client IP address to activate the Enhanced Authorization AAV.<br>**Mandatory if you use Axerve Guaranteed Payment with S2S.** 
 | `itemType`     | Item Category: `digital`/`physical` (If `physical` the `ShippingDetails` have to be filled)  
 | `recurrent` | `True` if it's a recurrent payment, `False` if not.
+| `responseURLs` | where to redirect the user after the payment. 
 | `shippingDetails` | contains the shipping address. Used for [paypal seller protection](<%= config[:doc_url] %>/soap/alternative-payments/paypal/#paypal-seller-protection).
 | [`OrderDetails`](#orderdetails) | contains every other info needed to handle the payment. It is used by  Axerve Guaranteed Payment. 
 | `transDetails` <span class='beta'>sandbox</span> | Contians informations for 3DS 2.0 authentication | object | - |
@@ -252,6 +253,15 @@ Input Body:
 | <div style="white-space: nowrap;"><div class="inside-icon"></div> `paymentID`</div> | Prior payment identifier ID (if it was managed by Axerve E-commerce Solutions) |  |
 | <div class="inside-icon"></div> `XID` | Prior Transaction unique ID assigned by Directory Server | 36 |
 
+##### Response URLs 
+
+With the REST Api you can set the redirect url for the success or failure case, along with the Server to server notification URL. 
+
+| Field | Description | 
+| ----- | ----------- | 
+| `buyerOK` | The URL where the user will be redirected in case of success.
+| `buyerKO` | The URL where the user will be redirected in case of failure. 
+| `serverNotificationURL` | Axerve E-commerce Solutions will try to reach this URL to notify the merchant of the payment result.
 
 #### Response 
 
