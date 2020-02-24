@@ -103,7 +103,8 @@ Request Body:
 | `paymentTypeDetails` |  based on the chosen payment method, it will contain informations to complete the payment. See next sections. 
 | `responseURLs` | where to redirect the user after the payment. 
 
-You should fill out at least one payment method. 
+<aside class="warning">You should fill out at least one payment method.</aside>
+ 
 
 ##### `paymentTypeDetails`: Credit card 
 
