@@ -212,6 +212,7 @@ Input Body:
 | `itemType`     | Item Category: `digital`/`physical` (If `physical` the `ShippingDetails` have to be filled)  
 | `recurrent` | `True` if it's a recurrent payment, `False` if not.
 | `responseURLs` | where to redirect the user after the payment. 
+| `payPalDescription` | used for activate paypal billing agreement. If you only need to get the token without performe a payment, you can invoke the `create` with amount set to 0 and then performe a `submit` with `paymentType: "PAYPAL"`
 | `shippingDetails` | contains the shipping address. Used for [paypal seller protection](<%= config[:doc_url] %>/soap/alternative-payments/paypal/#paypal-seller-protection).
 | [`OrderDetails`](#orderdetails) | contains every other info needed to handle the payment. It is used by  Axerve Guaranteed Payment. 
 | `transDetails` <span class='beta'>sandbox</span> | Contians informations for 3DS 2.0 authentication | object | - |
