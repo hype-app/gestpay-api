@@ -65,17 +65,18 @@ These are non-mandatory fields, but are direct children of the `Encrypt` root.
 | `languageId` | 2 | Code identifying language used in communication with buyer |
 | `customInfo`<sup><a href="#fn1" id="ref1">1</a></sup> | 1000 | String containing specific information as configured in the merchant’s profile. See the next section for further explanations. |
 | [`OrderDetails`](#orderdetails)<div id="transDetails"></div> |  | a container ojbect of other data. It is used by [ Axerve Guaranteed Payment](#gestpay-guaranteed-payment) and by alternative payments. 
-| `transDetails` <span class='beta'>sandbox</span> | object | Contians informations for 3DS 2.0 authentication | - |
+| `transDetails` | object | Contians informations for 3DS 2.0 authentication | - |
 
 <sup id="fn1">1. Each field can be up to a maximum of 300 characters in length. See next section for further explanations.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup>
 
 <a name="customInfo"></a>
 
-- children of `transDetails` <span class='beta'>sandbox</span>: 
+- children of `transDetails`: 
 
 | Name | Description | Format/length | 
 | ---- | ----------- | --------- | 
 | `type` | Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>02F: Instalment first</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied. | 3 |
+| `authenticationAmount` | 3DS authentication amount. If not filled, the authentication amount used will be the amount of the transaction (amount field previously described). The authenticationAmount should be equal or higher than amount, otherwise it will be ignored and the authentication will be made using the amount value. If the authenticationAmount field is used and it is higher than the transaction amount, it is recommended to notify the buyer that the authentication amount will differ from the authorization amount. | max 9 |
 | [`threeDsContainer`](#3ds-2-0-fields) | Container of additional data defined in 3DS2 protocol, that better define the transaction. The data here included will be used for assessing the risk level of the transaction with the purpose of ensuring security without affecting the buyer's experience | object |  |
 | `recurringTransaction` | Contains informations necessary in case of recurring payment | object| |
 | <div class="inside-icon"></div> `installNo` | Required in case of installment payments. It indicates the maximum number of allowed transactions | 3 |
