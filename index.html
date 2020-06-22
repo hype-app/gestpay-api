@@ -334,7 +334,7 @@
 <td>a container ojbect of other data. It is used by <a href="#gestpay-guaranteed-payment"> Axerve Guaranteed Payment</a> and by alternative payments.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">transDetails</code> <span class='beta'>sandbox</span></td>
+<td><code class="prettyprint">transDetails</code></td>
 <td style="text-align: center">object</td>
 <td>Contians informations for 3DS 2.0 authentication</td>
 </tr>
@@ -345,7 +345,7 @@
 <p><a name="customInfo"></a></p>
 
 <ul>
-<li>children of <code class="prettyprint">transDetails</code> <span class='beta'>sandbox</span>: </li>
+<li>children of <code class="prettyprint">transDetails</code>: </li>
 </ul>
 
 <table><thead>
@@ -359,6 +359,11 @@
 <td><code class="prettyprint">type</code></td>
 <td>Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>02F: Instalment first</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied.</td>
 <td>3</td>
+</tr>
+<tr>
+<td><code class="prettyprint">authenticationAmount</code></td>
+<td>3DS authentication amount. If not filled, the authentication amount used will be the amount of the transaction (amount field previously described). The authenticationAmount should be equal or higher than amount, otherwise it will be ignored and the authentication will be made using the amount value. If the authenticationAmount field is used and it is higher than the transaction amount, it is recommended to notify the buyer that the authentication amount will differ from the authorization amount.</td>
+<td>max 9</td>
 </tr>
 <tr>
 <td><a href="#3ds-2-0-fields"><code class="prettyprint">threeDsContainer</code></a></td>
@@ -1163,7 +1168,7 @@
 <td></td>
 </tr>
 <tr>
-<td><code class="prettyprint">transDetails</code> <span class='beta'>sandbox</span></td>
+<td><code class="prettyprint">transDetails</code></td>
 <td>Contians informations for 3DS 2.0 authentication</td>
 <td>object</td>
 <td>-</td>
@@ -1221,7 +1226,7 @@
 </tbody></table>
 
 <ul>
-<li>children of <code class="prettyprint">transDetails</code> <span class='beta'>sandbox</span>: </li>
+<li>children of <code class="prettyprint">transDetails</code>: </li>
 </ul>
 
 <table><thead>
@@ -1235,6 +1240,11 @@
 <td><code class="prettyprint">type</code></td>
 <td>Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>01N: Recurring next</li><li>02F: Instalment first</li><li>02N: Instalment next</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied.</td>
 <td>3</td>
+</tr>
+<tr>
+<td><code class="prettyprint">authenticationAmount</code></td>
+<td>3DS authentication amount. If not filled, the authentication amount used will be the amount of the transaction (amount field previously described). The authenticationAmount should be equal or higher than amount, otherwise it will be ignored and the authentication will be made using the amount value. If the authenticationAmount field is used and it is higher than the transaction amount, it is recommended to notify the buyer that the authentication amount will differ from the authorization amount.</td>
+<td>max 9</td>
 </tr>
 <tr>
 <td><code class="prettyprint">threeDSAuthResult</code></td>
@@ -10175,9 +10185,27 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">token</code></td>
-<td>a token representing the AmazonPay token</td>
+<td>a token representing the ApplePay token</td>
 </tr>
 </tbody></table>
+
+<!-- ##### `paymentTypeDetails`: Google Pay -->
+
+<!--  -->
+
+<!-- If your customers choose Google Pay, these are the parameters to pass:  -->
+
+<!--  -->
+
+<!-- | Field | Description |  -->
+
+<!-- | ----- | ----------- |  -->
+
+<!-- | `token` | a token representing the Google Pay token  -->
+
+<!--  -->
+
+<!-- You can find more information in the [documentation](https://docs.gestpay.it/soap/alternative-payments/google-pay/) -->
 
 <h5 id="paymenttypedetails-my-bank"><code class="prettyprint">paymentTypeDetails</code>: My Bank</h5>
 
