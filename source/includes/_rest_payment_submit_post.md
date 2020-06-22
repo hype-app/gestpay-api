@@ -141,7 +141,17 @@ If your customers choose Apple Pay, these are the parameters to pass:
 | `onlinePaymentCryptogram` |  a unique, one time use cryptogram used by Axerve E-commerce Solutions to decrypt the payment data
 | `eciIndicator` | optional data used for 3D secure transactions
 | `requestToken` | `MASKEDPAN` for a Standard Token; any other value for Custom Token
-| `token` | a token representing the AmazonPay token 
+| `token` | a token representing the ApplePay token 
+
+<!-- ##### `paymentTypeDetails`: Google Pay -->
+<!--  -->
+<!-- If your customers choose Google Pay, these are the parameters to pass:  -->
+<!--  -->
+<!-- | Field | Description |  -->
+<!-- | ----- | ----------- |  -->
+<!-- | `token` | a token representing the Google Pay token  -->
+<!--  -->
+<!-- You can find more information in the [documentation](https://docs.gestpay.it/soap/alternative-payments/google-pay/) -->
 
 
 ##### `paymentTypeDetails`: My Bank
