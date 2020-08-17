@@ -430,6 +430,7 @@
 | 8021 | Feature disable for MASTERCARD credit card                                                                         |
 | 8022 | Feature disable for JCB credit card                                                                                |
 | 8023 | Feature disabled for MAESTRO cards                                                                                 |
+| 8027 | Failed authentication                                                                                              |
 | 8888 | UP Mobile Payment                                                                                                  |
 | 9991 | Browser not supported                                                                                              |
 | 9992 | Error creating iFrame                                                                                              |
