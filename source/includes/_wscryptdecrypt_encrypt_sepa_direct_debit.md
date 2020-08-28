@@ -37,4 +37,4 @@ The amount used in the Encrypt is mandatory, but it is discarded since the `Encr
 
 The effectively charged amount is passed to [`callPagamS2S`](#callpagams2s) after the pre-approval token is received. 
 
-If you are using REST integration you can find more information in [`payment/submit`](#post-payment-submit).
+If you are using API REST integration, you can find more information in [`payment/submit`](#post-payment-submit).
