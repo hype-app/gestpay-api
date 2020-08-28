@@ -63,7 +63,12 @@ POST https://ecomms2s.sella.it/api/v1/payment/submit
     "buyerOK":"",
     "buyerKO":"",
     "serverNotificationURL":""
-  }
+  },
+  // SEPA
+  "slimPay":{  
+    "token":"SP7NYQTXYKG5CQFM",
+    "executionDate":"20201212"
+  },
 }
 ```
 Enables merchants to perform authorization requests for all the payment methods enabled for the merchant.
@@ -102,6 +107,13 @@ Request Body:
 | `buyer.email` | The buyer's email
 | `paymentTypeDetails` |  based on the chosen payment method, it will contain informations to complete the payment. See next sections. 
 | `responseURLs` | where to redirect the user after the payment. 
+| `executionDate` | Date of charge on the buyer’s banking account. (SEPA)
+
+<br>
+
+`executionDate` allows the merchant to define the date of charge on the buyer’s banking account. To follow SEPA rules, if the date it’s not on a working day, the charge will be postponed to the next working day. It must be in `yyyymmdd` format
+
+<br>
 
 <aside class="warning">You should fill out at least one payment method.</aside>
  

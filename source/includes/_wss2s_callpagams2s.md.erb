@@ -31,6 +31,7 @@ Merchants can use this method to perform the transaction, passing all the parame
   <requestToken>MASKEDPAN</requestToken>
   <itemType>physical</itemType>
   <recurrent>false</recurrent>
+  <executionDate>20200828</executionDate>
   <shippingDetails>
     <shipToName>Jonny Kennedy</shipToName>
     <shipToStreet>83 Beals street</shipToStreet>
@@ -90,9 +91,16 @@ The following features may be optionally assigned:
 | `clientIP`        | For PayPal Billing Agreements it is required only in "one click" mode transaction. <br> For AMEX transaction not in Euro, in this field the merchant could provide the client IP address to activate the Enhanced Authorization AAV.<br>**Mandatory if you use <%= config[:riskified] %> with S2S.** | string | 45 |
 | `itemType`     | Item Category: `digital`/`physical` (If `physical` the `ShippingDetails` have to be filled) | string | 250 | 
 | `recurrent` | true if it's a recurrent payment, false if not. | boolean | 5 | 
+| `executionDate` | Date of charge on the buyer’s banking account. (SEPA) | date | 7 |
 | `shippingDetails` | contains the shipping address. Used for [paypal seller protection](<%= config[:doc_url] %>/oth/paypal.html).
 | [`OrderDetails`](#orderdetails) | contains every other info needed to handle the payment. It is used by  Axerve Guaranteed Payment. 
 | `transDetails` | Contians informations for 3DS 2.0 authentication | object | - |
+
+<br>
+
+`executionDate` allows the merchant to define the date of charge on the buyer’s banking account. To follow SEPA rules, if the date it’s not on a working day, the charge will be postponed to the next working day. It must be in `yyyymmdd` format
+
+<br>
 
 - children of `ShippingDetails`:
 
