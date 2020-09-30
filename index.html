@@ -970,6 +970,7 @@
   <span class="nt">&lt;requestToken&gt;</span>MASKEDPAN<span class="nt">&lt;/requestToken&gt;</span>
   <span class="nt">&lt;itemType&gt;</span>physical<span class="nt">&lt;/itemType&gt;</span>
   <span class="nt">&lt;recurrent&gt;</span>false<span class="nt">&lt;/recurrent&gt;</span>
+  <span class="nt">&lt;executionDate&gt;</span>20200828<span class="nt">&lt;/executionDate&gt;</span>
   <span class="nt">&lt;shippingDetails&gt;</span>
     <span class="nt">&lt;shipToName&gt;</span>Jonny Kennedy<span class="nt">&lt;/shipToName&gt;</span>
     <span class="nt">&lt;shipToStreet&gt;</span>83 Beals street<span class="nt">&lt;/shipToStreet&gt;</span>
@@ -1156,6 +1157,12 @@
 <td>5</td>
 </tr>
 <tr>
+<td><code class="prettyprint">executionDate</code></td>
+<td>Date of charge on the buyer’s banking account. (SEPA)</td>
+<td>date</td>
+<td>7</td>
+</tr>
+<tr>
 <td><code class="prettyprint">shippingDetails</code></td>
 <td>contains the shipping address. Used for <a href="http://docs.gestpay.it/oth/paypal.html">paypal seller protection</a>.</td>
 <td></td>
@@ -1174,6 +1181,12 @@
 <td>-</td>
 </tr>
 </tbody></table>
+
+<p><br></p>
+
+<p><code class="prettyprint">executionDate</code> allows the merchant to define the date of charge on the buyer’s banking account. To follow SEPA rules, if the date it’s not on a working day, the charge will be postponed to the next working day. It must be in <code class="prettyprint">yyyymmdd</code> format</p>
+
+<p><br></p>
 
 <ul>
 <li>children of <code class="prettyprint">ShippingDetails</code>:</li>
@@ -5302,6 +5315,8 @@ Please note:
 <p>The amount used in the Encrypt is mandatory, but it is discarded since the <code class="prettyprint">Encrypt</code> call is used only to get a pre-approval token. </p>
 
 <p>The effectively charged amount is passed to <a href="#callpagams2s"><code class="prettyprint">callPagamS2S</code></a> after the pre-approval token is received. </p>
+
+<p>If you are using API REST integration, you can find more information in <a href="#post-payment-submit"><code class="prettyprint">payment/submit</code></a>.</p>
 
           <h3 id="encrypt-example-sofort">Encrypt Example: Sofort</h3>
 
@@ -10019,7 +10034,12 @@ Please note:
     </span><span class="s2">"buyerOK"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"buyerKO"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"serverNotificationURL"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">SEPA</span><span class="w">
+  </span><span class="s2">"slimPay"</span><span class="p">:{</span><span class="w">  
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="s2">"SP7NYQTXYKG5CQFM"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"executionDate"</span><span class="p">:</span><span class="s2">"20201212"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Enables merchants to perform authorization requests for all the payment methods enabled for the merchant.</p>
@@ -10088,7 +10108,17 @@ Please note:
 <td><code class="prettyprint">responseURLs</code></td>
 <td>where to redirect the user after the payment.</td>
 </tr>
+<tr>
+<td><code class="prettyprint">executionDate</code></td>
+<td>Date of charge on the buyer’s banking account. (SEPA)</td>
+</tr>
 </tbody></table>
+
+<p><br></p>
+
+<p><code class="prettyprint">executionDate</code> allows the merchant to define the date of charge on the buyer’s banking account. To follow SEPA rules, if the date it’s not on a working day, the charge will be postponed to the next working day. It must be in <code class="prettyprint">yyyymmdd</code> format</p>
+
+<p><br></p>
 
 <aside class="warning">You should fill out at least one payment method.</aside>
  
