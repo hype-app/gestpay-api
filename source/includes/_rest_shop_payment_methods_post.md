@@ -43,8 +43,8 @@ request body details:
 | Parameter | Description | 
 | --------- | ----------- | 
 | **`shopLogin`** | The shop identifier. | 
-| `paymentType` | One of the [payment types](#payment-type-codes) supported by Axerve E-commerce Solutions. 
-| `paymentPage` | set to `visible` to show the payment type on the payment page; `hidden` to hide.
+| **`paymentType`** | One of the [payment types](#payment-type-codes) supported by Axerve E-commerce Solutions. 
+| **`paymentPage`** | set to `visible` to show the payment type on the payment page; `hidden` to hide.
 
 #### Response 
 

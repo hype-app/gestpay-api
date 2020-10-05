@@ -4,14 +4,14 @@
 > Sandbox URL:
 
 ```
-GET https://sandbox.gestpay.net/api/v1/shop/methods/
+GET https://sandbox.gestpay.net/api/v1/shop/paymentPage/
 ```
 
 
 > Production URL: 
 
 ```
-GET https://ecomms2s.sella.it/api/v1/shop/methods/
+GET https://ecomms2s.sella.it/api/v1/shop/paymentPage/
 ```
 
 Retrieves the current text or URL for the Logo, the default language, and the URL that will display the preview of the payment page. 
