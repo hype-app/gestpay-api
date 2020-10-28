@@ -357,7 +357,7 @@
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">type</code></td>
-<td>Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>02F: Instalment first</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied.</td>
+<td>Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>03F: Unscheduled MIT first</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied.</td>
 <td>3</td>
 </tr>
 <tr>
@@ -374,11 +374,6 @@
 <td><code class="prettyprint">recurringTransaction</code></td>
 <td>Contains informations necessary in case of recurring payment</td>
 <td>object</td>
-</tr>
-<tr>
-<td><div class="inside-icon"></div> <code class="prettyprint">installNo</code></td>
-<td>Required in case of installment payments. It indicates the maximum number of allowed transactions</td>
-<td>3</td>
 </tr>
 <tr>
 <td><div class="inside-icon"></div> <code class="prettyprint">expiry</code></td>
@@ -1251,7 +1246,7 @@
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">type</code></td>
-<td>Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>01N: Recurring next</li><li>02F: Instalment first</li><li>02N: Instalment next</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied.</td>
+<td>Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>01N: Recurring next</li><li>03F: Unscheduled MIT first</li><li>03N: Unscheduled MIT next</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied.</td>
 <td>3</td>
 </tr>
 <tr>
@@ -1308,11 +1303,6 @@
 <td><code class="prettyprint">recurringTransaction</code></td>
 <td>Contains informations necessary in case of recurring payment</td>
 <td>object</td>
-</tr>
-<tr>
-<td><div class="inside-icon"></div> <code class="prettyprint">installNo</code></td>
-<td>Required in case of installment payments. It indicates the maximum number of allowed transactions</td>
-<td>3</td>
 </tr>
 <tr>
 <td><div class="inside-icon"></div> <code class="prettyprint">expiry</code></td>
@@ -9079,7 +9069,7 @@ Please note:
 <td>contains every other info needed to handle the payment. It is used by  Axerve Guaranteed Payment.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">transDetails</code> <span class='beta'>sandbox</span></td>
+<td><code class="prettyprint">transDetails</code></td>
 <td>Contians informations for 3DS 2.0 authentication</td>
 </tr>
 </tbody></table>
@@ -9135,7 +9125,7 @@ Please note:
 </tbody></table>
 
 <ul>
-<li>children of <code class="prettyprint">transDetails</code> <span class='beta'>sandbox</span>: </li>
+<li>children of <code class="prettyprint">transDetails</code>: </li>
 </ul>
 
 <table><thead>
@@ -9147,8 +9137,13 @@ Please note:
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">type</code></td>
-<td>Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>01N: Recurring next</li><li>02F: Instalment first</li><li>02N: Instalment next</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied.</td>
+<td>Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>01N: Recurring next</li><li>03F: Unscheduled MIT first</li><li>03N: Unscheduled MIT next</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied.</td>
 <td>3</td>
+</tr>
+<tr>
+<td><code class="prettyprint">authenticationAmount</code></td>
+<td>3DS authentication amount. If not filled, the authentication amount used will be the amount of the transaction (amount field previously described). The authenticationAmount should be equal or higher than amount, otherwise it will be ignored and the authentication will be made using the amount value. If the authenticationAmount field is used and it is higher than the transaction amount, it is recommended to notify the buyer that the authentication amount will differ from the authorization amount.</td>
+<td>max 9</td>
 </tr>
 <tr>
 <td><code class="prettyprint">threeDSAuthResult</code></td>
@@ -9199,11 +9194,6 @@ Please note:
 <td><code class="prettyprint">recurringTransaction</code></td>
 <td>Contains informations necessary in case of recurring payment</td>
 <td>object</td>
-</tr>
-<tr>
-<td><div class="inside-icon"></div> <code class="prettyprint">installNo</code></td>
-<td>Required in case of installment payments. It indicates the maximum number of allowed transactions</td>
-<td>3</td>
 </tr>
 <tr>
 <td><div class="inside-icon"></div> <code class="prettyprint">expiry</code></td>
@@ -17125,6 +17115,10 @@ Axerve Guaranteed Payment is reserved to users that have signed an agreement wit
 <tr>
 <td>8023</td>
 <td>Feature disabled for MAESTRO cards</td>
+</tr>
+<tr>
+<td>8026</td>
+<td>Soft decline - Cardholder authentication required</td>
 </tr>
 <tr>
 <td>8027</td>
