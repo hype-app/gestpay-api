@@ -75,11 +75,10 @@ These are non-mandatory fields, but are direct children of the `Encrypt` root.
 
 | Name | Description | Format/length | 
 | ---- | ----------- | --------- | 
-| `type` | Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>02F: Instalment first</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied. | 3 |
+| `type` | Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied. | 3 |
 | `authenticationAmount` | 3DS authentication amount. If not filled, the authentication amount used will be the amount of the transaction (amount field previously described). The authenticationAmount should be equal or higher than amount, otherwise it will be ignored and the authentication will be made using the amount value. If the authenticationAmount field is used and it is higher than the transaction amount, it is recommended to notify the buyer that the authentication amount will differ from the authorization amount. | max 9 |
 | [`threeDsContainer`](#3ds-2-0-fields) | Container of additional data defined in 3DS2 protocol, that better define the transaction. The data here included will be used for assessing the risk level of the transaction with the purpose of ensuring security without affecting the buyer's experience | object |  |
 | `recurringTransaction` | Contains informations necessary in case of recurring payment | object| |
-| <div class="inside-icon"></div> `installNo` | Required in case of installment payments. It indicates the maximum number of allowed transactions | 3 |
 | <div class="inside-icon"></div> `expiry` | Required for Recurring Payments. Date after which no further transaction shall be performed.<br>Format: YYYYMMDD | 8 |
 | <div class="inside-icon"></div> `frequency` | Required for Recurring Payments. It indicates the minimum number of days between two transactions of the same plan | 4 |
 | `previousTransDetails` | Contains the details of a previous authenticated transaction for the same cardholder on the same merchant. If present, it can help to increase the chances of a frictionless authentication | object |

@@ -117,7 +117,7 @@ The following features may be optionally assigned:
 
 | Name | Description | Format/length | 
 | ---- | ----------- | --------- | 
-| `type` | Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>01N: Recurring next</li><li>02F: Instalment first</li><li>02N: Instalment next</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied. | 3 |
+| `type` | Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>01N: Recurring next</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied. | 3 |
 | `authenticationAmount` | 3DS authentication amount. If not filled, the authentication amount used will be the amount of the transaction (amount field previously described). The authenticationAmount should be equal or higher than amount, otherwise it will be ignored and the authentication will be made using the amount value. If the authenticationAmount field is used and it is higher than the transaction amount, it is recommended to notify the buyer that the authentication amount will differ from the authorization amount. | max 9 |
 | `threeDSAuthResult` | Result of the 3DS authentication done with another provider (Axerve will manage the authorization request, considering the 3DS phase already completed) | object |  |
 | <div class="inside-icon"></div> `authenticationLevel` | Transaction is successfully authenticated by 3DS:<ul><li>1H: 3DS 1.0 half</li><li>1F: 3DS 1.0 full</li><li>2F: 3DS 2.0 frictionless</li><li>2C: 3DS 2.0 challenge</li><li>2E: 3DS 2.0 exemption</li><li>OL: One Leg - Authentication not required</li></ul> |  2 
@@ -129,7 +129,6 @@ The following features may be optionally assigned:
 | <div class="inside-icon"></div> `threeDsVersion ` | EMVco protocol version identifier | 8 
 | [`threeDsContainer`](#3ds-2-0-fields) | Container of additional data defined in 3DS2 protocol, that better define the transaction. The data here included will be used for assessing the risk level of the transaction with the purpose of ensuring security without affecting the buyer's experience | object |  |
 | `recurringTransaction` | Contains informations necessary in case of recurring payment | object| |
-| <div class="inside-icon"></div> `installNo` | Required in case of installment payments. It indicates the maximum number of allowed transactions | 3 |
 | <div class="inside-icon"></div> `expiry` | Required for Recurring Payments. Date after which no further transaction shall be performed. <br>Format: YYYYMMDD | 8 |
 | <div class="inside-icon"></div> `frequency` | Required for Recurring Payments. It indicates the minimum number of days between two transactions of the same plan | 4 |
 | `previousTransDetails` | Contains the details of a previous authenticated transaction for the same cardholder on the same merchant. If present, it can help to increase the chances of a frictionless authentication | object |
