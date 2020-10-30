@@ -357,13 +357,13 @@
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">type</code></td>
-<td>Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>03F: Unscheduled MIT first</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied.</td>
+<td>Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>03F <span class='beta'>Under development</span>: Unscheduled MIT first</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied.</td>
 <td>3</td>
 </tr>
 <tr>
 <td><code class="prettyprint">authenticationAmount</code></td>
 <td>3DS authentication amount. If not filled, the authentication amount used will be the amount of the transaction (amount field previously described). The authenticationAmount should be equal or higher than amount, otherwise it will be ignored and the authentication will be made using the amount value. If the authenticationAmount field is used and it is higher than the transaction amount, it is recommended to notify the buyer that the authentication amount will differ from the authorization amount.</td>
-<td>max 9</td>
+<td>max 9 (see the <code class="prettyprint">amount</code> field)</td>
 </tr>
 <tr>
 <td><a href="#3ds-2-0-fields"><code class="prettyprint">threeDsContainer</code></a></td>
@@ -1246,13 +1246,13 @@
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">type</code></td>
-<td>Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>01N: Recurring next</li><li>03F: Unscheduled MIT first</li><li>03N: Unscheduled MIT next</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied.</td>
+<td>Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>01N: Recurring next</li><li>03F <span class='beta'>Under development</span>: Unscheduled MIT first</li><li>03N <span class='beta'>Under development</span>: Unscheduled MIT next</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied.</td>
 <td>3</td>
 </tr>
 <tr>
 <td><code class="prettyprint">authenticationAmount</code></td>
 <td>3DS authentication amount. If not filled, the authentication amount used will be the amount of the transaction (amount field previously described). The authenticationAmount should be equal or higher than amount, otherwise it will be ignored and the authentication will be made using the amount value. If the authenticationAmount field is used and it is higher than the transaction amount, it is recommended to notify the buyer that the authentication amount will differ from the authorization amount.</td>
-<td>max 9</td>
+<td>max 9 (see the <code class="prettyprint">amount</code> field)</td>
 </tr>
 <tr>
 <td><code class="prettyprint">threeDSAuthResult</code></td>
@@ -9137,13 +9137,13 @@ Please note:
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">type</code></td>
-<td>Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>01N: Recurring next</li><li>03F: Unscheduled MIT first</li><li>03N: Unscheduled MIT next</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied.</td>
+<td>Transaction type. Possible values:<ul><li>01F: Recurring first</li><li>01N: Recurring next</li><li>03F <span class='beta'>Under development</span>: Unscheduled MIT first</li><li>03N <span class='beta'>Under development</span>: Unscheduled MIT next</li><li>08: Mail Order</li><li>09: Telephone Order</li><li>EC: Ecommerce</li><li>NPA: only authentication - not payment</li></ul> If not evaluated, the Axerve E-commerce Solutions rule is applied.</td>
 <td>3</td>
 </tr>
 <tr>
 <td><code class="prettyprint">authenticationAmount</code></td>
 <td>3DS authentication amount. If not filled, the authentication amount used will be the amount of the transaction (amount field previously described). The authenticationAmount should be equal or higher than amount, otherwise it will be ignored and the authentication will be made using the amount value. If the authenticationAmount field is used and it is higher than the transaction amount, it is recommended to notify the buyer that the authentication amount will differ from the authorization amount.</td>
-<td>max 9</td>
+<td>max 9 (see the <code class="prettyprint">amount</code> field)</td>
 </tr>
 <tr>
 <td><code class="prettyprint">threeDSAuthResult</code></td>
