@@ -47,6 +47,9 @@ POST https://ecomms2s.sella.it/api/v1/payment/submit
       "requestToken":"",
       "token":""
     },
+    "bancomatPay": {
+      "phoneNumber": ""
+    },
     "myBank":{  
       "bankCode":""
     },
@@ -154,6 +157,11 @@ If your customers choose Apple Pay, these are the parameters to pass:
 | `eciIndicator` | optional data used for 3D secure transactions
 | `requestToken` | `MASKEDPAN` for a Standard Token; any other value for Custom Token
 | `token` | a token representing the ApplePay token 
+
+##### `paymentTypeDetails`: Bancomat Pay <span class="beta">Under development</span>
+
+If your customers choose Bancomat Pay, `bancomatPay` must be added 
+
 
 <!-- ##### `paymentTypeDetails`: Google Pay -->
 <!--  -->
