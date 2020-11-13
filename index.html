@@ -4527,6 +4527,28 @@ The shopTransactionId must be unique.
 The shopTransactionId must be unique. 
 </aside>
 
+          <h3 id="encrypt-example-bancomatpay-under-development">Encrypt Example: BancomatPay <span class="beta">Under development</span></h3>
+
+<blockquote>
+<p>BancomatPay example:  </p>
+</blockquote>
+
+<p>Giropay does not need mandatory parameters.</p>
+
+<p>You must use <code class="prettyprint">BANCOMATPAY</code> as <code class="prettyprint">paymentType</code>.</p>
+<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
+  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
+  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
+  <span class="nt">&lt;amount&gt;</span>100<span class="nt">&lt;/amount&gt;</span>
+  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord20<span class="nt">&lt;/shopTransactionId&gt;</span>
+  <span class="nt">&lt;paymentTypes&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>BANCOMATPAY<span class="nt">&lt;/paymentType&gt;</span>
+  <span class="nt">&lt;/paymentTypes&gt;</span>
+  <span class="nt">&lt;BancomatPayPhoneNumber&gt;</span>345465645645<span class="nt">&lt;/BancomatPayPhoneNumber&gt;</span>
+<span class="nt">&lt;/Encrypt&gt;</span>
+</code></pre>
+<aside class="active">When you use BancomatPay with <code>Encrypt</code> call, you must add <code>BancomatPayPhoneNumber</code> parameter.</aside>
+
           <h3 id="encrypt-example-consel">Encrypt Example: Consel</h3>
 
 <blockquote>
@@ -10008,6 +10030,9 @@ Please note:
       </span><span class="s2">"requestToken"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"token"</span><span class="p">:</span><span class="s2">""</span><span class="w">
     </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"bancomatPay"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"myBank"</span><span class="p">:{</span><span class="w">  
       </span><span class="s2">"bankCode"</span><span class="p">:</span><span class="s2">""</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -10208,6 +10233,10 @@ Please note:
 <td>a token representing the ApplePay token</td>
 </tr>
 </tbody></table>
+
+<h5 id="paymenttypedetails-bancomat-pay-under-development"><code class="prettyprint">paymentTypeDetails</code>: Bancomat Pay <span class="beta">Under development</span></h5>
+
+<p>If your customers choose Bancomat Pay, <code class="prettyprint">bancomatPay</code> must be added </p>
 
 <!-- ##### `paymentTypeDetails`: Google Pay -->
 
