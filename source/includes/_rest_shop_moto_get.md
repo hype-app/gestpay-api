@@ -18,7 +18,7 @@ GET https://ecomms2s.sella.it/api/v1/shop/moto/{shopLogin}
 
 Returns the MOTO setting for the `shopLogin`. 
 
-Read more about [MOTO settings in Axerve E-commerce Solutions](<%=config[:doc_url]%>/gs/how-gestpay-works.html#moto--what-happens-after-a-transaction). 
+Read more about [MOTO settings in Axerve E-commerce Solutions](<%=config[:doc_url]%>/soap/getting-started/how-axerve-ecommerce-solutions-works/#moto--what-happens-after-a-transaction). 
 
 #### Request 
 

@@ -132,8 +132,8 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `country` | The country originating the transaction | 
 | `company` | The credit card / payment circuit | 
 | `tdLevel` | `FULL` if the transaction is fully 3D-Secure protected, `HALF`. |
-| `alertCode` | Alert code. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description. 
-| `AlertDescription` | Alert description in chosen language. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description.  |
+| `alertCode` | Alert code. See [Better Risk Management](<%= config[:doc_url] %>/soap/security/better-risk-management-reacting-to-suspicious-activity/) for an accurate description. 
+| `AlertDescription` | Alert description in chosen language. See [Better Risk Management](<%= config[:doc_url] %>/soap/security/better-risk-management-reacting-to-suspicious-activity/) for an accurate description.  |
 | `buyer` | Contains informations about the buyer name, if available. See the able below. 
 | `risk` | Contains informations about the risk score, assigned by Axerve Guaranteed Payment. See below. 
 | `customInfo` | An object containing optional customised parameters. set your parameters as key-value pairs. 

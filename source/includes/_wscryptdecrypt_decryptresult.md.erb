@@ -40,8 +40,8 @@ The minimum information returned back as transaction result is marked in bold.
 | `TDLevel` | 255 | Level of authentication for VBV Visa / Mastercard Securecode transactions. The string may have the value `FULL` or `HALF` |
 | **`ErrorCode`** | **9** | **Error code** | 
 | **`ErrorDescription`** | **255** | **Error description (localized in your language)** | 
-| `AlertCode` | 9 | Alert code. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description. 
-| `AlertDescription` | 255 | Alert description in chosen language. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description.  | 
+| `AlertCode` | 9 | Alert code. See [Better Risk Management](<%= config[:doc_url] %>/soap/security/better-risk-management-reacting-to-suspicious-activity/) for an accurate description. 
+| `AlertDescription` | 255 | Alert description in chosen language. See [Better Risk Management](<%= config[:doc_url] %>/soap/security/better-risk-management-reacting-to-suspicious-activity/) for an accurate description.  | 
 | `CVVPresent` | 1| Credit Card security code flag | 
 | `MaskedPAN` | 25 | Masked Pan string | 
 | `PaymentMethod` | 100 | Indicates the used Payment Method | 
@@ -54,7 +54,7 @@ The minimum information returned back as transaction result is marked in bold.
 | `VbVRisp` |  | Encrypted string containing information for 3D- Secure transactions. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions | 
 | `VbVBuyer` | 2 | Information about the enrolment of the buyer's card to 3D-Secure protocol: `OK` means that the card is enrolled, `KO` means that the card is not enrolled | 
 | `VbVFlag` | 2 | Information about the 3D-Secure status. Not used in transactions managed with the Payment Page. It is useful only in Server-Server transactions. |
-| `RiskResponseCode` | 10 | Risk Fraud Score of the transaction, given by [Axerve Guaranteed Payment](<%= config[:doc_url] %>/sec/gestpay-guaranteed-payment.html). Possible values are: <ul><li>`created`: transaction has been received by the Axerve Guaranteed Payment</li><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Axerve Guaranteed Payment</li><li>`declined`: transaction not approved by  Axerve Guaranteed Payment</li><li>`captured`: For *Select&Submit* plan, `captured` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Axerve Guaranteed Payment.</li></ul> |
+| `RiskResponseCode` | 10 | Risk Fraud Score of the transaction, given by [Axerve Guaranteed Payment](<%= config[:doc_url] %>/soap/security/axerve-guaranteed-payment/). Possible values are: <ul><li>`created`: transaction has been received by the Axerve Guaranteed Payment</li><li>`submitted`: transaction is under review</li><li>`approved`: transaction approved by  Axerve Guaranteed Payment</li><li>`declined`: transaction not approved by  Axerve Guaranteed Payment</li><li>`captured`: For *Select&Submit* plan, `captured` is returned for transactions that are not marked for review.</li><li>**any other value** is an error returned by  Axerve Guaranteed Payment.</li></ul> |
 | `RiskResponseDescription` | 255 | Risk Description of the RiskResponseCode |
 | `ThreeDS` <span class='beta'>sandbox</span> | Object | Object with information about 3ds authentication (described below)
 

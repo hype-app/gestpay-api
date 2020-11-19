@@ -137,7 +137,7 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `debitDate`                 | Allows to search by debit date. | Works very similarly to `event` seen before.  |
 | `chargeBack`                | Allows to search by disputes. Works very similarly to `event` seen before.  | 
 | `chargeBack.type`           | You can search by a chargeback type, a value in the `ALL`, `OPEN`, `CLOSE`, `CLOSE WITH CHARGE` set.  | 
-| `transactionState` | An array of transaction states. Follow the link for a [detailed explanation of transaction statuses](http://docs.gestpay.it/adv/query-transaction-status.html).
+| `transactionState` | An array of transaction states. Follow the link for a [detailed explanation of transaction statuses](http://docs.gestpay.it/soap/s2s/query-transaction-status/).
 | `paymentMethod` | an array containing [payment types](#payment-type-codes) and payment names.
 | `riskAlert` | `true` to select transactions associated with a high risk
 | `customFields.customName` |  You can even search by a custom parameter and its value. Just put the `customName` set as the key and use the value as the search field.

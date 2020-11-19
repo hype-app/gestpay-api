@@ -381,7 +381,7 @@ Response `payload` details:
 | `buyer` | Contains informations about the buyer. See the table below. 
 | `risk` | A risk code, assigned by [Axerve Guaranteed Payment](#gestpay-guaranteed-payment). See the table below for more informations.  
 | `customInfo` | An object containing optional customised parameters, created by the merchant in the form of key-value. 
-| `alertCode` | Alert code. See [Better Risk Management](<%= config[:doc_url] %>/sec/better-risk-management-reacting-to-suspicious-activity.html) for an accurate description. 
+| `alertCode` | Alert code. See [Better Risk Management](<%= config[:doc_url] %>/soap/security/better-risk-management-reacting-to-suspicious-activity/) for an accurate description. 
 | `alertDescription` | A textual description of the `alertCode`. 
 | `cvvPresent` | Credit Card security code flag  
 | `maskedPAN` | Masked Pan string

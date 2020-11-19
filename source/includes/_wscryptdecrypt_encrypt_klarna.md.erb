@@ -54,7 +54,7 @@ Klarna requires these parameters as mandatory, children of `OrderDetails`:
 | `BillingAddress.CountryCode` | 2 | one of [AT &#124; DK &#124; FI &#124; DE &#124; NL &#124; NO &#124; SE] |
 | `ProductDetails.ProductDetail` |    | the list of ordered products |
 
-We strongly suggest you to [read these notes on `BillingAddress` and `ShippingAddress`](<%= config[:doc_url] %>/oth/klarna.html#some-clarifications-on-mandatory-fields).
+We strongly suggest you to [read these notes on `BillingAddress` and `ShippingAddress`](<%= config[:doc_url] %>/soap/alternative-payments/klarna/#mandatory-fields).
 
 <aside class="active">
 <code>StreetName</code> and <code>StreetNumber</code>, either in <code>BillingAddress</code> or <code>ShippingAddress</code>, must contain only alphanumeric characters. 
@@ -91,7 +91,7 @@ If you send other fields, your customer will find them already filled:
 | `Quantity` |  3  | The number of products |
 | `Price` |  12  | Article’s price |
 | `UnitPrice` |  12  | Article’s Unit Price |
-| `Type` |  2  | The type of article: visit the [klarna page in the docs](<%= config[:doc_url] %>/oth/klarna.html#product-type) to set the right value |
+| `Type` |  2  | The type of article: visit the [klarna page in the docs](<%= config[:doc_url] %>/soap/alternative-payments/klarna/#product-type) to set the right value |
 | `Vat` |  2  | Value-Added Tax (the value of the tax) |
 | `Discount` |  2  | The amount offered by you as discount, in percentage. `10` means `10%` and it is subtracted to the price. |
 
@@ -105,4 +105,4 @@ Please note:
 </ul>
 </aside>
 
-More details about Klarna are in [the documentation](<%= config[:doc_url] %>/oth/klarna.html). 
+More details about Klarna are in [the documentation](<%= config[:doc_url] %>/soap/alternative-payments/klarna/). 
