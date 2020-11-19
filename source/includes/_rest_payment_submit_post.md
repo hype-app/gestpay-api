@@ -50,6 +50,11 @@ POST https://ecomms2s.sella.it/api/v1/payment/submit
     "bancomatPay": {
       "phoneNumber": ""
     },
+    "googlePay": {
+      "tokenizationData": {
+        "token": {}
+      }
+    },
     "myBank":{  
       "bankCode":""
     },
