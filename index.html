@@ -439,7 +439,7 @@
 
 <p>To start sending custom parameters, you must configure Axerve E-commerce Solutions to receive them. This can be done in the backoffice, in <strong>Payment Page -&gt; Fields &amp; Parameters -&gt; Add Parameter</strong>. Here you can configure some aspects of this parameter, for example if has to be returned by the <code class="prettyprint">Decrypt</code> webservice. Don&rsquo;t forget to populate the <em>languages</em> section. </p>
 
-<p>With this customization, you can <em>send</em> all the parameters you want, as long they fit the 1000 characters length. To read more about custom parameters, refer to the <a href="http://docs.gestpay.it/gs/how-gestpay-works.html#sending-custom-parameters-to-gestpay">documentation</a>. </p>
+<p>With this customization, you can <em>send</em> all the parameters you want, as long they fit the 1000 characters length. To read more about custom parameters, refer to the <a href="http://docs.gestpay.it/soap/getting-started/how-axerve-ecommerce-solutions-works/#sending-custom-parameters-to-axerve-ecommerce-solutions">documentation</a>. </p>
 
 <h4 id="requesttoken">RequestToken</h4>
 
@@ -721,12 +721,12 @@
 <tr>
 <td><code class="prettyprint">AlertCode</code></td>
 <td style="text-align: center">9</td>
-<td>Alert code. See <a href="http://docs.gestpay.it/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
+<td>Alert code. See <a href="http://docs.gestpay.it/soap/security/better-risk-management-reacting-to-suspicious-activity/">Better Risk Management</a> for an accurate description.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">AlertDescription</code></td>
 <td style="text-align: center">255</td>
-<td>Alert description in chosen language. See <a href="http://docs.gestpay.it/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
+<td>Alert description in chosen language. See <a href="http://docs.gestpay.it/soap/security/better-risk-management-reacting-to-suspicious-activity/">Better Risk Management</a> for an accurate description.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">CVVPresent</code></td>
@@ -791,7 +791,7 @@
 <tr>
 <td><code class="prettyprint">RiskResponseCode</code></td>
 <td style="text-align: center">10</td>
-<td>Risk Fraud Score of the transaction, given by <a href="http://docs.gestpay.it/sec/gestpay-guaranteed-payment.html">Axerve Guaranteed Payment</a>. Possible values are: <ul><li><code class="prettyprint">created</code>: transaction has been received by the Axerve Guaranteed Payment</li><li><code class="prettyprint">submitted</code>: transaction is under review</li><li><code class="prettyprint">approved</code>: transaction approved by  Axerve Guaranteed Payment</li><li><code class="prettyprint">declined</code>: transaction not approved by  Axerve Guaranteed Payment</li><li><code class="prettyprint">captured</code>: For <em>Select&amp;Submit</em> plan, <code class="prettyprint">captured</code> is returned for transactions that are not marked for review.</li><li><strong>any other value</strong> is an error returned by  Axerve Guaranteed Payment.</li></ul></td>
+<td>Risk Fraud Score of the transaction, given by <a href="http://docs.gestpay.it/soap/security/axerve-guaranteed-payment/">Axerve Guaranteed Payment</a>. Possible values are: <ul><li><code class="prettyprint">created</code>: transaction has been received by the Axerve Guaranteed Payment</li><li><code class="prettyprint">submitted</code>: transaction is under review</li><li><code class="prettyprint">approved</code>: transaction approved by  Axerve Guaranteed Payment</li><li><code class="prettyprint">declined</code>: transaction not approved by  Axerve Guaranteed Payment</li><li><code class="prettyprint">captured</code>: For <em>Select&amp;Submit</em> plan, <code class="prettyprint">captured</code> is returned for transactions that are not marked for review.</li><li><strong>any other value</strong> is an error returned by  Axerve Guaranteed Payment.</li></ul></td>
 </tr>
 <tr>
 <td><code class="prettyprint">RiskResponseDescription</code></td>
@@ -1105,7 +1105,7 @@
 </tr>
 <tr>
 <td><code class="prettyprint">cvv</code></td>
-<td>security code of the card. Refer to <a href="http://docs.gestpay.it/adv/cvv-field-handling.html">this page</a> to enable and use it.</td>
+<td>security code of the card. Refer to <a href="http://docs.gestpay.it/soap/s2s/cvv-field-handling/">this page</a> to enable and use it.</td>
 <td>string</td>
 <td>4</td>
 </tr>
@@ -1159,7 +1159,7 @@
 </tr>
 <tr>
 <td><code class="prettyprint">shippingDetails</code></td>
-<td>contains the shipping address. Used for <a href="http://docs.gestpay.it/oth/paypal.html">paypal seller protection</a>.</td>
+<td>contains the shipping address. Used for <a href="http://docs.gestpay.it/soap/alternative-payments/paypal/">paypal seller protection</a>.</td>
 <td></td>
 <td></td>
 </tr>
@@ -1454,11 +1454,11 @@
 </tr>
 <tr>
 <td><code class="prettyprint">AlertCode</code></td>
-<td>the violation code of the risk management criteria. See <a href="http://docs.gestpay.it/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
+<td>the violation code of the risk management criteria. See <a href="http://docs.gestpay.it/soap/security/better-risk-management-reacting-to-suspicious-activity/">Better Risk Management</a> for an accurate description.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">AlertDescription</code></td>
-<td>the description connected to the AlertCode value. See <a href="http://docs.gestpay.it/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
+<td>the description connected to the AlertCode value. See <a href="http://docs.gestpay.it/soap/security/better-risk-management-reacting-to-suspicious-activity/">Better Risk Management</a> for an accurate description.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">Amount</code></td>
@@ -1490,7 +1490,7 @@
 </tr>
 <tr>
 <td><code class="prettyprint">TOKEN</code> </td>
-<td>contains a token that represents the credit card number. See <a href="http://docs.gestpay.it/rec/handling-subscriptions.html">Handling Subscriptions</a> in the docs.</td>
+<td>contains a token that represents the credit card number. See <a href="http://docs.gestpay.it/soap/recurring-payments/handling-subscriptions/">Handling Subscriptions</a> in the docs.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">TokenExpiryMonth</code> </td>
@@ -1510,7 +1510,7 @@
 </tr>
 <tr>
 <td><code class="prettyprint">RiskResponseCode</code></td>
-<td>Risk Fraud Score of the transaction, given by <a href="http://docs.gestpay.it/sec/gestpay-guaranteed-payment.html"> Axerve Guaranteed Payment</a>. Possible values are: <ul><li><code class="prettyprint">created</code>: transaction has been received by the Axerve Guaranteed Payment</li><li><code class="prettyprint">submitted</code>: transaction is under review</li><li><code class="prettyprint">approved</code>: transaction approved by  Axerve Guaranteed Payment</li><li><code class="prettyprint">declined</code>: transaction not approved by  Axerve Guaranteed Payment</li><li><code class="prettyprint">captured</code>: For <em>Select&amp;Submit</em> plan, <code class="prettyprint">captured</code> is returned for transactions that are not marked for review.</li><li><strong>any other value</strong> is an error returned by  Axerve Guaranteed Payment.</li></ul></td>
+<td>Risk Fraud Score of the transaction, given by <a href="http://docs.gestpay.it/soap/security/axerve-guaranteed-payment/"> Axerve Guaranteed Payment</a>. Possible values are: <ul><li><code class="prettyprint">created</code>: transaction has been received by the Axerve Guaranteed Payment</li><li><code class="prettyprint">submitted</code>: transaction is under review</li><li><code class="prettyprint">approved</code>: transaction approved by  Axerve Guaranteed Payment</li><li><code class="prettyprint">declined</code>: transaction not approved by  Axerve Guaranteed Payment</li><li><code class="prettyprint">captured</code>: For <em>Select&amp;Submit</em> plan, <code class="prettyprint">captured</code> is returned for transactions that are not marked for review.</li><li><strong>any other value</strong> is an error returned by  Axerve Guaranteed Payment.</li></ul></td>
 </tr>
 <tr>
 <td><code class="prettyprint">ThreeDS</code> <span class='beta'>sandbox</span></td>
@@ -1652,7 +1652,7 @@
 
 <p>This is the financial confirmation operation which may follow a positive authorisation.</p>
 
-<p>It exists only for merchants with a <a href="http://docs.gestpay.it/gs/how-gestpay-works.html#moto--what-happens-after-a-transaction">M.O.T.O.</a> configuration when a separation between the authorisation and the settlement phase is anticipated.</p>
+<p>It exists only for merchants with a <a href="http://docs.gestpay.it/soap/getting-started/how-axerve-ecommerce-solutions-works/#moto--what-happens-after-a-transaction">M.O.T.O.</a> configuration when a separation between the authorisation and the settlement phase is anticipated.</p>
 
 <p>Merchants can use this method to settle the transaction. <strong>Since it&rsquo;s possible to settle only a part of the amount, the amount value has to be passed</strong>. </p>
 
@@ -1765,7 +1765,7 @@
 A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTransID</code>. However, if the <code>shopTransID</code> is unique, the merchant can send just <code>shopLogin</code> + <code>shopTransID</code>. 
 </aside>
 
-<p><code class="prettyprint">FullFillment</code> tag must be filled if you are using <a href="http://docs.gestpay.it/sec/gestpay-guaranteed-payment.html"> Axerve Guaranteed Payment</a>, an anti fraud evaluating system. If you are not using it, you can skip this. </p>
+<p><code class="prettyprint">FullFillment</code> tag must be filled if you are using <a href="http://docs.gestpay.it/soap/security/axerve-guaranteed-payment/"> Axerve Guaranteed Payment</a>, an anti fraud evaluating system. If you are not using it, you can skip this. </p>
 
 <p>When you <em>settle</em> a payment, Axerve Guaranteed Payment wants to be notified that an existing order has been fulfilled, both the success and error case. </p>
 
@@ -1939,7 +1939,7 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 
 <p>This operation deletes an authorized transaction. </p>
 
-<p>It exists only for merchants with a <a href="http://docs.gestpay.it/gs/how-gestpay-works.html#moto--what-happens-after-a-transaction">M.O.T.O.</a> configuration when a separation between the authorisation and the settlement phase is anticipated.</p>
+<p>It exists only for merchants with a <a href="http://docs.gestpay.it/soap/getting-started/how-axerve-ecommerce-solutions-works/#moto--what-happens-after-a-transaction">M.O.T.O.</a> configuration when a separation between the authorisation and the settlement phase is anticipated.</p>
 
 <h4 id="request-details">Request details</h4>
 
@@ -2450,15 +2450,15 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 </tr>
 <tr>
 <td><code class="prettyprint">TransactionState</code></td>
-<td>the status of the transaction: one of <code class="prettyprint">AUT</code>, <code class="prettyprint">MOV</code>, <code class="prettyprint">CAN</code>, <code class="prettyprint">STO</code>. Follow the link for a <a href="http://docs.gestpay.it/adv/query-transaction-status.html">detailed explanation of transaction statuses</a>.</td>
+<td>the status of the transaction: one of <code class="prettyprint">AUT</code>, <code class="prettyprint">MOV</code>, <code class="prettyprint">CAN</code>, <code class="prettyprint">STO</code>. Follow the link for a <a href="http://docs.gestpay.it/soap/s2s/query-transaction-status/">detailed explanation of transaction statuses</a>.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">AlertCode</code></td>
-<td>the violation code of the risk management criteria. See <a href="http://docs.gestpay.it/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
+<td>the violation code of the risk management criteria. See <a href="http://docs.gestpay.it/soap/security/better-risk-management-reacting-to-suspicious-activity/">Better Risk Management</a> for an accurate description.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">AlertDescription</code></td>
-<td>the description connected to the <code class="prettyprint">AlertCode</code> value. See <a href="http://docs.gestpay.it/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
+<td>the description connected to the <code class="prettyprint">AlertCode</code> value. See <a href="http://docs.gestpay.it/soap/security/better-risk-management-reacting-to-suspicious-activity/">Better Risk Management</a> for an accurate description.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">Buyer.BuyerName</code></td>
@@ -2474,7 +2474,7 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 </tr>
 <tr>
 <td><code class="prettyprint">RiskResponseCode</code></td>
-<td>Risk Fraud Score of the transaction, given by <a href="http://docs.gestpay.it/sec/gestpay-guaranteed-payment.html"> Axerve Guaranteed Payment</a>. Possible values are: <ul><li><code class="prettyprint">created</code>: transaction has been received by the Axerve Guaranteed Payment</li><li><code class="prettyprint">submitted</code>: transaction is under review</li><li><code class="prettyprint">approved</code>: transaction approved by  Axerve Guaranteed Payment</li><li><code class="prettyprint">declined</code>: transaction not approved by  Axerve Guaranteed Payment</li><li><code class="prettyprint">captured</code>: For <em>Select&amp;Submit</em> plan, <code class="prettyprint">caputred</code> is returned for transactions that are not marked for review.</li><li><strong>any other value</strong> is an error returned by  Axerve Guaranteed Payment.</li></ul></td>
+<td>Risk Fraud Score of the transaction, given by <a href="http://docs.gestpay.it/soap/security/axerve-guaranteed-payment/"> Axerve Guaranteed Payment</a>. Possible values are: <ul><li><code class="prettyprint">created</code>: transaction has been received by the Axerve Guaranteed Payment</li><li><code class="prettyprint">submitted</code>: transaction is under review</li><li><code class="prettyprint">approved</code>: transaction approved by  Axerve Guaranteed Payment</li><li><code class="prettyprint">declined</code>: transaction not approved by  Axerve Guaranteed Payment</li><li><code class="prettyprint">captured</code>: For <em>Select&amp;Submit</em> plan, <code class="prettyprint">caputred</code> is returned for transactions that are not marked for review.</li><li><strong>any other value</strong> is an error returned by  Axerve Guaranteed Payment.</li></ul></td>
 </tr>
 <tr>
 <td><code class="prettyprint">RiskResponseDescription</code></td>
@@ -2496,7 +2496,7 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">eventtype</code></td>
-<td>one of <code class="prettyprint">AUT</code>, <code class="prettyprint">MOV</code>, <code class="prettyprint">PRE</code>, <code class="prettyprint">CAN</code>, <code class="prettyprint">REQ</code>, <code class="prettyprint">STO</code>. There will be a node event for each existing event regarding the transaction. Follow the link for a <a href="http://docs.gestpay.it/adv/query-transaction-status.html">detailed explanation of transaction statuses</a>.</td>
+<td>one of <code class="prettyprint">AUT</code>, <code class="prettyprint">MOV</code>, <code class="prettyprint">PRE</code>, <code class="prettyprint">CAN</code>, <code class="prettyprint">REQ</code>, <code class="prettyprint">STO</code>. There will be a node event for each existing event regarding the transaction. Follow the link for a <a href="http://docs.gestpay.it/soap/s2s/query-transaction-status/">detailed explanation of transaction statuses</a>.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">eventamount</code></td>
@@ -3665,7 +3665,7 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 
 <p>Exchange rates are meant as the conversion rates applied on that day to that currency by the phases that credit that amount on the bank account of the merchant, in order to get the corresponding EUR value. </p>
 
-<p>A more descriptive explanation of <code class="prettyprint">callExchangeRateS2S</code> is <a href="http://docs.gestpay.it/adv/obtaining-the-exchange-rates/">in the docs</a>. </p>
+<p>A more descriptive explanation of <code class="prettyprint">callExchangeRateS2S</code> is <a href="http://docs.gestpay.it/soap/s2s/obtaining-the-exchange-rates/">in the docs</a>. </p>
 
 <h4 id="request-details"> Request details</h4>
 
@@ -4050,7 +4050,7 @@ The three parameters <code>UICCode</code>, <code>ISOCode</code> and <code>Numeri
     <span class="p">}</span>
 <span class="p">});</span>
 </code></pre>
-<p>If during the first <code class="prettyprint">SendPayment</code> call <code class="prettyprint">Result.ErrorCode == 8006</code>, you should redirect the user to the <code class="prettyprint">pagam3d.aspx</code> page. You can read about the process at this link: <a href="http://docs.gestpay.it/pay/creating-your-custom-payment-page.html">Customizing the payment page</a>. </p>
+<p>If during the first <code class="prettyprint">SendPayment</code> call <code class="prettyprint">Result.ErrorCode == 8006</code>, you should redirect the user to the <code class="prettyprint">pagam3d.aspx</code> page. You can read about the process at this link: <a href="http://docs.gestpay.it/soap/pay/creating-your-custom-payment-page/">Customizing the payment page</a>. </p>
 
 <p>When card holder is verified and authorized, you have to re-call <code class="prettyprint">SendPayment()</code> with some new parameters: </p>
 
@@ -4321,7 +4321,7 @@ The three parameters <code>UICCode</code>, <code>ISOCode</code> and <code>Numeri
 
 <p><a href="#encrypt"><code class="prettyprint">Encrypt</code></a> can be used to  start a payment process in one of the several alternative payments that Axerve E-commerce Solutions supports. </p>
 
-<p>You can see the complete list of Axerve E-commerce Solutions <a href="http://docs.gestpay.it/oth/what-does-it-mean-that-gestpay-is-a-payment-gateway.html">supported alternative payments</a> in the docs. </p>
+<p>You can see the complete list of Axerve E-commerce Solutions <a href="http://docs.gestpay.it/soap/">supported alternative payments</a> in the docs. </p>
 
 <p>As a recap, you can use the <a href="#paymenttypes"><code class="prettyprint">&lt;paymentType&gt;</code></a> tag to specify which payment methods you want to enable. In the next paragraphs we will show some alternative payment examples. </p>
 
@@ -4363,7 +4363,7 @@ The three parameters <code>UICCode</code>, <code>ISOCode</code> and <code>Numeri
   ...
 <span class="nt">&lt;/callPagamS2S&gt;</span>
 </code></pre>
-<p>Please read the detailed setup process for Apple Pay <a href="http://docs.gestpay.it/oth/apple-pay/">in the docs</a>. </p>
+<p>Please read the detailed setup process for Apple Pay <a href="http://docs.gestpay.it/soap/alternative-payments/apple-pay/">in the docs</a>. </p>
 
 <p>Once you have received a <em>Payment Token Package</em>, you can call <a href="#callpagams2s"><code class="prettyprint">callPagamS2S</code></a> with the relevant data. </p>
 
@@ -4661,7 +4661,7 @@ The shopTransactionId must be unique.
 
 <p>You must use <code class="prettyprint">S2PEPS</code> as <code class="prettyprint">paymentType</code>.</p>
 
-<p>More informations about EPS are <a href="http://docs.gestpay.it/oth/eps.html">in the doc</a>. </p>
+<p>More informations about EPS are <a href="http://docs.gestpay.it/soap/alternative-payments/eps/">in the doc</a>. </p>
 
           <h3 id="encrypt-example-giropay">Encrypt Example: Giropay</h3>
 
@@ -4682,7 +4682,7 @@ The shopTransactionId must be unique.
 
 <p>You must use <code class="prettyprint">S2PGIR</code> as <code class="prettyprint">paymentType</code>.</p>
 
-<p>More informations about Giropay are <a href="http://docs.gestpay.it/oth/giropay.html">in the doc</a>. </p>
+<p>More informations about Giropay are <a href="http://docs.gestpay.it/soap/alternative-payments/giropay/">in the doc</a>. </p>
 
           <h3 id="encrypt-example-ideal-and-mybank">Encrypt Example: IDeal and MyBank</h3>
 
@@ -4720,7 +4720,7 @@ The shopTransactionId must be unique.
 </code></pre>
 <p>If you choose let your users pay with MyBank or IDeal, you have to compile other two fileds.</p>
 
-<p>More details can be found in at the <a href="http://docs.gestpay.it/oth/mybank_and_ideal.html">MyBank and IDeal</a> page.</p>
+<p>More details can be found in at the <a href="http://docs.gestpay.it/soap/alternative-payments/mybank/">MyBank</a> and <a href="http://docs.gestpay.it/soap/alternative-payments/ideal/">IDeal</a> page.</p>
 
 <table><thead>
 <tr>
@@ -4827,7 +4827,7 @@ The shopTransactionId must be unique.
 </tr>
 </tbody></table>
 
-<p>We strongly suggest you to <a href="http://docs.gestpay.it/oth/klarna.html#some-clarifications-on-mandatory-fields">read these notes on <code class="prettyprint">BillingAddress</code> and <code class="prettyprint">ShippingAddress</code></a>.</p>
+<p>We strongly suggest you to <a href="http://docs.gestpay.it/soap/alternative-payments/klarna/#mandatory-fields">read these notes on <code class="prettyprint">BillingAddress</code> and <code class="prettyprint">ShippingAddress</code></a>.</p>
 
 <aside class="active">
 <code>StreetName</code> and <code>StreetNumber</code>, either in <code>BillingAddress</code> or <code>ShippingAddress</code>, must contain only alphanumeric characters. 
@@ -4930,7 +4930,7 @@ The shopTransactionId must be unique.
 <tr>
 <td><code class="prettyprint">Type</code></td>
 <td style="text-align: center">2</td>
-<td>The type of article: visit the <a href="http://docs.gestpay.it/oth/klarna.html#product-type">klarna page in the docs</a> to set the right value</td>
+<td>The type of article: visit the <a href="http://docs.gestpay.it/soap/alternative-payments/klarna/#product-type">klarna page in the docs</a> to set the right value</td>
 </tr>
 <tr>
 <td><code class="prettyprint">Vat</code></td>
@@ -4954,7 +4954,7 @@ Please note:
 </ul>
 </aside>
 
-<p>More details about Klarna are in <a href="http://docs.gestpay.it/oth/klarna.html">the documentation</a>. </p>
+<p>More details about Klarna are in <a href="http://docs.gestpay.it/soap/alternative-payments/klarna/">the documentation</a>. </p>
 
           <h3 id="encrypt-example-konbini">Encrypt Example: Konbini</h3>
 
@@ -4983,7 +4983,7 @@ Please note:
 
 <p>If you pass the <code class="prettyprint">PrimaryEmail</code> tag, the customer will be redirected directly to the payment page. </p>
 
-<p>More informations about Konbini are <a href="http://docs.gestpay.it/oth/konbini.html">in the doc</a>. </p>
+<p>More informations about Konbini are <a href="http://docs.gestpay.it/soap/alternative-payments/konbini/">in the doc</a>. </p>
 
           <h3 id="encrypt-example-masterpass">Encrypt Example: Masterpass</h3>
 
@@ -5004,7 +5004,7 @@ Please note:
 
 <p>You must use <code class="prettyprint">MASTERPASS</code> as <code class="prettyprint">paymentType</code>.</p>
 
-<p>More informations about Masterpass are <a href="http://docs.gestpay.it/oth/masterpass.html">in the doc</a>. </p>
+<p>More informations about Masterpass are <a href="http://docs.gestpay.it/soap/alternative-payments/masterpass/">in the doc</a>. </p>
 
           <h3 id="encrypt-example-mercadopago">Encrypt Example: MercadoPago</h3>
 
@@ -5045,7 +5045,7 @@ Please note:
 
 <p>You must use <code class="prettyprint">S2PMER</code> as <code class="prettyprint">paymentType</code>.</p>
 
-<p>More informations about MercadoPago are <a href="http://docs.gestpay.it/oth/mercadopago.html">in the doc</a>. </p>
+<p>More informations about MercadoPago are <a href="http://docs.gestpay.it/soap/alternative-payments/mercadopago/">in the doc</a>. </p>
 
           <h3 id="encrypt-example-multibanco">Encrypt Example: Multibanco</h3>
 
@@ -5066,7 +5066,7 @@ Please note:
 
 <p>You must use <code class="prettyprint">S2PMUL</code> as <code class="prettyprint">paymentType</code>.</p>
 
-<p>More informations about Multibanco are <a href="http://docs.gestpay.it/oth/multibanco.html">in the doc</a>. </p>
+<p>More informations about Multibanco are <a href="http://docs.gestpay.it/soap/alternative-payments/multibanco/">in the doc</a>. </p>
 
           <h3 id="encrypt-example-paypal">Encrypt example: Paypal</h3>
 
@@ -5085,7 +5085,7 @@ Please note:
   <span class="nt">&lt;/paymentTypes&gt;</span>
 <span class="nt">&lt;Encrypt&gt;</span>
 </code></pre>
-<p>A detailed description of <a href="http://docs.gestpay.it/oth/paypal.html">Axerve E-commerce Solutions integration with Paypal</a> is in the docs.</p>
+<p>A detailed description of <a href="http://docs.gestpay.it/soap/alternative-payments/paypal/">Axerve E-commerce Solutions integration with Paypal</a> is in the docs.</p>
 
 <h4 id="paypal-seller-protection">Paypal Seller Protection</h4>
 
@@ -5109,7 +5109,7 @@ Please note:
   <span class="nt">&lt;/shippingDetails&gt;</span>
 <span class="nt">&lt;/Encrypt&gt;</span>
 </code></pre>
-<p>For more informations, checkout the <a href="http://docs.gestpay.it/oth/paypal.html#paypal-seller-protection">Paypal Seller Protection</a> section.</p>
+<p>For more informations, checkout the <a href="http://docs.gestpay.it/soap/alternative-payments/paypal/#paypal-seller-protection">Paypal Seller Protection</a> section.</p>
 
 <p>If you want to activate the <strong>Paypal Seller Protection</strong> you must:</p>
 
@@ -5195,7 +5195,7 @@ Please note:
 
 <p>You must use <code class="prettyprint">S2PPSC</code> as <code class="prettyprint">paymentType</code>.</p>
 
-<p>More informations about Paysafecard are <a href="http://docs.gestpay.it/oth/paysafecard.html">in the doc</a>. </p>
+<p>More informations about Paysafecard are <a href="http://docs.gestpay.it/soap/alternative-payments/paysafecard/">in the doc</a>. </p>
 
           <h3 id="encrypt-example-przelewy24">Encrypt Example: Przelewy24</h3>
 
@@ -5221,7 +5221,7 @@ Please note:
 
 <p>You must use <code class="prettyprint">S2PPSC</code> as <code class="prettyprint">paymentType</code>.</p>
 
-<p>More informations about Przelewy24 are <a href="http://docs.gestpay.it/oth/przelewy24.html">in the doc</a>. </p>
+<p>More informations about Przelewy24 are <a href="http://docs.gestpay.it/soap/alternative-payments/przelewy24/">in the doc</a>. </p>
 
           <h3 id="encrypt-example-qiwi">Encrypt Example: Qiwi</h3>
 
@@ -5288,7 +5288,7 @@ Please note:
 
 <p>You must use <code class="prettyprint">SATISPAY</code> as <code class="prettyprint">paymentType</code>.</p>
 
-<p>More informations about Satispay are <a href="http://docs.gestpay.it/oth/satispay.html">in the doc</a>. </p>
+<p>More informations about Satispay are <a href="http://docs.gestpay.it/soap/alternative-payments/satispay/">in the doc</a>. </p>
 
           <h3 id="encrypt-example-sepa">Encrypt Example: SEPA</h3>
 
@@ -5432,7 +5432,7 @@ Please note:
 
 <p>You must use <code class="prettyprint">S2PWMO</code> as <code class="prettyprint">paymentType</code>.</p>
 
-<p>More informations about WebMoney are <a href="http://docs.gestpay.it/oth/webmoney.html">in the doc</a>. </p>
+<p>More informations about WebMoney are <a href="http://docs.gestpay.it/soap/alternative-payments/webmoney/">in the doc</a>. </p>
 
           <h3 id="encrypt-example-wechat">Encrypt Example: WeChat</h3>
 
@@ -5458,7 +5458,7 @@ Please note:
 
 <p>You must use <code class="prettyprint">WECHAT</code> as <code class="prettyprint">paymentType</code>.</p>
 
-<p>More informations about WeChat are <a href="http://docs.gestpay.it/oth/wechat.html">in the doc</a>. </p>
+<p>More informations about WeChat are <a href="http://docs.gestpay.it/soap/alternative-payments/wechat/">in the doc</a>. </p>
 
           <h3 id="encrypt-example-yandex">Encrypt Example: Yandex</h3>
 
@@ -8371,7 +8371,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">transactionState</code></td>
-<td>An array of transaction states. Follow the link for a <a href="http://docs.gestpay.it/adv/query-transaction-status.html">detailed explanation of transaction statuses</a>.</td>
+<td>An array of transaction states. Follow the link for a <a href="http://docs.gestpay.it/soap/s2s/query-transaction-status/">detailed explanation of transaction statuses</a>.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">paymentMethod</code></td>
@@ -8605,7 +8605,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">transactionState</code></td>
-<td>An array of transaction states. Follow the link for a <a href="http://docs.gestpay.it/adv/query-transaction-status.html">detailed explanation of transaction statuses</a>.</td>
+<td>An array of transaction states. Follow the link for a <a href="http://docs.gestpay.it/soap/s2s/query-transaction-status/">detailed explanation of transaction statuses</a>.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">paymentMethod</code></td>
@@ -10553,7 +10553,7 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">alertCode</code></td>
-<td>Alert code. See <a href="%=%20config[:doc_url]%20%&gt;/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
+<td>Alert code. See <a href="%=%20config[:doc_url]%20%&gt;/soap/security/better-risk-management-reacting-to-suspicious-activity/">Better Risk Management</a> for an accurate description.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">alertDescription</code></td>
@@ -10816,11 +10816,11 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">alertCode</code></td>
-<td>Alert code. See <a href="%=%20config[:doc_url]%20%&gt;/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
+<td>Alert code. See <a href="%=%20config[:doc_url]%20%&gt;/soap/security/better-risk-management-reacting-to-suspicious-activity/">Better Risk Management</a> for an accurate description.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">AlertDescription</code></td>
-<td>Alert description in chosen language. See <a href="%=%20config[:doc_url]%20%&gt;/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
+<td>Alert description in chosen language. See <a href="%=%20config[:doc_url]%20%&gt;/soap/security/better-risk-management-reacting-to-suspicious-activity/">Better Risk Management</a> for an accurate description.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">buyer</code></td>
@@ -11396,11 +11396,11 @@ Please note:
 </tr>
 <tr>
 <td><code class="prettyprint">alertCode</code></td>
-<td>Alert code. See <a href="http://docs.gestpay.it/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
+<td>Alert code. See <a href="http://docs.gestpay.it/soap/security/better-risk-management-reacting-to-suspicious-activity/">Better Risk Management</a> for an accurate description.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">AlertDescription</code></td>
-<td>Alert description in chosen language. See <a href="http://docs.gestpay.it/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management</a> for an accurate description.</td>
+<td>Alert description in chosen language. See <a href="http://docs.gestpay.it/soap/security/better-risk-management-reacting-to-suspicious-activity/">Better Risk Management</a> for an accurate description.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">buyer</code></td>
@@ -12597,7 +12597,7 @@ Please note:
 </code></pre>
 <p>Returns the MOTO setting for the <code class="prettyprint">shopLogin</code>. </p>
 
-<p>Read more about <a href="%=config[:doc_url]%&gt;/gs/how-gestpay-works.html#moto--what-happens-after-a-transaction">MOTO settings in Axerve E-commerce Solutions</a>. </p>
+<p>Read more about <a href="%=config[:doc_url]%&gt;/soap/getting-started/how-axerve-ecommerce-solutions-works/#moto--what-happens-after-a-transaction">MOTO settings in Axerve E-commerce Solutions</a>. </p>
 
 <h4 id="request">Request</h4>
 
@@ -12723,7 +12723,7 @@ Please note:
 </span></code></pre>
 <p>Modifies the MOTO setting. </p>
 
-<p>Read more about <a href="%=config[:doc_url]%&gt;/gs/how-gestpay-works.html#moto--what-happens-after-a-transaction">MOTO settings in Axerve E-commerce Solutions</a>. </p>
+<p>Read more about <a href="%=config[:doc_url]%&gt;/soap/getting-started/how-axerve-ecommerce-solutions-works/#moto--what-happens-after-a-transaction">MOTO settings in Axerve E-commerce Solutions</a>. </p>
 
 <h4 id="request">Request</h4>
 
@@ -13897,7 +13897,7 @@ Please note:
 
           <h1 id="axerve-guaranteed-payment">Axerve Guaranteed Payment</h1>
 
-<p>Axerve Guaranteed Payment is a fraud detection service, offered in partnership with Riskified. To get more info, visit <a href="http://docs.gestpay.it/sec/gestpay-guaranteed-payment.html">Axerve Guaranteed Payment documentation</a>. </p>
+<p>Axerve Guaranteed Payment is a fraud detection service, offered in partnership with Riskified. To get more info, visit <a href="http://docs.gestpay.it/soap/security/axerve-guaranteed-payment/">Axerve Guaranteed Payment documentation</a>. </p>
 
 <aside class="notice">
 Axerve Guaranteed Payment is reserved to users that have signed an agreement with Axerve E-commerce Solutions.
@@ -17310,7 +17310,7 @@ Axerve Guaranteed Payment is reserved to users that have signed an agreement wit
 </tr>
 </tbody></table>
 
-<p>For more informations about payment types, read <a href="http://docs.gestpay.it/oth/what-does-it-mean-that-gestpay-is-a-payment-gateway.html">the docs</a>.</p>
+<p>For more informations about payment types, read <a href="http://docs.gestpay.it/soap/">the docs</a>.</p>
 
           <h1 id="currency-codes">Currency Codes</h1>
 
@@ -20213,7 +20213,7 @@ Axerve Guaranteed Payment is reserved to users that have signed an agreement wit
 
           <h1 id="alert-codes">Alert Codes</h1>
 
-<p>Alert Codes are described at <a href="http://docs.gestpay.it/sec/better-risk-management-reacting-to-suspicious-activity.html">Better Risk Management: reacting to suspicious activity</a>.</p>
+<p>Alert Codes are described at <a href="http://docs.gestpay.it/soap/security/better-risk-management-reacting-to-suspicious-activity/">Better Risk Management: reacting to suspicious activity</a>.</p>
 
 <table><thead>
 <tr>
@@ -20281,7 +20281,7 @@ Axerve Guaranteed Payment is reserved to users that have signed an agreement wit
 </tr>
 </tbody></table>
 
-<p>For more informations about these states refer to the <a href="http://docs.gestpay.it/adv/query-transaction-status.html#query-transaction-status">documentation</a>.</p>
+<p>For more informations about these states refer to the <a href="http://docs.gestpay.it/soap/s2s/query-transaction-status/">documentation</a>.</p>
 
           <h1 id="frequency-codes">Frequency Codes</h1>
 
