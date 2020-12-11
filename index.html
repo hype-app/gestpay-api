@@ -5223,52 +5223,6 @@ Please note:
 
 <p>More informations about Przelewy24 are <a href="http://docs.gestpay.it/soap/alternative-payments/przelewy24/">in the doc</a>. </p>
 
-          <h3 id="encrypt-example-qiwi">Encrypt Example: Qiwi</h3>
-
-<blockquote>
-<p>Qiwi call example :</p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>S2PQIW<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-  <span class="nt">&lt;OrderDetails&gt;</span>
-    <span class="nt">&lt;CustomerDetail&gt;</span>
-      <span class="nt">&lt;PrimaryPhone&gt;</span>0123456789<span class="nt">&lt;/PrimaryPhone&gt;</span>
-    <span class="nt">&lt;/CustomerDetail&gt;</span>
-    <span class="nt">&lt;BillingAddress&gt;</span>
-      <span class="nt">&lt;CountryCode&gt;</span>US<span class="nt">&lt;/CountryCode&gt;</span>
-    <span class="nt">&lt;/BillingAddress&gt;</span>
-  <span class="nt">&lt;/OrderDetails&gt;</span>
-<span class="nt">&lt;/Encrypt&gt;</span>
-</code></pre>
-<p>Qiwi does not need mandatory parameters, but if you send these few parameters you can have a frictionless call directly to the first screen of QIWI where authentication data are asked. These fields are children of <a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a>:</p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th style="text-align: center">max length</th>
-<th>description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">CustomerDetail.PrimaryPhone</code></td>
-<td style="text-align: center">20</td>
-<td>Customer&rsquo;s phone including prefix</td>
-</tr>
-<tr>
-<td><code class="prettyprint">BillingAddress.CountryCode</code></td>
-<td style="text-align: center">2</td>
-<td>Alpha-2 code example for US is “US”</td>
-</tr>
-</tbody></table>
-
-<p>This mean that no others values are asked to the buyers; but if these field are not sent with the payment, a page will be displayed in order to ask the necessary fields like Phone and CountryCode of the buyer.</p>
-
           <h3 id="encrypt-example-satispay">Encrypt Example: Satispay</h3>
 
 <blockquote>
@@ -17275,10 +17229,6 @@ Axerve Guaranteed Payment is reserved to users that have signed an agreement wit
 <tr>
 <td>PAYSAFECARD</td>
 <td><code class="prettyprint">S2PPSC</code></td>
-</tr>
-<tr>
-<td>QIWI</td>
-<td><code class="prettyprint">S2PQIW</code></td>
 </tr>
 <tr>
 <td>SATISPAY</td>
