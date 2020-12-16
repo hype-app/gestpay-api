@@ -163,7 +163,7 @@ If your customers choose Apple Pay, these are the parameters to pass:
 | `requestToken` | `MASKEDPAN` for a Standard Token; any other value for Custom Token
 | `token` | a token representing the ApplePay token 
 
-##### `paymentTypeDetails`: Bancomat Pay <span class="beta">Under development</span>
+##### `paymentTypeDetails`: Bancomat Pay
 
 If your customers choose Bancomat Pay, `bancomatPay` must be added 
 

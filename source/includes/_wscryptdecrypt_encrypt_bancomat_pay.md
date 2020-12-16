@@ -1,5 +1,5 @@
 
-### Encrypt Example: BancomatPay <span class="beta">Under development</span>
+### Encrypt Example: BancomatPay 
 
 > BancomatPay example:  
 
