@@ -247,9 +247,8 @@
       "Email": "martymcfly@backtothefuture.com",
       "PrimaryPhone": "+0199332285321"
     },
-    "ProductDetails": {
-      "ProductDetail": [
-        {
+    "ProductDetails": [{
+      "ProductDetail": {
           "ProductCode": "135798642",
           "SKU": "AB-333222-WFG-4",
           "Name": "Porche Carrera scale model",
@@ -265,8 +264,10 @@
           "RequiresShipping": "true",
           "DeliveryAt": "2017-12-29",
           "Condition": "new"
-        },
-        {
+        }
+      },
+      {
+        "ProductDetail": {
           "ProductCode": "135798642",
           "SKU": "AB-333222-WFG-5",
           "Name": "Ferrari scale model",
@@ -283,8 +284,8 @@
           "DeliveryAt": "2017-12-29",
           "Condition": "new"
         }
-      ]
-    },
+      }
+    ],
     "DiscountCodes": {
       "DiscountCode": {
         "Amount": "10",
