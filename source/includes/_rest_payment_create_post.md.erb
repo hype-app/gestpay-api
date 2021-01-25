@@ -127,9 +127,8 @@ POST https://ecomms2s.sella.it/api/v1/payment/create/
       "company":"",
       "stateCode":""
     },
-    "ProductDetails": {
-      "ProductDetail": [
-        {
+    "ProductDetails": [{
+      "ProductDetail": {
           "ProductCode": "135798642",
           "SKU": "AB-333222-WFG-4",
           "Name": "Porche Carrera scale model",
@@ -145,8 +144,10 @@ POST https://ecomms2s.sella.it/api/v1/payment/create/
           "RequiresShipping": "true",
           "DeliveryAt": "2017-12-29",
           "Condition": "new"
-        },
-        {
+        }
+      },
+      {
+        "ProductDetail": {
           "ProductCode": "135798642",
           "SKU": "AB-333222-WFG-5",
           "Name": "Ferrari scale model",
@@ -163,8 +164,8 @@ POST https://ecomms2s.sella.it/api/v1/payment/create/
           "DeliveryAt": "2017-12-29",
           "Condition": "new"
         }
-      ]
-    },
+      }
+    ],
     "discountCodes":[{  
       "Amount":"",
       "Code":""
