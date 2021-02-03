@@ -432,6 +432,17 @@
 | 8023 | Feature disabled for MAESTRO cards                                                                                 |
 | 8026 | Soft decline - Cardholder authentication required                                                                  |
 | 8027 | Failed authentication                                                                                              |
+| 8028 | Failed authentication - Issuer is rejecting authentication                                                         |
+| 8029 | Failed authentication - ACS Technical or other problem                                                             |
+| 8030 | Not Authenticated - Card authentication failed                                                                     |
+| 8031 | Not Authenticated - Invalid card number                                                                            |
+| 8032 | Not Authenticated - No Card record                                                                                 |
+| 8033 | Not Authenticated - Suspected fraud                                                                                |
+| 8034 | Not Authenticated - Transaction not permitted to cardholder                                                        |
+| 8035 | Not Authenticated - Exceeds ACS maximum challenges                                                                 |
+| 8036 | Not Authenticated - Reserved for DS use                                                                            |
+| 8037 | Not Authenticated - Invalid transaction                                                                            |
+| 8038 | Not Authenticated - Transaction timed out at the ACS                                                               |
 | 8888 | UP Mobile Payment                                                                                                  |
 | 9991 | Browser not supported                                                                                              |
 | 9992 | Error creating iFrame                                                                                              |
