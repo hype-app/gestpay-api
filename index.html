@@ -2569,126 +2569,6 @@ A transaction is uniquely identified by <code>shopLogin</code> + <code>bankTrans
 </tr>
 </tbody></table>
 
-          <h3 id="callverifycards2s">CallVerifycardS2S</h3>
-
-<p>Merchants can use this method to check the Credit Card. </p>
-
-<h4 id="request-details"> Request details</h4>
-
-<blockquote>
-<p>Request example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;callVerifycardS2S&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>GEST13578<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>MY-SHOP1234<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;cardNumber&gt;</span>1234567812345678<span class="nt">&lt;/cardNumber&gt;</span>
-  <span class="nt">&lt;expMonth&gt;</span>12<span class="nt">&lt;/expMonth&gt;</span>
-  <span class="nt">&lt;expYear&gt;</span>21<span class="nt">&lt;/expYear&gt;</span>
-  <span class="nt">&lt;CVV2&gt;</span>931<span class="nt">&lt;/CVV2&gt;</span>
-<span class="nt">&lt;/callVerifycardS2S&gt;</span>
-</code></pre>
-<p>Parameters in <strong>bold</strong> are mandatory. </p>
-
-<table><thead>
-<tr>
-<th>parameter name</th>
-<th>description</th>
-<th>type</th>
-<th>length</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong><code class="prettyprint">shopLogin</code></strong></td>
-<td>the merchant&rsquo;s code</td>
-<td>string</td>
-<td>30</td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">shopTransactionId</code></strong></td>
-<td>shop transaction ID value</td>
-<td>string</td>
-<td>50</td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">cardNumber</code></strong></td>
-<td>credit card number</td>
-<td>string</td>
-<td>20</td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">expMonth</code></strong></td>
-<td>card expiration month</td>
-<td>string</td>
-<td>2</td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">expYear</code></strong></td>
-<td>card expiration year</td>
-<td>string</td>
-<td>2</td>
-</tr>
-<tr>
-<td><strong><code class="prettyprint">CVV2</code></strong></td>
-<td>security code of the card</td>
-<td>string</td>
-<td>4</td>
-</tr>
-<tr>
-<td><code class="prettyprint">apikey</code></td>
-<td>If you have selected the <em>apiKey</em> authentication method, add the <code class="prettyprint">apikey</code> field to the call. <a href="#authorizing-calls-against-gestpay">More details about the apiKey here</a>.</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h4 id="response-details">Response details</h4>
-
-<blockquote>
-<p>Response example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;callVerifycardS2SResult&gt;</span>
-  <span class="nt">&lt;GestPayS2S</span> <span class="na">xmlns=</span><span class="s">""</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;TransactionType&gt;</span>VerCard<span class="nt">&lt;/TransactionType&gt;</span>
-    <span class="nt">&lt;TransactionResult&gt;</span>OK<span class="nt">&lt;/TransactionResult&gt;</span>
-    <span class="nt">&lt;Country&gt;</span>Italia<span class="nt">&lt;/Country&gt;</span>
-    <span class="nt">&lt;Company&gt;</span>MasterCard<span class="nt">&lt;/Company&gt;</span>
-    <span class="nt">&lt;ErrorCode&gt;</span>0<span class="nt">&lt;/ErrorCode&gt;</span>
-    <span class="nt">&lt;ErrorDescription&gt;&lt;/ErrorDescription&gt;</span>
-  <span class="nt">&lt;/GestPayS2S&gt;</span>
-<span class="nt">&lt;/callVerifycardS2SResult&gt;</span>
-</code></pre>
-<table><thead>
-<tr>
-<th>name</th>
-<th>description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>TransactionType</td>
-<td><code class="prettyprint">VerCard</code></td>
-</tr>
-<tr>
-<td>TransactionResult</td>
-<td><code class="prettyprint">OK</code> or <code class="prettyprint">KO</code></td>
-</tr>
-<tr>
-<td>ErrorCode</td>
-<td>error code</td>
-</tr>
-<tr>
-<td>ErrorDescription</td>
-<td>error description</td>
-</tr>
-<tr>
-<td>Country</td>
-<td>nationality of the card issuer</td>
-</tr>
-<tr>
-<td>Company</td>
-<td>card company</td>
-</tr>
-</tbody></table>
-
           <h3 id="callcheckcartas2s">callCheckCartaS2S</h3>
 
 <p>Merchants can use this method to check the Credit Card. </p>
@@ -8894,42 +8774,38 @@ Please note:
       </span><span class="s2">"stateCode"</span><span class="p">:</span><span class="s2">""</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"ProductDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-      </span><span class="s2">"ProductDetail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"ProductCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"135798642"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB-333222-WFG-4"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Porche Carrera scale model"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Porche Carrera scale model"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.5"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.5"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Vat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scale Models"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cars"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LittleCars"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"RequiresShipping"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"DeliveryAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Condition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="s2">"ProductCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"135798642"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB-333222-WFG-4"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Porche Carrera scale model"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Porche Carrera scale model"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Vat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scale Models"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cars"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LittleCars"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RequiresShipping"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DeliveryAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Condition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"ProductDetail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"ProductCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"135798642"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB-333222-WFG-5"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ferrari scale model"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ferrari scale model"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.5"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.5"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Vat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scale Models"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cars"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LittleCars"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"RequiresShipping"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"DeliveryAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Condition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="s2">"ProductCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"135798642"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB-333222-WFG-5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ferrari scale model"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ferrari scale model"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Vat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scale Models"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cars"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LittleCars"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RequiresShipping"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DeliveryAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Condition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"discountCodes"</span><span class="p">:[{</span><span class="w">  
@@ -12125,29 +12001,27 @@ Please note:
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"chargeBackFraud"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"refundReason"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"orderDetails"</span><span class="p">:{</span><span class="w">
-    </span><span class="s2">"productDetails"</span><span class="p">:[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"productCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"SKU"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"unitPrice"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"vat"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"discount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"requiresShipping"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"condition"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"seller"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"category"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"subCategory"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"brand"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"deliveryAt"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="s2">"orderDetails"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"productCode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"SKU"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"unitPrice"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vat"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"discount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"requiresShipping"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"condition"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"seller"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"category"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subCategory"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"brand"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"deliveryAt"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Deletes, fully or partially, a settled transaction. </p>
@@ -14151,42 +14025,38 @@ Axerve Guaranteed Payment is reserved to users that have signed an agreement wit
       </span><span class="s2">"PrimaryPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+0199332285321"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"ProductDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-      </span><span class="s2">"ProductDetail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"ProductCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"135798642"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB-333222-WFG-4"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Porche Carrera scale model"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Porche Carrera scale model"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.5"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.5"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Vat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scale Models"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cars"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LittleCars"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"RequiresShipping"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"DeliveryAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Condition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="s2">"ProductCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"135798642"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB-333222-WFG-4"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Porche Carrera scale model"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Porche Carrera scale model"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Vat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scale Models"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cars"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LittleCars"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RequiresShipping"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DeliveryAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Condition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"ProductDetail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"ProductCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"135798642"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB-333222-WFG-5"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ferrari scale model"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ferrari scale model"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.5"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.5"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Vat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scale Models"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cars"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LittleCars"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"RequiresShipping"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"DeliveryAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Condition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="s2">"ProductCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"135798642"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB-333222-WFG-5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ferrari scale model"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ferrari scale model"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Vat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Scale Models"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cars"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LittleCars"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RequiresShipping"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DeliveryAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-29"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Condition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"DiscountCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
