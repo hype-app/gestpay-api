@@ -28,29 +28,27 @@ POST https://ecomms2s.sella.it/api/v1/payment/refund/
   "currency":"",
   "chargeBackFraud":"",
   "refundReason":"",
-  "orderDetails":{
-    "productDetails":[
-      {
-        "productCode":"",
-        "SKU":"",
-        "name":"",
-        "description":"",
-        "quantity":"",
-        "price":"",
-        "unitPrice":"",
-        "type":"",
-        "vat":"",
-        "discount":"",
-        "requiresShipping":"",
-        "condition":"",
-        "seller":"",
-        "category":"",
-        "subCategory":"",
-        "brand":"",
-        "deliveryAt":""
-      }
-    ]
-  }
+  "orderDetails":[
+    {
+      "productCode":"",
+      "SKU":"",
+      "name":"",
+      "description":"",
+      "quantity":"",
+      "price":"",
+      "unitPrice":"",
+      "type":"",
+      "vat":"",
+      "discount":"",
+      "requiresShipping":"",
+      "condition":"",
+      "seller":"",
+      "category":"",
+      "subCategory":"",
+      "brand":"",
+      "deliveryAt":""
+    }
+  ]
 }
 ```
 

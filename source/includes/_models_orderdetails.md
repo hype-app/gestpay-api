@@ -248,42 +248,38 @@
       "PrimaryPhone": "+0199332285321"
     },
     "ProductDetails": [{
-      "ProductDetail": {
-          "ProductCode": "135798642",
-          "SKU": "AB-333222-WFG-4",
-          "Name": "Porche Carrera scale model",
-          "Description": "Porche Carrera scale model",
-          "Quantity": "1",
-          "Price": "50.5",
-          "UnitPrice": "50.5",
-          "Type": "1",
-          "Vat": "22",
-          "Category": "Scale Models",
-          "Subcategory": "cars",
-          "Brand": "LittleCars",
-          "RequiresShipping": "true",
-          "DeliveryAt": "2017-12-29",
-          "Condition": "new"
-        }
+        "ProductCode": "135798642",
+        "SKU": "AB-333222-WFG-4",
+        "Name": "Porche Carrera scale model",
+        "Description": "Porche Carrera scale model",
+        "Quantity": "1",
+        "Price": "50.5",
+        "UnitPrice": "50.5",
+        "Type": "1",
+        "Vat": "22",
+        "Category": "Scale Models",
+        "Subcategory": "cars",
+        "Brand": "LittleCars",
+        "RequiresShipping": "true",
+        "DeliveryAt": "2017-12-29",
+        "Condition": "new"
       },
       {
-        "ProductDetail": {
-          "ProductCode": "135798642",
-          "SKU": "AB-333222-WFG-5",
-          "Name": "Ferrari scale model",
-          "Description": "Ferrari scale model",
-          "Quantity": "1",
-          "Price": "50.5",
-          "UnitPrice": "50.5",
-          "Type": "1",
-          "Vat": "22",
-          "Category": "Scale Models",
-          "Subcategory": "cars",
-          "Brand": "LittleCars",
-          "RequiresShipping": "true",
-          "DeliveryAt": "2017-12-29",
-          "Condition": "new"
-        }
+        "ProductCode": "135798642",
+        "SKU": "AB-333222-WFG-5",
+        "Name": "Ferrari scale model",
+        "Description": "Ferrari scale model",
+        "Quantity": "1",
+        "Price": "50.5",
+        "UnitPrice": "50.5",
+        "Type": "1",
+        "Vat": "22",
+        "Category": "Scale Models",
+        "Subcategory": "cars",
+        "Brand": "LittleCars",
+        "RequiresShipping": "true",
+        "DeliveryAt": "2017-12-29",
+        "Condition": "new"
       }
     ],
     "DiscountCodes": {
