@@ -74,6 +74,10 @@ POST https://ecomms2s.sella.it/api/v1/payment/submit
   },
 }
 ```
+
+<aside class="warning" style="font-size: 18px; font-weight: bold;">Payments with Google Pay may currently be declined.<br>
+We are working to restore normal operation of the service.</aside>
+
 Enables merchants to perform authorization requests for all the payment methods enabled for the merchant.
 
 Before calling this method, you MUST have already called [POST payment/create](#post-payment-create). 
