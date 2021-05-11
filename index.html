@@ -10549,6 +10549,7 @@ We are working to restore normal operation of the service.</aside>
         </span><span class="s2">"eventdate"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"eventARN"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"eventID"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"eventReferred"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}],</span><span class="w">
     </span><span class="s2">"buyer"</span><span class="p">:{</span><span class="w">
@@ -10762,6 +10763,10 @@ We are working to restore normal operation of the service.</aside>
 <tr>
 <td><code class="prettyprint">eventID</code></td>
 <td>Unique identifier of the event</td>
+</tr>
+<tr>
+<td><code class="prettyprint">eventReferred</code></td>
+<td>Unique identifier of the original event it refers to (IE In case of STO it contains the MOV eventide it refers to)</td>
 </tr>
 <tr>
 <td><code class="prettyprint">environment</code></td>
