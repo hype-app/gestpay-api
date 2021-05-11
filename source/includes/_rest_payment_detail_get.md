@@ -66,6 +66,7 @@ URL parameter:
         "eventdate":"",
         "eventARN":"",
         "eventID":"",
+        "eventReferred":"",
       }
     }],
     "buyer":{
@@ -163,6 +164,7 @@ See the section [Handling responses & errors](#handling-responses-amp-errors) to
 | `eventdate`   | The date of the event 
 | `eventARN`   | The acquirer reference number
 | `eventID`   | Unique identifier of the event
+| `eventReferred` | Unique identifier of the original event it refers to (IE In case of STO it contains the MOV eventide it refers to)
 | `environment` | The environment that has generated the event: `ONL` (Online), `BOF` (Back Office), `BAT` (Batch)
 | `operator` | The user code that has performed the operation
 
