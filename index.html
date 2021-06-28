@@ -478,7 +478,7 @@
 <h4 id="paymenttypes">PaymentTypes</h4>
 
 <blockquote>
-<p>If you want to enable only Credit Card or Masterpass for this payment, you can send the request like this: </p>
+<p>If you want to enable only Credit Card  for this payment, you can send the request like this: </p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
   <span class="nt">&lt;shopLogin&gt;</span>9000001<span class="nt">&lt;/shopLogin&gt;</span>
@@ -487,7 +487,6 @@
   <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span> 
   <span class="nt">&lt;paymentTypes&gt;</span>
     <span class="nt">&lt;paymentType&gt;</span>CREDITCARD<span class="nt">&lt;/paymentType&gt;</span> 
-    <span class="nt">&lt;paymentType&gt;</span>MASTERPASS<span class="nt">&lt;/paymentType&gt;</span>
   <span class="nt">&lt;/paymentTypes&gt;</span>
 <span class="nt">&lt;Encrypt&gt;</span>
 </code></pre>
@@ -500,7 +499,7 @@
   <span class="nt">&lt;amount&gt;</span>985<span class="nt">&lt;/amount&gt;</span>
   <span class="nt">&lt;shopTransactionId&gt;</span>34az85ord19<span class="nt">&lt;/shopTransactionId&gt;</span> 
   <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>MASTERPASS<span class="nt">&lt;/paymentType&gt;</span>
+    <span class="nt">&lt;paymentType&gt;</span>CREDITCARD<span class="nt">&lt;/paymentType&gt;</span>
   <span class="nt">&lt;/paymentTypes&gt;</span>
 <span class="nt">&lt;Encrypt&gt;</span>
 </code></pre>
@@ -4865,27 +4864,6 @@ Please note:
 <p>If you pass the <code class="prettyprint">PrimaryEmail</code> tag, the customer will be redirected directly to the payment page. </p>
 
 <p>More informations about Konbini are <a href="http://docs.gestpay.it/soap/alternative-payments/konbini/">in the doc</a>. </p>
-
-          <h3 id="encrypt-example-masterpass">Encrypt Example: Masterpass</h3>
-
-<blockquote>
-<p>Masterpass example: </p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;Encrypt&gt;</span>
-  <span class="nt">&lt;shopLogin&gt;</span>90000001<span class="nt">&lt;/shopLogin&gt;</span>
-  <span class="nt">&lt;uicCode&gt;</span>242<span class="nt">&lt;/uicCode&gt;</span><span class="c">&lt;!-- Euro --&gt;</span>
-  <span class="nt">&lt;amount&gt;</span>0.10<span class="nt">&lt;/amount&gt;</span>
-  <span class="nt">&lt;shopTransactionId&gt;</span>MYSHOP_001<span class="nt">&lt;/shopTransactionId&gt;</span>
-  <span class="nt">&lt;paymentTypes&gt;</span>
-    <span class="nt">&lt;paymentType&gt;</span>MASTERPASS<span class="nt">&lt;/paymentType&gt;</span>
-  <span class="nt">&lt;/paymentTypes&gt;</span>
-<span class="nt">&lt;/Encrypt&gt;</span>
-</code></pre>
-<p>Masterpass does not need mandatory parameters. </p>
-
-<p>You must use <code class="prettyprint">MASTERPASS</code> as <code class="prettyprint">paymentType</code>.</p>
-
-<p>More informations about Masterpass are <a href="http://docs.gestpay.it/soap/alternative-payments/masterpass/">in the doc</a>. </p>
 
           <h3 id="encrypt-example-mercadopago">Encrypt Example: MercadoPago</h3>
 
@@ -17126,10 +17104,6 @@ Axerve Guaranteed Payment is reserved to users that have signed an agreement wit
 <tr>
 <td>KONBINI</td>
 <td><code class="prettyprint">S2PKON</code></td>
-</tr>
-<tr>
-<td>MASTERPASS</td>
-<td><code class="prettyprint">MASTERPASS</code></td>
 </tr>
 <tr>
 <td>MERCADOPAGO</td>
