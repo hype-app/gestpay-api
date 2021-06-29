@@ -8669,6 +8669,8 @@ Please note:
     </span><span class="s2">"shipToZip"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="s2">"shipToStreet2"</span><span class="p">:</span><span class="s2">""</span><span class="w">
   </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"payPalDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ppSellerProtection"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="s2">"orderDetails"</span><span class="p">:{</span><span class="w">  
     </span><span class="s2">"fraudPrevention"</span><span class="p">:{</span><span class="w">  
       </span><span class="s2">"submitForReview"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -8895,6 +8897,14 @@ Please note:
 <tr>
 <td><code class="prettyprint">shippingDetails</code></td>
 <td>contains the shipping address. Used for <a href="http://docs.gestpay.it/soap/alternative-payments/paypal/#paypal-seller-protection">paypal seller protection</a>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">payPalDescription</code></td>
+<td>Description of the goods, terms and conditions of the PayPal billing agreement</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ppSellerProtection</code></td>
+<td>Set to 1 to use Paypal Seller Protection</td>
 </tr>
 <tr>
 <td><a href="#orderdetails"><code class="prettyprint">OrderDetails</code></a></td>
@@ -9855,8 +9865,6 @@ Please note:
       </span><span class="s2">"bankCode"</span><span class="p">:</span><span class="s2">""</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"payPal"</span><span class="p">:{</span><span class="w">  
-      </span><span class="s2">"billingAgreementDescription"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sellerProtection"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="s2">"token"</span><span class="p">:</span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -10110,14 +10118,6 @@ We are working to restore normal operation of the service.</aside>
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><code class="prettyprint">billingAgreementDescription</code></td>
-<td>Description of the goods, terms and conditions of the billing agreement</td>
-</tr>
-<tr>
-<td><code class="prettyprint">sellerProtection</code></td>
-<td>Set to <code class="prettyprint">1</code> to use Paypal Seller Protection</td>
-</tr>
 <tr>
 <td><code class="prettyprint">token</code></td>
 <td>A token representing the Paypal token.</td>
