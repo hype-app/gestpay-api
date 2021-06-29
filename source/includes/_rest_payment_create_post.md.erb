@@ -45,6 +45,8 @@ POST https://ecomms2s.sella.it/api/v1/payment/create/
     "shipToZip":"",
     "shipToStreet2":""
   },
+  "payPalDescription": "",
+  "ppSellerProtection": "",
   "orderDetails":{  
     "fraudPrevention":{  
       "submitForReview":"",
@@ -210,6 +212,8 @@ Input Body:
 | `recurrent` | `True` if it's a recurrent payment, `False` if not.
 | `responseURLs` | where to redirect the user after the payment. 
 | `shippingDetails` | contains the shipping address. Used for [paypal seller protection](<%= config[:doc_url] %>/soap/alternative-payments/paypal/#paypal-seller-protection).
+| `payPalDescription` | Description of the goods, terms and conditions of the PayPal billing agreement |
+| `ppSellerProtection` | Set to 1 to use Paypal Seller Protection |
 | [`OrderDetails`](#orderdetails) | contains every other info needed to handle the payment. It is used by  Axerve Guaranteed Payment. 
 | `transDetails` | Contians informations for 3DS 2.0 authentication | object | - |
 

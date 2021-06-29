@@ -62,8 +62,6 @@ POST https://ecomms2s.sella.it/api/v1/payment/submit
       "bankCode":""
     },
     "payPal":{  
-      "billingAgreementDescription":"",
-      "sellerProtection":"",
       "token":""
     }
   },
@@ -199,8 +197,6 @@ If your customers choose Bancomat Pay, `bancomatPay` must be added
 
 | Field | Description | 
 | ----- | ----------- | 
-| `billingAgreementDescription` | Description of the goods, terms and conditions of the billing agreement 
-| `sellerProtection` | Set to `1` to use Paypal Seller Protection 
 | `token` |  A token representing the Paypal token. 
 
 ##### Response URLs 
